@@ -6,6 +6,7 @@ set -e
 
 board=$1
 variant=$2
+shield=$3
 
 if [[ $# -eq 0 ]]; then
 board=arduino_giga_r1//m7
@@ -14,7 +15,13 @@ fi
 
 source venv/bin/activate
 
-(west build loader -b $board -p && west build -t llext-edk)
+if [ -n "$shield" ]; then
+    shield_arg="--shield $shield"
+else
+    shield_arg=""
+fi
+
+(west build loader -b $board -p $shield_arg && west build -t llext-edk)
 (tar xfp build/zephyr/llext-edk.tar.xz --directory variants/$variant/)
 
 (cp build/zephyr/zephyr.elf firmwares/zephyr-$variant.elf)
