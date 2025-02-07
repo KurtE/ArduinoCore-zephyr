@@ -13,11 +13,13 @@ manifest:
       url-base: https://github.com/zephyrproject-rtos
     - name: arduino
       url-base: https://github.com/arduino
+    - name: facchinm
+      url-base: https://github.com/facchinm
 
   projects:
     - name: zephyr
-      remote: arduino
-      revision: giga_display_shield
+      remote: facchinm
+      revision: arduino_core_merge_4.0.99
       import:
         name-allowlist:
           - cmsis
