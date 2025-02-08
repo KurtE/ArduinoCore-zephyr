@@ -25,6 +25,13 @@
 	status = "okay";
 };
 
+&spi2 {
+	status = "okay";
+	pinctrl-0 = <&spi2_sck_pi1
+		     &spi2_miso_pc2 &spi2_mosi_pc3>;
+	pinctrl-names = "default";
+};
+
 &rng {
 	status = "okay";
 };
@@ -66,22 +73,24 @@
 
 / {
 	zephyr,user {
-		digital-pin-gpios = <&gpioh 15 GPIO_ACTIVE_LOW>,
-				    <&gpiok 1 GPIO_ACTIVE_LOW>,
-				    <&gpioj 11 GPIO_ACTIVE_LOW>,
-				    <&gpiog 7 GPIO_ACTIVE_LOW>,
-				    <&gpioc 7 GPIO_ACTIVE_LOW>,
-				    <&gpioc 6 GPIO_ACTIVE_LOW>,
-				    <&gpioa 8 GPIO_ACTIVE_LOW>,
-				    <&gpioi 0 GPIO_ACTIVE_LOW>,
-				    <&gpioc 3 GPIO_ACTIVE_LOW>,
-				    <&gpioi 1 GPIO_ACTIVE_LOW>,
-				    <&gpioc 2 GPIO_ACTIVE_LOW>,
-				    <&gpioh 8 GPIO_ACTIVE_LOW>,
-				    <&gpioh 7 GPIO_ACTIVE_LOW>,
-				    <&gpioa 10 GPIO_ACTIVE_LOW>,
-				    <&gpioa 9 GPIO_ACTIVE_LOW>,
-					<&gpiok 5 GPIO_ACTIVE_LOW>;	// LEDR
+		digital-pin-gpios = <&gpioh 15 0>,
+				    <&gpiok 1 0>,
+				    <&gpioj 11 0>,
+				    <&gpiog 7 0>,
+				    <&gpioc 7 0>,
+				    <&gpioc 6 0>,
+				    <&gpioa 8 0>,
+				    <&gpioi 0 0>,
+				    <&gpioc 3 0>,
+				    <&gpioi 1 0>,
+				    <&gpioc 2 0>,
+				    <&gpioh 8 0>,
+				    <&gpioh 7 0>,
+				    <&gpioa 10 0>,
+				    <&gpioa 9 0>,
+					<&gpiok 5 GPIO_ACTIVE_LOW>,	// LEDR
+					<&gpiok 6 GPIO_ACTIVE_LOW>,
+					<&gpiok 7 GPIO_ACTIVE_LOW>;
 
 		builtin-led-gpios = <&gpiok 5 GPIO_ACTIVE_LOW>,
                         <&gpiok 6 GPIO_ACTIVE_LOW>,
@@ -90,5 +99,6 @@
 		serials = <&cdc_acm_uart0>,<&usart6>, <&usart1>, <&uart4>;
 		cdc-acm = <&cdc_acm_uart0>;
 		i2cs = <&i2c4>;
+		spis = <&spi2>;
 	};
 };
