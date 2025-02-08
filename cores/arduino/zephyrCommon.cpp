@@ -140,6 +140,29 @@ const struct pwm_dt_spec arduino_pwm[] =
 	{ DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, PWM_DT_SPEC) };
 
 /* pwm-pins node provides a mapping digital pin numbers to pwm channels */
+#if 1
+static const struct gpio_dt_spec arduino_pwm_pins[] = {DT_FOREACH_PROP_ELEM_SEP(
+  DT_PATH(zephyr_user), pwm_pin_gpios, GPIO_DT_SPEC_GET_BY_IDX, (, ))};
+
+size_t pwm_pin_index(pin_size_t pinNumber) {
+  printk("pwm_pin_index: %u: ", pinNumber);
+  if (pinNumber >= ARRAY_SIZE(arduino_pins)) {
+    return (size_t)-1;
+  }
+  printk("(%p %u):", arduino_pins[pinNumber].port, arduino_pins[pinNumber].pin);
+  for(size_t i=0; i<ARRAY_SIZE(arduino_pwm_pins); i++) {
+    printk(" [%p,%u]", arduino_pwm_pins[i].port, arduino_pwm_pins[i].pin);
+    if ((arduino_pwm_pins[i].port == arduino_pins[pinNumber].port) && (arduino_pwm_pins[i].pin == arduino_pins[pinNumber].pin)) {
+      printk("\n");
+      return i;
+    }
+  }
+      printk("\n");
+  return (size_t)-1;
+}
+
+
+#else  
 const pin_size_t arduino_pwm_pins[] =
 	{ DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwm_pin_gpios, PWM_PINS) };
 
@@ -151,7 +174,7 @@ size_t pwm_pin_index(pin_size_t pinNumber) {
   }
   return (size_t)-1;
 }
-
+#endif
 #endif //CONFIG_PWM
 
 #ifdef CONFIG_ADC
@@ -293,12 +316,13 @@ void delay(unsigned long ms) { k_sleep(K_MSEC(ms)); }
 void delayMicroseconds(unsigned int us) { k_sleep(K_USEC(us)); }
 
 unsigned long micros(void) {
+
 #ifdef CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER
-  return k_cyc_to_us_floor32(k_cycle_get_64());
+   return k_cyc_to_us_floor32(k_cycle_get_64());
 #else
-  return k_cyc_to_us_floor32(k_cycle_get_32());
-#endif
- }
+   return k_cyc_to_us_floor32(k_cycle_get_32());
+#endif   
+}
 
 unsigned long millis(void) { return k_uptime_get_32(); }
 
