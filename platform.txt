@@ -180,15 +180,19 @@ tools.stm32flash.erase.pattern="{path}/{cmd}" {serial.port} -e 1024 -b 2400
 #
 # DFU_UTIL
 #
+
+upload.dfuse=--dfuse-address={upload.address}:leave
+bootloader.dfuse=--dfuse-address={bootloader.address}:leave
+
 tools.dfu-util.path={runtime.tools.dfu-util.path}
 tools.dfu-util.cmd=dfu-util
 tools.dfu-util.upload.params.verbose=-d
 tools.dfu-util.upload.params.quiet=
-tools.dfu-util.upload.pattern="{path}/{cmd}" --device ,{upload.vid}:{upload.pid} -D "{build.path}/{build.project_name}.llext.dfu" -a{upload.interface} --dfuse-address={upload.address}:leave
+tools.dfu-util.upload.pattern="{path}/{cmd}" --device ,{upload.vid}:{upload.pid} -D "{build.path}/{build.project_name}.llext.dfu" -a{upload.interface} {upload.dfuse}
 
 tools.dfu-util.bootloader.params.verbose=-d
 tools.dfu-util.bootloader.params.quiet=
-tools.dfu-util.bootloader.pattern="{path}/{cmd}" --device ,{bootloader.vid}:{bootloader.pid} -D "{runtime.platform.path}/firmwares/{bootloader.file}" -a{bootloader.interface} --dfuse-address={bootloader.address}:leave
+tools.dfu-util.bootloader.pattern="{path}/{cmd}" --device ,{bootloader.vid}:{bootloader.pid} -D "{runtime.platform.path}/firmwares/{bootloader.file}" -a{bootloader.interface} {bootloader.dfuse}
 
 tools.dfu-util.erase.params.verbose=
 tools.dfu-util.erase.params.quiet=
