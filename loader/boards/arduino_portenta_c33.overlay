@@ -1,0 +1,78 @@
+&zephyr_udc0 {
+	cdc_acm_uart0: cdc_acm_uart0 {
+		compatible = "zephyr,cdc-acm-uart";
+		status = "okay";
+	};
+};
+
+&flash0 {
+	partitions {
+		mcuboot: partition@0 {
+			label = "mcuboot";
+			reg = <0x00000000 DT_SIZE_K(64)>;
+		};
+		code_partition: partition@10000 {
+			label = "image-0";
+			reg = <0x00010000 (DT_SIZE_M(1) - DT_SIZE_K(64))>;
+		};
+		user_sketch: partition@100000 {
+			label = "user_sketch";
+			reg = <0x00100000 (DT_SIZE_M(1))>;
+		};
+	};
+};
+
+/ {
+	zephyr,user {
+		digital-pin-gpios = <&ioport1 5 GPIO_ACTIVE_HIGH>,
+				    <&ioport1 6 GPIO_ACTIVE_HIGH>,
+				    <&ioport1 11 GPIO_ACTIVE_HIGH>,
+				    <&ioport3 3 GPIO_ACTIVE_HIGH>,
+				    <&ioport4 1 GPIO_ACTIVE_HIGH>,
+				    <&ioport2 10 GPIO_ACTIVE_HIGH>,
+				    <&ioport6 1 GPIO_ACTIVE_HIGH>,
+				    <&ioport4 2 GPIO_ACTIVE_HIGH>,
+				    <&ioport9 0 GPIO_ACTIVE_HIGH>,
+				    <&ioport2 4 GPIO_ACTIVE_HIGH>,
+				    <&ioport3 15 GPIO_ACTIVE_HIGH>,
+				    <&ioport4 7 GPIO_ACTIVE_HIGH>,
+				    <&ioport4 8 GPIO_ACTIVE_HIGH>,
+				    <&ioport1 10 GPIO_ACTIVE_HIGH>,
+				    <&ioport6 2 GPIO_ACTIVE_HIGH>,
+
+				    <&ioport0 6 GPIO_ACTIVE_HIGH>,
+				    <&ioport0 5 GPIO_ACTIVE_HIGH>,
+				    <&ioport0 4 GPIO_ACTIVE_HIGH>,
+				    <&ioport0 2 GPIO_ACTIVE_HIGH>,
+				    <&ioport0 1 GPIO_ACTIVE_HIGH>,
+				    <&ioport0 15 GPIO_ACTIVE_HIGH>,
+				    <&ioport0 14 GPIO_ACTIVE_HIGH>,
+				    <&ioport0 0 GPIO_ACTIVE_HIGH>,
+
+				    <&ioport6 5 GPIO_ACTIVE_HIGH>,
+				    <&ioport6 8 GPIO_ACTIVE_HIGH>,
+				    <&ioport3 11 GPIO_ACTIVE_HIGH>,
+				    <&ioport6 0 GPIO_ACTIVE_HIGH>,
+
+				    <&ioport0 9 GPIO_ACTIVE_HIGH>,
+				    <&ioport4 9 GPIO_ACTIVE_HIGH>,
+				    <&ioport5 5 GPIO_ACTIVE_HIGH>,
+				    <&ioport7 6 GPIO_ACTIVE_HIGH>,
+				    <&ioport7 7 GPIO_ACTIVE_HIGH>,
+				    <&ioport7 8 GPIO_ACTIVE_HIGH>,
+				    <&ioport8 2 GPIO_ACTIVE_HIGH>,
+
+					<&ioport1 7 GPIO_ACTIVE_HIGH>,	// LEDR
+					<&ioport4 0 GPIO_ACTIVE_HIGH>,
+					<&ioport8 0 GPIO_ACTIVE_HIGH>;
+
+		builtin-led-gpios = <&ioport1 7 GPIO_ACTIVE_LOW>,
+                        <&ioport4 0 GPIO_ACTIVE_LOW>,
+                        <&ioport8 0 GPIO_ACTIVE_LOW>;
+
+		serials = <&cdc_acm_uart0>,<&sci9>;
+		cdc-acm = <&cdc_acm_uart0>;
+		i2cs = <&iic1>;
+		spis = <&spi1>;
+	};
+};
