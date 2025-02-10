@@ -17,11 +17,11 @@
 #define ___kernel_t_idle_OFFSET 0x18
 #define ___kernel_t_ready_q_OFFSET 0x1c
 #define ___ready_q_t_cache_OFFSET 0x0
-#define ___kernel_t_current_fp_OFFSET 0x124
+#define ___kernel_t_current_fp_OFFSET 0x128
 #define ___thread_base_t_user_options_OFFSET 0xc
 #define ___thread_t_base_OFFSET 0x0
 #define ___thread_t_callee_saved_OFFSET 0x30
-#define ___thread_t_arch_OFFSET 0xd4
+#define ___thread_t_arch_OFFSET 0xc0
 #define ___thread_t_stack_info_OFFSET 0xac
 #define ___thread_t_tls_OFFSET 0xbc
 #define __z_interrupt_stack_SIZEOF 0x800

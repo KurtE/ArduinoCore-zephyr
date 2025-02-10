@@ -45,15 +45,15 @@ static inline int fuel_gauge_get_prop(const struct device * dev, fuel_gauge_prop
 #endif
 
 
-extern int z_impl_fuel_gauge_get_props(const struct device * dev, fuel_gauge_prop_t * props, union fuel_gauge_prop_val * vals, size_t len);
+extern int z_impl_fuel_gauge_get_props(const struct device * dev, const fuel_gauge_prop_t * props, union fuel_gauge_prop_val * vals, size_t len);
 
 __pinned_func
-static inline int fuel_gauge_get_props(const struct device * dev, fuel_gauge_prop_t * props, union fuel_gauge_prop_val * vals, size_t len)
+static inline int fuel_gauge_get_props(const struct device * dev, const fuel_gauge_prop_t * props, union fuel_gauge_prop_val * vals, size_t len)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
 		union { uintptr_t x; const struct device * val; } parm0 = { .val = dev };
-		union { uintptr_t x; fuel_gauge_prop_t * val; } parm1 = { .val = props };
+		union { uintptr_t x; const fuel_gauge_prop_t * val; } parm1 = { .val = props };
 		union { uintptr_t x; union fuel_gauge_prop_val * val; } parm2 = { .val = vals };
 		union { uintptr_t x; size_t val; } parm3 = { .val = len };
 		return (int) arch_syscall_invoke4(parm0.x, parm1.x, parm2.x, parm3.x, K_SYSCALL_FUEL_GAUGE_GET_PROPS);
@@ -96,16 +96,16 @@ static inline int fuel_gauge_set_prop(const struct device * dev, fuel_gauge_prop
 #endif
 
 
-extern int z_impl_fuel_gauge_set_props(const struct device * dev, fuel_gauge_prop_t * props, union fuel_gauge_prop_val * vals, size_t len);
+extern int z_impl_fuel_gauge_set_props(const struct device * dev, const fuel_gauge_prop_t * props, const union fuel_gauge_prop_val * vals, size_t len);
 
 __pinned_func
-static inline int fuel_gauge_set_props(const struct device * dev, fuel_gauge_prop_t * props, union fuel_gauge_prop_val * vals, size_t len)
+static inline int fuel_gauge_set_props(const struct device * dev, const fuel_gauge_prop_t * props, const union fuel_gauge_prop_val * vals, size_t len)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
 		union { uintptr_t x; const struct device * val; } parm0 = { .val = dev };
-		union { uintptr_t x; fuel_gauge_prop_t * val; } parm1 = { .val = props };
-		union { uintptr_t x; union fuel_gauge_prop_val * val; } parm2 = { .val = vals };
+		union { uintptr_t x; const fuel_gauge_prop_t * val; } parm1 = { .val = props };
+		union { uintptr_t x; const union fuel_gauge_prop_val * val; } parm2 = { .val = vals };
 		union { uintptr_t x; size_t val; } parm3 = { .val = len };
 		return (int) arch_syscall_invoke4(parm0.x, parm1.x, parm2.x, parm3.x, K_SYSCALL_FUEL_GAUGE_SET_PROPS);
 	}

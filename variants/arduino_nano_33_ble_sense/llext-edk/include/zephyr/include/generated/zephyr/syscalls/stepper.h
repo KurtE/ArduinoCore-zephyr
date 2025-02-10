@@ -68,26 +68,26 @@ static inline int stepper_move_by(const struct device * dev, int32_t micro_steps
 #endif
 
 
-extern int z_impl_stepper_set_max_velocity(const struct device * dev, uint32_t micro_steps_per_second);
+extern int z_impl_stepper_set_microstep_interval(const struct device * dev, uint64_t microstep_interval_ns);
 
 __pinned_func
-static inline int stepper_set_max_velocity(const struct device * dev, uint32_t micro_steps_per_second)
+static inline int stepper_set_microstep_interval(const struct device * dev, uint64_t microstep_interval_ns)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
 		union { uintptr_t x; const struct device * val; } parm0 = { .val = dev };
-		union { uintptr_t x; uint32_t val; } parm1 = { .val = micro_steps_per_second };
-		return (int) arch_syscall_invoke2(parm0.x, parm1.x, K_SYSCALL_STEPPER_SET_MAX_VELOCITY);
+		union { struct { uintptr_t lo, hi; } split; uint64_t val; } parm1 = { .val = microstep_interval_ns };
+		return (int) arch_syscall_invoke3(parm0.x, parm1.split.lo, parm1.split.hi, K_SYSCALL_STEPPER_SET_MICROSTEP_INTERVAL);
 	}
 #endif
 	compiler_barrier();
-	return z_impl_stepper_set_max_velocity(dev, micro_steps_per_second);
+	return z_impl_stepper_set_microstep_interval(dev, microstep_interval_ns);
 }
 
 #if defined(CONFIG_TRACING_SYSCALL)
 #ifndef DISABLE_SYSCALL_TRACING
 
-#define stepper_set_max_velocity(dev, micro_steps_per_second) ({ 	int syscall__retval; 	sys_port_trace_syscall_enter(K_SYSCALL_STEPPER_SET_MAX_VELOCITY, stepper_set_max_velocity, dev, micro_steps_per_second); 	syscall__retval = stepper_set_max_velocity(dev, micro_steps_per_second); 	sys_port_trace_syscall_exit(K_SYSCALL_STEPPER_SET_MAX_VELOCITY, stepper_set_max_velocity, dev, micro_steps_per_second, syscall__retval); 	syscall__retval; })
+#define stepper_set_microstep_interval(dev, microstep_interval_ns) ({ 	int syscall__retval; 	sys_port_trace_syscall_enter(K_SYSCALL_STEPPER_SET_MICROSTEP_INTERVAL, stepper_set_microstep_interval, dev, microstep_interval_ns); 	syscall__retval = stepper_set_microstep_interval(dev, microstep_interval_ns); 	sys_port_trace_syscall_exit(K_SYSCALL_STEPPER_SET_MICROSTEP_INTERVAL, stepper_set_microstep_interval, dev, microstep_interval_ns, syscall__retval); 	syscall__retval; })
 #endif
 #endif
 
@@ -236,27 +236,26 @@ static inline int stepper_is_moving(const struct device * dev, bool * is_moving)
 #endif
 
 
-extern int z_impl_stepper_run(const struct device * dev, enum stepper_direction direction, uint32_t velocity);
+extern int z_impl_stepper_run(const struct device * dev, enum stepper_direction direction);
 
 __pinned_func
-static inline int stepper_run(const struct device * dev, enum stepper_direction direction, uint32_t velocity)
+static inline int stepper_run(const struct device * dev, enum stepper_direction direction)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
 		union { uintptr_t x; const struct device * val; } parm0 = { .val = dev };
 		union { uintptr_t x; enum stepper_direction val; } parm1 = { .val = direction };
-		union { uintptr_t x; uint32_t val; } parm2 = { .val = velocity };
-		return (int) arch_syscall_invoke3(parm0.x, parm1.x, parm2.x, K_SYSCALL_STEPPER_RUN);
+		return (int) arch_syscall_invoke2(parm0.x, parm1.x, K_SYSCALL_STEPPER_RUN);
 	}
 #endif
 	compiler_barrier();
-	return z_impl_stepper_run(dev, direction, velocity);
+	return z_impl_stepper_run(dev, direction);
 }
 
 #if defined(CONFIG_TRACING_SYSCALL)
 #ifndef DISABLE_SYSCALL_TRACING
 
-#define stepper_run(dev, direction, velocity) ({ 	int syscall__retval; 	sys_port_trace_syscall_enter(K_SYSCALL_STEPPER_RUN, stepper_run, dev, direction, velocity); 	syscall__retval = stepper_run(dev, direction, velocity); 	sys_port_trace_syscall_exit(K_SYSCALL_STEPPER_RUN, stepper_run, dev, direction, velocity, syscall__retval); 	syscall__retval; })
+#define stepper_run(dev, direction) ({ 	int syscall__retval; 	sys_port_trace_syscall_enter(K_SYSCALL_STEPPER_RUN, stepper_run, dev, direction); 	syscall__retval = stepper_run(dev, direction); 	sys_port_trace_syscall_exit(K_SYSCALL_STEPPER_RUN, stepper_run, dev, direction, syscall__retval); 	syscall__retval; })
 #endif
 #endif
 

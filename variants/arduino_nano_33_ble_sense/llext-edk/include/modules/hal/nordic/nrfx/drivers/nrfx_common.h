@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2017 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -91,7 +91,7 @@ extern "C" {
 #define NRFX_RELEASE_VER_MAJOR 3
 
 /** @brief Symbol specifying minor number of the current nrfx version. */
-#define NRFX_RELEASE_VER_MINOR 9
+#define NRFX_RELEASE_VER_MINOR 10
 
 /** @brief Symbol specifying micro number of the current nrfx version. */
 #define NRFX_RELEASE_VER_MICRO 0

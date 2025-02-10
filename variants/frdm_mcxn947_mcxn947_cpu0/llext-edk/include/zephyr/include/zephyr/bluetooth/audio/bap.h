@@ -47,13 +47,16 @@ extern "C" {
 #define BT_BAP_BASS_MAX_SUBGROUPS 0
 #endif /* CONFIG_BT_BAP_BASS_MAX_SUBGROUPS*/
 
+/** Maximum size of BASE excluding service data header */
+#define BT_BASE_MAX_SIZE (UINT8_MAX - 1 /* type */ - BT_UUID_SIZE_16)
+
 /** An invalid Broadcast ID */
 #define BT_BAP_INVALID_BROADCAST_ID 0xFFFFFFFFU
 
 /**
  * @brief Check if a BAP BASS BIS_Sync bitfield is valid
  *
- * Valid options are eiter a bitmask of valid BIS indices, including none (0x00000000)
+ * Valid options are either a bitmask of valid BIS indices, including none (0x00000000)
  * or @ref BT_BAP_BIS_SYNC_NO_PREF (0xFFFFFFFF).
  *
  * @param _bis_bitfield BIS_Sync bitfield (uint32)

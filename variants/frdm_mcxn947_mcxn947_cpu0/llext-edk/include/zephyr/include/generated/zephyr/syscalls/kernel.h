@@ -322,6 +322,22 @@ static inline void k_thread_deadline_set(k_tid_t thread, int deadline)
 }
 
 
+extern void z_impl_k_reschedule(void);
+
+__pinned_func
+static inline void k_reschedule(void)
+{
+#ifdef CONFIG_USERSPACE
+	if (z_syscall_trap()) {
+		(void) arch_syscall_invoke0(K_SYSCALL_K_RESCHEDULE);
+		return;
+	}
+#endif
+	compiler_barrier();
+	z_impl_k_reschedule();
+}
+
+
 extern void z_impl_k_thread_suspend(k_tid_t thread);
 
 __pinned_func
@@ -1293,6 +1309,25 @@ static inline uint32_t k_msgq_num_used_get(struct k_msgq * msgq)
 }
 
 
+extern void z_impl_k_pipe_init(struct k_pipe * pipe, uint8_t * buffer, size_t buffer_size);
+
+__pinned_func
+static inline void k_pipe_init(struct k_pipe * pipe, uint8_t * buffer, size_t buffer_size)
+{
+#ifdef CONFIG_USERSPACE
+	if (z_syscall_trap()) {
+		union { uintptr_t x; struct k_pipe * val; } parm0 = { .val = pipe };
+		union { uintptr_t x; uint8_t * val; } parm1 = { .val = buffer };
+		union { uintptr_t x; size_t val; } parm2 = { .val = buffer_size };
+		(void) arch_syscall_invoke3(parm0.x, parm1.x, parm2.x, K_SYSCALL_K_PIPE_INIT);
+		return;
+	}
+#endif
+	compiler_barrier();
+	z_impl_k_pipe_init(pipe, buffer, buffer_size);
+}
+
+
 extern int z_impl_k_pipe_alloc_init(struct k_pipe * pipe, size_t size);
 
 __pinned_func
@@ -1423,6 +1458,78 @@ static inline void k_pipe_buffer_flush(struct k_pipe * pipe)
 #endif
 	compiler_barrier();
 	z_impl_k_pipe_buffer_flush(pipe);
+}
+
+
+extern int z_impl_k_pipe_write(struct k_pipe * pipe, const uint8_t * data, size_t len, k_timeout_t timeout);
+
+__pinned_func
+static inline int k_pipe_write(struct k_pipe * pipe, const uint8_t * data, size_t len, k_timeout_t timeout)
+{
+#ifdef CONFIG_USERSPACE
+	if (z_syscall_trap()) {
+		union { uintptr_t x; struct k_pipe * val; } parm0 = { .val = pipe };
+		union { uintptr_t x; const uint8_t * val; } parm1 = { .val = data };
+		union { uintptr_t x; size_t val; } parm2 = { .val = len };
+		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm3 = { .val = timeout };
+		return (int) arch_syscall_invoke5(parm0.x, parm1.x, parm2.x, parm3.split.lo, parm3.split.hi, K_SYSCALL_K_PIPE_WRITE);
+	}
+#endif
+	compiler_barrier();
+	return z_impl_k_pipe_write(pipe, data, len, timeout);
+}
+
+
+extern int z_impl_k_pipe_read(struct k_pipe * pipe, uint8_t * data, size_t len, k_timeout_t timeout);
+
+__pinned_func
+static inline int k_pipe_read(struct k_pipe * pipe, uint8_t * data, size_t len, k_timeout_t timeout)
+{
+#ifdef CONFIG_USERSPACE
+	if (z_syscall_trap()) {
+		union { uintptr_t x; struct k_pipe * val; } parm0 = { .val = pipe };
+		union { uintptr_t x; uint8_t * val; } parm1 = { .val = data };
+		union { uintptr_t x; size_t val; } parm2 = { .val = len };
+		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm3 = { .val = timeout };
+		return (int) arch_syscall_invoke5(parm0.x, parm1.x, parm2.x, parm3.split.lo, parm3.split.hi, K_SYSCALL_K_PIPE_READ);
+	}
+#endif
+	compiler_barrier();
+	return z_impl_k_pipe_read(pipe, data, len, timeout);
+}
+
+
+extern void z_impl_k_pipe_reset(struct k_pipe * pipe);
+
+__pinned_func
+static inline void k_pipe_reset(struct k_pipe * pipe)
+{
+#ifdef CONFIG_USERSPACE
+	if (z_syscall_trap()) {
+		union { uintptr_t x; struct k_pipe * val; } parm0 = { .val = pipe };
+		(void) arch_syscall_invoke1(parm0.x, K_SYSCALL_K_PIPE_RESET);
+		return;
+	}
+#endif
+	compiler_barrier();
+	z_impl_k_pipe_reset(pipe);
+}
+
+
+extern void z_impl_k_pipe_close(struct k_pipe * pipe);
+
+__pinned_func
+static inline void k_pipe_close(struct k_pipe * pipe)
+{
+#ifdef CONFIG_USERSPACE
+	if (z_syscall_trap()) {
+		union { uintptr_t x; struct k_pipe * val; } parm0 = { .val = pipe };
+		(void) arch_syscall_invoke1(parm0.x, K_SYSCALL_K_PIPE_CLOSE);
+		return;
+	}
+#endif
+	compiler_barrier();
+	z_impl_k_pipe_close(pipe);
 }
 
 

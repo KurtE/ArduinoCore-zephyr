@@ -207,6 +207,60 @@ extern "C" {
  */
 #define RTIO_IODEV_I2C_10_BITS BIT(3)
 
+/**
+ * @brief Equivalent to the I3C_MSG_STOP flag
+ */
+#define RTIO_IODEV_I3C_STOP BIT(1)
+
+/**
+ * @brief Equivalent to the I3C_MSG_RESTART flag
+ */
+#define RTIO_IODEV_I3C_RESTART BIT(2)
+
+/**
+ * @brief Equivalent to the I3C_MSG_HDR
+ */
+#define RTIO_IODEV_I3C_HDR BIT(3)
+
+/**
+ * @brief Equivalent to the I3C_MSG_NBCH
+ */
+#define RTIO_IODEV_I3C_NBCH BIT(4)
+
+/**
+ * @brief I3C HDR Mode Mask
+ */
+#define RTIO_IODEV_I3C_HDR_MODE_MASK GENMASK(15, 8)
+
+/**
+ * @brief I3C HDR Mode Mask
+ */
+#define RTIO_IODEV_I3C_HDR_MODE_SET(flags) \
+	FIELD_PREP(RTIO_IODEV_I3C_HDR_MODE_MASK, flags)
+
+/**
+ * @brief I3C HDR Mode Mask
+ */
+#define RTIO_IODEV_I3C_HDR_MODE_GET(flags) \
+	FIELD_GET(RTIO_IODEV_I3C_HDR_MODE_MASK, flags)
+
+/**
+ * @brief I3C HDR 7b Command Code
+ */
+#define RTIO_IODEV_I3C_HDR_CMD_CODE_MASK GENMASK(22, 16)
+
+/**
+ * @brief I3C HDR 7b Command Code
+ */
+#define RTIO_IODEV_I3C_HDR_CMD_CODE_SET(flags) \
+	FIELD_PREP(RTIO_IODEV_I3C_HDR_CMD_CODE_MASK, flags)
+
+/**
+ * @brief I3C HDR 7b Command Code
+ */
+#define RTIO_IODEV_I3C_HDR_CMD_CODE_GET(flags) \
+	FIELD_GET(RTIO_IODEV_I3C_HDR_CMD_CODE_MASK, flags)
+
 /** @cond ignore */
 struct rtio;
 struct rtio_cqe;
@@ -236,9 +290,7 @@ struct rtio_sqe {
 
 	uint16_t flags; /**< Op Flags */
 
-	uint16_t iodev_flags; /**< Op iodev flags */
-
-	uint16_t _resv0;
+	uint32_t iodev_flags; /**< Op iodev flags */
 
 	const struct rtio_iodev *iodev; /**< Device to operation on */
 
@@ -286,6 +338,17 @@ struct rtio_sqe {
 
 		/** OP_I2C_CONFIGURE */
 		uint32_t i2c_config;
+
+		/** OP_I3C_CONFIGURE */
+		struct {
+			/* enum i3c_config_type type; */
+			int type;
+			void *config;
+		} i3c_config;
+
+		/** OP_I3C_CCC */
+		/* struct i3c_ccc_payload *ccc_payload; */
+		void *ccc_payload;
 	};
 };
 
@@ -482,6 +545,15 @@ struct rtio_iodev {
 
 /** An operation to configure I2C buses */
 #define RTIO_OP_I2C_CONFIGURE (RTIO_OP_I2C_RECOVER+1)
+
+/** An operation to recover I3C buses */
+#define RTIO_OP_I3C_RECOVER (RTIO_OP_I2C_CONFIGURE+1)
+
+/** An operation to configure I3C buses */
+#define RTIO_OP_I3C_CONFIGURE (RTIO_OP_I3C_RECOVER+1)
+
+/** An operation to sends I3C CCC */
+#define RTIO_OP_I3C_CCC (RTIO_OP_I3C_CONFIGURE+1)
 
 /**
  * @brief Prepare a nop (no op) submission
@@ -1065,10 +1137,14 @@ static inline uint32_t rtio_cqe_compute_flags(struct rtio_iodev_sqe *iodev_sqe)
 	if (iodev_sqe->sqe.op == RTIO_OP_RX && iodev_sqe->sqe.flags & RTIO_SQE_MEMPOOL_BUFFER) {
 		struct rtio *r = iodev_sqe->r;
 		struct sys_mem_blocks *mem_pool = r->block_pool;
-		int blk_index = (iodev_sqe->sqe.rx.buf - mem_pool->buffer) >>
-				mem_pool->info.blk_sz_shift;
-		int blk_count = iodev_sqe->sqe.rx.buf_len >> mem_pool->info.blk_sz_shift;
+		unsigned int blk_index = 0;
+		unsigned int blk_count = 0;
 
+		if (iodev_sqe->sqe.rx.buf) {
+			blk_index = (iodev_sqe->sqe.rx.buf - mem_pool->buffer) >>
+				    mem_pool->info.blk_sz_shift;
+			blk_count = iodev_sqe->sqe.rx.buf_len >> mem_pool->info.blk_sz_shift;
+		}
 		flags = RTIO_CQE_FLAG_PREP_MEMPOOL(blk_index, blk_count);
 	}
 #else
@@ -1101,15 +1177,21 @@ static inline int z_impl_rtio_cqe_get_mempool_buffer(const struct rtio *r, struc
 {
 #ifdef CONFIG_RTIO_SYS_MEM_BLOCKS
 	if (RTIO_CQE_FLAG_GET(cqe->flags) == RTIO_CQE_FLAG_MEMPOOL_BUFFER) {
-		int blk_idx = RTIO_CQE_FLAG_MEMPOOL_GET_BLK_IDX(cqe->flags);
-		int blk_count = RTIO_CQE_FLAG_MEMPOOL_GET_BLK_CNT(cqe->flags);
+		unsigned int blk_idx = RTIO_CQE_FLAG_MEMPOOL_GET_BLK_IDX(cqe->flags);
+		unsigned int blk_count = RTIO_CQE_FLAG_MEMPOOL_GET_BLK_CNT(cqe->flags);
 		uint32_t blk_size = rtio_mempool_block_size(r);
 
-		*buff = r->block_pool->buffer + blk_idx * blk_size;
 		*buff_len = blk_count * blk_size;
-		__ASSERT_NO_MSG(*buff >= r->block_pool->buffer);
-		__ASSERT_NO_MSG(*buff <
+
+		if (blk_count > 0) {
+			*buff = r->block_pool->buffer + blk_idx * blk_size;
+
+			__ASSERT_NO_MSG(*buff >= r->block_pool->buffer);
+			__ASSERT_NO_MSG(*buff <
 				r->block_pool->buffer + blk_size * r->block_pool->info.num_blocks);
+		} else {
+			*buff = NULL;
+		}
 		return 0;
 	}
 	return -EINVAL;

@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2010 - 2024, Nordic Semiconductor ASA All rights reserved.
+Copyright (c) 2010 - 2025, Nordic Semiconductor ASA All rights reserved.
 
 SPDX-License-Identifier: BSD-3-Clause
 
@@ -197,7 +197,7 @@ typedef struct {
     __IOM uint32_t EVENTS_RESOLVED;                  /*!< (@ 0x00000104) Address resolved                                      */
     __IOM uint32_t EVENTS_NOTRESOLVED;               /*!< (@ 0x00000108) Address not resolved                                  */
     __IOM uint32_t EVENTS_ERROR;                     /*!< (@ 0x0000010C) Operation aborted because of a STOP task or due to an
-                                                                         error*/
+                                                                         error This event does not generate an interrupt*/
     __IM uint32_t RESERVED2[28];
     __IOM uint32_t PUBLISH_END;                      /*!< (@ 0x00000180) Publish configuration for event END                   */
     __IOM uint32_t PUBLISH_RESOLVED;                 /*!< (@ 0x00000184) Publish configuration for event RESOLVED              */
@@ -314,10 +314,10 @@ typedef struct {
   #define AAR_EVENTS_NOTRESOLVED_EVENTS_NOTRESOLVED_Generated (0x1UL) /*!< Event generated                                     */
 
 
-/* AAR_EVENTS_ERROR: Operation aborted because of a STOP task or due to an error */
+/* AAR_EVENTS_ERROR: Operation aborted because of a STOP task or due to an error This event does not generate an interrupt */
   #define AAR_EVENTS_ERROR_ResetValue (0x00000000UL) /*!< Reset value of EVENTS_ERROR register.                                */
 
-/* EVENTS_ERROR @Bit 0 : Operation aborted because of a STOP task or due to an error */
+/* EVENTS_ERROR @Bit 0 : Operation aborted because of a STOP task or due to an error This event does not generate an interrupt */
   #define AAR_EVENTS_ERROR_EVENTS_ERROR_Pos (0UL)    /*!< Position of EVENTS_ERROR field.                                      */
   #define AAR_EVENTS_ERROR_EVENTS_ERROR_Msk (0x1UL << AAR_EVENTS_ERROR_EVENTS_ERROR_Pos) /*!< Bit mask of EVENTS_ERROR field.  */
   #define AAR_EVENTS_ERROR_EVENTS_ERROR_Min (0x0UL)  /*!< Min enumerator value of EVENTS_ERROR field.                          */
@@ -488,7 +488,6 @@ typedef struct {
   #define AAR_ERRORSTATUS_ERRORSTATUS_Max (0x4UL)    /*!< Max enumerator value of ERRORSTATUS field.                           */
   #define AAR_ERRORSTATUS_ERRORSTATUS_NoError (0x0UL) /*!< No errors have occurred                                             */
   #define AAR_ERRORSTATUS_ERRORSTATUS_PrematureInptrEnd (0x1UL) /*!< End of INPTR job list before data structure was read.     */
-  #define AAR_ERRORSTATUS_ERRORSTATUS_PrematureOutptrEnd (0x2UL) /*!< End of OUTPTR job list before data structure was read.   */
   #define AAR_ERRORSTATUS_ERRORSTATUS_DmaError (0x4UL) /*!< Bus error during DMA access.                                       */
 
 
@@ -611,12 +610,12 @@ typedef struct {
     __IM uint32_t RESERVED3[247];
     __IM uint32_t STATUS;                            /*!< (@ 0x00000400) Status of the cache activities.                       */
     __IOM uint32_t ENABLE;                           /*!< (@ 0x00000404) Enable cache.                                         */
-    __IM uint32_t RESERVED4;
-    __IOM uint32_t LINEADDR;                         /*!< (@ 0x0000040C) Memory address covered by the line to be maintained.  */
-    __IOM NRF_CACHE_PROFILING_Type PROFILING;        /*!< (@ 0x00000410) (unspecified)                                         */
-    __IOM uint32_t DEBUGLOCK;                        /*!< (@ 0x0000042C) Lock debug mode.                                      */
-    __IOM uint32_t WRITELOCK;                        /*!< (@ 0x00000430) Lock cache updates.                                   */
-  } NRF_CACHE_Type;                                  /*!< Size = 1076 (0x434)                                                  */
+    __IM uint32_t RESERVED4[2];
+    __IOM uint32_t LINEADDR;                         /*!< (@ 0x00000410) Memory address covered by the line to be maintained.  */
+    __IOM NRF_CACHE_PROFILING_Type PROFILING;        /*!< (@ 0x00000414) (unspecified)                                         */
+    __IOM uint32_t DEBUGLOCK;                        /*!< (@ 0x00000430) Lock debug mode.                                      */
+    __IOM uint32_t WRITELOCK;                        /*!< (@ 0x00000434) Lock cache updates.                                   */
+  } NRF_CACHE_Type;                                  /*!< Size = 1080 (0x438)                                                  */
 
 /* CACHE_TASKS_INVALIDATECACHE: Invalidate the cache. */
   #define CACHE_TASKS_INVALIDATECACHE_ResetValue (0x00000000UL) /*!< Reset value of TASKS_INVALIDATECACHE register.            */
@@ -1624,9 +1623,7 @@ typedef struct {
     __IOM uint32_t SUBSCRIBE_LFCLKSTART;             /*!< (@ 0x00000090) Subscribe configuration for task LFCLKSTART           */
     __IOM uint32_t SUBSCRIBE_LFCLKSTOP;              /*!< (@ 0x00000094) Subscribe configuration for task LFCLKSTOP            */
     __IOM uint32_t SUBSCRIBE_CAL;                    /*!< (@ 0x00000098) Subscribe configuration for task CAL                  */
-    __IOM uint32_t SUBSCRIBE_XOTUNE;                 /*!< (@ 0x0000009C) Subscribe configuration for task XOTUNE               */
-    __IOM uint32_t SUBSCRIBE_XOTUNEABORT;            /*!< (@ 0x000000A0) Subscribe configuration for task XOTUNEABORT          */
-    __IM uint32_t RESERVED1[23];
+    __IM uint32_t RESERVED1[25];
     __IOM uint32_t EVENTS_XOSTARTED;                 /*!< (@ 0x00000100) Crystal oscillator has started                        */
     __IOM uint32_t EVENTS_PLLSTARTED;                /*!< (@ 0x00000104) PLL started                                           */
     __IOM uint32_t EVENTS_LFCLKSTARTED;              /*!< (@ 0x00000108) LFCLK source started                                  */
@@ -1635,26 +1632,16 @@ typedef struct {
                                                                          TASKS_XOSTART or after TASKS_XOTUNE has completed*/
     __IOM uint32_t EVENTS_XOTUNEERROR;               /*!< (@ 0x00000114) HFXO quality issue detected, XOTUNE is needed         */
     __IOM uint32_t EVENTS_XOTUNEFAILED;              /*!< (@ 0x00000118) HFXO tuning could not be completed                    */
-    __IM uint32_t RESERVED2[25];
-    __IOM uint32_t PUBLISH_XOSTARTED;                /*!< (@ 0x00000180) Publish configuration for event XOSTARTED             */
-    __IOM uint32_t PUBLISH_PLLSTARTED;               /*!< (@ 0x00000184) Publish configuration for event PLLSTARTED            */
-    __IOM uint32_t PUBLISH_LFCLKSTARTED;             /*!< (@ 0x00000188) Publish configuration for event LFCLKSTARTED          */
-    __IOM uint32_t PUBLISH_DONE;                     /*!< (@ 0x0000018C) Publish configuration for event DONE                  */
-    __IOM uint32_t PUBLISH_XOTUNED;                  /*!< (@ 0x00000190) Publish configuration for event XOTUNED               */
-    __IOM uint32_t PUBLISH_XOTUNEERROR;              /*!< (@ 0x00000194) Publish configuration for event XOTUNEERROR           */
-    __IOM uint32_t PUBLISH_XOTUNEFAILED;             /*!< (@ 0x00000198) Publish configuration for event XOTUNEFAILED          */
-    __IM uint32_t RESERVED3[25];
-    __IOM uint32_t SHORTS;                           /*!< (@ 0x00000200) Shortcuts between local events and tasks              */
-    __IM uint32_t RESERVED4[63];
+    __IM uint32_t RESERVED2[121];
     __IOM uint32_t INTEN;                            /*!< (@ 0x00000300) Enable or disable interrupt                           */
     __IOM uint32_t INTENSET;                         /*!< (@ 0x00000304) Enable interrupt                                      */
     __IOM uint32_t INTENCLR;                         /*!< (@ 0x00000308) Disable interrupt                                     */
     __IM uint32_t INTPEND;                           /*!< (@ 0x0000030C) Pending interrupts                                    */
-    __IM uint32_t RESERVED5[60];
+    __IM uint32_t RESERVED3[60];
     __IOM NRF_CLOCK_XO_Type XO;                      /*!< (@ 0x00000400) (unspecified)                                         */
-    __IM uint32_t RESERVED6[4];
+    __IM uint32_t RESERVED4[4];
     __IOM NRF_CLOCK_PLL_Type PLL;                    /*!< (@ 0x00000420) (unspecified)                                         */
-    __IM uint32_t RESERVED7[4];
+    __IM uint32_t RESERVED5[4];
     __IOM NRF_CLOCK_LFCLK_Type LFCLK;                /*!< (@ 0x00000440) (unspecified)                                         */
   } NRF_CLOCK_Type;                                  /*!< Size = 1108 (0x454)                                                  */
 
@@ -1891,42 +1878,6 @@ typedef struct {
   #define CLOCK_SUBSCRIBE_CAL_EN_Enabled (0x1UL)     /*!< Enable subscription                                                  */
 
 
-/* CLOCK_SUBSCRIBE_XOTUNE: Subscribe configuration for task XOTUNE */
-  #define CLOCK_SUBSCRIBE_XOTUNE_ResetValue (0x00000000UL) /*!< Reset value of SUBSCRIBE_XOTUNE register.                      */
-
-/* CHIDX @Bits 0..7 : DPPI channel that task XOTUNE will subscribe to */
-  #define CLOCK_SUBSCRIBE_XOTUNE_CHIDX_Pos (0UL)     /*!< Position of CHIDX field.                                             */
-  #define CLOCK_SUBSCRIBE_XOTUNE_CHIDX_Msk (0xFFUL << CLOCK_SUBSCRIBE_XOTUNE_CHIDX_Pos) /*!< Bit mask of CHIDX field.          */
-  #define CLOCK_SUBSCRIBE_XOTUNE_CHIDX_Min (0x00UL)  /*!< Min value of CHIDX field.                                            */
-  #define CLOCK_SUBSCRIBE_XOTUNE_CHIDX_Max (0xFFUL)  /*!< Max size of CHIDX field.                                             */
-
-/* EN @Bit 31 : (unspecified) */
-  #define CLOCK_SUBSCRIBE_XOTUNE_EN_Pos (31UL)       /*!< Position of EN field.                                                */
-  #define CLOCK_SUBSCRIBE_XOTUNE_EN_Msk (0x1UL << CLOCK_SUBSCRIBE_XOTUNE_EN_Pos) /*!< Bit mask of EN field.                    */
-  #define CLOCK_SUBSCRIBE_XOTUNE_EN_Min (0x0UL)      /*!< Min enumerator value of EN field.                                    */
-  #define CLOCK_SUBSCRIBE_XOTUNE_EN_Max (0x1UL)      /*!< Max enumerator value of EN field.                                    */
-  #define CLOCK_SUBSCRIBE_XOTUNE_EN_Disabled (0x0UL) /*!< Disable subscription                                                 */
-  #define CLOCK_SUBSCRIBE_XOTUNE_EN_Enabled (0x1UL)  /*!< Enable subscription                                                  */
-
-
-/* CLOCK_SUBSCRIBE_XOTUNEABORT: Subscribe configuration for task XOTUNEABORT */
-  #define CLOCK_SUBSCRIBE_XOTUNEABORT_ResetValue (0x00000000UL) /*!< Reset value of SUBSCRIBE_XOTUNEABORT register.            */
-
-/* CHIDX @Bits 0..7 : DPPI channel that task XOTUNEABORT will subscribe to */
-  #define CLOCK_SUBSCRIBE_XOTUNEABORT_CHIDX_Pos (0UL) /*!< Position of CHIDX field.                                            */
-  #define CLOCK_SUBSCRIBE_XOTUNEABORT_CHIDX_Msk (0xFFUL << CLOCK_SUBSCRIBE_XOTUNEABORT_CHIDX_Pos) /*!< Bit mask of CHIDX field.*/
-  #define CLOCK_SUBSCRIBE_XOTUNEABORT_CHIDX_Min (0x00UL) /*!< Min value of CHIDX field.                                        */
-  #define CLOCK_SUBSCRIBE_XOTUNEABORT_CHIDX_Max (0xFFUL) /*!< Max size of CHIDX field.                                         */
-
-/* EN @Bit 31 : (unspecified) */
-  #define CLOCK_SUBSCRIBE_XOTUNEABORT_EN_Pos (31UL)  /*!< Position of EN field.                                                */
-  #define CLOCK_SUBSCRIBE_XOTUNEABORT_EN_Msk (0x1UL << CLOCK_SUBSCRIBE_XOTUNEABORT_EN_Pos) /*!< Bit mask of EN field.          */
-  #define CLOCK_SUBSCRIBE_XOTUNEABORT_EN_Min (0x0UL) /*!< Min enumerator value of EN field.                                    */
-  #define CLOCK_SUBSCRIBE_XOTUNEABORT_EN_Max (0x1UL) /*!< Max enumerator value of EN field.                                    */
-  #define CLOCK_SUBSCRIBE_XOTUNEABORT_EN_Disabled (0x0UL) /*!< Disable subscription                                            */
-  #define CLOCK_SUBSCRIBE_XOTUNEABORT_EN_Enabled (0x1UL) /*!< Enable subscription                                              */
-
-
 /* CLOCK_EVENTS_XOSTARTED: Crystal oscillator has started */
   #define CLOCK_EVENTS_XOSTARTED_ResetValue (0x00000000UL) /*!< Reset value of EVENTS_XOSTARTED register.                      */
 
@@ -2015,132 +1966,6 @@ typedef struct {
   #define CLOCK_EVENTS_XOTUNEFAILED_EVENTS_XOTUNEFAILED_Max (0x1UL) /*!< Max enumerator value of EVENTS_XOTUNEFAILED field.    */
   #define CLOCK_EVENTS_XOTUNEFAILED_EVENTS_XOTUNEFAILED_NotGenerated (0x0UL) /*!< Event not generated                          */
   #define CLOCK_EVENTS_XOTUNEFAILED_EVENTS_XOTUNEFAILED_Generated (0x1UL) /*!< Event generated                                 */
-
-
-/* CLOCK_PUBLISH_XOSTARTED: Publish configuration for event XOSTARTED */
-  #define CLOCK_PUBLISH_XOSTARTED_ResetValue (0x00000000UL) /*!< Reset value of PUBLISH_XOSTARTED register.                    */
-
-/* CHIDX @Bits 0..7 : DPPI channel that event XOSTARTED will publish to */
-  #define CLOCK_PUBLISH_XOSTARTED_CHIDX_Pos (0UL)    /*!< Position of CHIDX field.                                             */
-  #define CLOCK_PUBLISH_XOSTARTED_CHIDX_Msk (0xFFUL << CLOCK_PUBLISH_XOSTARTED_CHIDX_Pos) /*!< Bit mask of CHIDX field.        */
-  #define CLOCK_PUBLISH_XOSTARTED_CHIDX_Min (0x00UL) /*!< Min value of CHIDX field.                                            */
-  #define CLOCK_PUBLISH_XOSTARTED_CHIDX_Max (0xFFUL) /*!< Max size of CHIDX field.                                             */
-
-/* EN @Bit 31 : (unspecified) */
-  #define CLOCK_PUBLISH_XOSTARTED_EN_Pos (31UL)      /*!< Position of EN field.                                                */
-  #define CLOCK_PUBLISH_XOSTARTED_EN_Msk (0x1UL << CLOCK_PUBLISH_XOSTARTED_EN_Pos) /*!< Bit mask of EN field.                  */
-  #define CLOCK_PUBLISH_XOSTARTED_EN_Min (0x0UL)     /*!< Min enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_XOSTARTED_EN_Max (0x1UL)     /*!< Max enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_XOSTARTED_EN_Disabled (0x0UL) /*!< Disable publishing                                                  */
-  #define CLOCK_PUBLISH_XOSTARTED_EN_Enabled (0x1UL) /*!< Enable publishing                                                    */
-
-
-/* CLOCK_PUBLISH_PLLSTARTED: Publish configuration for event PLLSTARTED */
-  #define CLOCK_PUBLISH_PLLSTARTED_ResetValue (0x00000000UL) /*!< Reset value of PUBLISH_PLLSTARTED register.                  */
-
-/* CHIDX @Bits 0..7 : DPPI channel that event PLLSTARTED will publish to */
-  #define CLOCK_PUBLISH_PLLSTARTED_CHIDX_Pos (0UL)   /*!< Position of CHIDX field.                                             */
-  #define CLOCK_PUBLISH_PLLSTARTED_CHIDX_Msk (0xFFUL << CLOCK_PUBLISH_PLLSTARTED_CHIDX_Pos) /*!< Bit mask of CHIDX field.      */
-  #define CLOCK_PUBLISH_PLLSTARTED_CHIDX_Min (0x00UL) /*!< Min value of CHIDX field.                                           */
-  #define CLOCK_PUBLISH_PLLSTARTED_CHIDX_Max (0xFFUL) /*!< Max size of CHIDX field.                                            */
-
-/* EN @Bit 31 : (unspecified) */
-  #define CLOCK_PUBLISH_PLLSTARTED_EN_Pos (31UL)     /*!< Position of EN field.                                                */
-  #define CLOCK_PUBLISH_PLLSTARTED_EN_Msk (0x1UL << CLOCK_PUBLISH_PLLSTARTED_EN_Pos) /*!< Bit mask of EN field.                */
-  #define CLOCK_PUBLISH_PLLSTARTED_EN_Min (0x0UL)    /*!< Min enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_PLLSTARTED_EN_Max (0x1UL)    /*!< Max enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_PLLSTARTED_EN_Disabled (0x0UL) /*!< Disable publishing                                                 */
-  #define CLOCK_PUBLISH_PLLSTARTED_EN_Enabled (0x1UL) /*!< Enable publishing                                                   */
-
-
-/* CLOCK_PUBLISH_LFCLKSTARTED: Publish configuration for event LFCLKSTARTED */
-  #define CLOCK_PUBLISH_LFCLKSTARTED_ResetValue (0x00000000UL) /*!< Reset value of PUBLISH_LFCLKSTARTED register.              */
-
-/* CHIDX @Bits 0..7 : DPPI channel that event LFCLKSTARTED will publish to */
-  #define CLOCK_PUBLISH_LFCLKSTARTED_CHIDX_Pos (0UL) /*!< Position of CHIDX field.                                             */
-  #define CLOCK_PUBLISH_LFCLKSTARTED_CHIDX_Msk (0xFFUL << CLOCK_PUBLISH_LFCLKSTARTED_CHIDX_Pos) /*!< Bit mask of CHIDX field.  */
-  #define CLOCK_PUBLISH_LFCLKSTARTED_CHIDX_Min (0x00UL) /*!< Min value of CHIDX field.                                         */
-  #define CLOCK_PUBLISH_LFCLKSTARTED_CHIDX_Max (0xFFUL) /*!< Max size of CHIDX field.                                          */
-
-/* EN @Bit 31 : (unspecified) */
-  #define CLOCK_PUBLISH_LFCLKSTARTED_EN_Pos (31UL)   /*!< Position of EN field.                                                */
-  #define CLOCK_PUBLISH_LFCLKSTARTED_EN_Msk (0x1UL << CLOCK_PUBLISH_LFCLKSTARTED_EN_Pos) /*!< Bit mask of EN field.            */
-  #define CLOCK_PUBLISH_LFCLKSTARTED_EN_Min (0x0UL)  /*!< Min enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_LFCLKSTARTED_EN_Max (0x1UL)  /*!< Max enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_LFCLKSTARTED_EN_Disabled (0x0UL) /*!< Disable publishing                                               */
-  #define CLOCK_PUBLISH_LFCLKSTARTED_EN_Enabled (0x1UL) /*!< Enable publishing                                                 */
-
-
-/* CLOCK_PUBLISH_DONE: Publish configuration for event DONE */
-  #define CLOCK_PUBLISH_DONE_ResetValue (0x00000000UL) /*!< Reset value of PUBLISH_DONE register.                              */
-
-/* CHIDX @Bits 0..7 : DPPI channel that event DONE will publish to */
-  #define CLOCK_PUBLISH_DONE_CHIDX_Pos (0UL)         /*!< Position of CHIDX field.                                             */
-  #define CLOCK_PUBLISH_DONE_CHIDX_Msk (0xFFUL << CLOCK_PUBLISH_DONE_CHIDX_Pos) /*!< Bit mask of CHIDX field.                  */
-  #define CLOCK_PUBLISH_DONE_CHIDX_Min (0x00UL)      /*!< Min value of CHIDX field.                                            */
-  #define CLOCK_PUBLISH_DONE_CHIDX_Max (0xFFUL)      /*!< Max size of CHIDX field.                                             */
-
-/* EN @Bit 31 : (unspecified) */
-  #define CLOCK_PUBLISH_DONE_EN_Pos (31UL)           /*!< Position of EN field.                                                */
-  #define CLOCK_PUBLISH_DONE_EN_Msk (0x1UL << CLOCK_PUBLISH_DONE_EN_Pos) /*!< Bit mask of EN field.                            */
-  #define CLOCK_PUBLISH_DONE_EN_Min (0x0UL)          /*!< Min enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_DONE_EN_Max (0x1UL)          /*!< Max enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_DONE_EN_Disabled (0x0UL)     /*!< Disable publishing                                                   */
-  #define CLOCK_PUBLISH_DONE_EN_Enabled (0x1UL)      /*!< Enable publishing                                                    */
-
-
-/* CLOCK_PUBLISH_XOTUNED: Publish configuration for event XOTUNED */
-  #define CLOCK_PUBLISH_XOTUNED_ResetValue (0x00000000UL) /*!< Reset value of PUBLISH_XOTUNED register.                        */
-
-/* CHIDX @Bits 0..7 : DPPI channel that event XOTUNED will publish to */
-  #define CLOCK_PUBLISH_XOTUNED_CHIDX_Pos (0UL)      /*!< Position of CHIDX field.                                             */
-  #define CLOCK_PUBLISH_XOTUNED_CHIDX_Msk (0xFFUL << CLOCK_PUBLISH_XOTUNED_CHIDX_Pos) /*!< Bit mask of CHIDX field.            */
-  #define CLOCK_PUBLISH_XOTUNED_CHIDX_Min (0x00UL)   /*!< Min value of CHIDX field.                                            */
-  #define CLOCK_PUBLISH_XOTUNED_CHIDX_Max (0xFFUL)   /*!< Max size of CHIDX field.                                             */
-
-/* EN @Bit 31 : (unspecified) */
-  #define CLOCK_PUBLISH_XOTUNED_EN_Pos (31UL)        /*!< Position of EN field.                                                */
-  #define CLOCK_PUBLISH_XOTUNED_EN_Msk (0x1UL << CLOCK_PUBLISH_XOTUNED_EN_Pos) /*!< Bit mask of EN field.                      */
-  #define CLOCK_PUBLISH_XOTUNED_EN_Min (0x0UL)       /*!< Min enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_XOTUNED_EN_Max (0x1UL)       /*!< Max enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_XOTUNED_EN_Disabled (0x0UL)  /*!< Disable publishing                                                   */
-  #define CLOCK_PUBLISH_XOTUNED_EN_Enabled (0x1UL)   /*!< Enable publishing                                                    */
-
-
-/* CLOCK_PUBLISH_XOTUNEERROR: Publish configuration for event XOTUNEERROR */
-  #define CLOCK_PUBLISH_XOTUNEERROR_ResetValue (0x00000000UL) /*!< Reset value of PUBLISH_XOTUNEERROR register.                */
-
-/* CHIDX @Bits 0..7 : DPPI channel that event XOTUNEERROR will publish to */
-  #define CLOCK_PUBLISH_XOTUNEERROR_CHIDX_Pos (0UL)  /*!< Position of CHIDX field.                                             */
-  #define CLOCK_PUBLISH_XOTUNEERROR_CHIDX_Msk (0xFFUL << CLOCK_PUBLISH_XOTUNEERROR_CHIDX_Pos) /*!< Bit mask of CHIDX field.    */
-  #define CLOCK_PUBLISH_XOTUNEERROR_CHIDX_Min (0x00UL) /*!< Min value of CHIDX field.                                          */
-  #define CLOCK_PUBLISH_XOTUNEERROR_CHIDX_Max (0xFFUL) /*!< Max size of CHIDX field.                                           */
-
-/* EN @Bit 31 : (unspecified) */
-  #define CLOCK_PUBLISH_XOTUNEERROR_EN_Pos (31UL)    /*!< Position of EN field.                                                */
-  #define CLOCK_PUBLISH_XOTUNEERROR_EN_Msk (0x1UL << CLOCK_PUBLISH_XOTUNEERROR_EN_Pos) /*!< Bit mask of EN field.              */
-  #define CLOCK_PUBLISH_XOTUNEERROR_EN_Min (0x0UL)   /*!< Min enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_XOTUNEERROR_EN_Max (0x1UL)   /*!< Max enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_XOTUNEERROR_EN_Disabled (0x0UL) /*!< Disable publishing                                                */
-  #define CLOCK_PUBLISH_XOTUNEERROR_EN_Enabled (0x1UL) /*!< Enable publishing                                                  */
-
-
-/* CLOCK_PUBLISH_XOTUNEFAILED: Publish configuration for event XOTUNEFAILED */
-  #define CLOCK_PUBLISH_XOTUNEFAILED_ResetValue (0x00000000UL) /*!< Reset value of PUBLISH_XOTUNEFAILED register.              */
-
-/* CHIDX @Bits 0..7 : DPPI channel that event XOTUNEFAILED will publish to */
-  #define CLOCK_PUBLISH_XOTUNEFAILED_CHIDX_Pos (0UL) /*!< Position of CHIDX field.                                             */
-  #define CLOCK_PUBLISH_XOTUNEFAILED_CHIDX_Msk (0xFFUL << CLOCK_PUBLISH_XOTUNEFAILED_CHIDX_Pos) /*!< Bit mask of CHIDX field.  */
-  #define CLOCK_PUBLISH_XOTUNEFAILED_CHIDX_Min (0x00UL) /*!< Min value of CHIDX field.                                         */
-  #define CLOCK_PUBLISH_XOTUNEFAILED_CHIDX_Max (0xFFUL) /*!< Max size of CHIDX field.                                          */
-
-/* EN @Bit 31 : (unspecified) */
-  #define CLOCK_PUBLISH_XOTUNEFAILED_EN_Pos (31UL)   /*!< Position of EN field.                                                */
-  #define CLOCK_PUBLISH_XOTUNEFAILED_EN_Msk (0x1UL << CLOCK_PUBLISH_XOTUNEFAILED_EN_Pos) /*!< Bit mask of EN field.            */
-  #define CLOCK_PUBLISH_XOTUNEFAILED_EN_Min (0x0UL)  /*!< Min enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_XOTUNEFAILED_EN_Max (0x1UL)  /*!< Max enumerator value of EN field.                                    */
-  #define CLOCK_PUBLISH_XOTUNEFAILED_EN_Disabled (0x0UL) /*!< Disable publishing                                               */
-  #define CLOCK_PUBLISH_XOTUNEFAILED_EN_Enabled (0x1UL) /*!< Enable publishing                                                 */
 
 
 /* CLOCK_INTEN: Enable or disable interrupt */
@@ -3335,7 +3160,7 @@ typedef struct {
     __IM uint32_t INTPEND;                           /*!< (@ 0x0000030C) Pending interrupts                                    */
     __IM uint32_t RESERVED2[60];
     __IOM uint32_t ENABLE;                           /*!< (@ 0x00000400) Enable CRACEN peripheral modules.                     */
-    __IOM uint32_t SEEDVALID;                        /*!< (@ 0x00000404) Marks the SEED register as valid                      */
+    __IOM uint32_t SEEDVALID;                        /*!< (@ 0x00000404) Marks the SEED register as valid.                     */
     __IM uint32_t RESERVED3[2];
     __OM uint32_t SEED[12];                          /*!< (@ 0x00000410) Seed word [n] for symmetric and asymmetric key
                                                                          generation. This register is only writable from KMU.*/
@@ -3527,7 +3352,7 @@ typedef struct {
   #define CRACEN_ENABLE_PKEIKG_Enabled (0x1UL)       /*!< PKE and IKG enabled.                                                 */
 
 
-/* CRACEN_SEEDVALID: Marks the SEED register as valid */
+/* CRACEN_SEEDVALID: Marks the SEED register as valid. */
   #define CRACEN_SEEDVALID_ResetValue (0x00000000UL) /*!< Reset value of SEEDVALID register.                                   */
 
 /* VALID @Bit 0 : Marks the SEED as valid */
@@ -4159,7 +3984,7 @@ typedef struct {
 /* CRACENCORE_RNGCONTROL_FIFOLEVEL: FIFO level register. */
   #define CRACENCORE_RNGCONTROL_FIFOLEVEL_ResetValue (0x00000000UL) /*!< Reset value of FIFOLEVEL register.                    */
 
-/* FIFOLEVEL @Bits 0..31 : Number of 32 bits words of random available in the FIFO. */
+/* FIFOLEVEL @Bits 0..31 : Number of 32 bits words of random values available in the FIFO. */
   #define CRACENCORE_RNGCONTROL_FIFOLEVEL_FIFOLEVEL_Pos (0UL) /*!< Position of FIFOLEVEL field.                                */
   #define CRACENCORE_RNGCONTROL_FIFOLEVEL_FIFOLEVEL_Msk (0xFFFFFFFFUL << CRACENCORE_RNGCONTROL_FIFOLEVEL_FIFOLEVEL_Pos) /*!< Bit
                                                                             mask of FIFOLEVEL field.*/
@@ -15772,8 +15597,8 @@ typedef struct {
 /* PORT @Bits 5..7 : Port number */
   #define I2S_PSEL_MCK_PORT_Pos (5UL)                /*!< Position of PORT field.                                              */
   #define I2S_PSEL_MCK_PORT_Msk (0x7UL << I2S_PSEL_MCK_PORT_Pos) /*!< Bit mask of PORT field.                                  */
-  #define I2S_PSEL_MCK_PORT_Min (0x1UL)              /*!< Min value of PORT field.                                             */
-  #define I2S_PSEL_MCK_PORT_Max (0x1UL)              /*!< Max size of PORT field.                                              */
+  #define I2S_PSEL_MCK_PORT_Min (0x0UL)              /*!< Min value of PORT field.                                             */
+  #define I2S_PSEL_MCK_PORT_Max (0x7UL)              /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define I2S_PSEL_MCK_CONNECT_Pos (31UL)            /*!< Position of CONNECT field.                                           */
@@ -15796,8 +15621,8 @@ typedef struct {
 /* PORT @Bits 5..7 : Port number */
   #define I2S_PSEL_SCK_PORT_Pos (5UL)                /*!< Position of PORT field.                                              */
   #define I2S_PSEL_SCK_PORT_Msk (0x7UL << I2S_PSEL_SCK_PORT_Pos) /*!< Bit mask of PORT field.                                  */
-  #define I2S_PSEL_SCK_PORT_Min (0x1UL)              /*!< Min value of PORT field.                                             */
-  #define I2S_PSEL_SCK_PORT_Max (0x1UL)              /*!< Max size of PORT field.                                              */
+  #define I2S_PSEL_SCK_PORT_Min (0x0UL)              /*!< Min value of PORT field.                                             */
+  #define I2S_PSEL_SCK_PORT_Max (0x7UL)              /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define I2S_PSEL_SCK_CONNECT_Pos (31UL)            /*!< Position of CONNECT field.                                           */
@@ -15820,8 +15645,8 @@ typedef struct {
 /* PORT @Bits 5..7 : Port number */
   #define I2S_PSEL_LRCK_PORT_Pos (5UL)               /*!< Position of PORT field.                                              */
   #define I2S_PSEL_LRCK_PORT_Msk (0x7UL << I2S_PSEL_LRCK_PORT_Pos) /*!< Bit mask of PORT field.                                */
-  #define I2S_PSEL_LRCK_PORT_Min (0x1UL)             /*!< Min value of PORT field.                                             */
-  #define I2S_PSEL_LRCK_PORT_Max (0x1UL)             /*!< Max size of PORT field.                                              */
+  #define I2S_PSEL_LRCK_PORT_Min (0x0UL)             /*!< Min value of PORT field.                                             */
+  #define I2S_PSEL_LRCK_PORT_Max (0x7UL)             /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define I2S_PSEL_LRCK_CONNECT_Pos (31UL)           /*!< Position of CONNECT field.                                           */
@@ -15844,8 +15669,8 @@ typedef struct {
 /* PORT @Bits 5..7 : Port number */
   #define I2S_PSEL_SDIN_PORT_Pos (5UL)               /*!< Position of PORT field.                                              */
   #define I2S_PSEL_SDIN_PORT_Msk (0x7UL << I2S_PSEL_SDIN_PORT_Pos) /*!< Bit mask of PORT field.                                */
-  #define I2S_PSEL_SDIN_PORT_Min (0x1UL)             /*!< Min value of PORT field.                                             */
-  #define I2S_PSEL_SDIN_PORT_Max (0x1UL)             /*!< Max size of PORT field.                                              */
+  #define I2S_PSEL_SDIN_PORT_Min (0x0UL)             /*!< Min value of PORT field.                                             */
+  #define I2S_PSEL_SDIN_PORT_Max (0x7UL)             /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define I2S_PSEL_SDIN_CONNECT_Pos (31UL)           /*!< Position of CONNECT field.                                           */
@@ -15868,8 +15693,8 @@ typedef struct {
 /* PORT @Bits 5..7 : Port number */
   #define I2S_PSEL_SDOUT_PORT_Pos (5UL)              /*!< Position of PORT field.                                              */
   #define I2S_PSEL_SDOUT_PORT_Msk (0x7UL << I2S_PSEL_SDOUT_PORT_Pos) /*!< Bit mask of PORT field.                              */
-  #define I2S_PSEL_SDOUT_PORT_Min (0x1UL)            /*!< Min value of PORT field.                                             */
-  #define I2S_PSEL_SDOUT_PORT_Max (0x1UL)            /*!< Max size of PORT field.                                              */
+  #define I2S_PSEL_SDOUT_PORT_Min (0x0UL)            /*!< Min value of PORT field.                                             */
+  #define I2S_PSEL_SDOUT_PORT_Max (0x7UL)            /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define I2S_PSEL_SDOUT_CONNECT_Pos (31UL)          /*!< Position of CONNECT field.                                           */
@@ -17913,18 +17738,6 @@ typedef struct {
 
   #define MPC_MEMACCERR_INFO_ResetValue (0x00000000UL) /*!< Reset value of INFO register.                                      */
 
-/* OWNERID @Bits 0..3 : Owner identifier of the erroneous access */
-  #define MPC_MEMACCERR_INFO_OWNERID_Pos (0UL)       /*!< Position of OWNERID field.                                           */
-  #define MPC_MEMACCERR_INFO_OWNERID_Msk (0xFUL << MPC_MEMACCERR_INFO_OWNERID_Pos) /*!< Bit mask of OWNERID field.             */
-  #define MPC_MEMACCERR_INFO_OWNERID_Min (0x0UL)     /*!< Min value of OWNERID field.                                          */
-  #define MPC_MEMACCERR_INFO_OWNERID_Max (0xFUL)     /*!< Max size of OWNERID field.                                           */
-
-/* MASTERPORT @Bits 4..8 : Master port where erroneous access is detected */
-  #define MPC_MEMACCERR_INFO_MASTERPORT_Pos (4UL)    /*!< Position of MASTERPORT field.                                        */
-  #define MPC_MEMACCERR_INFO_MASTERPORT_Msk (0x1FUL << MPC_MEMACCERR_INFO_MASTERPORT_Pos) /*!< Bit mask of MASTERPORT field.   */
-  #define MPC_MEMACCERR_INFO_MASTERPORT_Min (0x00UL) /*!< Min value of MASTERPORT field.                                       */
-  #define MPC_MEMACCERR_INFO_MASTERPORT_Max (0x1FUL) /*!< Max size of MASTERPORT field.                                        */
-
 /* READ @Bit 12 : Read bit of bus access */
   #define MPC_MEMACCERR_INFO_READ_Pos (12UL)         /*!< Position of READ field.                                              */
   #define MPC_MEMACCERR_INFO_READ_Msk (0x1UL << MPC_MEMACCERR_INFO_READ_Pos) /*!< Bit mask of READ field.                      */
@@ -17963,387 +17776,7 @@ typedef struct {
   #define MPC_MEMACCERR_INFO_ERRORSOURCE_Min (0x0UL) /*!< Min enumerator value of ERRORSOURCE field.                           */
   #define MPC_MEMACCERR_INFO_ERRORSOURCE_Max (0x1UL) /*!< Max enumerator value of ERRORSOURCE field.                           */
   #define MPC_MEMACCERR_INFO_ERRORSOURCE_MPC (0x1UL) /*!< Error was triggered by MPC module                                    */
-  #define MPC_MEMACCERR_INFO_ERRORSOURCE_Slave (0x0UL) /*!< Error was triggered by an AXI slave                                */
-
-
-
-/* ================================================= Struct MPC_GLOBALSLAVE ================================================== */
-/**
-  * @brief GLOBALSLAVE [MPC_GLOBALSLAVE] Global slave master port connection information
-  */
-typedef struct {
-  __IOM uint32_t  MASTERPORT;                        /*!< (@ 0x00000000) Global slave connection information for master port   */
-  __IOM uint32_t  LOCK;                              /*!< (@ 0x00000004) Lock global slave registers                           */
-} NRF_MPC_GLOBALSLAVE_Type;                          /*!< Size = 8 (0x008)                                                     */
-
-/* MPC_GLOBALSLAVE_MASTERPORT: Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_ResetValue (0x00000000UL) /*!< Reset value of MASTERPORT register.                        */
-
-/* CONNECTION0 @Bit 0 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION0_Pos (0UL) /*!< Position of CONNECTION0 field.                                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION0_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION0_Pos) /*!< Bit mask of
-                                                                            CONNECTION0 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION0_Min (0x0UL) /*!< Min enumerator value of CONNECTION0 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION0_Max (0x1UL) /*!< Max enumerator value of CONNECTION0 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION0_Disabled (0x0UL) /*!< Master port 0 connection to global slave is disabled    */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION0_Enabled (0x1UL) /*!< Master port 0 connection to global slave is enabled      */
-
-/* CONNECTION1 @Bit 1 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION1_Pos (1UL) /*!< Position of CONNECTION1 field.                                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION1_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION1_Pos) /*!< Bit mask of
-                                                                            CONNECTION1 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION1_Min (0x0UL) /*!< Min enumerator value of CONNECTION1 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION1_Max (0x1UL) /*!< Max enumerator value of CONNECTION1 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION1_Disabled (0x0UL) /*!< Master port 1 connection to global slave is disabled    */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION1_Enabled (0x1UL) /*!< Master port 1 connection to global slave is enabled      */
-
-/* CONNECTION2 @Bit 2 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION2_Pos (2UL) /*!< Position of CONNECTION2 field.                                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION2_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION2_Pos) /*!< Bit mask of
-                                                                            CONNECTION2 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION2_Min (0x0UL) /*!< Min enumerator value of CONNECTION2 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION2_Max (0x1UL) /*!< Max enumerator value of CONNECTION2 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION2_Disabled (0x0UL) /*!< Master port 2 connection to global slave is disabled    */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION2_Enabled (0x1UL) /*!< Master port 2 connection to global slave is enabled      */
-
-/* CONNECTION3 @Bit 3 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION3_Pos (3UL) /*!< Position of CONNECTION3 field.                                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION3_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION3_Pos) /*!< Bit mask of
-                                                                            CONNECTION3 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION3_Min (0x0UL) /*!< Min enumerator value of CONNECTION3 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION3_Max (0x1UL) /*!< Max enumerator value of CONNECTION3 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION3_Disabled (0x0UL) /*!< Master port 3 connection to global slave is disabled    */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION3_Enabled (0x1UL) /*!< Master port 3 connection to global slave is enabled      */
-
-/* CONNECTION4 @Bit 4 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION4_Pos (4UL) /*!< Position of CONNECTION4 field.                                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION4_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION4_Pos) /*!< Bit mask of
-                                                                            CONNECTION4 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION4_Min (0x0UL) /*!< Min enumerator value of CONNECTION4 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION4_Max (0x1UL) /*!< Max enumerator value of CONNECTION4 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION4_Disabled (0x0UL) /*!< Master port 4 connection to global slave is disabled    */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION4_Enabled (0x1UL) /*!< Master port 4 connection to global slave is enabled      */
-
-/* CONNECTION5 @Bit 5 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION5_Pos (5UL) /*!< Position of CONNECTION5 field.                                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION5_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION5_Pos) /*!< Bit mask of
-                                                                            CONNECTION5 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION5_Min (0x0UL) /*!< Min enumerator value of CONNECTION5 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION5_Max (0x1UL) /*!< Max enumerator value of CONNECTION5 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION5_Disabled (0x0UL) /*!< Master port 5 connection to global slave is disabled    */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION5_Enabled (0x1UL) /*!< Master port 5 connection to global slave is enabled      */
-
-/* CONNECTION6 @Bit 6 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION6_Pos (6UL) /*!< Position of CONNECTION6 field.                                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION6_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION6_Pos) /*!< Bit mask of
-                                                                            CONNECTION6 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION6_Min (0x0UL) /*!< Min enumerator value of CONNECTION6 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION6_Max (0x1UL) /*!< Max enumerator value of CONNECTION6 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION6_Disabled (0x0UL) /*!< Master port 6 connection to global slave is disabled    */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION6_Enabled (0x1UL) /*!< Master port 6 connection to global slave is enabled      */
-
-/* CONNECTION7 @Bit 7 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION7_Pos (7UL) /*!< Position of CONNECTION7 field.                                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION7_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION7_Pos) /*!< Bit mask of
-                                                                            CONNECTION7 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION7_Min (0x0UL) /*!< Min enumerator value of CONNECTION7 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION7_Max (0x1UL) /*!< Max enumerator value of CONNECTION7 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION7_Disabled (0x0UL) /*!< Master port 7 connection to global slave is disabled    */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION7_Enabled (0x1UL) /*!< Master port 7 connection to global slave is enabled      */
-
-/* CONNECTION8 @Bit 8 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION8_Pos (8UL) /*!< Position of CONNECTION8 field.                                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION8_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION8_Pos) /*!< Bit mask of
-                                                                            CONNECTION8 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION8_Min (0x0UL) /*!< Min enumerator value of CONNECTION8 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION8_Max (0x1UL) /*!< Max enumerator value of CONNECTION8 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION8_Disabled (0x0UL) /*!< Master port 8 connection to global slave is disabled    */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION8_Enabled (0x1UL) /*!< Master port 8 connection to global slave is enabled      */
-
-/* CONNECTION9 @Bit 9 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION9_Pos (9UL) /*!< Position of CONNECTION9 field.                                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION9_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION9_Pos) /*!< Bit mask of
-                                                                            CONNECTION9 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION9_Min (0x0UL) /*!< Min enumerator value of CONNECTION9 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION9_Max (0x1UL) /*!< Max enumerator value of CONNECTION9 field.                   */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION9_Disabled (0x0UL) /*!< Master port 9 connection to global slave is disabled    */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION9_Enabled (0x1UL) /*!< Master port 9 connection to global slave is enabled      */
-
-/* CONNECTION10 @Bit 10 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION10_Pos (10UL) /*!< Position of CONNECTION10 field.                              */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION10_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION10_Pos) /*!< Bit mask of
-                                                                            CONNECTION10 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION10_Min (0x0UL) /*!< Min enumerator value of CONNECTION10 field.                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION10_Max (0x1UL) /*!< Max enumerator value of CONNECTION10 field.                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION10_Disabled (0x0UL) /*!< Master port 10 connection to global slave is disabled  */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION10_Enabled (0x1UL) /*!< Master port 10 connection to global slave is enabled    */
-
-/* CONNECTION11 @Bit 11 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION11_Pos (11UL) /*!< Position of CONNECTION11 field.                              */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION11_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION11_Pos) /*!< Bit mask of
-                                                                            CONNECTION11 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION11_Min (0x0UL) /*!< Min enumerator value of CONNECTION11 field.                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION11_Max (0x1UL) /*!< Max enumerator value of CONNECTION11 field.                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION11_Disabled (0x0UL) /*!< Master port 11 connection to global slave is disabled  */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION11_Enabled (0x1UL) /*!< Master port 11 connection to global slave is enabled    */
-
-/* CONNECTION12 @Bit 12 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION12_Pos (12UL) /*!< Position of CONNECTION12 field.                              */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION12_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION12_Pos) /*!< Bit mask of
-                                                                            CONNECTION12 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION12_Min (0x0UL) /*!< Min enumerator value of CONNECTION12 field.                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION12_Max (0x1UL) /*!< Max enumerator value of CONNECTION12 field.                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION12_Disabled (0x0UL) /*!< Master port 12 connection to global slave is disabled  */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION12_Enabled (0x1UL) /*!< Master port 12 connection to global slave is enabled    */
-
-/* CONNECTION13 @Bit 13 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION13_Pos (13UL) /*!< Position of CONNECTION13 field.                              */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION13_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION13_Pos) /*!< Bit mask of
-                                                                            CONNECTION13 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION13_Min (0x0UL) /*!< Min enumerator value of CONNECTION13 field.                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION13_Max (0x1UL) /*!< Max enumerator value of CONNECTION13 field.                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION13_Disabled (0x0UL) /*!< Master port 13 connection to global slave is disabled  */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION13_Enabled (0x1UL) /*!< Master port 13 connection to global slave is enabled    */
-
-/* CONNECTION14 @Bit 14 : Global slave connection information for master port */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION14_Pos (14UL) /*!< Position of CONNECTION14 field.                              */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION14_Msk (0x1UL << MPC_GLOBALSLAVE_MASTERPORT_CONNECTION14_Pos) /*!< Bit mask of
-                                                                            CONNECTION14 field.*/
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION14_Min (0x0UL) /*!< Min enumerator value of CONNECTION14 field.                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION14_Max (0x1UL) /*!< Max enumerator value of CONNECTION14 field.                 */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION14_Disabled (0x0UL) /*!< Master port 14 connection to global slave is disabled  */
-  #define MPC_GLOBALSLAVE_MASTERPORT_CONNECTION14_Enabled (0x1UL) /*!< Master port 14 connection to global slave is enabled    */
-
-
-/* MPC_GLOBALSLAVE_LOCK: Lock global slave registers */
-  #define MPC_GLOBALSLAVE_LOCK_ResetValue (0x00000000UL) /*!< Reset value of LOCK register.                                    */
-
-/* LOCK @Bit 0 : Enable lock */
-  #define MPC_GLOBALSLAVE_LOCK_LOCK_Pos (0UL)        /*!< Position of LOCK field.                                              */
-  #define MPC_GLOBALSLAVE_LOCK_LOCK_Msk (0x1UL << MPC_GLOBALSLAVE_LOCK_LOCK_Pos) /*!< Bit mask of LOCK field.                  */
-  #define MPC_GLOBALSLAVE_LOCK_LOCK_Min (0x0UL)      /*!< Min enumerator value of LOCK field.                                  */
-  #define MPC_GLOBALSLAVE_LOCK_LOCK_Max (0x1UL)      /*!< Max enumerator value of LOCK field.                                  */
-  #define MPC_GLOBALSLAVE_LOCK_LOCK_Disabled (0x0UL) /*!< Lock disabled.                                                       */
-  #define MPC_GLOBALSLAVE_LOCK_LOCK_Enabled (0x1UL)  /*!< Lock enabled.                                                        */
-
-
-
-/* ==================================================== Struct MPC_REGION ==================================================== */
-/**
-  * @brief REGION [MPC_REGION] Memory region to slave decoding table
-  */
-typedef struct {
-  __IOM uint32_t  CONFIG;                            /*!< (@ 0x00000000) Slave region n Configuration register                 */
-  __IOM uint32_t  STARTADDR;                         /*!< (@ 0x00000004) Region n start address                                */
-  __IOM uint32_t  ADDRMASK;                          /*!< (@ 0x00000008) Select which bits of the incoming address are compared
-                                                                         against the STARTADDR*/
-  __IOM uint32_t  MASTERPORT;                        /*!< (@ 0x0000000C) Region n local master enable                          */
-} NRF_MPC_REGION_Type;                               /*!< Size = 16 (0x010)                                                    */
-  #define MPC_REGION_MaxCount (8UL)                  /*!< Size of REGION[8] array.                                             */
-  #define MPC_REGION_MaxIndex (7UL)                  /*!< Max index of REGION[8] array.                                        */
-  #define MPC_REGION_MinIndex (0UL)                  /*!< Min index of REGION[8] array.                                        */
-
-/* MPC_REGION_CONFIG: Slave region n Configuration register */
-  #define MPC_REGION_CONFIG_ResetValue (0x00000000UL) /*!< Reset value of CONFIG register.                                     */
-
-/* SLAVENUMBER @Bits 0..4 : Target slave number for region n accesses. Slave number 0 is reserved for default slave */
-  #define MPC_REGION_CONFIG_SLAVENUMBER_Pos (0UL)    /*!< Position of SLAVENUMBER field.                                       */
-  #define MPC_REGION_CONFIG_SLAVENUMBER_Msk (0x1FUL << MPC_REGION_CONFIG_SLAVENUMBER_Pos) /*!< Bit mask of SLAVENUMBER field.  */
-  #define MPC_REGION_CONFIG_SLAVENUMBER_Min (0x00UL) /*!< Min value of SLAVENUMBER field.                                      */
-  #define MPC_REGION_CONFIG_SLAVENUMBER_Max (0x1FUL) /*!< Max size of SLAVENUMBER field.                                       */
-
-/* LOCK @Bit 8 : Locks the region n setting */
-  #define MPC_REGION_CONFIG_LOCK_Pos (8UL)           /*!< Position of LOCK field.                                              */
-  #define MPC_REGION_CONFIG_LOCK_Msk (0x1UL << MPC_REGION_CONFIG_LOCK_Pos) /*!< Bit mask of LOCK field.                        */
-  #define MPC_REGION_CONFIG_LOCK_Min (0x0UL)         /*!< Min enumerator value of LOCK field.                                  */
-  #define MPC_REGION_CONFIG_LOCK_Max (0x1UL)         /*!< Max enumerator value of LOCK field.                                  */
-  #define MPC_REGION_CONFIG_LOCK_Unlocked (0x0UL)    /*!< Region n settings can be updated                                     */
-  #define MPC_REGION_CONFIG_LOCK_Locked (0x1UL)      /*!< Region n settings can't be updated until next reset                  */
-
-/* ENABLE @Bit 9 : Region n enable */
-  #define MPC_REGION_CONFIG_ENABLE_Pos (9UL)         /*!< Position of ENABLE field.                                            */
-  #define MPC_REGION_CONFIG_ENABLE_Msk (0x1UL << MPC_REGION_CONFIG_ENABLE_Pos) /*!< Bit mask of ENABLE field.                  */
-  #define MPC_REGION_CONFIG_ENABLE_Min (0x0UL)       /*!< Min enumerator value of ENABLE field.                                */
-  #define MPC_REGION_CONFIG_ENABLE_Max (0x1UL)       /*!< Max enumerator value of ENABLE field.                                */
-  #define MPC_REGION_CONFIG_ENABLE_Disabled (0x0UL)  /*!< Region n is not used                                                 */
-  #define MPC_REGION_CONFIG_ENABLE_Enabled (0x1UL)   /*!< Region n is used                                                     */
-
-/* READ @Bit 12 : Read access */
-  #define MPC_REGION_CONFIG_READ_Pos (12UL)          /*!< Position of READ field.                                              */
-  #define MPC_REGION_CONFIG_READ_Msk (0x1UL << MPC_REGION_CONFIG_READ_Pos) /*!< Bit mask of READ field.                        */
-  #define MPC_REGION_CONFIG_READ_Min (0x0UL)         /*!< Min enumerator value of READ field.                                  */
-  #define MPC_REGION_CONFIG_READ_Max (0x1UL)         /*!< Max enumerator value of READ field.                                  */
-  #define MPC_REGION_CONFIG_READ_NotAllowed (0x0UL)  /*!< Read access to region n is not allowed                               */
-  #define MPC_REGION_CONFIG_READ_Allowed (0x1UL)     /*!< Read access to region n is allowed                                   */
-
-/* WRITE @Bit 13 : Write access */
-  #define MPC_REGION_CONFIG_WRITE_Pos (13UL)         /*!< Position of WRITE field.                                             */
-  #define MPC_REGION_CONFIG_WRITE_Msk (0x1UL << MPC_REGION_CONFIG_WRITE_Pos) /*!< Bit mask of WRITE field.                     */
-  #define MPC_REGION_CONFIG_WRITE_Min (0x0UL)        /*!< Min enumerator value of WRITE field.                                 */
-  #define MPC_REGION_CONFIG_WRITE_Max (0x1UL)        /*!< Max enumerator value of WRITE field.                                 */
-  #define MPC_REGION_CONFIG_WRITE_NotAllowed (0x0UL) /*!< Write access to region n is not allowed                              */
-  #define MPC_REGION_CONFIG_WRITE_Allowed (0x1UL)    /*!< Write access to region n is allowed                                  */
-
-/* EXECUTE @Bit 14 : Software execute */
-  #define MPC_REGION_CONFIG_EXECUTE_Pos (14UL)       /*!< Position of EXECUTE field.                                           */
-  #define MPC_REGION_CONFIG_EXECUTE_Msk (0x1UL << MPC_REGION_CONFIG_EXECUTE_Pos) /*!< Bit mask of EXECUTE field.               */
-  #define MPC_REGION_CONFIG_EXECUTE_Min (0x0UL)      /*!< Min enumerator value of EXECUTE field.                               */
-  #define MPC_REGION_CONFIG_EXECUTE_Max (0x1UL)      /*!< Max enumerator value of EXECUTE field.                               */
-  #define MPC_REGION_CONFIG_EXECUTE_NotAllowed (0x0UL) /*!< Software execution from region n is not allowed                    */
-  #define MPC_REGION_CONFIG_EXECUTE_Allowed (0x1UL)  /*!< Software execution from region n is allowed                          */
-
-/* SECATTR @Bit 15 : Memory security mapping */
-  #define MPC_REGION_CONFIG_SECATTR_Pos (15UL)       /*!< Position of SECATTR field.                                           */
-  #define MPC_REGION_CONFIG_SECATTR_Msk (0x1UL << MPC_REGION_CONFIG_SECATTR_Pos) /*!< Bit mask of SECATTR field.               */
-  #define MPC_REGION_CONFIG_SECATTR_Min (0x0UL)      /*!< Min enumerator value of SECATTR field.                               */
-  #define MPC_REGION_CONFIG_SECATTR_Max (0x1UL)      /*!< Max enumerator value of SECATTR field.                               */
-  #define MPC_REGION_CONFIG_SECATTR_Secure (0x1UL)   /*!< Memory is mapped in secure memory address space                      */
-  #define MPC_REGION_CONFIG_SECATTR_NonSecure (0x0UL) /*!< Memory is mapped in non-secure memory address space                 */
-
-/* OWNERID @Bits 16..19 : Region owner identifier. */
-  #define MPC_REGION_CONFIG_OWNERID_Pos (16UL)       /*!< Position of OWNERID field.                                           */
-  #define MPC_REGION_CONFIG_OWNERID_Msk (0xFUL << MPC_REGION_CONFIG_OWNERID_Pos) /*!< Bit mask of OWNERID field.               */
-
-
-/* MPC_REGION_STARTADDR: Region n start address */
-  #define MPC_REGION_STARTADDR_ResetValue (0x00000000UL) /*!< Reset value of STARTADDR register.                               */
-
-/* STARTADDR @Bits 0..31 : Start address for memory region n */
-  #define MPC_REGION_STARTADDR_STARTADDR_Pos (0UL)   /*!< Position of STARTADDR field.                                         */
-  #define MPC_REGION_STARTADDR_STARTADDR_Msk (0xFFFFFFFFUL << MPC_REGION_STARTADDR_STARTADDR_Pos) /*!< Bit mask of STARTADDR
-                                                                            field.*/
-
-
-/* MPC_REGION_ADDRMASK: Select which bits of the incoming address are compared against the STARTADDR */
-  #define MPC_REGION_ADDRMASK_ResetValue (0x00000000UL) /*!< Reset value of ADDRMASK register.                                 */
-
-/* ADDRMASK @Bits 0..31 : Address mask for memory region n */
-  #define MPC_REGION_ADDRMASK_ADDRMASK_Pos (0UL)     /*!< Position of ADDRMASK field.                                          */
-  #define MPC_REGION_ADDRMASK_ADDRMASK_Msk (0xFFFFFFFFUL << MPC_REGION_ADDRMASK_ADDRMASK_Pos) /*!< Bit mask of ADDRMASK field. */
-
-
-/* MPC_REGION_MASTERPORT: Region n local master enable */
-  #define MPC_REGION_MASTERPORT_ResetValue (0x00000000UL) /*!< Reset value of MASTERPORT register.                             */
-
-/* ENABLE0 @Bit 0 : Enable region n for master port 0 */
-  #define MPC_REGION_MASTERPORT_ENABLE0_Pos (0UL)    /*!< Position of ENABLE0 field.                                           */
-  #define MPC_REGION_MASTERPORT_ENABLE0_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE0_Pos) /*!< Bit mask of ENABLE0 field.       */
-  #define MPC_REGION_MASTERPORT_ENABLE0_Min (0x0UL)  /*!< Min enumerator value of ENABLE0 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE0_Max (0x1UL)  /*!< Max enumerator value of ENABLE0 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE0_Disable (0x0UL) /*!< Region n is disabled for master port 0                            */
-  #define MPC_REGION_MASTERPORT_ENABLE0_Enable (0x1UL) /*!< Region n is enabled for master port 0                              */
-
-/* ENABLE1 @Bit 1 : Enable region n for master port 1 */
-  #define MPC_REGION_MASTERPORT_ENABLE1_Pos (1UL)    /*!< Position of ENABLE1 field.                                           */
-  #define MPC_REGION_MASTERPORT_ENABLE1_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE1_Pos) /*!< Bit mask of ENABLE1 field.       */
-  #define MPC_REGION_MASTERPORT_ENABLE1_Min (0x0UL)  /*!< Min enumerator value of ENABLE1 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE1_Max (0x1UL)  /*!< Max enumerator value of ENABLE1 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE1_Disable (0x0UL) /*!< Region n is disabled for master port 1                            */
-  #define MPC_REGION_MASTERPORT_ENABLE1_Enable (0x1UL) /*!< Region n is enabled for master port 1                              */
-
-/* ENABLE2 @Bit 2 : Enable region n for master port 2 */
-  #define MPC_REGION_MASTERPORT_ENABLE2_Pos (2UL)    /*!< Position of ENABLE2 field.                                           */
-  #define MPC_REGION_MASTERPORT_ENABLE2_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE2_Pos) /*!< Bit mask of ENABLE2 field.       */
-  #define MPC_REGION_MASTERPORT_ENABLE2_Min (0x0UL)  /*!< Min enumerator value of ENABLE2 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE2_Max (0x1UL)  /*!< Max enumerator value of ENABLE2 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE2_Disable (0x0UL) /*!< Region n is disabled for master port 2                            */
-  #define MPC_REGION_MASTERPORT_ENABLE2_Enable (0x1UL) /*!< Region n is enabled for master port 2                              */
-
-/* ENABLE3 @Bit 3 : Enable region n for master port 3 */
-  #define MPC_REGION_MASTERPORT_ENABLE3_Pos (3UL)    /*!< Position of ENABLE3 field.                                           */
-  #define MPC_REGION_MASTERPORT_ENABLE3_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE3_Pos) /*!< Bit mask of ENABLE3 field.       */
-  #define MPC_REGION_MASTERPORT_ENABLE3_Min (0x0UL)  /*!< Min enumerator value of ENABLE3 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE3_Max (0x1UL)  /*!< Max enumerator value of ENABLE3 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE3_Disable (0x0UL) /*!< Region n is disabled for master port 3                            */
-  #define MPC_REGION_MASTERPORT_ENABLE3_Enable (0x1UL) /*!< Region n is enabled for master port 3                              */
-
-/* ENABLE4 @Bit 4 : Enable region n for master port 4 */
-  #define MPC_REGION_MASTERPORT_ENABLE4_Pos (4UL)    /*!< Position of ENABLE4 field.                                           */
-  #define MPC_REGION_MASTERPORT_ENABLE4_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE4_Pos) /*!< Bit mask of ENABLE4 field.       */
-  #define MPC_REGION_MASTERPORT_ENABLE4_Min (0x0UL)  /*!< Min enumerator value of ENABLE4 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE4_Max (0x1UL)  /*!< Max enumerator value of ENABLE4 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE4_Disable (0x0UL) /*!< Region n is disabled for master port 4                            */
-  #define MPC_REGION_MASTERPORT_ENABLE4_Enable (0x1UL) /*!< Region n is enabled for master port 4                              */
-
-/* ENABLE5 @Bit 5 : Enable region n for master port 5 */
-  #define MPC_REGION_MASTERPORT_ENABLE5_Pos (5UL)    /*!< Position of ENABLE5 field.                                           */
-  #define MPC_REGION_MASTERPORT_ENABLE5_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE5_Pos) /*!< Bit mask of ENABLE5 field.       */
-  #define MPC_REGION_MASTERPORT_ENABLE5_Min (0x0UL)  /*!< Min enumerator value of ENABLE5 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE5_Max (0x1UL)  /*!< Max enumerator value of ENABLE5 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE5_Disable (0x0UL) /*!< Region n is disabled for master port 5                            */
-  #define MPC_REGION_MASTERPORT_ENABLE5_Enable (0x1UL) /*!< Region n is enabled for master port 5                              */
-
-/* ENABLE6 @Bit 6 : Enable region n for master port 6 */
-  #define MPC_REGION_MASTERPORT_ENABLE6_Pos (6UL)    /*!< Position of ENABLE6 field.                                           */
-  #define MPC_REGION_MASTERPORT_ENABLE6_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE6_Pos) /*!< Bit mask of ENABLE6 field.       */
-  #define MPC_REGION_MASTERPORT_ENABLE6_Min (0x0UL)  /*!< Min enumerator value of ENABLE6 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE6_Max (0x1UL)  /*!< Max enumerator value of ENABLE6 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE6_Disable (0x0UL) /*!< Region n is disabled for master port 6                            */
-  #define MPC_REGION_MASTERPORT_ENABLE6_Enable (0x1UL) /*!< Region n is enabled for master port 6                              */
-
-/* ENABLE7 @Bit 7 : Enable region n for master port 7 */
-  #define MPC_REGION_MASTERPORT_ENABLE7_Pos (7UL)    /*!< Position of ENABLE7 field.                                           */
-  #define MPC_REGION_MASTERPORT_ENABLE7_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE7_Pos) /*!< Bit mask of ENABLE7 field.       */
-  #define MPC_REGION_MASTERPORT_ENABLE7_Min (0x0UL)  /*!< Min enumerator value of ENABLE7 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE7_Max (0x1UL)  /*!< Max enumerator value of ENABLE7 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE7_Disable (0x0UL) /*!< Region n is disabled for master port 7                            */
-  #define MPC_REGION_MASTERPORT_ENABLE7_Enable (0x1UL) /*!< Region n is enabled for master port 7                              */
-
-/* ENABLE8 @Bit 8 : Enable region n for master port 8 */
-  #define MPC_REGION_MASTERPORT_ENABLE8_Pos (8UL)    /*!< Position of ENABLE8 field.                                           */
-  #define MPC_REGION_MASTERPORT_ENABLE8_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE8_Pos) /*!< Bit mask of ENABLE8 field.       */
-  #define MPC_REGION_MASTERPORT_ENABLE8_Min (0x0UL)  /*!< Min enumerator value of ENABLE8 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE8_Max (0x1UL)  /*!< Max enumerator value of ENABLE8 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE8_Disable (0x0UL) /*!< Region n is disabled for master port 8                            */
-  #define MPC_REGION_MASTERPORT_ENABLE8_Enable (0x1UL) /*!< Region n is enabled for master port 8                              */
-
-/* ENABLE9 @Bit 9 : Enable region n for master port 9 */
-  #define MPC_REGION_MASTERPORT_ENABLE9_Pos (9UL)    /*!< Position of ENABLE9 field.                                           */
-  #define MPC_REGION_MASTERPORT_ENABLE9_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE9_Pos) /*!< Bit mask of ENABLE9 field.       */
-  #define MPC_REGION_MASTERPORT_ENABLE9_Min (0x0UL)  /*!< Min enumerator value of ENABLE9 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE9_Max (0x1UL)  /*!< Max enumerator value of ENABLE9 field.                               */
-  #define MPC_REGION_MASTERPORT_ENABLE9_Disable (0x0UL) /*!< Region n is disabled for master port 9                            */
-  #define MPC_REGION_MASTERPORT_ENABLE9_Enable (0x1UL) /*!< Region n is enabled for master port 9                              */
-
-/* ENABLE10 @Bit 10 : Enable region n for master port 10 */
-  #define MPC_REGION_MASTERPORT_ENABLE10_Pos (10UL)  /*!< Position of ENABLE10 field.                                          */
-  #define MPC_REGION_MASTERPORT_ENABLE10_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE10_Pos) /*!< Bit mask of ENABLE10 field.    */
-  #define MPC_REGION_MASTERPORT_ENABLE10_Min (0x0UL) /*!< Min enumerator value of ENABLE10 field.                              */
-  #define MPC_REGION_MASTERPORT_ENABLE10_Max (0x1UL) /*!< Max enumerator value of ENABLE10 field.                              */
-  #define MPC_REGION_MASTERPORT_ENABLE10_Disable (0x0UL) /*!< Region n is disabled for master port 10                          */
-  #define MPC_REGION_MASTERPORT_ENABLE10_Enable (0x1UL) /*!< Region n is enabled for master port 10                            */
-
-/* ENABLE11 @Bit 11 : Enable region n for master port 11 */
-  #define MPC_REGION_MASTERPORT_ENABLE11_Pos (11UL)  /*!< Position of ENABLE11 field.                                          */
-  #define MPC_REGION_MASTERPORT_ENABLE11_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE11_Pos) /*!< Bit mask of ENABLE11 field.    */
-  #define MPC_REGION_MASTERPORT_ENABLE11_Min (0x0UL) /*!< Min enumerator value of ENABLE11 field.                              */
-  #define MPC_REGION_MASTERPORT_ENABLE11_Max (0x1UL) /*!< Max enumerator value of ENABLE11 field.                              */
-  #define MPC_REGION_MASTERPORT_ENABLE11_Disable (0x0UL) /*!< Region n is disabled for master port 11                          */
-  #define MPC_REGION_MASTERPORT_ENABLE11_Enable (0x1UL) /*!< Region n is enabled for master port 11                            */
-
-/* ENABLE12 @Bit 12 : Enable region n for master port 12 */
-  #define MPC_REGION_MASTERPORT_ENABLE12_Pos (12UL)  /*!< Position of ENABLE12 field.                                          */
-  #define MPC_REGION_MASTERPORT_ENABLE12_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE12_Pos) /*!< Bit mask of ENABLE12 field.    */
-  #define MPC_REGION_MASTERPORT_ENABLE12_Min (0x0UL) /*!< Min enumerator value of ENABLE12 field.                              */
-  #define MPC_REGION_MASTERPORT_ENABLE12_Max (0x1UL) /*!< Max enumerator value of ENABLE12 field.                              */
-  #define MPC_REGION_MASTERPORT_ENABLE12_Disable (0x0UL) /*!< Region n is disabled for master port 12                          */
-  #define MPC_REGION_MASTERPORT_ENABLE12_Enable (0x1UL) /*!< Region n is enabled for master port 12                            */
-
-/* ENABLE13 @Bit 13 : Enable region n for master port 13 */
-  #define MPC_REGION_MASTERPORT_ENABLE13_Pos (13UL)  /*!< Position of ENABLE13 field.                                          */
-  #define MPC_REGION_MASTERPORT_ENABLE13_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE13_Pos) /*!< Bit mask of ENABLE13 field.    */
-  #define MPC_REGION_MASTERPORT_ENABLE13_Min (0x0UL) /*!< Min enumerator value of ENABLE13 field.                              */
-  #define MPC_REGION_MASTERPORT_ENABLE13_Max (0x1UL) /*!< Max enumerator value of ENABLE13 field.                              */
-  #define MPC_REGION_MASTERPORT_ENABLE13_Disable (0x0UL) /*!< Region n is disabled for master port 13                          */
-  #define MPC_REGION_MASTERPORT_ENABLE13_Enable (0x1UL) /*!< Region n is enabled for master port 13                            */
-
-/* ENABLE14 @Bit 14 : Enable region n for master port 14 */
-  #define MPC_REGION_MASTERPORT_ENABLE14_Pos (14UL)  /*!< Position of ENABLE14 field.                                          */
-  #define MPC_REGION_MASTERPORT_ENABLE14_Msk (0x1UL << MPC_REGION_MASTERPORT_ENABLE14_Pos) /*!< Bit mask of ENABLE14 field.    */
-  #define MPC_REGION_MASTERPORT_ENABLE14_Min (0x0UL) /*!< Min enumerator value of ENABLE14 field.                              */
-  #define MPC_REGION_MASTERPORT_ENABLE14_Max (0x1UL) /*!< Max enumerator value of ENABLE14 field.                              */
-  #define MPC_REGION_MASTERPORT_ENABLE14_Disable (0x0UL) /*!< Region n is disabled for master port 14                          */
-  #define MPC_REGION_MASTERPORT_ENABLE14_Enable (0x1UL) /*!< Region n is enabled for master port 14                            */
+  #define MPC_MEMACCERR_INFO_ERRORSOURCE_Slave (0x0UL) /*!< Error was triggered by a Subordinate                               */
 
 
 
@@ -18359,22 +17792,14 @@ typedef struct {
   __IOM uint32_t  PERM;                              /*!< (@ 0x00000010) Permission settings for override region n             */
   __IOM uint32_t  PERMMASK;                          /*!< (@ 0x00000014) Masks permission setting fields from register
                                                                          OVERRIDE.PERM*/
-  __IOM uint32_t  OWNER;                             /*!< (@ 0x00000018) Owner for override region                             */
-  __IOM uint32_t  MASTERPORT;                        /*!< (@ 0x0000001C) Override region n local master enable                 */
+  __IM  uint32_t  RESERVED1[2];
 } NRF_MPC_OVERRIDE_Type;                             /*!< Size = 32 (0x020)                                                    */
-  #define MPC_OVERRIDE_MaxCount (7UL)                /*!< Size of OVERRIDE[7] array.                                           */
-  #define MPC_OVERRIDE_MaxIndex (6UL)                /*!< Max index of OVERRIDE[7] array.                                      */
-  #define MPC_OVERRIDE_MinIndex (0UL)                /*!< Min index of OVERRIDE[7] array.                                      */
+  #define MPC_OVERRIDE_MaxCount (5UL)                /*!< Size of OVERRIDE[5] array.                                           */
+  #define MPC_OVERRIDE_MaxIndex (4UL)                /*!< Max index of OVERRIDE[5] array.                                      */
+  #define MPC_OVERRIDE_MinIndex (0UL)                /*!< Min index of OVERRIDE[5] array.                                      */
 
 /* MPC_OVERRIDE_CONFIG: Override region n Configuration register */
   #define MPC_OVERRIDE_CONFIG_ResetValue (0x00000000UL) /*!< Reset value of CONFIG register.                                   */
-
-/* SLAVENUMBER @Bits 0..4 : Target slave number for override region n accesses. Slave number 0 is reserved for default slave */
-  #define MPC_OVERRIDE_CONFIG_SLAVENUMBER_Pos (0UL)  /*!< Position of SLAVENUMBER field.                                       */
-  #define MPC_OVERRIDE_CONFIG_SLAVENUMBER_Msk (0x1FUL << MPC_OVERRIDE_CONFIG_SLAVENUMBER_Pos) /*!< Bit mask of SLAVENUMBER
-                                                                            field.*/
-  #define MPC_OVERRIDE_CONFIG_SLAVENUMBER_Min (0x00UL) /*!< Min value of SLAVENUMBER field.                                    */
-  #define MPC_OVERRIDE_CONFIG_SLAVENUMBER_Max (0x1FUL) /*!< Max size of SLAVENUMBER field.                                     */
 
 /* LOCK @Bit 8 : Lock Override region n */
   #define MPC_OVERRIDE_CONFIG_LOCK_Pos (8UL)         /*!< Position of LOCK field.                                              */
@@ -18391,14 +17816,6 @@ typedef struct {
   #define MPC_OVERRIDE_CONFIG_ENABLE_Max (0x1UL)     /*!< Max enumerator value of ENABLE field.                                */
   #define MPC_OVERRIDE_CONFIG_ENABLE_Disabled (0x0UL) /*!< Override region n is not used                                       */
   #define MPC_OVERRIDE_CONFIG_ENABLE_Enabled (0x1UL) /*!< Override region n is used                                            */
-
-/* SECUREMASK @Bit 12 : Secure mask enable for Override region n */
-  #define MPC_OVERRIDE_CONFIG_SECUREMASK_Pos (12UL)  /*!< Position of SECUREMASK field.                                        */
-  #define MPC_OVERRIDE_CONFIG_SECUREMASK_Msk (0x1UL << MPC_OVERRIDE_CONFIG_SECUREMASK_Pos) /*!< Bit mask of SECUREMASK field.  */
-  #define MPC_OVERRIDE_CONFIG_SECUREMASK_Min (0x0UL) /*!< Min enumerator value of SECUREMASK field.                            */
-  #define MPC_OVERRIDE_CONFIG_SECUREMASK_Max (0x1UL) /*!< Max enumerator value of SECUREMASK field.                            */
-  #define MPC_OVERRIDE_CONFIG_SECUREMASK_Disabled (0x0UL) /*!< Mask is disabled for override region n                          */
-  #define MPC_OVERRIDE_CONFIG_SECUREMASK_Enabled (0x1UL) /*!< Mask is enabled for override region n                            */
 
 
 /* MPC_OVERRIDE_STARTADDR: Override region n Start Address */
@@ -18490,140 +17907,6 @@ typedef struct {
   #define MPC_OVERRIDE_PERMMASK_SECATTR_UnMasked (0x1UL) /*!< Permission setting SECATTR in OVERRIDE register will be applied  */
 
 
-/* MPC_OVERRIDE_OWNER: Owner for override region */
-  #define MPC_OVERRIDE_OWNER_ResetValue (0x00000000UL) /*!< Reset value of OWNER register.                                     */
-
-/* OWNERID @Bits 0..3 : owner identifier for override region n */
-  #define MPC_OVERRIDE_OWNER_OWNERID_Pos (0UL)       /*!< Position of OWNERID field.                                           */
-  #define MPC_OVERRIDE_OWNER_OWNERID_Msk (0xFUL << MPC_OVERRIDE_OWNER_OWNERID_Pos) /*!< Bit mask of OWNERID field.             */
-  #define MPC_OVERRIDE_OWNER_OWNERID_Min (0x0UL)     /*!< Min value of OWNERID field.                                          */
-  #define MPC_OVERRIDE_OWNER_OWNERID_Max (0xFUL)     /*!< Max size of OWNERID field.                                           */
-
-
-/* MPC_OVERRIDE_MASTERPORT: Override region n local master enable */
-  #define MPC_OVERRIDE_MASTERPORT_ResetValue (0x00000000UL) /*!< Reset value of MASTERPORT register.                           */
-
-/* ENABLE0 @Bit 0 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE0_Pos (0UL)  /*!< Position of ENABLE0 field.                                           */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE0_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE0_Pos) /*!< Bit mask of ENABLE0 field.   */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE0_Min (0x0UL) /*!< Min enumerator value of ENABLE0 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE0_Max (0x1UL) /*!< Max enumerator value of ENABLE0 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE0_Disable (0x0UL) /*!< Override region n is disabled for master port 0                 */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE0_Enable (0x1UL) /*!< Override region n is enabled for master port 0                   */
-
-/* ENABLE1 @Bit 1 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE1_Pos (1UL)  /*!< Position of ENABLE1 field.                                           */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE1_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE1_Pos) /*!< Bit mask of ENABLE1 field.   */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE1_Min (0x0UL) /*!< Min enumerator value of ENABLE1 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE1_Max (0x1UL) /*!< Max enumerator value of ENABLE1 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE1_Disable (0x0UL) /*!< Override region n is disabled for master port 1                 */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE1_Enable (0x1UL) /*!< Override region n is enabled for master port 1                   */
-
-/* ENABLE2 @Bit 2 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE2_Pos (2UL)  /*!< Position of ENABLE2 field.                                           */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE2_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE2_Pos) /*!< Bit mask of ENABLE2 field.   */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE2_Min (0x0UL) /*!< Min enumerator value of ENABLE2 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE2_Max (0x1UL) /*!< Max enumerator value of ENABLE2 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE2_Disable (0x0UL) /*!< Override region n is disabled for master port 2                 */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE2_Enable (0x1UL) /*!< Override region n is enabled for master port 2                   */
-
-/* ENABLE3 @Bit 3 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE3_Pos (3UL)  /*!< Position of ENABLE3 field.                                           */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE3_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE3_Pos) /*!< Bit mask of ENABLE3 field.   */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE3_Min (0x0UL) /*!< Min enumerator value of ENABLE3 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE3_Max (0x1UL) /*!< Max enumerator value of ENABLE3 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE3_Disable (0x0UL) /*!< Override region n is disabled for master port 3                 */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE3_Enable (0x1UL) /*!< Override region n is enabled for master port 3                   */
-
-/* ENABLE4 @Bit 4 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE4_Pos (4UL)  /*!< Position of ENABLE4 field.                                           */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE4_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE4_Pos) /*!< Bit mask of ENABLE4 field.   */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE4_Min (0x0UL) /*!< Min enumerator value of ENABLE4 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE4_Max (0x1UL) /*!< Max enumerator value of ENABLE4 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE4_Disable (0x0UL) /*!< Override region n is disabled for master port 4                 */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE4_Enable (0x1UL) /*!< Override region n is enabled for master port 4                   */
-
-/* ENABLE5 @Bit 5 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE5_Pos (5UL)  /*!< Position of ENABLE5 field.                                           */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE5_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE5_Pos) /*!< Bit mask of ENABLE5 field.   */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE5_Min (0x0UL) /*!< Min enumerator value of ENABLE5 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE5_Max (0x1UL) /*!< Max enumerator value of ENABLE5 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE5_Disable (0x0UL) /*!< Override region n is disabled for master port 5                 */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE5_Enable (0x1UL) /*!< Override region n is enabled for master port 5                   */
-
-/* ENABLE6 @Bit 6 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE6_Pos (6UL)  /*!< Position of ENABLE6 field.                                           */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE6_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE6_Pos) /*!< Bit mask of ENABLE6 field.   */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE6_Min (0x0UL) /*!< Min enumerator value of ENABLE6 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE6_Max (0x1UL) /*!< Max enumerator value of ENABLE6 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE6_Disable (0x0UL) /*!< Override region n is disabled for master port 6                 */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE6_Enable (0x1UL) /*!< Override region n is enabled for master port 6                   */
-
-/* ENABLE7 @Bit 7 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE7_Pos (7UL)  /*!< Position of ENABLE7 field.                                           */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE7_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE7_Pos) /*!< Bit mask of ENABLE7 field.   */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE7_Min (0x0UL) /*!< Min enumerator value of ENABLE7 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE7_Max (0x1UL) /*!< Max enumerator value of ENABLE7 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE7_Disable (0x0UL) /*!< Override region n is disabled for master port 7                 */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE7_Enable (0x1UL) /*!< Override region n is enabled for master port 7                   */
-
-/* ENABLE8 @Bit 8 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE8_Pos (8UL)  /*!< Position of ENABLE8 field.                                           */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE8_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE8_Pos) /*!< Bit mask of ENABLE8 field.   */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE8_Min (0x0UL) /*!< Min enumerator value of ENABLE8 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE8_Max (0x1UL) /*!< Max enumerator value of ENABLE8 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE8_Disable (0x0UL) /*!< Override region n is disabled for master port 8                 */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE8_Enable (0x1UL) /*!< Override region n is enabled for master port 8                   */
-
-/* ENABLE9 @Bit 9 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE9_Pos (9UL)  /*!< Position of ENABLE9 field.                                           */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE9_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE9_Pos) /*!< Bit mask of ENABLE9 field.   */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE9_Min (0x0UL) /*!< Min enumerator value of ENABLE9 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE9_Max (0x1UL) /*!< Max enumerator value of ENABLE9 field.                              */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE9_Disable (0x0UL) /*!< Override region n is disabled for master port 9                 */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE9_Enable (0x1UL) /*!< Override region n is enabled for master port 9                   */
-
-/* ENABLE10 @Bit 10 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE10_Pos (10UL) /*!< Position of ENABLE10 field.                                         */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE10_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE10_Pos) /*!< Bit mask of ENABLE10 field.*/
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE10_Min (0x0UL) /*!< Min enumerator value of ENABLE10 field.                            */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE10_Max (0x1UL) /*!< Max enumerator value of ENABLE10 field.                            */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE10_Disable (0x0UL) /*!< Override region n is disabled for master port 10               */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE10_Enable (0x1UL) /*!< Override region n is enabled for master port 10                 */
-
-/* ENABLE11 @Bit 11 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE11_Pos (11UL) /*!< Position of ENABLE11 field.                                         */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE11_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE11_Pos) /*!< Bit mask of ENABLE11 field.*/
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE11_Min (0x0UL) /*!< Min enumerator value of ENABLE11 field.                            */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE11_Max (0x1UL) /*!< Max enumerator value of ENABLE11 field.                            */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE11_Disable (0x0UL) /*!< Override region n is disabled for master port 11               */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE11_Enable (0x1UL) /*!< Override region n is enabled for master port 11                 */
-
-/* ENABLE12 @Bit 12 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE12_Pos (12UL) /*!< Position of ENABLE12 field.                                         */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE12_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE12_Pos) /*!< Bit mask of ENABLE12 field.*/
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE12_Min (0x0UL) /*!< Min enumerator value of ENABLE12 field.                            */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE12_Max (0x1UL) /*!< Max enumerator value of ENABLE12 field.                            */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE12_Disable (0x0UL) /*!< Override region n is disabled for master port 12               */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE12_Enable (0x1UL) /*!< Override region n is enabled for master port 12                 */
-
-/* ENABLE13 @Bit 13 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE13_Pos (13UL) /*!< Position of ENABLE13 field.                                         */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE13_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE13_Pos) /*!< Bit mask of ENABLE13 field.*/
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE13_Min (0x0UL) /*!< Min enumerator value of ENABLE13 field.                            */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE13_Max (0x1UL) /*!< Max enumerator value of ENABLE13 field.                            */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE13_Disable (0x0UL) /*!< Override region n is disabled for master port 13               */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE13_Enable (0x1UL) /*!< Override region n is enabled for master port 13                 */
-
-/* ENABLE14 @Bit 14 : Enable override */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE14_Pos (14UL) /*!< Position of ENABLE14 field.                                         */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE14_Msk (0x1UL << MPC_OVERRIDE_MASTERPORT_ENABLE14_Pos) /*!< Bit mask of ENABLE14 field.*/
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE14_Min (0x0UL) /*!< Min enumerator value of ENABLE14 field.                            */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE14_Max (0x1UL) /*!< Max enumerator value of ENABLE14 field.                            */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE14_Disable (0x0UL) /*!< Override region n is disabled for master port 14               */
-  #define MPC_OVERRIDE_MASTERPORT_ENABLE14_Enable (0x1UL) /*!< Override region n is enabled for master port 14                 */
-
-
 /* ======================================================= Struct MPC ======================================================== */
 /**
   * @brief Memory Privilege Controller
@@ -18637,13 +17920,9 @@ typedef struct {
     __IOM uint32_t INTENCLR;                         /*!< (@ 0x00000308) Disable interrupt                                     */
     __IM uint32_t RESERVED2[61];
     __IOM NRF_MPC_MEMACCERR_Type MEMACCERR;          /*!< (@ 0x00000400) Memory Access Error status registers                  */
-    __IM uint32_t RESERVED3[2];
-    __IOM NRF_MPC_GLOBALSLAVE_Type GLOBALSLAVE;      /*!< (@ 0x00000410) Global slave master port connection information       */
-    __IM uint32_t RESERVED4[122];
-    __IOM NRF_MPC_REGION_Type REGION[8];             /*!< (@ 0x00000600) Memory region to slave decoding table                 */
-    __IM uint32_t RESERVED5[96];
-    __IOM NRF_MPC_OVERRIDE_Type OVERRIDE[7];         /*!< (@ 0x00000800) Special privilege tables                              */
-  } NRF_MPC_Type;                                    /*!< Size = 2272 (0x8E0)                                                  */
+    __IM uint32_t RESERVED3[254];
+    __IOM NRF_MPC_OVERRIDE_Type OVERRIDE[5];         /*!< (@ 0x00000800) Special privilege tables                              */
+  } NRF_MPC_Type;                                    /*!< Size = 2208 (0x8A0)                                                  */
 
 /* MPC_EVENTS_MEMACCERR: Memory Access Error event */
   #define MPC_EVENTS_MEMACCERR_ResetValue (0x00000000UL) /*!< Reset value of EVENTS_MEMACCERR register.                        */
@@ -20632,8 +19911,8 @@ typedef struct {
 /* PORT @Bits 5..7 : Port number */
   #define PDM_PSEL_CLK_PORT_Pos (5UL)                /*!< Position of PORT field.                                              */
   #define PDM_PSEL_CLK_PORT_Msk (0x7UL << PDM_PSEL_CLK_PORT_Pos) /*!< Bit mask of PORT field.                                  */
-  #define PDM_PSEL_CLK_PORT_Min (0x1UL)              /*!< Min value of PORT field.                                             */
-  #define PDM_PSEL_CLK_PORT_Max (0x1UL)              /*!< Max size of PORT field.                                              */
+  #define PDM_PSEL_CLK_PORT_Min (0x0UL)              /*!< Min value of PORT field.                                             */
+  #define PDM_PSEL_CLK_PORT_Max (0x7UL)              /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define PDM_PSEL_CLK_CONNECT_Pos (31UL)            /*!< Position of CONNECT field.                                           */
@@ -20656,8 +19935,8 @@ typedef struct {
 /* PORT @Bits 5..7 : Port number */
   #define PDM_PSEL_DIN_PORT_Pos (5UL)                /*!< Position of PORT field.                                              */
   #define PDM_PSEL_DIN_PORT_Msk (0x7UL << PDM_PSEL_DIN_PORT_Pos) /*!< Bit mask of PORT field.                                  */
-  #define PDM_PSEL_DIN_PORT_Min (0x1UL)              /*!< Min value of PORT field.                                             */
-  #define PDM_PSEL_DIN_PORT_Max (0x1UL)              /*!< Max size of PORT field.                                              */
+  #define PDM_PSEL_DIN_PORT_Min (0x0UL)              /*!< Min value of PORT field.                                             */
+  #define PDM_PSEL_DIN_PORT_Max (0x7UL)              /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define PDM_PSEL_DIN_CONNECT_Pos (31UL)            /*!< Position of CONNECT field.                                           */
@@ -20681,7 +19960,7 @@ typedef struct {
 /* PDM_SAMPLE_PTR: RAM address pointer to write samples to with EasyDMA */
   #define PDM_SAMPLE_PTR_ResetValue (0x00000000UL)   /*!< Reset value of PTR register.                                         */
 
-/* SAMPLEPTR @Bits 0..31 : Address to write PDM samples to over DMA */
+/* SAMPLEPTR @Bits 0..31 : Address to write PCM samples to over DMA */
   #define PDM_SAMPLE_PTR_SAMPLEPTR_Pos (0UL)         /*!< Position of SAMPLEPTR field.                                         */
   #define PDM_SAMPLE_PTR_SAMPLEPTR_Msk (0xFFFFFFFFUL << PDM_SAMPLE_PTR_SAMPLEPTR_Pos) /*!< Bit mask of SAMPLEPTR field.        */
 
@@ -20704,7 +19983,7 @@ typedef struct {
 typedef struct {
   __IOM uint32_t  TERMINATEONBUSERROR;               /*!< (@ 0x00000000) Terminate the transaction if a BUSERROR event is
                                                                          detected.*/
-  __IOM uint32_t  BUSERRORADDRESS;                   /*!< (@ 0x00000004) Address of transaction that generated the last BUSERROR
+  __IM  uint32_t  BUSERRORADDRESS;                   /*!< (@ 0x00000004) Address of transaction that generated the last BUSERROR
                                                                          event.*/
 } NRF_PDM_DMA_Type;                                  /*!< Size = 8 (0x008)                                                     */
 
@@ -20754,30 +20033,28 @@ typedef struct {
     __IOM uint32_t PUBLISH_END;                      /*!< (@ 0x00000188) Publish configuration for event END                   */
     __IM uint32_t RESERVED4;
     __IOM NRF_PDM_PUBLISH_DMA_Type PUBLISH_DMA;      /*!< (@ 0x00000190) Publish configuration for events                      */
-    __IM uint32_t RESERVED5[27];
-    __IOM uint32_t SHORTS;                           /*!< (@ 0x00000200) Shortcuts between local events and tasks              */
-    __IM uint32_t RESERVED6[63];
+    __IM uint32_t RESERVED5[91];
     __IOM uint32_t INTEN;                            /*!< (@ 0x00000300) Enable or disable interrupt                           */
     __IOM uint32_t INTENSET;                         /*!< (@ 0x00000304) Enable interrupt                                      */
     __IOM uint32_t INTENCLR;                         /*!< (@ 0x00000308) Disable interrupt                                     */
     __IM uint32_t INTPEND;                           /*!< (@ 0x0000030C) Pending interrupts                                    */
-    __IM uint32_t RESERVED7[124];
+    __IM uint32_t RESERVED6[124];
     __IOM uint32_t ENABLE;                           /*!< (@ 0x00000500) PDM module enable register                            */
-    __IM uint32_t RESERVED8;
+    __IM uint32_t RESERVED7;
     __IOM uint32_t MODE;                             /*!< (@ 0x00000508) Defines the routing of the connected PDM microphone
                                                                          signals*/
-    __IM uint32_t RESERVED9[3];
+    __IM uint32_t RESERVED8[3];
     __IOM uint32_t GAINL;                            /*!< (@ 0x00000518) Left output gain adjustment                           */
     __IOM uint32_t GAINR;                            /*!< (@ 0x0000051C) Right output gain adjustment                          */
     __IOM uint32_t RATIO;                            /*!< (@ 0x00000520) Selects the decimation ratio between PDM_CLK and output
                                                                          sample rate. Change PRESCALER accordingly.*/
-    __IM uint32_t RESERVED10[7];
+    __IM uint32_t RESERVED9[7];
     __IOM NRF_PDM_PSEL_Type PSEL;                    /*!< (@ 0x00000540) (unspecified)                                         */
-    __IM uint32_t RESERVED11[6];
+    __IM uint32_t RESERVED10[6];
     __IOM NRF_PDM_SAMPLE_Type SAMPLE;                /*!< (@ 0x00000560) (unspecified)                                         */
-    __IM uint32_t RESERVED12[6];
+    __IM uint32_t RESERVED11[6];
     __IOM uint32_t PRESCALER;                        /*!< (@ 0x00000580) The prescaler is used to set the PDM frequency        */
-    __IM uint32_t RESERVED13[95];
+    __IM uint32_t RESERVED12[95];
     __IOM NRF_PDM_DMA_Type DMA;                      /*!< (@ 0x00000700) (unspecified)                                         */
   } NRF_PDM_Type;                                    /*!< Size = 1800 (0x708)                                                  */
 
@@ -21117,8 +20394,8 @@ typedef struct {
   #define PDM_MODE_EDGE_Msk (0x1UL << PDM_MODE_EDGE_Pos) /*!< Bit mask of EDGE field.                                          */
   #define PDM_MODE_EDGE_Min (0x0UL)                  /*!< Min enumerator value of EDGE field.                                  */
   #define PDM_MODE_EDGE_Max (0x1UL)                  /*!< Max enumerator value of EDGE field.                                  */
-  #define PDM_MODE_EDGE_LeftFalling (0x0UL)          /*!< Left (or mono) is sampled on falling edge of PDM_CLK                 */
-  #define PDM_MODE_EDGE_LeftRising (0x1UL)           /*!< Left (or mono) is sampled on rising edge of PDM_CLK                  */
+  #define PDM_MODE_EDGE_LeftFalling (0x1UL)          /*!< Left (or mono) is sampled on falling edge of PDM_CLK                 */
+  #define PDM_MODE_EDGE_LeftRising (0x0UL)           /*!< Left (or mono) is sampled on rising edge of PDM_CLK                  */
 
 
 /* PDM_GAINL: Left output gain adjustment */
@@ -21173,11 +20450,11 @@ typedef struct {
 /* PDM_PRESCALER: The prescaler is used to set the PDM frequency */
   #define PDM_PRESCALER_ResetValue (0x00000004UL)    /*!< Reset value of PRESCALER register.                                   */
 
-/* DIVISOR @Bits 0..31 : Core clock to PDM divisor */
+/* DIVISOR @Bits 0..7 : Core clock to PDM divisor */
   #define PDM_PRESCALER_DIVISOR_Pos (0UL)            /*!< Position of DIVISOR field.                                           */
-  #define PDM_PRESCALER_DIVISOR_Msk (0xFFFFFFFFUL << PDM_PRESCALER_DIVISOR_Pos) /*!< Bit mask of DIVISOR field.                */
-  #define PDM_PRESCALER_DIVISOR_Min (0x00000004UL)   /*!< Min value of DIVISOR field.                                          */
-  #define PDM_PRESCALER_DIVISOR_Max (0x0000007EUL)   /*!< Max size of DIVISOR field.                                           */
+  #define PDM_PRESCALER_DIVISOR_Msk (0xFFUL << PDM_PRESCALER_DIVISOR_Pos) /*!< Bit mask of DIVISOR field.                      */
+  #define PDM_PRESCALER_DIVISOR_Min (0x04UL)         /*!< Min value of DIVISOR field.                                          */
+  #define PDM_PRESCALER_DIVISOR_Max (0x7EUL)         /*!< Max size of DIVISOR field.                                           */
 
 
 #endif                                               /*!< !defined(__ASSEMBLER__) && !defined(__ASSEMBLY__)                    */
@@ -21202,8 +20479,7 @@ typedef struct {
     __IOM uint32_t EVENTS_POFWARN;                   /*!< (@ 0x00000130) Power failure warning                                 */
     __IOM uint32_t EVENTS_SLEEPENTER;                /*!< (@ 0x00000134) CPU entered WFI/WFE sleep                             */
     __IOM uint32_t EVENTS_SLEEPEXIT;                 /*!< (@ 0x00000138) CPU exited WFI/WFE sleep                              */
-    __IM uint32_t RESERVED3[29];
-    __IOM uint32_t PUBLISH_POFWARN;                  /*!< (@ 0x000001B0) Publish configuration for event POFWARN               */
+    __IM uint32_t RESERVED3[30];
     __IOM uint32_t PUBLISH_SLEEPENTER;               /*!< (@ 0x000001B4) Publish configuration for event SLEEPENTER            */
     __IOM uint32_t PUBLISH_SLEEPEXIT;                /*!< (@ 0x000001B8) Publish configuration for event SLEEPEXIT             */
     __IM uint32_t RESERVED4[81];
@@ -21212,9 +20488,9 @@ typedef struct {
     __IOM uint32_t INTENCLR;                         /*!< (@ 0x00000308) Disable interrupt                                     */
     __IM uint32_t RESERVED5[125];
     __IOM uint32_t GPREGRET[2];                      /*!< (@ 0x00000500) General purpose retention register                    */
-    __IM uint32_t RESERVED6[2];
-    __IM uint32_t CONSTLATSTAT;                      /*!< (@ 0x00000510) Status of constant latency                            */
-  } NRF_POWER_Type;                                  /*!< Size = 1300 (0x514)                                                  */
+    __IM uint32_t RESERVED6[6];
+    __IM uint32_t CONSTLATSTAT;                      /*!< (@ 0x00000520) Status of constant latency                            */
+  } NRF_POWER_Type;                                  /*!< Size = 1316 (0x524)                                                  */
 
 /* POWER_TASKS_CONSTLAT: Enable Constant Latency mode */
   #define POWER_TASKS_CONSTLAT_ResetValue (0x00000000UL) /*!< Reset value of TASKS_CONSTLAT register.                          */
@@ -21313,24 +20589,6 @@ typedef struct {
   #define POWER_EVENTS_SLEEPEXIT_EVENTS_SLEEPEXIT_Max (0x1UL) /*!< Max enumerator value of EVENTS_SLEEPEXIT field.             */
   #define POWER_EVENTS_SLEEPEXIT_EVENTS_SLEEPEXIT_NotGenerated (0x0UL) /*!< Event not generated                                */
   #define POWER_EVENTS_SLEEPEXIT_EVENTS_SLEEPEXIT_Generated (0x1UL) /*!< Event generated                                       */
-
-
-/* POWER_PUBLISH_POFWARN: Publish configuration for event POFWARN */
-  #define POWER_PUBLISH_POFWARN_ResetValue (0x00000000UL) /*!< Reset value of PUBLISH_POFWARN register.                        */
-
-/* CHIDX @Bits 0..7 : DPPI channel that event POFWARN will publish to */
-  #define POWER_PUBLISH_POFWARN_CHIDX_Pos (0UL)      /*!< Position of CHIDX field.                                             */
-  #define POWER_PUBLISH_POFWARN_CHIDX_Msk (0xFFUL << POWER_PUBLISH_POFWARN_CHIDX_Pos) /*!< Bit mask of CHIDX field.            */
-  #define POWER_PUBLISH_POFWARN_CHIDX_Min (0x00UL)   /*!< Min value of CHIDX field.                                            */
-  #define POWER_PUBLISH_POFWARN_CHIDX_Max (0xFFUL)   /*!< Max size of CHIDX field.                                             */
-
-/* EN @Bit 31 : (unspecified) */
-  #define POWER_PUBLISH_POFWARN_EN_Pos (31UL)        /*!< Position of EN field.                                                */
-  #define POWER_PUBLISH_POFWARN_EN_Msk (0x1UL << POWER_PUBLISH_POFWARN_EN_Pos) /*!< Bit mask of EN field.                      */
-  #define POWER_PUBLISH_POFWARN_EN_Min (0x0UL)       /*!< Min enumerator value of EN field.                                    */
-  #define POWER_PUBLISH_POFWARN_EN_Max (0x1UL)       /*!< Max enumerator value of EN field.                                    */
-  #define POWER_PUBLISH_POFWARN_EN_Disabled (0x0UL)  /*!< Disable publishing                                                   */
-  #define POWER_PUBLISH_POFWARN_EN_Enabled (0x1UL)   /*!< Enable publishing                                                    */
 
 
 /* POWER_PUBLISH_SLEEPENTER: Publish configuration for event SLEEPENTER */
@@ -22164,8 +21422,8 @@ typedef struct {
 /* PORT @Bits 5..7 : Port number */
   #define PWM_PSEL_OUT_PORT_Pos (5UL)                /*!< Position of PORT field.                                              */
   #define PWM_PSEL_OUT_PORT_Msk (0x7UL << PWM_PSEL_OUT_PORT_Pos) /*!< Bit mask of PORT field.                                  */
-  #define PWM_PSEL_OUT_PORT_Min (0x1UL)              /*!< Min value of PORT field.                                             */
-  #define PWM_PSEL_OUT_PORT_Max (0x1UL)              /*!< Max size of PORT field.                                              */
+  #define PWM_PSEL_OUT_PORT_Min (0x0UL)              /*!< Min value of PORT field.                                             */
+  #define PWM_PSEL_OUT_PORT_Max (0x7UL)              /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define PWM_PSEL_OUT_CONNECT_Pos (31UL)            /*!< Position of CONNECT field.                                           */
@@ -22209,32 +21467,32 @@ typedef struct {
 /* PWM_DMA_SEQ_MAXCNT: Maximum number of bytes in channel buffer */
   #define PWM_DMA_SEQ_MAXCNT_ResetValue (0x00000000UL) /*!< Reset value of MAXCNT register.                                    */
 
-/* MAXCNT @Bits 0..15 : Maximum number of bytes in channel buffer */
+/* MAXCNT @Bits 0..14 : Maximum number of bytes in channel buffer */
   #define PWM_DMA_SEQ_MAXCNT_MAXCNT_Pos (0UL)        /*!< Position of MAXCNT field.                                            */
-  #define PWM_DMA_SEQ_MAXCNT_MAXCNT_Msk (0xFFFFUL << PWM_DMA_SEQ_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field.             */
+  #define PWM_DMA_SEQ_MAXCNT_MAXCNT_Msk (0x7FFFUL << PWM_DMA_SEQ_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field.             */
   #define PWM_DMA_SEQ_MAXCNT_MAXCNT_Min (0x0001UL)   /*!< Min value of MAXCNT field.                                           */
-  #define PWM_DMA_SEQ_MAXCNT_MAXCNT_Max (0xFFFFUL)   /*!< Max size of MAXCNT field.                                            */
+  #define PWM_DMA_SEQ_MAXCNT_MAXCNT_Max (0x7FFFUL)   /*!< Max size of MAXCNT field.                                            */
 
 
 /* PWM_DMA_SEQ_AMOUNT: Number of bytes transferred in the last transaction, updated after the END event. */
   #define PWM_DMA_SEQ_AMOUNT_ResetValue (0x00000000UL) /*!< Reset value of AMOUNT register.                                    */
 
-/* AMOUNT @Bits 0..15 : Number of bytes transferred in the last transaction. In case of NACK error, includes the NACK'ed byte. */
+/* AMOUNT @Bits 0..14 : Number of bytes transferred in the last transaction. In case of NACK error, includes the NACK'ed byte. */
   #define PWM_DMA_SEQ_AMOUNT_AMOUNT_Pos (0UL)        /*!< Position of AMOUNT field.                                            */
-  #define PWM_DMA_SEQ_AMOUNT_AMOUNT_Msk (0xFFFFUL << PWM_DMA_SEQ_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field.             */
+  #define PWM_DMA_SEQ_AMOUNT_AMOUNT_Msk (0x7FFFUL << PWM_DMA_SEQ_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field.             */
   #define PWM_DMA_SEQ_AMOUNT_AMOUNT_Min (0x0001UL)   /*!< Min value of AMOUNT field.                                           */
-  #define PWM_DMA_SEQ_AMOUNT_AMOUNT_Max (0xFFFFUL)   /*!< Max size of AMOUNT field.                                            */
+  #define PWM_DMA_SEQ_AMOUNT_AMOUNT_Max (0x7FFFUL)   /*!< Max size of AMOUNT field.                                            */
 
 
 /* PWM_DMA_SEQ_CURRENTAMOUNT: Number of bytes transferred in the current transaction */
   #define PWM_DMA_SEQ_CURRENTAMOUNT_ResetValue (0x00000000UL) /*!< Reset value of CURRENTAMOUNT register.                      */
 
-/* AMOUNT @Bits 0..15 : Number of bytes transferred in the current transaction. Continuously updated. */
+/* AMOUNT @Bits 0..14 : Number of bytes transferred in the current transaction. Continuously updated. */
   #define PWM_DMA_SEQ_CURRENTAMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field.                                            */
-  #define PWM_DMA_SEQ_CURRENTAMOUNT_AMOUNT_Msk (0xFFFFUL << PWM_DMA_SEQ_CURRENTAMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT
+  #define PWM_DMA_SEQ_CURRENTAMOUNT_AMOUNT_Msk (0x7FFFUL << PWM_DMA_SEQ_CURRENTAMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT
                                                                             field.*/
   #define PWM_DMA_SEQ_CURRENTAMOUNT_AMOUNT_Min (0x0001UL) /*!< Min value of AMOUNT field.                                      */
-  #define PWM_DMA_SEQ_CURRENTAMOUNT_AMOUNT_Max (0xFFFFUL) /*!< Max size of AMOUNT field.                                       */
+  #define PWM_DMA_SEQ_CURRENTAMOUNT_AMOUNT_Max (0x7FFFUL) /*!< Max size of AMOUNT field.                                       */
 
 
 /* PWM_DMA_SEQ_TERMINATEONBUSERROR: Terminate the transaction if a BUSERROR event is detected. */
@@ -23472,8 +22730,8 @@ typedef struct {
 /* PORT @Bits 5..7 : Port number */
   #define QDEC_PSEL_LED_PORT_Pos (5UL)               /*!< Position of PORT field.                                              */
   #define QDEC_PSEL_LED_PORT_Msk (0x7UL << QDEC_PSEL_LED_PORT_Pos) /*!< Bit mask of PORT field.                                */
-  #define QDEC_PSEL_LED_PORT_Min (0x1UL)             /*!< Min value of PORT field.                                             */
-  #define QDEC_PSEL_LED_PORT_Max (0x1UL)             /*!< Max size of PORT field.                                              */
+  #define QDEC_PSEL_LED_PORT_Min (0x0UL)             /*!< Min value of PORT field.                                             */
+  #define QDEC_PSEL_LED_PORT_Max (0x7UL)             /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define QDEC_PSEL_LED_CONNECT_Pos (31UL)           /*!< Position of CONNECT field.                                           */
@@ -23496,8 +22754,8 @@ typedef struct {
 /* PORT @Bits 5..7 : Port number */
   #define QDEC_PSEL_A_PORT_Pos (5UL)                 /*!< Position of PORT field.                                              */
   #define QDEC_PSEL_A_PORT_Msk (0x7UL << QDEC_PSEL_A_PORT_Pos) /*!< Bit mask of PORT field.                                    */
-  #define QDEC_PSEL_A_PORT_Min (0x1UL)               /*!< Min value of PORT field.                                             */
-  #define QDEC_PSEL_A_PORT_Max (0x1UL)               /*!< Max size of PORT field.                                              */
+  #define QDEC_PSEL_A_PORT_Min (0x0UL)               /*!< Min value of PORT field.                                             */
+  #define QDEC_PSEL_A_PORT_Max (0x7UL)               /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define QDEC_PSEL_A_CONNECT_Pos (31UL)             /*!< Position of CONNECT field.                                           */
@@ -23520,8 +22778,8 @@ typedef struct {
 /* PORT @Bits 5..7 : Port number */
   #define QDEC_PSEL_B_PORT_Pos (5UL)                 /*!< Position of PORT field.                                              */
   #define QDEC_PSEL_B_PORT_Msk (0x7UL << QDEC_PSEL_B_PORT_Pos) /*!< Bit mask of PORT field.                                    */
-  #define QDEC_PSEL_B_PORT_Min (0x1UL)               /*!< Min value of PORT field.                                             */
-  #define QDEC_PSEL_B_PORT_Max (0x1UL)               /*!< Max size of PORT field.                                              */
+  #define QDEC_PSEL_B_PORT_Min (0x0UL)               /*!< Min value of PORT field.                                             */
+  #define QDEC_PSEL_B_PORT_Max (0x7UL)               /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define QDEC_PSEL_B_CONNECT_Pos (31UL)             /*!< Position of CONNECT field.                                           */
@@ -27827,27 +27085,6 @@ typedef struct {
 
 #if !defined(__ASSEMBLER__) && !defined(__ASSEMBLY__) /*!< Ignore C structs for assembly code.                                 */
 
-/* ================================================= Struct REGULATORS_VREGM ================================================= */
-/**
-  * @brief VREGM [REGULATORS_VREGM] Register interface for the medium voltage regulator
-  */
-typedef struct {
-  __IOM uint32_t  ENABLE;                            /*!< (@ 0x00000000) Enable register for VREGM                             */
-} NRF_REGULATORS_VREGM_Type;                         /*!< Size = 4 (0x004)                                                     */
-
-/* REGULATORS_VREGM_ENABLE: Enable register for VREGM */
-  #define REGULATORS_VREGM_ENABLE_ResetValue (0x00000001UL) /*!< Reset value of ENABLE register.                               */
-
-/* ENABLE @Bit 0 : Enable the regulator */
-  #define REGULATORS_VREGM_ENABLE_ENABLE_Pos (0UL)   /*!< Position of ENABLE field.                                            */
-  #define REGULATORS_VREGM_ENABLE_ENABLE_Msk (0x1UL << REGULATORS_VREGM_ENABLE_ENABLE_Pos) /*!< Bit mask of ENABLE field.      */
-  #define REGULATORS_VREGM_ENABLE_ENABLE_Min (0x0UL) /*!< Min enumerator value of ENABLE field.                                */
-  #define REGULATORS_VREGM_ENABLE_ENABLE_Max (0x1UL) /*!< Max enumerator value of ENABLE field.                                */
-  #define REGULATORS_VREGM_ENABLE_ENABLE_Disabled (0x0UL) /*!< Disable the regulator                                           */
-  #define REGULATORS_VREGM_ENABLE_ENABLE_Enabled (0x1UL) /*!< Enable the regulator                                             */
-
-
-
 /* =============================================== Struct REGULATORS_VREGMAIN ================================================ */
 /**
   * @brief VREGMAIN [REGULATORS_VREGMAIN] Register interface for main voltage regulator.
@@ -27887,14 +27124,12 @@ typedef struct {
   * @brief Voltage regulators
   */
   typedef struct {                                   /*!< REGULATORS Structure                                                 */
-    __IM uint32_t RESERVED[256];
-    __IOM NRF_REGULATORS_VREGM_Type VREGM;           /*!< (@ 0x00000400) Register interface for the medium voltage regulator   */
-    __IM uint32_t RESERVED1[63];
+    __IM uint32_t RESERVED[320];
     __OM uint32_t SYSTEMOFF;                         /*!< (@ 0x00000500) System OFF register                                   */
-    __IM uint32_t RESERVED2[11];
+    __IM uint32_t RESERVED1[11];
     __IOM uint32_t POFCON;                           /*!< (@ 0x00000530) Power-fail comparator configuration                   */
     __IM uint32_t POFSTAT;                           /*!< (@ 0x00000534) Power-fail comparator status register                 */
-    __IM uint32_t RESERVED3[50];
+    __IM uint32_t RESERVED2[50];
     __IOM NRF_REGULATORS_VREGMAIN_Type VREGMAIN;     /*!< (@ 0x00000600) Register interface for main voltage regulator.        */
   } NRF_REGULATORS_Type;                             /*!< Size = 1544 (0x608)                                                  */
 
@@ -28310,8 +27545,7 @@ typedef struct {
     __IOM uint32_t EVENTS_READY;                     /*!< (@ 0x00000104) RRAMC is ready                                        */
     __IOM uint32_t EVENTS_READYNEXT;                 /*!< (@ 0x00000108) Ready to accept a new write operation                 */
     __IOM uint32_t EVENTS_ACCESSERROR;               /*!< (@ 0x0000010C) RRAM access error                                     */
-    __IOM uint32_t EVENTS_ECCERROR;                  /*!< (@ 0x00000110) Uncorrectable ECC error detected                      */
-    __IM uint32_t RESERVED4[27];
+    __IM uint32_t RESERVED4[28];
     __IOM uint32_t PUBLISH_WOKENUP;                  /*!< (@ 0x00000180) Publish configuration for event WOKENUP               */
     __IM uint32_t RESERVED5[95];
     __IOM uint32_t INTEN;                            /*!< (@ 0x00000300) Enable or disable interrupt                           */
@@ -28451,19 +27685,6 @@ typedef struct {
   #define RRAMC_EVENTS_ACCESSERROR_EVENTS_ACCESSERROR_Generated (0x1UL) /*!< Event generated                                   */
 
 
-/* RRAMC_EVENTS_ECCERROR: Uncorrectable ECC error detected */
-  #define RRAMC_EVENTS_ECCERROR_ResetValue (0x00000000UL) /*!< Reset value of EVENTS_ECCERROR register.                        */
-
-/* EVENTS_ECCERROR @Bit 0 : Uncorrectable ECC error detected */
-  #define RRAMC_EVENTS_ECCERROR_EVENTS_ECCERROR_Pos (0UL) /*!< Position of EVENTS_ECCERROR field.                              */
-  #define RRAMC_EVENTS_ECCERROR_EVENTS_ECCERROR_Msk (0x1UL << RRAMC_EVENTS_ECCERROR_EVENTS_ECCERROR_Pos) /*!< Bit mask of
-                                                                            EVENTS_ECCERROR field.*/
-  #define RRAMC_EVENTS_ECCERROR_EVENTS_ECCERROR_Min (0x0UL) /*!< Min enumerator value of EVENTS_ECCERROR field.                */
-  #define RRAMC_EVENTS_ECCERROR_EVENTS_ECCERROR_Max (0x1UL) /*!< Max enumerator value of EVENTS_ECCERROR field.                */
-  #define RRAMC_EVENTS_ECCERROR_EVENTS_ECCERROR_NotGenerated (0x0UL) /*!< Event not generated                                  */
-  #define RRAMC_EVENTS_ECCERROR_EVENTS_ECCERROR_Generated (0x1UL) /*!< Event generated                                         */
-
-
 /* RRAMC_PUBLISH_WOKENUP: Publish configuration for event WOKENUP */
   #define RRAMC_PUBLISH_WOKENUP_ResetValue (0x00000000UL) /*!< Reset value of PUBLISH_WOKENUP register.                        */
 
@@ -28517,14 +27738,6 @@ typedef struct {
   #define RRAMC_INTEN_ACCESSERROR_Disabled (0x0UL)   /*!< Disable                                                              */
   #define RRAMC_INTEN_ACCESSERROR_Enabled (0x1UL)    /*!< Enable                                                               */
 
-/* ECCERROR @Bit 4 : Enable or disable interrupt for event ECCERROR */
-  #define RRAMC_INTEN_ECCERROR_Pos (4UL)             /*!< Position of ECCERROR field.                                          */
-  #define RRAMC_INTEN_ECCERROR_Msk (0x1UL << RRAMC_INTEN_ECCERROR_Pos) /*!< Bit mask of ECCERROR field.                        */
-  #define RRAMC_INTEN_ECCERROR_Min (0x0UL)           /*!< Min enumerator value of ECCERROR field.                              */
-  #define RRAMC_INTEN_ECCERROR_Max (0x1UL)           /*!< Max enumerator value of ECCERROR field.                              */
-  #define RRAMC_INTEN_ECCERROR_Disabled (0x0UL)      /*!< Disable                                                              */
-  #define RRAMC_INTEN_ECCERROR_Enabled (0x1UL)       /*!< Enable                                                               */
-
 
 /* RRAMC_INTENSET: Enable interrupt */
   #define RRAMC_INTENSET_ResetValue (0x00000000UL)   /*!< Reset value of INTENSET register.                                    */
@@ -28564,15 +27777,6 @@ typedef struct {
   #define RRAMC_INTENSET_ACCESSERROR_Set (0x1UL)     /*!< Enable                                                               */
   #define RRAMC_INTENSET_ACCESSERROR_Disabled (0x0UL) /*!< Read: Disabled                                                      */
   #define RRAMC_INTENSET_ACCESSERROR_Enabled (0x1UL) /*!< Read: Enabled                                                        */
-
-/* ECCERROR @Bit 4 : Write '1' to enable interrupt for event ECCERROR */
-  #define RRAMC_INTENSET_ECCERROR_Pos (4UL)          /*!< Position of ECCERROR field.                                          */
-  #define RRAMC_INTENSET_ECCERROR_Msk (0x1UL << RRAMC_INTENSET_ECCERROR_Pos) /*!< Bit mask of ECCERROR field.                  */
-  #define RRAMC_INTENSET_ECCERROR_Min (0x0UL)        /*!< Min enumerator value of ECCERROR field.                              */
-  #define RRAMC_INTENSET_ECCERROR_Max (0x1UL)        /*!< Max enumerator value of ECCERROR field.                              */
-  #define RRAMC_INTENSET_ECCERROR_Set (0x1UL)        /*!< Enable                                                               */
-  #define RRAMC_INTENSET_ECCERROR_Disabled (0x0UL)   /*!< Read: Disabled                                                       */
-  #define RRAMC_INTENSET_ECCERROR_Enabled (0x1UL)    /*!< Read: Enabled                                                        */
 
 
 /* RRAMC_INTENCLR: Disable interrupt */
@@ -28614,15 +27818,6 @@ typedef struct {
   #define RRAMC_INTENCLR_ACCESSERROR_Disabled (0x0UL) /*!< Read: Disabled                                                      */
   #define RRAMC_INTENCLR_ACCESSERROR_Enabled (0x1UL) /*!< Read: Enabled                                                        */
 
-/* ECCERROR @Bit 4 : Write '1' to disable interrupt for event ECCERROR */
-  #define RRAMC_INTENCLR_ECCERROR_Pos (4UL)          /*!< Position of ECCERROR field.                                          */
-  #define RRAMC_INTENCLR_ECCERROR_Msk (0x1UL << RRAMC_INTENCLR_ECCERROR_Pos) /*!< Bit mask of ECCERROR field.                  */
-  #define RRAMC_INTENCLR_ECCERROR_Min (0x0UL)        /*!< Min enumerator value of ECCERROR field.                              */
-  #define RRAMC_INTENCLR_ECCERROR_Max (0x1UL)        /*!< Max enumerator value of ECCERROR field.                              */
-  #define RRAMC_INTENCLR_ECCERROR_Clear (0x1UL)      /*!< Disable                                                              */
-  #define RRAMC_INTENCLR_ECCERROR_Disabled (0x0UL)   /*!< Read: Disabled                                                       */
-  #define RRAMC_INTENCLR_ECCERROR_Enabled (0x1UL)    /*!< Read: Enabled                                                        */
-
 
 /* RRAMC_INTPEND: Pending interrupts */
   #define RRAMC_INTPEND_ResetValue (0x00000000UL)    /*!< Reset value of INTPEND register.                                     */
@@ -28658,14 +27853,6 @@ typedef struct {
   #define RRAMC_INTPEND_ACCESSERROR_Max (0x1UL)      /*!< Max enumerator value of ACCESSERROR field.                           */
   #define RRAMC_INTPEND_ACCESSERROR_NotPending (0x0UL) /*!< Read: Not pending                                                  */
   #define RRAMC_INTPEND_ACCESSERROR_Pending (0x1UL)  /*!< Read: Pending                                                        */
-
-/* ECCERROR @Bit 4 : Read pending status of interrupt for event ECCERROR */
-  #define RRAMC_INTPEND_ECCERROR_Pos (4UL)           /*!< Position of ECCERROR field.                                          */
-  #define RRAMC_INTPEND_ECCERROR_Msk (0x1UL << RRAMC_INTPEND_ECCERROR_Pos) /*!< Bit mask of ECCERROR field.                    */
-  #define RRAMC_INTPEND_ECCERROR_Min (0x0UL)         /*!< Min enumerator value of ECCERROR field.                              */
-  #define RRAMC_INTPEND_ECCERROR_Max (0x1UL)         /*!< Max enumerator value of ECCERROR field.                              */
-  #define RRAMC_INTPEND_ECCERROR_NotPending (0x0UL)  /*!< Read: Not pending                                                    */
-  #define RRAMC_INTPEND_ECCERROR_Pending (0x1UL)     /*!< Read: Pending                                                        */
 
 
 /* RRAMC_READY: RRAMC ready status */
@@ -28735,656 +27922,6 @@ typedef struct {
   #define RRAMC_READYNEXTTIMEOUT_EN_Max (0x1UL)      /*!< Max enumerator value of EN field.                                    */
   #define RRAMC_READYNEXTTIMEOUT_EN_Disable (0x0UL)  /*!< Disable ready next timeout                                           */
   #define RRAMC_READYNEXTTIMEOUT_EN_Enable (0x1UL)   /*!< Enable ready next timeout                                            */
-
-
-#endif                                               /*!< !defined(__ASSEMBLER__) && !defined(__ASSEMBLY__)                    */
-
-/* =========================================================================================================================== */
-/* ================                                            RTC                                            ================ */
-/* =========================================================================================================================== */
-
-#if !defined(__ASSEMBLER__) && !defined(__ASSEMBLY__) /*!< Ignore C structs for assembly code.                                 */
-/* ======================================================= Struct RTC ======================================================== */
-/**
-  * @brief Real-time counter
-  */
-  typedef struct {                                   /*!< RTC Structure                                                        */
-    __OM uint32_t TASKS_START;                       /*!< (@ 0x00000000) Start RTC counter                                     */
-    __OM uint32_t TASKS_STOP;                        /*!< (@ 0x00000004) Stop RTC counter                                      */
-    __OM uint32_t TASKS_CLEAR;                       /*!< (@ 0x00000008) Clear RTC counter                                     */
-    __OM uint32_t TASKS_TRIGOVRFLW;                  /*!< (@ 0x0000000C) Set counter to 0xFFFFF0                               */
-    __IM uint32_t RESERVED[12];
-    __OM uint32_t TASKS_CAPTURE[4];                  /*!< (@ 0x00000040) Capture RTC counter to CC[n] register                 */
-    __IM uint32_t RESERVED1[12];
-    __IOM uint32_t SUBSCRIBE_START;                  /*!< (@ 0x00000080) Subscribe configuration for task START                */
-    __IOM uint32_t SUBSCRIBE_STOP;                   /*!< (@ 0x00000084) Subscribe configuration for task STOP                 */
-    __IOM uint32_t SUBSCRIBE_CLEAR;                  /*!< (@ 0x00000088) Subscribe configuration for task CLEAR                */
-    __IOM uint32_t SUBSCRIBE_TRIGOVRFLW;             /*!< (@ 0x0000008C) Subscribe configuration for task TRIGOVRFLW           */
-    __IM uint32_t RESERVED2[12];
-    __IOM uint32_t SUBSCRIBE_CAPTURE[4];             /*!< (@ 0x000000C0) Subscribe configuration for task CAPTURE[n]           */
-    __IM uint32_t RESERVED3[12];
-    __IOM uint32_t EVENTS_TICK;                      /*!< (@ 0x00000100) Event on counter increment                            */
-    __IOM uint32_t EVENTS_OVRFLW;                    /*!< (@ 0x00000104) Event on counter overflow                             */
-    __IM uint32_t RESERVED4[14];
-    __IOM uint32_t EVENTS_COMPARE[4];                /*!< (@ 0x00000140) Compare event on CC[n] match                          */
-    __IM uint32_t RESERVED5[12];
-    __IOM uint32_t PUBLISH_TICK;                     /*!< (@ 0x00000180) Publish configuration for event TICK                  */
-    __IOM uint32_t PUBLISH_OVRFLW;                   /*!< (@ 0x00000184) Publish configuration for event OVRFLW                */
-    __IM uint32_t RESERVED6[14];
-    __IOM uint32_t PUBLISH_COMPARE[4];               /*!< (@ 0x000001C0) Publish configuration for event COMPARE[n]            */
-    __IM uint32_t RESERVED7[12];
-    __IOM uint32_t SHORTS;                           /*!< (@ 0x00000200) Shortcuts between local events and tasks              */
-    __IM uint32_t RESERVED8[64];
-    __IOM uint32_t INTENSET;                         /*!< (@ 0x00000304) Enable interrupt                                      */
-    __IOM uint32_t INTENCLR;                         /*!< (@ 0x00000308) Disable interrupt                                     */
-    __IM uint32_t RESERVED9[13];
-    __IOM uint32_t EVTEN;                            /*!< (@ 0x00000340) Enable or disable event routing                       */
-    __IOM uint32_t EVTENSET;                         /*!< (@ 0x00000344) Enable event routing                                  */
-    __IOM uint32_t EVTENCLR;                         /*!< (@ 0x00000348) Disable event routing                                 */
-    __IM uint32_t RESERVED10[110];
-    __IM uint32_t COUNTER;                           /*!< (@ 0x00000504) Current counter value                                 */
-    __IOM uint32_t PRESCALER;                        /*!< (@ 0x00000508) 12-bit prescaler for counter frequency (32768 /
-                                                                         (PRESCALER + 1)). Must be written when RTC is stopped.*/
-    __IM uint32_t RESERVED11[13];
-    __IOM uint32_t CC[4];                            /*!< (@ 0x00000540) Compare register n                                    */
-  } NRF_RTC_Type;                                    /*!< Size = 1360 (0x550)                                                  */
-
-/* RTC_TASKS_START: Start RTC counter */
-  #define RTC_TASKS_START_ResetValue (0x00000000UL)  /*!< Reset value of TASKS_START register.                                 */
-
-/* TASKS_START @Bit 0 : Start RTC counter */
-  #define RTC_TASKS_START_TASKS_START_Pos (0UL)      /*!< Position of TASKS_START field.                                       */
-  #define RTC_TASKS_START_TASKS_START_Msk (0x1UL << RTC_TASKS_START_TASKS_START_Pos) /*!< Bit mask of TASKS_START field.       */
-  #define RTC_TASKS_START_TASKS_START_Min (0x1UL)    /*!< Min enumerator value of TASKS_START field.                           */
-  #define RTC_TASKS_START_TASKS_START_Max (0x1UL)    /*!< Max enumerator value of TASKS_START field.                           */
-  #define RTC_TASKS_START_TASKS_START_Trigger (0x1UL) /*!< Trigger task                                                        */
-
-
-/* RTC_TASKS_STOP: Stop RTC counter */
-  #define RTC_TASKS_STOP_ResetValue (0x00000000UL)   /*!< Reset value of TASKS_STOP register.                                  */
-
-/* TASKS_STOP @Bit 0 : Stop RTC counter */
-  #define RTC_TASKS_STOP_TASKS_STOP_Pos (0UL)        /*!< Position of TASKS_STOP field.                                        */
-  #define RTC_TASKS_STOP_TASKS_STOP_Msk (0x1UL << RTC_TASKS_STOP_TASKS_STOP_Pos) /*!< Bit mask of TASKS_STOP field.            */
-  #define RTC_TASKS_STOP_TASKS_STOP_Min (0x1UL)      /*!< Min enumerator value of TASKS_STOP field.                            */
-  #define RTC_TASKS_STOP_TASKS_STOP_Max (0x1UL)      /*!< Max enumerator value of TASKS_STOP field.                            */
-  #define RTC_TASKS_STOP_TASKS_STOP_Trigger (0x1UL)  /*!< Trigger task                                                         */
-
-
-/* RTC_TASKS_CLEAR: Clear RTC counter */
-  #define RTC_TASKS_CLEAR_ResetValue (0x00000000UL)  /*!< Reset value of TASKS_CLEAR register.                                 */
-
-/* TASKS_CLEAR @Bit 0 : Clear RTC counter */
-  #define RTC_TASKS_CLEAR_TASKS_CLEAR_Pos (0UL)      /*!< Position of TASKS_CLEAR field.                                       */
-  #define RTC_TASKS_CLEAR_TASKS_CLEAR_Msk (0x1UL << RTC_TASKS_CLEAR_TASKS_CLEAR_Pos) /*!< Bit mask of TASKS_CLEAR field.       */
-  #define RTC_TASKS_CLEAR_TASKS_CLEAR_Min (0x1UL)    /*!< Min enumerator value of TASKS_CLEAR field.                           */
-  #define RTC_TASKS_CLEAR_TASKS_CLEAR_Max (0x1UL)    /*!< Max enumerator value of TASKS_CLEAR field.                           */
-  #define RTC_TASKS_CLEAR_TASKS_CLEAR_Trigger (0x1UL) /*!< Trigger task                                                        */
-
-
-/* RTC_TASKS_TRIGOVRFLW: Set counter to 0xFFFFF0 */
-  #define RTC_TASKS_TRIGOVRFLW_ResetValue (0x00000000UL) /*!< Reset value of TASKS_TRIGOVRFLW register.                        */
-
-/* TASKS_TRIGOVRFLW @Bit 0 : Set counter to 0xFFFFF0 */
-  #define RTC_TASKS_TRIGOVRFLW_TASKS_TRIGOVRFLW_Pos (0UL) /*!< Position of TASKS_TRIGOVRFLW field.                             */
-  #define RTC_TASKS_TRIGOVRFLW_TASKS_TRIGOVRFLW_Msk (0x1UL << RTC_TASKS_TRIGOVRFLW_TASKS_TRIGOVRFLW_Pos) /*!< Bit mask of
-                                                                            TASKS_TRIGOVRFLW field.*/
-  #define RTC_TASKS_TRIGOVRFLW_TASKS_TRIGOVRFLW_Min (0x1UL) /*!< Min enumerator value of TASKS_TRIGOVRFLW field.               */
-  #define RTC_TASKS_TRIGOVRFLW_TASKS_TRIGOVRFLW_Max (0x1UL) /*!< Max enumerator value of TASKS_TRIGOVRFLW field.               */
-  #define RTC_TASKS_TRIGOVRFLW_TASKS_TRIGOVRFLW_Trigger (0x1UL) /*!< Trigger task                                              */
-
-
-/* RTC_TASKS_CAPTURE: Capture RTC counter to CC[n] register */
-  #define RTC_TASKS_CAPTURE_MaxCount (4UL)           /*!< Max size of TASKS_CAPTURE[4] array.                                  */
-  #define RTC_TASKS_CAPTURE_MaxIndex (3UL)           /*!< Max index of TASKS_CAPTURE[4] array.                                 */
-  #define RTC_TASKS_CAPTURE_MinIndex (0UL)           /*!< Min index of TASKS_CAPTURE[4] array.                                 */
-  #define RTC_TASKS_CAPTURE_ResetValue (0x00000000UL) /*!< Reset value of TASKS_CAPTURE[4] register.                           */
-
-/* TASKS_CAPTURE @Bit 0 : Capture RTC counter to CC[n] register */
-  #define RTC_TASKS_CAPTURE_TASKS_CAPTURE_Pos (0UL)  /*!< Position of TASKS_CAPTURE field.                                     */
-  #define RTC_TASKS_CAPTURE_TASKS_CAPTURE_Msk (0x1UL << RTC_TASKS_CAPTURE_TASKS_CAPTURE_Pos) /*!< Bit mask of TASKS_CAPTURE
-                                                                            field.*/
-  #define RTC_TASKS_CAPTURE_TASKS_CAPTURE_Min (0x1UL) /*!< Min enumerator value of TASKS_CAPTURE field.                        */
-  #define RTC_TASKS_CAPTURE_TASKS_CAPTURE_Max (0x1UL) /*!< Max enumerator value of TASKS_CAPTURE field.                        */
-  #define RTC_TASKS_CAPTURE_TASKS_CAPTURE_Trigger (0x1UL) /*!< Trigger task                                                    */
-
-
-/* RTC_SUBSCRIBE_START: Subscribe configuration for task START */
-  #define RTC_SUBSCRIBE_START_ResetValue (0x00000000UL) /*!< Reset value of SUBSCRIBE_START register.                          */
-
-/* CHIDX @Bits 0..7 : DPPI channel that task START will subscribe to */
-  #define RTC_SUBSCRIBE_START_CHIDX_Pos (0UL)        /*!< Position of CHIDX field.                                             */
-  #define RTC_SUBSCRIBE_START_CHIDX_Msk (0xFFUL << RTC_SUBSCRIBE_START_CHIDX_Pos) /*!< Bit mask of CHIDX field.                */
-  #define RTC_SUBSCRIBE_START_CHIDX_Min (0x00UL)     /*!< Min value of CHIDX field.                                            */
-  #define RTC_SUBSCRIBE_START_CHIDX_Max (0xFFUL)     /*!< Max size of CHIDX field.                                             */
-
-/* EN @Bit 31 : (unspecified) */
-  #define RTC_SUBSCRIBE_START_EN_Pos (31UL)          /*!< Position of EN field.                                                */
-  #define RTC_SUBSCRIBE_START_EN_Msk (0x1UL << RTC_SUBSCRIBE_START_EN_Pos) /*!< Bit mask of EN field.                          */
-  #define RTC_SUBSCRIBE_START_EN_Min (0x0UL)         /*!< Min enumerator value of EN field.                                    */
-  #define RTC_SUBSCRIBE_START_EN_Max (0x1UL)         /*!< Max enumerator value of EN field.                                    */
-  #define RTC_SUBSCRIBE_START_EN_Disabled (0x0UL)    /*!< Disable subscription                                                 */
-  #define RTC_SUBSCRIBE_START_EN_Enabled (0x1UL)     /*!< Enable subscription                                                  */
-
-
-/* RTC_SUBSCRIBE_STOP: Subscribe configuration for task STOP */
-  #define RTC_SUBSCRIBE_STOP_ResetValue (0x00000000UL) /*!< Reset value of SUBSCRIBE_STOP register.                            */
-
-/* CHIDX @Bits 0..7 : DPPI channel that task STOP will subscribe to */
-  #define RTC_SUBSCRIBE_STOP_CHIDX_Pos (0UL)         /*!< Position of CHIDX field.                                             */
-  #define RTC_SUBSCRIBE_STOP_CHIDX_Msk (0xFFUL << RTC_SUBSCRIBE_STOP_CHIDX_Pos) /*!< Bit mask of CHIDX field.                  */
-  #define RTC_SUBSCRIBE_STOP_CHIDX_Min (0x00UL)      /*!< Min value of CHIDX field.                                            */
-  #define RTC_SUBSCRIBE_STOP_CHIDX_Max (0xFFUL)      /*!< Max size of CHIDX field.                                             */
-
-/* EN @Bit 31 : (unspecified) */
-  #define RTC_SUBSCRIBE_STOP_EN_Pos (31UL)           /*!< Position of EN field.                                                */
-  #define RTC_SUBSCRIBE_STOP_EN_Msk (0x1UL << RTC_SUBSCRIBE_STOP_EN_Pos) /*!< Bit mask of EN field.                            */
-  #define RTC_SUBSCRIBE_STOP_EN_Min (0x0UL)          /*!< Min enumerator value of EN field.                                    */
-  #define RTC_SUBSCRIBE_STOP_EN_Max (0x1UL)          /*!< Max enumerator value of EN field.                                    */
-  #define RTC_SUBSCRIBE_STOP_EN_Disabled (0x0UL)     /*!< Disable subscription                                                 */
-  #define RTC_SUBSCRIBE_STOP_EN_Enabled (0x1UL)      /*!< Enable subscription                                                  */
-
-
-/* RTC_SUBSCRIBE_CLEAR: Subscribe configuration for task CLEAR */
-  #define RTC_SUBSCRIBE_CLEAR_ResetValue (0x00000000UL) /*!< Reset value of SUBSCRIBE_CLEAR register.                          */
-
-/* CHIDX @Bits 0..7 : DPPI channel that task CLEAR will subscribe to */
-  #define RTC_SUBSCRIBE_CLEAR_CHIDX_Pos (0UL)        /*!< Position of CHIDX field.                                             */
-  #define RTC_SUBSCRIBE_CLEAR_CHIDX_Msk (0xFFUL << RTC_SUBSCRIBE_CLEAR_CHIDX_Pos) /*!< Bit mask of CHIDX field.                */
-  #define RTC_SUBSCRIBE_CLEAR_CHIDX_Min (0x00UL)     /*!< Min value of CHIDX field.                                            */
-  #define RTC_SUBSCRIBE_CLEAR_CHIDX_Max (0xFFUL)     /*!< Max size of CHIDX field.                                             */
-
-/* EN @Bit 31 : (unspecified) */
-  #define RTC_SUBSCRIBE_CLEAR_EN_Pos (31UL)          /*!< Position of EN field.                                                */
-  #define RTC_SUBSCRIBE_CLEAR_EN_Msk (0x1UL << RTC_SUBSCRIBE_CLEAR_EN_Pos) /*!< Bit mask of EN field.                          */
-  #define RTC_SUBSCRIBE_CLEAR_EN_Min (0x0UL)         /*!< Min enumerator value of EN field.                                    */
-  #define RTC_SUBSCRIBE_CLEAR_EN_Max (0x1UL)         /*!< Max enumerator value of EN field.                                    */
-  #define RTC_SUBSCRIBE_CLEAR_EN_Disabled (0x0UL)    /*!< Disable subscription                                                 */
-  #define RTC_SUBSCRIBE_CLEAR_EN_Enabled (0x1UL)     /*!< Enable subscription                                                  */
-
-
-/* RTC_SUBSCRIBE_TRIGOVRFLW: Subscribe configuration for task TRIGOVRFLW */
-  #define RTC_SUBSCRIBE_TRIGOVRFLW_ResetValue (0x00000000UL) /*!< Reset value of SUBSCRIBE_TRIGOVRFLW register.                */
-
-/* CHIDX @Bits 0..7 : DPPI channel that task TRIGOVRFLW will subscribe to */
-  #define RTC_SUBSCRIBE_TRIGOVRFLW_CHIDX_Pos (0UL)   /*!< Position of CHIDX field.                                             */
-  #define RTC_SUBSCRIBE_TRIGOVRFLW_CHIDX_Msk (0xFFUL << RTC_SUBSCRIBE_TRIGOVRFLW_CHIDX_Pos) /*!< Bit mask of CHIDX field.      */
-  #define RTC_SUBSCRIBE_TRIGOVRFLW_CHIDX_Min (0x00UL) /*!< Min value of CHIDX field.                                           */
-  #define RTC_SUBSCRIBE_TRIGOVRFLW_CHIDX_Max (0xFFUL) /*!< Max size of CHIDX field.                                            */
-
-/* EN @Bit 31 : (unspecified) */
-  #define RTC_SUBSCRIBE_TRIGOVRFLW_EN_Pos (31UL)     /*!< Position of EN field.                                                */
-  #define RTC_SUBSCRIBE_TRIGOVRFLW_EN_Msk (0x1UL << RTC_SUBSCRIBE_TRIGOVRFLW_EN_Pos) /*!< Bit mask of EN field.                */
-  #define RTC_SUBSCRIBE_TRIGOVRFLW_EN_Min (0x0UL)    /*!< Min enumerator value of EN field.                                    */
-  #define RTC_SUBSCRIBE_TRIGOVRFLW_EN_Max (0x1UL)    /*!< Max enumerator value of EN field.                                    */
-  #define RTC_SUBSCRIBE_TRIGOVRFLW_EN_Disabled (0x0UL) /*!< Disable subscription                                               */
-  #define RTC_SUBSCRIBE_TRIGOVRFLW_EN_Enabled (0x1UL) /*!< Enable subscription                                                 */
-
-
-/* RTC_SUBSCRIBE_CAPTURE: Subscribe configuration for task CAPTURE[n] */
-  #define RTC_SUBSCRIBE_CAPTURE_MaxCount (4UL)       /*!< Max size of SUBSCRIBE_CAPTURE[4] array.                              */
-  #define RTC_SUBSCRIBE_CAPTURE_MaxIndex (3UL)       /*!< Max index of SUBSCRIBE_CAPTURE[4] array.                             */
-  #define RTC_SUBSCRIBE_CAPTURE_MinIndex (0UL)       /*!< Min index of SUBSCRIBE_CAPTURE[4] array.                             */
-  #define RTC_SUBSCRIBE_CAPTURE_ResetValue (0x00000000UL) /*!< Reset value of SUBSCRIBE_CAPTURE[4] register.                   */
-
-/* CHIDX @Bits 0..7 : DPPI channel that task CAPTURE[n] will subscribe to */
-  #define RTC_SUBSCRIBE_CAPTURE_CHIDX_Pos (0UL)      /*!< Position of CHIDX field.                                             */
-  #define RTC_SUBSCRIBE_CAPTURE_CHIDX_Msk (0xFFUL << RTC_SUBSCRIBE_CAPTURE_CHIDX_Pos) /*!< Bit mask of CHIDX field.            */
-  #define RTC_SUBSCRIBE_CAPTURE_CHIDX_Min (0x00UL)   /*!< Min value of CHIDX field.                                            */
-  #define RTC_SUBSCRIBE_CAPTURE_CHIDX_Max (0xFFUL)   /*!< Max size of CHIDX field.                                             */
-
-/* EN @Bit 31 : (unspecified) */
-  #define RTC_SUBSCRIBE_CAPTURE_EN_Pos (31UL)        /*!< Position of EN field.                                                */
-  #define RTC_SUBSCRIBE_CAPTURE_EN_Msk (0x1UL << RTC_SUBSCRIBE_CAPTURE_EN_Pos) /*!< Bit mask of EN field.                      */
-  #define RTC_SUBSCRIBE_CAPTURE_EN_Min (0x0UL)       /*!< Min enumerator value of EN field.                                    */
-  #define RTC_SUBSCRIBE_CAPTURE_EN_Max (0x1UL)       /*!< Max enumerator value of EN field.                                    */
-  #define RTC_SUBSCRIBE_CAPTURE_EN_Disabled (0x0UL)  /*!< Disable subscription                                                 */
-  #define RTC_SUBSCRIBE_CAPTURE_EN_Enabled (0x1UL)   /*!< Enable subscription                                                  */
-
-
-/* RTC_EVENTS_TICK: Event on counter increment */
-  #define RTC_EVENTS_TICK_ResetValue (0x00000000UL)  /*!< Reset value of EVENTS_TICK register.                                 */
-
-/* EVENTS_TICK @Bit 0 : Event on counter increment */
-  #define RTC_EVENTS_TICK_EVENTS_TICK_Pos (0UL)      /*!< Position of EVENTS_TICK field.                                       */
-  #define RTC_EVENTS_TICK_EVENTS_TICK_Msk (0x1UL << RTC_EVENTS_TICK_EVENTS_TICK_Pos) /*!< Bit mask of EVENTS_TICK field.       */
-  #define RTC_EVENTS_TICK_EVENTS_TICK_Min (0x0UL)    /*!< Min enumerator value of EVENTS_TICK field.                           */
-  #define RTC_EVENTS_TICK_EVENTS_TICK_Max (0x1UL)    /*!< Max enumerator value of EVENTS_TICK field.                           */
-  #define RTC_EVENTS_TICK_EVENTS_TICK_NotGenerated (0x0UL) /*!< Event not generated                                            */
-  #define RTC_EVENTS_TICK_EVENTS_TICK_Generated (0x1UL) /*!< Event generated                                                   */
-
-
-/* RTC_EVENTS_OVRFLW: Event on counter overflow */
-  #define RTC_EVENTS_OVRFLW_ResetValue (0x00000000UL) /*!< Reset value of EVENTS_OVRFLW register.                              */
-
-/* EVENTS_OVRFLW @Bit 0 : Event on counter overflow */
-  #define RTC_EVENTS_OVRFLW_EVENTS_OVRFLW_Pos (0UL)  /*!< Position of EVENTS_OVRFLW field.                                     */
-  #define RTC_EVENTS_OVRFLW_EVENTS_OVRFLW_Msk (0x1UL << RTC_EVENTS_OVRFLW_EVENTS_OVRFLW_Pos) /*!< Bit mask of EVENTS_OVRFLW
-                                                                            field.*/
-  #define RTC_EVENTS_OVRFLW_EVENTS_OVRFLW_Min (0x0UL) /*!< Min enumerator value of EVENTS_OVRFLW field.                        */
-  #define RTC_EVENTS_OVRFLW_EVENTS_OVRFLW_Max (0x1UL) /*!< Max enumerator value of EVENTS_OVRFLW field.                        */
-  #define RTC_EVENTS_OVRFLW_EVENTS_OVRFLW_NotGenerated (0x0UL) /*!< Event not generated                                        */
-  #define RTC_EVENTS_OVRFLW_EVENTS_OVRFLW_Generated (0x1UL) /*!< Event generated                                               */
-
-
-/* RTC_EVENTS_COMPARE: Compare event on CC[n] match */
-  #define RTC_EVENTS_COMPARE_MaxCount (4UL)          /*!< Max size of EVENTS_COMPARE[4] array.                                 */
-  #define RTC_EVENTS_COMPARE_MaxIndex (3UL)          /*!< Max index of EVENTS_COMPARE[4] array.                                */
-  #define RTC_EVENTS_COMPARE_MinIndex (0UL)          /*!< Min index of EVENTS_COMPARE[4] array.                                */
-  #define RTC_EVENTS_COMPARE_ResetValue (0x00000000UL) /*!< Reset value of EVENTS_COMPARE[4] register.                         */
-
-/* EVENTS_COMPARE @Bit 0 : Compare event on CC[n] match */
-  #define RTC_EVENTS_COMPARE_EVENTS_COMPARE_Pos (0UL) /*!< Position of EVENTS_COMPARE field.                                   */
-  #define RTC_EVENTS_COMPARE_EVENTS_COMPARE_Msk (0x1UL << RTC_EVENTS_COMPARE_EVENTS_COMPARE_Pos) /*!< Bit mask of EVENTS_COMPARE
-                                                                            field.*/
-  #define RTC_EVENTS_COMPARE_EVENTS_COMPARE_Min (0x0UL) /*!< Min enumerator value of EVENTS_COMPARE field.                     */
-  #define RTC_EVENTS_COMPARE_EVENTS_COMPARE_Max (0x1UL) /*!< Max enumerator value of EVENTS_COMPARE field.                     */
-  #define RTC_EVENTS_COMPARE_EVENTS_COMPARE_NotGenerated (0x0UL) /*!< Event not generated                                      */
-  #define RTC_EVENTS_COMPARE_EVENTS_COMPARE_Generated (0x1UL) /*!< Event generated                                             */
-
-
-/* RTC_PUBLISH_TICK: Publish configuration for event TICK */
-  #define RTC_PUBLISH_TICK_ResetValue (0x00000000UL) /*!< Reset value of PUBLISH_TICK register.                                */
-
-/* CHIDX @Bits 0..7 : DPPI channel that event TICK will publish to */
-  #define RTC_PUBLISH_TICK_CHIDX_Pos (0UL)           /*!< Position of CHIDX field.                                             */
-  #define RTC_PUBLISH_TICK_CHIDX_Msk (0xFFUL << RTC_PUBLISH_TICK_CHIDX_Pos) /*!< Bit mask of CHIDX field.                      */
-  #define RTC_PUBLISH_TICK_CHIDX_Min (0x00UL)        /*!< Min value of CHIDX field.                                            */
-  #define RTC_PUBLISH_TICK_CHIDX_Max (0xFFUL)        /*!< Max size of CHIDX field.                                             */
-
-/* EN @Bit 31 : (unspecified) */
-  #define RTC_PUBLISH_TICK_EN_Pos (31UL)             /*!< Position of EN field.                                                */
-  #define RTC_PUBLISH_TICK_EN_Msk (0x1UL << RTC_PUBLISH_TICK_EN_Pos) /*!< Bit mask of EN field.                                */
-  #define RTC_PUBLISH_TICK_EN_Min (0x0UL)            /*!< Min enumerator value of EN field.                                    */
-  #define RTC_PUBLISH_TICK_EN_Max (0x1UL)            /*!< Max enumerator value of EN field.                                    */
-  #define RTC_PUBLISH_TICK_EN_Disabled (0x0UL)       /*!< Disable publishing                                                   */
-  #define RTC_PUBLISH_TICK_EN_Enabled (0x1UL)        /*!< Enable publishing                                                    */
-
-
-/* RTC_PUBLISH_OVRFLW: Publish configuration for event OVRFLW */
-  #define RTC_PUBLISH_OVRFLW_ResetValue (0x00000000UL) /*!< Reset value of PUBLISH_OVRFLW register.                            */
-
-/* CHIDX @Bits 0..7 : DPPI channel that event OVRFLW will publish to */
-  #define RTC_PUBLISH_OVRFLW_CHIDX_Pos (0UL)         /*!< Position of CHIDX field.                                             */
-  #define RTC_PUBLISH_OVRFLW_CHIDX_Msk (0xFFUL << RTC_PUBLISH_OVRFLW_CHIDX_Pos) /*!< Bit mask of CHIDX field.                  */
-  #define RTC_PUBLISH_OVRFLW_CHIDX_Min (0x00UL)      /*!< Min value of CHIDX field.                                            */
-  #define RTC_PUBLISH_OVRFLW_CHIDX_Max (0xFFUL)      /*!< Max size of CHIDX field.                                             */
-
-/* EN @Bit 31 : (unspecified) */
-  #define RTC_PUBLISH_OVRFLW_EN_Pos (31UL)           /*!< Position of EN field.                                                */
-  #define RTC_PUBLISH_OVRFLW_EN_Msk (0x1UL << RTC_PUBLISH_OVRFLW_EN_Pos) /*!< Bit mask of EN field.                            */
-  #define RTC_PUBLISH_OVRFLW_EN_Min (0x0UL)          /*!< Min enumerator value of EN field.                                    */
-  #define RTC_PUBLISH_OVRFLW_EN_Max (0x1UL)          /*!< Max enumerator value of EN field.                                    */
-  #define RTC_PUBLISH_OVRFLW_EN_Disabled (0x0UL)     /*!< Disable publishing                                                   */
-  #define RTC_PUBLISH_OVRFLW_EN_Enabled (0x1UL)      /*!< Enable publishing                                                    */
-
-
-/* RTC_PUBLISH_COMPARE: Publish configuration for event COMPARE[n] */
-  #define RTC_PUBLISH_COMPARE_MaxCount (4UL)         /*!< Max size of PUBLISH_COMPARE[4] array.                                */
-  #define RTC_PUBLISH_COMPARE_MaxIndex (3UL)         /*!< Max index of PUBLISH_COMPARE[4] array.                               */
-  #define RTC_PUBLISH_COMPARE_MinIndex (0UL)         /*!< Min index of PUBLISH_COMPARE[4] array.                               */
-  #define RTC_PUBLISH_COMPARE_ResetValue (0x00000000UL) /*!< Reset value of PUBLISH_COMPARE[4] register.                       */
-
-/* CHIDX @Bits 0..7 : DPPI channel that event COMPARE[n] will publish to */
-  #define RTC_PUBLISH_COMPARE_CHIDX_Pos (0UL)        /*!< Position of CHIDX field.                                             */
-  #define RTC_PUBLISH_COMPARE_CHIDX_Msk (0xFFUL << RTC_PUBLISH_COMPARE_CHIDX_Pos) /*!< Bit mask of CHIDX field.                */
-  #define RTC_PUBLISH_COMPARE_CHIDX_Min (0x00UL)     /*!< Min value of CHIDX field.                                            */
-  #define RTC_PUBLISH_COMPARE_CHIDX_Max (0xFFUL)     /*!< Max size of CHIDX field.                                             */
-
-/* EN @Bit 31 : (unspecified) */
-  #define RTC_PUBLISH_COMPARE_EN_Pos (31UL)          /*!< Position of EN field.                                                */
-  #define RTC_PUBLISH_COMPARE_EN_Msk (0x1UL << RTC_PUBLISH_COMPARE_EN_Pos) /*!< Bit mask of EN field.                          */
-  #define RTC_PUBLISH_COMPARE_EN_Min (0x0UL)         /*!< Min enumerator value of EN field.                                    */
-  #define RTC_PUBLISH_COMPARE_EN_Max (0x1UL)         /*!< Max enumerator value of EN field.                                    */
-  #define RTC_PUBLISH_COMPARE_EN_Disabled (0x0UL)    /*!< Disable publishing                                                   */
-  #define RTC_PUBLISH_COMPARE_EN_Enabled (0x1UL)     /*!< Enable publishing                                                    */
-
-
-/* RTC_SHORTS: Shortcuts between local events and tasks */
-  #define RTC_SHORTS_ResetValue (0x00000000UL)       /*!< Reset value of SHORTS register.                                      */
-
-/* COMPARE0_CLEAR @Bit 0 : Shortcut between event COMPARE[0] and task CLEAR */
-  #define RTC_SHORTS_COMPARE0_CLEAR_Pos (0UL)        /*!< Position of COMPARE0_CLEAR field.                                    */
-  #define RTC_SHORTS_COMPARE0_CLEAR_Msk (0x1UL << RTC_SHORTS_COMPARE0_CLEAR_Pos) /*!< Bit mask of COMPARE0_CLEAR field.        */
-  #define RTC_SHORTS_COMPARE0_CLEAR_Min (0x0UL)      /*!< Min enumerator value of COMPARE0_CLEAR field.                        */
-  #define RTC_SHORTS_COMPARE0_CLEAR_Max (0x1UL)      /*!< Max enumerator value of COMPARE0_CLEAR field.                        */
-  #define RTC_SHORTS_COMPARE0_CLEAR_Disabled (0x0UL) /*!< Disable shortcut                                                     */
-  #define RTC_SHORTS_COMPARE0_CLEAR_Enabled (0x1UL)  /*!< Enable shortcut                                                      */
-
-/* COMPARE1_CLEAR @Bit 1 : Shortcut between event COMPARE[1] and task CLEAR */
-  #define RTC_SHORTS_COMPARE1_CLEAR_Pos (1UL)        /*!< Position of COMPARE1_CLEAR field.                                    */
-  #define RTC_SHORTS_COMPARE1_CLEAR_Msk (0x1UL << RTC_SHORTS_COMPARE1_CLEAR_Pos) /*!< Bit mask of COMPARE1_CLEAR field.        */
-  #define RTC_SHORTS_COMPARE1_CLEAR_Min (0x0UL)      /*!< Min enumerator value of COMPARE1_CLEAR field.                        */
-  #define RTC_SHORTS_COMPARE1_CLEAR_Max (0x1UL)      /*!< Max enumerator value of COMPARE1_CLEAR field.                        */
-  #define RTC_SHORTS_COMPARE1_CLEAR_Disabled (0x0UL) /*!< Disable shortcut                                                     */
-  #define RTC_SHORTS_COMPARE1_CLEAR_Enabled (0x1UL)  /*!< Enable shortcut                                                      */
-
-/* COMPARE2_CLEAR @Bit 2 : Shortcut between event COMPARE[2] and task CLEAR */
-  #define RTC_SHORTS_COMPARE2_CLEAR_Pos (2UL)        /*!< Position of COMPARE2_CLEAR field.                                    */
-  #define RTC_SHORTS_COMPARE2_CLEAR_Msk (0x1UL << RTC_SHORTS_COMPARE2_CLEAR_Pos) /*!< Bit mask of COMPARE2_CLEAR field.        */
-  #define RTC_SHORTS_COMPARE2_CLEAR_Min (0x0UL)      /*!< Min enumerator value of COMPARE2_CLEAR field.                        */
-  #define RTC_SHORTS_COMPARE2_CLEAR_Max (0x1UL)      /*!< Max enumerator value of COMPARE2_CLEAR field.                        */
-  #define RTC_SHORTS_COMPARE2_CLEAR_Disabled (0x0UL) /*!< Disable shortcut                                                     */
-  #define RTC_SHORTS_COMPARE2_CLEAR_Enabled (0x1UL)  /*!< Enable shortcut                                                      */
-
-/* COMPARE3_CLEAR @Bit 3 : Shortcut between event COMPARE[3] and task CLEAR */
-  #define RTC_SHORTS_COMPARE3_CLEAR_Pos (3UL)        /*!< Position of COMPARE3_CLEAR field.                                    */
-  #define RTC_SHORTS_COMPARE3_CLEAR_Msk (0x1UL << RTC_SHORTS_COMPARE3_CLEAR_Pos) /*!< Bit mask of COMPARE3_CLEAR field.        */
-  #define RTC_SHORTS_COMPARE3_CLEAR_Min (0x0UL)      /*!< Min enumerator value of COMPARE3_CLEAR field.                        */
-  #define RTC_SHORTS_COMPARE3_CLEAR_Max (0x1UL)      /*!< Max enumerator value of COMPARE3_CLEAR field.                        */
-  #define RTC_SHORTS_COMPARE3_CLEAR_Disabled (0x0UL) /*!< Disable shortcut                                                     */
-  #define RTC_SHORTS_COMPARE3_CLEAR_Enabled (0x1UL)  /*!< Enable shortcut                                                      */
-
-
-/* RTC_INTENSET: Enable interrupt */
-  #define RTC_INTENSET_ResetValue (0x00000000UL)     /*!< Reset value of INTENSET register.                                    */
-
-/* TICK @Bit 0 : Write '1' to enable interrupt for event TICK */
-  #define RTC_INTENSET_TICK_Pos (0UL)                /*!< Position of TICK field.                                              */
-  #define RTC_INTENSET_TICK_Msk (0x1UL << RTC_INTENSET_TICK_Pos) /*!< Bit mask of TICK field.                                  */
-  #define RTC_INTENSET_TICK_Min (0x0UL)              /*!< Min enumerator value of TICK field.                                  */
-  #define RTC_INTENSET_TICK_Max (0x1UL)              /*!< Max enumerator value of TICK field.                                  */
-  #define RTC_INTENSET_TICK_Set (0x1UL)              /*!< Enable                                                               */
-  #define RTC_INTENSET_TICK_Disabled (0x0UL)         /*!< Read: Disabled                                                       */
-  #define RTC_INTENSET_TICK_Enabled (0x1UL)          /*!< Read: Enabled                                                        */
-
-/* OVRFLW @Bit 1 : Write '1' to enable interrupt for event OVRFLW */
-  #define RTC_INTENSET_OVRFLW_Pos (1UL)              /*!< Position of OVRFLW field.                                            */
-  #define RTC_INTENSET_OVRFLW_Msk (0x1UL << RTC_INTENSET_OVRFLW_Pos) /*!< Bit mask of OVRFLW field.                            */
-  #define RTC_INTENSET_OVRFLW_Min (0x0UL)            /*!< Min enumerator value of OVRFLW field.                                */
-  #define RTC_INTENSET_OVRFLW_Max (0x1UL)            /*!< Max enumerator value of OVRFLW field.                                */
-  #define RTC_INTENSET_OVRFLW_Set (0x1UL)            /*!< Enable                                                               */
-  #define RTC_INTENSET_OVRFLW_Disabled (0x0UL)       /*!< Read: Disabled                                                       */
-  #define RTC_INTENSET_OVRFLW_Enabled (0x1UL)        /*!< Read: Enabled                                                        */
-
-/* COMPARE0 @Bit 16 : Write '1' to enable interrupt for event COMPARE[0] */
-  #define RTC_INTENSET_COMPARE0_Pos (16UL)           /*!< Position of COMPARE0 field.                                          */
-  #define RTC_INTENSET_COMPARE0_Msk (0x1UL << RTC_INTENSET_COMPARE0_Pos) /*!< Bit mask of COMPARE0 field.                      */
-  #define RTC_INTENSET_COMPARE0_Min (0x0UL)          /*!< Min enumerator value of COMPARE0 field.                              */
-  #define RTC_INTENSET_COMPARE0_Max (0x1UL)          /*!< Max enumerator value of COMPARE0 field.                              */
-  #define RTC_INTENSET_COMPARE0_Set (0x1UL)          /*!< Enable                                                               */
-  #define RTC_INTENSET_COMPARE0_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_INTENSET_COMPARE0_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-
-/* COMPARE1 @Bit 17 : Write '1' to enable interrupt for event COMPARE[1] */
-  #define RTC_INTENSET_COMPARE1_Pos (17UL)           /*!< Position of COMPARE1 field.                                          */
-  #define RTC_INTENSET_COMPARE1_Msk (0x1UL << RTC_INTENSET_COMPARE1_Pos) /*!< Bit mask of COMPARE1 field.                      */
-  #define RTC_INTENSET_COMPARE1_Min (0x0UL)          /*!< Min enumerator value of COMPARE1 field.                              */
-  #define RTC_INTENSET_COMPARE1_Max (0x1UL)          /*!< Max enumerator value of COMPARE1 field.                              */
-  #define RTC_INTENSET_COMPARE1_Set (0x1UL)          /*!< Enable                                                               */
-  #define RTC_INTENSET_COMPARE1_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_INTENSET_COMPARE1_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-
-/* COMPARE2 @Bit 18 : Write '1' to enable interrupt for event COMPARE[2] */
-  #define RTC_INTENSET_COMPARE2_Pos (18UL)           /*!< Position of COMPARE2 field.                                          */
-  #define RTC_INTENSET_COMPARE2_Msk (0x1UL << RTC_INTENSET_COMPARE2_Pos) /*!< Bit mask of COMPARE2 field.                      */
-  #define RTC_INTENSET_COMPARE2_Min (0x0UL)          /*!< Min enumerator value of COMPARE2 field.                              */
-  #define RTC_INTENSET_COMPARE2_Max (0x1UL)          /*!< Max enumerator value of COMPARE2 field.                              */
-  #define RTC_INTENSET_COMPARE2_Set (0x1UL)          /*!< Enable                                                               */
-  #define RTC_INTENSET_COMPARE2_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_INTENSET_COMPARE2_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-
-/* COMPARE3 @Bit 19 : Write '1' to enable interrupt for event COMPARE[3] */
-  #define RTC_INTENSET_COMPARE3_Pos (19UL)           /*!< Position of COMPARE3 field.                                          */
-  #define RTC_INTENSET_COMPARE3_Msk (0x1UL << RTC_INTENSET_COMPARE3_Pos) /*!< Bit mask of COMPARE3 field.                      */
-  #define RTC_INTENSET_COMPARE3_Min (0x0UL)          /*!< Min enumerator value of COMPARE3 field.                              */
-  #define RTC_INTENSET_COMPARE3_Max (0x1UL)          /*!< Max enumerator value of COMPARE3 field.                              */
-  #define RTC_INTENSET_COMPARE3_Set (0x1UL)          /*!< Enable                                                               */
-  #define RTC_INTENSET_COMPARE3_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_INTENSET_COMPARE3_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-
-
-/* RTC_INTENCLR: Disable interrupt */
-  #define RTC_INTENCLR_ResetValue (0x00000000UL)     /*!< Reset value of INTENCLR register.                                    */
-
-/* TICK @Bit 0 : Write '1' to disable interrupt for event TICK */
-  #define RTC_INTENCLR_TICK_Pos (0UL)                /*!< Position of TICK field.                                              */
-  #define RTC_INTENCLR_TICK_Msk (0x1UL << RTC_INTENCLR_TICK_Pos) /*!< Bit mask of TICK field.                                  */
-  #define RTC_INTENCLR_TICK_Min (0x0UL)              /*!< Min enumerator value of TICK field.                                  */
-  #define RTC_INTENCLR_TICK_Max (0x1UL)              /*!< Max enumerator value of TICK field.                                  */
-  #define RTC_INTENCLR_TICK_Clear (0x1UL)            /*!< Disable                                                              */
-  #define RTC_INTENCLR_TICK_Disabled (0x0UL)         /*!< Read: Disabled                                                       */
-  #define RTC_INTENCLR_TICK_Enabled (0x1UL)          /*!< Read: Enabled                                                        */
-
-/* OVRFLW @Bit 1 : Write '1' to disable interrupt for event OVRFLW */
-  #define RTC_INTENCLR_OVRFLW_Pos (1UL)              /*!< Position of OVRFLW field.                                            */
-  #define RTC_INTENCLR_OVRFLW_Msk (0x1UL << RTC_INTENCLR_OVRFLW_Pos) /*!< Bit mask of OVRFLW field.                            */
-  #define RTC_INTENCLR_OVRFLW_Min (0x0UL)            /*!< Min enumerator value of OVRFLW field.                                */
-  #define RTC_INTENCLR_OVRFLW_Max (0x1UL)            /*!< Max enumerator value of OVRFLW field.                                */
-  #define RTC_INTENCLR_OVRFLW_Clear (0x1UL)          /*!< Disable                                                              */
-  #define RTC_INTENCLR_OVRFLW_Disabled (0x0UL)       /*!< Read: Disabled                                                       */
-  #define RTC_INTENCLR_OVRFLW_Enabled (0x1UL)        /*!< Read: Enabled                                                        */
-
-/* COMPARE0 @Bit 16 : Write '1' to disable interrupt for event COMPARE[0] */
-  #define RTC_INTENCLR_COMPARE0_Pos (16UL)           /*!< Position of COMPARE0 field.                                          */
-  #define RTC_INTENCLR_COMPARE0_Msk (0x1UL << RTC_INTENCLR_COMPARE0_Pos) /*!< Bit mask of COMPARE0 field.                      */
-  #define RTC_INTENCLR_COMPARE0_Min (0x0UL)          /*!< Min enumerator value of COMPARE0 field.                              */
-  #define RTC_INTENCLR_COMPARE0_Max (0x1UL)          /*!< Max enumerator value of COMPARE0 field.                              */
-  #define RTC_INTENCLR_COMPARE0_Clear (0x1UL)        /*!< Disable                                                              */
-  #define RTC_INTENCLR_COMPARE0_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_INTENCLR_COMPARE0_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-
-/* COMPARE1 @Bit 17 : Write '1' to disable interrupt for event COMPARE[1] */
-  #define RTC_INTENCLR_COMPARE1_Pos (17UL)           /*!< Position of COMPARE1 field.                                          */
-  #define RTC_INTENCLR_COMPARE1_Msk (0x1UL << RTC_INTENCLR_COMPARE1_Pos) /*!< Bit mask of COMPARE1 field.                      */
-  #define RTC_INTENCLR_COMPARE1_Min (0x0UL)          /*!< Min enumerator value of COMPARE1 field.                              */
-  #define RTC_INTENCLR_COMPARE1_Max (0x1UL)          /*!< Max enumerator value of COMPARE1 field.                              */
-  #define RTC_INTENCLR_COMPARE1_Clear (0x1UL)        /*!< Disable                                                              */
-  #define RTC_INTENCLR_COMPARE1_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_INTENCLR_COMPARE1_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-
-/* COMPARE2 @Bit 18 : Write '1' to disable interrupt for event COMPARE[2] */
-  #define RTC_INTENCLR_COMPARE2_Pos (18UL)           /*!< Position of COMPARE2 field.                                          */
-  #define RTC_INTENCLR_COMPARE2_Msk (0x1UL << RTC_INTENCLR_COMPARE2_Pos) /*!< Bit mask of COMPARE2 field.                      */
-  #define RTC_INTENCLR_COMPARE2_Min (0x0UL)          /*!< Min enumerator value of COMPARE2 field.                              */
-  #define RTC_INTENCLR_COMPARE2_Max (0x1UL)          /*!< Max enumerator value of COMPARE2 field.                              */
-  #define RTC_INTENCLR_COMPARE2_Clear (0x1UL)        /*!< Disable                                                              */
-  #define RTC_INTENCLR_COMPARE2_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_INTENCLR_COMPARE2_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-
-/* COMPARE3 @Bit 19 : Write '1' to disable interrupt for event COMPARE[3] */
-  #define RTC_INTENCLR_COMPARE3_Pos (19UL)           /*!< Position of COMPARE3 field.                                          */
-  #define RTC_INTENCLR_COMPARE3_Msk (0x1UL << RTC_INTENCLR_COMPARE3_Pos) /*!< Bit mask of COMPARE3 field.                      */
-  #define RTC_INTENCLR_COMPARE3_Min (0x0UL)          /*!< Min enumerator value of COMPARE3 field.                              */
-  #define RTC_INTENCLR_COMPARE3_Max (0x1UL)          /*!< Max enumerator value of COMPARE3 field.                              */
-  #define RTC_INTENCLR_COMPARE3_Clear (0x1UL)        /*!< Disable                                                              */
-  #define RTC_INTENCLR_COMPARE3_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_INTENCLR_COMPARE3_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-
-
-/* RTC_EVTEN: Enable or disable event routing */
-  #define RTC_EVTEN_ResetValue (0x00000000UL)        /*!< Reset value of EVTEN register.                                       */
-
-/* TICK @Bit 0 : Enable or disable event routing for event TICK */
-  #define RTC_EVTEN_TICK_Pos (0UL)                   /*!< Position of TICK field.                                              */
-  #define RTC_EVTEN_TICK_Msk (0x1UL << RTC_EVTEN_TICK_Pos) /*!< Bit mask of TICK field.                                        */
-  #define RTC_EVTEN_TICK_Min (0x0UL)                 /*!< Min enumerator value of TICK field.                                  */
-  #define RTC_EVTEN_TICK_Max (0x1UL)                 /*!< Max enumerator value of TICK field.                                  */
-  #define RTC_EVTEN_TICK_Disabled (0x0UL)            /*!< Disable                                                              */
-  #define RTC_EVTEN_TICK_Enabled (0x1UL)             /*!< Enable                                                               */
-
-/* OVRFLW @Bit 1 : Enable or disable event routing for event OVRFLW */
-  #define RTC_EVTEN_OVRFLW_Pos (1UL)                 /*!< Position of OVRFLW field.                                            */
-  #define RTC_EVTEN_OVRFLW_Msk (0x1UL << RTC_EVTEN_OVRFLW_Pos) /*!< Bit mask of OVRFLW field.                                  */
-  #define RTC_EVTEN_OVRFLW_Min (0x0UL)               /*!< Min enumerator value of OVRFLW field.                                */
-  #define RTC_EVTEN_OVRFLW_Max (0x1UL)               /*!< Max enumerator value of OVRFLW field.                                */
-  #define RTC_EVTEN_OVRFLW_Disabled (0x0UL)          /*!< Disable                                                              */
-  #define RTC_EVTEN_OVRFLW_Enabled (0x1UL)           /*!< Enable                                                               */
-
-/* COMPARE0 @Bit 16 : Enable or disable event routing for event COMPARE[0] */
-  #define RTC_EVTEN_COMPARE0_Pos (16UL)              /*!< Position of COMPARE0 field.                                          */
-  #define RTC_EVTEN_COMPARE0_Msk (0x1UL << RTC_EVTEN_COMPARE0_Pos) /*!< Bit mask of COMPARE0 field.                            */
-  #define RTC_EVTEN_COMPARE0_Min (0x0UL)             /*!< Min enumerator value of COMPARE0 field.                              */
-  #define RTC_EVTEN_COMPARE0_Max (0x1UL)             /*!< Max enumerator value of COMPARE0 field.                              */
-  #define RTC_EVTEN_COMPARE0_Disabled (0x0UL)        /*!< Disable                                                              */
-  #define RTC_EVTEN_COMPARE0_Enabled (0x1UL)         /*!< Enable                                                               */
-
-/* COMPARE1 @Bit 17 : Enable or disable event routing for event COMPARE[1] */
-  #define RTC_EVTEN_COMPARE1_Pos (17UL)              /*!< Position of COMPARE1 field.                                          */
-  #define RTC_EVTEN_COMPARE1_Msk (0x1UL << RTC_EVTEN_COMPARE1_Pos) /*!< Bit mask of COMPARE1 field.                            */
-  #define RTC_EVTEN_COMPARE1_Min (0x0UL)             /*!< Min enumerator value of COMPARE1 field.                              */
-  #define RTC_EVTEN_COMPARE1_Max (0x1UL)             /*!< Max enumerator value of COMPARE1 field.                              */
-  #define RTC_EVTEN_COMPARE1_Disabled (0x0UL)        /*!< Disable                                                              */
-  #define RTC_EVTEN_COMPARE1_Enabled (0x1UL)         /*!< Enable                                                               */
-
-/* COMPARE2 @Bit 18 : Enable or disable event routing for event COMPARE[2] */
-  #define RTC_EVTEN_COMPARE2_Pos (18UL)              /*!< Position of COMPARE2 field.                                          */
-  #define RTC_EVTEN_COMPARE2_Msk (0x1UL << RTC_EVTEN_COMPARE2_Pos) /*!< Bit mask of COMPARE2 field.                            */
-  #define RTC_EVTEN_COMPARE2_Min (0x0UL)             /*!< Min enumerator value of COMPARE2 field.                              */
-  #define RTC_EVTEN_COMPARE2_Max (0x1UL)             /*!< Max enumerator value of COMPARE2 field.                              */
-  #define RTC_EVTEN_COMPARE2_Disabled (0x0UL)        /*!< Disable                                                              */
-  #define RTC_EVTEN_COMPARE2_Enabled (0x1UL)         /*!< Enable                                                               */
-
-/* COMPARE3 @Bit 19 : Enable or disable event routing for event COMPARE[3] */
-  #define RTC_EVTEN_COMPARE3_Pos (19UL)              /*!< Position of COMPARE3 field.                                          */
-  #define RTC_EVTEN_COMPARE3_Msk (0x1UL << RTC_EVTEN_COMPARE3_Pos) /*!< Bit mask of COMPARE3 field.                            */
-  #define RTC_EVTEN_COMPARE3_Min (0x0UL)             /*!< Min enumerator value of COMPARE3 field.                              */
-  #define RTC_EVTEN_COMPARE3_Max (0x1UL)             /*!< Max enumerator value of COMPARE3 field.                              */
-  #define RTC_EVTEN_COMPARE3_Disabled (0x0UL)        /*!< Disable                                                              */
-  #define RTC_EVTEN_COMPARE3_Enabled (0x1UL)         /*!< Enable                                                               */
-
-
-/* RTC_EVTENSET: Enable event routing */
-  #define RTC_EVTENSET_ResetValue (0x00000000UL)     /*!< Reset value of EVTENSET register.                                    */
-
-/* TICK @Bit 0 : Write '1' to enable event routing for event TICK */
-  #define RTC_EVTENSET_TICK_Pos (0UL)                /*!< Position of TICK field.                                              */
-  #define RTC_EVTENSET_TICK_Msk (0x1UL << RTC_EVTENSET_TICK_Pos) /*!< Bit mask of TICK field.                                  */
-  #define RTC_EVTENSET_TICK_Min (0x0UL)              /*!< Min enumerator value of TICK field.                                  */
-  #define RTC_EVTENSET_TICK_Max (0x1UL)              /*!< Max enumerator value of TICK field.                                  */
-  #define RTC_EVTENSET_TICK_Disabled (0x0UL)         /*!< Read: Disabled                                                       */
-  #define RTC_EVTENSET_TICK_Enabled (0x1UL)          /*!< Read: Enabled                                                        */
-  #define RTC_EVTENSET_TICK_Set (0x1UL)              /*!< Enable                                                               */
-
-/* OVRFLW @Bit 1 : Write '1' to enable event routing for event OVRFLW */
-  #define RTC_EVTENSET_OVRFLW_Pos (1UL)              /*!< Position of OVRFLW field.                                            */
-  #define RTC_EVTENSET_OVRFLW_Msk (0x1UL << RTC_EVTENSET_OVRFLW_Pos) /*!< Bit mask of OVRFLW field.                            */
-  #define RTC_EVTENSET_OVRFLW_Min (0x0UL)            /*!< Min enumerator value of OVRFLW field.                                */
-  #define RTC_EVTENSET_OVRFLW_Max (0x1UL)            /*!< Max enumerator value of OVRFLW field.                                */
-  #define RTC_EVTENSET_OVRFLW_Disabled (0x0UL)       /*!< Read: Disabled                                                       */
-  #define RTC_EVTENSET_OVRFLW_Enabled (0x1UL)        /*!< Read: Enabled                                                        */
-  #define RTC_EVTENSET_OVRFLW_Set (0x1UL)            /*!< Enable                                                               */
-
-/* COMPARE0 @Bit 16 : Write '1' to enable event routing for event COMPARE[0] */
-  #define RTC_EVTENSET_COMPARE0_Pos (16UL)           /*!< Position of COMPARE0 field.                                          */
-  #define RTC_EVTENSET_COMPARE0_Msk (0x1UL << RTC_EVTENSET_COMPARE0_Pos) /*!< Bit mask of COMPARE0 field.                      */
-  #define RTC_EVTENSET_COMPARE0_Min (0x0UL)          /*!< Min enumerator value of COMPARE0 field.                              */
-  #define RTC_EVTENSET_COMPARE0_Max (0x1UL)          /*!< Max enumerator value of COMPARE0 field.                              */
-  #define RTC_EVTENSET_COMPARE0_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_EVTENSET_COMPARE0_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-  #define RTC_EVTENSET_COMPARE0_Set (0x1UL)          /*!< Enable                                                               */
-
-/* COMPARE1 @Bit 17 : Write '1' to enable event routing for event COMPARE[1] */
-  #define RTC_EVTENSET_COMPARE1_Pos (17UL)           /*!< Position of COMPARE1 field.                                          */
-  #define RTC_EVTENSET_COMPARE1_Msk (0x1UL << RTC_EVTENSET_COMPARE1_Pos) /*!< Bit mask of COMPARE1 field.                      */
-  #define RTC_EVTENSET_COMPARE1_Min (0x0UL)          /*!< Min enumerator value of COMPARE1 field.                              */
-  #define RTC_EVTENSET_COMPARE1_Max (0x1UL)          /*!< Max enumerator value of COMPARE1 field.                              */
-  #define RTC_EVTENSET_COMPARE1_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_EVTENSET_COMPARE1_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-  #define RTC_EVTENSET_COMPARE1_Set (0x1UL)          /*!< Enable                                                               */
-
-/* COMPARE2 @Bit 18 : Write '1' to enable event routing for event COMPARE[2] */
-  #define RTC_EVTENSET_COMPARE2_Pos (18UL)           /*!< Position of COMPARE2 field.                                          */
-  #define RTC_EVTENSET_COMPARE2_Msk (0x1UL << RTC_EVTENSET_COMPARE2_Pos) /*!< Bit mask of COMPARE2 field.                      */
-  #define RTC_EVTENSET_COMPARE2_Min (0x0UL)          /*!< Min enumerator value of COMPARE2 field.                              */
-  #define RTC_EVTENSET_COMPARE2_Max (0x1UL)          /*!< Max enumerator value of COMPARE2 field.                              */
-  #define RTC_EVTENSET_COMPARE2_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_EVTENSET_COMPARE2_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-  #define RTC_EVTENSET_COMPARE2_Set (0x1UL)          /*!< Enable                                                               */
-
-/* COMPARE3 @Bit 19 : Write '1' to enable event routing for event COMPARE[3] */
-  #define RTC_EVTENSET_COMPARE3_Pos (19UL)           /*!< Position of COMPARE3 field.                                          */
-  #define RTC_EVTENSET_COMPARE3_Msk (0x1UL << RTC_EVTENSET_COMPARE3_Pos) /*!< Bit mask of COMPARE3 field.                      */
-  #define RTC_EVTENSET_COMPARE3_Min (0x0UL)          /*!< Min enumerator value of COMPARE3 field.                              */
-  #define RTC_EVTENSET_COMPARE3_Max (0x1UL)          /*!< Max enumerator value of COMPARE3 field.                              */
-  #define RTC_EVTENSET_COMPARE3_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_EVTENSET_COMPARE3_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-  #define RTC_EVTENSET_COMPARE3_Set (0x1UL)          /*!< Enable                                                               */
-
-
-/* RTC_EVTENCLR: Disable event routing */
-  #define RTC_EVTENCLR_ResetValue (0x00000000UL)     /*!< Reset value of EVTENCLR register.                                    */
-
-/* TICK @Bit 0 : Write '1' to disable event routing for event TICK */
-  #define RTC_EVTENCLR_TICK_Pos (0UL)                /*!< Position of TICK field.                                              */
-  #define RTC_EVTENCLR_TICK_Msk (0x1UL << RTC_EVTENCLR_TICK_Pos) /*!< Bit mask of TICK field.                                  */
-  #define RTC_EVTENCLR_TICK_Min (0x0UL)              /*!< Min enumerator value of TICK field.                                  */
-  #define RTC_EVTENCLR_TICK_Max (0x1UL)              /*!< Max enumerator value of TICK field.                                  */
-  #define RTC_EVTENCLR_TICK_Disabled (0x0UL)         /*!< Read: Disabled                                                       */
-  #define RTC_EVTENCLR_TICK_Enabled (0x1UL)          /*!< Read: Enabled                                                        */
-  #define RTC_EVTENCLR_TICK_Clear (0x1UL)            /*!< Disable                                                              */
-
-/* OVRFLW @Bit 1 : Write '1' to disable event routing for event OVRFLW */
-  #define RTC_EVTENCLR_OVRFLW_Pos (1UL)              /*!< Position of OVRFLW field.                                            */
-  #define RTC_EVTENCLR_OVRFLW_Msk (0x1UL << RTC_EVTENCLR_OVRFLW_Pos) /*!< Bit mask of OVRFLW field.                            */
-  #define RTC_EVTENCLR_OVRFLW_Min (0x0UL)            /*!< Min enumerator value of OVRFLW field.                                */
-  #define RTC_EVTENCLR_OVRFLW_Max (0x1UL)            /*!< Max enumerator value of OVRFLW field.                                */
-  #define RTC_EVTENCLR_OVRFLW_Disabled (0x0UL)       /*!< Read: Disabled                                                       */
-  #define RTC_EVTENCLR_OVRFLW_Enabled (0x1UL)        /*!< Read: Enabled                                                        */
-  #define RTC_EVTENCLR_OVRFLW_Clear (0x1UL)          /*!< Disable                                                              */
-
-/* COMPARE0 @Bit 16 : Write '1' to disable event routing for event COMPARE[0] */
-  #define RTC_EVTENCLR_COMPARE0_Pos (16UL)           /*!< Position of COMPARE0 field.                                          */
-  #define RTC_EVTENCLR_COMPARE0_Msk (0x1UL << RTC_EVTENCLR_COMPARE0_Pos) /*!< Bit mask of COMPARE0 field.                      */
-  #define RTC_EVTENCLR_COMPARE0_Min (0x0UL)          /*!< Min enumerator value of COMPARE0 field.                              */
-  #define RTC_EVTENCLR_COMPARE0_Max (0x1UL)          /*!< Max enumerator value of COMPARE0 field.                              */
-  #define RTC_EVTENCLR_COMPARE0_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_EVTENCLR_COMPARE0_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-  #define RTC_EVTENCLR_COMPARE0_Clear (0x1UL)        /*!< Disable                                                              */
-
-/* COMPARE1 @Bit 17 : Write '1' to disable event routing for event COMPARE[1] */
-  #define RTC_EVTENCLR_COMPARE1_Pos (17UL)           /*!< Position of COMPARE1 field.                                          */
-  #define RTC_EVTENCLR_COMPARE1_Msk (0x1UL << RTC_EVTENCLR_COMPARE1_Pos) /*!< Bit mask of COMPARE1 field.                      */
-  #define RTC_EVTENCLR_COMPARE1_Min (0x0UL)          /*!< Min enumerator value of COMPARE1 field.                              */
-  #define RTC_EVTENCLR_COMPARE1_Max (0x1UL)          /*!< Max enumerator value of COMPARE1 field.                              */
-  #define RTC_EVTENCLR_COMPARE1_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_EVTENCLR_COMPARE1_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-  #define RTC_EVTENCLR_COMPARE1_Clear (0x1UL)        /*!< Disable                                                              */
-
-/* COMPARE2 @Bit 18 : Write '1' to disable event routing for event COMPARE[2] */
-  #define RTC_EVTENCLR_COMPARE2_Pos (18UL)           /*!< Position of COMPARE2 field.                                          */
-  #define RTC_EVTENCLR_COMPARE2_Msk (0x1UL << RTC_EVTENCLR_COMPARE2_Pos) /*!< Bit mask of COMPARE2 field.                      */
-  #define RTC_EVTENCLR_COMPARE2_Min (0x0UL)          /*!< Min enumerator value of COMPARE2 field.                              */
-  #define RTC_EVTENCLR_COMPARE2_Max (0x1UL)          /*!< Max enumerator value of COMPARE2 field.                              */
-  #define RTC_EVTENCLR_COMPARE2_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_EVTENCLR_COMPARE2_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-  #define RTC_EVTENCLR_COMPARE2_Clear (0x1UL)        /*!< Disable                                                              */
-
-/* COMPARE3 @Bit 19 : Write '1' to disable event routing for event COMPARE[3] */
-  #define RTC_EVTENCLR_COMPARE3_Pos (19UL)           /*!< Position of COMPARE3 field.                                          */
-  #define RTC_EVTENCLR_COMPARE3_Msk (0x1UL << RTC_EVTENCLR_COMPARE3_Pos) /*!< Bit mask of COMPARE3 field.                      */
-  #define RTC_EVTENCLR_COMPARE3_Min (0x0UL)          /*!< Min enumerator value of COMPARE3 field.                              */
-  #define RTC_EVTENCLR_COMPARE3_Max (0x1UL)          /*!< Max enumerator value of COMPARE3 field.                              */
-  #define RTC_EVTENCLR_COMPARE3_Disabled (0x0UL)     /*!< Read: Disabled                                                       */
-  #define RTC_EVTENCLR_COMPARE3_Enabled (0x1UL)      /*!< Read: Enabled                                                        */
-  #define RTC_EVTENCLR_COMPARE3_Clear (0x1UL)        /*!< Disable                                                              */
-
-
-/* RTC_COUNTER: Current counter value */
-  #define RTC_COUNTER_ResetValue (0x00000000UL)      /*!< Reset value of COUNTER register.                                     */
-
-/* COUNTER @Bits 0..23 : Counter value */
-  #define RTC_COUNTER_COUNTER_Pos (0UL)              /*!< Position of COUNTER field.                                           */
-  #define RTC_COUNTER_COUNTER_Msk (0xFFFFFFUL << RTC_COUNTER_COUNTER_Pos) /*!< Bit mask of COUNTER field.                      */
-
-
-/* RTC_PRESCALER: 12-bit prescaler for counter frequency (32768 / (PRESCALER + 1)). Must be written when RTC is stopped. */
-  #define RTC_PRESCALER_ResetValue (0x00000000UL)    /*!< Reset value of PRESCALER register.                                   */
-
-/* PRESCALER @Bits 0..11 : Prescaler value */
-  #define RTC_PRESCALER_PRESCALER_Pos (0UL)          /*!< Position of PRESCALER field.                                         */
-  #define RTC_PRESCALER_PRESCALER_Msk (0xFFFUL << RTC_PRESCALER_PRESCALER_Pos) /*!< Bit mask of PRESCALER field.               */
-
-
-/* RTC_CC: Compare register n */
-  #define RTC_CC_MaxCount (4UL)                      /*!< Max size of CC[4] array.                                             */
-  #define RTC_CC_MaxIndex (3UL)                      /*!< Max index of CC[4] array.                                            */
-  #define RTC_CC_MinIndex (0UL)                      /*!< Min index of CC[4] array.                                            */
-  #define RTC_CC_ResetValue (0x00000000UL)           /*!< Reset value of CC[4] register.                                       */
-
-/* COMPARE @Bits 0..23 : Compare value */
-  #define RTC_CC_COMPARE_Pos (0UL)                   /*!< Position of COMPARE field.                                           */
-  #define RTC_CC_COMPARE_Msk (0xFFFFFFUL << RTC_CC_COMPARE_Pos) /*!< Bit mask of COMPARE field.                                */
 
 
 #endif                                               /*!< !defined(__ASSEMBLER__) && !defined(__ASSEMBLY__)                    */
@@ -29598,7 +28135,7 @@ typedef struct {
   #define SAADC_CH_CONFIG_REFSEL_Msk (0x1UL << SAADC_CH_CONFIG_REFSEL_Pos) /*!< Bit mask of REFSEL field.                      */
   #define SAADC_CH_CONFIG_REFSEL_Min (0x0UL)         /*!< Min enumerator value of REFSEL field.                                */
   #define SAADC_CH_CONFIG_REFSEL_Max (0x1UL)         /*!< Max enumerator value of REFSEL field.                                */
-  #define SAADC_CH_CONFIG_REFSEL_Internal (0x0UL)    /*!< Internal reference (1.024 V)                                         */
+  #define SAADC_CH_CONFIG_REFSEL_Internal (0x0UL)    /*!< Internal reference (0.9 V)                                           */
   #define SAADC_CH_CONFIG_REFSEL_External (0x1UL)    /*!< External reference given at PADC_EXT_REF_1V2                         */
 
 /* MODE @Bit 15 : Enable differential mode */
@@ -31181,16 +29718,16 @@ typedef struct {
   * @brief IFTIMING [SPIM_IFTIMING] (unspecified)
   */
 typedef struct {
-  __IOM uint32_t  RXDELAY;                           /*!< (@ 0x00000000) Sample delay for input serial data on MISO            */
+  __IOM uint32_t  RXDELAY;                           /*!< (@ 0x00000000) Sample delay for input serial data on SDI             */
   __IOM uint32_t  CSNDUR;                            /*!< (@ 0x00000004) Minimum duration between edge of CSN and edge of SCK.
                                                                          When SHORTS.END_START is used, this is also the minimum
                                                                          duration CSN must stay high between transactions.*/
 } NRF_SPIM_IFTIMING_Type;                            /*!< Size = 8 (0x008)                                                     */
 
-/* SPIM_IFTIMING_RXDELAY: Sample delay for input serial data on MISO */
+/* SPIM_IFTIMING_RXDELAY: Sample delay for input serial data on SDI */
   #define SPIM_IFTIMING_RXDELAY_ResetValue (0x00000002UL) /*!< Reset value of RXDELAY register.                                */
 
-/* RXDELAY @Bits 0..2 : Sample delay for input serial data on MISO. The value specifies the number of SPIM core clock cycles
+/* RXDELAY @Bits 0..2 : Sample delay for input serial data on SDI. The value specifies the number of SPIM core clock cycles
                         delay from the the sampling edge of SCK (leading edge for CONFIG.CPHA = 0, trailing edge for CONFIG.CPHA
                         = 1) until the input serial data is sampled. As en example, if RXDELAY = 0 and CONFIG.CPHA = 0, the
                         input serial data is sampled on the rising edge of SCK. */
@@ -31223,8 +29760,8 @@ typedef struct {
   */
 typedef struct {
   __IOM uint32_t  SCK;                               /*!< (@ 0x00000000) Pin select for SCK                                    */
-  __IOM uint32_t  MOSI;                              /*!< (@ 0x00000004) Pin select for MOSI signal                            */
-  __IOM uint32_t  MISO;                              /*!< (@ 0x00000008) Pin select for MISO signal                            */
+  __IOM uint32_t  MOSI;                              /*!< (@ 0x00000004) Pin select for SDO signal                             */
+  __IOM uint32_t  MISO;                              /*!< (@ 0x00000008) Pin select for SDI signal                             */
   __IOM uint32_t  DCX;                               /*!< (@ 0x0000000C) Pin select for DCX signal                             */
   __IOM uint32_t  CSN;                               /*!< (@ 0x00000010) Pin select for CSN                                    */
 } NRF_SPIM_PSEL_Type;                                /*!< Size = 20 (0x014)                                                    */
@@ -31242,7 +29779,7 @@ typedef struct {
   #define SPIM_PSEL_SCK_PORT_Pos (5UL)               /*!< Position of PORT field.                                              */
   #define SPIM_PSEL_SCK_PORT_Msk (0x7UL << SPIM_PSEL_SCK_PORT_Pos) /*!< Bit mask of PORT field.                                */
   #define SPIM_PSEL_SCK_PORT_Min (0x0UL)             /*!< Min value of PORT field.                                             */
-  #define SPIM_PSEL_SCK_PORT_Max (0x2UL)             /*!< Max size of PORT field.                                              */
+  #define SPIM_PSEL_SCK_PORT_Max (0x7UL)             /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define SPIM_PSEL_SCK_CONNECT_Pos (31UL)           /*!< Position of CONNECT field.                                           */
@@ -31253,7 +29790,7 @@ typedef struct {
   #define SPIM_PSEL_SCK_CONNECT_Connected (0x0UL)    /*!< Connect                                                              */
 
 
-/* SPIM_PSEL_MOSI: Pin select for MOSI signal */
+/* SPIM_PSEL_MOSI: Pin select for SDO signal */
   #define SPIM_PSEL_MOSI_ResetValue (0xFFFFFFFFUL)   /*!< Reset value of MOSI register.                                        */
 
 /* PIN @Bits 0..4 : Pin number */
@@ -31266,7 +29803,7 @@ typedef struct {
   #define SPIM_PSEL_MOSI_PORT_Pos (5UL)              /*!< Position of PORT field.                                              */
   #define SPIM_PSEL_MOSI_PORT_Msk (0x7UL << SPIM_PSEL_MOSI_PORT_Pos) /*!< Bit mask of PORT field.                              */
   #define SPIM_PSEL_MOSI_PORT_Min (0x0UL)            /*!< Min value of PORT field.                                             */
-  #define SPIM_PSEL_MOSI_PORT_Max (0x2UL)            /*!< Max size of PORT field.                                              */
+  #define SPIM_PSEL_MOSI_PORT_Max (0x7UL)            /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define SPIM_PSEL_MOSI_CONNECT_Pos (31UL)          /*!< Position of CONNECT field.                                           */
@@ -31277,7 +29814,7 @@ typedef struct {
   #define SPIM_PSEL_MOSI_CONNECT_Connected (0x0UL)   /*!< Connect                                                              */
 
 
-/* SPIM_PSEL_MISO: Pin select for MISO signal */
+/* SPIM_PSEL_MISO: Pin select for SDI signal */
   #define SPIM_PSEL_MISO_ResetValue (0xFFFFFFFFUL)   /*!< Reset value of MISO register.                                        */
 
 /* PIN @Bits 0..4 : Pin number */
@@ -31290,7 +29827,7 @@ typedef struct {
   #define SPIM_PSEL_MISO_PORT_Pos (5UL)              /*!< Position of PORT field.                                              */
   #define SPIM_PSEL_MISO_PORT_Msk (0x7UL << SPIM_PSEL_MISO_PORT_Pos) /*!< Bit mask of PORT field.                              */
   #define SPIM_PSEL_MISO_PORT_Min (0x0UL)            /*!< Min value of PORT field.                                             */
-  #define SPIM_PSEL_MISO_PORT_Max (0x2UL)            /*!< Max size of PORT field.                                              */
+  #define SPIM_PSEL_MISO_PORT_Max (0x7UL)            /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define SPIM_PSEL_MISO_CONNECT_Pos (31UL)          /*!< Position of CONNECT field.                                           */
@@ -31314,7 +29851,7 @@ typedef struct {
   #define SPIM_PSEL_DCX_PORT_Pos (5UL)               /*!< Position of PORT field.                                              */
   #define SPIM_PSEL_DCX_PORT_Msk (0x7UL << SPIM_PSEL_DCX_PORT_Pos) /*!< Bit mask of PORT field.                                */
   #define SPIM_PSEL_DCX_PORT_Min (0x0UL)             /*!< Min value of PORT field.                                             */
-  #define SPIM_PSEL_DCX_PORT_Max (0x2UL)             /*!< Max size of PORT field.                                              */
+  #define SPIM_PSEL_DCX_PORT_Max (0x7UL)             /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define SPIM_PSEL_DCX_CONNECT_Pos (31UL)           /*!< Position of CONNECT field.                                           */
@@ -31338,7 +29875,7 @@ typedef struct {
   #define SPIM_PSEL_CSN_PORT_Pos (5UL)               /*!< Position of PORT field.                                              */
   #define SPIM_PSEL_CSN_PORT_Msk (0x7UL << SPIM_PSEL_CSN_PORT_Pos) /*!< Bit mask of PORT field.                                */
   #define SPIM_PSEL_CSN_PORT_Min (0x0UL)             /*!< Min value of PORT field.                                             */
-  #define SPIM_PSEL_CSN_PORT_Max (0x2UL)             /*!< Max size of PORT field.                                              */
+  #define SPIM_PSEL_CSN_PORT_Max (0x7UL)             /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define SPIM_PSEL_CSN_CONNECT_Pos (31UL)           /*!< Position of CONNECT field.                                           */
@@ -32767,8 +31304,8 @@ typedef struct {
   */
 typedef struct {
   __IOM uint32_t  SCK;                               /*!< (@ 0x00000000) Pin select for SCK                                    */
-  __IOM uint32_t  MISO;                              /*!< (@ 0x00000004) Pin select for MISO signal                            */
-  __IOM uint32_t  MOSI;                              /*!< (@ 0x00000008) Pin select for MOSI signal                            */
+  __IOM uint32_t  MISO;                              /*!< (@ 0x00000004) Pin select for SDO signal                             */
+  __IOM uint32_t  MOSI;                              /*!< (@ 0x00000008) Pin select for SDI signal                             */
   __IM  uint32_t  RESERVED;
   __IOM uint32_t  CSN;                               /*!< (@ 0x00000010) Pin select for CSN signal                             */
 } NRF_SPIS_PSEL_Type;                                /*!< Size = 20 (0x014)                                                    */
@@ -32786,7 +31323,7 @@ typedef struct {
   #define SPIS_PSEL_SCK_PORT_Pos (5UL)               /*!< Position of PORT field.                                              */
   #define SPIS_PSEL_SCK_PORT_Msk (0x7UL << SPIS_PSEL_SCK_PORT_Pos) /*!< Bit mask of PORT field.                                */
   #define SPIS_PSEL_SCK_PORT_Min (0x0UL)             /*!< Min value of PORT field.                                             */
-  #define SPIS_PSEL_SCK_PORT_Max (0x2UL)             /*!< Max size of PORT field.                                              */
+  #define SPIS_PSEL_SCK_PORT_Max (0x7UL)             /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define SPIS_PSEL_SCK_CONNECT_Pos (31UL)           /*!< Position of CONNECT field.                                           */
@@ -32797,7 +31334,7 @@ typedef struct {
   #define SPIS_PSEL_SCK_CONNECT_Connected (0x0UL)    /*!< Connect                                                              */
 
 
-/* SPIS_PSEL_MISO: Pin select for MISO signal */
+/* SPIS_PSEL_MISO: Pin select for SDO signal */
   #define SPIS_PSEL_MISO_ResetValue (0xFFFFFFFFUL)   /*!< Reset value of MISO register.                                        */
 
 /* PIN @Bits 0..4 : Pin number */
@@ -32810,7 +31347,7 @@ typedef struct {
   #define SPIS_PSEL_MISO_PORT_Pos (5UL)              /*!< Position of PORT field.                                              */
   #define SPIS_PSEL_MISO_PORT_Msk (0x7UL << SPIS_PSEL_MISO_PORT_Pos) /*!< Bit mask of PORT field.                              */
   #define SPIS_PSEL_MISO_PORT_Min (0x0UL)            /*!< Min value of PORT field.                                             */
-  #define SPIS_PSEL_MISO_PORT_Max (0x2UL)            /*!< Max size of PORT field.                                              */
+  #define SPIS_PSEL_MISO_PORT_Max (0x7UL)            /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define SPIS_PSEL_MISO_CONNECT_Pos (31UL)          /*!< Position of CONNECT field.                                           */
@@ -32821,7 +31358,7 @@ typedef struct {
   #define SPIS_PSEL_MISO_CONNECT_Connected (0x0UL)   /*!< Connect                                                              */
 
 
-/* SPIS_PSEL_MOSI: Pin select for MOSI signal */
+/* SPIS_PSEL_MOSI: Pin select for SDI signal */
   #define SPIS_PSEL_MOSI_ResetValue (0xFFFFFFFFUL)   /*!< Reset value of MOSI register.                                        */
 
 /* PIN @Bits 0..4 : Pin number */
@@ -32834,7 +31371,7 @@ typedef struct {
   #define SPIS_PSEL_MOSI_PORT_Pos (5UL)              /*!< Position of PORT field.                                              */
   #define SPIS_PSEL_MOSI_PORT_Msk (0x7UL << SPIS_PSEL_MOSI_PORT_Pos) /*!< Bit mask of PORT field.                              */
   #define SPIS_PSEL_MOSI_PORT_Min (0x0UL)            /*!< Min value of PORT field.                                             */
-  #define SPIS_PSEL_MOSI_PORT_Max (0x2UL)            /*!< Max size of PORT field.                                              */
+  #define SPIS_PSEL_MOSI_PORT_Max (0x7UL)            /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define SPIS_PSEL_MOSI_CONNECT_Pos (31UL)          /*!< Position of CONNECT field.                                           */
@@ -32858,7 +31395,7 @@ typedef struct {
   #define SPIS_PSEL_CSN_PORT_Pos (5UL)               /*!< Position of PORT field.                                              */
   #define SPIS_PSEL_CSN_PORT_Msk (0x7UL << SPIS_PSEL_CSN_PORT_Pos) /*!< Bit mask of PORT field.                                */
   #define SPIS_PSEL_CSN_PORT_Min (0x0UL)             /*!< Min value of PORT field.                                             */
-  #define SPIS_PSEL_CSN_PORT_Max (0x2UL)             /*!< Max size of PORT field.                                              */
+  #define SPIS_PSEL_CSN_PORT_Max (0x7UL)             /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define SPIS_PSEL_CSN_CONNECT_Pos (31UL)           /*!< Position of CONNECT field.                                           */
@@ -36427,1667 +34964,8 @@ typedef union {
   * @brief Trace Port Interface Unit
   */
   typedef struct {                                   /*!< TPIU Structure                                                       */
-    __IOM uint32_t SUPPORTEDPORTSIZES;               /*!< (@ 0x00000000) Each bit location is a single port size that is
-                                                                         supported on the device.*/
-    __IOM uint32_t CURRENTPORTSIZE;                  /*!< (@ 0x00000004) Each bit location is a single port size. One bit can be
-                                                                         set, and indicates the current port size.*/
-    __IM uint32_t RESERVED[62];
-    __IOM uint32_t SUPPORTEDTRIGGERMODES;            /*!< (@ 0x00000100) The Supported_trigger_modes register indicates the
-                                                                         implemented trigger counter multipliers and other
-                                                                         supported features of the trigger system.*/
-    __IOM uint32_t TRIGGERCOUNTERVALUE;              /*!< (@ 0x00000104) The Trigger_counter_value register enables delaying the
-                                                                         indication of triggers to any external connected trace
-                                                                         capture or storage devices.*/
-    __IOM uint32_t TRIGGERMULTIPLIER;                /*!< (@ 0x00000108) The Trigger_multiplier register contains the selectors
-                                                                         for the trigger counter multiplier.*/
-    __IM uint32_t RESERVED1[61];
-    __IOM uint32_t SUPPPORTEDTESTPATTERNMODES;       /*!< (@ 0x00000200) The Supported_test_pattern_modes register provides a
-                                                                         set of known bit sequences or patterns that can be
-                                                                         output over the trace port and can be detected by the
-                                                                         TPA or other associated trace capture device.*/
-    __IOM uint32_t CURRENTTESTPATTERNMODES;          /*!< (@ 0x00000204) Current_test_pattern_mode indicates the current test
-                                                                         pattern or mode selected.*/
-    __IOM uint32_t TPRCR;                            /*!< (@ 0x00000208) The TPRCR register is an 8-bit counter start value that
-                                                                         is decremented. A write sets the initial counter value
-                                                                         and a read returns the programmed value.*/
-    __IM uint32_t RESERVED2[61];
-    __IOM uint32_t FFSR;                             /*!< (@ 0x00000300) The FFSR register indicates the current status of the
-                                                                         formatter and flush features available in the TPIU.*/
-    __IOM uint32_t FFCR;                             /*!< (@ 0x00000304) The FFCR register controls the generation of stop,
-                                                                         trigger, and flush events.*/
-    __IOM uint32_t FSCR;                             /*!< (@ 0x00000308) The FSCR register enables the frequency of
-                                                                         synchronization information to be optimized to suit the
-                                                                         Trace Port Analyzer (TPA) capture buffer size.*/
-    __IM uint32_t RESERVED3[61];
-    __IOM uint32_t EXTCTLINPORT;                     /*!< (@ 0x00000400) Two ports can be used as a control and feedback
-                                                                         mechanism for any serializers, pin sharing
-                                                                         multiplexers, or other solutions that might be added to
-                                                                         the trace output pins either for pin control or a
-                                                                         high-speed trace port solution.*/
-    __IOM uint32_t EXTCTLOUTPORT;                    /*!< (@ 0x00000404) Two ports can be used as a control and feedback
-                                                                         mechanism for any serializers, pin sharing
-                                                                         multiplexers, or other solutions that might be added to
-                                                                         the trace output pins either for pin control or a high
-                                                                         speed trace port solution. These ports are raw register
-                                                                         banks that sample or export the corresponding external
-                                                                         pins.*/
-    __IM uint32_t RESERVED4[695];
-    __IOM uint32_t ITTRFLINACK;                      /*!< (@ 0x00000EE4) The ITTRFLINACK register enables control of the
-                                                                         triginack and flushinack outputs from the TPIU.*/
-    __IOM uint32_t ITTRFLIN;                         /*!< (@ 0x00000EE8) The ITTRFLIN register contains the values of the
-                                                                         flushin and trigin inputs to the TPIU.*/
-    __IOM uint32_t ITATBDATA0;                       /*!< (@ 0x00000EEC) The ITATBDATA0 register contains the value of the
-                                                                         atdatas inputs to the TPIU. The values are valid only
-                                                                         when atvalids is HIGH.*/
-    __IOM uint32_t ITATBCTR2;                        /*!< (@ 0x00000EF0) Enables control of the atreadys and afvalids outputs of
-                                                                         the TPIU.*/
-    __IOM uint32_t ITATBCTR1;                        /*!< (@ 0x00000EF4) The ITATBCTR1 register contains the value of the atids
-                                                                         input to the TPIU. This is only valid when atvalids is
-                                                                         HIGH.*/
-    __IOM uint32_t ITATBCTR0;                        /*!< (@ 0x00000EF8) The ITATBCTR0 register captures the values of the
-                                                                         atvalids, afreadys, and atbytess inputs to the TPIU. To
-                                                                         ensure the integration registers work correctly in a
-                                                                         system, the value of atbytess is only valid when
-                                                                         atvalids, bit[0], is HIGH.*/
-    __IM uint32_t RESERVED5;
-    __IOM uint32_t ITCTRL;                           /*!< (@ 0x00000F00) Used to enable topology detection. This register
-                                                                         enables the component to switch from a functional mode,
-                                                                         the default behavior, to integration mode where the
-                                                                         inputs and outputs of the component can be directly
-                                                                         controlled for integration testing and topology
-                                                                         solving.*/
-    __IM uint32_t RESERVED6[39];
-    __IOM uint32_t CLAIMSET;                         /*!< (@ 0x00000FA0) Software can use the claim tag to coordinate
-                                                                         application and debugger access to trace unit
-                                                                         functionality. The claim tags have no effect on the
-                                                                         operation of the component. The CLAIMSET register sets
-                                                                         bits in the claim tag, and determines the number of
-                                                                         claim bits implemented.*/
-    __IOM uint32_t CLAIMCLR;                         /*!< (@ 0x00000FA4) Software can use the claim tag to coordinate
-                                                                         application and debugger access to trace unit
-                                                                         functionality. The claim tags have no effect on the
-                                                                         operation of the component. The CLAIMCLR register sets
-                                                                         the bits in the claim tag to 0 and determines the
-                                                                         current value of the claim tag.*/
-    __IM uint32_t RESERVED7[2];
-    __IOM uint32_t LAR;                              /*!< (@ 0x00000FB0) This is used to enable write access to device
-                                                                         registers.*/
-    __IOM uint32_t LSR;                              /*!< (@ 0x00000FB4) This indicates the status of the lock control
-                                                                         mechanism. This lock prevents accidental writes by code
-                                                                         under debug. Accesses to the extended stimulus port
-                                                                         registers are not affected by the lock mechanism. This
-                                                                         register must always be present although there might
-                                                                         not be any lock access control mechanism. The lock
-                                                                         mechanism, where present and locked, must block write
-                                                                         accesses to any control register, except the Lock
-                                                                         Access Register. For most components this covers all
-                                                                         registers except for the Lock Access Register.*/
-    __IOM uint32_t AUTHSTATUS;                       /*!< (@ 0x00000FB8) Indicates the current level of tracing permitted by the
-                                                                         system*/
-    __IM uint32_t RESERVED8[3];
-    __IM uint32_t DEVID;                             /*!< (@ 0x00000FC8) Indicates the capabilities of the component.          */
-    __IM uint32_t DEVTYPE;                           /*!< (@ 0x00000FCC) The DEVTYPE register provides a debugger with
-                                                                         information about the component when the Part Number
-                                                                         field is not recognized. The debugger can then report
-                                                                         this information.*/
-    __IOM uint32_t PIDR4;                            /*!< (@ 0x00000FD0) Coresight peripheral identification registers.        */
-    __IM uint32_t RESERVED9[3];
-    __IOM uint32_t PIDR0;                            /*!< (@ 0x00000FE0) Coresight peripheral identification registers.        */
-    __IOM uint32_t PIDR1;                            /*!< (@ 0x00000FE4) Coresight peripheral identification registers.        */
-    __IOM uint32_t PIDR2;                            /*!< (@ 0x00000FE8) Coresight peripheral identification registers.        */
-    __IOM uint32_t PIDR3;                            /*!< (@ 0x00000FEC) Coresight peripheral identification registers.        */
-    __IOM uint32_t CIDR0;                            /*!< (@ 0x00000FF0) Coresight component identification registers.         */
-    __IOM uint32_t CIDR1;                            /*!< (@ 0x00000FF4) Coresight component identification registers.         */
-    __IOM uint32_t CIDR2;                            /*!< (@ 0x00000FF8) Coresight component identification registers.         */
-    __IOM uint32_t CIDR3;                            /*!< (@ 0x00000FFC) Coresight component identification registers.         */
-  } NRF_TPIU_Type;                                   /*!< Size = 4096 (0x1000)                                                 */
-
-/* TPIU_SUPPORTEDPORTSIZES: Each bit location is a single port size that is supported on the device. */
-  #define TPIU_SUPPORTEDPORTSIZES_ResetValue (0x00000000UL) /*!< Reset value of SUPPORTEDPORTSIZES register.                   */
-
-/* PORT_SIZE_1 @Bit 0 : Indicates whether the TPIU supports port size of 1-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_1_Pos (0UL) /*!< Position of PORT_SIZE_1 field.                                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_1_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_1_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_1 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_1_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_1 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_1_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_1 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_1_NotSupported (0x0UL) /*!< Port size 1 is not supported.                          */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_1_Supported (0x1UL) /*!< Port size 1 is supported.                                 */
-
-/* PORT_SIZE_2 @Bit 1 : Indicates whether the TPIU supports port size of 2-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_2_Pos (1UL) /*!< Position of PORT_SIZE_2 field.                                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_2_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_2_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_2 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_2_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_2 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_2_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_2 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_2_NotSupported (0x0UL) /*!< Port size 2 is not supported.                          */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_2_Supported (0x1UL) /*!< Port size 2 is supported.                                 */
-
-/* PORT_SIZE_3 @Bit 2 : Indicates whether the TPIU supports port size of 3-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_3_Pos (2UL) /*!< Position of PORT_SIZE_3 field.                                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_3_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_3_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_3 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_3_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_3 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_3_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_3 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_3_NotSupported (0x0UL) /*!< Port size 3 is not supported.                          */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_3_Supported (0x1UL) /*!< Port size 3 is supported.                                 */
-
-/* PORT_SIZE_4 @Bit 3 : Indicates whether the TPIU supports port size of 4-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_4_Pos (3UL) /*!< Position of PORT_SIZE_4 field.                                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_4_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_4_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_4 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_4_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_4 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_4_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_4 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_4_NotSupported (0x0UL) /*!< Port size 4 is not supported.                          */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_4_Supported (0x1UL) /*!< Port size 4 is supported.                                 */
-
-/* PORT_SIZE_5 @Bit 4 : Indicates whether the TPIU supports port size of 5-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_5_Pos (4UL) /*!< Position of PORT_SIZE_5 field.                                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_5_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_5_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_5 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_5_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_5 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_5_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_5 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_5_NotSupported (0x0UL) /*!< Port size 5 is not supported.                          */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_5_Supported (0x1UL) /*!< Port size 5 is supported.                                 */
-
-/* PORT_SIZE_6 @Bit 5 : Indicates whether the TPIU supports port size of 6-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_6_Pos (5UL) /*!< Position of PORT_SIZE_6 field.                                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_6_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_6_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_6 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_6_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_6 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_6_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_6 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_6_NotSupported (0x0UL) /*!< Port size 6 is not supported.                          */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_6_Supported (0x1UL) /*!< Port size 6 is supported.                                 */
-
-/* PORT_SIZE_7 @Bit 6 : Indicates whether the TPIU supports port size of 7-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_7_Pos (6UL) /*!< Position of PORT_SIZE_7 field.                                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_7_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_7_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_7 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_7_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_7 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_7_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_7 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_7_NotSupported (0x0UL) /*!< Port size 7 is not supported.                          */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_7_Supported (0x1UL) /*!< Port size 7 is supported.                                 */
-
-/* PORT_SIZE_8 @Bit 7 : Indicates whether the TPIU supports port size of 8-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_8_Pos (7UL) /*!< Position of PORT_SIZE_8 field.                                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_8_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_8_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_8 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_8_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_8 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_8_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_8 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_8_NotSupported (0x0UL) /*!< Port size 8 is not supported.                          */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_8_Supported (0x1UL) /*!< Port size 8 is supported.                                 */
-
-/* PORT_SIZE_9 @Bit 8 : Indicates whether the TPIU supports port size of 9-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_9_Pos (8UL) /*!< Position of PORT_SIZE_9 field.                                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_9_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_9_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_9 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_9_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_9 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_9_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_9 field.                      */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_9_NotSupported (0x0UL) /*!< Port size 9 is not supported.                          */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_9_Supported (0x1UL) /*!< Port size 9 is supported.                                 */
-
-/* PORT_SIZE_10 @Bit 9 : Indicates whether the TPIU supports port size of 10-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_10_Pos (9UL) /*!< Position of PORT_SIZE_10 field.                                  */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_10_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_10_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_10 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_10_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_10 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_10_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_10 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_10_NotSupported (0x0UL) /*!< Port size 10 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_10_Supported (0x1UL) /*!< Port size 10 is supported.                               */
-
-/* PORT_SIZE_11 @Bit 10 : Indicates whether the TPIU supports port size of 11-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_11_Pos (10UL) /*!< Position of PORT_SIZE_11 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_11_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_11_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_11 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_11_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_11 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_11_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_11 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_11_NotSupported (0x0UL) /*!< Port size 11 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_11_Supported (0x1UL) /*!< Port size 11 is supported.                               */
-
-/* PORT_SIZE_12 @Bit 11 : Indicates whether the TPIU supports port size of 12-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_12_Pos (11UL) /*!< Position of PORT_SIZE_12 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_12_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_12_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_12 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_12_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_12 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_12_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_12 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_12_NotSupported (0x0UL) /*!< Port size 12 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_12_Supported (0x1UL) /*!< Port size 12 is supported.                               */
-
-/* PORT_SIZE_13 @Bit 12 : Indicates whether the TPIU supports port size of 13-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_13_Pos (12UL) /*!< Position of PORT_SIZE_13 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_13_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_13_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_13 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_13_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_13 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_13_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_13 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_13_NotSupported (0x0UL) /*!< Port size 13 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_13_Supported (0x1UL) /*!< Port size 13 is supported.                               */
-
-/* PORT_SIZE_14 @Bit 13 : Indicates whether the TPIU supports port size of 14-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_14_Pos (13UL) /*!< Position of PORT_SIZE_14 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_14_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_14_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_14 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_14_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_14 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_14_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_14 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_14_NotSupported (0x0UL) /*!< Port size 14 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_14_Supported (0x1UL) /*!< Port size 14 is supported.                               */
-
-/* PORT_SIZE_15 @Bit 14 : Indicates whether the TPIU supports port size of 15-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_15_Pos (14UL) /*!< Position of PORT_SIZE_15 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_15_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_15_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_15 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_15_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_15 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_15_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_15 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_15_NotSupported (0x0UL) /*!< Port size 15 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_15_Supported (0x1UL) /*!< Port size 15 is supported.                               */
-
-/* PORT_SIZE_16 @Bit 15 : Indicates whether the TPIU supports port size of 16-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_16_Pos (15UL) /*!< Position of PORT_SIZE_16 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_16_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_16_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_16 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_16_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_16 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_16_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_16 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_16_NotSupported (0x0UL) /*!< Port size 16 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_16_Supported (0x1UL) /*!< Port size 16 is supported.                               */
-
-/* PORT_SIZE_17 @Bit 16 : Indicates whether the TPIU supports port size of 17-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_17_Pos (16UL) /*!< Position of PORT_SIZE_17 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_17_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_17_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_17 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_17_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_17 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_17_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_17 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_17_NotSupported (0x0UL) /*!< Port size 17 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_17_Supported (0x1UL) /*!< Port size 17 is supported.                               */
-
-/* PORT_SIZE_18 @Bit 17 : Indicates whether the TPIU supports port size of 18-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_18_Pos (17UL) /*!< Position of PORT_SIZE_18 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_18_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_18_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_18 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_18_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_18 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_18_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_18 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_18_NotSupported (0x0UL) /*!< Port size 18 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_18_Supported (0x1UL) /*!< Port size 18 is supported.                               */
-
-/* PORT_SIZE_19 @Bit 18 : Indicates whether the TPIU supports port size of 19-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_19_Pos (18UL) /*!< Position of PORT_SIZE_19 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_19_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_19_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_19 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_19_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_19 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_19_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_19 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_19_NotSupported (0x0UL) /*!< Port size 19 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_19_Supported (0x1UL) /*!< Port size 19 is supported.                               */
-
-/* PORT_SIZE_20 @Bit 19 : Indicates whether the TPIU supports port size of 20-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_20_Pos (19UL) /*!< Position of PORT_SIZE_20 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_20_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_20_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_20 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_20_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_20 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_20_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_20 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_20_NotSupported (0x0UL) /*!< Port size 20 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_20_Supported (0x1UL) /*!< Port size 20 is supported.                               */
-
-/* PORT_SIZE_21 @Bit 20 : Indicates whether the TPIU supports port size of 21-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_21_Pos (20UL) /*!< Position of PORT_SIZE_21 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_21_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_21_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_21 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_21_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_21 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_21_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_21 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_21_NotSupported (0x0UL) /*!< Port size 21 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_21_Supported (0x1UL) /*!< Port size 21 is supported.                               */
-
-/* PORT_SIZE_22 @Bit 21 : Indicates whether the TPIU supports port size of 22-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_22_Pos (21UL) /*!< Position of PORT_SIZE_22 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_22_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_22_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_22 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_22_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_22 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_22_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_22 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_22_NotSupported (0x0UL) /*!< Port size 22 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_22_Supported (0x1UL) /*!< Port size 22 is supported.                               */
-
-/* PORT_SIZE_23 @Bit 22 : Indicates whether the TPIU supports port size of 23-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_23_Pos (22UL) /*!< Position of PORT_SIZE_23 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_23_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_23_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_23 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_23_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_23 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_23_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_23 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_23_NotSupported (0x0UL) /*!< Port size 23 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_23_Supported (0x1UL) /*!< Port size 23 is supported.                               */
-
-/* PORT_SIZE_24 @Bit 23 : Indicates whether the TPIU supports port size of 24-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_24_Pos (23UL) /*!< Position of PORT_SIZE_24 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_24_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_24_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_24 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_24_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_24 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_24_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_24 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_24_NotSupported (0x0UL) /*!< Port size 24 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_24_Supported (0x1UL) /*!< Port size 24 is supported.                               */
-
-/* PORT_SIZE_25 @Bit 24 : Indicates whether the TPIU supports port size of 25-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_25_Pos (24UL) /*!< Position of PORT_SIZE_25 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_25_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_25_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_25 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_25_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_25 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_25_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_25 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_25_NotSupported (0x0UL) /*!< Port size 25 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_25_Supported (0x1UL) /*!< Port size 25 is supported.                               */
-
-/* PORT_SIZE_26 @Bit 25 : Indicates whether the TPIU supports port size of 26-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_26_Pos (25UL) /*!< Position of PORT_SIZE_26 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_26_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_26_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_26 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_26_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_26 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_26_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_26 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_26_NotSupported (0x0UL) /*!< Port size 26 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_26_Supported (0x1UL) /*!< Port size 26 is supported.                               */
-
-/* PORT_SIZE_27 @Bit 26 : Indicates whether the TPIU supports port size of 27-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_27_Pos (26UL) /*!< Position of PORT_SIZE_27 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_27_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_27_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_27 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_27_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_27 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_27_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_27 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_27_NotSupported (0x0UL) /*!< Port size 27 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_27_Supported (0x1UL) /*!< Port size 27 is supported.                               */
-
-/* PORT_SIZE_28 @Bit 27 : Indicates whether the TPIU supports port size of 28-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_28_Pos (27UL) /*!< Position of PORT_SIZE_28 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_28_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_28_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_28 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_28_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_28 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_28_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_28 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_28_NotSupported (0x0UL) /*!< Port size 28 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_28_Supported (0x1UL) /*!< Port size 28 is supported.                               */
-
-/* PORT_SIZE_29 @Bit 28 : Indicates whether the TPIU supports port size of 29-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_29_Pos (28UL) /*!< Position of PORT_SIZE_29 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_29_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_29_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_29 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_29_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_29 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_29_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_29 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_29_NotSupported (0x0UL) /*!< Port size 29 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_29_Supported (0x1UL) /*!< Port size 29 is supported.                               */
-
-/* PORT_SIZE_30 @Bit 29 : Indicates whether the TPIU supports port size of 30-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_30_Pos (29UL) /*!< Position of PORT_SIZE_30 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_30_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_30_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_30 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_30_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_30 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_30_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_30 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_30_NotSupported (0x0UL) /*!< Port size 30 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_30_Supported (0x1UL) /*!< Port size 30 is supported.                               */
-
-/* PORT_SIZE_31 @Bit 30 : Indicates whether the TPIU supports port size of 31-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_31_Pos (30UL) /*!< Position of PORT_SIZE_31 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_31_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_31_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_31 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_31_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_31 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_31_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_31 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_31_NotSupported (0x0UL) /*!< Port size 31 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_31_Supported (0x1UL) /*!< Port size 31 is supported.                               */
-
-/* PORT_SIZE_32 @Bit 31 : Indicates whether the TPIU supports port size of 32-bit. */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_32_Pos (31UL) /*!< Position of PORT_SIZE_32 field.                                 */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_32_Msk (0x1UL << TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_32_Pos) /*!< Bit mask of
-                                                                            PORT_SIZE_32 field.*/
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_32_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_32 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_32_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_32 field.                    */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_32_NotSupported (0x0UL) /*!< Port size 32 is not supported.                        */
-  #define TPIU_SUPPORTEDPORTSIZES_PORT_SIZE_32_Supported (0x1UL) /*!< Port size 32 is supported.                               */
-
-
-/* TPIU_CURRENTPORTSIZE: Each bit location is a single port size. One bit can be set, and indicates the current port size. */
-  #define TPIU_CURRENTPORTSIZE_ResetValue (0x00000000UL) /*!< Reset value of CURRENTPORTSIZE register.                         */
-
-/* PORT_SIZE_1 @Bit 0 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_1_Pos (0UL) /*!< Position of PORT_SIZE_1 field.                                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_1_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_1_Pos) /*!< Bit mask of PORT_SIZE_1
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_1_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_1 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_1_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_1 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_1_NotSelected (0x0UL) /*!< Port size 1 is not selected.                               */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_1_Selected (0x1UL) /*!< Port size 1 is selected.                                      */
-
-/* PORT_SIZE_2 @Bit 1 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_2_Pos (1UL) /*!< Position of PORT_SIZE_2 field.                                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_2_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_2_Pos) /*!< Bit mask of PORT_SIZE_2
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_2_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_2 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_2_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_2 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_2_NotSelected (0x0UL) /*!< Port size 2 is not selected.                               */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_2_Selected (0x1UL) /*!< Port size 2 is selected.                                      */
-
-/* PORT_SIZE_3 @Bit 2 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_3_Pos (2UL) /*!< Position of PORT_SIZE_3 field.                                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_3_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_3_Pos) /*!< Bit mask of PORT_SIZE_3
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_3_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_3 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_3_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_3 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_3_NotSelected (0x0UL) /*!< Port size 3 is not selected.                               */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_3_Selected (0x1UL) /*!< Port size 3 is selected.                                      */
-
-/* PORT_SIZE_4 @Bit 3 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_4_Pos (3UL) /*!< Position of PORT_SIZE_4 field.                                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_4_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_4_Pos) /*!< Bit mask of PORT_SIZE_4
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_4_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_4 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_4_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_4 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_4_NotSelected (0x0UL) /*!< Port size 4 is not selected.                               */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_4_Selected (0x1UL) /*!< Port size 4 is selected.                                      */
-
-/* PORT_SIZE_5 @Bit 4 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_5_Pos (4UL) /*!< Position of PORT_SIZE_5 field.                                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_5_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_5_Pos) /*!< Bit mask of PORT_SIZE_5
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_5_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_5 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_5_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_5 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_5_NotSelected (0x0UL) /*!< Port size 5 is not selected.                               */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_5_Selected (0x1UL) /*!< Port size 5 is selected.                                      */
-
-/* PORT_SIZE_6 @Bit 5 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_6_Pos (5UL) /*!< Position of PORT_SIZE_6 field.                                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_6_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_6_Pos) /*!< Bit mask of PORT_SIZE_6
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_6_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_6 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_6_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_6 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_6_NotSelected (0x0UL) /*!< Port size 6 is not selected.                               */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_6_Selected (0x1UL) /*!< Port size 6 is selected.                                      */
-
-/* PORT_SIZE_7 @Bit 6 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_7_Pos (6UL) /*!< Position of PORT_SIZE_7 field.                                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_7_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_7_Pos) /*!< Bit mask of PORT_SIZE_7
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_7_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_7 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_7_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_7 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_7_NotSelected (0x0UL) /*!< Port size 7 is not selected.                               */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_7_Selected (0x1UL) /*!< Port size 7 is selected.                                      */
-
-/* PORT_SIZE_8 @Bit 7 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_8_Pos (7UL) /*!< Position of PORT_SIZE_8 field.                                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_8_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_8_Pos) /*!< Bit mask of PORT_SIZE_8
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_8_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_8 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_8_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_8 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_8_NotSelected (0x0UL) /*!< Port size 8 is not selected.                               */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_8_Selected (0x1UL) /*!< Port size 8 is selected.                                      */
-
-/* PORT_SIZE_9 @Bit 8 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_9_Pos (8UL) /*!< Position of PORT_SIZE_9 field.                                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_9_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_9_Pos) /*!< Bit mask of PORT_SIZE_9
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_9_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_9 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_9_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_9 field.                         */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_9_NotSelected (0x0UL) /*!< Port size 9 is not selected.                               */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_9_Selected (0x1UL) /*!< Port size 9 is selected.                                      */
-
-/* PORT_SIZE_10 @Bit 9 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_10_Pos (9UL) /*!< Position of PORT_SIZE_10 field.                                     */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_10_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_10_Pos) /*!< Bit mask of PORT_SIZE_10
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_10_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_10 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_10_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_10 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_10_NotSelected (0x0UL) /*!< Port size 10 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_10_Selected (0x1UL) /*!< Port size 10 is selected.                                    */
-
-/* PORT_SIZE_11 @Bit 10 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_11_Pos (10UL) /*!< Position of PORT_SIZE_11 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_11_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_11_Pos) /*!< Bit mask of PORT_SIZE_11
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_11_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_11 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_11_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_11 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_11_NotSelected (0x0UL) /*!< Port size 11 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_11_Selected (0x1UL) /*!< Port size 11 is selected.                                    */
-
-/* PORT_SIZE_12 @Bit 11 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_12_Pos (11UL) /*!< Position of PORT_SIZE_12 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_12_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_12_Pos) /*!< Bit mask of PORT_SIZE_12
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_12_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_12 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_12_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_12 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_12_NotSelected (0x0UL) /*!< Port size 12 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_12_Selected (0x1UL) /*!< Port size 12 is selected.                                    */
-
-/* PORT_SIZE_13 @Bit 12 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_13_Pos (12UL) /*!< Position of PORT_SIZE_13 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_13_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_13_Pos) /*!< Bit mask of PORT_SIZE_13
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_13_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_13 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_13_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_13 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_13_NotSelected (0x0UL) /*!< Port size 13 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_13_Selected (0x1UL) /*!< Port size 13 is selected.                                    */
-
-/* PORT_SIZE_14 @Bit 13 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_14_Pos (13UL) /*!< Position of PORT_SIZE_14 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_14_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_14_Pos) /*!< Bit mask of PORT_SIZE_14
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_14_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_14 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_14_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_14 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_14_NotSelected (0x0UL) /*!< Port size 14 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_14_Selected (0x1UL) /*!< Port size 14 is selected.                                    */
-
-/* PORT_SIZE_15 @Bit 14 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_15_Pos (14UL) /*!< Position of PORT_SIZE_15 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_15_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_15_Pos) /*!< Bit mask of PORT_SIZE_15
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_15_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_15 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_15_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_15 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_15_NotSelected (0x0UL) /*!< Port size 15 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_15_Selected (0x1UL) /*!< Port size 15 is selected.                                    */
-
-/* PORT_SIZE_16 @Bit 15 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_16_Pos (15UL) /*!< Position of PORT_SIZE_16 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_16_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_16_Pos) /*!< Bit mask of PORT_SIZE_16
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_16_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_16 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_16_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_16 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_16_NotSelected (0x0UL) /*!< Port size 16 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_16_Selected (0x1UL) /*!< Port size 16 is selected.                                    */
-
-/* PORT_SIZE_17 @Bit 16 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_17_Pos (16UL) /*!< Position of PORT_SIZE_17 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_17_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_17_Pos) /*!< Bit mask of PORT_SIZE_17
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_17_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_17 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_17_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_17 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_17_NotSelected (0x0UL) /*!< Port size 17 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_17_Selected (0x1UL) /*!< Port size 17 is selected.                                    */
-
-/* PORT_SIZE_18 @Bit 17 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_18_Pos (17UL) /*!< Position of PORT_SIZE_18 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_18_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_18_Pos) /*!< Bit mask of PORT_SIZE_18
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_18_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_18 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_18_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_18 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_18_NotSelected (0x0UL) /*!< Port size 18 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_18_Selected (0x1UL) /*!< Port size 18 is selected.                                    */
-
-/* PORT_SIZE_19 @Bit 18 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_19_Pos (18UL) /*!< Position of PORT_SIZE_19 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_19_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_19_Pos) /*!< Bit mask of PORT_SIZE_19
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_19_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_19 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_19_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_19 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_19_NotSelected (0x0UL) /*!< Port size 19 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_19_Selected (0x1UL) /*!< Port size 19 is selected.                                    */
-
-/* PORT_SIZE_20 @Bit 19 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_20_Pos (19UL) /*!< Position of PORT_SIZE_20 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_20_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_20_Pos) /*!< Bit mask of PORT_SIZE_20
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_20_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_20 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_20_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_20 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_20_NotSelected (0x0UL) /*!< Port size 20 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_20_Selected (0x1UL) /*!< Port size 20 is selected.                                    */
-
-/* PORT_SIZE_21 @Bit 20 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_21_Pos (20UL) /*!< Position of PORT_SIZE_21 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_21_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_21_Pos) /*!< Bit mask of PORT_SIZE_21
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_21_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_21 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_21_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_21 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_21_NotSelected (0x0UL) /*!< Port size 21 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_21_Selected (0x1UL) /*!< Port size 21 is selected.                                    */
-
-/* PORT_SIZE_22 @Bit 21 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_22_Pos (21UL) /*!< Position of PORT_SIZE_22 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_22_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_22_Pos) /*!< Bit mask of PORT_SIZE_22
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_22_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_22 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_22_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_22 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_22_NotSelected (0x0UL) /*!< Port size 22 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_22_Selected (0x1UL) /*!< Port size 22 is selected.                                    */
-
-/* PORT_SIZE_23 @Bit 22 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_23_Pos (22UL) /*!< Position of PORT_SIZE_23 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_23_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_23_Pos) /*!< Bit mask of PORT_SIZE_23
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_23_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_23 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_23_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_23 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_23_NotSelected (0x0UL) /*!< Port size 23 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_23_Selected (0x1UL) /*!< Port size 23 is selected.                                    */
-
-/* PORT_SIZE_24 @Bit 23 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_24_Pos (23UL) /*!< Position of PORT_SIZE_24 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_24_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_24_Pos) /*!< Bit mask of PORT_SIZE_24
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_24_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_24 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_24_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_24 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_24_NotSelected (0x0UL) /*!< Port size 24 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_24_Selected (0x1UL) /*!< Port size 24 is selected.                                    */
-
-/* PORT_SIZE_25 @Bit 24 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_25_Pos (24UL) /*!< Position of PORT_SIZE_25 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_25_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_25_Pos) /*!< Bit mask of PORT_SIZE_25
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_25_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_25 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_25_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_25 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_25_NotSelected (0x0UL) /*!< Port size 25 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_25_Selected (0x1UL) /*!< Port size 25 is selected.                                    */
-
-/* PORT_SIZE_26 @Bit 25 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_26_Pos (25UL) /*!< Position of PORT_SIZE_26 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_26_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_26_Pos) /*!< Bit mask of PORT_SIZE_26
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_26_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_26 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_26_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_26 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_26_NotSelected (0x0UL) /*!< Port size 26 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_26_Selected (0x1UL) /*!< Port size 26 is selected.                                    */
-
-/* PORT_SIZE_27 @Bit 26 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_27_Pos (26UL) /*!< Position of PORT_SIZE_27 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_27_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_27_Pos) /*!< Bit mask of PORT_SIZE_27
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_27_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_27 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_27_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_27 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_27_NotSelected (0x0UL) /*!< Port size 27 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_27_Selected (0x1UL) /*!< Port size 27 is selected.                                    */
-
-/* PORT_SIZE_28 @Bit 27 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_28_Pos (27UL) /*!< Position of PORT_SIZE_28 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_28_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_28_Pos) /*!< Bit mask of PORT_SIZE_28
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_28_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_28 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_28_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_28 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_28_NotSelected (0x0UL) /*!< Port size 28 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_28_Selected (0x1UL) /*!< Port size 28 is selected.                                    */
-
-/* PORT_SIZE_29 @Bit 28 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_29_Pos (28UL) /*!< Position of PORT_SIZE_29 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_29_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_29_Pos) /*!< Bit mask of PORT_SIZE_29
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_29_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_29 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_29_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_29 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_29_NotSelected (0x0UL) /*!< Port size 29 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_29_Selected (0x1UL) /*!< Port size 29 is selected.                                    */
-
-/* PORT_SIZE_30 @Bit 29 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_30_Pos (29UL) /*!< Position of PORT_SIZE_30 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_30_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_30_Pos) /*!< Bit mask of PORT_SIZE_30
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_30_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_30 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_30_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_30 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_30_NotSelected (0x0UL) /*!< Port size 30 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_30_Selected (0x1UL) /*!< Port size 30 is selected.                                    */
-
-/* PORT_SIZE_31 @Bit 30 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_31_Pos (30UL) /*!< Position of PORT_SIZE_31 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_31_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_31_Pos) /*!< Bit mask of PORT_SIZE_31
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_31_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_31 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_31_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_31 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_31_NotSelected (0x0UL) /*!< Port size 31 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_31_Selected (0x1UL) /*!< Port size 31 is selected.                                    */
-
-/* PORT_SIZE_32 @Bit 31 : Indicates which port size is currently selected. */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_32_Pos (31UL) /*!< Position of PORT_SIZE_32 field.                                    */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_32_Msk (0x1UL << TPIU_CURRENTPORTSIZE_PORT_SIZE_32_Pos) /*!< Bit mask of PORT_SIZE_32
-                                                                            field.*/
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_32_Min (0x0UL) /*!< Min enumerator value of PORT_SIZE_32 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_32_Max (0x1UL) /*!< Max enumerator value of PORT_SIZE_32 field.                       */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_32_NotSelected (0x0UL) /*!< Port size 32 is not selected.                             */
-  #define TPIU_CURRENTPORTSIZE_PORT_SIZE_32_Selected (0x1UL) /*!< Port size 32 is selected.                                    */
-
-
-/* TPIU_SUPPORTEDTRIGGERMODES: The Supported_trigger_modes register indicates the implemented trigger counter multipliers and
-                                other supported features of the trigger system. */
-
-  #define TPIU_SUPPORTEDTRIGGERMODES_ResetValue (0x00000000UL) /*!< Reset value of SUPPORTEDTRIGGERMODES register.             */
-
-/* MULT0 @Bit 0 : Indicates whether multiplying the trigger counter by 2^(0+1) is supported. */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT0_Pos (0UL) /*!< Position of MULT0 field.                                             */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT0_Msk (0x1UL << TPIU_SUPPORTEDTRIGGERMODES_MULT0_Pos) /*!< Bit mask of MULT0 field.   */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT0_Min (0x0UL) /*!< Min enumerator value of MULT0 field.                               */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT0_Max (0x1UL) /*!< Max enumerator value of MULT0 field.                               */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT0_NotSelected (0x0UL) /*!< Multiplying the trigger counter by 2^(0+1) is supported.   */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT0_Selected (0x1UL) /*!< Multiplying the trigger counter by 2^(0+1) is supported.      */
-
-/* MULT1 @Bit 1 : Indicates whether multiplying the trigger counter by 2^(1+1) is supported. */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT1_Pos (1UL) /*!< Position of MULT1 field.                                             */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT1_Msk (0x1UL << TPIU_SUPPORTEDTRIGGERMODES_MULT1_Pos) /*!< Bit mask of MULT1 field.   */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT1_Min (0x0UL) /*!< Min enumerator value of MULT1 field.                               */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT1_Max (0x1UL) /*!< Max enumerator value of MULT1 field.                               */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT1_NotSelected (0x0UL) /*!< Multiplying the trigger counter by 2^(1+1) is supported.   */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT1_Selected (0x1UL) /*!< Multiplying the trigger counter by 2^(1+1) is supported.      */
-
-/* MULT2 @Bit 2 : Indicates whether multiplying the trigger counter by 2^(2+1) is supported. */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT2_Pos (2UL) /*!< Position of MULT2 field.                                             */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT2_Msk (0x1UL << TPIU_SUPPORTEDTRIGGERMODES_MULT2_Pos) /*!< Bit mask of MULT2 field.   */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT2_Min (0x0UL) /*!< Min enumerator value of MULT2 field.                               */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT2_Max (0x1UL) /*!< Max enumerator value of MULT2 field.                               */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT2_NotSelected (0x0UL) /*!< Multiplying the trigger counter by 2^(2+1) is supported.   */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT2_Selected (0x1UL) /*!< Multiplying the trigger counter by 2^(2+1) is supported.      */
-
-/* MULT3 @Bit 3 : Indicates whether multiplying the trigger counter by 2^(3+1) is supported. */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT3_Pos (3UL) /*!< Position of MULT3 field.                                             */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT3_Msk (0x1UL << TPIU_SUPPORTEDTRIGGERMODES_MULT3_Pos) /*!< Bit mask of MULT3 field.   */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT3_Min (0x0UL) /*!< Min enumerator value of MULT3 field.                               */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT3_Max (0x1UL) /*!< Max enumerator value of MULT3 field.                               */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT3_NotSelected (0x0UL) /*!< Multiplying the trigger counter by 2^(3+1) is supported.   */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT3_Selected (0x1UL) /*!< Multiplying the trigger counter by 2^(3+1) is supported.      */
-
-/* MULT4 @Bit 4 : Indicates whether multiplying the trigger counter by 2^(4+1) is supported. */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT4_Pos (4UL) /*!< Position of MULT4 field.                                             */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT4_Msk (0x1UL << TPIU_SUPPORTEDTRIGGERMODES_MULT4_Pos) /*!< Bit mask of MULT4 field.   */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT4_Min (0x0UL) /*!< Min enumerator value of MULT4 field.                               */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT4_Max (0x1UL) /*!< Max enumerator value of MULT4 field.                               */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT4_NotSelected (0x0UL) /*!< Multiplying the trigger counter by 2^(4+1) is supported.   */
-  #define TPIU_SUPPORTEDTRIGGERMODES_MULT4_Selected (0x1UL) /*!< Multiplying the trigger counter by 2^(4+1) is supported.      */
-
-/* TCOUNT8 @Bit 8 : Indicates whether an 8-bit wide counter register is implemented. */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TCOUNT8_Pos (8UL) /*!< Position of TCOUNT8 field.                                         */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TCOUNT8_Msk (0x1UL << TPIU_SUPPORTEDTRIGGERMODES_TCOUNT8_Pos) /*!< Bit mask of TCOUNT8
-                                                                            field.*/
-  #define TPIU_SUPPORTEDTRIGGERMODES_TCOUNT8_Min (0x0UL) /*!< Min enumerator value of TCOUNT8 field.                           */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TCOUNT8_Max (0x1UL) /*!< Max enumerator value of TCOUNT8 field.                           */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TCOUNT8_NotImplemented (0x0UL) /*!< An 8-bit wide counter register is implemented.        */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TCOUNT8_Implemented (0x1UL) /*!< An 8-bit wide counter register is implemented.           */
-
-/* TRIGGERED @Bit 16 : A trigger has occurred and the counter has reached 0. */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TRIGGERED_Pos (16UL) /*!< Position of TRIGGERED field.                                    */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TRIGGERED_Msk (0x1UL << TPIU_SUPPORTEDTRIGGERMODES_TRIGGERED_Pos) /*!< Bit mask of
-                                                                            TRIGGERED field.*/
-  #define TPIU_SUPPORTEDTRIGGERMODES_TRIGGERED_Min (0x0UL) /*!< Min enumerator value of TRIGGERED field.                       */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TRIGGERED_Max (0x1UL) /*!< Max enumerator value of TRIGGERED field.                       */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TRIGGERED_NotOccured (0x0UL) /*!< Trigger has not occurred.                               */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TRIGGERED_Occured (0x1UL) /*!< Trigger has occurred.                                      */
-
-/* TRGRUN @Bit 17 : A trigger has occurred but the counter is not at 0. */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TRGRUN_Pos (17UL) /*!< Position of TRGRUN field.                                          */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TRGRUN_Msk (0x1UL << TPIU_SUPPORTEDTRIGGERMODES_TRGRUN_Pos) /*!< Bit mask of TRGRUN field.*/
-  #define TPIU_SUPPORTEDTRIGGERMODES_TRGRUN_Min (0x0UL) /*!< Min enumerator value of TRGRUN field.                             */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TRGRUN_Max (0x1UL) /*!< Max enumerator value of TRGRUN field.                             */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TRGRUN_NotOccured (0x0UL) /*!< Either a trigger has not occurred or the counter is at 0.  */
-  #define TPIU_SUPPORTEDTRIGGERMODES_TRGRUN_Occured (0x1UL) /*!< A trigger has occurred but the counter is not at 0.           */
-
-
-/* TPIU_TRIGGERCOUNTERVALUE: The Trigger_counter_value register enables delaying the indication of triggers to any external
-                              connected trace capture or storage devices. */
-
-  #define TPIU_TRIGGERCOUNTERVALUE_ResetValue (0x00000000UL) /*!< Reset value of TRIGGERCOUNTERVALUE register.                 */
-
-/* TrigCount @Bits 0..7 : 8-bit counter value for the number of words to be output from the formatter before a trigger is
-                          inserted. */
-
-  #define TPIU_TRIGGERCOUNTERVALUE_TrigCount_Pos (0UL) /*!< Position of TrigCount field.                                       */
-  #define TPIU_TRIGGERCOUNTERVALUE_TrigCount_Msk (0xFFUL << TPIU_TRIGGERCOUNTERVALUE_TrigCount_Pos) /*!< Bit mask of TrigCount
-                                                                            field.*/
-  #define TPIU_TRIGGERCOUNTERVALUE_TrigCount_Min (0x00UL) /*!< Min value of TrigCount field.                                   */
-  #define TPIU_TRIGGERCOUNTERVALUE_TrigCount_Max (0xFFUL) /*!< Max size of TrigCount field.                                    */
-
-
-/* TPIU_TRIGGERMULTIPLIER: The Trigger_multiplier register contains the selectors for the trigger counter multiplier. */
-  #define TPIU_TRIGGERMULTIPLIER_ResetValue (0x00000000UL) /*!< Reset value of TRIGGERMULTIPLIER register.                     */
-
-/* MULT0 @Bit 0 : Multiply the Trigger Counter by 2^n. */
-  #define TPIU_TRIGGERMULTIPLIER_MULT0_Pos (0UL)     /*!< Position of MULT0 field.                                             */
-  #define TPIU_TRIGGERMULTIPLIER_MULT0_Msk (0x1UL << TPIU_TRIGGERMULTIPLIER_MULT0_Pos) /*!< Bit mask of MULT0 field.           */
-  #define TPIU_TRIGGERMULTIPLIER_MULT0_Min (0x0UL)   /*!< Min enumerator value of MULT0 field.                                 */
-  #define TPIU_TRIGGERMULTIPLIER_MULT0_Max (0x1UL)   /*!< Max enumerator value of MULT0 field.                                 */
-  #define TPIU_TRIGGERMULTIPLIER_MULT0_Disabled (0x0UL) /*!< Multiplier disabled.                                              */
-  #define TPIU_TRIGGERMULTIPLIER_MULT0_Enabled (0x1UL) /*!< Multiplier enabled.                                                */
-
-/* MULT1 @Bit 1 : Multiply the Trigger Counter by 2^n. */
-  #define TPIU_TRIGGERMULTIPLIER_MULT1_Pos (1UL)     /*!< Position of MULT1 field.                                             */
-  #define TPIU_TRIGGERMULTIPLIER_MULT1_Msk (0x1UL << TPIU_TRIGGERMULTIPLIER_MULT1_Pos) /*!< Bit mask of MULT1 field.           */
-  #define TPIU_TRIGGERMULTIPLIER_MULT1_Min (0x0UL)   /*!< Min enumerator value of MULT1 field.                                 */
-  #define TPIU_TRIGGERMULTIPLIER_MULT1_Max (0x1UL)   /*!< Max enumerator value of MULT1 field.                                 */
-  #define TPIU_TRIGGERMULTIPLIER_MULT1_Disabled (0x0UL) /*!< Multiplier disabled.                                              */
-  #define TPIU_TRIGGERMULTIPLIER_MULT1_Enabled (0x1UL) /*!< Multiplier enabled.                                                */
-
-/* MULT2 @Bit 2 : Multiply the Trigger Counter by 2^n. */
-  #define TPIU_TRIGGERMULTIPLIER_MULT2_Pos (2UL)     /*!< Position of MULT2 field.                                             */
-  #define TPIU_TRIGGERMULTIPLIER_MULT2_Msk (0x1UL << TPIU_TRIGGERMULTIPLIER_MULT2_Pos) /*!< Bit mask of MULT2 field.           */
-  #define TPIU_TRIGGERMULTIPLIER_MULT2_Min (0x0UL)   /*!< Min enumerator value of MULT2 field.                                 */
-  #define TPIU_TRIGGERMULTIPLIER_MULT2_Max (0x1UL)   /*!< Max enumerator value of MULT2 field.                                 */
-  #define TPIU_TRIGGERMULTIPLIER_MULT2_Disabled (0x0UL) /*!< Multiplier disabled.                                              */
-  #define TPIU_TRIGGERMULTIPLIER_MULT2_Enabled (0x1UL) /*!< Multiplier enabled.                                                */
-
-/* MULT3 @Bit 3 : Multiply the Trigger Counter by 2^n. */
-  #define TPIU_TRIGGERMULTIPLIER_MULT3_Pos (3UL)     /*!< Position of MULT3 field.                                             */
-  #define TPIU_TRIGGERMULTIPLIER_MULT3_Msk (0x1UL << TPIU_TRIGGERMULTIPLIER_MULT3_Pos) /*!< Bit mask of MULT3 field.           */
-  #define TPIU_TRIGGERMULTIPLIER_MULT3_Min (0x0UL)   /*!< Min enumerator value of MULT3 field.                                 */
-  #define TPIU_TRIGGERMULTIPLIER_MULT3_Max (0x1UL)   /*!< Max enumerator value of MULT3 field.                                 */
-  #define TPIU_TRIGGERMULTIPLIER_MULT3_Disabled (0x0UL) /*!< Multiplier disabled.                                              */
-  #define TPIU_TRIGGERMULTIPLIER_MULT3_Enabled (0x1UL) /*!< Multiplier enabled.                                                */
-
-/* MULT4 @Bit 4 : Multiply the Trigger Counter by 2^n. */
-  #define TPIU_TRIGGERMULTIPLIER_MULT4_Pos (4UL)     /*!< Position of MULT4 field.                                             */
-  #define TPIU_TRIGGERMULTIPLIER_MULT4_Msk (0x1UL << TPIU_TRIGGERMULTIPLIER_MULT4_Pos) /*!< Bit mask of MULT4 field.           */
-  #define TPIU_TRIGGERMULTIPLIER_MULT4_Min (0x0UL)   /*!< Min enumerator value of MULT4 field.                                 */
-  #define TPIU_TRIGGERMULTIPLIER_MULT4_Max (0x1UL)   /*!< Max enumerator value of MULT4 field.                                 */
-  #define TPIU_TRIGGERMULTIPLIER_MULT4_Disabled (0x0UL) /*!< Multiplier disabled.                                              */
-  #define TPIU_TRIGGERMULTIPLIER_MULT4_Enabled (0x1UL) /*!< Multiplier enabled.                                                */
-
-
-/* TPIU_SUPPPORTEDTESTPATTERNMODES: The Supported_test_pattern_modes register provides a set of known bit sequences or patterns
-                                     that can be output over the trace port and can be detected by the TPA or other associated
-                                     trace capture device. */
-
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_ResetValue (0x00000000UL) /*!< Reset value of SUPPPORTEDTESTPATTERNMODES register.   */
-
-/* PATW1 @Bit 0 : Indicates whether the walking 1s pattern is supported as output over the trace port. */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATW1_Pos (0UL) /*!< Position of PATW1 field.                                        */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATW1_Msk (0x1UL << TPIU_SUPPPORTEDTESTPATTERNMODES_PATW1_Pos) /*!< Bit mask of PATW1
-                                                                            field.*/
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATW1_Min (0x0UL) /*!< Min enumerator value of PATW1 field.                          */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATW1_Max (0x1UL) /*!< Max enumerator value of PATW1 field.                          */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATW1_NotSupported (0x0UL) /*!< Test pattern is not supported.                       */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATW1_Supported (0x1UL) /*!< Test pattern is supported.                              */
-
-/* PATW0 @Bit 1 : Indicates whether the walking 0s pattern is supported as output over the trace port. */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATW0_Pos (1UL) /*!< Position of PATW0 field.                                        */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATW0_Msk (0x1UL << TPIU_SUPPPORTEDTESTPATTERNMODES_PATW0_Pos) /*!< Bit mask of PATW0
-                                                                            field.*/
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATW0_Min (0x0UL) /*!< Min enumerator value of PATW0 field.                          */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATW0_Max (0x1UL) /*!< Max enumerator value of PATW0 field.                          */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATW0_NotSupported (0x0UL) /*!< Test pattern is not supported.                       */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATW0_Supported (0x1UL) /*!< Test pattern is supported.                              */
-
-/* PATA5 @Bit 2 : Indicates whether the AA/55 pattern is supported as output over the trace port. */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATA5_Pos (2UL) /*!< Position of PATA5 field.                                        */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATA5_Msk (0x1UL << TPIU_SUPPPORTEDTESTPATTERNMODES_PATA5_Pos) /*!< Bit mask of PATA5
-                                                                            field.*/
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATA5_Min (0x0UL) /*!< Min enumerator value of PATA5 field.                          */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATA5_Max (0x1UL) /*!< Max enumerator value of PATA5 field.                          */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATA5_NotSupported (0x0UL) /*!< Test pattern is not supported.                       */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATA5_Supported (0x1UL) /*!< Test pattern is supported.                              */
-
-/* PATF0 @Bit 3 : Indicates whether the FF/00 pattern is supported as output over the trace port. */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATF0_Pos (3UL) /*!< Position of PATF0 field.                                        */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATF0_Msk (0x1UL << TPIU_SUPPPORTEDTESTPATTERNMODES_PATF0_Pos) /*!< Bit mask of PATF0
-                                                                            field.*/
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATF0_Min (0x0UL) /*!< Min enumerator value of PATF0 field.                          */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATF0_Max (0x1UL) /*!< Max enumerator value of PATF0 field.                          */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATF0_NotSupported (0x0UL) /*!< Test pattern is not supported.                       */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PATF0_Supported (0x1UL) /*!< Test pattern is supported.                              */
-
-/* PTIMEEN @Bit 16 : Indicates whether timed mode is supported. */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PTIMEEN_Pos (16UL) /*!< Position of PTIMEEN field.                                   */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PTIMEEN_Msk (0x1UL << TPIU_SUPPPORTEDTESTPATTERNMODES_PTIMEEN_Pos) /*!< Bit mask of
-                                                                            PTIMEEN field.*/
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PTIMEEN_Min (0x0UL) /*!< Min enumerator value of PTIMEEN field.                      */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PTIMEEN_Max (0x1UL) /*!< Max enumerator value of PTIMEEN field.                      */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PTIMEEN_NotSupported (0x0UL) /*!< Mode is not supported.                             */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PTIMEEN_Supported (0x1UL) /*!< Mode is supported.                                    */
-
-/* PCONTEN @Bit 17 : Indicates whether continuous mode is supported. */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PCONTEN_Pos (17UL) /*!< Position of PCONTEN field.                                   */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PCONTEN_Msk (0x1UL << TPIU_SUPPPORTEDTESTPATTERNMODES_PCONTEN_Pos) /*!< Bit mask of
-                                                                            PCONTEN field.*/
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PCONTEN_Min (0x0UL) /*!< Min enumerator value of PCONTEN field.                      */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PCONTEN_Max (0x1UL) /*!< Max enumerator value of PCONTEN field.                      */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PCONTEN_NotSupported (0x0UL) /*!< Mode is not supported.                             */
-  #define TPIU_SUPPPORTEDTESTPATTERNMODES_PCONTEN_Supported (0x1UL) /*!< Mode is supported.                                    */
-
-
-/* TPIU_CURRENTTESTPATTERNMODES: Current_test_pattern_mode indicates the current test pattern or mode selected. */
-  #define TPIU_CURRENTTESTPATTERNMODES_ResetValue (0x00000000UL) /*!< Reset value of CURRENTTESTPATTERNMODES register.         */
-
-/* PATW1 @Bit 0 : Indicates whether the walking 1s pattern is supported as output over the trace port. */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATW1_Pos (0UL) /*!< Position of PATW1 field.                                           */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATW1_Msk (0x1UL << TPIU_CURRENTTESTPATTERNMODES_PATW1_Pos) /*!< Bit mask of PATW1
-                                                                            field.*/
-  #define TPIU_CURRENTTESTPATTERNMODES_PATW1_Min (0x0UL) /*!< Min enumerator value of PATW1 field.                             */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATW1_Max (0x1UL) /*!< Max enumerator value of PATW1 field.                             */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATW1_Disabled (0x0UL) /*!< Test pattern is disabled.                                   */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATW1_Enabled (0x1UL) /*!< Test pattern is enabled.                                     */
-
-/* PATW0 @Bit 1 : Indicates whether the walking 0s pattern is supported as output over the trace port. */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATW0_Pos (1UL) /*!< Position of PATW0 field.                                           */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATW0_Msk (0x1UL << TPIU_CURRENTTESTPATTERNMODES_PATW0_Pos) /*!< Bit mask of PATW0
-                                                                            field.*/
-  #define TPIU_CURRENTTESTPATTERNMODES_PATW0_Min (0x0UL) /*!< Min enumerator value of PATW0 field.                             */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATW0_Max (0x1UL) /*!< Max enumerator value of PATW0 field.                             */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATW0_Disabled (0x0UL) /*!< Test pattern is disabled.                                   */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATW0_Enabled (0x1UL) /*!< Test pattern is enabled.                                     */
-
-/* PATA5 @Bit 2 : Indicates whether the AA/55 pattern is supported as output over the trace port. */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATA5_Pos (2UL) /*!< Position of PATA5 field.                                           */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATA5_Msk (0x1UL << TPIU_CURRENTTESTPATTERNMODES_PATA5_Pos) /*!< Bit mask of PATA5
-                                                                            field.*/
-  #define TPIU_CURRENTTESTPATTERNMODES_PATA5_Min (0x0UL) /*!< Min enumerator value of PATA5 field.                             */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATA5_Max (0x1UL) /*!< Max enumerator value of PATA5 field.                             */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATA5_Disabled (0x0UL) /*!< Test pattern is disabled.                                   */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATA5_Enabled (0x1UL) /*!< Test pattern is enabled.                                     */
-
-/* PATF0 @Bit 3 : Indicates whether the FF/00 pattern is supported as output over the trace port. */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATF0_Pos (3UL) /*!< Position of PATF0 field.                                           */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATF0_Msk (0x1UL << TPIU_CURRENTTESTPATTERNMODES_PATF0_Pos) /*!< Bit mask of PATF0
-                                                                            field.*/
-  #define TPIU_CURRENTTESTPATTERNMODES_PATF0_Min (0x0UL) /*!< Min enumerator value of PATF0 field.                             */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATF0_Max (0x1UL) /*!< Max enumerator value of PATF0 field.                             */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATF0_Disabled (0x0UL) /*!< Test pattern is disabled.                                   */
-  #define TPIU_CURRENTTESTPATTERNMODES_PATF0_Enabled (0x1UL) /*!< Test pattern is enabled.                                     */
-
-/* PTIMEEN @Bit 16 : Indicates whether timed mode is supported. */
-  #define TPIU_CURRENTTESTPATTERNMODES_PTIMEEN_Pos (16UL) /*!< Position of PTIMEEN field.                                      */
-  #define TPIU_CURRENTTESTPATTERNMODES_PTIMEEN_Msk (0x1UL << TPIU_CURRENTTESTPATTERNMODES_PTIMEEN_Pos) /*!< Bit mask of PTIMEEN
-                                                                            field.*/
-  #define TPIU_CURRENTTESTPATTERNMODES_PTIMEEN_Min (0x0UL) /*!< Min enumerator value of PTIMEEN field.                         */
-  #define TPIU_CURRENTTESTPATTERNMODES_PTIMEEN_Max (0x1UL) /*!< Max enumerator value of PTIMEEN field.                         */
-  #define TPIU_CURRENTTESTPATTERNMODES_PTIMEEN_Disabled (0x0UL) /*!< Mode is disabled.                                         */
-  #define TPIU_CURRENTTESTPATTERNMODES_PTIMEEN_Enabled (0x1UL) /*!< Mode is enabled.                                           */
-
-/* PCONTEN @Bit 17 : Indicates whether continuous mode is supported. */
-  #define TPIU_CURRENTTESTPATTERNMODES_PCONTEN_Pos (17UL) /*!< Position of PCONTEN field.                                      */
-  #define TPIU_CURRENTTESTPATTERNMODES_PCONTEN_Msk (0x1UL << TPIU_CURRENTTESTPATTERNMODES_PCONTEN_Pos) /*!< Bit mask of PCONTEN
-                                                                            field.*/
-  #define TPIU_CURRENTTESTPATTERNMODES_PCONTEN_Min (0x0UL) /*!< Min enumerator value of PCONTEN field.                         */
-  #define TPIU_CURRENTTESTPATTERNMODES_PCONTEN_Max (0x1UL) /*!< Max enumerator value of PCONTEN field.                         */
-  #define TPIU_CURRENTTESTPATTERNMODES_PCONTEN_Disabled (0x0UL) /*!< Mode is disabled.                                         */
-  #define TPIU_CURRENTTESTPATTERNMODES_PCONTEN_Enabled (0x1UL) /*!< Mode is enabled.                                           */
-
-
-/* TPIU_TPRCR: The TPRCR register is an 8-bit counter start value that is decremented. A write sets the initial counter value
-                and a read returns the programmed value. */
-
-  #define TPIU_TPRCR_ResetValue (0x00000000UL)       /*!< Reset value of TPRCR register.                                       */
-
-/* PATTCOUNT @Bits 0..7 : 8-bit counter value to indicate the number of traceclkin cycles for which a pattern runs before it
-                          switches to the next pattern. */
-
-  #define TPIU_TPRCR_PATTCOUNT_Pos (0UL)             /*!< Position of PATTCOUNT field.                                         */
-  #define TPIU_TPRCR_PATTCOUNT_Msk (0xFFUL << TPIU_TPRCR_PATTCOUNT_Pos) /*!< Bit mask of PATTCOUNT field.                      */
-  #define TPIU_TPRCR_PATTCOUNT_Min (0x00UL)          /*!< Min value of PATTCOUNT field.                                        */
-  #define TPIU_TPRCR_PATTCOUNT_Max (0xFFUL)          /*!< Max size of PATTCOUNT field.                                         */
-
-
-/* TPIU_FFSR: The FFSR register indicates the current status of the formatter and flush features available in the TPIU. */
-  #define TPIU_FFSR_ResetValue (0x00000000UL)        /*!< Reset value of FFSR register.                                        */
-
-/* FLINPROG @Bit 0 : Flush in progress. */
-  #define TPIU_FFSR_FLINPROG_Pos (0UL)               /*!< Position of FLINPROG field.                                          */
-  #define TPIU_FFSR_FLINPROG_Msk (0x1UL << TPIU_FFSR_FLINPROG_Pos) /*!< Bit mask of FLINPROG field.                            */
-  #define TPIU_FFSR_FLINPROG_Min (0x0UL)             /*!< Min enumerator value of FLINPROG field.                              */
-  #define TPIU_FFSR_FLINPROG_Max (0x1UL)             /*!< Max enumerator value of FLINPROG field.                              */
-  #define TPIU_FFSR_FLINPROG_NotInProgress (0x0UL)   /*!< A flush is not in progress.                                          */
-  #define TPIU_FFSR_FLINPROG_InProgress (0x1UL)      /*!< A flush is in progress.                                              */
-
-/* FTSTOPPED @Bit 1 : The formatter has received a stop request signal and all trace data and post-amble is sent. Any additional
-                      trace data on the ATB interface is ignored and atreadys goes HIGH. */
-
-  #define TPIU_FFSR_FTSTOPPED_Pos (1UL)              /*!< Position of FTSTOPPED field.                                         */
-  #define TPIU_FFSR_FTSTOPPED_Msk (0x1UL << TPIU_FFSR_FTSTOPPED_Pos) /*!< Bit mask of FTSTOPPED field.                         */
-  #define TPIU_FFSR_FTSTOPPED_Min (0x0UL)            /*!< Min enumerator value of FTSTOPPED field.                             */
-  #define TPIU_FFSR_FTSTOPPED_Max (0x1UL)            /*!< Max enumerator value of FTSTOPPED field.                             */
-  #define TPIU_FFSR_FTSTOPPED_Running (0x0UL)        /*!< Formatter has not stopped.                                           */
-  #define TPIU_FFSR_FTSTOPPED_Stopped (0x1UL)        /*!< Formatter has stopped.                                               */
-
-/* TCPRESENT @Bit 2 : Indicates whether the TRACECTL pin is available for use. */
-  #define TPIU_FFSR_TCPRESENT_Pos (2UL)              /*!< Position of TCPRESENT field.                                         */
-  #define TPIU_FFSR_TCPRESENT_Msk (0x1UL << TPIU_FFSR_TCPRESENT_Pos) /*!< Bit mask of TCPRESENT field.                         */
-  #define TPIU_FFSR_TCPRESENT_Min (0x0UL)            /*!< Min enumerator value of TCPRESENT field.                             */
-  #define TPIU_FFSR_TCPRESENT_Max (0x1UL)            /*!< Max enumerator value of TCPRESENT field.                             */
-  #define TPIU_FFSR_TCPRESENT_NotPresent (0x0UL)     /*!< TRACECTL pin is not present.                                         */
-  #define TPIU_FFSR_TCPRESENT_Present (0x1UL)        /*!< TRACECTL pin is present.                                             */
-
-
-/* TPIU_FFCR: The FFCR register controls the generation of stop, trigger, and flush events. */
-  #define TPIU_FFCR_ResetValue (0x00000000UL)        /*!< Reset value of FFCR register.                                        */
-
-/* ENFTC @Bit 0 : Do not embed triggers into the formatted stream. Trace disable cycles and triggers are indicated by tracectl,
-                  where present. */
-
-  #define TPIU_FFCR_ENFTC_Pos (0UL)                  /*!< Position of ENFTC field.                                             */
-  #define TPIU_FFCR_ENFTC_Msk (0x1UL << TPIU_FFCR_ENFTC_Pos) /*!< Bit mask of ENFTC field.                                     */
-  #define TPIU_FFCR_ENFTC_Min (0x0UL)                /*!< Min enumerator value of ENFTC field.                                 */
-  #define TPIU_FFCR_ENFTC_Max (0x1UL)                /*!< Max enumerator value of ENFTC field.                                 */
-  #define TPIU_FFCR_ENFTC_Disabled (0x0UL)           /*!< The formatting feature is disabled.                                  */
-  #define TPIU_FFCR_ENFTC_Enabled (0x1UL)            /*!< The formatting feature is enabled.                                   */
-
-/* ENFCONT @Bit 1 : Is embedded in trigger packets and indicates that no cycle is using sync packets. */
-  #define TPIU_FFCR_ENFCONT_Pos (1UL)                /*!< Position of ENFCONT field.                                           */
-  #define TPIU_FFCR_ENFCONT_Msk (0x1UL << TPIU_FFCR_ENFCONT_Pos) /*!< Bit mask of ENFCONT field.                               */
-  #define TPIU_FFCR_ENFCONT_Min (0x0UL)              /*!< Min enumerator value of ENFCONT field.                               */
-  #define TPIU_FFCR_ENFCONT_Max (0x1UL)              /*!< Max enumerator value of ENFCONT field.                               */
-  #define TPIU_FFCR_ENFCONT_Disabled (0x0UL)         /*!< The formatting feature is disabled.                                  */
-  #define TPIU_FFCR_ENFCONT_Enabled (0x1UL)          /*!< The formatting feature is enabled.                                   */
-
-/* FONFLIN @Bit 4 : Enables the use of the flushin connection. */
-  #define TPIU_FFCR_FONFLIN_Pos (4UL)                /*!< Position of FONFLIN field.                                           */
-  #define TPIU_FFCR_FONFLIN_Msk (0x1UL << TPIU_FFCR_FONFLIN_Pos) /*!< Bit mask of FONFLIN field.                               */
-  #define TPIU_FFCR_FONFLIN_Min (0x0UL)              /*!< Min enumerator value of FONFLIN field.                               */
-  #define TPIU_FFCR_FONFLIN_Max (0x1UL)              /*!< Max enumerator value of FONFLIN field.                               */
-  #define TPIU_FFCR_FONFLIN_Disabled (0x0UL)         /*!< The formatting feature is disabled.                                  */
-  #define TPIU_FFCR_FONFLIN_Enabled (0x1UL)          /*!< The formatting feature is enabled.                                   */
-
-/* FONTRIG @Bit 5 : Initiates a manual flush of data in the system when a trigger event occurs. */
-  #define TPIU_FFCR_FONTRIG_Pos (5UL)                /*!< Position of FONTRIG field.                                           */
-  #define TPIU_FFCR_FONTRIG_Msk (0x1UL << TPIU_FFCR_FONTRIG_Pos) /*!< Bit mask of FONTRIG field.                               */
-  #define TPIU_FFCR_FONTRIG_Min (0x0UL)              /*!< Min enumerator value of FONTRIG field.                               */
-  #define TPIU_FFCR_FONTRIG_Max (0x1UL)              /*!< Max enumerator value of FONTRIG field.                               */
-  #define TPIU_FFCR_FONTRIG_Disabled (0x0UL)         /*!< The formatting feature is disabled.                                  */
-  #define TPIU_FFCR_FONTRIG_Enabled (0x1UL)          /*!< The formatting feature is enabled.                                   */
-
-/* FONMANR @Bit 6 : Generates a flush. This bit is set to 0 when this flush is serviced. */
-  #define TPIU_FFCR_FONMANR_Pos (6UL)                /*!< Position of FONMANR field.                                           */
-  #define TPIU_FFCR_FONMANR_Msk (0x1UL << TPIU_FFCR_FONMANR_Pos) /*!< Bit mask of FONMANR field.                               */
-  #define TPIU_FFCR_FONMANR_Min (0x0UL)              /*!< Min enumerator value of FONMANR field.                               */
-  #define TPIU_FFCR_FONMANR_Max (0x1UL)              /*!< Max enumerator value of FONMANR field.                               */
-  #define TPIU_FFCR_FONMANR_Disabled (0x0UL)         /*!< The formatting feature is disabled.                                  */
-  #define TPIU_FFCR_FONMANR_Enabled (0x1UL)          /*!< The formatting feature is enabled.                                   */
-
-/* FONMANW @Bit 7 : Generates a flush. This bit is set to 1 when this flush is serviced. */
-  #define TPIU_FFCR_FONMANW_Pos (7UL)                /*!< Position of FONMANW field.                                           */
-  #define TPIU_FFCR_FONMANW_Msk (0x1UL << TPIU_FFCR_FONMANW_Pos) /*!< Bit mask of FONMANW field.                               */
-  #define TPIU_FFCR_FONMANW_Min (0x0UL)              /*!< Min enumerator value of FONMANW field.                               */
-  #define TPIU_FFCR_FONMANW_Max (0x1UL)              /*!< Max enumerator value of FONMANW field.                               */
-  #define TPIU_FFCR_FONMANW_Disabled (0x0UL)         /*!< The formatting feature is disabled.                                  */
-  #define TPIU_FFCR_FONMANW_Enabled (0x1UL)          /*!< The formatting feature is enabled.                                   */
-
-/* TRIGIN @Bit 8 : Indicates a trigger when trigin is asserted. */
-  #define TPIU_FFCR_TRIGIN_Pos (8UL)                 /*!< Position of TRIGIN field.                                            */
-  #define TPIU_FFCR_TRIGIN_Msk (0x1UL << TPIU_FFCR_TRIGIN_Pos) /*!< Bit mask of TRIGIN field.                                  */
-  #define TPIU_FFCR_TRIGIN_Min (0x0UL)               /*!< Min enumerator value of TRIGIN field.                                */
-  #define TPIU_FFCR_TRIGIN_Max (0x1UL)               /*!< Max enumerator value of TRIGIN field.                                */
-  #define TPIU_FFCR_TRIGIN_Disabled (0x0UL)          /*!< The formatting feature is disabled.                                  */
-  #define TPIU_FFCR_TRIGIN_Enabled (0x1UL)           /*!< The formatting feature is enabled.                                   */
-
-/* TRIGEVT @Bit 9 : Indicates a trigger on a trigger event. */
-  #define TPIU_FFCR_TRIGEVT_Pos (9UL)                /*!< Position of TRIGEVT field.                                           */
-  #define TPIU_FFCR_TRIGEVT_Msk (0x1UL << TPIU_FFCR_TRIGEVT_Pos) /*!< Bit mask of TRIGEVT field.                               */
-  #define TPIU_FFCR_TRIGEVT_Min (0x0UL)              /*!< Min enumerator value of TRIGEVT field.                               */
-  #define TPIU_FFCR_TRIGEVT_Max (0x1UL)              /*!< Max enumerator value of TRIGEVT field.                               */
-  #define TPIU_FFCR_TRIGEVT_Disabled (0x0UL)         /*!< The formatting feature is disabled.                                  */
-  #define TPIU_FFCR_TRIGEVT_Enabled (0x1UL)          /*!< The formatting feature is enabled.                                   */
-
-/* TRIGFL @Bit 10 : Indicates a trigger when flush completion on afreadys is returned. */
-  #define TPIU_FFCR_TRIGFL_Pos (10UL)                /*!< Position of TRIGFL field.                                            */
-  #define TPIU_FFCR_TRIGFL_Msk (0x1UL << TPIU_FFCR_TRIGFL_Pos) /*!< Bit mask of TRIGFL field.                                  */
-  #define TPIU_FFCR_TRIGFL_Min (0x0UL)               /*!< Min enumerator value of TRIGFL field.                                */
-  #define TPIU_FFCR_TRIGFL_Max (0x1UL)               /*!< Max enumerator value of TRIGFL field.                                */
-  #define TPIU_FFCR_TRIGFL_Disabled (0x0UL)          /*!< The formatting feature is disabled.                                  */
-  #define TPIU_FFCR_TRIGFL_Enabled (0x1UL)           /*!< The formatting feature is enabled.                                   */
-
-/* STOPFL @Bit 12 : Forces the FIFO to drain off any part-completed packets. */
-  #define TPIU_FFCR_STOPFL_Pos (12UL)                /*!< Position of STOPFL field.                                            */
-  #define TPIU_FFCR_STOPFL_Msk (0x1UL << TPIU_FFCR_STOPFL_Pos) /*!< Bit mask of STOPFL field.                                  */
-  #define TPIU_FFCR_STOPFL_Min (0x0UL)               /*!< Min enumerator value of STOPFL field.                                */
-  #define TPIU_FFCR_STOPFL_Max (0x1UL)               /*!< Max enumerator value of STOPFL field.                                */
-  #define TPIU_FFCR_STOPFL_Disabled (0x0UL)          /*!< The formatting feature is disabled.                                  */
-  #define TPIU_FFCR_STOPFL_Enabled (0x1UL)           /*!< The formatting feature is enabled.                                   */
-
-/* STOPTRIG @Bit 13 : Stops the formatter after a trigger event is observed. Reset to disabled or 0. */
-  #define TPIU_FFCR_STOPTRIG_Pos (13UL)              /*!< Position of STOPTRIG field.                                          */
-  #define TPIU_FFCR_STOPTRIG_Msk (0x1UL << TPIU_FFCR_STOPTRIG_Pos) /*!< Bit mask of STOPTRIG field.                            */
-  #define TPIU_FFCR_STOPTRIG_Min (0x0UL)             /*!< Min enumerator value of STOPTRIG field.                              */
-  #define TPIU_FFCR_STOPTRIG_Max (0x1UL)             /*!< Max enumerator value of STOPTRIG field.                              */
-  #define TPIU_FFCR_STOPTRIG_Disabled (0x0UL)        /*!< The formatting feature is disabled.                                  */
-  #define TPIU_FFCR_STOPTRIG_Enabled (0x1UL)         /*!< The formatting feature is enabled.                                   */
-
-
-/* TPIU_FSCR: The FSCR register enables the frequency of synchronization information to be optimized to suit the Trace Port
-               Analyzer (TPA) capture buffer size. */
-
-  #define TPIU_FSCR_ResetValue (0x00000000UL)        /*!< Reset value of FSCR register.                                        */
-
-/* CYCCOUNT @Bits 0..11 : 12-bit counter reload value. Indicates the number of complete frames between full synchronization
-                          packets. */
-
-  #define TPIU_FSCR_CYCCOUNT_Pos (0UL)               /*!< Position of CYCCOUNT field.                                          */
-  #define TPIU_FSCR_CYCCOUNT_Msk (0xFFFUL << TPIU_FSCR_CYCCOUNT_Pos) /*!< Bit mask of CYCCOUNT field.                          */
-  #define TPIU_FSCR_CYCCOUNT_Min (0x000UL)           /*!< Min value of CYCCOUNT field.                                         */
-  #define TPIU_FSCR_CYCCOUNT_Max (0x400UL)           /*!< Max size of CYCCOUNT field.                                          */
-
-
-/* TPIU_EXTCTLINPORT: Two ports can be used as a control and feedback mechanism for any serializers, pin sharing multiplexers,
-                       or other solutions that might be added to the trace output pins either for pin control or a high-speed
-                       trace port solution. */
-
-  #define TPIU_EXTCTLINPORT_ResetValue (0x00000000UL) /*!< Reset value of EXTCTLINPORT register.                               */
-
-/* EXTCTLIN0 @Bit 0 : EXTCTL inputs. */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN0_Pos (0UL)      /*!< Position of EXTCTLIN0 field.                                         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN0_Msk (0x1UL << TPIU_EXTCTLINPORT_EXTCTLIN0_Pos) /*!< Bit mask of EXTCTLIN0 field.         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN0_Min (0x0UL)    /*!< Min enumerator value of EXTCTLIN0 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN0_Max (0x1UL)    /*!< Max enumerator value of EXTCTLIN0 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN0_Low (0x0UL)    /*!< Input EXTCTL0 is low.                                                */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN0_High (0x1UL)   /*!< Input EXTCTL0 is high.                                               */
-
-/* EXTCTLIN1 @Bit 1 : EXTCTL inputs. */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN1_Pos (1UL)      /*!< Position of EXTCTLIN1 field.                                         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN1_Msk (0x1UL << TPIU_EXTCTLINPORT_EXTCTLIN1_Pos) /*!< Bit mask of EXTCTLIN1 field.         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN1_Min (0x0UL)    /*!< Min enumerator value of EXTCTLIN1 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN1_Max (0x1UL)    /*!< Max enumerator value of EXTCTLIN1 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN1_Low (0x0UL)    /*!< Input EXTCTL1 is low.                                                */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN1_High (0x1UL)   /*!< Input EXTCTL1 is high.                                               */
-
-/* EXTCTLIN2 @Bit 2 : EXTCTL inputs. */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN2_Pos (2UL)      /*!< Position of EXTCTLIN2 field.                                         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN2_Msk (0x1UL << TPIU_EXTCTLINPORT_EXTCTLIN2_Pos) /*!< Bit mask of EXTCTLIN2 field.         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN2_Min (0x0UL)    /*!< Min enumerator value of EXTCTLIN2 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN2_Max (0x1UL)    /*!< Max enumerator value of EXTCTLIN2 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN2_Low (0x0UL)    /*!< Input EXTCTL2 is low.                                                */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN2_High (0x1UL)   /*!< Input EXTCTL2 is high.                                               */
-
-/* EXTCTLIN3 @Bit 3 : EXTCTL inputs. */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN3_Pos (3UL)      /*!< Position of EXTCTLIN3 field.                                         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN3_Msk (0x1UL << TPIU_EXTCTLINPORT_EXTCTLIN3_Pos) /*!< Bit mask of EXTCTLIN3 field.         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN3_Min (0x0UL)    /*!< Min enumerator value of EXTCTLIN3 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN3_Max (0x1UL)    /*!< Max enumerator value of EXTCTLIN3 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN3_Low (0x0UL)    /*!< Input EXTCTL3 is low.                                                */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN3_High (0x1UL)   /*!< Input EXTCTL3 is high.                                               */
-
-/* EXTCTLIN4 @Bit 4 : EXTCTL inputs. */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN4_Pos (4UL)      /*!< Position of EXTCTLIN4 field.                                         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN4_Msk (0x1UL << TPIU_EXTCTLINPORT_EXTCTLIN4_Pos) /*!< Bit mask of EXTCTLIN4 field.         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN4_Min (0x0UL)    /*!< Min enumerator value of EXTCTLIN4 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN4_Max (0x1UL)    /*!< Max enumerator value of EXTCTLIN4 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN4_Low (0x0UL)    /*!< Input EXTCTL4 is low.                                                */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN4_High (0x1UL)   /*!< Input EXTCTL4 is high.                                               */
-
-/* EXTCTLIN5 @Bit 5 : EXTCTL inputs. */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN5_Pos (5UL)      /*!< Position of EXTCTLIN5 field.                                         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN5_Msk (0x1UL << TPIU_EXTCTLINPORT_EXTCTLIN5_Pos) /*!< Bit mask of EXTCTLIN5 field.         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN5_Min (0x0UL)    /*!< Min enumerator value of EXTCTLIN5 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN5_Max (0x1UL)    /*!< Max enumerator value of EXTCTLIN5 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN5_Low (0x0UL)    /*!< Input EXTCTL5 is low.                                                */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN5_High (0x1UL)   /*!< Input EXTCTL5 is high.                                               */
-
-/* EXTCTLIN6 @Bit 6 : EXTCTL inputs. */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN6_Pos (6UL)      /*!< Position of EXTCTLIN6 field.                                         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN6_Msk (0x1UL << TPIU_EXTCTLINPORT_EXTCTLIN6_Pos) /*!< Bit mask of EXTCTLIN6 field.         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN6_Min (0x0UL)    /*!< Min enumerator value of EXTCTLIN6 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN6_Max (0x1UL)    /*!< Max enumerator value of EXTCTLIN6 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN6_Low (0x0UL)    /*!< Input EXTCTL6 is low.                                                */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN6_High (0x1UL)   /*!< Input EXTCTL6 is high.                                               */
-
-/* EXTCTLIN7 @Bit 7 : EXTCTL inputs. */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN7_Pos (7UL)      /*!< Position of EXTCTLIN7 field.                                         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN7_Msk (0x1UL << TPIU_EXTCTLINPORT_EXTCTLIN7_Pos) /*!< Bit mask of EXTCTLIN7 field.         */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN7_Min (0x0UL)    /*!< Min enumerator value of EXTCTLIN7 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN7_Max (0x1UL)    /*!< Max enumerator value of EXTCTLIN7 field.                             */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN7_Low (0x0UL)    /*!< Input EXTCTL7 is low.                                                */
-  #define TPIU_EXTCTLINPORT_EXTCTLIN7_High (0x1UL)   /*!< Input EXTCTL7 is high.                                               */
-
-
-/* TPIU_EXTCTLOUTPORT: Two ports can be used as a control and feedback mechanism for any serializers, pin sharing multiplexers,
-                        or other solutions that might be added to the trace output pins either for pin control or a high speed
-                        trace port solution. These ports are raw register banks that sample or export the corresponding external
-                        pins. */
-
-  #define TPIU_EXTCTLOUTPORT_ResetValue (0x00000000UL) /*!< Reset value of EXTCTLOUTPORT register.                             */
-
-/* EXTCTLOUT0 @Bit 0 : EXTCTL outputs. */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT0_Pos (0UL)    /*!< Position of EXTCTLOUT0 field.                                        */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT0_Msk (0x1UL << TPIU_EXTCTLOUTPORT_EXTCTLOUT0_Pos) /*!< Bit mask of EXTCTLOUT0 field.    */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT0_Min (0x0UL)  /*!< Min enumerator value of EXTCTLOUT0 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT0_Max (0x1UL)  /*!< Max enumerator value of EXTCTLOUT0 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT0_Low (0x0UL)  /*!< Output EXTCTL0 is low.                                               */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT0_High (0x1UL) /*!< Output EXTCTL0 is high.                                              */
-
-/* EXTCTLOUT1 @Bit 1 : EXTCTL outputs. */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT1_Pos (1UL)    /*!< Position of EXTCTLOUT1 field.                                        */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT1_Msk (0x1UL << TPIU_EXTCTLOUTPORT_EXTCTLOUT1_Pos) /*!< Bit mask of EXTCTLOUT1 field.    */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT1_Min (0x0UL)  /*!< Min enumerator value of EXTCTLOUT1 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT1_Max (0x1UL)  /*!< Max enumerator value of EXTCTLOUT1 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT1_Low (0x0UL)  /*!< Output EXTCTL1 is low.                                               */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT1_High (0x1UL) /*!< Output EXTCTL1 is high.                                              */
-
-/* EXTCTLOUT2 @Bit 2 : EXTCTL outputs. */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT2_Pos (2UL)    /*!< Position of EXTCTLOUT2 field.                                        */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT2_Msk (0x1UL << TPIU_EXTCTLOUTPORT_EXTCTLOUT2_Pos) /*!< Bit mask of EXTCTLOUT2 field.    */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT2_Min (0x0UL)  /*!< Min enumerator value of EXTCTLOUT2 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT2_Max (0x1UL)  /*!< Max enumerator value of EXTCTLOUT2 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT2_Low (0x0UL)  /*!< Output EXTCTL2 is low.                                               */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT2_High (0x1UL) /*!< Output EXTCTL2 is high.                                              */
-
-/* EXTCTLOUT3 @Bit 3 : EXTCTL outputs. */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT3_Pos (3UL)    /*!< Position of EXTCTLOUT3 field.                                        */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT3_Msk (0x1UL << TPIU_EXTCTLOUTPORT_EXTCTLOUT3_Pos) /*!< Bit mask of EXTCTLOUT3 field.    */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT3_Min (0x0UL)  /*!< Min enumerator value of EXTCTLOUT3 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT3_Max (0x1UL)  /*!< Max enumerator value of EXTCTLOUT3 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT3_Low (0x0UL)  /*!< Output EXTCTL3 is low.                                               */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT3_High (0x1UL) /*!< Output EXTCTL3 is high.                                              */
-
-/* EXTCTLOUT4 @Bit 4 : EXTCTL outputs. */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT4_Pos (4UL)    /*!< Position of EXTCTLOUT4 field.                                        */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT4_Msk (0x1UL << TPIU_EXTCTLOUTPORT_EXTCTLOUT4_Pos) /*!< Bit mask of EXTCTLOUT4 field.    */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT4_Min (0x0UL)  /*!< Min enumerator value of EXTCTLOUT4 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT4_Max (0x1UL)  /*!< Max enumerator value of EXTCTLOUT4 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT4_Low (0x0UL)  /*!< Output EXTCTL4 is low.                                               */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT4_High (0x1UL) /*!< Output EXTCTL4 is high.                                              */
-
-/* EXTCTLOUT5 @Bit 5 : EXTCTL outputs. */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT5_Pos (5UL)    /*!< Position of EXTCTLOUT5 field.                                        */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT5_Msk (0x1UL << TPIU_EXTCTLOUTPORT_EXTCTLOUT5_Pos) /*!< Bit mask of EXTCTLOUT5 field.    */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT5_Min (0x0UL)  /*!< Min enumerator value of EXTCTLOUT5 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT5_Max (0x1UL)  /*!< Max enumerator value of EXTCTLOUT5 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT5_Low (0x0UL)  /*!< Output EXTCTL5 is low.                                               */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT5_High (0x1UL) /*!< Output EXTCTL5 is high.                                              */
-
-/* EXTCTLOUT6 @Bit 6 : EXTCTL outputs. */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT6_Pos (6UL)    /*!< Position of EXTCTLOUT6 field.                                        */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT6_Msk (0x1UL << TPIU_EXTCTLOUTPORT_EXTCTLOUT6_Pos) /*!< Bit mask of EXTCTLOUT6 field.    */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT6_Min (0x0UL)  /*!< Min enumerator value of EXTCTLOUT6 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT6_Max (0x1UL)  /*!< Max enumerator value of EXTCTLOUT6 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT6_Low (0x0UL)  /*!< Output EXTCTL6 is low.                                               */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT6_High (0x1UL) /*!< Output EXTCTL6 is high.                                              */
-
-/* EXTCTLOUT7 @Bit 7 : EXTCTL outputs. */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT7_Pos (7UL)    /*!< Position of EXTCTLOUT7 field.                                        */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT7_Msk (0x1UL << TPIU_EXTCTLOUTPORT_EXTCTLOUT7_Pos) /*!< Bit mask of EXTCTLOUT7 field.    */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT7_Min (0x0UL)  /*!< Min enumerator value of EXTCTLOUT7 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT7_Max (0x1UL)  /*!< Max enumerator value of EXTCTLOUT7 field.                            */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT7_Low (0x0UL)  /*!< Output EXTCTL7 is low.                                               */
-  #define TPIU_EXTCTLOUTPORT_EXTCTLOUT7_High (0x1UL) /*!< Output EXTCTL7 is high.                                              */
-
-
-/* TPIU_ITTRFLINACK: The ITTRFLINACK register enables control of the triginack and flushinack outputs from the TPIU. */
-  #define TPIU_ITTRFLINACK_ResetValue (0x00000000UL) /*!< Reset value of ITTRFLINACK register.                                 */
-
-/* TRIGINACK @Bit 0 : Sets the value of triginack. */
-  #define TPIU_ITTRFLINACK_TRIGINACK_Pos (0UL)       /*!< Position of TRIGINACK field.                                         */
-  #define TPIU_ITTRFLINACK_TRIGINACK_Msk (0x1UL << TPIU_ITTRFLINACK_TRIGINACK_Pos) /*!< Bit mask of TRIGINACK field.           */
-  #define TPIU_ITTRFLINACK_TRIGINACK_Min (0x0UL)     /*!< Min enumerator value of TRIGINACK field.                             */
-  #define TPIU_ITTRFLINACK_TRIGINACK_Max (0x1UL)     /*!< Max enumerator value of TRIGINACK field.                             */
-  #define TPIU_ITTRFLINACK_TRIGINACK_Low (0x0UL)     /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITTRFLINACK_TRIGINACK_High (0x1UL)    /*!< Pin is logic 1.                                                      */
-
-/* FLUSHINACK @Bit 1 : Sets the value of flushinack. */
-  #define TPIU_ITTRFLINACK_FLUSHINACK_Pos (1UL)      /*!< Position of FLUSHINACK field.                                        */
-  #define TPIU_ITTRFLINACK_FLUSHINACK_Msk (0x1UL << TPIU_ITTRFLINACK_FLUSHINACK_Pos) /*!< Bit mask of FLUSHINACK field.        */
-  #define TPIU_ITTRFLINACK_FLUSHINACK_Min (0x0UL)    /*!< Min enumerator value of FLUSHINACK field.                            */
-  #define TPIU_ITTRFLINACK_FLUSHINACK_Max (0x1UL)    /*!< Max enumerator value of FLUSHINACK field.                            */
-  #define TPIU_ITTRFLINACK_FLUSHINACK_Low (0x0UL)    /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITTRFLINACK_FLUSHINACK_High (0x1UL)   /*!< Pin is logic 1.                                                      */
-
-
-/* TPIU_ITTRFLIN: The ITTRFLIN register contains the values of the flushin and trigin inputs to the TPIU. */
-  #define TPIU_ITTRFLIN_ResetValue (0x00000000UL)    /*!< Reset value of ITTRFLIN register.                                    */
-
-/* TRIGIN @Bit 0 : Reads the value of trigin. */
-  #define TPIU_ITTRFLIN_TRIGIN_Pos (0UL)             /*!< Position of TRIGIN field.                                            */
-  #define TPIU_ITTRFLIN_TRIGIN_Msk (0x1UL << TPIU_ITTRFLIN_TRIGIN_Pos) /*!< Bit mask of TRIGIN field.                          */
-  #define TPIU_ITTRFLIN_TRIGIN_Min (0x0UL)           /*!< Min enumerator value of TRIGIN field.                                */
-  #define TPIU_ITTRFLIN_TRIGIN_Max (0x1UL)           /*!< Max enumerator value of TRIGIN field.                                */
-  #define TPIU_ITTRFLIN_TRIGIN_Low (0x0UL)           /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITTRFLIN_TRIGIN_High (0x1UL)          /*!< Pin is logic 1.                                                      */
-
-/* FLUSHIN @Bit 1 : Reads the value of flushin. */
-  #define TPIU_ITTRFLIN_FLUSHIN_Pos (1UL)            /*!< Position of FLUSHIN field.                                           */
-  #define TPIU_ITTRFLIN_FLUSHIN_Msk (0x1UL << TPIU_ITTRFLIN_FLUSHIN_Pos) /*!< Bit mask of FLUSHIN field.                       */
-  #define TPIU_ITTRFLIN_FLUSHIN_Min (0x0UL)          /*!< Min enumerator value of FLUSHIN field.                               */
-  #define TPIU_ITTRFLIN_FLUSHIN_Max (0x1UL)          /*!< Max enumerator value of FLUSHIN field.                               */
-  #define TPIU_ITTRFLIN_FLUSHIN_Low (0x0UL)          /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITTRFLIN_FLUSHIN_High (0x1UL)         /*!< Pin is logic 1.                                                      */
-
-
-/* TPIU_ITATBDATA0: The ITATBDATA0 register contains the value of the atdatas inputs to the TPIU. The values are valid only when
-                     atvalids is HIGH. */
-
-  #define TPIU_ITATBDATA0_ResetValue (0x00000000UL)  /*!< Reset value of ITATBDATA0 register.                                  */
-
-/* ATDATA0 @Bit 0 : A read access returns the value of a pin on atdatas_x of the enabled port. A write access writes to the
-                    corresponding atdatam pin of the enabled port. */
-
-  #define TPIU_ITATBDATA0_ATDATA0_Pos (0UL)          /*!< Position of ATDATA0 field.                                           */
-  #define TPIU_ITATBDATA0_ATDATA0_Msk (0x1UL << TPIU_ITATBDATA0_ATDATA0_Pos) /*!< Bit mask of ATDATA0 field.                   */
-  #define TPIU_ITATBDATA0_ATDATA0_Min (0x0UL)        /*!< Min enumerator value of ATDATA0 field.                               */
-  #define TPIU_ITATBDATA0_ATDATA0_Max (0x1UL)        /*!< Max enumerator value of ATDATA0 field.                               */
-  #define TPIU_ITATBDATA0_ATDATA0_Low (0x0UL)        /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITATBDATA0_ATDATA0_High (0x1UL)       /*!< Pin is logic 1.                                                      */
-
-/* ATDATA1 @Bit 1 : A read access returns the value of a pin on atdatas_x of the enabled port. A write access writes to the
-                    corresponding atdatam pin of the enabled port. */
-
-  #define TPIU_ITATBDATA0_ATDATA1_Pos (1UL)          /*!< Position of ATDATA1 field.                                           */
-  #define TPIU_ITATBDATA0_ATDATA1_Msk (0x1UL << TPIU_ITATBDATA0_ATDATA1_Pos) /*!< Bit mask of ATDATA1 field.                   */
-  #define TPIU_ITATBDATA0_ATDATA1_Min (0x0UL)        /*!< Min enumerator value of ATDATA1 field.                               */
-  #define TPIU_ITATBDATA0_ATDATA1_Max (0x1UL)        /*!< Max enumerator value of ATDATA1 field.                               */
-  #define TPIU_ITATBDATA0_ATDATA1_Low (0x0UL)        /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITATBDATA0_ATDATA1_High (0x1UL)       /*!< Pin is logic 1.                                                      */
-
-/* ATDATA2 @Bit 2 : A read access returns the value of a pin on atdatas_x of the enabled port. A write access writes to the
-                    corresponding atdatam pin of the enabled port. */
-
-  #define TPIU_ITATBDATA0_ATDATA2_Pos (2UL)          /*!< Position of ATDATA2 field.                                           */
-  #define TPIU_ITATBDATA0_ATDATA2_Msk (0x1UL << TPIU_ITATBDATA0_ATDATA2_Pos) /*!< Bit mask of ATDATA2 field.                   */
-  #define TPIU_ITATBDATA0_ATDATA2_Min (0x0UL)        /*!< Min enumerator value of ATDATA2 field.                               */
-  #define TPIU_ITATBDATA0_ATDATA2_Max (0x1UL)        /*!< Max enumerator value of ATDATA2 field.                               */
-  #define TPIU_ITATBDATA0_ATDATA2_Low (0x0UL)        /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITATBDATA0_ATDATA2_High (0x1UL)       /*!< Pin is logic 1.                                                      */
-
-/* ATDATA3 @Bit 3 : A read access returns the value of a pin on atdatas_x of the enabled port. A write access writes to the
-                    corresponding atdatam pin of the enabled port. */
-
-  #define TPIU_ITATBDATA0_ATDATA3_Pos (3UL)          /*!< Position of ATDATA3 field.                                           */
-  #define TPIU_ITATBDATA0_ATDATA3_Msk (0x1UL << TPIU_ITATBDATA0_ATDATA3_Pos) /*!< Bit mask of ATDATA3 field.                   */
-  #define TPIU_ITATBDATA0_ATDATA3_Min (0x0UL)        /*!< Min enumerator value of ATDATA3 field.                               */
-  #define TPIU_ITATBDATA0_ATDATA3_Max (0x1UL)        /*!< Max enumerator value of ATDATA3 field.                               */
-  #define TPIU_ITATBDATA0_ATDATA3_Low (0x0UL)        /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITATBDATA0_ATDATA3_High (0x1UL)       /*!< Pin is logic 1.                                                      */
-
-/* ATDATA4 @Bit 4 : A read access returns the value of a pin on atdatas_x of the enabled port. A write access writes to the
-                    corresponding atdatam pin of the enabled port. */
-
-  #define TPIU_ITATBDATA0_ATDATA4_Pos (4UL)          /*!< Position of ATDATA4 field.                                           */
-  #define TPIU_ITATBDATA0_ATDATA4_Msk (0x1UL << TPIU_ITATBDATA0_ATDATA4_Pos) /*!< Bit mask of ATDATA4 field.                   */
-  #define TPIU_ITATBDATA0_ATDATA4_Min (0x0UL)        /*!< Min enumerator value of ATDATA4 field.                               */
-  #define TPIU_ITATBDATA0_ATDATA4_Max (0x1UL)        /*!< Max enumerator value of ATDATA4 field.                               */
-  #define TPIU_ITATBDATA0_ATDATA4_Low (0x0UL)        /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITATBDATA0_ATDATA4_High (0x1UL)       /*!< Pin is logic 1.                                                      */
-
-
-/* TPIU_ITATBCTR2: Enables control of the atreadys and afvalids outputs of the TPIU. */
-  #define TPIU_ITATBCTR2_ResetValue (0x00000000UL)   /*!< Reset value of ITATBCTR2 register.                                   */
-
-/* ATREADY @Bit 0 : Sets the value of afvalid. */
-  #define TPIU_ITATBCTR2_ATREADY_Pos (0UL)           /*!< Position of ATREADY field.                                           */
-  #define TPIU_ITATBCTR2_ATREADY_Msk (0x1UL << TPIU_ITATBCTR2_ATREADY_Pos) /*!< Bit mask of ATREADY field.                     */
-  #define TPIU_ITATBCTR2_ATREADY_Min (0x0UL)         /*!< Min enumerator value of ATREADY field.                               */
-  #define TPIU_ITATBCTR2_ATREADY_Max (0x1UL)         /*!< Max enumerator value of ATREADY field.                               */
-  #define TPIU_ITATBCTR2_ATREADY_Low (0x0UL)         /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITATBCTR2_ATREADY_High (0x1UL)        /*!< Pin is logic 1.                                                      */
-
-/* AFVALID @Bit 1 : Sets the value of atready. */
-  #define TPIU_ITATBCTR2_AFVALID_Pos (1UL)           /*!< Position of AFVALID field.                                           */
-  #define TPIU_ITATBCTR2_AFVALID_Msk (0x1UL << TPIU_ITATBCTR2_AFVALID_Pos) /*!< Bit mask of AFVALID field.                     */
-  #define TPIU_ITATBCTR2_AFVALID_Min (0x0UL)         /*!< Min enumerator value of AFVALID field.                               */
-  #define TPIU_ITATBCTR2_AFVALID_Max (0x1UL)         /*!< Max enumerator value of AFVALID field.                               */
-  #define TPIU_ITATBCTR2_AFVALID_Low (0x0UL)         /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITATBCTR2_AFVALID_High (0x1UL)        /*!< Pin is logic 1.                                                      */
-
-
-/* TPIU_ITATBCTR1: The ITATBCTR1 register contains the value of the atids input to the TPIU. This is only valid when atvalids is
-                    HIGH. */
-
-  #define TPIU_ITATBCTR1_ResetValue (0x00000000UL)   /*!< Reset value of ITATBCTR1 register.                                   */
-
-/* ATID @Bits 0..6 : Reads the value of atids. */
-  #define TPIU_ITATBCTR1_ATID_Pos (0UL)              /*!< Position of ATID field.                                              */
-  #define TPIU_ITATBCTR1_ATID_Msk (0x7FUL << TPIU_ITATBCTR1_ATID_Pos) /*!< Bit mask of ATID field.                             */
-  #define TPIU_ITATBCTR1_ATID_Min (0x0UL)            /*!< Min enumerator value of ATID field.                                  */
-  #define TPIU_ITATBCTR1_ATID_Max (0x1UL)            /*!< Max enumerator value of ATID field.                                  */
-  #define TPIU_ITATBCTR1_ATID_Low (0x00UL)           /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITATBCTR1_ATID_High (0x01UL)          /*!< Pin is logic 1.                                                      */
-
-
-/* TPIU_ITATBCTR0: The ITATBCTR0 register captures the values of the atvalids, afreadys, and atbytess inputs to the TPIU. To
-                    ensure the integration registers work correctly in a system, the value of atbytess is only valid when
-                    atvalids, bit[0], is HIGH. */
-
-  #define TPIU_ITATBCTR0_ResetValue (0x00000000UL)   /*!< Reset value of ITATBCTR0 register.                                   */
-
-/* ATVALID @Bit 0 : Reads the value of atvalids. */
-  #define TPIU_ITATBCTR0_ATVALID_Pos (0UL)           /*!< Position of ATVALID field.                                           */
-  #define TPIU_ITATBCTR0_ATVALID_Msk (0x1UL << TPIU_ITATBCTR0_ATVALID_Pos) /*!< Bit mask of ATVALID field.                     */
-  #define TPIU_ITATBCTR0_ATVALID_Min (0x0UL)         /*!< Min enumerator value of ATVALID field.                               */
-  #define TPIU_ITATBCTR0_ATVALID_Max (0x1UL)         /*!< Max enumerator value of ATVALID field.                               */
-  #define TPIU_ITATBCTR0_ATVALID_Low (0x0UL)         /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITATBCTR0_ATVALID_High (0x1UL)        /*!< Pin is logic 1.                                                      */
-
-/* AFREADY @Bit 2 : Reads the value of afreadys. */
-  #define TPIU_ITATBCTR0_AFREADY_Pos (2UL)           /*!< Position of AFREADY field.                                           */
-  #define TPIU_ITATBCTR0_AFREADY_Msk (0x1UL << TPIU_ITATBCTR0_AFREADY_Pos) /*!< Bit mask of AFREADY field.                     */
-  #define TPIU_ITATBCTR0_AFREADY_Min (0x0UL)         /*!< Min enumerator value of AFREADY field.                               */
-  #define TPIU_ITATBCTR0_AFREADY_Max (0x1UL)         /*!< Max enumerator value of AFREADY field.                               */
-  #define TPIU_ITATBCTR0_AFREADY_Low (0x0UL)         /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITATBCTR0_AFREADY_High (0x1UL)        /*!< Pin is logic 1.                                                      */
-
-/* ATBYTES @Bits 8..9 : Reads the value of atbytess. */
-  #define TPIU_ITATBCTR0_ATBYTES_Pos (8UL)           /*!< Position of ATBYTES field.                                           */
-  #define TPIU_ITATBCTR0_ATBYTES_Msk (0x3UL << TPIU_ITATBCTR0_ATBYTES_Pos) /*!< Bit mask of ATBYTES field.                     */
-  #define TPIU_ITATBCTR0_ATBYTES_Min (0x0UL)         /*!< Min enumerator value of ATBYTES field.                               */
-  #define TPIU_ITATBCTR0_ATBYTES_Max (0x1UL)         /*!< Max enumerator value of ATBYTES field.                               */
-  #define TPIU_ITATBCTR0_ATBYTES_Low (0x0UL)         /*!< Pin is logic 0.                                                      */
-  #define TPIU_ITATBCTR0_ATBYTES_High (0x1UL)        /*!< Pin is logic 1.                                                      */
-
-
-/* TPIU_ITCTRL: Used to enable topology detection. This register enables the component to switch from a functional mode, the
-                 default behavior, to integration mode where the inputs and outputs of the component can be directly controlled
-                 for integration testing and topology solving. */
-
-  #define TPIU_ITCTRL_ResetValue (0x00000000UL)      /*!< Reset value of ITCTRL register.                                      */
-
-/* INTEGRATIONMODE @Bit 0 : Enables the component to switch from functional mode to integration mode and back. If no integration
-                            functionality is implemented, this register must read as zero. */
-
-  #define TPIU_ITCTRL_INTEGRATIONMODE_Pos (0UL)      /*!< Position of INTEGRATIONMODE field.                                   */
-  #define TPIU_ITCTRL_INTEGRATIONMODE_Msk (0x1UL << TPIU_ITCTRL_INTEGRATIONMODE_Pos) /*!< Bit mask of INTEGRATIONMODE field.   */
-  #define TPIU_ITCTRL_INTEGRATIONMODE_Min (0x0UL)    /*!< Min enumerator value of INTEGRATIONMODE field.                       */
-  #define TPIU_ITCTRL_INTEGRATIONMODE_Max (0x1UL)    /*!< Max enumerator value of INTEGRATIONMODE field.                       */
-  #define TPIU_ITCTRL_INTEGRATIONMODE_Disabled (0x0UL) /*!< Integration mode is disabled.                                      */
-  #define TPIU_ITCTRL_INTEGRATIONMODE_Enabled (0x1UL) /*!< Integration mode is Enabled.                                        */
-
-
-/* TPIU_CLAIMSET: Software can use the claim tag to coordinate application and debugger access to trace unit functionality. The
-                   claim tags have no effect on the operation of the component. The CLAIMSET register sets bits in the claim
-                   tag, and determines the number of claim bits implemented. */
-
-  #define TPIU_CLAIMSET_ResetValue (0x00000000UL)    /*!< Reset value of CLAIMSET register.                                    */
-
-/* BIT0 @Bit 0 : Set claim bit 0 and check if bit is implemented or not. */
-  #define TPIU_CLAIMSET_BIT0_Pos (0UL)               /*!< Position of BIT0 field.                                              */
-  #define TPIU_CLAIMSET_BIT0_Msk (0x1UL << TPIU_CLAIMSET_BIT0_Pos) /*!< Bit mask of BIT0 field.                                */
-  #define TPIU_CLAIMSET_BIT0_Min (0x0UL)             /*!< Min enumerator value of BIT0 field.                                  */
-  #define TPIU_CLAIMSET_BIT0_Max (0x1UL)             /*!< Max enumerator value of BIT0 field.                                  */
-  #define TPIU_CLAIMSET_BIT0_NotImplemented (0x0UL)  /*!< Claim bit 0 is not implemented.                                      */
-  #define TPIU_CLAIMSET_BIT0_Implemented (0x1UL)     /*!< Claim bit 0 is implemented.                                          */
-  #define TPIU_CLAIMSET_BIT0_Set (0x1UL)             /*!< Set claim bit 0.                                                     */
-
-/* BIT1 @Bit 1 : Set claim bit 1 and check if bit is implemented or not. */
-  #define TPIU_CLAIMSET_BIT1_Pos (1UL)               /*!< Position of BIT1 field.                                              */
-  #define TPIU_CLAIMSET_BIT1_Msk (0x1UL << TPIU_CLAIMSET_BIT1_Pos) /*!< Bit mask of BIT1 field.                                */
-  #define TPIU_CLAIMSET_BIT1_Min (0x0UL)             /*!< Min enumerator value of BIT1 field.                                  */
-  #define TPIU_CLAIMSET_BIT1_Max (0x1UL)             /*!< Max enumerator value of BIT1 field.                                  */
-  #define TPIU_CLAIMSET_BIT1_NotImplemented (0x0UL)  /*!< Claim bit 1 is not implemented.                                      */
-  #define TPIU_CLAIMSET_BIT1_Implemented (0x1UL)     /*!< Claim bit 1 is implemented.                                          */
-  #define TPIU_CLAIMSET_BIT1_Set (0x1UL)             /*!< Set claim bit 1.                                                     */
-
-/* BIT2 @Bit 2 : Set claim bit 2 and check if bit is implemented or not. */
-  #define TPIU_CLAIMSET_BIT2_Pos (2UL)               /*!< Position of BIT2 field.                                              */
-  #define TPIU_CLAIMSET_BIT2_Msk (0x1UL << TPIU_CLAIMSET_BIT2_Pos) /*!< Bit mask of BIT2 field.                                */
-  #define TPIU_CLAIMSET_BIT2_Min (0x0UL)             /*!< Min enumerator value of BIT2 field.                                  */
-  #define TPIU_CLAIMSET_BIT2_Max (0x1UL)             /*!< Max enumerator value of BIT2 field.                                  */
-  #define TPIU_CLAIMSET_BIT2_NotImplemented (0x0UL)  /*!< Claim bit 2 is not implemented.                                      */
-  #define TPIU_CLAIMSET_BIT2_Implemented (0x1UL)     /*!< Claim bit 2 is implemented.                                          */
-  #define TPIU_CLAIMSET_BIT2_Set (0x1UL)             /*!< Set claim bit 2.                                                     */
-
-/* BIT3 @Bit 3 : Set claim bit 3 and check if bit is implemented or not. */
-  #define TPIU_CLAIMSET_BIT3_Pos (3UL)               /*!< Position of BIT3 field.                                              */
-  #define TPIU_CLAIMSET_BIT3_Msk (0x1UL << TPIU_CLAIMSET_BIT3_Pos) /*!< Bit mask of BIT3 field.                                */
-  #define TPIU_CLAIMSET_BIT3_Min (0x0UL)             /*!< Min enumerator value of BIT3 field.                                  */
-  #define TPIU_CLAIMSET_BIT3_Max (0x1UL)             /*!< Max enumerator value of BIT3 field.                                  */
-  #define TPIU_CLAIMSET_BIT3_NotImplemented (0x0UL)  /*!< Claim bit 3 is not implemented.                                      */
-  #define TPIU_CLAIMSET_BIT3_Implemented (0x1UL)     /*!< Claim bit 3 is implemented.                                          */
-  #define TPIU_CLAIMSET_BIT3_Set (0x1UL)             /*!< Set claim bit 3.                                                     */
-
-
-/* TPIU_CLAIMCLR: Software can use the claim tag to coordinate application and debugger access to trace unit functionality. The
-                   claim tags have no effect on the operation of the component. The CLAIMCLR register sets the bits in the claim
-                   tag to 0 and determines the current value of the claim tag. */
-
-  #define TPIU_CLAIMCLR_ResetValue (0x00000000UL)    /*!< Reset value of CLAIMCLR register.                                    */
-
-/* BIT0 @Bit 0 : Read or clear claim bit 0. */
-  #define TPIU_CLAIMCLR_BIT0_Pos (0UL)               /*!< Position of BIT0 field.                                              */
-  #define TPIU_CLAIMCLR_BIT0_Msk (0x1UL << TPIU_CLAIMCLR_BIT0_Pos) /*!< Bit mask of BIT0 field.                                */
-  #define TPIU_CLAIMCLR_BIT0_Min (0x0UL)             /*!< Min enumerator value of BIT0 field.                                  */
-  #define TPIU_CLAIMCLR_BIT0_Max (0x1UL)             /*!< Max enumerator value of BIT0 field.                                  */
-  #define TPIU_CLAIMCLR_BIT0_Cleared (0x0UL)         /*!< Claim bit 0 is not set.                                              */
-  #define TPIU_CLAIMCLR_BIT0_Set (0x1UL)             /*!< Claim bit 0 is set.                                                  */
-  #define TPIU_CLAIMCLR_BIT0_Clear (0x1UL)           /*!< Clear claim bit 0.                                                   */
-
-/* BIT1 @Bit 1 : Read or clear claim bit 1. */
-  #define TPIU_CLAIMCLR_BIT1_Pos (1UL)               /*!< Position of BIT1 field.                                              */
-  #define TPIU_CLAIMCLR_BIT1_Msk (0x1UL << TPIU_CLAIMCLR_BIT1_Pos) /*!< Bit mask of BIT1 field.                                */
-  #define TPIU_CLAIMCLR_BIT1_Min (0x0UL)             /*!< Min enumerator value of BIT1 field.                                  */
-  #define TPIU_CLAIMCLR_BIT1_Max (0x1UL)             /*!< Max enumerator value of BIT1 field.                                  */
-  #define TPIU_CLAIMCLR_BIT1_Cleared (0x0UL)         /*!< Claim bit 1 is not set.                                              */
-  #define TPIU_CLAIMCLR_BIT1_Set (0x1UL)             /*!< Claim bit 1 is set.                                                  */
-  #define TPIU_CLAIMCLR_BIT1_Clear (0x1UL)           /*!< Clear claim bit 1.                                                   */
-
-/* BIT2 @Bit 2 : Read or clear claim bit 2. */
-  #define TPIU_CLAIMCLR_BIT2_Pos (2UL)               /*!< Position of BIT2 field.                                              */
-  #define TPIU_CLAIMCLR_BIT2_Msk (0x1UL << TPIU_CLAIMCLR_BIT2_Pos) /*!< Bit mask of BIT2 field.                                */
-  #define TPIU_CLAIMCLR_BIT2_Min (0x0UL)             /*!< Min enumerator value of BIT2 field.                                  */
-  #define TPIU_CLAIMCLR_BIT2_Max (0x1UL)             /*!< Max enumerator value of BIT2 field.                                  */
-  #define TPIU_CLAIMCLR_BIT2_Cleared (0x0UL)         /*!< Claim bit 2 is not set.                                              */
-  #define TPIU_CLAIMCLR_BIT2_Set (0x1UL)             /*!< Claim bit 2 is set.                                                  */
-  #define TPIU_CLAIMCLR_BIT2_Clear (0x1UL)           /*!< Clear claim bit 2.                                                   */
-
-/* BIT3 @Bit 3 : Read or clear claim bit 3. */
-  #define TPIU_CLAIMCLR_BIT3_Pos (3UL)               /*!< Position of BIT3 field.                                              */
-  #define TPIU_CLAIMCLR_BIT3_Msk (0x1UL << TPIU_CLAIMCLR_BIT3_Pos) /*!< Bit mask of BIT3 field.                                */
-  #define TPIU_CLAIMCLR_BIT3_Min (0x0UL)             /*!< Min enumerator value of BIT3 field.                                  */
-  #define TPIU_CLAIMCLR_BIT3_Max (0x1UL)             /*!< Max enumerator value of BIT3 field.                                  */
-  #define TPIU_CLAIMCLR_BIT3_Cleared (0x0UL)         /*!< Claim bit 3 is not set.                                              */
-  #define TPIU_CLAIMCLR_BIT3_Set (0x1UL)             /*!< Claim bit 3 is set.                                                  */
-  #define TPIU_CLAIMCLR_BIT3_Clear (0x1UL)           /*!< Clear claim bit 3.                                                   */
-
-
-/* TPIU_LAR: This is used to enable write access to device registers. */
-  #define TPIU_LAR_ResetValue (0x00000000UL)         /*!< Reset value of LAR register.                                         */
-
-/* ACCESS @Bits 0..31 : A write of 0xC5ACCE55 enables further write access to this device. Any other write removes write access.
-                        */
-
-  #define TPIU_LAR_ACCESS_Pos (0UL)                  /*!< Position of ACCESS field.                                            */
-  #define TPIU_LAR_ACCESS_Msk (0xFFFFFFFFUL << TPIU_LAR_ACCESS_Pos) /*!< Bit mask of ACCESS field.                             */
-  #define TPIU_LAR_ACCESS_Min (0xC5ACCE55UL)         /*!< Min enumerator value of ACCESS field.                                */
-  #define TPIU_LAR_ACCESS_Max (0xC5ACCE55UL)         /*!< Max enumerator value of ACCESS field.                                */
-  #define TPIU_LAR_ACCESS_UnLock (0xC5ACCE55UL)      /*!< Unlock register interface.                                           */
-
-
-/* TPIU_LSR: This indicates the status of the lock control mechanism. This lock prevents accidental writes by code under debug.
-              Accesses to the extended stimulus port registers are not affected by the lock mechanism. This register must always
-              be present although there might not be any lock access control mechanism. The lock mechanism, where present and
-              locked, must block write accesses to any control register, except the Lock Access Register. For most components
-              this covers all registers except for the Lock Access Register. */
-
-  #define TPIU_LSR_ResetValue (0x00000000UL)         /*!< Reset value of LSR register.                                         */
-
-/* PRESENT @Bit 0 : Indicates that a lock control mechanism exists for this device. */
-  #define TPIU_LSR_PRESENT_Pos (0UL)                 /*!< Position of PRESENT field.                                           */
-  #define TPIU_LSR_PRESENT_Msk (0x1UL << TPIU_LSR_PRESENT_Pos) /*!< Bit mask of PRESENT field.                                 */
-  #define TPIU_LSR_PRESENT_Min (0x0UL)               /*!< Min enumerator value of PRESENT field.                               */
-  #define TPIU_LSR_PRESENT_Max (0x1UL)               /*!< Max enumerator value of PRESENT field.                               */
-  #define TPIU_LSR_PRESENT_NotImplemented (0x0UL)    /*!< No lock control mechanism exists, writes to the Lock Access Register
-                                                          are ignored.*/
-  #define TPIU_LSR_PRESENT_Implemented (0x1UL)       /*!< Lock control mechanism is present.                                   */
-
-/* LOCKED @Bit 1 : Returns the current status of the Lock. */
-  #define TPIU_LSR_LOCKED_Pos (1UL)                  /*!< Position of LOCKED field.                                            */
-  #define TPIU_LSR_LOCKED_Msk (0x1UL << TPIU_LSR_LOCKED_Pos) /*!< Bit mask of LOCKED field.                                    */
-  #define TPIU_LSR_LOCKED_Min (0x0UL)                /*!< Min enumerator value of LOCKED field.                                */
-  #define TPIU_LSR_LOCKED_Max (0x1UL)                /*!< Max enumerator value of LOCKED field.                                */
-  #define TPIU_LSR_LOCKED_UnLocked (0x0UL)           /*!< Write access is allowed to this device.                              */
-  #define TPIU_LSR_LOCKED_Locked (0x1UL)             /*!< Write access to the component is blocked. All writes to control
-                                                          registers are ignored. Reads are permitted.*/
-
-/* TYPE @Bit 2 : Indicates if the Lock Access Register is implemented as 8-bit or 32-bit. */
-  #define TPIU_LSR_TYPE_Pos (2UL)                    /*!< Position of TYPE field.                                              */
-  #define TPIU_LSR_TYPE_Msk (0x1UL << TPIU_LSR_TYPE_Pos) /*!< Bit mask of TYPE field.                                          */
-  #define TPIU_LSR_TYPE_Min (0x0UL)                  /*!< Min enumerator value of TYPE field.                                  */
-  #define TPIU_LSR_TYPE_Max (0x1UL)                  /*!< Max enumerator value of TYPE field.                                  */
-  #define TPIU_LSR_TYPE_Bits32 (0x0UL)               /*!< This component implements a 32-bit Lock Access Register.             */
-  #define TPIU_LSR_TYPE_Bits8 (0x1UL)                /*!< This component implements an 8-bit Lock Access Register.             */
-
-
-/* TPIU_AUTHSTATUS: Indicates the current level of tracing permitted by the system */
-  #define TPIU_AUTHSTATUS_ResetValue (0x00000000UL)  /*!< Reset value of AUTHSTATUS register.                                  */
-
-/* NSID @Bits 0..1 : Non-secure Invasive Debug */
-  #define TPIU_AUTHSTATUS_NSID_Pos (0UL)             /*!< Position of NSID field.                                              */
-  #define TPIU_AUTHSTATUS_NSID_Msk (0x3UL << TPIU_AUTHSTATUS_NSID_Pos) /*!< Bit mask of NSID field.                            */
-  #define TPIU_AUTHSTATUS_NSID_Min (0x0UL)           /*!< Min enumerator value of NSID field.                                  */
-  #define TPIU_AUTHSTATUS_NSID_Max (0x1UL)           /*!< Max enumerator value of NSID field.                                  */
-  #define TPIU_AUTHSTATUS_NSID_NotImplemented (0x0UL) /*!< The feature is not implemented.                                     */
-  #define TPIU_AUTHSTATUS_NSID_Implemented (0x1UL)   /*!< The feature is implemented.                                          */
-
-/* NSNID @Bits 2..3 : Non-secure Non-Invasive Debug */
-  #define TPIU_AUTHSTATUS_NSNID_Pos (2UL)            /*!< Position of NSNID field.                                             */
-  #define TPIU_AUTHSTATUS_NSNID_Msk (0x3UL << TPIU_AUTHSTATUS_NSNID_Pos) /*!< Bit mask of NSNID field.                         */
-  #define TPIU_AUTHSTATUS_NSNID_Min (0x0UL)          /*!< Min enumerator value of NSNID field.                                 */
-  #define TPIU_AUTHSTATUS_NSNID_Max (0x1UL)          /*!< Max enumerator value of NSNID field.                                 */
-  #define TPIU_AUTHSTATUS_NSNID_NotImplemented (0x0UL) /*!< The feature is not implemented.                                    */
-  #define TPIU_AUTHSTATUS_NSNID_Implemented (0x1UL)  /*!< The feature is implemented.                                          */
-
-/* SID @Bits 4..5 : Secure Invasive Debug */
-  #define TPIU_AUTHSTATUS_SID_Pos (4UL)              /*!< Position of SID field.                                               */
-  #define TPIU_AUTHSTATUS_SID_Msk (0x3UL << TPIU_AUTHSTATUS_SID_Pos) /*!< Bit mask of SID field.                               */
-  #define TPIU_AUTHSTATUS_SID_Min (0x0UL)            /*!< Min enumerator value of SID field.                                   */
-  #define TPIU_AUTHSTATUS_SID_Max (0x1UL)            /*!< Max enumerator value of SID field.                                   */
-  #define TPIU_AUTHSTATUS_SID_NotImplemented (0x0UL) /*!< The feature is not implemented.                                      */
-  #define TPIU_AUTHSTATUS_SID_Implemented (0x1UL)    /*!< The feature is implemented.                                          */
-
-/* SNID @Bits 6..7 : Secure Non-Invasive Debug */
-  #define TPIU_AUTHSTATUS_SNID_Pos (6UL)             /*!< Position of SNID field.                                              */
-  #define TPIU_AUTHSTATUS_SNID_Msk (0x3UL << TPIU_AUTHSTATUS_SNID_Pos) /*!< Bit mask of SNID field.                            */
-  #define TPIU_AUTHSTATUS_SNID_Min (0x0UL)           /*!< Min enumerator value of SNID field.                                  */
-  #define TPIU_AUTHSTATUS_SNID_Max (0x1UL)           /*!< Max enumerator value of SNID field.                                  */
-  #define TPIU_AUTHSTATUS_SNID_NotImplemented (0x0UL) /*!< The feature is not implemented.                                     */
-  #define TPIU_AUTHSTATUS_SNID_Implemented (0x1UL)   /*!< The feature is implemented.                                          */
-
-
-/* TPIU_DEVID: Indicates the capabilities of the component. */
-  #define TPIU_DEVID_ResetValue (0x00000000UL)       /*!< Reset value of DEVID register.                                       */
-
-/* MUXNUM @Bits 0..4 : Indicates the hidden level of input multiplexing. When non-zero, this value indicates the type of
-                       multiplexing on the input to the ATB. Currently only 0x00 is supported, that is, no multiplexing is
-                       present. This value helps detect the ATB structure. */
-
-  #define TPIU_DEVID_MUXNUM_Pos (0UL)                /*!< Position of MUXNUM field.                                            */
-  #define TPIU_DEVID_MUXNUM_Msk (0x1FUL << TPIU_DEVID_MUXNUM_Pos) /*!< Bit mask of MUXNUM field.                               */
-
-/* CLKRELAT @Bit 5 : Indicates the relationship between atclk and traceclkin. */
-  #define TPIU_DEVID_CLKRELAT_Pos (5UL)              /*!< Position of CLKRELAT field.                                          */
-  #define TPIU_DEVID_CLKRELAT_Msk (0x1UL << TPIU_DEVID_CLKRELAT_Pos) /*!< Bit mask of CLKRELAT field.                          */
-  #define TPIU_DEVID_CLKRELAT_Min (0x0UL)            /*!< Min enumerator value of CLKRELAT field.                              */
-  #define TPIU_DEVID_CLKRELAT_Max (0x1UL)            /*!< Max enumerator value of CLKRELAT field.                              */
-  #define TPIU_DEVID_CLKRELAT_Synchronous (0x0UL)    /*!< atclk and traceclkin are synchronous.                                */
-  #define TPIU_DEVID_CLKRELAT_ASynchronous (0x1UL)   /*!< atclk and traceclkin are asynchronous.                               */
-
-/* FIFOSIZE @Bits 6..8 : FIFO size in powers of 2. */
-  #define TPIU_DEVID_FIFOSIZE_Pos (6UL)              /*!< Position of FIFOSIZE field.                                          */
-  #define TPIU_DEVID_FIFOSIZE_Msk (0x7UL << TPIU_DEVID_FIFOSIZE_Pos) /*!< Bit mask of FIFOSIZE field.                          */
-  #define TPIU_DEVID_FIFOSIZE_Min (0x2UL)            /*!< Min enumerator value of FIFOSIZE field.                              */
-  #define TPIU_DEVID_FIFOSIZE_Max (0x2UL)            /*!< Max enumerator value of FIFOSIZE field.                              */
-  #define TPIU_DEVID_FIFOSIZE_Entries4 (0x2UL)       /*!< FIFO size of 4 entries, that is, 16 bytes.                           */
-
-/* TCLKDATA @Bit 9 : Indicates whether trace clock plus data is supported. */
-  #define TPIU_DEVID_TCLKDATA_Pos (9UL)              /*!< Position of TCLKDATA field.                                          */
-  #define TPIU_DEVID_TCLKDATA_Msk (0x1UL << TPIU_DEVID_TCLKDATA_Pos) /*!< Bit mask of TCLKDATA field.                          */
-  #define TPIU_DEVID_TCLKDATA_Min (0x0UL)            /*!< Min enumerator value of TCLKDATA field.                              */
-  #define TPIU_DEVID_TCLKDATA_Max (0x1UL)            /*!< Max enumerator value of TCLKDATA field.                              */
-  #define TPIU_DEVID_TCLKDATA_Supported (0x0UL)      /*!< Trace clock and data is supported.                                   */
-  #define TPIU_DEVID_TCLKDATA_NotSupported (0x1UL)   /*!< Trace clock and data is not supported.                               */
-
-/* SWOMAN @Bit 10 : Indicates whether Serial Wire Output, Manchester encoded format, is supported. */
-  #define TPIU_DEVID_SWOMAN_Pos (10UL)               /*!< Position of SWOMAN field.                                            */
-  #define TPIU_DEVID_SWOMAN_Msk (0x1UL << TPIU_DEVID_SWOMAN_Pos) /*!< Bit mask of SWOMAN field.                                */
-  #define TPIU_DEVID_SWOMAN_Min (0x0UL)              /*!< Min enumerator value of SWOMAN field.                                */
-  #define TPIU_DEVID_SWOMAN_Max (0x1UL)              /*!< Max enumerator value of SWOMAN field.                                */
-  #define TPIU_DEVID_SWOMAN_NotSupported (0x0UL)     /*!< Serial Wire Output, Manchester encoded format, is not supported.     */
-  #define TPIU_DEVID_SWOMAN_Supported (0x1UL)        /*!< Serial Wire Output, Manchester encoded format, is supported.         */
-
-/* SWOUARTNRZ @Bit 11 : Indicates whether Serial Wire Output, UART or NRZ, is supported. */
-  #define TPIU_DEVID_SWOUARTNRZ_Pos (11UL)           /*!< Position of SWOUARTNRZ field.                                        */
-  #define TPIU_DEVID_SWOUARTNRZ_Msk (0x1UL << TPIU_DEVID_SWOUARTNRZ_Pos) /*!< Bit mask of SWOUARTNRZ field.                    */
-  #define TPIU_DEVID_SWOUARTNRZ_Min (0x0UL)          /*!< Min enumerator value of SWOUARTNRZ field.                            */
-  #define TPIU_DEVID_SWOUARTNRZ_Max (0x1UL)          /*!< Max enumerator value of SWOUARTNRZ field.                            */
-  #define TPIU_DEVID_SWOUARTNRZ_NotSupported (0x0UL) /*!< Serial Wire Output, UART or NRZ, is not supported.                   */
-  #define TPIU_DEVID_SWOUARTNRZ_Supported (0x1UL)    /*!< Serial Wire Output, UART or NRZ, is supported.                       */
-
-
-/* TPIU_DEVTYPE: The DEVTYPE register provides a debugger with information about the component when the Part Number field is not
-                  recognized. The debugger can then report this information. */
-
-  #define TPIU_DEVTYPE_ResetValue (0x00000000UL)     /*!< Reset value of DEVTYPE register.                                     */
-
-/* MAJOR @Bits 0..3 : The main type of the component */
-  #define TPIU_DEVTYPE_MAJOR_Pos (0UL)               /*!< Position of MAJOR field.                                             */
-  #define TPIU_DEVTYPE_MAJOR_Msk (0xFUL << TPIU_DEVTYPE_MAJOR_Pos) /*!< Bit mask of MAJOR field.                               */
-  #define TPIU_DEVTYPE_MAJOR_Min (0x1UL)             /*!< Min enumerator value of MAJOR field.                                 */
-  #define TPIU_DEVTYPE_MAJOR_Max (0x1UL)             /*!< Max enumerator value of MAJOR field.                                 */
-  #define TPIU_DEVTYPE_MAJOR_TraceSource (0x1UL)     /*!< Peripheral is a trace sink.                                          */
-
-/* SUB @Bits 4..7 : The sub-type of the component */
-  #define TPIU_DEVTYPE_SUB_Pos (4UL)                 /*!< Position of SUB field.                                               */
-  #define TPIU_DEVTYPE_SUB_Msk (0xFUL << TPIU_DEVTYPE_SUB_Pos) /*!< Bit mask of SUB field.                                     */
-  #define TPIU_DEVTYPE_SUB_Min (0x1UL)               /*!< Min enumerator value of SUB field.                                   */
-  #define TPIU_DEVTYPE_SUB_Max (0x1UL)               /*!< Max enumerator value of SUB field.                                   */
-  #define TPIU_DEVTYPE_SUB_TracePort (0x1UL)         /*!< Indicates that this component is a trace port component.             */
-
+    __IM uint32_t RESERVED;
+  } NRF_TPIU_Type;                                   /*!< Size = 4 (0x004)                                                     */
 
 #endif                                               /*!< !defined(__ASSEMBLER__) && !defined(__ASSEMBLY__)                    */
 
@@ -38683,7 +35561,7 @@ typedef struct {
   #define TWIM_PSEL_SCL_PORT_Pos (5UL)               /*!< Position of PORT field.                                              */
   #define TWIM_PSEL_SCL_PORT_Msk (0x7UL << TWIM_PSEL_SCL_PORT_Pos) /*!< Bit mask of PORT field.                                */
   #define TWIM_PSEL_SCL_PORT_Min (0x0UL)             /*!< Min value of PORT field.                                             */
-  #define TWIM_PSEL_SCL_PORT_Max (0x1UL)             /*!< Max size of PORT field.                                              */
+  #define TWIM_PSEL_SCL_PORT_Max (0x7UL)             /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define TWIM_PSEL_SCL_CONNECT_Pos (31UL)           /*!< Position of CONNECT field.                                           */
@@ -38707,7 +35585,7 @@ typedef struct {
   #define TWIM_PSEL_SDA_PORT_Pos (5UL)               /*!< Position of PORT field.                                              */
   #define TWIM_PSEL_SDA_PORT_Msk (0x7UL << TWIM_PSEL_SDA_PORT_Pos) /*!< Bit mask of PORT field.                                */
   #define TWIM_PSEL_SDA_PORT_Min (0x0UL)             /*!< Min value of PORT field.                                             */
-  #define TWIM_PSEL_SDA_PORT_Max (0x1UL)             /*!< Max size of PORT field.                                              */
+  #define TWIM_PSEL_SDA_PORT_Max (0x7UL)             /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define TWIM_PSEL_SDA_CONNECT_Pos (31UL)           /*!< Position of CONNECT field.                                           */
@@ -40330,7 +37208,7 @@ typedef struct {
   #define TWIS_PSEL_SCL_PORT_Pos (5UL)               /*!< Position of PORT field.                                              */
   #define TWIS_PSEL_SCL_PORT_Msk (0x7UL << TWIS_PSEL_SCL_PORT_Pos) /*!< Bit mask of PORT field.                                */
   #define TWIS_PSEL_SCL_PORT_Min (0x0UL)             /*!< Min value of PORT field.                                             */
-  #define TWIS_PSEL_SCL_PORT_Max (0x1UL)             /*!< Max size of PORT field.                                              */
+  #define TWIS_PSEL_SCL_PORT_Max (0x7UL)             /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define TWIS_PSEL_SCL_CONNECT_Pos (31UL)           /*!< Position of CONNECT field.                                           */
@@ -40354,7 +37232,7 @@ typedef struct {
   #define TWIS_PSEL_SDA_PORT_Pos (5UL)               /*!< Position of PORT field.                                              */
   #define TWIS_PSEL_SDA_PORT_Msk (0x7UL << TWIS_PSEL_SDA_PORT_Pos) /*!< Bit mask of PORT field.                                */
   #define TWIS_PSEL_SDA_PORT_Min (0x0UL)             /*!< Min value of PORT field.                                             */
-  #define TWIS_PSEL_SDA_PORT_Max (0x1UL)             /*!< Max size of PORT field.                                              */
+  #define TWIS_PSEL_SDA_PORT_Max (0x7UL)             /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define TWIS_PSEL_SDA_CONNECT_Pos (31UL)           /*!< Position of CONNECT field.                                           */
@@ -42137,7 +39015,7 @@ typedef struct {
   #define UARTE_PSEL_TXD_PORT_Pos (5UL)              /*!< Position of PORT field.                                              */
   #define UARTE_PSEL_TXD_PORT_Msk (0x7UL << UARTE_PSEL_TXD_PORT_Pos) /*!< Bit mask of PORT field.                              */
   #define UARTE_PSEL_TXD_PORT_Min (0x0UL)            /*!< Min value of PORT field.                                             */
-  #define UARTE_PSEL_TXD_PORT_Max (0x2UL)            /*!< Max size of PORT field.                                              */
+  #define UARTE_PSEL_TXD_PORT_Max (0x7UL)            /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define UARTE_PSEL_TXD_CONNECT_Pos (31UL)          /*!< Position of CONNECT field.                                           */
@@ -42161,7 +39039,7 @@ typedef struct {
   #define UARTE_PSEL_CTS_PORT_Pos (5UL)              /*!< Position of PORT field.                                              */
   #define UARTE_PSEL_CTS_PORT_Msk (0x7UL << UARTE_PSEL_CTS_PORT_Pos) /*!< Bit mask of PORT field.                              */
   #define UARTE_PSEL_CTS_PORT_Min (0x0UL)            /*!< Min value of PORT field.                                             */
-  #define UARTE_PSEL_CTS_PORT_Max (0x2UL)            /*!< Max size of PORT field.                                              */
+  #define UARTE_PSEL_CTS_PORT_Max (0x7UL)            /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define UARTE_PSEL_CTS_CONNECT_Pos (31UL)          /*!< Position of CONNECT field.                                           */
@@ -42185,7 +39063,7 @@ typedef struct {
   #define UARTE_PSEL_RXD_PORT_Pos (5UL)              /*!< Position of PORT field.                                              */
   #define UARTE_PSEL_RXD_PORT_Msk (0x7UL << UARTE_PSEL_RXD_PORT_Pos) /*!< Bit mask of PORT field.                              */
   #define UARTE_PSEL_RXD_PORT_Min (0x0UL)            /*!< Min value of PORT field.                                             */
-  #define UARTE_PSEL_RXD_PORT_Max (0x2UL)            /*!< Max size of PORT field.                                              */
+  #define UARTE_PSEL_RXD_PORT_Max (0x7UL)            /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define UARTE_PSEL_RXD_CONNECT_Pos (31UL)          /*!< Position of CONNECT field.                                           */
@@ -42209,7 +39087,7 @@ typedef struct {
   #define UARTE_PSEL_RTS_PORT_Pos (5UL)              /*!< Position of PORT field.                                              */
   #define UARTE_PSEL_RTS_PORT_Msk (0x7UL << UARTE_PSEL_RTS_PORT_Pos) /*!< Bit mask of PORT field.                              */
   #define UARTE_PSEL_RTS_PORT_Min (0x0UL)            /*!< Min value of PORT field.                                             */
-  #define UARTE_PSEL_RTS_PORT_Max (0x2UL)            /*!< Max size of PORT field.                                              */
+  #define UARTE_PSEL_RTS_PORT_Max (0x7UL)            /*!< Max size of PORT field.                                              */
 
 /* CONNECT @Bit 31 : Connection */
   #define UARTE_PSEL_RTS_CONNECT_Pos (31UL)          /*!< Position of CONNECT field.                                           */
@@ -42270,7 +39148,7 @@ typedef struct {
   #define UARTE_DMA_RX_MATCH_CONFIG_ENABLE3_Disabled (0x0UL) /*!< Match filter disabled                                        */
   #define UARTE_DMA_RX_MATCH_CONFIG_ENABLE3_Enabled (0x1UL) /*!< Match filter enabled                                          */
 
-/* ONESHOT0 @Bit 16 : Configure match filter 0 as one-shot or sticky */
+/* ONESHOT0 @Bit 16 : Configure match filter 0 as one-shot or continous */
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT0_Pos (16UL) /*!< Position of ONESHOT0 field.                                       */
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT0_Msk (0x1UL << UARTE_DMA_RX_MATCH_CONFIG_ONESHOT0_Pos) /*!< Bit mask of ONESHOT0
                                                                             field.*/
@@ -42279,7 +39157,7 @@ typedef struct {
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT0_Continuous (0x0UL) /*!< Match filter stays enabled until disabled by task         */
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT0_Oneshot (0x1UL) /*!< Match filter stays enabled until next data word is received  */
 
-/* ONESHOT1 @Bit 17 : Configure match filter 1 as one-shot or sticky */
+/* ONESHOT1 @Bit 17 : Configure match filter 1 as one-shot or continous */
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT1_Pos (17UL) /*!< Position of ONESHOT1 field.                                       */
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT1_Msk (0x1UL << UARTE_DMA_RX_MATCH_CONFIG_ONESHOT1_Pos) /*!< Bit mask of ONESHOT1
                                                                             field.*/
@@ -42288,7 +39166,7 @@ typedef struct {
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT1_Continuous (0x0UL) /*!< Match filter stays enabled until disabled by task         */
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT1_Oneshot (0x1UL) /*!< Match filter stays enabled until next data word is received  */
 
-/* ONESHOT2 @Bit 18 : Configure match filter 2 as one-shot or sticky */
+/* ONESHOT2 @Bit 18 : Configure match filter 2 as one-shot or continous */
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT2_Pos (18UL) /*!< Position of ONESHOT2 field.                                       */
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT2_Msk (0x1UL << UARTE_DMA_RX_MATCH_CONFIG_ONESHOT2_Pos) /*!< Bit mask of ONESHOT2
                                                                             field.*/
@@ -42297,7 +39175,7 @@ typedef struct {
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT2_Continuous (0x0UL) /*!< Match filter stays enabled until disabled by task         */
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT2_Oneshot (0x1UL) /*!< Match filter stays enabled until next data word is received  */
 
-/* ONESHOT3 @Bit 19 : Configure match filter 3 as one-shot or sticky */
+/* ONESHOT3 @Bit 19 : Configure match filter 3 as one-shot or continous */
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT3_Pos (19UL) /*!< Position of ONESHOT3 field.                                       */
   #define UARTE_DMA_RX_MATCH_CONFIG_ONESHOT3_Msk (0x1UL << UARTE_DMA_RX_MATCH_CONFIG_ONESHOT3_Pos) /*!< Bit mask of ONESHOT3
                                                                             field.*/
@@ -42313,10 +39191,9 @@ typedef struct {
   #define UARTE_DMA_RX_MATCH_CANDIDATE_MinIndex (0UL) /*!< Min index of CANDIDATE[4] array.                                    */
   #define UARTE_DMA_RX_MATCH_CANDIDATE_ResetValue (0x00000000UL) /*!< Reset value of CANDIDATE[4] register.                    */
 
-/* DATA @Bits 0..31 : Data to look for */
+/* DATA @Bits 0..7 : Data to look for */
   #define UARTE_DMA_RX_MATCH_CANDIDATE_DATA_Pos (0UL) /*!< Position of DATA field.                                             */
-  #define UARTE_DMA_RX_MATCH_CANDIDATE_DATA_Msk (0xFFFFFFFFUL << UARTE_DMA_RX_MATCH_CANDIDATE_DATA_Pos) /*!< Bit mask of DATA
-                                                                            field.*/
+  #define UARTE_DMA_RX_MATCH_CANDIDATE_DATA_Msk (0xFFUL << UARTE_DMA_RX_MATCH_CANDIDATE_DATA_Pos) /*!< Bit mask of DATA field. */
 
 
 
@@ -43594,6 +40471,8 @@ typedef struct {
   #define UARTE_CONFIG_FRAMETIMEOUT_Max (0x1UL)      /*!< Max enumerator value of FRAMETIMEOUT field.                          */
   #define UARTE_CONFIG_FRAMETIMEOUT_DISABLED (0x0UL) /*!< Packet timeout is disabled.                                          */
   #define UARTE_CONFIG_FRAMETIMEOUT_ENABLED (0x1UL)  /*!< Packet timeout is enabled.                                           */
+  #define UARTE_CONFIG_FRAMETIMEOUT_Disabled (0x0UL) /*!< Packet timeout is disabled.                                          */
+  #define UARTE_CONFIG_FRAMETIMEOUT_Enabled (0x1UL)  /*!< Packet timeout is enabled.                                           */
 
 
 /* UARTE_ADDRESS: Set the address of the UARTE for RX when used in 9 bit data frame mode. */
@@ -43720,8 +40599,8 @@ typedef struct {
                                                                             field.*/
   #define UICR_AUXAPPROTECT_PROTECT0_PALL_Min (0xFFFFFFFFUL) /*!< Min enumerator value of PALL field.                          */
   #define UICR_AUXAPPROTECT_PROTECT0_PALL_Max (0xFFFFFFFFUL) /*!< Max enumerator value of PALL field.                          */
-  #define UICR_AUXAPPROTECT_PROTECT0_PALL_Unprotected (0xFFFFFFFFUL) /*!< Leaves TAMPC PROTECT.AP DBGEN and SPIDEN signal
-                                                                          protectors unlocked and under CPU control.*/
+  #define UICR_AUXAPPROTECT_PROTECT0_PALL_Unprotected (0xFFFFFFFFUL) /*!< Leaves TAMPC PROTECT.AP DBGEN signal protector
+                                                                          unlocked and under CPU control.*/
 
 
 /* UICR_AUXAPPROTECT_PROTECT1: Access port protection register */
@@ -43733,8 +40612,8 @@ typedef struct {
                                                                             field.*/
   #define UICR_AUXAPPROTECT_PROTECT1_PALL_Min (0xFFFFFFFFUL) /*!< Min enumerator value of PALL field.                          */
   #define UICR_AUXAPPROTECT_PROTECT1_PALL_Max (0xFFFFFFFFUL) /*!< Max enumerator value of PALL field.                          */
-  #define UICR_AUXAPPROTECT_PROTECT1_PALL_Unprotected (0xFFFFFFFFUL) /*!< Leaves TAMPC PROTECT.AP DBGEN and SPIDEN signal
-                                                                          protectors unlocked and under CPU control.*/
+  #define UICR_AUXAPPROTECT_PROTECT1_PALL_Unprotected (0xFFFFFFFFUL) /*!< Leaves TAMPC PROTECT.AP DBGEN signal protector
+                                                                          unlocked and under CPU control.*/
 
 
 
@@ -45309,8 +42188,8 @@ typedef struct {
   #define VPRCSR_MCAUSE_EXCEPTIONCODE_INTVECTORFAULT (0x01AUL) /*!< Interrupt Vector Fault                                     */
   #define VPRCSR_MCAUSE_EXCEPTIONCODE_MISALIGNUNSTACKING (0x01BUL) /*!< Misaligned Unstacking                                  */
   #define VPRCSR_MCAUSE_EXCEPTIONCODE_BUSFAULTUNSTACKING (0x01CUL) /*!< Bus Fault on Unstacking                                */
-  #define VPRCSR_MCAUSE_EXCEPTIONCODE_LOADTIMEOUTFAULT (0x01DUL) /*!< Load Timeout Fault                                       */
-  #define VPRCSR_MCAUSE_EXCEPTIONCODE_STORETIMEOUTFAULT (0x01EUL) /*!< Store Timeout Fault                                     */
+  #define VPRCSR_MCAUSE_EXCEPTIONCODE_STORETIMEOUTFAULT (0x01DUL) /*!< Store Timeout Fault                                     */
+  #define VPRCSR_MCAUSE_EXCEPTIONCODE_LOADTIMEOUTFAULT (0x01EUL) /*!< Load Timeout Fault                                       */
   #define VPRCSR_MCAUSE_EXCEPTIONCODE_STACKINGEXCFAULT (0x01FUL) /*!< Fault on Exception Stacking                              */
 
 /* MPIL @Bits 16..23 : Previous interrupt level */
@@ -46061,7 +42940,7 @@ typedef struct {
   #define VPRCSR_NORDIC_RTPERIPHCTRL_CLOCKPOLARITY_Low (0x0UL) /*!< Clock polarity is low                                      */
   #define VPRCSR_NORDIC_RTPERIPHCTRL_CLOCKPOLARITY_High (0x1UL) /*!< Clock polarity is High                                    */
 
-/* STOPCOUNTERS @Bit 4 : Stop counters CNT0 and CNT1 on OUTB under-run */
+/* STOPCOUNTERS @Bit 4 : Stop counters CNT0 and CNT1 on OUTB under-run, or on INB Overflow if OUTMODE2 and INMODE2 */
   #define VPRCSR_NORDIC_RTPERIPHCTRL_STOPCOUNTERS_Pos (4UL) /*!< Position of STOPCOUNTERS field.                               */
   #define VPRCSR_NORDIC_RTPERIPHCTRL_STOPCOUNTERS_Msk (0x1UL << VPRCSR_NORDIC_RTPERIPHCTRL_STOPCOUNTERS_Pos) /*!< Bit mask of
                                                                             STOPCOUNTERS field.*/
@@ -46085,16 +42964,17 @@ typedef struct {
   #define VPRCSR_NORDIC_CNTMODE0 (0x000007D0ul)
   #define VPRCSR_NORDIC_CNTMODE0_ResetValue (0x00000000UL) /*!< Reset value of CNTMODE0 register.                              */
 
-/* CNTMODE0 @Bits 0..1 : CNT0 Mode */
+/* CNTMODE0 @Bits 0..2 : CNT0 Mode */
   #define VPRCSR_NORDIC_CNTMODE0_CNTMODE0_Pos (0UL)  /*!< Position of CNTMODE0 field.                                          */
-  #define VPRCSR_NORDIC_CNTMODE0_CNTMODE0_Msk (0x3UL << VPRCSR_NORDIC_CNTMODE0_CNTMODE0_Pos) /*!< Bit mask of CNTMODE0 field.  */
+  #define VPRCSR_NORDIC_CNTMODE0_CNTMODE0_Msk (0x7UL << VPRCSR_NORDIC_CNTMODE0_CNTMODE0_Pos) /*!< Bit mask of CNTMODE0 field.  */
   #define VPRCSR_NORDIC_CNTMODE0_CNTMODE0_Min (0x0UL) /*!< Min enumerator value of CNTMODE0 field.                             */
   #define VPRCSR_NORDIC_CNTMODE0_CNTMODE0_Max (0x3UL) /*!< Max enumerator value of CNTMODE0 field.                             */
   #define VPRCSR_NORDIC_CNTMODE0_CNTMODE0_STOP (0x0UL) /*!< CNT0 stops at 0                                                    */
-  #define VPRCSR_NORDIC_CNTMODE0_CNTMODE0_WRAP (0x1UL) /*!< CNT0 will continue counting from 0xFFFF                            */
-  #define VPRCSR_NORDIC_CNTMODE0_CNTMODE0_RELOAD (0x2UL) /*!< CNT0 will continue counting from the value in CNTTOP             */
-  #define VPRCSR_NORDIC_CNTMODE0_CNTMODE0_TRIGCOMB (0x3UL) /*!< In Trigger mode CNT0 stops counting at 0. Counting will restart
-                                                                when a VIO event happens*/
+  #define VPRCSR_NORDIC_CNTMODE0_CNTMODE0_WRAP (0x1UL) /*!< When CNT0 reaches 0 it will continue counting from 0xFFFF          */
+  #define VPRCSR_NORDIC_CNTMODE0_CNTMODE0_RELOAD (0x2UL) /*!< When CNT0 reaches 0 it will continue counting from the value in
+                                                              CNTTOP*/
+  #define VPRCSR_NORDIC_CNTMODE0_CNTMODE0_TRIGCOMB (0x3UL) /*!< When CNT0 reaches 0 it is reloaded from CNTTOP and stops.
+                                                                Counting will restart when a VIO event happens*/
 
 
 /**
@@ -46103,14 +42983,15 @@ typedef struct {
   #define VPRCSR_NORDIC_CNTMODE1 (0x000007D1ul)
   #define VPRCSR_NORDIC_CNTMODE1_ResetValue (0x00000000UL) /*!< Reset value of CNTMODE1 register.                              */
 
-/* CNTMODE1 @Bits 0..1 : CNT1 Mode */
+/* CNTMODE1 @Bits 0..2 : CNT1 Mode */
   #define VPRCSR_NORDIC_CNTMODE1_CNTMODE1_Pos (0UL)  /*!< Position of CNTMODE1 field.                                          */
-  #define VPRCSR_NORDIC_CNTMODE1_CNTMODE1_Msk (0x3UL << VPRCSR_NORDIC_CNTMODE1_CNTMODE1_Pos) /*!< Bit mask of CNTMODE1 field.  */
+  #define VPRCSR_NORDIC_CNTMODE1_CNTMODE1_Msk (0x7UL << VPRCSR_NORDIC_CNTMODE1_CNTMODE1_Pos) /*!< Bit mask of CNTMODE1 field.  */
   #define VPRCSR_NORDIC_CNTMODE1_CNTMODE1_Min (0x0UL) /*!< Min enumerator value of CNTMODE1 field.                             */
   #define VPRCSR_NORDIC_CNTMODE1_CNTMODE1_Max (0x3UL) /*!< Max enumerator value of CNTMODE1 field.                             */
   #define VPRCSR_NORDIC_CNTMODE1_CNTMODE1_STOP (0x0UL) /*!< CNT1 stops at 0                                                    */
-  #define VPRCSR_NORDIC_CNTMODE1_CNTMODE1_WRAP (0x1UL) /*!< CNT1 will continue counting from 0xFFFF                            */
-  #define VPRCSR_NORDIC_CNTMODE1_CNTMODE1_RELOAD (0x2UL) /*!< CNT1 will continue counting from the value in CNTTOP             */
+  #define VPRCSR_NORDIC_CNTMODE1_CNTMODE1_WRAP (0x1UL) /*!< When CNT1 reaches 0 it will continue counting from 0xFFFF          */
+  #define VPRCSR_NORDIC_CNTMODE1_CNTMODE1_RELOAD (0x2UL) /*!< When CNT1 reches 0 it will continue counting from the value in
+                                                              CNTTOP*/
   #define VPRCSR_NORDIC_CNTMODE1_CNTMODE1_TRIGCOMB (0x3UL) /*!< In combine mode mode CNT1 acts as an extension of CNT0 (16 most
                                                                 significant bits of the 32-bit CNT)*/
 
@@ -47823,7 +44704,7 @@ typedef struct {
   #define VPRCSR_NORDIC_INMODE_MODE_Max (0x2UL)      /*!< Max enumerator value of MODE field.                                  */
   #define VPRCSR_NORDIC_INMODE_MODE_CONTINUOUS (0x0UL) /*!< Continuous sampling (if CPU is not sleeping)                       */
   #define VPRCSR_NORDIC_INMODE_MODE_EVENT (0x1UL)    /*!< Sampling on Counter1 event                                           */
-  #define VPRCSR_NORDIC_INMODE_MODE_SHIFT (0x2UL)    /*!< Sampling and shifting on Counter1 event                              */
+  #define VPRCSR_NORDIC_INMODE_MODE_SHIFT (0x2UL)    /*!< Sampling and shifting on Counter1 event synchronized with OUT        */
 
 
 /**
@@ -48371,7 +45252,7 @@ typedef struct {
 
 
 /**
-  * @brief SHIFTCNTB [VPRCSR_NORDIC_SHIFTCNTB] Buffered SHIFTCNTOUT register
+  * @brief SHIFTCNTB [VPRCSR_NORDIC_SHIFTCNTB] Buffered SHIFTCNTOUT and SHIFTCNTIN register
   */
   #define VPRCSR_NORDIC_SHIFTCNTB (0x00000BCFul)
   #define VPRCSR_NORDIC_SHIFTCNTB_ResetValue (0x00000000UL) /*!< Reset value of SHIFTCNTB register.                            */
@@ -48380,7 +45261,7 @@ typedef struct {
   #define VPRCSR_NORDIC_SHIFTCNTB_VALUE_Pos (0UL)    /*!< Position of VALUE field.                                             */
   #define VPRCSR_NORDIC_SHIFTCNTB_VALUE_Msk (0x3FUL << VPRCSR_NORDIC_SHIFTCNTB_VALUE_Pos) /*!< Bit mask of VALUE field.        */
   #define VPRCSR_NORDIC_SHIFTCNTB_VALUE_Min (0x00UL) /*!< Min value of VALUE field.                                            */
-  #define VPRCSR_NORDIC_SHIFTCNTB_VALUE_Max (0x20UL) /*!< Max size of VALUE field.                                             */
+  #define VPRCSR_NORDIC_SHIFTCNTB_VALUE_Max (0x3FUL) /*!< Max size of VALUE field.                                             */
 
 
 /**
@@ -49827,7 +46708,10 @@ typedef struct {
   #define VPRCSR_NORDIC_OUTMODE_SHIFTMODE_Disabled (0x0UL) /*!< Shift mode is disabled                                         */
   #define VPRCSR_NORDIC_OUTMODE_SHIFTMODE_Enabled (0x1UL) /*!< Shift mode is enabled                                           */
 
-/* FRAMEWIDTH @Bits 16..20 : Frame width in bits */
+/* FRAMEWIDTH @Bits 16..20 : Output frame width MODE=0x1: BITS=2^FRAMEWIDTH. Legal FRAMEWIDTH values: 0, 1, 2, 3, 4 MODE=0x2:
+                             BITS=FRAMEWIDTH. Legal values: 1, 2, 3, 4, 5, 6, 7, 8, 16 (9-15 are not legal) MODE=0x4:
+                             BITS=FRAMEWIDTH. Legal values: 1, 2, 3, 4, 5, 6, 7, 8 */
+
   #define VPRCSR_NORDIC_OUTMODE_FRAMEWIDTH_Pos (16UL) /*!< Position of FRAMEWIDTH field.                                       */
   #define VPRCSR_NORDIC_OUTMODE_FRAMEWIDTH_Msk (0x1FUL << VPRCSR_NORDIC_OUTMODE_FRAMEWIDTH_Pos) /*!< Bit mask of FRAMEWIDTH
                                                                             field.*/
