@@ -472,3 +472,66 @@ niclasense.debug.server.openocd.scripts.0=interface/{programmer.protocol}.cfg
 niclasense.debug.server.openocd.scripts.1={programmer.transport_script}
 niclasense.debug.server.openocd.scripts.2=target/nrf52.cfg
 niclasense.debug.cortex-debug.custom.request=attach
+
+
+##########################################################################################
+
+portentac33.name=Portenta C33
+portentac33.build.core=arduino
+portentac33.build.crossprefix=arm-zephyr-eabi-
+portentac33.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
+
+portentac33.menu.debug.false=Standard
+portentac33.menu.debug.true=Debug
+
+portentac33.menu.debug.false.post_build_arg=
+portentac33.menu.debug.true.post_build_arg=debug
+
+portentac33.build.variant=arduino_portenta_c33
+portentac33.build.mcu=cortex-m33
+portentac33.build.fpu=-mfpu=fpv5-sp-d16
+portentac33.build.architecture=cortex-m33
+portentac33.compiler.zephyr.arch.define=
+
+portentac33.build.board={build.variant}
+
+portentac33.build.float-abi=-mfloat-abi=hard
+portentac33.build.extra_flags=
+portentac33.build.postbuild.cmd="{tools.imgtool.path}/{tools.imgtool.cmd}" exit
+portentac33.build.board=arduino_portenta_c33
+portentac33.build.extra_ldflags=
+portentac33.compiler.zephyr.arch.define=
+portentac33.compiler.zephyr.defines=-DLL_EXTENSION_BUILD -DCONFIG_ARDUINO_API_SERIAL_BUFFER_SIZE=256 -DKERNEL -DK_HEAP_MEM_POOL_SIZE=122880 -DNDEBUG -DPICOLIBC_DOUBLE_PRINTF_SCANF -D__LINUX_ERRNO_EXTENSIONS__ -D__PROGRAM_START -D__ZEPHYR__=1 -imacros{build.variant.path}/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h -imacros{build.variant.path}/llext-edk/include/zephyr/include/zephyr/toolchain/zephyr_stdint.h
+portentac33.compiler.zephyr.ldflags=-fno-exceptions -fno-rtti -fno-threadsafe-statics -fno-unwind-tables -fno-use-cxa-atexit
+portentac33.compiler.zephyr.cflags=-fno-strict-aliasing -fno-printf-return-value -fno-common -mthumb -mabi=aapcs -mfp16-format=ieee -mtp=soft -Wall -Wformat -Wformat-security -Wno-format-zero-length -Wdouble-promotion -Wno-pointer-sign -Wpointer-arith -Wexpansion-to-defined -Wno-unused-but-set-variable -Werror=implicit-int -fno-asynchronous-unwind-tables -ftls-model=local-exec -fno-reorder-functions --param=min-pagesize=0 -fno-defer-pop --specs=picolibc.specs -D_POSIX_THREADS -mlong-calls -nodefaultlibs
+portentac33.compiler.zephyr.cxxflags={compiler.zephyr.ldflags} -fdata-sections -ffunction-sections -fno-unwind-tables -fno-strict-aliasing -fno-printf-return-value -fno-common -mthumb -mabi=aapcs -mfp16-format=ieee -mtp=soft -Wall -Wformat -Wformat-security -Wno-format-zero-length -Wdouble-promotion -Wpointer-arith -Wexpansion-to-defined -Wno-unused-but-set-variable -fno-asynchronous-unwind-tables -ftls-model=local-exec -fno-reorder-functions --param=min-pagesize=0 -fno-defer-pop --specs=picolibc.specs -D_POSIX_THREADS -mlong-calls -nodefaultlibs
+portentac33.compiler.zephyr.includes={build.variant.path}/includes.txt
+portentac33.compiler.zephyr.extra_ldflags=-lstdc++ -lsupc++ -lnosys -nostdlib
+portentac33.compiler.zephyr=
+portentac33.vid.0=0x2341
+portentac33.pid.0=0x0068
+portentac33.upload_port.0.vid=0x2341
+portentac33.upload_port.0.pid=0x0068
+portentac33.upload.target=portentac33
+
+portentac33.upload.tool=dfu-util
+portentac33.upload.tool.default=dfu-util
+portentac33.upload.protocol=
+portentac33.upload.transport=
+portentac33.upload.vid=0x2341
+portentac33.upload.pid=0x0368
+portentac33.upload.interface=1
+portentac33.upload.use_1200bps_touch=true
+portentac33.upload.wait_for_upload_port=false
+portentac33.upload.native_usb=true
+portentac33.upload.maximum_size=1966080
+portentac33.upload.maximum_data_size=523624
+portentac33.upload.address=0x100000
+portentac33.upload.dfuse=-Q
+
+portentac33.bootloader.tool=dfu-util
+portentac33.bootloader.tool.default=dfu-util
+portentac33.bootloader.file=zephyr-arduino_portenta_c33.bin
+portentac33.bootloader.interface=0
+portentac33.bootloader.address=0x10000
+portentac33.bootloader.dfuse=-Q
