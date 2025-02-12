@@ -55,7 +55,7 @@
 					#address-cells = <1>;
 					#size-cells = <1>;
 
-					user_sketch: partition@0 {
+					user_sketch: partition@e0000 {
 						reg = <0x0E0000 0x20000>;
 					};
 				};

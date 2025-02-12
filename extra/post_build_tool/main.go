@@ -13,10 +13,14 @@ func main() {
 
 	filename := os.Args[1]
 	debug := 0
+	linked := 0
 
-	if len(os.Args) == 3 {
+	if len(os.Args) >= 3 {
 		if os.Args[2] == "debug" {
 			debug = 1
+		}
+		if os.Args[2] == "linked" {
+			linked = 1
 		}
 	}
 
@@ -35,7 +39,7 @@ func main() {
 
 	// Create the new content with the length in front
 	len_str := fmt.Sprintf("%d", length)
-	newContent := append([]byte(len_str), 0, byte(debug))
+	newContent := append([]byte(len_str), 0, byte(debug), byte(linked))
 	// make newContent 16 bytes
 	tmp := make([]byte, 16-len(newContent))
 	newContent = append(newContent, tmp...)

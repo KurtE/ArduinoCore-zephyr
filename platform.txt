@@ -19,7 +19,7 @@ compiler.path={build.compiler_path}
 compiler.c.cmd={build.crossprefix}gcc
 compiler.c.flags=-g -c {compiler.warning_flags} {compiler.zephyr.defines} {compiler.zephyr.cflags} {compiler.zephyr.arch.define} -MMD -mcpu={build.mcu} {build.float-abi} {build.fpu}
 compiler.c.elf.cmd={build.crossprefix}g++
-compiler.c.elf.flags=-r -Wl,--gc-sections -e main -mcpu={build.mcu} {build.float-abi} {build.fpu} -std=c++17
+compiler.c.elf.flags={build.llext_link_flags} -Wl,--gc-sections -mcpu={build.mcu} {build.float-abi} {build.fpu} -std=c++17
 compiler.S.cmd={build.crossprefix}g++
 compiler.S.flags=-c -x assembler-with-cpp -mcpu={build.mcu} {build.fpu}
 compiler.cpp.cmd={build.crossprefix}g++
@@ -40,7 +40,13 @@ compiler.define=-DARDUINO=
 build.extra_flags=
 build.extra_ldflags=
 compiler.zephyr=
+
 build.ldscript={runtime.platform.path}/variants/llext/linker_script.ld
+build.llext_link_flags=-r -e main
+build.extra_extra_ldflags=
+build.suffix=
+upload.externsion=llext.dfu
+post_build_arg=
 
 # These can be overridden in platform.local.txt
 compiler.c.extra_flags=
@@ -97,6 +103,7 @@ recipe.objcopy.hex.pattern="{compiler.path}{compiler.elf2hex.cmd}" {compiler.elf
 ## Mangle the file
 recipe.hooks.objcopy.postobjcopy.1.pattern="{compiler.path}{build.crossprefix}strip" --strip-debug {build.path}/{build.project_name}.elf -o{build.path}/{build.project_name}.llext
 recipe.hooks.objcopy.postobjcopy.2.pattern={runtime.tools.zephyr-post-build-tool.path}/post_build {build.path}/{build.project_name}.llext {post_build_arg}
+recipe.hooks.objcopy.postobjcopy.3.pattern={runtime.tools.zephyr-post-build-tool.path}/post_build {build.path}/{build.project_name}.bin {post_build_arg}
 
 ## Compute size
 recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.elf"
@@ -150,7 +157,7 @@ tools.bossac.cmd.windows=bossac.exe
 
 tools.bossac.upload.params.verbose=-d
 tools.bossac.upload.params.quiet=
-tools.bossac.upload.pattern="{path}/{cmd}" {upload.verbose} --port={serial.port.file} -U -i -e -w "{build.path}/{build.project_name}.llext.dfu" --offset {upload.address} -R
+tools.bossac.upload.pattern="{path}/{cmd}" {upload.verbose} --port={serial.port.file} -U -i -e -w "{build.path}/{build.project_name}.{upload.externsion}" --offset {upload.address} -R
 
 tools.bossac.bootloader.params.verbose=-d
 tools.bossac.bootloader.params.quiet=
@@ -188,7 +195,7 @@ tools.dfu-util.path={runtime.tools.dfu-util.path}
 tools.dfu-util.cmd=dfu-util
 tools.dfu-util.upload.params.verbose=-d
 tools.dfu-util.upload.params.quiet=
-tools.dfu-util.upload.pattern="{path}/{cmd}" --device ,{upload.vid}:{upload.pid} -D "{build.path}/{build.project_name}.llext.dfu" -a{upload.interface} {upload.dfuse}
+tools.dfu-util.upload.pattern="{path}/{cmd}" --device ,{upload.vid}:{upload.pid} -D "{build.path}/{build.project_name}.{upload.externsion}" -a{upload.interface} {upload.dfuse}
 
 tools.dfu-util.bootloader.params.verbose=-d
 tools.dfu-util.bootloader.params.quiet=
@@ -235,7 +242,7 @@ tools.pyocd.path=
 tools.pyocd.cmd=pyocd
 tools.pyocd.upload.params.verbose=
 tools.pyocd.upload.params.quiet=
-tools.pyocd.upload.pattern="{cmd}" load --target {upload.target} {build.path}/{build.project_name}.llext.dfu.bin@{upload.address}
+tools.pyocd.upload.pattern="{cmd}" load --target {upload.target} {build.path}/{build.project_name}.dfu.bin@{upload.address}
 
 tools.pyocd.bootloader.params.verbose=
 tools.pyocd.bootloader.params.quiet=

@@ -72,7 +72,7 @@
 
 		pwm-pin-gpios =	<&ioport6 0 0>;
 
-		serials = <&cdc_acm_uart0>,<&sci9>;
+		serials = <&cdc_acm_uart0>,<&uart9>;
 		cdc-acm = <&cdc_acm_uart0>;
 		i2cs = <&iic1>;
 		spis = <&spi1>;

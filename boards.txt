@@ -1,15 +1,15 @@
-menu.debug=Mode
+menu.mode=Mode
 
 giga.name=Arduino Giga R1
 giga.build.core=arduino
 giga.build.crossprefix=arm-zephyr-eabi-
 giga.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-giga.menu.debug.false=Standard
-giga.menu.debug.true=Debug
+giga.menu.mode.llext=llext
+giga.menu.mode.linked=linked
 
-giga.menu.debug.false.post_build_arg=
-giga.menu.debug.true.post_build_arg=debug
+giga.menu.mode.false.post_build_arg=
+giga.menu.mode.true.post_build_arg=debug
 
 giga.build.variant=arduino_giga_r1_m7
 giga.build.mcu=cortex-m7
@@ -78,11 +78,11 @@ nano33ble.build.core=arduino
 nano33ble.build.crossprefix=arm-zephyr-eabi-
 nano33ble.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-nano33ble.menu.debug.false=Standard
-nano33ble.menu.debug.true=Debug
+nano33ble.menu.mode.false=Standard
+nano33ble.menu.mode.true=Debug
 
-nano33ble.menu.debug.false.post_build_arg=
-nano33ble.menu.debug.true.post_build_arg=debug
+nano33ble.menu.mode.false.post_build_arg=
+nano33ble.menu.mode.true.post_build_arg=debug
 
 nano33ble.build.variant=arduino_nano_33_ble_sense
 nano33ble.build.mcu=cortex-m4
@@ -148,11 +148,11 @@ ek_ra8d1.build.core=arduino
 ek_ra8d1.build.crossprefix=arm-zephyr-eabi-
 ek_ra8d1.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-ek_ra8d1.menu.debug.false=Standard
-ek_ra8d1.menu.debug.true=Debug
+ek_ra8d1.menu.mode.false=Standard
+ek_ra8d1.menu.mode.true=Debug
 
-ek_ra8d1.menu.debug.false.post_build_arg=
-ek_ra8d1.menu.debug.true.post_build_arg=debug
+ek_ra8d1.menu.mode.false.post_build_arg=
+ek_ra8d1.menu.mode.true.post_build_arg=debug
 
 ek_ra8d1.build.variant=ek_ra8d1
 ek_ra8d1.build.mcu=cortex-m85+nomve
@@ -214,11 +214,11 @@ frdm_mcxn947.build.core=arduino
 frdm_mcxn947.build.crossprefix=arm-zephyr-eabi-
 frdm_mcxn947.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-frdm_mcxn947.menu.debug.false=Standard
-frdm_mcxn947.menu.debug.true=Debug
+frdm_mcxn947.menu.mode.false=Standard
+frdm_mcxn947.menu.mode.true=Debug
 
-frdm_mcxn947.menu.debug.false.post_build_arg=
-frdm_mcxn947.menu.debug.true.post_build_arg=debug
+frdm_mcxn947.menu.mode.false.post_build_arg=
+frdm_mcxn947.menu.mode.true.post_build_arg=debug
 
 frdm_mcxn947.build.variant=frdm_mcxn947_mcxn947_cpu0
 frdm_mcxn947.build.mcu=cortex-m33
@@ -274,11 +274,11 @@ portentah7.build.core=arduino
 portentah7.build.crossprefix=arm-zephyr-eabi-
 portentah7.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-portentah7.menu.debug.false=Standard
-portentah7.menu.debug.true=Debug
+portentah7.menu.mode.false=Standard
+portentah7.menu.mode.true=Debug
 
-portentah7.menu.debug.false.post_build_arg=
-portentah7.menu.debug.true.post_build_arg=debug
+portentah7.menu.mode.false.post_build_arg=
+portentah7.menu.mode.true.post_build_arg=debug
 
 portentah7.build.variant=arduino_portenta_h7
 portentah7.build.mcu=cortex-m7
@@ -346,11 +346,11 @@ frdm_rw612.build.core=arduino
 frdm_rw612.build.crossprefix=arm-zephyr-eabi-
 frdm_rw612.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-frdm_rw612.menu.debug.false=Standard
-frdm_rw612.menu.debug.true=Debug
+frdm_rw612.menu.mode.false=Standard
+frdm_rw612.menu.mode.true=Debug
 
-frdm_rw612.menu.debug.false.post_build_arg=
-frdm_rw612.menu.debug.true.post_build_arg=debug
+frdm_rw612.menu.mode.false.post_build_arg=
+frdm_rw612.menu.mode.true.post_build_arg=debug
 
 frdm_rw612.build.variant=frdm_rw612
 frdm_rw612.build.mcu=cortex-m33+nodsp
@@ -405,11 +405,11 @@ niclasense.build.core=arduino
 niclasense.build.crossprefix=arm-zephyr-eabi-
 niclasense.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-niclasense.menu.debug.false=Standard
-niclasense.menu.debug.true=Debug
+niclasense.menu.mode.false=Standard
+niclasense.menu.mode.true=Debug
 
-niclasense.menu.debug.false.post_build_arg=
-niclasense.menu.debug.true.post_build_arg=debug
+niclasense.menu.mode.false.post_build_arg=
+niclasense.menu.mode.true.post_build_arg=debug
 
 niclasense.build.variant=arduino_nicla_sense_me
 niclasense.build.mcu=cortex-m4
@@ -481,11 +481,15 @@ portentac33.build.core=arduino
 portentac33.build.crossprefix=arm-zephyr-eabi-
 portentac33.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-portentac33.menu.debug.false=Standard
-portentac33.menu.debug.true=Debug
+portentac33.menu.mode.llext=llext
+portentac33.menu.mode.linked=linked
 
-portentac33.menu.debug.false.post_build_arg=
-portentac33.menu.debug.true.post_build_arg=debug
+portentac33.menu.mode.linked.build.extra_extra_ldflags=-lc -lm -lgcc -L{build.variant.path}
+portentac33.menu.mode.linked.build.llext_link_flags=
+portentac33.menu.mode.linked.build.suffix=_linked
+portentac33.menu.mode.linked.build.ldscript={runtime.platform.path}/variants/linked/linker_script.ld
+portentac33.menu.mode.linked.upload.externsion=bin.dfu
+portentac33.menu.mode.linked.post_build_arg=linked
 
 portentac33.build.variant=arduino_portenta_c33
 portentac33.build.mcu=cortex-m33
@@ -506,7 +510,7 @@ portentac33.compiler.zephyr.ldflags=-fno-exceptions -fno-rtti -fno-threadsafe-st
 portentac33.compiler.zephyr.cflags=-fno-strict-aliasing -fno-printf-return-value -fno-common -mthumb -mabi=aapcs -mfp16-format=ieee -mtp=soft -Wall -Wformat -Wformat-security -Wno-format-zero-length -Wdouble-promotion -Wno-pointer-sign -Wpointer-arith -Wexpansion-to-defined -Wno-unused-but-set-variable -Werror=implicit-int -fno-asynchronous-unwind-tables -ftls-model=local-exec -fno-reorder-functions --param=min-pagesize=0 -fno-defer-pop --specs=picolibc.specs -D_POSIX_THREADS -mlong-calls -nodefaultlibs
 portentac33.compiler.zephyr.cxxflags={compiler.zephyr.ldflags} -fdata-sections -ffunction-sections -fno-unwind-tables -fno-strict-aliasing -fno-printf-return-value -fno-common -mthumb -mabi=aapcs -mfp16-format=ieee -mtp=soft -Wall -Wformat -Wformat-security -Wno-format-zero-length -Wdouble-promotion -Wpointer-arith -Wexpansion-to-defined -Wno-unused-but-set-variable -fno-asynchronous-unwind-tables -ftls-model=local-exec -fno-reorder-functions --param=min-pagesize=0 -fno-defer-pop --specs=picolibc.specs -D_POSIX_THREADS -mlong-calls -nodefaultlibs
 portentac33.compiler.zephyr.includes={build.variant.path}/includes.txt
-portentac33.compiler.zephyr.extra_ldflags=-lstdc++ -lsupc++ -lnosys -nostdlib
+portentac33.compiler.zephyr.extra_ldflags=-lstdc++ -lsupc++ -lnosys -nostdlib {build.extra_extra_ldflags}
 portentac33.compiler.zephyr=
 portentac33.vid.0=0x2341
 portentac33.pid.0=0x0068
