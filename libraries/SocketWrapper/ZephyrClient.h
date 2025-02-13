@@ -31,9 +31,6 @@ public:
         return ret;
     }
 #if defined(CONFIG_NET_SOCKETS_SOCKOPT_TLS)
-    int connectSSL(const char* host, uint16_t port, const char* cert) {
-        return this->connectSSL(host, port, (char*)cert);
-    }
     int connectSSL(const char* host, uint16_t port, char* cert) {
         auto ret = ZephyrSocketWrapper::connectSSL((char*)host, port, cert);
         if (ret) {
