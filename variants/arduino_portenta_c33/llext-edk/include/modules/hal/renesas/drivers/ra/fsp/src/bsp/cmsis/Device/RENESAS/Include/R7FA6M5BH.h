@@ -9222,7 +9222,7 @@ typedef struct                         /*!< (@ 0x4009F000) R_IIC0 Structure     
 
         struct
         {
-            __IOM uint8_t BC   : 3;    /*!< [2..0] Bit Counter                                                        */
+            __IOM uint8_t _BC   : 3;    /*!< [2..0] Bit Counter                                                        */
             __OM uint8_t  BCWP : 1;    /*!< [3..3] BC Write Protect(This bit is read as 1.)                           */
             __IOM uint8_t CKS  : 3;    /*!< [6..4] Internal Reference Clock (fIIC) Selection ( fIIC = PCLKB
                                         *   / 2^CKS )                                                                 */

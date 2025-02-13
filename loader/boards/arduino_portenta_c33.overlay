@@ -72,8 +72,8 @@
 
 		pwm-pin-gpios =	<&ioport6 0 0>;
 
-		serials = <&cdc_acm_uart0>,<&uart9>;
-		cdc-acm = <&cdc_acm_uart0>;
+		serials = /*<&cdc_acm_uart0>,*/ <&uart9>;
+		/* cdc-acm = <&cdc_acm_uart0>; */
 		i2cs = <&iic1>;
 		spis = <&spi1>;
 		pwms = <&pwm6 1 PWM_HZ(25000000) PWM_POLARITY_NORMAL>;

@@ -88,8 +88,7 @@ recipe.S.o.pattern="{compiler.path}{compiler.S.cmd}" {compiler.S.flags} -DARDUIN
 recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} {compiler.ar.extra_flags} "{archive_file_path}" "{object_file}"
 
 ## Combine gc-sections, archives, and objects
-recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}"  "-L{build.path}" {compiler.c.elf.flags} {compiler.c.elf.extra_flags} {build.extra_flags} {build.extra_ldflags} {compiler.zephyr.ldflags} "-T{build.ldscript}" "-Wl,-Map,{build.path}/{build.project_name}.map" --specs=nosys.specs {compiler.ldflags} -o "{build.path}/{build.project_name}.elf" {object_files} "{build.path}/{archive_file}" {compiler.zephyr} {compiler.zephyr.extra_ldflags} {compiler.libraries.ldflags}
-#recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}"  "-L{build.path}" {compiler.c.elf.flags} {compiler.c.elf.extra_flags} {build.extra_flags} {build.extra_ldflags} {compiler.zephyr.ldflags} "-Wl,-Map,{build.path}/{build.project_name}.map" --specs=nosys.specs {compiler.ldflags} -o "{build.path}/{build.project_name}.elf" {object_files} "{build.path}/{archive_file}" {compiler.zephyr} {compiler.zephyr.extra_ldflags} {compiler.libraries.ldflags}
+recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}"  "-L{build.path}" {compiler.c.elf.flags} {compiler.c.elf.extra_flags} {build.extra_flags} {build.extra_ldflags} {compiler.zephyr.ldflags} "-T{build.ldscript}" "-Wl,-Map,{build.path}/{build.project_name}.map" --specs=picolibc.specs --specs=nosys.specs {compiler.ldflags} -o "{build.path}/{build.project_name}.elf" {object_files} "{build.path}/{archive_file}" {compiler.zephyr} {compiler.zephyr.extra_ldflags} {compiler.libraries.ldflags}
 
 ## Create eeprom
 recipe.objcopy.eep.pattern=

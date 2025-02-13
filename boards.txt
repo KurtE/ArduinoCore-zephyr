@@ -484,7 +484,7 @@ portentac33.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 portentac33.menu.mode.llext=llext
 portentac33.menu.mode.linked=linked
 
-portentac33.menu.mode.linked.build.extra_extra_ldflags=-lc -lm -lgcc -L{build.variant.path}
+portentac33.menu.mode.linked.build.extra_extra_ldflags=-lc -lm -lgcc -L{build.variant.path} -Wl,--wrap=random -Wl,--wrap=calloc -Wl,--wrap=free -Wl,--wrap=malloc -Wl,--wrap=realloc 
 portentac33.menu.mode.linked.build.llext_link_flags=
 portentac33.menu.mode.linked.build.suffix=_linked
 portentac33.menu.mode.linked.build.ldscript={runtime.platform.path}/variants/linked/linker_script.ld

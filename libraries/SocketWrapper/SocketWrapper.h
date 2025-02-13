@@ -117,7 +117,6 @@ public:
         if (ca_certificate_pem != nullptr) {
             ret = tls_credential_add(CA_CERTIFICATE_TAG, TLS_CREDENTIAL_CA_CERTIFICATE,
                 ca_certificate_pem, strlen(ca_certificate_pem) + 1);
-            Serial.println(ret);
         }
 
         sock_fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TLS_1_2);

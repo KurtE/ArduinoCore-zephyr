@@ -33,8 +33,16 @@ fi
 # Generate the provides.ld file for linked builds
 echo "Exporting provides.ld"
 arm-none-eabi-readelf --wide -s build/zephyr/zephyr.elf  | c++filt  | grep FUNC | awk -F' ' '{print "PROVIDE("$8" = 0x"$2");"}' > variants/$variant/provides.ld
-arm-none-eabi-readelf --wide -s build/zephyr/zephyr.elf  | c++filt  | grep llext_stack | awk -F' ' '{print "PROVIDE("$8" = 0x"$2");"}' >> variants/$variant/provides.ld
-arm-none-eabi-readelf --wide -s build/zephyr/zephyr.elf  | c++filt  | grep llext_stack | awk -F' ' '{print "PROVIDE(llext_stack_size = "$3");"}' >> variants/$variant/provides.ld
+arm-none-eabi-readelf --wide -s build/zephyr/zephyr.elf  | c++filt  | grep kheap_llext_heap | awk -F' ' '{print "PROVIDE("$8" = 0x"$2");"}' >> variants/$variant/provides.ld
+arm-none-eabi-readelf --wide -s build/zephyr/zephyr.elf  | c++filt  | grep kheap_llext_heap | awk -F' ' '{print "PROVIDE(kheap_llext_heap_size = "$3");"}' >> variants/$variant/provides.ld
+arm-none-eabi-readelf --wide -s build/zephyr/zephyr.elf  | c++filt  | grep kheap__system_heap | awk -F' ' '{print "PROVIDE("$8" = 0x"$2");"}' >> variants/$variant/provides.ld
+arm-none-eabi-readelf --wide -s build/zephyr/zephyr.elf  | c++filt  | grep kheap__system_heap | awk -F' ' '{print "PROVIDE(kheap__system_heap_size = "$3");"}' >> variants/$variant/provides.ld
 cat build/zephyr/zephyr.map | grep __device_dts_ord | grep -v rodata | grep -v llext_const_symbol |  awk -F' ' '{print "PROVIDE("$2" = "$1");"}'  >> variants/$variant/provides.ld
 TEXT_START=`cat loader/boards/$variant.overlay | grep user_sketch: | cut -f2 -d"@" | cut -f1 -d"{"`
 echo "PROVIDE(_sketch_start = 0x$TEXT_START);" >> variants/$variant/provides.ld
+
+sed -i 's/PROVIDE(malloc =/PROVIDE(__wrap_malloc =/g' variants/$variant/provides.ld
+sed -i 's/PROVIDE(free =/PROVIDE(__wrap_free =/g' variants/$variant/provides.ld
+sed -i 's/PROVIDE(realloc =/PROVIDE(__wrap_realloc =/g' variants/$variant/provides.ld
+sed -i 's/PROVIDE(calloc =/PROVIDE(__wrap_calloc =/g' variants/$variant/provides.ld
+sed -i 's/PROVIDE(random =/PROVIDE(__wrap_random =/g' variants/$variant/provides.ld

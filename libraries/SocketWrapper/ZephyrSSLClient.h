@@ -1,3 +1,5 @@
+#pragma once
+
 #include "SocketWrapper.h"
 #include "api/Client.h"
 #include "unistd.h"

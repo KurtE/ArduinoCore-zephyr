@@ -135,6 +135,10 @@ public:
         return (ret == 0);
     }
 
+    bool disconnect() {
+        return (net_if_down(net_if_get_by_index(iface_index)) == 0);
+    }
+
     // TODO: manual functions for setting IP address, subnet mask, gateway, etc.
     // net_if_ipv4_set_netmask_by_addr(iface, &addr4, &nm);
     // net_if_ipv4_addr_add(iface, &addr4, NET_ADDR_MANUAL, 0);
@@ -146,6 +150,14 @@ public:
         } else {
             return LinkOFF;
         }
+    }
+
+    bool begin(uint8_t* mac_address, int _timeout, int _response_timeout) {
+        return begin();
+    }
+
+    bool begin(uint8_t* mac_address, IPAddress _ip, IPAddress _dns, IPAddress _gateway, IPAddress _netmask, int _timeout, int _response_timeout) {
+        return begin();
     }
 
     EthernetHardwareStatus hardwareStatus() {

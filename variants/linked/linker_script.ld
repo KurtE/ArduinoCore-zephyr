@@ -5,8 +5,11 @@ PROVIDE(TEXT_LENGTH = 0x100000);
 MEMORY
 {
     FLASH (rx) : ORIGIN = _sketch_start + 16, LENGTH = TEXT_LENGTH
-    RAM (rwx) : ORIGIN = llext_stack, LENGTH = llext_stack_size
+    RAM (rwx) : ORIGIN = kheap_llext_heap, LENGTH = kheap_llext_heap_size
 }
+
+PROVIDE(__heap_start = kheap__system_heap);
+PROVIDE(__heap_end = kheap__system_heap + kheap__system_heap_size);
 
 ENTRY(entry_point)
 SECTIONS {
@@ -14,12 +17,8 @@ SECTIONS {
     /DISCARD/ : {
         *(.ARM.attributes)
         *(.ARM.attributes.*)
-        *(.ARM.exidx)
-        *(.ARM.exidx.*)
         *(.ARM.extidx)
         *(.ARM.extidx.*)
-        *(.ARM.extab)
-        *(.ARM.extab.*)
         *(.comment)
         *(.comment.*)
         *(.llvmbc)
@@ -42,7 +41,7 @@ SECTIONS {
         __static_thread_data_list_start = .;
         KEEP(*(SORT_BY_NAME(.__static_thread_data.static.*)));
         __static_thread_data_list_end = .;
-    } > FLASH
+    } >FLASH
 
     .preinit_array : {
         PROVIDE_HIDDEN (__preinit_array_start = .);
@@ -68,21 +67,33 @@ SECTIONS {
         *(.rodata)
         *(.rodata1)
         *(.rodata.*)
-    } > FLASH
+    } >FLASH
+
+    .ARM.extab   : { *(.ARM.extab* .gnu.linkonce.armextab.*) } >FLASH
+    .ARM : {
+        __exidx_start = .;
+        *(.ARM.exidx*)
+        __exidx_end = .;
+    } >FLASH
 
     _sidata = LOADADDR(.data);
 
     .data : {
+        . = ALIGN(4);
         _sdata = .;
-        *(.data .data.*)
+        *(.data .data.* .tdata*)
+        . = ALIGN(4);
         _edata = .;
     } >RAM AT> FLASH
 
     .bss : {
+        . = ALIGN(4);
         _sbss = .;
-        *(.bss .bss.* COMMON)
+        *(.bss .bss.* .tbss* COMMON)
         *(.noinit .noinit.*)
+        . = ALIGN(4);
         _ebss = .;
+        . = ALIGN(1024);
     } >RAM
 
     .symtab : {
