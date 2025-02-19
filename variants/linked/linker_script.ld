@@ -82,6 +82,8 @@ SECTIONS {
         . = ALIGN(4);
         _sdata = .;
         *(.data .data.* .tdata*)
+        *(._usbd_context.static.usbd_)
+        *(.ramfunc)
         . = ALIGN(4);
         _edata = .;
     } >RAM AT> FLASH
