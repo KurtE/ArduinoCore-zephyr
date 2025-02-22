@@ -40,17 +40,162 @@
 	pinctrl-names = "default";
 };
 
-&dmamux1 {
+&timers1 {
 	status = "okay";
+	st,prescaler = <0>;
+
+	pwm1: pwm {
+		status = "okay";
+		pinctrl-0 = <&tim1_ch1_pk1 &tim1_ch2_pj11>;
+		pinctrl-names = "default";
+	};
+};
+
+&timers3 {
+	status = "okay";
+	st,prescaler = <100>;
+
+	pwm3: pwm {
+		status = "okay";
+		pinctrl-0 = <&tim3_ch1_pc6 &tim3_ch2_pc7>;
+		pinctrl-names = "default";
+	};
+};
+
+&timers8 {
+	status = "okay";
+	st,prescaler = <100>;
+
+	pwm8: pwm {
+		status = "okay";
+		pinctrl-0 = <&tim8_ch3n_ph15 &tim8_ch2_pj10 &tim8_ch2n_pj7>;
+		pinctrl-names = "default";
+	};
+};
+
+&timers12 {
+	status = "okay";
+	st,prescaler = <100>;
+
+	pwm12: pwm {
+		status = "okay";
+		pinctrl-0 = <&tim12_ch1_ph6>;
+		pinctrl-names = "default";
+	};
+};
+
+&pwm1 {
+	/* Use the pwmclock node to start the clock generation */
+	pwmclock: pwmclock {
+		status = "okay";
+		compatible = "pwm-clock";
+		clock-frequency = <0>;
+		#clock-cells = <1>;
+		pwms = <&pwm1 2 PWM_HZ(12000000) PWM_POLARITY_NORMAL>;
+	};
+};
+
+&rng {
+	status = "okay";
+};
+
+&dmamux1 {
+    status = "okay";
 };
 
 &dma1 {
 	status = "okay";
 };
 
-&rng {
+
+&adc1 {
+	pinctrl-0 = <&adc1_inp12_pc2
+    &adc1_inp13_pc3
+    &adc1_inp18_pa4
+    &adc1_inp3_pa6
+		&adc1_inp0_pa0_c
+		&adc1_inp1_pa1_c>;
+	pinctrl-names = "default";
+	st,adc-clock-source = <SYNC>;
+	st,adc-prescaler = <4>;
 	status = "okay";
+
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	channel@c {
+		reg = <12>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_MAX>;
+		zephyr,resolution = <16>;
+	};
+	channel@d {
+		reg = <13>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_MAX>;
+		zephyr,resolution = <16>;
+	};
+	channel@12 {
+		reg = <18>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_MAX>;
+		zephyr,resolution = <16>;
+	};
+	channel@3 {
+		reg = <3>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_MAX>;
+		zephyr,resolution = <16>;
+	};
+
+	/* PA0_C and PA1_C */
+	channel@0 {
+		reg = <0>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_MAX>;
+		zephyr,resolution = <16>;
+	};
+	channel@1 {
+		reg = <1>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_MAX>;
+		zephyr,resolution = <16>;
+	};
 };
+
+&adc3 {
+	pinctrl-0 = <&adc3_inp0_pc2_c
+		&adc3_inp1_pc3_c>;
+	pinctrl-names = "default";
+	st,adc-clock-source = <SYNC>;
+	st,adc-prescaler = <4>;
+	status = "okay";
+
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	channel@0 {
+		reg = <0>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_MAX>;
+		zephyr,resolution = <16>;
+	};
+	channel@1 {
+		reg = <1>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_MAX>;
+		zephyr,resolution = <16>;
+	};
+};
+
 
 / {
 	chosen {
@@ -293,20 +438,60 @@
   					<&gpiok 1 0>,
   					<&gpiok 2 0>,
   					<&gpiok 3 0>,
-  					<&gpiok 4 0>,
-  					<&gpiok 5 0>,
-  					<&gpiok 6 0>,
-  					<&gpiok 7 0>;
+  					<&gpiok 4 0>;
+  					
+					/* commented out for now to allow LEDs to work
+					/* <&gpiok 5 0>, */
+  					/* <&gpiok 6 0>, */
+  					/* <&gpiok 7 0>; */
 
 
 
 		builtin-led-gpios = <&gpiok 5 GPIO_ACTIVE_LOW>,
-                        <&gpiok 6 GPIO_ACTIVE_LOW>,
-                        <&gpiok 7 GPIO_ACTIVE_LOW>;
-
+					<&gpiok 6 GPIO_ACTIVE_LOW>,
+					<&gpiok 7 GPIO_ACTIVE_LOW>;
+                        
+		pwm-pin-gpios =	//<&gpioa 8 0>,
+					<&gpioc 6 0>,
+					<&gpioc 7 0>,
+					//<&gpiog 7 0>,
+					<&gpioj 11 0>,
+					<&gpiok 1 0>,
+					<&gpioh 15 0>,
+					<&gpioj 7 0>,
+					<&gpioj 10 0>,
+					<&gpioh 6 0>;
+                    
+		adc-pin-gpios =	<&gpioz 0 0>,			/* analog only */
+				<&gpioz 1 0>,			/* analog only */
+				<&gpioz 2 0>,			/* analog only */
+				<&gpioz 3 0>,			/* analog only */
+				<&gpioc 2 0>,
+				<&gpioc 3 0>,
+				<&gpioa 4 0>,
+				<&gpioa 6 0>;
+                    
 		serials = <&cdc_acm_uart0>,<&usart6>, <&usart1>, <&uart4>;
 		cdc-acm = <&cdc_acm_uart0>;
 		i2cs = <&i2c3>, <&i2c1>, <&i2c4>;
 		spis = <&spi2>;
+		pwms = //<&pwm8 1 PWM_HZ(500) PWM_POLARITY_NORMAL>,
+				<&pwm3 1 PWM_HZ(500) PWM_POLARITY_NORMAL>,
+				<&pwm3 2 PWM_HZ(500) PWM_POLARITY_NORMAL>,
+				<&pwm1 2 PWM_HZ(12000000) PWM_POLARITY_NORMAL>, 
+				<&pwm1 1 PWM_HZ(5000) PWM_POLARITY_NORMAL>,
+				<&pwm8 1 PWM_HZ(500) PWM_POLARITY_INVERTED>,
+				<&pwm8 3 PWM_HZ(500) PWM_POLARITY_INVERTED>,
+				<&pwm8 2 PWM_HZ(500) PWM_POLARITY_NORMAL>,
+				<&pwm12 1 PWM_HZ(500) PWM_POLARITY_NORMAL>;
+          
+  io-channels =	<&adc1 0>,
+				<&adc1 1>,
+				<&adc3 0>,
+				<&adc3 1>,
+				<&adc1 12>,
+				<&adc1 13>,
+				<&adc1 18>,
+				<&adc1 3>;        
 	};
 };
