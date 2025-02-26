@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"encoding/binary"
 	"flag"
 	"fmt"
 	"os"
@@ -10,6 +12,8 @@ func main() {
 	var output = flag.String("output", "", "Output to a specific file (default: add .dfu suffix)")
 	var debug = flag.Bool("debug", false, "Enable debugging mode")
 	var linked = flag.Bool("prelinked", false, "Provided file has already been linked to Zephyr")
+	var force = flag.Bool("force", false, "Ignore safety checks and overwrite the header")
+	var add_header = flag.Bool("add_header", false, "Add space for the header to the file")
 
 	flag.Parse()
 	if flag.NArg() != 1 {
@@ -26,16 +30,57 @@ func main() {
 		return
 	}
 
-	// Get the length of the file content
-	length := len(content)
+	var ELF_HEADER = []byte { 0x7f, 0x45, 0x4c, 0x46 }
+	var elf_header_found = bytes.Compare(ELF_HEADER, content[0:4]) == 0
+	if *add_header || (!*force && !elf_header_found) {
+		fmt.Printf("File does not have an ELF header, adding empty space\n")
 
-	// Create the new content with the length in front
-	len_str := fmt.Sprintf("%d", length)
-	newContent := append([]byte(len_str), 0, byte(*debug), byte(*linked))
-	// make newContent 16 bytes
-	tmp := make([]byte, 16-len(newContent))
-	newContent = append(newContent, tmp...)
-	newContent = append(newContent, content...)
+		var newContent = make([]byte, len(content)+16)
+		copy(newContent[16:], content)
+		content = newContent
+	}
+
+	// Create and fill custom header
+	var header struct {
+		ver uint8       // @ 0x07
+		len uint32      // @ 0x08
+		magic uint16    // @ 0x0c
+		flags uint8     // @ 0x0e
+	}
+
+	header.ver = 1
+	header.magic = 0x2341 // Arduino USB VID
+	header.len = uint32(len(content))
+
+	header.flags = 0
+	if *debug {
+		header.flags |= 0x01
+	}
+	if *linked {
+		header.flags |= 0x02
+	}
+
+	var bytes = make([]byte, 9)
+	_, err = binary.Encode(bytes, binary.LittleEndian, header)
+	if err != nil {
+		fmt.Printf("Error encoding header: %v\n", err)
+		return
+	}
+
+	// Bytes 7 to 15 are free to use in current ELF specification. We will
+	// use them to store the debug and linked flags.
+	// Check if the target area is empty
+	if !*force {
+		for i := 7; i < 16; i++ {
+			if content[i] != 0 {
+				fmt.Printf("Target ELF header area is not empty. Use --force to overwrite\n")
+				return
+			}
+		}
+	}
+
+	// Change the header bytes in the content
+	copy(content[7:16], bytes)
 
 	// Create a new filename for the copy
 	newFilename := *output
@@ -44,13 +89,7 @@ func main() {
 	}
 
 	// Write the new content to the new file
-	err = os.WriteFile(newFilename, []byte(newContent), 0644)
-	if err != nil {
-		fmt.Printf("Error writing to file: %v\n", err)
-		return
-	}
-	// Copy in .bin
-	err = os.WriteFile(newFilename+".bin", []byte(newContent), 0644)
+	err = os.WriteFile(newFilename, content, 0644)
 	if err != nil {
 		fmt.Printf("Error writing to file: %v\n", err)
 		return
