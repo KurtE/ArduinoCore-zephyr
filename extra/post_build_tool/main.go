@@ -1,28 +1,23 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 )
 
 func main() {
-	if len(os.Args) < 2 {
-		fmt.Println("Please provide a filename")
+	var output = flag.String("output", "", "Output to a specific file (default: add .dfu suffix)")
+	var debug = flag.Bool("debug", false, "Enable debugging mode")
+	var linked = flag.Bool("prelinked", false, "Provided file has already been linked to Zephyr")
+
+	flag.Parse()
+	if flag.NArg() != 1 {
+		fmt.Printf("Usage: %s [flags] <filename>\n", os.Args[0])
+		flag.PrintDefaults()
 		return
 	}
-
-	filename := os.Args[1]
-	debug := 0
-	linked := 0
-
-	if len(os.Args) >= 3 {
-		if os.Args[2] == "debug" {
-			debug = 1
-		}
-		if os.Args[2] == "linked" {
-			linked = 1
-		}
-	}
+	filename := flag.Arg(0)
 
 	// Read the file content
 	content, err := os.ReadFile(filename)
@@ -34,16 +29,19 @@ func main() {
 	// Get the length of the file content
 	length := len(content)
 
-	// Create a new filename for the copy
-	newFilename := filename + ".dfu"
-
 	// Create the new content with the length in front
 	len_str := fmt.Sprintf("%d", length)
-	newContent := append([]byte(len_str), 0, byte(debug), byte(linked))
+	newContent := append([]byte(len_str), 0, byte(*debug), byte(*linked))
 	// make newContent 16 bytes
 	tmp := make([]byte, 16-len(newContent))
 	newContent = append(newContent, tmp...)
 	newContent = append(newContent, content...)
+
+	// Create a new filename for the copy
+	newFilename := *output
+	if newFilename == "" {
+		newFilename = filename + ".dfu"
+	}
 
 	// Write the new content to the new file
 	err = os.WriteFile(newFilename, []byte(newContent), 0644)
@@ -58,5 +56,5 @@ func main() {
 		return
 	}
 
-	fmt.Printf("File copied and saved as %s\n", newFilename)
+	fmt.Printf("File %s saved as %s\n", filename, newFilename)
 }
