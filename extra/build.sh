@@ -17,7 +17,7 @@ fi
 source venv/bin/activate
 
 if [ "$third_arg" != "" ]; then
-    extra_args="--shield $shield"
+    extra_args="--shield $third_arg"
 fi
 
 (west build loader -b $board -p $extra_args && west build -t llext-edk)
