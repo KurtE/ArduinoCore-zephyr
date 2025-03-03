@@ -1,3 +1,4 @@
+menu.debug=Debug
 menu.mode=Mode
 
 giga.name=Arduino Giga R1
@@ -5,11 +6,11 @@ giga.build.core=arduino
 giga.build.crossprefix=arm-zephyr-eabi-
 giga.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-giga.menu.mode.llext=llext
-giga.menu.mode.linked=linked
+giga.menu.debug.false=Standard
+giga.menu.debug.true=Debug
 
-giga.menu.mode.false.post_build_arg=
-giga.menu.mode.true.post_build_arg=debug
+giga.menu.debug.false.postbuild_debug=
+giga.menu.debug.true.postbuild_debug=-debug
 
 giga.build.variant=arduino_giga_r1_m7
 giga.build.mcu=cortex-m7
@@ -78,11 +79,11 @@ nano33ble.build.core=arduino
 nano33ble.build.crossprefix=arm-zephyr-eabi-
 nano33ble.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-nano33ble.menu.mode.false=Standard
-nano33ble.menu.mode.true=Debug
+nano33ble.menu.debug.false=Standard
+nano33ble.menu.debug.true=Debug
 
-nano33ble.menu.mode.false.post_build_arg=
-nano33ble.menu.mode.true.post_build_arg=debug
+nano33ble.menu.debug.false.postbuild_debug=
+nano33ble.menu.debug.true.postbuild_debug=-debug
 
 nano33ble.build.variant=arduino_nano_33_ble_sense
 nano33ble.build.mcu=cortex-m4
@@ -148,11 +149,11 @@ ek_ra8d1.build.core=arduino
 ek_ra8d1.build.crossprefix=arm-zephyr-eabi-
 ek_ra8d1.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-ek_ra8d1.menu.mode.false=Standard
-ek_ra8d1.menu.mode.true=Debug
+ek_ra8d1.menu.debug.false=Standard
+ek_ra8d1.menu.debug.true=Debug
 
-ek_ra8d1.menu.mode.false.post_build_arg=
-ek_ra8d1.menu.mode.true.post_build_arg=debug
+ek_ra8d1.menu.debug.false.postbuild_debug=
+ek_ra8d1.menu.debug.true.postbuild_debug=-debug
 
 ek_ra8d1.build.variant=ek_ra8d1
 ek_ra8d1.build.mcu=cortex-m85+nomve
@@ -214,11 +215,11 @@ frdm_mcxn947.build.core=arduino
 frdm_mcxn947.build.crossprefix=arm-zephyr-eabi-
 frdm_mcxn947.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-frdm_mcxn947.menu.mode.false=Standard
-frdm_mcxn947.menu.mode.true=Debug
+frdm_mcxn947.menu.debug.false=Standard
+frdm_mcxn947.menu.debug.true=Debug
 
-frdm_mcxn947.menu.mode.false.post_build_arg=
-frdm_mcxn947.menu.mode.true.post_build_arg=debug
+frdm_mcxn947.menu.debug.false.postbuild_debug=
+frdm_mcxn947.menu.debug.true.postbuild_debug=-debug
 
 frdm_mcxn947.build.variant=frdm_mcxn947_mcxn947_cpu0
 frdm_mcxn947.build.mcu=cortex-m33
@@ -274,11 +275,11 @@ portentah7.build.core=arduino
 portentah7.build.crossprefix=arm-zephyr-eabi-
 portentah7.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-portentah7.menu.mode.false=Standard
-portentah7.menu.mode.true=Debug
+portentah7.menu.debug.false=Standard
+portentah7.menu.debug.true=Debug
 
-portentah7.menu.mode.false.post_build_arg=
-portentah7.menu.mode.true.post_build_arg=debug
+portentah7.menu.debug.false.postbuild_debug=
+portentah7.menu.debug.true.postbuild_debug=-debug
 
 portentah7.build.variant=arduino_portenta_h7
 portentah7.build.mcu=cortex-m7
@@ -346,11 +347,11 @@ frdm_rw612.build.core=arduino
 frdm_rw612.build.crossprefix=arm-zephyr-eabi-
 frdm_rw612.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-frdm_rw612.menu.mode.false=Standard
-frdm_rw612.menu.mode.true=Debug
+frdm_rw612.menu.debug.false=Standard
+frdm_rw612.menu.debug.true=Debug
 
-frdm_rw612.menu.mode.false.post_build_arg=
-frdm_rw612.menu.mode.true.post_build_arg=debug
+frdm_rw612.menu.debug.false.postbuild_debug=
+frdm_rw612.menu.debug.true.postbuild_debug=-debug
 
 frdm_rw612.build.variant=frdm_rw612
 frdm_rw612.build.mcu=cortex-m33+nodsp
@@ -405,11 +406,11 @@ niclasense.build.core=arduino
 niclasense.build.crossprefix=arm-zephyr-eabi-
 niclasense.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
-niclasense.menu.mode.false=Standard
-niclasense.menu.mode.true=Debug
+niclasense.menu.debug.false=Standard
+niclasense.menu.debug.true=Debug
 
-niclasense.menu.mode.false.post_build_arg=
-niclasense.menu.mode.true.post_build_arg=debug
+niclasense.menu.debug.false.postbuild_debug=
+niclasense.menu.debug.true.postbuild_debug=-debug
 
 niclasense.build.variant=arduino_nicla_sense_me
 niclasense.build.mcu=cortex-m4
@@ -481,6 +482,12 @@ portentac33.build.core=arduino
 portentac33.build.crossprefix=arm-zephyr-eabi-
 portentac33.build.compiler_path={runtime.tools.arm-zephyr-eabi-0.16.8.path}/bin/
 
+portentac33.menu.debug.false=Standard
+portentac33.menu.debug.true=Debug
+
+portentac33.menu.debug.false.postbuild_debug=
+portentac33.menu.debug.true.postbuild_debug=-debug
+
 portentac33.menu.mode.llext=llext
 portentac33.menu.mode.linked=linked
 
@@ -488,8 +495,8 @@ portentac33.menu.mode.linked.build.extra_extra_ldflags=-lc -lm -lgcc -L{build.va
 portentac33.menu.mode.linked.build.llext_link_flags=
 portentac33.menu.mode.linked.build.suffix=_linked
 portentac33.menu.mode.linked.build.ldscript={runtime.platform.path}/variants/linked/linker_script.ld
-portentac33.menu.mode.linked.upload.externsion=bin.dfu
-portentac33.menu.mode.linked.post_build_arg=linked
+portentac33.menu.mode.linked.upload.extension=bin.dfu
+portentac33.menu.mode.linked.postbuild_mode=-linked
 
 portentac33.build.variant=arduino_portenta_c33
 portentac33.build.mcu=cortex-m33

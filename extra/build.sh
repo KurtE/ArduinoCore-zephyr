@@ -32,11 +32,12 @@ fi
 
 # Generate the provides.ld file for linked builds
 echo "Exporting provides.ld"
-arm-none-eabi-readelf --wide -s build/zephyr/zephyr.elf  | c++filt  | grep FUNC | awk -F' ' '{print "PROVIDE("$8" = 0x"$2");"}' > variants/$variant/provides.ld
-arm-none-eabi-readelf --wide -s build/zephyr/zephyr.elf  | c++filt  | grep kheap_llext_heap | awk -F' ' '{print "PROVIDE("$8" = 0x"$2");"}' >> variants/$variant/provides.ld
-arm-none-eabi-readelf --wide -s build/zephyr/zephyr.elf  | c++filt  | grep kheap_llext_heap | awk -F' ' '{print "PROVIDE(kheap_llext_heap_size = "$3");"}' >> variants/$variant/provides.ld
-arm-none-eabi-readelf --wide -s build/zephyr/zephyr.elf  | c++filt  | grep kheap__system_heap | awk -F' ' '{print "PROVIDE("$8" = 0x"$2");"}' >> variants/$variant/provides.ld
-arm-none-eabi-readelf --wide -s build/zephyr/zephyr.elf  | c++filt  | grep kheap__system_heap | awk -F' ' '{print "PROVIDE(kheap__system_heap_size = "$3");"}' >> variants/$variant/provides.ld
+READELF=${ZEPHYR_SDK_INSTALL_DIR}/arm-zephyr-eabi/bin/arm-zephyr-eabi-readelf
+$READELF --wide -s build/zephyr/zephyr.elf  | c++filt  | grep FUNC | awk -F' ' '{print "PROVIDE("$8" = 0x"$2");"}' > variants/$variant/provides.ld
+$READELF --wide -s build/zephyr/zephyr.elf  | c++filt  | grep kheap_llext_heap | awk -F' ' '{print "PROVIDE("$8" = 0x"$2");"}' >> variants/$variant/provides.ld
+$READELF --wide -s build/zephyr/zephyr.elf  | c++filt  | grep kheap_llext_heap | awk -F' ' '{print "PROVIDE(kheap_llext_heap_size = "$3");"}' >> variants/$variant/provides.ld
+$READELF --wide -s build/zephyr/zephyr.elf  | c++filt  | grep kheap__system_heap | awk -F' ' '{print "PROVIDE("$8" = 0x"$2");"}' >> variants/$variant/provides.ld
+$READELF --wide -s build/zephyr/zephyr.elf  | c++filt  | grep kheap__system_heap | awk -F' ' '{print "PROVIDE(kheap__system_heap_size = "$3");"}' >> variants/$variant/provides.ld
 cat build/zephyr/zephyr.map | grep __device_dts_ord | grep -v rodata | grep -v llext_const_symbol |  awk -F' ' '{print "PROVIDE("$2" = "$1");"}'  >> variants/$variant/provides.ld
 TEXT_START=`cat loader/boards/$variant.overlay | grep user_sketch: | cut -f2 -d"@" | cut -f1 -d"{"`
 echo "PROVIDE(_sketch_start = 0x$TEXT_START);" >> variants/$variant/provides.ld

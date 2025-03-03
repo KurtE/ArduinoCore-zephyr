@@ -45,8 +45,9 @@ build.ldscript={runtime.platform.path}/variants/llext/linker_script.ld
 build.llext_link_flags=-r -e main
 build.extra_extra_ldflags=
 build.suffix=
-upload.externsion=llext.dfu
-post_build_arg=
+upload.extension=llext.dfu
+postbuild_debug=
+postbuild_mode=
 
 # These can be overridden in platform.local.txt
 compiler.c.extra_flags=
@@ -101,8 +102,8 @@ recipe.objcopy.hex.pattern="{compiler.path}{compiler.elf2hex.cmd}" {compiler.elf
 
 ## Mangle the file
 recipe.hooks.objcopy.postobjcopy.1.pattern="{compiler.path}{build.crossprefix}strip" --strip-debug {build.path}/{build.project_name}.elf -o{build.path}/{build.project_name}.llext
-recipe.hooks.objcopy.postobjcopy.2.pattern={runtime.tools.zephyr-post-build-tool.path}/post_build {build.path}/{build.project_name}.llext {post_build_arg}
-recipe.hooks.objcopy.postobjcopy.3.pattern={runtime.tools.zephyr-post-build-tool.path}/post_build {build.path}/{build.project_name}.bin {post_build_arg}
+recipe.hooks.objcopy.postobjcopy.2.pattern={runtime.tools.zephyr-post-build-tool.path}/post_build {postbuild_debug} {postbuild_mode} {build.path}/{build.project_name}.llext
+recipe.hooks.objcopy.postobjcopy.3.pattern={runtime.tools.zephyr-post-build-tool.path}/post_build {postbuild_debug} {postbuild_mode} {build.path}/{build.project_name}.bin
 
 ## Compute size
 recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.elf"
@@ -156,7 +157,7 @@ tools.bossac.cmd.windows=bossac.exe
 
 tools.bossac.upload.params.verbose=-d
 tools.bossac.upload.params.quiet=
-tools.bossac.upload.pattern="{path}/{cmd}" {upload.verbose} --port={serial.port.file} -U -i -e -w "{build.path}/{build.project_name}.{upload.externsion}" --offset {upload.address} -R
+tools.bossac.upload.pattern="{path}/{cmd}" {upload.verbose} --port={serial.port.file} -U -i -e -w "{build.path}/{build.project_name}.{upload.extension}" --offset {upload.address} -R
 
 tools.bossac.bootloader.params.verbose=-d
 tools.bossac.bootloader.params.quiet=
@@ -194,7 +195,7 @@ tools.dfu-util.path={runtime.tools.dfu-util.path}
 tools.dfu-util.cmd=dfu-util
 tools.dfu-util.upload.params.verbose=-d
 tools.dfu-util.upload.params.quiet=
-tools.dfu-util.upload.pattern="{path}/{cmd}" --device ,{upload.vid}:{upload.pid} -D "{build.path}/{build.project_name}.{upload.externsion}" -a{upload.interface} {upload.dfuse}
+tools.dfu-util.upload.pattern="{path}/{cmd}" --device ,{upload.vid}:{upload.pid} -D "{build.path}/{build.project_name}.{upload.extension}" -a{upload.interface} {upload.dfuse}
 
 tools.dfu-util.bootloader.params.verbose=-d
 tools.dfu-util.bootloader.params.quiet=
