@@ -30,3 +30,24 @@ jobs:
         with:
           name: Core
           path: arduino-core-zephyr-llext*
+
+      - name: Create Blink sketch
+        run: |
+          mkdir extra/Blink/
+          wget https://raw.githubusercontent.com/arduino/arduino-examples/refs/heads/main/examples/01.Basics/Blink/Blink.ino
+          mv Blink.ino extra/Blink/
+
+      - name: Compile Blink
+        uses: arduino/compile-sketches@main
+        with:
+          fqbn: arduino:zephyr:giga
+          platforms: |
+            # Use Board Manager to install the latest release of Arduino Zephyr Boards to get the toolchain
+            - name: "arduino:zephyr"
+              source-url: "https://downloads.arduino.cc/packages/package_zephyr_index.json"
+            - source-path: "./"
+              name: "arduino:zephyr"
+          sketch-paths: |
+            extra/Blink
+          verbose: 'false'
+          enable-deltas-report: 'false'
