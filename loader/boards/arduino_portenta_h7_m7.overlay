@@ -46,7 +46,7 @@
 
 	pwm1: pwm {
 		status = "okay";
-		pinctrl-0 = <&tim1_ch1_pk1 &tim1_ch2_pj11>;
+		pinctrl-0 = <&tim1_ch1_pa8 &tim1_ch2_pj11>;
 		pinctrl-names = "default";
 	};
 };
@@ -91,7 +91,8 @@
 		compatible = "pwm-clock";
 		clock-frequency = <0>;
 		#clock-cells = <1>;
-		pwms = <&pwm1 2 PWM_HZ(12000000) PWM_POLARITY_NORMAL>;
+		pwms = <&pwm1 1 PWM_HZ(11000000) PWM_POLARITY_NORMAL>;
+    //12mhz for 7670, default is also 12MHz
 	};
 };
 
@@ -451,12 +452,12 @@
 					<&gpiok 6 GPIO_ACTIVE_LOW>,
 					<&gpiok 7 GPIO_ACTIVE_LOW>;
                         
-		pwm-pin-gpios =	//<&gpioa 8 0>,
+		pwm-pin-gpios =	<&gpioa 8 0>,
 					<&gpioc 6 0>,
 					<&gpioc 7 0>,
 					//<&gpiog 7 0>,
 					<&gpioj 11 0>,
-					<&gpiok 1 0>,
+					//<&gpiok 1 0>,
 					<&gpioh 15 0>,
 					<&gpioj 7 0>,
 					<&gpioj 10 0>,
@@ -475,13 +476,12 @@
 		cdc-acm = <&cdc_acm_uart0>;
 		i2cs = <&i2c3>, <&i2c1>, <&i2c4>;
 		spis = <&spi2>;
-		pwms = //<&pwm8 1 PWM_HZ(500) PWM_POLARITY_NORMAL>,
+		pwms = <&pwm1 1 PWM_HZ(11000000) PWM_POLARITY_NORMAL>,  //12mhz default
 				<&pwm3 1 PWM_HZ(500) PWM_POLARITY_NORMAL>,
 				<&pwm3 2 PWM_HZ(500) PWM_POLARITY_NORMAL>,
-				<&pwm1 2 PWM_HZ(12000000) PWM_POLARITY_NORMAL>, 
-				<&pwm1 1 PWM_HZ(5000) PWM_POLARITY_NORMAL>,
-				<&pwm8 1 PWM_HZ(500) PWM_POLARITY_INVERTED>,
+				<&pwm1 2 PWM_HZ(5000) PWM_POLARITY_NORMAL>, 
 				<&pwm8 3 PWM_HZ(500) PWM_POLARITY_INVERTED>,
+				<&pwm8 2 PWM_HZ(500) PWM_POLARITY_INVERTED>,
 				<&pwm8 2 PWM_HZ(500) PWM_POLARITY_NORMAL>,
 				<&pwm12 1 PWM_HZ(500) PWM_POLARITY_NORMAL>;
           
