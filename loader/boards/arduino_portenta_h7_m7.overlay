@@ -23,6 +23,22 @@
 
 &i2c3 {
 	status = "okay";
+	gc2145: gc2145@3c {
+		compatible = "galaxycore,gc2145";
+		reg = <0x3c>;
+	//ov7670: ov7670@21 {
+	//	compatible = "ovti,ov7670";
+	//	reg = <0x21>;
+		reset-gpios = <&gpioe 3 GPIO_ACTIVE_LOW>;
+		pwdn-gpios = <&gpiod 5 GPIO_ACTIVE_LOW>;
+     
+		port {
+			gc2145_ep_out: endpoint {
+      //ov7670_ep_out: endpoint {
+				remote-endpoint = <&dcmi_ep_in>;
+			};
+		};
+	};
 };
 
 &i2c1 {
@@ -46,7 +62,7 @@
 
 	pwm1: pwm {
 		status = "okay";
-		pinctrl-0 = <&tim1_ch1_pk1 &tim1_ch2_pj11>;
+		pinctrl-0 = <&tim1_ch1_pa8 &tim1_ch2_pj11>;
 		pinctrl-names = "default";
 	};
 };
@@ -91,7 +107,8 @@
 		compatible = "pwm-clock";
 		clock-frequency = <0>;
 		#clock-cells = <1>;
-		pwms = <&pwm1 2 PWM_HZ(12000000) PWM_POLARITY_NORMAL>;
+		pwms = <&pwm1 1 PWM_HZ(11000000) PWM_POLARITY_NORMAL>;
+    //12mhz for 7670, default is also 12MHz
 	};
 };
 
@@ -105,6 +122,33 @@
 
 &dma1 {
 	status = "okay";
+};
+
+&dcmi {
+	status = "okay";
+	sensor = <&gc2145>;
+  //sensor = <&ov7670>;
+	/* ext-sdram = <&sdram1>; */
+	pinctrl-0 = <&dcmi_hsync_pa4 &dcmi_pixclk_pa6 &dcmi_vsync_pi5
+				&dcmi_d0_ph9 &dcmi_d1_ph10 &dcmi_d2_ph11 &dcmi_d3_ph12
+				&dcmi_d4_ph14 &dcmi_d5_pi4 &dcmi_d6_pi6 &dcmi_d7_pi7>;
+	pinctrl-names = "default";
+	bus-width = <8>;
+	hsync-active = <0>;
+	vsync-active = <0>;
+	pixelclk-active = <0>;
+	capture-rate = <1>;
+	dmas = <&dma1 0 75 (STM32_DMA_PERIPH_TO_MEMORY | STM32_DMA_PERIPH_NO_INC |
+			STM32_DMA_MEM_INC | STM32_DMA_PERIPH_32BITS | STM32_DMA_MEM_32BITS |
+			STM32_DMA_PRIORITY_HIGH) STM32_DMA_FIFO_FULL>;
+      //FULL for 7670, default FIFO_1_4
+
+	port {
+		dcmi_ep_in: endpoint {
+			remote-endpoint = <&gc2145_ep_out>;
+      //remote-endpoint = <&ov7670_ep_out>;
+		};
+	};
 };
 
 
@@ -199,6 +243,7 @@
 
 / {
 	chosen {
+		zephyr,camera = &dcmi;
 		zephyr,console = &usart6;
 		zephyr,shell-uart = &usart6;
 		zephyr,cdc-acm-uart0 = &usart6;
@@ -245,19 +290,19 @@
 / {
 	zephyr,user {
 		digital-pin-gpios = <&gpioh 15 0>, /* D0 */
-				    <&gpiok 1 0>,
-				    <&gpioj 11 0>,
-				    <&gpiog 7 0>,
-				    <&gpioc 7 0>,
-				    <&gpioc 6 0>,
-				    <&gpioa 8 0>,
-				    <&gpioi 0 0>,
-				    <&gpioc 3 0>,
-				    <&gpioi 1 0>,
-				    <&gpioc 2 0>,
-				    <&gpioh 8 0>,
-				    <&gpioh 7 0>,
-				    <&gpioa 10 0>,
+				    <&gpiok 1 0>,		/* D1 */
+				    <&gpioj 11 0>,		/* D2 */
+				    <&gpiog 7 0>,		/* D3 */
+				    <&gpioc 7 0>,		/* D4 */
+				    <&gpioc 6 0>,		/* D5 */
+				    <&gpioa 8 0>,		/* D6 */
+				    <&gpioi 0 0>,		/* D7 */
+				    <&gpioc 3 0>,		/* D8 */
+				    <&gpioi 1 0>,		/* D9 */
+				    <&gpioc 2 0>,		/* D10 */
+				    <&gpioh 8 0>,		/* D11 */
+				    <&gpioh 7 0>,		/* D12 */
+				    <&gpioa 10 0>,		/* D13 */
 				    <&gpioa 9 0>,		/* D14 */
 
   					<&gpioz 0 0>,  		/* A0    ADC2_INP0 */
@@ -275,135 +320,135 @@
 					<&gpiok 7 GPIO_ACTIVE_LOW>,		// LEDB
 
   					<&gpioa 0 0>,
-  					<&gpioa 1 0>,
-  					<&gpioa 2 0>,
-  					<&gpioa 3 0>,
-  					<&gpioa 4 0>,
-  					<&gpioa 5 0>,
-  					<&gpioa 6 0>,
-  					<&gpioa 7 0>,
-  					<&gpioa 8 0>,
-  					<&gpioa 9 0>,
-  					<&gpioa 10 0>,
+  					/* <&gpioa 1 0>, */
+  					/* <&gpioa 2 0>, */
+  					/* <&gpioa 3 0>, */
+  					/* D21 <&gpioa 4 0>, */
+  					/* <&gpioa 5 0>, */
+  					/* D22 <&gpioa 6 0>, */
+  					/* <&gpioa 7 0>, */
+  					/* D6 <&gpioa 8 0>, */
+  					/* D14<&gpioa 9 0>, */
+  					/* D13 <&gpioa 10 0>, */
   					<&gpioa 11 0>,
   					<&gpioa 12 0>,
   					<&gpioa 13 0>,
   					<&gpioa 14 0>,
-  					<&gpioa 15 0>,
-  					<&gpiob 0 0>,
-  					<&gpiob 1 0>,
+  					/* <&gpioa 15 0>, */
+  					/* <&gpiob 0 0>, */
+  					/* <&gpiob 1 0>, */
   					<&gpiob 2 0>,
   					<&gpiob 3 0>,
   					<&gpiob 4 0>,
-  					<&gpiob 5 0>,
+  					/* <&gpiob 5 0>, */
   					<&gpiob 6 0>,
   					<&gpiob 7 0>,
   					<&gpiob 8 0>,
   					<&gpiob 9 0>,
-  					<&gpiob 10 0>,
-  					<&gpiob 11 0>,
-  					<&gpiob 12 0>,
-  					<&gpiob 13 0>,
+  					/* <&gpiob 10 0>, */
+  					/* <&gpiob 11 0>, */
+  					/* <&gpiob 12 0>, */
+  					/* <&gpiob 13 0>, */
   					<&gpiob 14 0>,
   					<&gpiob 15 0>,
-  					<&gpioc 0 0>,
-  					<&gpioc 1 0>,
-  					<&gpioc 2 0>,
-  					<&gpioc 3 0>,
-  					<&gpioc 4 0>,
-  					<&gpioc 5 0>,
-  					<&gpioc 6 0>,
-  					<&gpioc 7 0>,
-  					<&gpioc 8 0>,
-  					<&gpioc 9 0>,
-  					<&gpioc 10 0>,
-  					<&gpioc 11 0>,
-  					<&gpioc 12 0>,
+  					/* <&gpioc 0 0>, */
+  					/* <&gpioc 1 0>, */
+  					/* D10 <&gpioc 2 0>, */
+  					/* D8 <&gpioc 3 0>, */
+  					/* <&gpioc 4 0>, */ 
+  					/* <&gpioc 5 0>, */
+  					/* D5<&gpioc 6 0>, */
+  					/* D4<&gpioc 7 0>, */
+  					/* <&gpioc 8 0>, */
+  					/* <&gpioc 9 0>, */
+  					/* <&gpioc 10 0>, */
+  					/* <&gpioc 11 0>, */
+  					/* <&gpioc 12 0>, */
   					<&gpioc 13 0>,
-  					<&gpioc 14 0>,
+  					/* <&gpioc 14 0>, */
   					<&gpioc 15 0>,
-  					<&gpiod 0 0>,
-  					<&gpiod 1 0>,
-  					<&gpiod 2 0>,
+  					/* <&gpiod 0 0>, */
+  					/* <&gpiod 1 0>, */
+  					/* <&gpiod 2 0>, */
   					<&gpiod 3 0>,
   					<&gpiod 4 0>,
   					<&gpiod 5 0>,
   					<&gpiod 6 0>,
   					<&gpiod 7 0>,
-  					<&gpiod 8 0>,
-  					<&gpiod 9 0>,
-  					<&gpiod 10 0>,
-  					<&gpiod 11 0>,
-  					<&gpiod 12 0>,
-  					<&gpiod 13 0>,
-  					<&gpiod 14 0>,
-  					<&gpiod 15 0>,
-  					<&gpioe 0 0>,
-  					<&gpioe 1 0>,
+  					/* <&gpiod 8 0>, */
+  					/* <&gpiod 9 0>, */
+  					/* <&gpiod 10 0>, */
+  					/* <&gpiod 11 0>, */
+  					/* <&gpiod 12 0>, */
+  					/* <&gpiod 13 0>, */
+  					/* <&gpiod 14 0>, */
+  					/* <&gpiod 15 0>, */
+  					/* <&gpioe 0 0>, */
+  					/* <&gpioe 1 0>, */
   					<&gpioe 2 0>,
   					<&gpioe 3 0>,
-  					<&gpioe 4 0>,
-  					<&gpioe 5 0>,
-  					<&gpioe 6 0>,
-  					<&gpioe 7 0>,
-  					<&gpioe 8 0>,
-  					<&gpioe 9 0>,
-  					<&gpioe 10 0>,
-  					<&gpioe 11 0>,
-  					<&gpioe 12 0>,
-  					<&gpioe 13 0>,
-  					<&gpioe 14 0>,
-  					<&gpioe 15 0>,
-  					<&gpiof 0 0>,
-  					<&gpiof 1 0>,
-  					<&gpiof 2 0>,
-  					<&gpiof 3 0>,
-  					<&gpiof 4 0>,
-  					<&gpiof 5 0>,
-  					<&gpiof 6 0>,
-  					<&gpiof 7 0>,
-  					<&gpiof 8 0>,
-  					<&gpiof 9 0>,
-  					<&gpiof 10 0>,
-  					<&gpiof 11 0>,
-  					<&gpiof 12 0>,
-  					<&gpiof 13 0>,
-  					<&gpiof 14 0>,
-  					<&gpiof 15 0>,
-  					<&gpiog 0 0>,
-  					<&gpiog 1 0>,
-  					<&gpiog 2 0>,
+  					/* <&gpioe 4 0>, */
+  					/* <&gpioe 5 0>, */
+  					/* <&gpioe 6 0>, */
+  					/* <&gpioe 7 0>, */
+  					/* <&gpioe 8 0>, */
+  					/* <&gpioe 9 0>, */
+  					/* <&gpioe 10 0>, */
+  					/* <&gpioe 11 0>, */
+  					/* <&gpioe 12 0>, */
+  					/* <&gpioe 13 0>, */
+  					/* <&gpioe 14 0>, */
+  					/* <&gpioe 15 0>, */
+  					/* <&gpiof 0 0>, */
+  					/* <&gpiof 1 0>, */
+  					/* <&gpiof 2 0>, */
+  					/* <&gpiof 3 0>, */
+  					/* <&gpiof 4 0>, */
+  					/* <&gpiof 5 0>, */
+  					/* <&gpiof 6 0>, */
+  					/* <&gpiof 7 0>, */
+  					/* <&gpiof 8 0>, */
+  					/* <&gpiof 9 0>, */
+  					/* <&gpiof 10 0>, */
+  					/* <&gpiof 11 0>, */
+  					/* <&gpiof 12 0>, */
+  					/* <&gpiof 13 0>, */
+  					/* <&gpiof 14 0>, */
+  					/* <&gpiof 15 0>, */
+  					/* <&gpiog 0 0>, */
+  					/* <&gpiog 1 0>, */
+  					/* <&gpiog 2 0>, */
   					<&gpiog 3 0>,
-  					<&gpiog 4 0>,
-  					<&gpiog 5 0>,
-  					<&gpiog 6 0>,
-  					<&gpiog 7 0>,
-  					<&gpiog 8 0>,
+  					/* <&gpiog 4 0>, */
+  					/* <&gpiog 5 0>, */
+  					/* <&gpiog 6 0>, */
+  					/* D3 <&gpiog 7 0>, */
+  					/* <&gpiog 8 0>, */
   					<&gpiog 9 0>,
   					<&gpiog 10 0>,
-  					<&gpiog 11 0>,
-  					<&gpiog 12 0>,
-  					<&gpiog 13 0>,
+  					/* <&gpiog 11 0>, */
+  					/* <&gpiog 12 0>, */
+  					/* <&gpiog 13 0>, */
   					<&gpiog 14 0>,
-  					<&gpiog 15 0>,
-  					<&gpioh 0 0>,
-  					<&gpioh 1 0>,
-  					<&gpioh 2 0>,
-  					<&gpioh 3 0>,
-  					<&gpioh 4 0>,
-  					<&gpioh 5 0>,
+  					/* <&gpiog 15 0>, */
+  					/* <&gpioh 0 0>, */
+  					/* <&gpioh 1 0>, */
+  					/* <&gpioh 2 0>, */
+  					/* <&gpioh 3 0>, */
+  					/* <&gpioh 4 0>, */
+  					/* <&gpioh 5 0>, */
   					<&gpioh 6 0>,
-  					<&gpioh 7 0>,
-  					<&gpioh 8 0>,
+  					/* D12 <&gpioh 7 0>, */
+  					/* D11 <&gpioh 8 0>, */
   					<&gpioh 9 0>,
   					<&gpioh 10 0>,
   					<&gpioh 11 0>,
   					<&gpioh 12 0>,
   					<&gpioh 13 0>,
   					<&gpioh 14 0>,
-  					<&gpioh 15 0>,
-  					<&gpioi 0 0>,
-  					<&gpioi 1 0>,
+  					/* D0 <&gpioh 15 0>, */
+  					/* D7 <&gpioi 0 0>, */
+  					/* D9<&gpioi 1 0>, */
   					<&gpioi 2 0>,
   					<&gpioi 3 0>,
   					<&gpioi 4 0>,
@@ -413,37 +458,38 @@
   					<&gpioi 8 0>,
   					<&gpioi 9 0>,
   					<&gpioi 10 0>,
-  					<&gpioi 11 0>,
-  					<&gpioi 12 0>,
+  					/* <&gpioi 11 0>, */
+  					/* <&gpioi 12 0>, */
   					<&gpioi 13 0>,
   					<&gpioi 14 0>,
   					<&gpioi 15 0>,
-  					<&gpioj 0 0>,
-  					<&gpioj 1 0>,
-  					<&gpioj 2 0>,
-  					<&gpioj 3 0>,
-  					<&gpioj 4 0>,
-  					<&gpioj 5 0>,
+  					/* <&gpioj 0 0>, */
+  					/* <&gpioj 1 0>, */
+  					/* <&gpioj 2 0>, */
+  					/* <&gpioj 3 0>, */
+  					/* <&gpioj 4 0>, */
+  					/* <&gpioj 5 0>, */
   					<&gpioj 6 0>,
   					<&gpioj 7 0>,
   					<&gpioj 8 0>,
   					<&gpioj 9 0>,
-  					<&gpioj 10 0>,
-  					<&gpioj 11 0>,
-  					<&gpioj 12 0>,
-  					<&gpioj 13 0>,
-  					<&gpioj 14 0>,
-  					<&gpioj 15 0>,
-  					<&gpiok 0 0>,
-  					<&gpiok 1 0>,
-  					<&gpiok 2 0>,
-  					<&gpiok 3 0>,
-  					<&gpiok 4 0>;
+  					<&gpioj 10 0>;
+  					/* D2 <&gpioj 11 0>, */
+  					/* <&gpioj 12 0>, */
+  					/* <&gpioj 13 0>, */
+  					/* <&gpioj 14 0>, */
+  					/* <&gpioj 15 0>, */
+  					/* <&gpiok 0 0>, */
+  					/* D1 <&gpiok 1 0>; */
+
+  					/* <&gpiok 2 0>, */
+  					/* <&gpiok 3 0>, */
+  					/* <&gpiok 4 0>; */
   					
 					/* commented out for now to allow LEDs to work
-					/* <&gpiok 5 0>, */
-  					/* <&gpiok 6 0>, */
-  					/* <&gpiok 7 0>; */
+					/* LEDR <&gpiok 5 0>, */
+  					/* LEDG <&gpiok 6 0>, */
+  					/* LEDB <&gpiok 7 0>; */
 
 
 
@@ -451,16 +497,28 @@
 					<&gpiok 6 GPIO_ACTIVE_LOW>,
 					<&gpiok 7 GPIO_ACTIVE_LOW>;
                         
-		pwm-pin-gpios =	//<&gpioa 8 0>,
+		pwm-pin-gpios =	<&gpioa 8 0>,
 					<&gpioc 6 0>,
 					<&gpioc 7 0>,
 					//<&gpiog 7 0>,
 					<&gpioj 11 0>,
-					<&gpiok 1 0>,
+					//<&gpiok 1 0>,
 					<&gpioh 15 0>,
 					<&gpioj 7 0>,
 					<&gpioj 10 0>,
 					<&gpioh 6 0>;
+
+		port-pin-gpios =	<&gpioa 0 0>,
+					<&gpiob 0 0>,
+					<&gpioc 0 0>,
+					<&gpiod 0 0>,
+					<&gpioe 0 0>,
+					<&gpiof 0 0>,
+					<&gpiog 0 0>,
+					<&gpioh 0 0>,
+					<&gpioi 0 0>,
+					<&gpioj 0 0>,
+					<&gpiok 0 0>;
                     
 		adc-pin-gpios =	<&gpioz 0 0>,			/* analog only */
 				<&gpioz 1 0>,			/* analog only */
@@ -475,13 +533,12 @@
 		cdc-acm = <&cdc_acm_uart0>;
 		i2cs = <&i2c3>, <&i2c1>, <&i2c4>;
 		spis = <&spi2>;
-		pwms = //<&pwm8 1 PWM_HZ(500) PWM_POLARITY_NORMAL>,
+		pwms = <&pwm1 1 PWM_HZ(11000000) PWM_POLARITY_NORMAL>,  //12mhz default
 				<&pwm3 1 PWM_HZ(500) PWM_POLARITY_NORMAL>,
 				<&pwm3 2 PWM_HZ(500) PWM_POLARITY_NORMAL>,
-				<&pwm1 2 PWM_HZ(12000000) PWM_POLARITY_NORMAL>, 
-				<&pwm1 1 PWM_HZ(5000) PWM_POLARITY_NORMAL>,
-				<&pwm8 1 PWM_HZ(500) PWM_POLARITY_INVERTED>,
+				<&pwm1 2 PWM_HZ(5000) PWM_POLARITY_NORMAL>, 
 				<&pwm8 3 PWM_HZ(500) PWM_POLARITY_INVERTED>,
+				<&pwm8 2 PWM_HZ(500) PWM_POLARITY_INVERTED>,
 				<&pwm8 2 PWM_HZ(500) PWM_POLARITY_NORMAL>,
 				<&pwm12 1 PWM_HZ(500) PWM_POLARITY_NORMAL>;
           
