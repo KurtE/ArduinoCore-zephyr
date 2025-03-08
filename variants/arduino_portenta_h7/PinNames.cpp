@@ -39,6 +39,32 @@ void digitalWrite(PinName pinNumber, PinStatus status) {
 }
 
 
+PinStatus digitalRead(PinName pinNumber) {
+  return (gpio_pin_get(arduino_ports[pinNumber >> 4].port, pinNumber & 0xf) == 1) ? HIGH : LOW;
+}
+
+int analogRead(PinName pinNumber) {
+  // Not sure what to do here, does anyone do something like:
+  // analogRead(PA_0c); or analogRead(PC2_ALT0)?
+  // first pass only support ones on pins.
+  int pin_index = PinNameToIndex(pinNumber);
+  if (pin_index != -1) {
+    return analogRead(pin_index);
+  }
+  return -1;
+}
+
+
+void analogWrite(PinName pinNumber, int value) {
+  // first pass only support ones on pins.
+  int pin_index = PinNameToIndex(pinNumber);
+  if (pin_index != -1) {
+    analogWrite(pin_index, value);
+  }
+}
+
+
+
 int PinNameToIndex(PinName P) {
   for (size_t i = 0; i < ARRAY_SIZE(arduino_pins); i++) {
     if ((arduino_ports[P >> 4].port == arduino_pins[i].port) && ((P & 0xf) == arduino_pins[i].pin)) {
