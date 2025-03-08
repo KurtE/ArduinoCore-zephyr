@@ -302,6 +302,9 @@ void pinMode(PinName pinNumber, PinMode mode);
 void digitalWrite(PinName pinNumber, PinStatus status);
 int PinNameToIndex(PinName P);
 PinName digitalPinToPinName(pin_size_t P);
+PinStatus digitalRead(PinName pinNumber);
+int analogRead(PinName pinNumber);
+void analogWrite(PinName pinNumber, int value);
 
 #endif
 
