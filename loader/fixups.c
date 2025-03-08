@@ -39,7 +39,7 @@ SYS_INIT(disable_bootloader_mpu, PRE_KERNEL_1, CONFIG_KERNEL_INIT_PRIORITY_DEFAU
 SYS_INIT(disable_mpu_rasr_xn, PRE_KERNEL_1, CONFIG_KERNEL_INIT_PRIORITY_DEFAULT);
 #endif
 
-#if defined(CONFIG_BOARD_ARDUINO_GIGA_R1) && defined(CONFIG_VIDEO)
+#if (defined(CONFIG_BOARD_ARDUINO_GIGA_R1) || defined(CONFIG_BOARD_ARDUINO_PORTENTA_H7)) && defined(CONFIG_VIDEO) 
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/drivers/clock_control.h>
