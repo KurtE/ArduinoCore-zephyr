@@ -160,7 +160,7 @@
 		&adc1_inp0_pa0_c
 		&adc1_inp1_pa1_c>;
 	pinctrl-names = "default";
-	st,adc-clock-source = <SYNC>;
+	st,adc-clock-source = "SYNC";
 	st,adc-prescaler = <4>;
 	status = "okay";
 
@@ -217,7 +217,7 @@
 	pinctrl-0 = <&adc3_inp0_pc2_c
 		&adc3_inp1_pc3_c>;
 	pinctrl-names = "default";
-	st,adc-clock-source = <SYNC>;
+	st,adc-clock-source = "SYNC";
 	st,adc-prescaler = <4>;
 	status = "okay";
 
