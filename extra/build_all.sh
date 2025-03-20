@@ -6,7 +6,7 @@ set -e
 ./extra/build.sh arduino_nano_33_ble//sense
 ./extra/build.sh arduino_nicla_sense_me
 ./extra/build.sh arduino_portenta_c33
-./extra/build.sh arduino_portenta_h7//m7
+./extra/build.sh arduino_portenta_h7@1.0.0//m7
 ./extra/build.sh ek_ra8d1
 ./extra/build.sh frdm_mcxn947/mcxn947/cpu0
 ./extra/build.sh frdm_rw612
