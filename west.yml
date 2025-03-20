@@ -19,7 +19,7 @@ manifest:
   projects:
     - name: zephyr
       remote: arduino
-      revision: arduino_core_merge_4.1.0-rc2
+      revision: arduino_core_merge_post_4.1
       import:
         name-allowlist:
           - cmsis
