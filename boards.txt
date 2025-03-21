@@ -431,7 +431,7 @@ portentac33.menu.mode.linked.build.llext_link_flags=
 portentac33.menu.mode.linked.build.suffix=_linked
 portentac33.menu.mode.linked.build.ldscript={runtime.platform.path}/variants/linked/linker_script.ld
 portentac33.menu.mode.linked.upload.extension=bin-zsk.bin
-portentac33.menu.mode.linked.postbuild_mode=-linked
+portentac33.menu.mode.linked.postbuild_mode=-prelinked
 
 portentac33.build.variant=arduino_portenta_c33_r7fa6m5bh3cfc
 portentac33.build.mcu=cortex-m33
