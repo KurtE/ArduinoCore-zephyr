@@ -13,18 +13,18 @@
 #include <zephyr/sys/atomic.h>
 
 /* Cache and Share ability for ITS & Redistributor LPI state tables */
-#define GIC_BASER_CACHE_NGNRNE		0x0UL /* Device-nGnRnE */
-#define GIC_BASER_CACHE_INNERLIKE	0x0UL /* Same as Inner Cacheability. */
-#define GIC_BASER_CACHE_NCACHEABLE	0x1UL /* Non-cacheable */
-#define GIC_BASER_CACHE_RAWT		0x2UL /* Cacheable R-allocate, W-through */
-#define GIC_BASER_CACHE_RAWB		0x3UL /* Cacheable R-allocate, W-back */
-#define GIC_BASER_CACHE_WAWT		0x4UL /* Cacheable W-allocate, W-through */
-#define GIC_BASER_CACHE_WAWB		0x5UL /* Cacheable W-allocate, W-back */
-#define GIC_BASER_CACHE_RAWAWT		0x6UL /* Cacheable R-allocate, W-allocate, W-through */
-#define GIC_BASER_CACHE_RAWAWB		0x7UL /* Cacheable R-allocate, W-allocate, W-back */
-#define GIC_BASER_SHARE_NO		0x0UL /* Non-shareable */
-#define GIC_BASER_SHARE_INNER		0x1UL /* Inner Shareable */
-#define GIC_BASER_SHARE_OUTER		0x2UL /* Outer Shareable */
+#define GIC_BASER_CACHE_NGNRNE		0x0UL
+#define GIC_BASER_CACHE_INNERLIKE	0x0UL
+#define GIC_BASER_CACHE_NCACHEABLE	0x1UL
+#define GIC_BASER_CACHE_RAWT		0x2UL
+#define GIC_BASER_CACHE_RAWB		0x3UL
+#define GIC_BASER_CACHE_WAWT		0x4UL
+#define GIC_BASER_CACHE_WAWB		0x5UL
+#define GIC_BASER_CACHE_RAWAWT		0x6UL
+#define GIC_BASER_CACHE_RAWAWB		0x7UL
+#define GIC_BASER_SHARE_NO		0x0UL
+#define GIC_BASER_SHARE_INNER		0x1UL
+#define GIC_BASER_SHARE_OUTER		0x2UL
 
 /* SGI base is at 64K offset from Redistributor */
 #define GICR_SGI_BASE_OFF		0x10000

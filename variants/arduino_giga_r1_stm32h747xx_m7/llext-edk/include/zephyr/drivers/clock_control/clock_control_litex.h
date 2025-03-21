@@ -227,35 +227,35 @@ struct litex_clk_regs_addr {
 };
 
 struct litex_clk_clkout_margin {
-	uint32_t m;			/* margin factor scaled to integer */
+	uint32_t m;
 	uint32_t exp;
 };
 
 struct litex_clk_device {
 	uint32_t *base;
 	/*struct clk_hw clk_hw;*/
-	struct litex_clk_clkout *clkouts;	/* array of clock outputs */
-	struct litex_clk_timeout timeout;	/* timeouts for wait functions*/
-	struct litex_clk_glob_params g_config;	/* general MMCM settings */
-	struct litex_clk_glob_params ts_g_config;/* settings to set*/
-	struct litex_clk_range divclk;		/* divclk_divide_range */
-	struct litex_clk_range clkfbout;	/* clkfbout_mult_frange */
-	struct litex_clk_range vco;		/* vco_freq_range */
-	uint8_t *update_clkout;			/* which clkout needs update */
+	struct litex_clk_clkout *clkouts;
+	struct litex_clk_timeout timeout;
+	struct litex_clk_glob_params g_config;
+	struct litex_clk_glob_params ts_g_config;
+	struct litex_clk_range divclk;
+	struct litex_clk_range clkfbout;
+	struct litex_clk_range vco;
+	uint8_t *update_clkout;
 	uint32_t vco_margin;
 	uint32_t nclkout;
 };
 
 struct litex_clk_clkout {
 	uint32_t *base;
-	struct litex_clk_device *ldev;		/* global data */
-	struct litex_clk_default def;		/* DTS defaults */
-	struct litex_clk_params config;		/* real CLKOUT settings */
-	struct litex_clk_params ts_config;	/* CLKOUT settings to set */
-	struct litex_clk_div_params div;	/* CLKOUT configuration groups*/
+	struct litex_clk_device *ldev;
+	struct litex_clk_default def;
+	struct litex_clk_params config;
+	struct litex_clk_params ts_config;
+	struct litex_clk_div_params div;
 	struct litex_clk_phase_params phase;
 	struct litex_clk_frac_params frac;
-	struct litex_clk_range clkout_div;	/* clkout_divide_range */
+	struct litex_clk_range clkout_div;
 	struct litex_clk_clkout_margin margin;
 	uint32_t id;
 };

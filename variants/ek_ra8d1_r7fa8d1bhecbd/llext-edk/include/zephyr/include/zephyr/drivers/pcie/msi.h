@@ -150,12 +150,12 @@ extern bool pcie_is_msi(pcie_bdf_t bdf);
 
 #define PCIE_MSI_MCR		0U
 
-#define PCIE_MSI_MCR_EN		0x00010000U  /* enable MSI */
-#define PCIE_MSI_MCR_MMC	0x000E0000U  /* Multi Messages Capable mask */
+#define PCIE_MSI_MCR_EN		0x00010000U
+#define PCIE_MSI_MCR_MMC	0x000E0000U
 #define PCIE_MSI_MCR_MMC_SHIFT	17
-#define PCIE_MSI_MCR_MME	0x00700000U  /* mask of # of enabled IRQs */
+#define PCIE_MSI_MCR_MME	0x00700000U
 #define PCIE_MSI_MCR_MME_SHIFT	20
-#define PCIE_MSI_MCR_64		0x00800000U  /* 64-bit MSI */
+#define PCIE_MSI_MCR_64		0x00800000U
 
 /*
  * The MAP follows the MCR. If PCIE_MSI_MCR_64, then the MAP
@@ -174,24 +174,24 @@ extern bool pcie_is_msi(pcie_bdf_t bdf);
 
 #define PCIE_MSIX_MCR			0U
 
-#define PCIE_MSIX_MCR_EN		0x80000000U /* Enable MSI-X */
-#define PCIE_MSIX_MCR_FMASK		0x40000000U /* Function Mask */
-#define PCIE_MSIX_MCR_TSIZE		0x07FF0000U /* Table size mask */
+#define PCIE_MSIX_MCR_EN		0x80000000U
+#define PCIE_MSIX_MCR_FMASK		0x40000000U
+#define PCIE_MSIX_MCR_TSIZE		0x07FF0000U
 #define PCIE_MSIX_MCR_TSIZE_SHIFT	16
 #define PCIE_MSIR_TABLE_ENTRY_SIZE	16
 
 #define PCIE_MSIX_TR			1U
-#define PCIE_MSIX_TR_BIR		0x00000007U /* Table BIR mask */
-#define PCIE_MSIX_TR_OFFSET		0xFFFFFFF8U /* Offset mask */
+#define PCIE_MSIX_TR_BIR		0x00000007U
+#define PCIE_MSIX_TR_OFFSET		0xFFFFFFF8U
 
 #define PCIE_MSIX_PBA			2U
-#define PCIE_MSIX_PBA_BIR		0x00000007U /* PBA BIR mask */
-#define PCIE_MSIX_PBA_OFFSET		0xFFFFFFF8U /* Offset mask */
+#define PCIE_MSIX_PBA_BIR		0x00000007U
+#define PCIE_MSIX_PBA_OFFSET		0xFFFFFFF8U
 
-#define PCIE_VTBL_MA			0U /* Msg Address offset */
-#define PCIE_VTBL_MUA			4U /* Msg Upper Address offset */
-#define PCIE_VTBL_MD			8U /* Msg Data offset */
-#define PCIE_VTBL_VCTRL			12U /* Vector control offset */
+#define PCIE_VTBL_MA			0U
+#define PCIE_VTBL_MUA			4U
+#define PCIE_VTBL_MD			8U
+#define PCIE_VTBL_VCTRL			12U
 
 #ifdef __cplusplus
 }

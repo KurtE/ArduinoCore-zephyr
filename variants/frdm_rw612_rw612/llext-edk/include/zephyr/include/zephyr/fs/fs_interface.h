@@ -37,7 +37,7 @@ extern "C" {
 #if defined(CONFIG_FS_FATFS_LFN)
 #define MAX_FILE_NAME CONFIG_FS_FATFS_MAX_LFN
 #else /* CONFIG_FS_FATFS_LFN */
-#define MAX_FILE_NAME 12 /* Uses 8.3 SFN */
+#define MAX_FILE_NAME 12
 #endif /* CONFIG_FS_FATFS_LFN */
 
 #endif

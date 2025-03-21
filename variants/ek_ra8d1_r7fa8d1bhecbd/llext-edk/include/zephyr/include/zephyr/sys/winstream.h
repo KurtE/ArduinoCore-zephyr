@@ -23,10 +23,10 @@
  * byte apart because the buffer is always full.
  */
 struct sys_winstream {
-	uint32_t len;   /* Length of data[] in bytes */
-	uint32_t start; /* Index of first valid byte in data[] */
-	uint32_t end;   /* Index of next byte in data[] to write */
-	uint32_t seq;   /* Mod-2^32 index of 'end' since stream init */
+	uint32_t len;
+	uint32_t start;
+	uint32_t end;
+	uint32_t seq;
 	uint8_t data[];
 };
 

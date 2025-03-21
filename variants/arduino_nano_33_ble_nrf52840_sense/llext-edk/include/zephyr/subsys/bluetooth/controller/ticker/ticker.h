@@ -9,8 +9,8 @@
  *
  * @{
  */
-#define TICKER_STATUS_SUCCESS 0 /**< Success. */
-#define TICKER_STATUS_FAILURE 1 /**< Failure. */
+#define TICKER_STATUS_SUCCESS 0
+#define TICKER_STATUS_FAILURE 1
 #define TICKER_STATUS_BUSY    2 /**< Busy, requested feature will
 				  * complete later in time as job is
 				  * disabled or at lower execution
@@ -136,7 +136,9 @@ typedef void (*ticker_timeout_func) (uint32_t ticks_at_expire,
 
 struct ticker_expire_info {
 	uint32_t ticks_to_expire;
+#if defined(CONFIG_BT_TICKER_REMAINDER_SUPPORT)
 	uint32_t remainder;
+#endif /* CONFIG_BT_TICKER_REMAINDER_SUPPORT */
 	uint16_t lazy;
 };
 

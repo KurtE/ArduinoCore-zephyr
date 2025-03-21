@@ -190,21 +190,21 @@ typedef struct
   * @brief    Flags defines which can be used with LL_USART_WriteReg function
   * @{
   */
-#define LL_USART_ICR_PECF                       USART_ICR_PECF                /*!< Parity error clear flag */
-#define LL_USART_ICR_FECF                       USART_ICR_FECF                /*!< Framing error clear flag */
-#define LL_USART_ICR_NECF                       USART_ICR_NECF                /*!< Noise error detected clear flag */
-#define LL_USART_ICR_ORECF                      USART_ICR_ORECF               /*!< Overrun error clear flag */
-#define LL_USART_ICR_IDLECF                     USART_ICR_IDLECF              /*!< Idle line detected clear flag */
-#define LL_USART_ICR_TXFECF                     USART_ICR_TXFECF              /*!< TX FIFO Empty clear flag */
-#define LL_USART_ICR_TCCF                       USART_ICR_TCCF                /*!< Transmission complete clear flag */
-#define LL_USART_ICR_TCBGTCF                    USART_ICR_TCBGTCF             /*!< Transmission completed before guard time clear flag */
-#define LL_USART_ICR_LBDCF                      USART_ICR_LBDCF               /*!< LIN break detection clear flag */
-#define LL_USART_ICR_CTSCF                      USART_ICR_CTSCF               /*!< CTS clear flag */
-#define LL_USART_ICR_RTOCF                      USART_ICR_RTOCF               /*!< Receiver timeout clear flag */
-#define LL_USART_ICR_EOBCF                      USART_ICR_EOBCF               /*!< End of block clear flag */
-#define LL_USART_ICR_UDRCF                      USART_ICR_UDRCF               /*!< SPI Slave Underrun clear flag */
-#define LL_USART_ICR_CMCF                       USART_ICR_CMCF                /*!< Character match clear flag */
-#define LL_USART_ICR_WUCF                       USART_ICR_WUCF                /*!< Wakeup from Stop mode clear flag */
+#define LL_USART_ICR_PECF                       USART_ICR_PECF
+#define LL_USART_ICR_FECF                       USART_ICR_FECF
+#define LL_USART_ICR_NECF                       USART_ICR_NECF
+#define LL_USART_ICR_ORECF                      USART_ICR_ORECF
+#define LL_USART_ICR_IDLECF                     USART_ICR_IDLECF
+#define LL_USART_ICR_TXFECF                     USART_ICR_TXFECF
+#define LL_USART_ICR_TCCF                       USART_ICR_TCCF
+#define LL_USART_ICR_TCBGTCF                    USART_ICR_TCBGTCF
+#define LL_USART_ICR_LBDCF                      USART_ICR_LBDCF
+#define LL_USART_ICR_CTSCF                      USART_ICR_CTSCF
+#define LL_USART_ICR_RTOCF                      USART_ICR_RTOCF
+#define LL_USART_ICR_EOBCF                      USART_ICR_EOBCF
+#define LL_USART_ICR_UDRCF                      USART_ICR_UDRCF
+#define LL_USART_ICR_CMCF                       USART_ICR_CMCF
+#define LL_USART_ICR_WUCF                       USART_ICR_WUCF
 /**
   * @}
   */
@@ -213,34 +213,34 @@ typedef struct
   * @brief    Flags defines which can be used with LL_USART_ReadReg function
   * @{
   */
-#define LL_USART_ISR_PE                         USART_ISR_PE                  /*!< Parity error flag */
-#define LL_USART_ISR_FE                         USART_ISR_FE                  /*!< Framing error flag */
-#define LL_USART_ISR_NE                         USART_ISR_NE                  /*!< Noise detected flag */
-#define LL_USART_ISR_ORE                        USART_ISR_ORE                 /*!< Overrun error flag */
-#define LL_USART_ISR_IDLE                       USART_ISR_IDLE                /*!< Idle line detected flag */
-#define LL_USART_ISR_RXNE_RXFNE                 USART_ISR_RXNE_RXFNE          /*!< Read data register or RX FIFO not empty flag */
-#define LL_USART_ISR_TC                         USART_ISR_TC                  /*!< Transmission complete flag */
-#define LL_USART_ISR_TXE_TXFNF                  USART_ISR_TXE_TXFNF           /*!< Transmit data register empty or TX FIFO Not Full flag*/
-#define LL_USART_ISR_LBDF                       USART_ISR_LBDF                /*!< LIN break detection flag */
-#define LL_USART_ISR_CTSIF                      USART_ISR_CTSIF               /*!< CTS interrupt flag */
-#define LL_USART_ISR_CTS                        USART_ISR_CTS                 /*!< CTS flag */
-#define LL_USART_ISR_RTOF                       USART_ISR_RTOF                /*!< Receiver timeout flag */
-#define LL_USART_ISR_EOBF                       USART_ISR_EOBF                /*!< End of block flag */
-#define LL_USART_ISR_UDR                        USART_ISR_UDR                 /*!< SPI Slave underrun error flag */
-#define LL_USART_ISR_ABRE                       USART_ISR_ABRE                /*!< Auto baud rate error flag */
-#define LL_USART_ISR_ABRF                       USART_ISR_ABRF                /*!< Auto baud rate flag */
-#define LL_USART_ISR_BUSY                       USART_ISR_BUSY                /*!< Busy flag */
-#define LL_USART_ISR_CMF                        USART_ISR_CMF                 /*!< Character match flag */
-#define LL_USART_ISR_SBKF                       USART_ISR_SBKF                /*!< Send break flag */
-#define LL_USART_ISR_RWU                        USART_ISR_RWU                 /*!< Receiver wakeup from Mute mode flag */
-#define LL_USART_ISR_WUF                        USART_ISR_WUF                 /*!< Wakeup from Stop mode flag */
-#define LL_USART_ISR_TEACK                      USART_ISR_TEACK               /*!< Transmit enable acknowledge flag */
-#define LL_USART_ISR_REACK                      USART_ISR_REACK               /*!< Receive enable acknowledge flag */
-#define LL_USART_ISR_TXFE                       USART_ISR_TXFE                /*!< TX FIFO empty flag */
-#define LL_USART_ISR_RXFF                       USART_ISR_RXFF                /*!< RX FIFO full flag */
-#define LL_USART_ISR_TCBGT                      USART_ISR_TCBGT               /*!< Transmission complete before guard time completion flag */
-#define LL_USART_ISR_RXFT                       USART_ISR_RXFT                /*!< RX FIFO threshold flag */
-#define LL_USART_ISR_TXFT                       USART_ISR_TXFT                /*!< TX FIFO threshold flag */
+#define LL_USART_ISR_PE                         USART_ISR_PE
+#define LL_USART_ISR_FE                         USART_ISR_FE
+#define LL_USART_ISR_NE                         USART_ISR_NE
+#define LL_USART_ISR_ORE                        USART_ISR_ORE
+#define LL_USART_ISR_IDLE                       USART_ISR_IDLE
+#define LL_USART_ISR_RXNE_RXFNE                 USART_ISR_RXNE_RXFNE
+#define LL_USART_ISR_TC                         USART_ISR_TC
+#define LL_USART_ISR_TXE_TXFNF                  USART_ISR_TXE_TXFNF
+#define LL_USART_ISR_LBDF                       USART_ISR_LBDF
+#define LL_USART_ISR_CTSIF                      USART_ISR_CTSIF
+#define LL_USART_ISR_CTS                        USART_ISR_CTS
+#define LL_USART_ISR_RTOF                       USART_ISR_RTOF
+#define LL_USART_ISR_EOBF                       USART_ISR_EOBF
+#define LL_USART_ISR_UDR                        USART_ISR_UDR
+#define LL_USART_ISR_ABRE                       USART_ISR_ABRE
+#define LL_USART_ISR_ABRF                       USART_ISR_ABRF
+#define LL_USART_ISR_BUSY                       USART_ISR_BUSY
+#define LL_USART_ISR_CMF                        USART_ISR_CMF
+#define LL_USART_ISR_SBKF                       USART_ISR_SBKF
+#define LL_USART_ISR_RWU                        USART_ISR_RWU
+#define LL_USART_ISR_WUF                        USART_ISR_WUF
+#define LL_USART_ISR_TEACK                      USART_ISR_TEACK
+#define LL_USART_ISR_REACK                      USART_ISR_REACK
+#define LL_USART_ISR_TXFE                       USART_ISR_TXFE
+#define LL_USART_ISR_RXFF                       USART_ISR_RXFF
+#define LL_USART_ISR_TCBGT                      USART_ISR_TCBGT
+#define LL_USART_ISR_RXFT                       USART_ISR_RXFT
+#define LL_USART_ISR_TXFT                       USART_ISR_TXFT
 /**
   * @}
   */
@@ -249,23 +249,23 @@ typedef struct
   * @brief    IT defines which can be used with LL_USART_ReadReg and  LL_USART_WriteReg functions
   * @{
   */
-#define LL_USART_CR1_IDLEIE                     USART_CR1_IDLEIE              /*!< IDLE interrupt enable */
-#define LL_USART_CR1_RXNEIE_RXFNEIE             USART_CR1_RXNEIE_RXFNEIE      /*!< Read data register and RXFIFO not empty interrupt enable */
-#define LL_USART_CR1_TCIE                       USART_CR1_TCIE                /*!< Transmission complete interrupt enable */
-#define LL_USART_CR1_TXEIE_TXFNFIE              USART_CR1_TXEIE_TXFNFIE       /*!< Transmit data register empty and TX FIFO not full interrupt enable */
-#define LL_USART_CR1_PEIE                       USART_CR1_PEIE                /*!< Parity error */
-#define LL_USART_CR1_CMIE                       USART_CR1_CMIE                /*!< Character match interrupt enable */
-#define LL_USART_CR1_RTOIE                      USART_CR1_RTOIE               /*!< Receiver timeout interrupt enable */
-#define LL_USART_CR1_EOBIE                      USART_CR1_EOBIE               /*!< End of Block interrupt enable */
-#define LL_USART_CR1_TXFEIE                     USART_CR1_TXFEIE              /*!< TX FIFO empty interrupt enable */
-#define LL_USART_CR1_RXFFIE                     USART_CR1_RXFFIE              /*!< RX FIFO full interrupt enable */
-#define LL_USART_CR2_LBDIE                      USART_CR2_LBDIE               /*!< LIN break detection interrupt enable */
-#define LL_USART_CR3_EIE                        USART_CR3_EIE                 /*!< Error interrupt enable */
-#define LL_USART_CR3_CTSIE                      USART_CR3_CTSIE               /*!< CTS interrupt enable */
-#define LL_USART_CR3_WUFIE                      USART_CR3_WUFIE               /*!< Wakeup from Stop mode interrupt enable */
-#define LL_USART_CR3_TXFTIE                     USART_CR3_TXFTIE              /*!< TX FIFO threshold interrupt enable */
-#define LL_USART_CR3_TCBGTIE                    USART_CR3_TCBGTIE             /*!< Transmission complete before guard time interrupt enable */
-#define LL_USART_CR3_RXFTIE                     USART_CR3_RXFTIE              /*!< RX FIFO threshold interrupt enable */
+#define LL_USART_CR1_IDLEIE                     USART_CR1_IDLEIE
+#define LL_USART_CR1_RXNEIE_RXFNEIE             USART_CR1_RXNEIE_RXFNEIE
+#define LL_USART_CR1_TCIE                       USART_CR1_TCIE
+#define LL_USART_CR1_TXEIE_TXFNFIE              USART_CR1_TXEIE_TXFNFIE
+#define LL_USART_CR1_PEIE                       USART_CR1_PEIE
+#define LL_USART_CR1_CMIE                       USART_CR1_CMIE
+#define LL_USART_CR1_RTOIE                      USART_CR1_RTOIE
+#define LL_USART_CR1_EOBIE                      USART_CR1_EOBIE
+#define LL_USART_CR1_TXFEIE                     USART_CR1_TXFEIE
+#define LL_USART_CR1_RXFFIE                     USART_CR1_RXFFIE
+#define LL_USART_CR2_LBDIE                      USART_CR2_LBDIE
+#define LL_USART_CR3_EIE                        USART_CR3_EIE
+#define LL_USART_CR3_CTSIE                      USART_CR3_CTSIE
+#define LL_USART_CR3_WUFIE                      USART_CR3_WUFIE
+#define LL_USART_CR3_TXFTIE                     USART_CR3_TXFTIE
+#define LL_USART_CR3_TCBGTIE                    USART_CR3_TCBGTIE
+#define LL_USART_CR3_RXFTIE                     USART_CR3_RXFTIE
 /**
   * @}
   */
@@ -273,12 +273,12 @@ typedef struct
 /** @defgroup USART_LL_EC_FIFOTHRESHOLD FIFO Threshold
   * @{
   */
-#define LL_USART_FIFOTHRESHOLD_1_8              0x00000000U /*!< FIFO reaches 1/8 of its depth */
-#define LL_USART_FIFOTHRESHOLD_1_4              0x00000001U /*!< FIFO reaches 1/4 of its depth */
-#define LL_USART_FIFOTHRESHOLD_1_2              0x00000002U /*!< FIFO reaches 1/2 of its depth */
-#define LL_USART_FIFOTHRESHOLD_3_4              0x00000003U /*!< FIFO reaches 3/4 of its depth */
-#define LL_USART_FIFOTHRESHOLD_7_8              0x00000004U /*!< FIFO reaches 7/8 of its depth */
-#define LL_USART_FIFOTHRESHOLD_8_8              0x00000005U /*!< FIFO becomes empty for TX and full for RX */
+#define LL_USART_FIFOTHRESHOLD_1_8              0x00000000U
+#define LL_USART_FIFOTHRESHOLD_1_4              0x00000001U
+#define LL_USART_FIFOTHRESHOLD_1_2              0x00000002U
+#define LL_USART_FIFOTHRESHOLD_3_4              0x00000003U
+#define LL_USART_FIFOTHRESHOLD_7_8              0x00000004U
+#define LL_USART_FIFOTHRESHOLD_8_8              0x00000005U
 /**
   * @}
   */
@@ -286,10 +286,10 @@ typedef struct
 /** @defgroup USART_LL_EC_DIRECTION Communication Direction
   * @{
   */
-#define LL_USART_DIRECTION_NONE                 0x00000000U                        /*!< Transmitter and Receiver are disabled */
-#define LL_USART_DIRECTION_RX                   USART_CR1_RE                       /*!< Transmitter is disabled and Receiver is enabled */
-#define LL_USART_DIRECTION_TX                   USART_CR1_TE                       /*!< Transmitter is enabled and Receiver is disabled */
-#define LL_USART_DIRECTION_TX_RX                (USART_CR1_TE |USART_CR1_RE)       /*!< Transmitter and Receiver are enabled */
+#define LL_USART_DIRECTION_NONE                 0x00000000U
+#define LL_USART_DIRECTION_RX                   USART_CR1_RE
+#define LL_USART_DIRECTION_TX                   USART_CR1_TE
+#define LL_USART_DIRECTION_TX_RX                (USART_CR1_TE |USART_CR1_RE)
 /**
   * @}
   */
@@ -297,9 +297,9 @@ typedef struct
 /** @defgroup USART_LL_EC_PARITY Parity Control
   * @{
   */
-#define LL_USART_PARITY_NONE                    0x00000000U                          /*!< Parity control disabled */
-#define LL_USART_PARITY_EVEN                    USART_CR1_PCE                        /*!< Parity control enabled and Even Parity is selected */
-#define LL_USART_PARITY_ODD                     (USART_CR1_PCE | USART_CR1_PS)       /*!< Parity control enabled and Odd Parity is selected */
+#define LL_USART_PARITY_NONE                    0x00000000U
+#define LL_USART_PARITY_EVEN                    USART_CR1_PCE
+#define LL_USART_PARITY_ODD                     (USART_CR1_PCE | USART_CR1_PS)
 /**
   * @}
   */
@@ -307,8 +307,8 @@ typedef struct
 /** @defgroup USART_LL_EC_WAKEUP Wakeup
   * @{
   */
-#define LL_USART_WAKEUP_IDLELINE                0x00000000U           /*!<  USART wake up from Mute mode on Idle Line */
-#define LL_USART_WAKEUP_ADDRESSMARK             USART_CR1_WAKE        /*!<  USART wake up from Mute mode on Address Mark */
+#define LL_USART_WAKEUP_IDLELINE                0x00000000U
+#define LL_USART_WAKEUP_ADDRESSMARK             USART_CR1_WAKE
 /**
   * @}
   */
@@ -316,9 +316,9 @@ typedef struct
 /** @defgroup USART_LL_EC_DATAWIDTH Datawidth
   * @{
   */
-#define LL_USART_DATAWIDTH_7B                   USART_CR1_M1            /*!< 7 bits word length : Start bit, 7 data bits, n stop bits */
-#define LL_USART_DATAWIDTH_8B                   0x00000000U             /*!< 8 bits word length : Start bit, 8 data bits, n stop bits */
-#define LL_USART_DATAWIDTH_9B                   USART_CR1_M0            /*!< 9 bits word length : Start bit, 9 data bits, n stop bits */
+#define LL_USART_DATAWIDTH_7B                   USART_CR1_M1
+#define LL_USART_DATAWIDTH_8B                   0x00000000U
+#define LL_USART_DATAWIDTH_9B                   USART_CR1_M0
 /**
   * @}
   */
@@ -326,8 +326,8 @@ typedef struct
 /** @defgroup USART_LL_EC_OVERSAMPLING Oversampling
   * @{
   */
-#define LL_USART_OVERSAMPLING_16                0x00000000U            /*!< Oversampling by 16 */
-#define LL_USART_OVERSAMPLING_8                 USART_CR1_OVER8        /*!< Oversampling by 8 */
+#define LL_USART_OVERSAMPLING_16                0x00000000U
+#define LL_USART_OVERSAMPLING_8                 USART_CR1_OVER8
 /**
   * @}
   */
@@ -337,8 +337,8 @@ typedef struct
   * @{
   */
 
-#define LL_USART_CLOCK_DISABLE                  0x00000000U            /*!< Clock signal not provided */
-#define LL_USART_CLOCK_ENABLE                   USART_CR2_CLKEN        /*!< Clock signal provided */
+#define LL_USART_CLOCK_DISABLE                  0x00000000U
+#define LL_USART_CLOCK_ENABLE                   USART_CR2_CLKEN
 /**
   * @}
   */
@@ -347,8 +347,8 @@ typedef struct
 /** @defgroup USART_LL_EC_LASTCLKPULSE Last Clock Pulse
   * @{
   */
-#define LL_USART_LASTCLKPULSE_NO_OUTPUT         0x00000000U           /*!< The clock pulse of the last data bit is not output to the SCLK pin */
-#define LL_USART_LASTCLKPULSE_OUTPUT            USART_CR2_LBCL        /*!< The clock pulse of the last data bit is output to the SCLK pin */
+#define LL_USART_LASTCLKPULSE_NO_OUTPUT         0x00000000U
+#define LL_USART_LASTCLKPULSE_OUTPUT            USART_CR2_LBCL
 /**
   * @}
   */
@@ -356,8 +356,8 @@ typedef struct
 /** @defgroup USART_LL_EC_PHASE Clock Phase
   * @{
   */
-#define LL_USART_PHASE_1EDGE                    0x00000000U           /*!< The first clock transition is the first data capture edge */
-#define LL_USART_PHASE_2EDGE                    USART_CR2_CPHA        /*!< The second clock transition is the first data capture edge */
+#define LL_USART_PHASE_1EDGE                    0x00000000U
+#define LL_USART_PHASE_2EDGE                    USART_CR2_CPHA
 /**
   * @}
   */
@@ -365,8 +365,8 @@ typedef struct
 /** @defgroup USART_LL_EC_POLARITY Clock Polarity
   * @{
   */
-#define LL_USART_POLARITY_LOW                   0x00000000U           /*!< Steady low value on SCLK pin outside transmission window*/
-#define LL_USART_POLARITY_HIGH                  USART_CR2_CPOL        /*!< Steady high value on SCLK pin outside transmission window */
+#define LL_USART_POLARITY_LOW                   0x00000000U
+#define LL_USART_POLARITY_HIGH                  USART_CR2_CPOL
 /**
   * @}
   */
@@ -374,18 +374,18 @@ typedef struct
 /** @defgroup USART_LL_EC_PRESCALER Clock Source Prescaler
   * @{
   */
-#define LL_USART_PRESCALER_DIV1                 0x00000000U                                                                   /*!< Input clock not divided   */
-#define LL_USART_PRESCALER_DIV2                 (USART_PRESC_PRESCALER_0)                                                     /*!< Input clock divided by 2  */
-#define LL_USART_PRESCALER_DIV4                 (USART_PRESC_PRESCALER_1)                                                     /*!< Input clock divided by 4  */
-#define LL_USART_PRESCALER_DIV6                 (USART_PRESC_PRESCALER_1 | USART_PRESC_PRESCALER_0)                           /*!< Input clock divided by 6  */
-#define LL_USART_PRESCALER_DIV8                 (USART_PRESC_PRESCALER_2)                                                     /*!< Input clock divided by 8  */
-#define LL_USART_PRESCALER_DIV10                (USART_PRESC_PRESCALER_2 | USART_PRESC_PRESCALER_0)                           /*!< Input clock divided by 10 */
-#define LL_USART_PRESCALER_DIV12                (USART_PRESC_PRESCALER_2 | USART_PRESC_PRESCALER_1)                           /*!< Input clock divided by 12 */
-#define LL_USART_PRESCALER_DIV16                (USART_PRESC_PRESCALER_2 | USART_PRESC_PRESCALER_1 | USART_PRESC_PRESCALER_0) /*!< Input clock divided by 16 */
-#define LL_USART_PRESCALER_DIV32                (USART_PRESC_PRESCALER_3)                                                     /*!< Input clock divided by 32 */
-#define LL_USART_PRESCALER_DIV64                (USART_PRESC_PRESCALER_3 | USART_PRESC_PRESCALER_0)                           /*!< Input clock divided by 64 */
-#define LL_USART_PRESCALER_DIV128               (USART_PRESC_PRESCALER_3 | USART_PRESC_PRESCALER_1)                           /*!< Input clock divided by 128 */
-#define LL_USART_PRESCALER_DIV256               (USART_PRESC_PRESCALER_3 | USART_PRESC_PRESCALER_1 | USART_PRESC_PRESCALER_0) /*!< Input clock divided by 256 */
+#define LL_USART_PRESCALER_DIV1                 0x00000000U
+#define LL_USART_PRESCALER_DIV2                 (USART_PRESC_PRESCALER_0)
+#define LL_USART_PRESCALER_DIV4                 (USART_PRESC_PRESCALER_1)
+#define LL_USART_PRESCALER_DIV6                 (USART_PRESC_PRESCALER_1 | USART_PRESC_PRESCALER_0)
+#define LL_USART_PRESCALER_DIV8                 (USART_PRESC_PRESCALER_2)
+#define LL_USART_PRESCALER_DIV10                (USART_PRESC_PRESCALER_2 | USART_PRESC_PRESCALER_0)
+#define LL_USART_PRESCALER_DIV12                (USART_PRESC_PRESCALER_2 | USART_PRESC_PRESCALER_1)
+#define LL_USART_PRESCALER_DIV16                (USART_PRESC_PRESCALER_2 | USART_PRESC_PRESCALER_1 | USART_PRESC_PRESCALER_0)
+#define LL_USART_PRESCALER_DIV32                (USART_PRESC_PRESCALER_3)
+#define LL_USART_PRESCALER_DIV64                (USART_PRESC_PRESCALER_3 | USART_PRESC_PRESCALER_0)
+#define LL_USART_PRESCALER_DIV128               (USART_PRESC_PRESCALER_3 | USART_PRESC_PRESCALER_1)
+#define LL_USART_PRESCALER_DIV256               (USART_PRESC_PRESCALER_3 | USART_PRESC_PRESCALER_1 | USART_PRESC_PRESCALER_0)
 /**
   * @}
   */
@@ -393,10 +393,10 @@ typedef struct
 /** @defgroup USART_LL_EC_STOPBITS Stop Bits
   * @{
   */
-#define LL_USART_STOPBITS_0_5                   USART_CR2_STOP_0                           /*!< 0.5 stop bit */
-#define LL_USART_STOPBITS_1                     0x00000000U                                /*!< 1 stop bit */
-#define LL_USART_STOPBITS_1_5                   (USART_CR2_STOP_0 | USART_CR2_STOP_1)      /*!< 1.5 stop bits */
-#define LL_USART_STOPBITS_2                     USART_CR2_STOP_1                           /*!< 2 stop bits */
+#define LL_USART_STOPBITS_0_5                   USART_CR2_STOP_0
+#define LL_USART_STOPBITS_1                     0x00000000U
+#define LL_USART_STOPBITS_1_5                   (USART_CR2_STOP_0 | USART_CR2_STOP_1)
+#define LL_USART_STOPBITS_2                     USART_CR2_STOP_1
 /**
   * @}
   */
@@ -404,8 +404,8 @@ typedef struct
 /** @defgroup USART_LL_EC_TXRX TX RX Pins Swap
   * @{
   */
-#define LL_USART_TXRX_STANDARD                  0x00000000U           /*!< TX/RX pins are used as defined in standard pinout */
-#define LL_USART_TXRX_SWAPPED                   (USART_CR2_SWAP)      /*!< TX and RX pins functions are swapped.             */
+#define LL_USART_TXRX_STANDARD                  0x00000000U
+#define LL_USART_TXRX_SWAPPED                   (USART_CR2_SWAP)
 /**
   * @}
   */
@@ -413,8 +413,8 @@ typedef struct
 /** @defgroup USART_LL_EC_RXPIN_LEVEL RX Pin Active Level Inversion
   * @{
   */
-#define LL_USART_RXPIN_LEVEL_STANDARD           0x00000000U           /*!< RX pin signal works using the standard logic levels */
-#define LL_USART_RXPIN_LEVEL_INVERTED           (USART_CR2_RXINV)     /*!< RX pin signal values are inverted.                  */
+#define LL_USART_RXPIN_LEVEL_STANDARD           0x00000000U
+#define LL_USART_RXPIN_LEVEL_INVERTED           (USART_CR2_RXINV)
 /**
   * @}
   */
@@ -422,8 +422,8 @@ typedef struct
 /** @defgroup USART_LL_EC_TXPIN_LEVEL TX Pin Active Level Inversion
   * @{
   */
-#define LL_USART_TXPIN_LEVEL_STANDARD           0x00000000U           /*!< TX pin signal works using the standard logic levels */
-#define LL_USART_TXPIN_LEVEL_INVERTED           (USART_CR2_TXINV)     /*!< TX pin signal values are inverted.                  */
+#define LL_USART_TXPIN_LEVEL_STANDARD           0x00000000U
+#define LL_USART_TXPIN_LEVEL_INVERTED           (USART_CR2_TXINV)
 /**
   * @}
   */
@@ -431,8 +431,8 @@ typedef struct
 /** @defgroup USART_LL_EC_BINARY_LOGIC Binary Data Inversion
   * @{
   */
-#define LL_USART_BINARY_LOGIC_POSITIVE          0x00000000U           /*!< Logical data from the data register are send/received in positive/direct logic. (1=H, 0=L) */
-#define LL_USART_BINARY_LOGIC_NEGATIVE          USART_CR2_DATAINV     /*!< Logical data from the data register are send/received in negative/inverse logic. (1=L, 0=H). The parity bit is also inverted. */
+#define LL_USART_BINARY_LOGIC_POSITIVE          0x00000000U
+#define LL_USART_BINARY_LOGIC_NEGATIVE          USART_CR2_DATAINV
 /**
   * @}
   */
@@ -440,8 +440,8 @@ typedef struct
 /** @defgroup USART_LL_EC_BITORDER Bit Order
   * @{
   */
-#define LL_USART_BITORDER_LSBFIRST              0x00000000U           /*!< data is transmitted/received with data bit 0 first, following the start bit */
-#define LL_USART_BITORDER_MSBFIRST              USART_CR2_MSBFIRST    /*!< data is transmitted/received with the MSB first, following the start bit */
+#define LL_USART_BITORDER_LSBFIRST              0x00000000U
+#define LL_USART_BITORDER_MSBFIRST              USART_CR2_MSBFIRST
 /**
   * @}
   */
@@ -449,10 +449,10 @@ typedef struct
 /** @defgroup USART_LL_EC_AUTOBAUD_DETECT_ON Autobaud Detection
   * @{
   */
-#define LL_USART_AUTOBAUD_DETECT_ON_STARTBIT    0x00000000U                                 /*!< Measurement of the start bit is used to detect the baud rate */
-#define LL_USART_AUTOBAUD_DETECT_ON_FALLINGEDGE USART_CR2_ABRMODE_0                         /*!< Falling edge to falling edge measurement. Received frame must start with a single bit = 1 -> Frame = Start10xxxxxx */
-#define LL_USART_AUTOBAUD_DETECT_ON_7F_FRAME    USART_CR2_ABRMODE_1                         /*!< 0x7F frame detection */
-#define LL_USART_AUTOBAUD_DETECT_ON_55_FRAME    (USART_CR2_ABRMODE_1 | USART_CR2_ABRMODE_0) /*!< 0x55 frame detection */
+#define LL_USART_AUTOBAUD_DETECT_ON_STARTBIT    0x00000000U
+#define LL_USART_AUTOBAUD_DETECT_ON_FALLINGEDGE USART_CR2_ABRMODE_0
+#define LL_USART_AUTOBAUD_DETECT_ON_7F_FRAME    USART_CR2_ABRMODE_1
+#define LL_USART_AUTOBAUD_DETECT_ON_55_FRAME    (USART_CR2_ABRMODE_1 | USART_CR2_ABRMODE_0)
 /**
   * @}
   */
@@ -460,8 +460,8 @@ typedef struct
 /** @defgroup USART_LL_EC_ADDRESS_DETECT Address Length Detection
   * @{
   */
-#define LL_USART_ADDRESS_DETECT_4B              0x00000000U           /*!< 4-bit address detection method selected */
-#define LL_USART_ADDRESS_DETECT_7B              USART_CR2_ADDM7       /*!< 7-bit address detection (in 8-bit data mode) method selected */
+#define LL_USART_ADDRESS_DETECT_4B              0x00000000U
+#define LL_USART_ADDRESS_DETECT_7B              USART_CR2_ADDM7
 /**
   * @}
   */
@@ -469,10 +469,10 @@ typedef struct
 /** @defgroup USART_LL_EC_HWCONTROL Hardware Control
   * @{
   */
-#define LL_USART_HWCONTROL_NONE                 0x00000000U                          /*!< CTS and RTS hardware flow control disabled */
-#define LL_USART_HWCONTROL_RTS                  USART_CR3_RTSE                       /*!< RTS output enabled, data is only requested when there is space in the receive buffer */
-#define LL_USART_HWCONTROL_CTS                  USART_CR3_CTSE                       /*!< CTS mode enabled, data is only transmitted when the nCTS input is asserted (tied to 0) */
-#define LL_USART_HWCONTROL_RTS_CTS              (USART_CR3_RTSE | USART_CR3_CTSE)    /*!< CTS and RTS hardware flow control enabled */
+#define LL_USART_HWCONTROL_NONE                 0x00000000U
+#define LL_USART_HWCONTROL_RTS                  USART_CR3_RTSE
+#define LL_USART_HWCONTROL_CTS                  USART_CR3_CTSE
+#define LL_USART_HWCONTROL_RTS_CTS              (USART_CR3_RTSE | USART_CR3_CTSE)
 /**
   * @}
   */
@@ -480,9 +480,9 @@ typedef struct
 /** @defgroup USART_LL_EC_WAKEUP_ON Wakeup Activation
   * @{
   */
-#define LL_USART_WAKEUP_ON_ADDRESS              0x00000000U                             /*!< Wake up active on address match */
-#define LL_USART_WAKEUP_ON_STARTBIT             USART_CR3_WUS_1                         /*!< Wake up active on Start bit detection */
-#define LL_USART_WAKEUP_ON_RXNE                 (USART_CR3_WUS_0 | USART_CR3_WUS_1)     /*!< Wake up active on RXNE */
+#define LL_USART_WAKEUP_ON_ADDRESS              0x00000000U
+#define LL_USART_WAKEUP_ON_STARTBIT             USART_CR3_WUS_1
+#define LL_USART_WAKEUP_ON_RXNE                 (USART_CR3_WUS_0 | USART_CR3_WUS_1)
 /**
   * @}
   */
@@ -490,8 +490,8 @@ typedef struct
 /** @defgroup USART_LL_EC_IRDA_POWER IrDA Power
   * @{
   */
-#define LL_USART_IRDA_POWER_NORMAL              0x00000000U           /*!< IrDA normal power mode */
-#define LL_USART_IRDA_POWER_LOW                 USART_CR3_IRLP        /*!< IrDA low power mode */
+#define LL_USART_IRDA_POWER_NORMAL              0x00000000U
+#define LL_USART_IRDA_POWER_LOW                 USART_CR3_IRLP
 /**
   * @}
   */
@@ -499,8 +499,8 @@ typedef struct
 /** @defgroup USART_LL_EC_LINBREAK_DETECT LIN Break Detection Length
   * @{
   */
-#define LL_USART_LINBREAK_DETECT_10B            0x00000000U           /*!< 10-bit break detection method selected */
-#define LL_USART_LINBREAK_DETECT_11B            USART_CR2_LBDL        /*!< 11-bit break detection method selected */
+#define LL_USART_LINBREAK_DETECT_10B            0x00000000U
+#define LL_USART_LINBREAK_DETECT_11B            USART_CR2_LBDL
 /**
   * @}
   */
@@ -508,8 +508,8 @@ typedef struct
 /** @defgroup USART_LL_EC_DE_POLARITY Driver Enable Polarity
   * @{
   */
-#define LL_USART_DE_POLARITY_HIGH               0x00000000U           /*!< DE signal is active high */
-#define LL_USART_DE_POLARITY_LOW                USART_CR3_DEP         /*!< DE signal is active low */
+#define LL_USART_DE_POLARITY_HIGH               0x00000000U
+#define LL_USART_DE_POLARITY_LOW                USART_CR3_DEP
 /**
   * @}
   */
@@ -517,8 +517,8 @@ typedef struct
 /** @defgroup USART_LL_EC_DMA_REG_DATA DMA Register Data
   * @{
   */
-#define LL_USART_DMA_REG_DATA_TRANSMIT          0x00000000U          /*!< Get address of data register used for transmission */
-#define LL_USART_DMA_REG_DATA_RECEIVE           0x00000001U          /*!< Get address of data register used for reception */
+#define LL_USART_DMA_REG_DATA_TRANSMIT          0x00000000U
+#define LL_USART_DMA_REG_DATA_RECEIVE           0x00000001U
 /**
   * @}
   */
@@ -2985,7 +2985,7 @@ __STATIC_INLINE uint32_t LL_USART_IsActiveFlag_IDLE(const USART_TypeDef *USARTx)
   return ((READ_BIT(USARTx->ISR, USART_ISR_IDLE) == (USART_ISR_IDLE)) ? 1UL : 0UL);
 }
 
-#define LL_USART_IsActiveFlag_RXNE  LL_USART_IsActiveFlag_RXNE_RXFNE /* Redefinition for legacy purpose */
+#define LL_USART_IsActiveFlag_RXNE  LL_USART_IsActiveFlag_RXNE_RXFNE
 
 /**
   * @brief  Check if the USART Read Data Register or USART RX FIFO Not Empty Flag is set or not
@@ -3011,7 +3011,7 @@ __STATIC_INLINE uint32_t LL_USART_IsActiveFlag_TC(const USART_TypeDef *USARTx)
   return ((READ_BIT(USARTx->ISR, USART_ISR_TC) == (USART_ISR_TC)) ? 1UL : 0UL);
 }
 
-#define LL_USART_IsActiveFlag_TXE  LL_USART_IsActiveFlag_TXE_TXFNF /* Redefinition for legacy purpose */
+#define LL_USART_IsActiveFlag_TXE  LL_USART_IsActiveFlag_TXE_TXFNF
 
 /**
   * @brief  Check if the USART Transmit Data Register Empty or USART TX FIFO Not Full Flag is set or not
@@ -3466,7 +3466,7 @@ __STATIC_INLINE void LL_USART_EnableIT_IDLE(USART_TypeDef *USARTx)
   ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_IDLEIE);
 }
 
-#define LL_USART_EnableIT_RXNE  LL_USART_EnableIT_RXNE_RXFNE /* Redefinition for legacy purpose */
+#define LL_USART_EnableIT_RXNE  LL_USART_EnableIT_RXNE_RXFNE
 
 /**
   * @brief  Enable RX Not Empty and RX FIFO Not Empty Interrupt
@@ -3492,7 +3492,7 @@ __STATIC_INLINE void LL_USART_EnableIT_TC(USART_TypeDef *USARTx)
   ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_TCIE);
 }
 
-#define LL_USART_EnableIT_TXE  LL_USART_EnableIT_TXE_TXFNF /* Redefinition for legacy purpose */
+#define LL_USART_EnableIT_TXE  LL_USART_EnableIT_TXE_TXFNF
 
 /**
   * @brief  Enable TX Empty and TX FIFO Not Full Interrupt
@@ -3681,7 +3681,7 @@ __STATIC_INLINE void LL_USART_DisableIT_IDLE(USART_TypeDef *USARTx)
   ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_IDLEIE);
 }
 
-#define LL_USART_DisableIT_RXNE  LL_USART_DisableIT_RXNE_RXFNE /* Redefinition for legacy purpose */
+#define LL_USART_DisableIT_RXNE  LL_USART_DisableIT_RXNE_RXFNE
 
 /**
   * @brief  Disable RX Not Empty and RX FIFO Not Empty Interrupt
@@ -3707,7 +3707,7 @@ __STATIC_INLINE void LL_USART_DisableIT_TC(USART_TypeDef *USARTx)
   ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_TCIE);
 }
 
-#define LL_USART_DisableIT_TXE  LL_USART_DisableIT_TXE_TXFNF /* Redefinition for legacy purpose */
+#define LL_USART_DisableIT_TXE  LL_USART_DisableIT_TXE_TXFNF
 
 /**
   * @brief  Disable TX Empty and TX FIFO Not Full Interrupt
@@ -3898,7 +3898,7 @@ __STATIC_INLINE uint32_t LL_USART_IsEnabledIT_IDLE(const USART_TypeDef *USARTx)
   return ((READ_BIT(USARTx->CR1, USART_CR1_IDLEIE) == (USART_CR1_IDLEIE)) ? 1UL : 0UL);
 }
 
-#define LL_USART_IsEnabledIT_RXNE  LL_USART_IsEnabledIT_RXNE_RXFNE /* Redefinition for legacy purpose */
+#define LL_USART_IsEnabledIT_RXNE  LL_USART_IsEnabledIT_RXNE_RXFNE
 
 /**
   * @brief  Check if the USART RX Not Empty and USART RX FIFO Not Empty Interrupt is enabled or disabled.
@@ -3924,7 +3924,7 @@ __STATIC_INLINE uint32_t LL_USART_IsEnabledIT_TC(const USART_TypeDef *USARTx)
   return ((READ_BIT(USARTx->CR1, USART_CR1_TCIE) == (USART_CR1_TCIE)) ? 1UL : 0UL);
 }
 
-#define LL_USART_IsEnabledIT_TXE  LL_USART_IsEnabledIT_TXE_TXFNF /* Redefinition for legacy purpose */
+#define LL_USART_IsEnabledIT_TXE  LL_USART_IsEnabledIT_TXE_TXFNF
 
 /**
   * @brief  Check if the USART TX Empty and USART TX FIFO Not Full Interrupt is enabled or disabled

@@ -89,51 +89,51 @@
 /* First Generic Error codes */
 #define WM_GEN_E_BASE MOD_ERROR_START(MOD_GENERIC)
 #define WM_FAIL       1
-#define WM_E_PERM     2  /*Operation not permitted */
-#define WM_E_NOENT    3  /*No such file or directory */
-#define WM_E_SRCH     4  /*No such process */
-#define WM_E_INTR     5  /*Interrupted system call */
-#define WM_E_IO       6  /*I/O error */
-#define WM_E_NXIO     7  /*No such device or address */
-#define WM_E_2BIG     8  /*Argument list too long */
-#define WM_E_NOEXEC   9  /*Exec format error */
-#define WM_E_BADF     10 /* Bad file number */
-#define WM_E_CHILD    11 /* No child processes */
-#define WM_E_AGAIN    12 /* Try again */
-#define WM_E_NOMEM    13 /* Out of memory */
-#define WM_E_ACCES    14 /* Permission denied */
-#define WM_E_FAULT    15 /* Bad address */
-#define WM_E_NOTBLK   16 /* Block device required */
-#define WM_E_BUSY     17 /* Device or resource busy */
-#define WM_E_EXIST    18 /* File exists */
-#define WM_E_XDEV     19 /* Cross-device link */
-#define WM_E_NODEV    20 /* No such device */
-#define WM_E_NOTDIR   21 /* Not a directory */
-#define WM_E_ISDIR    22 /* Is a directory */
-#define WM_E_INVAL    23 /* Invalid argument */
-#define WM_E_NFILE    24 /* File table overflow */
-#define WM_E_MFILE    25 /* Too many open files */
-#define WM_E_NOTTY    26 /* Not a typewriter */
-#define WM_E_TXTBSY   27 /* Text file busy */
-#define WM_E_FBIG     28 /* File too large */
-#define WM_E_NOSPC    29 /* No space left on device */
-#define WM_E_SPIPE    30 /* Illegal seek */
-#define WM_E_ROFS     31 /* Read-only file system */
-#define WM_E_MLINK    32 /* Too many links */
-#define WM_E_PIPE     33 /* Broken pipe */
-#define WM_E_DOM      34 /* Math argument out of domain of func */
-#define WM_E_RANGE    35 /* Math result not representable */
+#define WM_E_PERM     2
+#define WM_E_NOENT    3
+#define WM_E_SRCH     4
+#define WM_E_INTR     5
+#define WM_E_IO       6
+#define WM_E_NXIO     7
+#define WM_E_2BIG     8
+#define WM_E_NOEXEC   9
+#define WM_E_BADF     10
+#define WM_E_CHILD    11
+#define WM_E_AGAIN    12
+#define WM_E_NOMEM    13
+#define WM_E_ACCES    14
+#define WM_E_FAULT    15
+#define WM_E_NOTBLK   16
+#define WM_E_BUSY     17
+#define WM_E_EXIST    18
+#define WM_E_XDEV     19
+#define WM_E_NODEV    20
+#define WM_E_NOTDIR   21
+#define WM_E_ISDIR    22
+#define WM_E_INVAL    23
+#define WM_E_NFILE    24
+#define WM_E_MFILE    25
+#define WM_E_NOTTY    26
+#define WM_E_TXTBSY   27
+#define WM_E_FBIG     28
+#define WM_E_NOSPC    29
+#define WM_E_SPIPE    30
+#define WM_E_ROFS     31
+#define WM_E_MLINK    32
+#define WM_E_PIPE     33
+#define WM_E_DOM      34
+#define WM_E_RANGE    35
 
 /* WMSDK generic error codes */
-#define WM_E_CRC     36 /* Error in CRC check */
-#define WM_E_UNINIT  37 /* Module is not yet initialized */
-#define WM_E_TIMEOUT 38 /* Timeout occurred during operation */
+#define WM_E_CRC     36
+#define WM_E_UNINIT  37
+#define WM_E_TIMEOUT 38
 
 /* Defined for Hostcmd specific API*/
-#define WM_E_INBIG 39 /* Input buffer too big */
+#define WM_E_INBIG 39
 #define WM_E_INSMALL                                                                                         \
     40 /* A finer version for WM_E_INVAL, where it clearly specifies that input is much smaller than minimum \
           requirement */
-#define WM_E_OUTBIG 41 /* Data output exceeds the size provided */
+#define WM_E_OUTBIG 41
 
 #endif                 /* ! WM_ERRNO_H */

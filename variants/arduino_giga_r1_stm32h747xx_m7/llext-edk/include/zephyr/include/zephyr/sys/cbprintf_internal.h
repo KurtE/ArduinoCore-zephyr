@@ -95,17 +95,17 @@ extern "C" {
 /* NOLINTBEGIN(misc-redundant-expression) */
 #define Z_CBPRINTF_IS_PCHAR(x, flags) \
 	_Generic((x) + 0, \
-		/* char * */ \
+ \
 		char * : 1, \
 		const char * : ((flags) & CBPRINTF_PACKAGE_CONST_CHAR_RO) ? 0 : 1, \
 		volatile char * : 1, \
 		const volatile char * : 1, \
-		/* unsigned char * */ \
+ \
 		unsigned char * : 1, \
 		const unsigned char * : ((flags) & CBPRINTF_PACKAGE_CONST_CHAR_RO) ? 0 : 1, \
 		volatile unsigned char * : 1, \
 		const volatile unsigned char * : 1,\
-		/* wchar_t * */ \
+ \
 		wchar_t * : 1, \
 		const wchar_t * : ((flags) & CBPRINTF_PACKAGE_CONST_CHAR_RO) ? 0 : 1, \
 		volatile wchar_t * : 1, \
@@ -560,7 +560,7 @@ extern "C" {
 #define Z_CONSTIFY(v) (_Generic((v), char * : (const char *)(uintptr_t)(v), default : (v)))
 #define Z_CBPRINTF_ARG_SIZE(v) ({\
 	__auto_type __v = (Z_CONSTIFY(v)) + 0; \
-	/* Static code analysis may complain about unused variable. */ \
+ \
 	(void)__v; \
 	size_t __arg_size = _Generic((v), \
 		float : sizeof(double), \
@@ -582,13 +582,13 @@ extern "C" {
 #else
 #define Z_CBPRINTF_STORE_ARG(buf, arg) do { \
 	if (Z_CBPRINTF_VA_STACK_LL_DBL_MEMCPY) { \
-		/* If required, copy arguments by word to avoid unaligned access.*/ \
+ \
 		__auto_type _v = (Z_CONSTIFY(arg)) + 0; \
 		double _d = _Generic((arg) + 0, \
 				float : (arg) + 0, \
 				default : \
 					0.0); \
-		/* Static code analysis may complain about unused variable. */ \
+ \
 		(void)_v; \
 		(void)_d; \
 		size_t arg_size = Z_CBPRINTF_ARG_SIZE(arg); \
@@ -722,17 +722,6 @@ do { \
 #define Z_CBPRINTF_PACK_ARG(arg_idx, arg) \
 	Z_CBPRINTF_PACK_ARG2(arg_idx, _pbuf, _pkg_len, _pkg_offset, _pmax, arg)
 
-/* When using clang additional warning needs to be suppressed since each
- * argument of fmt string is used for sizeof() which results in the warning
- * if argument is a string literal. Suppression is added here instead of
- * the macro which generates the warning to not slow down the compiler.
- */
-#ifdef __clang__
-#define Z_CBPRINTF_SUPPRESS_SIZEOF_ARRAY_DECAY \
-	_Pragma("GCC diagnostic ignored \"-Wsizeof-array-decay\"")
-#else
-#define Z_CBPRINTF_SUPPRESS_SIZEOF_ARRAY_DECAY
-#endif
 
 /* Allocation to avoid using VLA and alloca. Alloc frees space when leaving
  * a function which can lead to increased stack usage if logging is used
@@ -776,11 +765,10 @@ do { \
  * @param ... String with variable list of arguments.
  */
 #define Z_CBPRINTF_STATIC_PACKAGE_GENERIC(buf, _inlen, _outlen, _align_offset, \
-					  flags, ... /* fmt, ... */) \
+					  flags, ...) \
 do { \
 	_Pragma("GCC diagnostic push") \
 	_Pragma("GCC diagnostic ignored \"-Wpointer-arith\"") \
-	Z_CBPRINTF_SUPPRESS_SIZEOF_ARRAY_DECAY \
 	BUILD_ASSERT(!IS_ENABLED(CONFIG_XTENSA) || \
 		     (IS_ENABLED(CONFIG_XTENSA) && \
 		      !((_align_offset) % CBPRINTF_PACKAGE_ALIGNMENT)), \
@@ -797,10 +785,10 @@ do { \
 	uint8_t *_pbuf = (buf); \
 	uint8_t _rws_pos_idx = 0; \
 	uint8_t _ros_pos_idx = 0; \
-	/* Variable holds count of all string pointer arguments. */ \
+ \
 	uint8_t _alls_cnt = Z_CBPRINTF_PCHAR_COUNT(0, __VA_ARGS__); \
 	uint8_t _fros_cnt = Z_CBPRINTF_PACKAGE_FIRST_RO_STR_CNT_GET(_flags); \
-	/* Variable holds count of non const string pointers. */ \
+ \
 	uint8_t _rws_cnt = _cros_en ? \
 		Z_CBPRINTF_PCHAR_COUNT(_flags, __VA_ARGS__) : _alls_cnt - _fros_cnt; \
 	uint8_t _ros_cnt = _ros_pos_en ? (1 + _alls_cnt - _rws_cnt) : 0; \
@@ -813,12 +801,12 @@ do { \
 	int _total_len = 0; \
 	int _pkg_offset = (_align_offset); \
 	union cbprintf_package_hdr *_len_loc; \
-	/* If string has rw string arguments CBPRINTF_PACKAGE_ADD_RW_STR_POS is a must. */ \
+ \
 	if (_rws_cnt && !((_flags) & CBPRINTF_PACKAGE_ADD_RW_STR_POS)) { \
 		_outlen = -EINVAL; \
 		break; \
 	} \
-	/* package starts with string address and field with length */ \
+ \
 	if (_pmax < sizeof(*_len_loc)) { \
 		(_outlen) = -ENOSPC; \
 		break; \
@@ -826,14 +814,14 @@ do { \
 	_len_loc = (union cbprintf_package_hdr *)_pbuf; \
 	_pkg_len += sizeof(*_len_loc); \
 	_pkg_offset += sizeof(*_len_loc); \
-	/* Pack remaining arguments */\
+\
 	FOR_EACH_IDX(Z_CBPRINTF_PACK_ARG, (;), __VA_ARGS__);\
 	_total_len = _pkg_len; \
-	/* Append string indexes to the package. */ \
+ \
 	_total_len += _ros_cnt; \
 	_total_len += 2 * _rws_cnt; \
 	if (_pbuf != NULL) { \
-		/* Append string locations. */ \
+ \
 		uint8_t *_pbuf_loc = &_pbuf[_pkg_len]; \
 		for (size_t _ros_idx = 0; _ros_idx < _ros_cnt; _ros_idx++) { \
 			*_pbuf_loc++ = _ros_pos_buf[_ros_idx]; \
@@ -842,9 +830,9 @@ do { \
 			*_pbuf_loc++ = _rws_buffer[_rws_idx]; \
 		} \
 	} \
-	/* Store length */ \
+ \
 	(_outlen) = (_total_len > (int)_pmax) ? -ENOSPC : _total_len; \
-	/* Store length in the header, set number of dumped strings to 0 */ \
+ \
 	if (_pbuf != NULL) { \
 		union cbprintf_package_hdr pkg_hdr = { \
 			.desc = { \
@@ -863,14 +851,14 @@ do { \
 
 #if Z_C_GENERIC
 #define Z_CBPRINTF_STATIC_PACKAGE(packaged, inlen, outlen, align_offset, flags, \
-				  ... /* fmt, ... */) \
+				  ...) \
 	Z_CBPRINTF_STATIC_PACKAGE_GENERIC(packaged, inlen, outlen, \
 					  align_offset, flags, __VA_ARGS__)
 #else
 #define Z_CBPRINTF_STATIC_PACKAGE(packaged, inlen, outlen, align_offset, flags, \
-				  ... /* fmt, ... */) \
+				  ...) \
 do { \
-	/* Small trick needed to avoid warning on always true */ \
+ \
 	if (((uintptr_t)packaged + 1) != 1) { \
 		outlen = cbprintf_package(packaged, inlen, flags, __VA_ARGS__); \
 	} else { \

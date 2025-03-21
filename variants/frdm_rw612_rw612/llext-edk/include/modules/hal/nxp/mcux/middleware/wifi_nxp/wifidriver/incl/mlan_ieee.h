@@ -789,9 +789,9 @@ typedef MLAN_PACK_START struct _IEEEtypes_WmmEcw_t
 /** Data structure of WMM AC parameters  */
 typedef MLAN_PACK_START struct _IEEEtypes_WmmAcParameters_t
 {
-    IEEEtypes_WmmAciAifsn_t aci_aifsn; /**< AciAifSn */
-    IEEEtypes_WmmEcw_t ecw;            /**< Ecw */
-    t_u16 tx_op_limit;                 /**< Tx op limit */
+    IEEEtypes_WmmAciAifsn_t aci_aifsn;
+    IEEEtypes_WmmEcw_t ecw;
+    t_u16 tx_op_limit;
 } MLAN_PACK_END IEEEtypes_WmmAcParameters_t, *pIEEEtypes_WmmAcParameters_t;
 
 /** Data structure of WMM Info IE  */
@@ -956,8 +956,8 @@ typedef MLAN_PACK_START struct
 {
     t_u8 ElementId;
     t_u8 Len;
-    t_u8 OuiType[4]; /* 00:50:f2:02 */
-    t_u8 OuiSubType; /* 01 */
+    t_u8 OuiType[4];
+    t_u8 OuiSubType;
     t_u8 Version;
 
     IEEEtypes_WMM_TSPEC_Body_t TspecBody;
@@ -1186,137 +1186,137 @@ typedef MLAN_PACK_START struct _BSSCo2040_t
 /** Extended Capabilities Data */
 typedef MLAN_PACK_START struct _ExtCap_t
 {
-    t_u8 Qos_Map : 1;              /* bit 0 */
-    t_u8 EBR : 1;                  /* bit 1 */
-    t_u8 SSPN_Interface : 1;       /* bit 2 */
-    t_u8 Reserved35 : 1;           /* bit 3 */
-    t_u8 MSGCF_Capa : 1;           /* bit 4 */
-    t_u8 TDLSSupport : 1;          /* bit 5 */
-    t_u8 TDLSProhibited : 1;       /* bit 6 */
-    t_u8 TDLSChlSwitchProhib : 1;  /* bit 7 */
-    t_u8 ChannelUsage : 1;         /* bit 8 */
-    t_u8 SSID_List : 1;            /* bit 9 */
-    t_u8 DMS : 1;                  /* bit 10 */
-    t_u8 UTC : 1;                  /* bit 11 */
-    t_u8 TDLSPeerUAPSDSupport : 1; /* bit 12 */
-    t_u8 TDLSPeerPSMSupport : 1;   /* bit 13 */
-    t_u8 TDLSChannelSwitching : 1; /* bit 14 */
-    t_u8 Interworking : 1;         /* bit 15 */
-    t_u8 TFS : 1;                  /* bit 16 */
-    t_u8 WNM_Sleep : 1;            /* bit 17 */
-    t_u8 TIM_Broadcast : 1;        /* bit 18 */
-    t_u8 BSS_Transition : 1;       /* bit 19 */
-    t_u8 QoSTrafficCap : 1;        /* bit 20 */
-    t_u8 AC_StationCount : 1;      /* bit 21 */
-    t_u8 MultipleBSSID : 1;        /* bit 22 */
-    t_u8 TimingMeasurement : 1;    /* bit 23 */
-    t_u8 Diagnostics : 1;          /* bit 24 */
-    t_u8 MulticastDiagnostics : 1; /* bit 25 */
-    t_u8 LocationTracking : 1;     /* bit 26 */
-    t_u8 FMS : 1;                  /* bit 27 */
-    t_u8 ProxyARPService : 1;      /* bit 28 */
-    t_u8 CollocatedIntf : 1;       /* bit 29 */
-    t_u8 CivicLocation : 1;        /* bit 30 */
-    t_u8 GeospatialLocation : 1;   /* bit 31 */
-    t_u8 BSS_CoexistSupport : 1;   /* bit 32 */
-    t_u8 Reserved1 : 1;            /* bit 33 */
-    t_u8 ExtChanSwitching : 1;     /* bit 34 */
-    t_u8 RejectUnadmFrame : 1;     /* bit 35 */
-    t_u8 PSMP_Capable : 1;         /* bit 36 */
-    t_u8 Reserved5 : 1;            /* bit 37 */
-    t_u8 SPSMP_Support : 1;        /* bit 38 */
-    t_u8 Event : 1;                /* bit 39 */
+    t_u8 Qos_Map : 1;
+    t_u8 EBR : 1;
+    t_u8 SSPN_Interface : 1;
+    t_u8 Reserved35 : 1;
+    t_u8 MSGCF_Capa : 1;
+    t_u8 TDLSSupport : 1;
+    t_u8 TDLSProhibited : 1;
+    t_u8 TDLSChlSwitchProhib : 1;
+    t_u8 ChannelUsage : 1;
+    t_u8 SSID_List : 1;
+    t_u8 DMS : 1;
+    t_u8 UTC : 1;
+    t_u8 TDLSPeerUAPSDSupport : 1;
+    t_u8 TDLSPeerPSMSupport : 1;
+    t_u8 TDLSChannelSwitching : 1;
+    t_u8 Interworking : 1;
+    t_u8 TFS : 1;
+    t_u8 WNM_Sleep : 1;
+    t_u8 TIM_Broadcast : 1;
+    t_u8 BSS_Transition : 1;
+    t_u8 QoSTrafficCap : 1;
+    t_u8 AC_StationCount : 1;
+    t_u8 MultipleBSSID : 1;
+    t_u8 TimingMeasurement : 1;
+    t_u8 Diagnostics : 1;
+    t_u8 MulticastDiagnostics : 1;
+    t_u8 LocationTracking : 1;
+    t_u8 FMS : 1;
+    t_u8 ProxyARPService : 1;
+    t_u8 CollocatedIntf : 1;
+    t_u8 CivicLocation : 1;
+    t_u8 GeospatialLocation : 1;
+    t_u8 BSS_CoexistSupport : 1;
+    t_u8 Reserved1 : 1;
+    t_u8 ExtChanSwitching : 1;
+    t_u8 RejectUnadmFrame : 1;
+    t_u8 PSMP_Capable : 1;
+    t_u8 Reserved5 : 1;
+    t_u8 SPSMP_Support : 1;
+    t_u8 Event : 1;
 } MLAN_PACK_END ExtCap_t, *pExtCap_t;
 #else
 /** Extended Capabilities Data */
 typedef MLAN_PACK_START struct _ExtCap_t
 {
     /** Extended Capabilities value */
-    t_u8 BSS_CoexistSupport : 1;   /* bit 0 */
-    t_u8 Reserved1 : 1;            /* bit 1 */
-    t_u8 ExtChanSwitching : 1;     /* bit 2 */
-    t_u8 RejectUnadmFrame : 1;     /* bit 3 */
-    t_u8 PSMP_Capable : 1;         /* bit 4 */
-    t_u8 Reserved5 : 1;            /* bit 5 */
-    t_u8 SPSMP_Support : 1;        /* bit 6 */
-    t_u8 Event : 1;                /* bit 7 */
-    t_u8 Diagnostics : 1;          /* bit 8 */
-    t_u8 MulticastDiagnostics : 1; /* bit 9 */
-    t_u8 LocationTracking : 1;     /* bit 10 */
-    t_u8 FMS : 1;                  /* bit 11 */
-    t_u8 ProxyARPService : 1;      /* bit 12 */
-    t_u8 CollocatedIntf : 1;       /* bit 13 */
-    t_u8 CivicLocation : 1;        /* bit 14 */
-    t_u8 GeospatialLocation : 1;   /* bit 15 */
-    t_u8 TFS : 1;                  /* bit 16 */
-    t_u8 WNM_Sleep : 1;            /* bit 17 */
-    t_u8 TIM_Broadcast : 1;        /* bit 18 */
-    t_u8 BSS_Transition : 1;       /* bit 19 */
-    t_u8 QoSTrafficCap : 1;        /* bit 20 */
-    t_u8 AC_StationCount : 1;      /* bit 21 */
-    t_u8 MultipleBSSID : 1;        /* bit 22 */
-    t_u8 TimingMeasurement : 1;    /* bit 23 */
-    t_u8 ChannelUsage : 1;         /* bit 24 */
-    t_u8 SSID_List : 1;            /* bit 25 */
-    t_u8 DMS : 1;                  /* bit 26 */
-    t_u8 UTC : 1;                  /* bit 27 */
-    t_u8 TDLSPeerUAPSDSupport : 1; /* bit 28 */
-    t_u8 TDLSPeerPSMSupport : 1;   /* bit 29 */
-    t_u8 TDLSChannelSwitching : 1; /* bit 30 */
-    t_u8 Interworking : 1;         /* bit 31 */
-    t_u8 Qos_Map : 1;              /* bit 32 */
-    t_u8 EBR : 1;                  /* bit 33 */
-    t_u8 SSPN_Interface : 1;       /* bit 34 */
-    t_u8 Reserved35 : 1;           /* bit 35 */
-    t_u8 MSGCF_Capa : 1;           /* bit 36 */
-    t_u8 TDLSSupport : 1;          /* bit 37 */
-    t_u8 TDLSProhibited : 1;       /* bit 38 */
-    t_u8 TDLSChlSwitchProhib : 1;  /* bit 39 */
-    t_u8 rsvdBit40 : 1;            /* bit 40 */
-    t_u8 rsvdBit41 : 1;            /* bit 41 */
-    t_u8 rsvdBit42 : 1;            /* bit 42 */
-    t_u8 rsvdBit43 : 1;            /* bit 43 */
-    t_u8 rsvdBit44 : 1;            /* bit 44 */
-    t_u8 rsvdBit45 : 1;            /* bit 45 */
-    t_u8 rsvdBit46 : 1;            /* bit 46 */
-    t_u8 rsvdBit47 : 1;            /* bit 47 */
-    t_u8 rsvdBit48 : 1;            /* bit 48 */
-    t_u8 rsvdBit49 : 1;            /* bit 49 */
-    t_u8 rsvdBit50 : 1;            /* bit 50 */
-    t_u8 rsvdBit51 : 1;            /* bit 51 */
-    t_u8 rsvdBit52 : 1;            /* bit 52 */
-    t_u8 rsvdBit53 : 1;            /* bit 53 */
-    t_u8 rsvdBit54 : 1;            /* bit 54 */
-    t_u8 rsvdBit55 : 1;            /* bit 55 */
-    t_u8 rsvdBit56 : 1;            /* bit 56 */
-    t_u8 rsvdBit57 : 1;            /* bit 57 */
-    t_u8 rsvdBit58 : 1;            /* bit 58 */
-    t_u8 rsvdBit59 : 1;            /* bit 59 */
-    t_u8 rsvdBit60 : 1;            /* bit 60 */
-    t_u8 TDLSWildBandwidth : 1;    /* bit 61 */
-    t_u8 OperModeNtf : 1;          /* bit 62 */
-    t_u8 MaxAMSDU0 : 1;            /* bit 63 */
-    t_u8 MaxAMSDU1 : 1;            /* bit 64 */
-    t_u8 chanSchedMgnt : 1;        /* bit 65 */
-    t_u8 rsvdBit66 : 1;            /* bit 66 */
-    t_u8 NCC : 1;                  /* bit 67 */
-    t_u8 rsvdBit68 : 1;            /* bit 68 */
-    t_u8 CAQ : 1;                  /* bit 69 */
-    t_u8 FTMR : 1;                 /* bit 70 */
-    t_u8 FTMI : 1;                 /* bit 71 */
-    t_u8 FILS : 1;                 /* bit 72 */
-    t_u8 rsvdBit73 : 1;            /* bit 73 */
-    t_u8 rsvdBit74 : 1;            /* bit 74 */
-    t_u8 rsvdBit75 : 1;            /* bit 75 */
-    t_u8 rsvdBit76 : 1;            /* bit 76 */
+    t_u8 BSS_CoexistSupport : 1;
+    t_u8 Reserved1 : 1;
+    t_u8 ExtChanSwitching : 1;
+    t_u8 RejectUnadmFrame : 1;
+    t_u8 PSMP_Capable : 1;
+    t_u8 Reserved5 : 1;
+    t_u8 SPSMP_Support : 1;
+    t_u8 Event : 1;
+    t_u8 Diagnostics : 1;
+    t_u8 MulticastDiagnostics : 1;
+    t_u8 LocationTracking : 1;
+    t_u8 FMS : 1;
+    t_u8 ProxyARPService : 1;
+    t_u8 CollocatedIntf : 1;
+    t_u8 CivicLocation : 1;
+    t_u8 GeospatialLocation : 1;
+    t_u8 TFS : 1;
+    t_u8 WNM_Sleep : 1;
+    t_u8 TIM_Broadcast : 1;
+    t_u8 BSS_Transition : 1;
+    t_u8 QoSTrafficCap : 1;
+    t_u8 AC_StationCount : 1;
+    t_u8 MultipleBSSID : 1;
+    t_u8 TimingMeasurement : 1;
+    t_u8 ChannelUsage : 1;
+    t_u8 SSID_List : 1;
+    t_u8 DMS : 1;
+    t_u8 UTC : 1;
+    t_u8 TDLSPeerUAPSDSupport : 1;
+    t_u8 TDLSPeerPSMSupport : 1;
+    t_u8 TDLSChannelSwitching : 1;
+    t_u8 Interworking : 1;
+    t_u8 Qos_Map : 1;
+    t_u8 EBR : 1;
+    t_u8 SSPN_Interface : 1;
+    t_u8 Reserved35 : 1;
+    t_u8 MSGCF_Capa : 1;
+    t_u8 TDLSSupport : 1;
+    t_u8 TDLSProhibited : 1;
+    t_u8 TDLSChlSwitchProhib : 1;
+    t_u8 rsvdBit40 : 1;
+    t_u8 rsvdBit41 : 1;
+    t_u8 rsvdBit42 : 1;
+    t_u8 rsvdBit43 : 1;
+    t_u8 rsvdBit44 : 1;
+    t_u8 rsvdBit45 : 1;
+    t_u8 rsvdBit46 : 1;
+    t_u8 rsvdBit47 : 1;
+    t_u8 rsvdBit48 : 1;
+    t_u8 rsvdBit49 : 1;
+    t_u8 rsvdBit50 : 1;
+    t_u8 rsvdBit51 : 1;
+    t_u8 rsvdBit52 : 1;
+    t_u8 rsvdBit53 : 1;
+    t_u8 rsvdBit54 : 1;
+    t_u8 rsvdBit55 : 1;
+    t_u8 rsvdBit56 : 1;
+    t_u8 rsvdBit57 : 1;
+    t_u8 rsvdBit58 : 1;
+    t_u8 rsvdBit59 : 1;
+    t_u8 rsvdBit60 : 1;
+    t_u8 TDLSWildBandwidth : 1;
+    t_u8 OperModeNtf : 1;
+    t_u8 MaxAMSDU0 : 1;
+    t_u8 MaxAMSDU1 : 1;
+    t_u8 chanSchedMgnt : 1;
+    t_u8 rsvdBit66 : 1;
+    t_u8 NCC : 1;
+    t_u8 rsvdBit68 : 1;
+    t_u8 CAQ : 1;
+    t_u8 FTMR : 1;
+    t_u8 FTMI : 1;
+    t_u8 FILS : 1;
+    t_u8 rsvdBit73 : 1;
+    t_u8 rsvdBit74 : 1;
+    t_u8 rsvdBit75 : 1;
+    t_u8 rsvdBit76 : 1;
 #if CONFIG_11AX
-    t_u8 TWTReq : 1;               /* bit 77 */
-    t_u8 TWTResp : 1;              /* bit 78 */
+    t_u8 TWTReq : 1;
+    t_u8 TWTResp : 1;
 #else
-    t_u8 rsvdBit77 : 1; /* bit 77 */
-    t_u8 rsvdBit78 : 1; /* bit 78 */
+    t_u8 rsvdBit77 : 1;
+    t_u8 rsvdBit78 : 1;
 #endif
-    t_u8 rsvdBit79 : 1;            /* bit 79 */
+    t_u8 rsvdBit79 : 1;
 
 } MLAN_PACK_END ExtCap_t, *pExtCap_t;
 #endif
@@ -1442,9 +1442,9 @@ typedef MLAN_PACK_START struct _IEEEtypes_OverlapBSSScanParam_t
 typedef MLAN_PACK_START struct _VHT_MCS_set
 {
     t_u16 rx_mcs_map;
-    t_u16 rx_max_rate; /* bit 29-31 reserved */
+    t_u16 rx_max_rate;
     t_u16 tx_mcs_map;
-    t_u16 tx_max_rate; /* bit 61-63 reserved */
+    t_u16 tx_max_rate;
 } MLAN_PACK_END VHT_MCS_set_t, *pVHT_MCS_set_t;
 
 /** VHT Capabilities info field, reference 802.11ac D1.4 p89 */
@@ -1578,11 +1578,11 @@ typedef MLAN_PACK_START struct
 {
     /** Generic IE header IEEE Element ID = 195*/
     IEEEtypes_Header_t ieee_hdr;
-    t_u8 tpc_info;                     /**< Transmit Power Information>*/
-    t_u8 local_max_tp_20mhz;           /**< Local Maximum Transmit Power for 20 MHZ>*/
-    t_u8 local_max_tp_40mhz;           /**< Local Maximum Transmit Power for 40 MHZ>*/
-    t_u8 local_max_tp_80mhz;           /**< Local Maximum Transmit Power for 80 MHZ>*/
-    t_u8 local_max_tp_160mhz_80_80mhz; /**< Local Maximum Transmit Power for 160/80+80 MHZ>*/
+    t_u8 tpc_info;
+    t_u8 local_max_tp_20mhz;
+    t_u8 local_max_tp_40mhz;
+    t_u8 local_max_tp_80mhz;
+    t_u8 local_max_tp_160mhz_80_80mhz;
 } MLAN_PACK_END IEEEtypes_VhtTpcEnvelope_t;
 #endif
 
@@ -1679,27 +1679,27 @@ typedef MLAN_PACK_START struct _IEEEtypes_OperModeNtf_t
 /**  IEEE Power Constraint element (7.3.2.15) */
 typedef MLAN_PACK_START struct
 {
-    IEEEtypes_ElementId_e element_id; /**< IEEE Element ID = 32 */
-    t_u8 len;                         /**< Element length after id and len */
-    t_u8 local_constraint;            /**< Local power constraint applied to 11d chan info */
+    IEEEtypes_ElementId_e element_id;
+    t_u8 len;
+    t_u8 local_constraint;
 } MLAN_PACK_END IEEEtypes_PowerConstraint_t;
 
 /**  IEEE Power Capability element (7.3.2.16) */
 typedef MLAN_PACK_START struct
 {
-    IEEEtypes_ElementId_e element_id; /**< IEEE Element ID = 33 */
-    t_u8 len;                         /**< Element length after id and len */
-    t_s8 min_tx_power_capability;     /**< Minimum Transmit power (dBm) */
-    t_s8 max_tx_power_capability;     /**< Maximum Transmit power (dBm) */
+    IEEEtypes_ElementId_e element_id;
+    t_u8 len;
+    t_s8 min_tx_power_capability;
+    t_s8 max_tx_power_capability;
 } MLAN_PACK_END IEEEtypes_PowerCapability_t;
 
 /**  IEEE TPC Report element (7.3.2.18) */
 typedef MLAN_PACK_START struct
 {
-    IEEEtypes_ElementId_e element_id; /**< IEEE Element ID = 35 */
-    t_u8 len;                         /**< Element length after id and len */
-    t_s8 tx_power;                    /**< Max power used to transmit the TPC Report frame (dBm) */
-    t_s8 link_margin;                 /**< Link margin when TPC Request received (dB) */
+    IEEEtypes_ElementId_e element_id;
+    t_u8 len;
+    t_s8 tx_power;
+    t_s8 link_margin;
 } MLAN_PACK_END IEEEtypes_TPCReport_t;
 
 /*  IEEE Supported Channel sub-band description (7.3.2.19) */
@@ -1708,8 +1708,8 @@ typedef MLAN_PACK_START struct
  */
 typedef MLAN_PACK_START struct
 {
-    t_u8 start_chan; /**< Starting channel in the subband */
-    t_u8 num_chans;  /**< Number of channels in the subband */
+    t_u8 start_chan;
+    t_u8 num_chans;
 
 } MLAN_PACK_END IEEEtypes_SupportChan_Subband_t;
 
@@ -1720,8 +1720,8 @@ typedef MLAN_PACK_START struct
  */
 typedef MLAN_PACK_START struct
 {
-    IEEEtypes_ElementId_e element_id; /**< IEEE Element ID = 36 */
-    t_u8 len;                         /**< Element length after id and len */
+    IEEEtypes_ElementId_e element_id;
+    t_u8 len;
 
     /** Configured sub-bands information in the element */
     IEEEtypes_SupportChan_Subband_t subband[WLAN_11H_MAX_SUBBANDS];
@@ -1736,11 +1736,11 @@ typedef MLAN_PACK_START struct
  */
 typedef MLAN_PACK_START struct
 {
-    IEEEtypes_ElementId_e element_id; /**< IEEE Element ID = 37 */
-    t_u8 len;                         /**< Element length after id and len */
-    t_u8 chan_switch_mode;            /**< STA should not transmit any frames if 1 */
-    t_u8 new_channel_num;             /**< Channel # that AP/IBSS is moving to */
-    t_u8 chan_switch_count;           /**< # of TBTTs before channel switch */
+    IEEEtypes_ElementId_e element_id;
+    t_u8 len;
+    t_u8 chan_switch_mode;
+    t_u8 new_channel_num;
+    t_u8 chan_switch_count;
 
 } MLAN_PACK_END IEEEtypes_ChanSwitchAnn_t;
 
@@ -1752,12 +1752,12 @@ typedef MLAN_PACK_START struct
  */
 typedef MLAN_PACK_START struct
 {
-    IEEEtypes_ElementId_e element_id; /**< IEEE Element ID = 40 */
-    t_u8 len;                         /**< Element length after id and len */
-    t_u8 quiet_count;                 /**< Number of TBTTs until beacon with the quiet period */
-    t_u8 quiet_period;                /**< Regular quiet period, # of TBTTS between periods */
-    t_u16 quiet_duration;             /**< Duration of the quiet period in TUs */
-    t_u16 quiet_offset;               /**< Offset in TUs from the TBTT for the quiet period */
+    IEEEtypes_ElementId_e element_id;
+    t_u8 len;
+    t_u8 quiet_count;
+    t_u8 quiet_period;
+    t_u16 quiet_duration;
+    t_u16 quiet_offset;
 
 } MLAN_PACK_END IEEEtypes_Quiet_t;
 
@@ -1767,19 +1767,19 @@ typedef MLAN_PACK_START struct
 typedef MLAN_PACK_START struct
 {
 #ifdef BIG_ENDIAN_SUPPORT
-    t_u8 rsvd5_7 : 3;          /**< Reserved */
-    t_u8 unmeasured : 1;       /**< Channel is unmeasured */
-    t_u8 radar : 1;            /**< Radar detected on channel */
-    t_u8 unidentified_sig : 1; /**< Unidentified signal found on channel */
-    t_u8 ofdm_preamble : 1;    /**< OFDM preamble detected on channel */
-    t_u8 bss : 1;              /**< At least one valid MPDU received on channel */
+    t_u8 rsvd5_7 : 3;
+    t_u8 unmeasured : 1;
+    t_u8 radar : 1;
+    t_u8 unidentified_sig : 1;
+    t_u8 ofdm_preamble : 1;
+    t_u8 bss : 1;
 #else
-    t_u8 bss : 1;              /**< At least one valid MPDU received on channel */
-    t_u8 ofdm_preamble : 1;    /**< OFDM preamble detected on channel */
-    t_u8 unidentified_sig : 1; /**< Unidentified signal found on channel */
-    t_u8 radar : 1;            /**< Radar detected on channel */
-    t_u8 unmeasured : 1;       /**< Channel is unmeasured */
-    t_u8 rsvd5_7 : 3;          /**< Reserved */
+    t_u8 bss : 1;
+    t_u8 ofdm_preamble : 1;
+    t_u8 unidentified_sig : 1;
+    t_u8 radar : 1;
+    t_u8 unmeasured : 1;
+    t_u8 rsvd5_7 : 3;
 #endif                         /* BIG_ENDIAN_SUPPORT */
 
 } MLAN_PACK_END MeasRptBasicMap_t;
@@ -1792,8 +1792,8 @@ typedef MLAN_PACK_START struct
  */
 typedef MLAN_PACK_START struct
 {
-    t_u8 channel_number;       /**< Channel number */
-    MeasRptBasicMap_t rpt_map; /**< Basic measurement report for the channel */
+    t_u8 channel_number;
+    MeasRptBasicMap_t rpt_map;
 
 } MLAN_PACK_END IEEEtypes_ChannelMap_t;
 
@@ -1805,10 +1805,10 @@ typedef MLAN_PACK_START struct
  */
 typedef MLAN_PACK_START struct
 {
-    IEEEtypes_ElementId_e element_id;     /**< IEEE Element ID = 41 */
-    t_u8 len;                             /**< Element length after id and len */
-    t_u8 dfs_owner[MLAN_MAC_ADDR_LENGTH]; /**< DFS Owner STA Address */
-    t_u8 dfs_recovery_interval;           /**< DFS Recovery time in TBTTs */
+    IEEEtypes_ElementId_e element_id;
+    t_u8 len;
+    t_u8 dfs_owner[MLAN_MAC_ADDR_LENGTH];
+    t_u8 dfs_recovery_interval;
 
     /** Variable length map field, one Map entry for each supported channel */
     IEEEtypes_ChannelMap_t channel_map[WLAN_11H_MAX_IBSS_DFS_CHANNELS];
@@ -1822,14 +1822,14 @@ typedef MLAN_PACK_START struct
  */
 typedef struct
 {
-    t_u8 sensed_11h;                              /**< Capability bit set or 11h IE found in this BSS */
+    t_u8 sensed_11h;
 
-    IEEEtypes_PowerConstraint_t power_constraint; /**< Power Constraint IE */
-    IEEEtypes_PowerCapability_t power_capability; /**< Power Capability IE */
-    IEEEtypes_TPCReport_t tpc_report;             /**< TPC Report IE */
-    IEEEtypes_ChanSwitchAnn_t chan_switch_ann;    /**< Channel Switch Announcement IE */
-    IEEEtypes_Quiet_t quiet;                      /**< Quiet IE */
-    IEEEtypes_IBSS_DFS_t ibss_dfs;                /**< IBSS DFS Element IE */
+    IEEEtypes_PowerConstraint_t power_constraint;
+    IEEEtypes_PowerCapability_t power_capability;
+    IEEEtypes_TPCReport_t tpc_report;
+    IEEEtypes_ChanSwitchAnn_t chan_switch_ann;
+    IEEEtypes_Quiet_t quiet;
+    IEEEtypes_IBSS_DFS_t ibss_dfs;
 
 } wlan_11h_bss_info_t;
 
@@ -2046,56 +2046,56 @@ typedef MLAN_PACK_START struct _IEEEtypes_HECap_t
 typedef MLAN_PACK_START struct _IEEEtypes_HeOpParam_t {
 #ifdef BIG_ENDIAN_SUPPORT
     /** Reserved, including 6G Operation Info Pressent (bit17) */
-    t_u8  reserved : 6;                             /* bit 18-23 */
+    t_u8  reserved : 6;
     /* 6g operation info present */
-    t_u8  he_6g_op_info_present :1;                 /* bit 17 */
+    t_u8  he_6g_op_info_present :1;
     /** ER SU Disable */
-    t_u8  er_su_disable : 1;                        /* bit 16 */
+    t_u8  er_su_disable : 1;
     /** Co-Hosted BSS */
-    t_u16 co_located_bss : 1;                       /* bit 15 */
+    t_u16 co_located_bss : 1;
     /** VHT Operation Info Present */
-    t_u16 vht_op_info_present : 1;                  /* bit 14 */
+    t_u16 vht_op_info_present : 1;
     /** TXOP Duration RTS Threshold */
-    t_u16 txop_dur_rts_threshold : 10;              /* bit 4-13 */
+    t_u16 txop_dur_rts_threshold : 10;
     /** TWT Required */
-    t_u16 twt_req : 1;                              /* bit 3 */
+    t_u16 twt_req : 1;
     /** Default PE Duration */
-    t_u16 default_pe_dur : 3;                       /* bit 0-2 */
+    t_u16 default_pe_dur : 3;
 #else
     /** Default PE Duration */
-    t_u16 default_pe_dur : 3;                       /* bit 0-2 */
+    t_u16 default_pe_dur : 3;
     /** TWT Required */
-    t_u16 twt_req : 1;                              /* bit 3 */
+    t_u16 twt_req : 1;
     /** TXOP Duration RTS Threshold */
-    t_u16 txop_dur_rts_threshold : 10;              /* bit 4-13 */
+    t_u16 txop_dur_rts_threshold : 10;
     /** VHT Operation Info Present */
-    t_u16 vht_op_info_present : 1;                  /* bit 14 */
+    t_u16 vht_op_info_present : 1;
     /** Co-Hosted BSS */
-    t_u16 co_located_bss : 1;                       /* bit 15 */
+    t_u16 co_located_bss : 1;
     /** ER SU Disable */
-    t_u8  er_su_disable : 1;                        /* bit 16 */
+    t_u8  er_su_disable : 1;
     /* 6g operation info present */
-    t_u8  he_6g_op_info_present :1;                 /* bit 17 */
+    t_u8  he_6g_op_info_present :1;
     /** Reserved bit 18-23 */
-    t_u8  reserved : 6;                             /* bit 18-23 */
+    t_u8  reserved : 6;
 #endif
 } MLAN_PACK_END IEEEtypes_HeOpParam_t;
 
 typedef MLAN_PACK_START struct _IEEEtypes_HeBssColorInfo_t {
 #ifdef BIG_ENDIAN_SUPPORT
     /** BSS Color Disabled */
-    t_u8 bss_color_disabled : 1;                    /* bit 7 */
+    t_u8 bss_color_disabled : 1;
     /** Partial BSS Color */
-    t_u8 partial_bss_color : 1;                     /* bit 6 */
+    t_u8 partial_bss_color : 1;
     /** BSS Color */
-    t_u8 bss_color : 6;                             /* bit 0-5 */
+    t_u8 bss_color : 6;
 #else
     /** BSS Color */
-    t_u8 bss_color : 6;                             /* bit 0-5 */
+    t_u8 bss_color : 6;
     /** Partial BSS Color */
-    t_u8 partial_bss_color : 1;                     /* bit 6 */
+    t_u8 partial_bss_color : 1;
     /** BSS Color Disabled */
-    t_u8 bss_color_disabled : 1;                    /* bit 7 */
+    t_u8 bss_color_disabled : 1;
 #endif
 } MLAN_PACK_END IEEEtypes_HeBssColorInfo_t;
 

@@ -10,8 +10,8 @@
  * @details Elements form a linked list, and as payload carries a pointer
  */
 struct _memq_link {
-	struct _memq_link *next; /* permit chaining */
-	void              *mem;  /* payload */
+	struct _memq_link *next;
+	void              *mem;
 };
 
 typedef struct _memq_link memq_link_t;

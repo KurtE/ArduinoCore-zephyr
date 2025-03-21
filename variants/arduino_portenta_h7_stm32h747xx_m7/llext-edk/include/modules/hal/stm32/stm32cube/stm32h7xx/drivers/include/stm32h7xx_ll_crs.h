@@ -78,14 +78,14 @@ extern "C" {
 /** @defgroup CRS_LL_EC_SYNC_DIV Synchronization Signal Divider
   * @{
   */
-#define LL_CRS_SYNC_DIV_1                  0x00000000U                               /*!< Synchro Signal not divided (default) */
-#define LL_CRS_SYNC_DIV_2                  CRS_CFGR_SYNCDIV_0                        /*!< Synchro Signal divided by 2 */
-#define LL_CRS_SYNC_DIV_4                  CRS_CFGR_SYNCDIV_1                        /*!< Synchro Signal divided by 4 */
-#define LL_CRS_SYNC_DIV_8                  (CRS_CFGR_SYNCDIV_1 | CRS_CFGR_SYNCDIV_0) /*!< Synchro Signal divided by 8 */
-#define LL_CRS_SYNC_DIV_16                 CRS_CFGR_SYNCDIV_2                        /*!< Synchro Signal divided by 16 */
-#define LL_CRS_SYNC_DIV_32                 (CRS_CFGR_SYNCDIV_2 | CRS_CFGR_SYNCDIV_0) /*!< Synchro Signal divided by 32 */
-#define LL_CRS_SYNC_DIV_64                 (CRS_CFGR_SYNCDIV_2 | CRS_CFGR_SYNCDIV_1) /*!< Synchro Signal divided by 64 */
-#define LL_CRS_SYNC_DIV_128                CRS_CFGR_SYNCDIV                          /*!< Synchro Signal divided by 128 */
+#define LL_CRS_SYNC_DIV_1                  0x00000000U
+#define LL_CRS_SYNC_DIV_2                  CRS_CFGR_SYNCDIV_0
+#define LL_CRS_SYNC_DIV_4                  CRS_CFGR_SYNCDIV_1
+#define LL_CRS_SYNC_DIV_8                  (CRS_CFGR_SYNCDIV_1 | CRS_CFGR_SYNCDIV_0)
+#define LL_CRS_SYNC_DIV_16                 CRS_CFGR_SYNCDIV_2
+#define LL_CRS_SYNC_DIV_32                 (CRS_CFGR_SYNCDIV_2 | CRS_CFGR_SYNCDIV_0)
+#define LL_CRS_SYNC_DIV_64                 (CRS_CFGR_SYNCDIV_2 | CRS_CFGR_SYNCDIV_1)
+#define LL_CRS_SYNC_DIV_128                CRS_CFGR_SYNCDIV
 /**
   * @}
   */
@@ -93,9 +93,9 @@ extern "C" {
 /** @defgroup CRS_LL_EC_SYNC_SOURCE Synchronization Signal Source
   * @{
   */
-#define LL_CRS_SYNC_SOURCE_GPIO            0x00000000U             /*!< Synchro Signal source GPIO */
-#define LL_CRS_SYNC_SOURCE_LSE             CRS_CFGR_SYNCSRC_0      /*!< Synchro Signal source LSE */
-#define LL_CRS_SYNC_SOURCE_USB             CRS_CFGR_SYNCSRC_1      /*!< Synchro Signal source USB SOF (default)*/
+#define LL_CRS_SYNC_SOURCE_GPIO            0x00000000U
+#define LL_CRS_SYNC_SOURCE_LSE             CRS_CFGR_SYNCSRC_0
+#define LL_CRS_SYNC_SOURCE_USB             CRS_CFGR_SYNCSRC_1
 /**
   * @}
   */
@@ -103,8 +103,8 @@ extern "C" {
 /** @defgroup CRS_LL_EC_SYNC_POLARITY Synchronization Signal Polarity
   * @{
   */
-#define LL_CRS_SYNC_POLARITY_RISING        0x00000000U           /*!< Synchro Active on rising edge (default) */
-#define LL_CRS_SYNC_POLARITY_FALLING       CRS_CFGR_SYNCPOL      /*!< Synchro Active on falling edge */
+#define LL_CRS_SYNC_POLARITY_RISING        0x00000000U
+#define LL_CRS_SYNC_POLARITY_FALLING       CRS_CFGR_SYNCPOL
 /**
   * @}
   */
@@ -112,8 +112,8 @@ extern "C" {
 /** @defgroup CRS_LL_EC_FREQERRORDIR Frequency Error Direction
   * @{
   */
-#define LL_CRS_FREQ_ERROR_DIR_UP           0x00000000U         /*!< Upcounting direction, the actual frequency is above the target */
-#define LL_CRS_FREQ_ERROR_DIR_DOWN         CRS_ISR_FEDIR       /*!< Downcounting direction, the actual frequency is below the target */
+#define LL_CRS_FREQ_ERROR_DIR_UP           0x00000000U
+#define LL_CRS_FREQ_ERROR_DIR_DOWN         CRS_ISR_FEDIR
 /**
   * @}
   */

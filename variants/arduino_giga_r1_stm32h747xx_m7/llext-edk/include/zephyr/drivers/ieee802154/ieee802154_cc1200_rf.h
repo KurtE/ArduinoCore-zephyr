@@ -27,9 +27,9 @@
 
 const struct cc1200_rf_registers_set cc1200_rf_settings = {
 	.chan_center_freq0 = 863125,
-	.channel_spacing = 2000, /* 200 KHz */
+	.channel_spacing = 2000,
 	.registers = {
-		0x6F, /* SYNC3 */
+		0x6F,
 		0x4E,
 		0x90,
 		0x4E,
@@ -38,7 +38,7 @@ const struct cc1200_rf_registers_set cc1200_rf_settings = {
 		0x47,
 		0x0B,
 		0x56,
-		0x19, /* 0x14 */
+		0x19,
 		0xBA,
 		0xC8,
 		0x84,
@@ -70,8 +70,8 @@ const struct cc1200_rf_registers_set cc1200_rf_settings = {
 		CONFIG_IEEE802154_CC1200_RFEND_CFG0,
 		0x7F,
 		0x56,
-		0x0F, /* ASK_CFG */
-		0x18, /* IF_MIX_CFG */
+		0x0F,
+		0x18,
 		0x20,
 		0x03,
 		0x00,
@@ -128,7 +128,7 @@ const struct cc1200_rf_registers_set cc1200_rf_settings = {
 		0x03,
 		0x00,
 		0x00,
-		0x00, /* PA_CFG3 */
+		0x00,
 	}
 };
 
@@ -138,9 +138,9 @@ const struct cc1200_rf_registers_set cc1200_rf_settings = {
 
 const struct cc1200_rf_registers_set cc1200_rf_settings = {
 	.chan_center_freq0 = 920600,
-	.channel_spacing = 2000, /* 200 KHz */
+	.channel_spacing = 2000,
 	.registers = {
-		0x6F, /* SYNC3 */
+		0x6F,
 		0x4E,
 		0x90,
 		0x4E,
@@ -181,8 +181,8 @@ const struct cc1200_rf_registers_set cc1200_rf_settings = {
 		CONFIG_IEEE802154_CC1200_RFEND_CFG0
 		0x7F,
 		0x56,
-		0x0F, /* ASK_CFG */
-		0x18, /* IF_MIX_CFG */
+		0x0F,
+		0x18,
 		0x20,
 		0x03,
 		0x00,
@@ -239,7 +239,7 @@ const struct cc1200_rf_registers_set cc1200_rf_settings = {
 		0x03,
 		0x00,
 		0x00,
-		0x00, /* PA_CFG3 */
+		0x00,
 	}
 };
 
@@ -249,9 +249,9 @@ const struct cc1200_rf_registers_set cc1200_rf_settings = {
 
 const struct cc1200_rf_registers_set cc1200_rf_settings = {
 	.chan_center_freq0 = 433164,
-	.channel_spacing = 2000, /* 200 KHz */
+	.channel_spacing = 2000,
 	.registers = {
-		0x6F, /* SYNC3 */
+		0x6F,
 		0x4E,
 		0x90,
 		0x4E,
@@ -292,8 +292,8 @@ const struct cc1200_rf_registers_set cc1200_rf_settings = {
 		CONFIG_IEEE802154_CC1200_RFEND_CFG0,
 		0x7F,
 		0x56,
-		0x0F, /* ASK_CFG */
-		0x18, /* IF_MIX_CFG */
+		0x0F,
+		0x18,
 		0x20,
 		0x03,
 		0x00,
@@ -350,7 +350,7 @@ const struct cc1200_rf_registers_set cc1200_rf_settings = {
 		0x03,
 		0x00,
 		0x00,
-		0x00, /* PA_CFG3 */
+		0x00,
 	}
 };
 

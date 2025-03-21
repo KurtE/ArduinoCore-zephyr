@@ -34,9 +34,9 @@
 /*! @brief Internal resistor pull feature selection */
 enum _port_pull
 {
-    kPORT_PullDisable = 0U, /*!< Internal pull-up/down resistor is disabled. */
-    kPORT_PullDown    = 2U, /*!< Internal pull-down resistor is enabled. */
-    kPORT_PullUp      = 3U, /*!< Internal pull-up resistor is enabled. */
+    kPORT_PullDisable = 0U,
+    kPORT_PullDown    = 2U,
+    kPORT_PullUp      = 3U,
 };
 #endif /* FSL_FEATURE_PORT_HAS_PULL_ENABLE */
 
@@ -44,8 +44,8 @@ enum _port_pull
 /*! @brief Internal resistor pull value selection */
 enum _port_pull_value
 {
-    kPORT_LowPullResistor  = 0U, /*!< Low internal pull resistor value is selected. */
-    kPORT_HighPullResistor = 1U, /*!< High internal pull resistor value is selected. */
+    kPORT_LowPullResistor  = 0U,
+    kPORT_HighPullResistor = 1U,
 };
 #endif /* FSL_FEATURE_PORT_PCR_HAS_PULL_VALUE */
 
@@ -53,8 +53,8 @@ enum _port_pull_value
 /*! @brief Slew rate selection */
 enum _port_slew_rate
 {
-    kPORT_FastSlewRate = 0U, /*!< Fast slew rate is configured. */
-    kPORT_SlowSlewRate = 1U, /*!< Slow slew rate is configured. */
+    kPORT_FastSlewRate = 0U,
+    kPORT_SlowSlewRate = 1U,
 };
 #endif /* FSL_FEATURE_PORT_HAS_SLEW_RATE */
 
@@ -62,8 +62,8 @@ enum _port_slew_rate
 /*! @brief Open Drain feature enable/disable */
 enum _port_open_drain_enable
 {
-    kPORT_OpenDrainDisable = 0U, /*!< Open drain output is disabled. */
-    kPORT_OpenDrainEnable  = 1U, /*!< Open drain output is enabled. */
+    kPORT_OpenDrainDisable = 0U,
+    kPORT_OpenDrainEnable  = 1U,
 };
 #endif /* FSL_FEATURE_PORT_HAS_OPEN_DRAIN */
 
@@ -71,8 +71,8 @@ enum _port_open_drain_enable
 /*! @brief Passive filter feature enable/disable */
 enum _port_passive_filter_enable
 {
-    kPORT_PassiveFilterDisable = 0U, /*!< Passive input filter is disabled. */
-    kPORT_PassiveFilterEnable  = 1U, /*!< Passive input filter is enabled. */
+    kPORT_PassiveFilterDisable = 0U,
+    kPORT_PassiveFilterEnable  = 1U,
 };
 #endif
 
@@ -80,8 +80,8 @@ enum _port_passive_filter_enable
 /*! @brief Configures the drive strength. */
 enum _port_drive_strength
 {
-    kPORT_LowDriveStrength  = 0U, /*!< Low-drive strength is configured. */
-    kPORT_HighDriveStrength = 1U, /*!< High-drive strength is configured. */
+    kPORT_LowDriveStrength  = 0U,
+    kPORT_HighDriveStrength = 1U,
 };
 #endif /* FSL_FEATURE_PORT_HAS_DRIVE_STRENGTH */
 
@@ -89,8 +89,8 @@ enum _port_drive_strength
 /*! @brief Configures the drive strength1. */
 enum _port_drive_strength1
 {
-    kPORT_NormalDriveStrength = 0U, /*!< Normal drive strength */
-    kPORT_DoubleDriveStrength = 1U, /*!< Double drive strength */
+    kPORT_NormalDriveStrength = 0U,
+    kPORT_DoubleDriveStrength = 1U,
 };
 #endif /* FSL_FEATURE_PORT_HAS_DRIVE_STRENGTH1 */
 
@@ -98,8 +98,8 @@ enum _port_drive_strength1
 /*! @brief input buffer disable/enable. */
 enum _port_input_buffer
 {
-    kPORT_InputBufferDisable = 0U, /*!< Digital input is disabled */
-    kPORT_InputBufferEnable  = 1U, /*!< Digital input is enabled */
+    kPORT_InputBufferDisable = 0U,
+    kPORT_InputBufferEnable  = 1U,
 };
 #endif /* FSL_FEATURE_PORT_HAS_INPUT_BUFFER */
 
@@ -107,8 +107,8 @@ enum _port_input_buffer
 /*! @brief Digital input is not inverted or it is inverted. */
 enum _port_invet_input
 {
-    kPORT_InputNormal = 0U, /*!< Digital input is not inverted */
-    kPORT_InputInvert = 1U, /*!< Digital input is inverted */
+    kPORT_InputNormal = 0U,
+    kPORT_InputInvert = 1U,
 };
 #endif /* FSL_FEATURE_PORT_HAS_INVERT_INPUT */
 
@@ -116,8 +116,8 @@ enum _port_invet_input
 /*! @brief Unlock/lock the pin control register field[15:0] */
 enum _port_lock_register
 {
-    kPORT_UnlockRegister = 0U, /*!< Pin Control Register fields [15:0] are not locked. */
-    kPORT_LockRegister   = 1U, /*!< Pin Control Register fields [15:0] are locked. */
+    kPORT_UnlockRegister = 0U,
+    kPORT_LockRegister   = 1U,
 };
 #endif /* FSL_FEATURE_PORT_HAS_PIN_CONTROL_LOCK */
 
@@ -126,27 +126,27 @@ enum _port_lock_register
 typedef enum _port_mux
 {
 #if defined(FSL_FEATURE_PORT_PCR_MUX_GPIO) && (FSL_FEATURE_PORT_PCR_MUX_GPIO == 0)
-    kPORT_MuxAsGpio           = 0U,  /*!< Corresponding pin is configured as GPIO. */
+    kPORT_MuxAsGpio           = 0U,
 #else
-    kPORT_PinDisabledOrAnalog = 0U,  /*!< Corresponding pin is disabled, but is used as an analog pin. */
-    kPORT_MuxAsGpio           = 1U,  /*!< Corresponding pin is configured as GPIO. */
+    kPORT_PinDisabledOrAnalog = 0U,
+    kPORT_MuxAsGpio           = 1U,
 #endif
-    kPORT_MuxAlt0             = 0U,  /*!< Chip-specific */
-    kPORT_MuxAlt1             = 1U,  /*!< Chip-specific */
-    kPORT_MuxAlt2             = 2U,  /*!< Chip-specific */
-    kPORT_MuxAlt3             = 3U,  /*!< Chip-specific */
-    kPORT_MuxAlt4             = 4U,  /*!< Chip-specific */
-    kPORT_MuxAlt5             = 5U,  /*!< Chip-specific */
-    kPORT_MuxAlt6             = 6U,  /*!< Chip-specific */
-    kPORT_MuxAlt7             = 7U,  /*!< Chip-specific */
-    kPORT_MuxAlt8             = 8U,  /*!< Chip-specific */
-    kPORT_MuxAlt9             = 9U,  /*!< Chip-specific */
-    kPORT_MuxAlt10            = 10U, /*!< Chip-specific */
-    kPORT_MuxAlt11            = 11U, /*!< Chip-specific */
-    kPORT_MuxAlt12            = 12U, /*!< Chip-specific */
-    kPORT_MuxAlt13            = 13U, /*!< Chip-specific */
-    kPORT_MuxAlt14            = 14U, /*!< Chip-specific */
-    kPORT_MuxAlt15            = 15U, /*!< Chip-specific */
+    kPORT_MuxAlt0             = 0U,
+    kPORT_MuxAlt1             = 1U,
+    kPORT_MuxAlt2             = 2U,
+    kPORT_MuxAlt3             = 3U,
+    kPORT_MuxAlt4             = 4U,
+    kPORT_MuxAlt5             = 5U,
+    kPORT_MuxAlt6             = 6U,
+    kPORT_MuxAlt7             = 7U,
+    kPORT_MuxAlt8             = 8U,
+    kPORT_MuxAlt9             = 9U,
+    kPORT_MuxAlt10            = 10U,
+    kPORT_MuxAlt11            = 11U,
+    kPORT_MuxAlt12            = 12U,
+    kPORT_MuxAlt13            = 13U,
+    kPORT_MuxAlt14            = 14U,
+    kPORT_MuxAlt15            = 15U,
 } port_mux_t;
 #endif /* FSL_FEATURE_PORT_PCR_MUX_WIDTH */
 
@@ -154,25 +154,25 @@ typedef enum _port_mux
 /*! @brief Configures the interrupt generation condition. */
 typedef enum _port_interrupt
 {
-    kPORT_InterruptOrDMADisabled = 0x0U, /*!< Interrupt/DMA request is disabled. */
+    kPORT_InterruptOrDMADisabled = 0x0U,
 #if defined(FSL_FEATURE_PORT_HAS_DMA_REQUEST) && FSL_FEATURE_PORT_HAS_DMA_REQUEST || defined(DOXYGEN_OUTPUT)
-    kPORT_DMARisingEdge  = 0x1U, /*!< DMA request on rising edge. */
-    kPORT_DMAFallingEdge = 0x2U, /*!< DMA request on falling edge. */
-    kPORT_DMAEitherEdge  = 0x3U, /*!< DMA request on either edge. */
+    kPORT_DMARisingEdge  = 0x1U,
+    kPORT_DMAFallingEdge = 0x2U,
+    kPORT_DMAEitherEdge  = 0x3U,
 #endif
 #if defined(FSL_FEATURE_PORT_HAS_IRQC_FLAG) && FSL_FEATURE_PORT_HAS_IRQC_FLAG || defined(DOXYGEN_OUTPUT)
-    kPORT_FlagRisingEdge  = 0x05U, /*!< Flag sets on rising edge. */
-    kPORT_FlagFallingEdge = 0x06U, /*!< Flag sets on falling edge. */
-    kPORT_FlagEitherEdge  = 0x07U, /*!< Flag sets on either edge. */
+    kPORT_FlagRisingEdge  = 0x05U,
+    kPORT_FlagFallingEdge = 0x06U,
+    kPORT_FlagEitherEdge  = 0x07U,
 #endif
-    kPORT_InterruptLogicZero   = 0x8U, /*!< Interrupt when logic zero. */
-    kPORT_InterruptRisingEdge  = 0x9U, /*!< Interrupt on rising edge. */
-    kPORT_InterruptFallingEdge = 0xAU, /*!< Interrupt on falling edge. */
-    kPORT_InterruptEitherEdge  = 0xBU, /*!< Interrupt on either edge. */
-    kPORT_InterruptLogicOne    = 0xCU, /*!< Interrupt when logic one. */
+    kPORT_InterruptLogicZero   = 0x8U,
+    kPORT_InterruptRisingEdge  = 0x9U,
+    kPORT_InterruptFallingEdge = 0xAU,
+    kPORT_InterruptEitherEdge  = 0xBU,
+    kPORT_InterruptLogicOne    = 0xCU,
 #if defined(FSL_FEATURE_PORT_HAS_IRQC_TRIGGER) && FSL_FEATURE_PORT_HAS_IRQC_TRIGGER || defined(DOXYGEN_OUTPUT)
-    kPORT_ActiveHighTriggerOutputEnable = 0xDU, /*!< Enable active high-trigger output. */
-    kPORT_ActiveLowTriggerOutputEnable  = 0xEU, /*!< Enable active low-trigger output. */
+    kPORT_ActiveHighTriggerOutputEnable = 0xDU,
+    kPORT_ActiveLowTriggerOutputEnable  = 0xEU,
 #endif
 } port_interrupt_t;
 #endif
@@ -181,15 +181,15 @@ typedef enum _port_interrupt
 /*! @brief Digital filter clock source selection */
 typedef enum _port_digital_filter_clock_source
 {
-    kPORT_BusClock = 0U, /*!< Digital filters are clocked by the bus clock. */
-    kPORT_LpoClock = 1U, /*!< Digital filters are clocked by the 1 kHz LPO clock. */
+    kPORT_BusClock = 0U,
+    kPORT_LpoClock = 1U,
 } port_digital_filter_clock_source_t;
 
 /*! @brief PORT digital filter feature configuration definition */
 typedef struct _port_digital_filter_config
 {
-    uint32_t digitalFilterWidth;                    /*!< Set digital filter width */
-    port_digital_filter_clock_source_t clockSource; /*!< Set digital filter clockSource */
+    uint32_t digitalFilterWidth;
+    port_digital_filter_clock_source_t clockSource;
 } port_digital_filter_config_t;
 #endif /* FSL_FEATURE_PORT_HAS_DIGITAL_FILTER */
 
@@ -198,17 +198,17 @@ typedef struct _port_digital_filter_config
 typedef struct _port_pin_config
 {
 #if defined(FSL_FEATURE_PORT_HAS_PULL_ENABLE) && FSL_FEATURE_PORT_HAS_PULL_ENABLE
-    uint16_t pullSelect : 2; /*!< No-pull/pull-down/pull-up select */
+    uint16_t pullSelect : 2;
 #else
     uint16_t : 2;
 #endif /* FSL_FEATURE_PORT_HAS_PULL_ENABLE */
 
 #if defined(FSL_FEATURE_PORT_PCR_HAS_PULL_VALUE) && FSL_FEATURE_PORT_PCR_HAS_PULL_VALUE
-    uint16_t pullValueSelect : 1; /*!< Pull value select */
+    uint16_t pullValueSelect : 1;
 #endif                            /* FSL_FEATURE_PORT_PCR_HAS_PULL_VALUE */
 
 #if defined(FSL_FEATURE_PORT_HAS_SLEW_RATE) && FSL_FEATURE_PORT_HAS_SLEW_RATE
-    uint16_t slewRate : 1; /*!< Fast/slow slew rate Configure */
+    uint16_t slewRate : 1;
 #else
     uint16_t : 1;
 #endif /* FSL_FEATURE_PORT_HAS_SLEW_RATE */
@@ -218,46 +218,46 @@ typedef struct _port_pin_config
 #endif /* FSL_FEATURE_PORT_PCR_HAS_PULL_VALUE */
 
 #if defined(FSL_FEATURE_PORT_HAS_PASSIVE_FILTER) && FSL_FEATURE_PORT_HAS_PASSIVE_FILTER
-    uint16_t passiveFilterEnable : 1; /*!< Passive filter enable/disable */
+    uint16_t passiveFilterEnable : 1;
 #else
     uint16_t : 1;
 #endif /* FSL_FEATURE_PORT_HAS_PASSIVE_FILTER */
 
 #if defined(FSL_FEATURE_PORT_HAS_OPEN_DRAIN) && FSL_FEATURE_PORT_HAS_OPEN_DRAIN
-    uint16_t openDrainEnable : 1; /*!< Open drain enable/disable */
+    uint16_t openDrainEnable : 1;
 #else
     uint16_t : 1;
 #endif /* FSL_FEATURE_PORT_HAS_OPEN_DRAIN */
 
 #if defined(FSL_FEATURE_PORT_HAS_DRIVE_STRENGTH) && FSL_FEATURE_PORT_HAS_DRIVE_STRENGTH
-    uint16_t driveStrength : 1; /*!< Fast/slow drive strength configure */
+    uint16_t driveStrength : 1;
 #else
     uint16_t : 1;
 #endif
 
 #if defined(FSL_FEATURE_PORT_HAS_DRIVE_STRENGTH1) && FSL_FEATURE_PORT_HAS_DRIVE_STRENGTH1
-    uint16_t driveStrength1 : 1; /*!< Normal/Double drive strength enable/disable */
+    uint16_t driveStrength1 : 1;
 #else
     uint16_t : 1;
 #endif /* FSL_FEATURE_PORT_HAS_DRIVE_STRENGTH1 */
 
 #if defined(FSL_FEATURE_PORT_PCR_MUX_WIDTH) && (FSL_FEATURE_PORT_PCR_MUX_WIDTH == 3)
-    uint16_t mux : 3; /*!< Pin mux Configure */
+    uint16_t mux : 3;
     uint16_t : 1;
 #elif defined(FSL_FEATURE_PORT_PCR_MUX_WIDTH) && (FSL_FEATURE_PORT_PCR_MUX_WIDTH == 4)
-    uint16_t mux : 4; /*!< Pin mux Configure */
+    uint16_t mux : 4;
 #else
     uint16_t : 4;
 #endif
 
 #if defined(FSL_FEATURE_PORT_HAS_INPUT_BUFFER) && FSL_FEATURE_PORT_HAS_INPUT_BUFFER
-    uint16_t inputBuffer : 1; /*!< Input Buffer Configure */
+    uint16_t inputBuffer : 1;
 #else
     uint16_t : 1;
 #endif /* FSL_FEATURE_PORT_HAS_INPUT_BUFFER */
 
 #if defined(FSL_FEATURE_PORT_HAS_INVERT_INPUT) && FSL_FEATURE_PORT_HAS_INVERT_INPUT
-    uint16_t invertInput : 1; /*!< Invert Input Configure */
+    uint16_t invertInput : 1;
 #else
     uint16_t : 1;
 #endif /* FSL_FEATURE_PORT_HAS_INVERT_INPUT */
@@ -265,7 +265,7 @@ typedef struct _port_pin_config
     uint16_t : 1;
 
 #if defined(FSL_FEATURE_PORT_HAS_PIN_CONTROL_LOCK) && FSL_FEATURE_PORT_HAS_PIN_CONTROL_LOCK
-    uint16_t lockRegister : 1; /*!< Lock/unlock the PCR field[15:0] */
+    uint16_t lockRegister : 1;
 #else
     uint16_t : 1;
 #endif /* FSL_FEATURE_PORT_HAS_PIN_CONTROL_LOCK */
@@ -276,9 +276,9 @@ typedef struct _port_pin_config
 /*! @brief PORT version information. */
 typedef struct _port_version_info
 {
-    uint16_t feature; /*!< Feature Specification Number. */
-    uint8_t minor;    /*!< Minor Version Number. */
-    uint8_t major;    /*!< Major Version Number. */
+    uint16_t feature;
+    uint8_t minor;
+    uint8_t major;
 } port_version_info_t;
 #endif /* FSL_FEATURE_PORT_HAS_VERSION_INFO_REGISTER */
 
@@ -286,8 +286,8 @@ typedef struct _port_version_info
 /*! @brief PORT voltage range. */
 typedef enum _port_voltage_range
 {
-    kPORT_VoltageRange1Dot71V_3Dot6V = 0x0U, /*!< Port voltage range is 1.71 V - 3.6 V. */
-    kPORT_VoltageRange2Dot70V_3Dot6V = 0x1U, /*!< Port voltage range is 2.70 V - 3.6 V. */
+    kPORT_VoltageRange1Dot71V_3Dot6V = 0x0U,
+    kPORT_VoltageRange2Dot70V_3Dot6V = 0x1U,
 } port_voltage_range_t;
 #endif /* FSL_FEATURE_PORT_SUPPORT_DIFFERENT_VOLTAGE_RANGE */
 

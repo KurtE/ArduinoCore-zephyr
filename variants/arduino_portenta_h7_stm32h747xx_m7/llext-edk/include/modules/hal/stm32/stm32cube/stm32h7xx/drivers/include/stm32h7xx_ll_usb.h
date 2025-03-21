@@ -107,24 +107,24 @@ typedef struct
                                         This parameter can be any value of @ref PCD_Speed/HCD_Speed
                                                                                 (HCD_SPEED_xxx, HCD_SPEED_xxx) */
 
-  uint8_t ep0_mps;                 /*!< Set the Endpoint 0 Max Packet size.                                    */
+  uint8_t ep0_mps;
 
   uint8_t phy_itface;              /*!< Select the used PHY interface.
                                         This parameter can be any value of @ref PCD_PHY_Module/HCD_PHY_Module  */
 
-  uint8_t Sof_enable;              /*!< Enable or disable the output of the SOF signal.                        */
+  uint8_t Sof_enable;
 
-  uint8_t low_power_enable;        /*!< Enable or disable the low Power Mode.                                  */
+  uint8_t low_power_enable;
 
-  uint8_t lpm_enable;              /*!< Enable or disable Link Power Management.                               */
+  uint8_t lpm_enable;
 
-  uint8_t battery_charging_enable; /*!< Enable or disable Battery charging.                                    */
+  uint8_t battery_charging_enable;
 
-  uint8_t vbus_sensing_enable;     /*!< Enable or disable the VBUS Sensing feature.                            */
+  uint8_t vbus_sensing_enable;
 
-  uint8_t use_dedicated_ep1;       /*!< Enable or disable the use of the dedicated EP1 interrupt.              */
+  uint8_t use_dedicated_ep1;
 
-  uint8_t use_external_vbus;       /*!< Enable or disable the use of the external VBUS.                        */
+  uint8_t use_external_vbus;
 
 } USB_CfgTypeDef;
 
@@ -151,11 +151,11 @@ typedef struct
   uint32_t  maxpacket;            /*!< Endpoint Max packet size
                                        This parameter must be a number between Min_Data = 0 and Max_Data = 64KB */
 
-  uint8_t   *xfer_buff;           /*!< Pointer to transfer buffer                                               */
+  uint8_t   *xfer_buff;
 
-  uint32_t  xfer_len;             /*!< Current transfer length                                                  */
+  uint32_t  xfer_len;
 
-  uint32_t  xfer_count;           /*!< Partial transfer length in case of multi packet transfer                 */
+  uint32_t  xfer_count;
 
   uint8_t   even_odd_frame;       /*!< IFrame parity
                                        This parameter must be a number between Min_Data = 0 and Max_Data = 1    */
@@ -163,9 +163,9 @@ typedef struct
   uint16_t  tx_fifo_num;          /*!< Transmission FIFO number
                                        This parameter must be a number between Min_Data = 1 and Max_Data = 15   */
 
-  uint32_t  dma_addr;             /*!< 32 bits aligned transfer buffer address                                  */
+  uint32_t  dma_addr;
 
-  uint32_t  xfer_size;            /*!< requested transfer size                                                  */
+  uint32_t  xfer_size;
 } USB_EPTypeDef;
 
 typedef struct
@@ -186,14 +186,14 @@ typedef struct
                                      This parameter can be any value of @ref HCD_Device_Speed:
                                                                              (HCD_DEVICE_SPEED_xxx)             */
 
-  uint8_t   do_ping;            /*!< Enable or disable the use of the PING protocol for HS mode.                */
-  uint8_t   do_ssplit;          /*!< Enable start split transaction in HS mode.                                 */
-  uint8_t   do_csplit;          /*!< Enable complete split transaction in HS mode.                              */
-  uint8_t   ep_ss_schedule;     /*!< Enable periodic endpoint start split schedule .                            */
-  uint32_t  iso_splt_xactPos;   /*!< iso split transfer transaction position.                                   */
+  uint8_t   do_ping;
+  uint8_t   do_ssplit;
+  uint8_t   do_csplit;
+  uint8_t   ep_ss_schedule;
+  uint32_t  iso_splt_xactPos;
 
-  uint8_t   hub_port_nbr;       /*!< USB HUB port number                                                        */
-  uint8_t   hub_addr;           /*!< USB HUB address                                                            */
+  uint8_t   hub_port_nbr;
+  uint8_t   hub_addr;
 
   uint8_t   ep_type;            /*!< Endpoint Type.
                                      This parameter can be any value of @ref USB_LL_EP_Type                     */
@@ -204,13 +204,13 @@ typedef struct
   uint8_t   data_pid;           /*!< Initial data PID.
                                      This parameter must be a number between Min_Data = 0 and Max_Data = 1      */
 
-  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+  uint8_t   *xfer_buff;
 
-  uint32_t  XferSize;           /*!< OTG Channel transfer size.                                                 */
+  uint32_t  XferSize;
 
-  uint32_t  xfer_len;           /*!< Current transfer length.                                                   */
+  uint32_t  xfer_len;
 
-  uint32_t  xfer_count;         /*!< Partial transfer length in case of multi packet transfer.                  */
+  uint32_t  xfer_count;
 
   uint8_t   toggle_in;          /*!< IN transfer current toggle flag.
                                      This parameter must be a number between Min_Data = 0 and Max_Data = 1      */
@@ -218,10 +218,10 @@ typedef struct
   uint8_t   toggle_out;         /*!< OUT transfer current toggle flag
                                      This parameter must be a number between Min_Data = 0 and Max_Data = 1      */
 
-  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+  uint32_t  dma_addr;
 
-  uint32_t  ErrCnt;             /*!< Host channel error count.                                                  */
-  uint32_t  NyetErrCnt;         /*!< Complete Split NYET Host channel error count.                              */
+  uint32_t  ErrCnt;
+  uint32_t  NyetErrCnt;
 
   USB_URBStateTypeDef urb_state;  /*!< URB state.
                                        This parameter can be any value of @ref USB_URBStateTypeDef              */

@@ -4,6 +4,7 @@
 -iwithprefixbefore/llext-edk/include/zephyr/soc/nordic
 -iwithprefixbefore/llext-edk/include/zephyr/lib/libc/common/include
 -iwithprefixbefore/llext-edk/include/zephyr/lib/posix/options/getopt/
+-iwithprefixbefore/llext-edk/include/zephyr/lib/cpp/minimal/include
 -iwithprefixbefore/llext-edk/include/zephyr/soc/nordic/nrf52/.
 -iwithprefixbefore/llext-edk/include/zephyr/soc/nordic/common/.
 -iwithprefixbefore/llext-edk/include/zephyr/subsys/bluetooth/controller/ll_sw/nordic/hal/nrf5/nrfx_glue

@@ -55,11 +55,11 @@ struct _callee_saved {
 	uint32_t i3;
 	uint32_t i4;
 	uint32_t i5;
-	uint32_t i6; /* frame pointer */
+	uint32_t i6;
 	uint32_t i7;
 
 	/* output registers */
-	uint32_t o6; /* stack pointer */
+	uint32_t o6;
 	uint32_t o7;
 
 };

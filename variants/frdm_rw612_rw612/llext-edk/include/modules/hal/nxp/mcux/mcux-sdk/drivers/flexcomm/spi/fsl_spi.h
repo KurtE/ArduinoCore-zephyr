@@ -42,7 +42,7 @@ extern volatile uint8_t s_dummyData[];
 
 /*! @brief Retry times for waiting flag. */
 #ifndef SPI_RETRY_TIMES
-#define SPI_RETRY_TIMES 0U /* Define to zero means keep waiting until the flag is assert/deassert. */
+#define SPI_RETRY_TIMES 0U
 #endif
 
 #define SPI_DATA(n)  (((uint32_t)(n)) & 0xFFFFUL)
@@ -60,22 +60,22 @@ extern volatile uint8_t s_dummyData[];
 /*! @brief SPI transfer option.*/
 typedef enum _spi_xfer_option
 {
-    kSPI_FrameDelay  = (SPI_FIFOWR_EOF_MASK), /*!< A delay may be inserted, defined in the DLY register.*/
-    kSPI_FrameAssert = (SPI_FIFOWR_EOT_MASK), /*!< SSEL will be deasserted at the end of a transfer */
+    kSPI_FrameDelay  = (SPI_FIFOWR_EOF_MASK),
+    kSPI_FrameAssert = (SPI_FIFOWR_EOT_MASK),
 } spi_xfer_option_t;
 
 /*! @brief SPI data shifter direction options.*/
 typedef enum _spi_shift_direction
 {
-    kSPI_MsbFirst = 0U, /*!< Data transfers start with most significant bit. */
-    kSPI_LsbFirst = 1U  /*!< Data transfers start with least significant bit. */
+    kSPI_MsbFirst = 0U,
+    kSPI_LsbFirst = 1U
 } spi_shift_direction_t;
 
 /*! @brief SPI clock polarity configuration.*/
 typedef enum _spi_clock_polarity
 {
-    kSPI_ClockPolarityActiveHigh = 0x0U, /*!< Active-high SPI clock (idles low). */
-    kSPI_ClockPolarityActiveLow          /*!< Active-low SPI clock (idles high). */
+    kSPI_ClockPolarityActiveHigh = 0x0U,
+    kSPI_ClockPolarityActiveLow
 } spi_clock_polarity_t;
 
 /*! @brief SPI clock phase configuration.*/
@@ -90,54 +90,54 @@ typedef enum _spi_clock_phase
 /*! @brief txFIFO watermark values */
 typedef enum _spi_txfifo_watermark
 {
-    kSPI_TxFifo0 = 0, /*!< SPI tx watermark is empty */
-    kSPI_TxFifo1 = 1, /*!< SPI tx watermark at 1 item */
-    kSPI_TxFifo2 = 2, /*!< SPI tx watermark at 2 items */
-    kSPI_TxFifo3 = 3, /*!< SPI tx watermark at 3 items */
-    kSPI_TxFifo4 = 4, /*!< SPI tx watermark at 4 items */
-    kSPI_TxFifo5 = 5, /*!< SPI tx watermark at 5 items */
-    kSPI_TxFifo6 = 6, /*!< SPI tx watermark at 6 items */
-    kSPI_TxFifo7 = 7, /*!< SPI tx watermark at 7 items */
+    kSPI_TxFifo0 = 0,
+    kSPI_TxFifo1 = 1,
+    kSPI_TxFifo2 = 2,
+    kSPI_TxFifo3 = 3,
+    kSPI_TxFifo4 = 4,
+    kSPI_TxFifo5 = 5,
+    kSPI_TxFifo6 = 6,
+    kSPI_TxFifo7 = 7,
 } spi_txfifo_watermark_t;
 
 /*! @brief rxFIFO watermark values */
 typedef enum _spi_rxfifo_watermark
 {
-    kSPI_RxFifo1 = 0, /*!< SPI rx watermark at 1 item */
-    kSPI_RxFifo2 = 1, /*!< SPI rx watermark at 2 items */
-    kSPI_RxFifo3 = 2, /*!< SPI rx watermark at 3 items */
-    kSPI_RxFifo4 = 3, /*!< SPI rx watermark at 4 items */
-    kSPI_RxFifo5 = 4, /*!< SPI rx watermark at 5 items */
-    kSPI_RxFifo6 = 5, /*!< SPI rx watermark at 6 items */
-    kSPI_RxFifo7 = 6, /*!< SPI rx watermark at 7 items */
-    kSPI_RxFifo8 = 7, /*!< SPI rx watermark at 8 items */
+    kSPI_RxFifo1 = 0,
+    kSPI_RxFifo2 = 1,
+    kSPI_RxFifo3 = 2,
+    kSPI_RxFifo4 = 3,
+    kSPI_RxFifo5 = 4,
+    kSPI_RxFifo6 = 5,
+    kSPI_RxFifo7 = 6,
+    kSPI_RxFifo8 = 7,
 } spi_rxfifo_watermark_t;
 
 /*! @brief Transfer data width */
 typedef enum _spi_data_width
 {
-    kSPI_Data4Bits  = 3,  /*!< 4 bits data width */
-    kSPI_Data5Bits  = 4,  /*!< 5 bits data width */
-    kSPI_Data6Bits  = 5,  /*!< 6 bits data width */
-    kSPI_Data7Bits  = 6,  /*!< 7 bits data width */
-    kSPI_Data8Bits  = 7,  /*!< 8 bits data width */
-    kSPI_Data9Bits  = 8,  /*!< 9 bits data width */
-    kSPI_Data10Bits = 9,  /*!< 10 bits data width */
-    kSPI_Data11Bits = 10, /*!< 11 bits data width */
-    kSPI_Data12Bits = 11, /*!< 12 bits data width */
-    kSPI_Data13Bits = 12, /*!< 13 bits data width */
-    kSPI_Data14Bits = 13, /*!< 14 bits data width */
-    kSPI_Data15Bits = 14, /*!< 15 bits data width */
-    kSPI_Data16Bits = 15, /*!< 16 bits data width */
+    kSPI_Data4Bits  = 3,
+    kSPI_Data5Bits  = 4,
+    kSPI_Data6Bits  = 5,
+    kSPI_Data7Bits  = 6,
+    kSPI_Data8Bits  = 7,
+    kSPI_Data9Bits  = 8,
+    kSPI_Data10Bits = 9,
+    kSPI_Data11Bits = 10,
+    kSPI_Data12Bits = 11,
+    kSPI_Data13Bits = 12,
+    kSPI_Data14Bits = 13,
+    kSPI_Data15Bits = 14,
+    kSPI_Data16Bits = 15,
 } spi_data_width_t;
 
 /*! @brief Slave select */
 typedef enum _spi_ssel
 {
-    kSPI_Ssel0 = 0, /*!< Slave select 0 */
-    kSPI_Ssel1 = 1, /*!< Slave select 1 */
-    kSPI_Ssel2 = 2, /*!< Slave select 2 */
-    kSPI_Ssel3 = 3, /*!< Slave select 3 */
+    kSPI_Ssel0 = 0,
+    kSPI_Ssel1 = 1,
+    kSPI_Ssel2 = 2,
+    kSPI_Ssel3 = 3,
 } spi_ssel_t;
 
 /*! @brief ssel polarity */
@@ -173,89 +173,89 @@ typedef enum _spi_spol
  */
 typedef struct _spi_delay_config
 {
-    uint8_t preDelay;      /*!< Delay between SSEL assertion and the beginning of transfer. */
-    uint8_t postDelay;     /*!< Delay between the end of transfer and SSEL deassertion. */
-    uint8_t frameDelay;    /*!< Delay between frame to frame. */
-    uint8_t transferDelay; /*!< Delay between transfer to transfer. */
+    uint8_t preDelay;
+    uint8_t postDelay;
+    uint8_t frameDelay;
+    uint8_t transferDelay;
 } spi_delay_config_t;
 
 /*! @brief SPI master user configure structure.*/
 typedef struct _spi_master_config
 {
-    bool enableLoopback;             /*!< Enable loopback for test purpose */
-    bool enableMaster;               /*!< Enable SPI at initialization time */
-    spi_clock_polarity_t polarity;   /*!< Clock polarity */
-    spi_clock_phase_t phase;         /*!< Clock phase */
-    spi_shift_direction_t direction; /*!< MSB or LSB */
-    uint32_t baudRate_Bps;           /*!< Baud Rate for SPI in Hz */
-    spi_data_width_t dataWidth;      /*!< Width of the data */
-    spi_ssel_t sselNum;              /*!< Slave select number */
-    spi_spol_t sselPol;              /*!< Configure active CS polarity */
-    uint8_t txWatermark;             /*!< txFIFO watermark */
-    uint8_t rxWatermark;             /*!< rxFIFO watermark */
-    spi_delay_config_t delayConfig;  /*!< Delay configuration. */
+    bool enableLoopback;
+    bool enableMaster;
+    spi_clock_polarity_t polarity;
+    spi_clock_phase_t phase;
+    spi_shift_direction_t direction;
+    uint32_t baudRate_Bps;
+    spi_data_width_t dataWidth;
+    spi_ssel_t sselNum;
+    spi_spol_t sselPol;
+    uint8_t txWatermark;
+    uint8_t rxWatermark;
+    spi_delay_config_t delayConfig;
 } spi_master_config_t;
 
 /*! @brief SPI slave user configure structure.*/
 typedef struct _spi_slave_config
 {
-    bool enableSlave;                /*!< Enable SPI at initialization time */
-    spi_clock_polarity_t polarity;   /*!< Clock polarity */
-    spi_clock_phase_t phase;         /*!< Clock phase */
-    spi_shift_direction_t direction; /*!< MSB or LSB */
-    spi_data_width_t dataWidth;      /*!< Width of the data */
-    spi_spol_t sselPol;              /*!< Configure active CS polarity */
-    uint8_t txWatermark;             /*!< txFIFO watermark */
-    uint8_t rxWatermark;             /*!< rxFIFO watermark */
+    bool enableSlave;
+    spi_clock_polarity_t polarity;
+    spi_clock_phase_t phase;
+    spi_shift_direction_t direction;
+    spi_data_width_t dataWidth;
+    spi_spol_t sselPol;
+    uint8_t txWatermark;
+    uint8_t rxWatermark;
 } spi_slave_config_t;
 
 /*! @brief SPI transfer status.*/
 enum
 {
-    kStatus_SPI_Busy  = MAKE_STATUS(kStatusGroup_LPC_SPI, 0), /*!< SPI bus is busy */
-    kStatus_SPI_Idle  = MAKE_STATUS(kStatusGroup_LPC_SPI, 1), /*!< SPI is idle */
-    kStatus_SPI_Error = MAKE_STATUS(kStatusGroup_LPC_SPI, 2), /*!< SPI  error */
+    kStatus_SPI_Busy  = MAKE_STATUS(kStatusGroup_LPC_SPI, 0),
+    kStatus_SPI_Idle  = MAKE_STATUS(kStatusGroup_LPC_SPI, 1),
+    kStatus_SPI_Error = MAKE_STATUS(kStatusGroup_LPC_SPI, 2),
     kStatus_SPI_BaudrateNotSupport =
-        MAKE_STATUS(kStatusGroup_LPC_SPI, 3),                  /*!< Baudrate is not support in current clock source */
-    kStatus_SPI_Timeout = MAKE_STATUS(kStatusGroup_LPC_SPI, 4) /*!< SPI timeout polling status flags. */
+        MAKE_STATUS(kStatusGroup_LPC_SPI, 3),
+    kStatus_SPI_Timeout = MAKE_STATUS(kStatusGroup_LPC_SPI, 4)
 };
 
 /*! @brief SPI interrupt sources.*/
 enum _spi_interrupt_enable
 {
-    kSPI_RxLvlIrq = SPI_FIFOINTENSET_RXLVL_MASK, /*!< Rx level interrupt */
-    kSPI_TxLvlIrq = SPI_FIFOINTENSET_TXLVL_MASK, /*!< Tx level interrupt */
+    kSPI_RxLvlIrq = SPI_FIFOINTENSET_RXLVL_MASK,
+    kSPI_TxLvlIrq = SPI_FIFOINTENSET_TXLVL_MASK,
 };
 
 /*! @brief SPI status flags.*/
 enum _spi_statusflags
 {
-    kSPI_TxEmptyFlag    = SPI_FIFOSTAT_TXEMPTY_MASK,    /*!< txFifo is empty */
-    kSPI_TxNotFullFlag  = SPI_FIFOSTAT_TXNOTFULL_MASK,  /*!< txFifo is not full */
-    kSPI_RxNotEmptyFlag = SPI_FIFOSTAT_RXNOTEMPTY_MASK, /*!< rxFIFO is not empty */
-    kSPI_RxFullFlag     = SPI_FIFOSTAT_RXFULL_MASK,     /*!< rxFIFO is full */
+    kSPI_TxEmptyFlag    = SPI_FIFOSTAT_TXEMPTY_MASK,
+    kSPI_TxNotFullFlag  = SPI_FIFOSTAT_TXNOTFULL_MASK,
+    kSPI_RxNotEmptyFlag = SPI_FIFOSTAT_RXNOTEMPTY_MASK,
+    kSPI_RxFullFlag     = SPI_FIFOSTAT_RXFULL_MASK,
 };
 
 /*! @brief SPI transfer structure */
 typedef struct _spi_transfer
 {
-    const uint8_t *txData; /*!< Send buffer */
-    uint8_t *rxData;      /*!< Receive buffer */
-    uint32_t configFlags; /*!< Additional option to control transfer, @ref spi_xfer_option_t. */
-    size_t dataSize;      /*!< Transfer bytes */
+    const uint8_t *txData;
+    uint8_t *rxData;
+    uint32_t configFlags;
+    size_t dataSize;
 } spi_transfer_t;
 
 /*! @brief SPI half-duplex(master only) transfer structure */
 typedef struct _spi_half_duplex_transfer
 {
-    const uint8_t *txData;      /*!< Send buffer */
-    uint8_t *rxData;            /*!< Receive buffer */
-    size_t txDataSize;          /*!< Transfer bytes for transmit */
-    size_t rxDataSize;          /*!< Transfer bytes */
-    uint32_t configFlags;       /*!< Transfer configuration flags, @ref spi_xfer_option_t. */
+    const uint8_t *txData;
+    uint8_t *rxData;
+    size_t txDataSize;
+    size_t rxDataSize;
+    uint32_t configFlags;
     bool isPcsAssertInTransfer; /*!< If PCS pin keep assert between transmit and receive. true for assert and false for
                                    deassert. */
-    bool isTransmitFirst;       /*!< True for transmit first and false for receive first. */
+    bool isTransmitFirst;
 } spi_half_duplex_transfer_t;
 
 /*! @brief Internal configuration structure used in 'spi' and 'spi_dma' driver */
@@ -280,22 +280,22 @@ typedef void (*spi_slave_callback_t)(SPI_Type *base, spi_slave_handle_t *handle,
 /*! @brief SPI transfer handle structure */
 struct _spi_master_handle
 {
-    const uint8_t *volatile txData;   /*!< Transfer buffer */
-    uint8_t *volatile rxData;         /*!< Receive buffer */
-    volatile size_t txRemainingBytes; /*!< Number of data to be transmitted [in bytes] */
-    volatile size_t rxRemainingBytes; /*!< Number of data to be received [in bytes] */
+    const uint8_t *volatile txData;
+    uint8_t *volatile rxData;
+    volatile size_t txRemainingBytes;
+    volatile size_t rxRemainingBytes;
     volatile int8_t toReceiveCount; /*!< The number of data expected to receive in data width. Since the received count
                                        and sent count should be the same to complete the transfer, if the sent count is
                                        x and the received count is y, toReceiveCount is x-y. */
-    size_t totalByteCount;          /*!< A number of transfer bytes */
-    volatile uint32_t state;        /*!< SPI internal state */
-    spi_master_callback_t callback; /*!< SPI callback */
-    void *userData;                 /*!< Callback parameter */
-    uint8_t dataWidth;              /*!< Width of the data [Valid values: 1 to 16] */
-    uint8_t sselNum;      /*!< Slave select number to be asserted when transferring data [Valid values: 0 to 3] */
-    uint32_t configFlags; /*!< Additional option to control transfer */
-    uint8_t txWatermark;  /*!< txFIFO watermark */
-    uint8_t rxWatermark;  /*!< rxFIFO watermark */
+    size_t totalByteCount;
+    volatile uint32_t state;
+    spi_master_callback_t callback;
+    void *userData;
+    uint8_t dataWidth;
+    uint8_t sselNum;
+    uint32_t configFlags;
+    uint8_t txWatermark;
+    uint8_t rxWatermark;
 };
 
 /*! @brief Typedef for master interrupt handler. */

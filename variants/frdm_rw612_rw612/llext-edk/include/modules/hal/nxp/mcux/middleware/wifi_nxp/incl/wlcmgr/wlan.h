@@ -565,7 +565,7 @@ enum wlan_monitor_opt
  11 - HT40
  12 - VHT40
  13 - VHT80 */
-#define BW 13 /* RW610 only allows 20M bandwidth */
+#define BW 13
 /*Indicates how many burst instances are requested for the FTM session */
 #define BURST_EXP 3
 
@@ -583,19 +583,19 @@ enum wlan_monitor_opt
 #define CIVIC_REQUEST       1
 #define CIVIC_LOCATION      1
 #define CIVIC_LOCATION_TYPE 1
-#define CIVIC_COUNTRY_CODE  0 /* US */
+#define CIVIC_COUNTRY_CODE  0
 #define CIVIC_ADDRESS_TYPE  22
 #define CIVIC_ADDRESS       "#123"
 
 /* DOT11AZ CFG */
-#define FORMAT_BW 2 /* RW610 only allows 20M bandwidth */
+#define FORMAT_BW 2
 /*Maximum number of space-time streams to be used in DL/UL NDP frames in the session up to 80MHz */
-#define MAX_I2R_STS_UPTO80 0 /* RW610 only allows to send 1 N_STS*/
+#define MAX_I2R_STS_UPTO80 0
 #define MAX_R2I_STS_UPTO80 0
 /* Measurement frequency in Hz to calculate measurement interval */
-#define AZ_MEASUREMENT_FREQ       4 /* in 0.1 Hz increments */
+#define AZ_MEASUREMENT_FREQ       4
 #define AZ_NUMBER_OF_MEASUREMENTS 6
-#define I2R_LMR_FEEDBACK          0 /* allow RSTA to request I2R reporting */
+#define I2R_LMR_FEEDBACK          0
 
 #define FOR_RANGING 0
 
@@ -875,8 +875,8 @@ typedef PACK_START struct _Event_AutoLink_SW_Node_t
 typedef PACK_START struct _Event_Radar_Detected_Info
 {
     t_u32 detect_count;
-    t_u8 reg_domain;    /*1=fcc, 2=etsi, 3=mic*/
-    t_u8 main_det_type; /*0=none, 1=pw(chirp), 2=pri(radar)*/
+    t_u8 reg_domain;
+    t_u8 main_det_type;
     t_u16 pw_chirp_type;
     t_u8 pw_chirp_idx;
     t_u8 pw_value;
@@ -1335,7 +1335,7 @@ struct wlan_network_security
     /** Domain */
     char domain_match[DOMAIN_MATCH_MAX_LENGTH];
     /** Domain Suffix */
-    char domain_suffix_match[DOMAIN_MATCH_MAX_LENGTH]; /*suffix max length same as full domain name length*/
+    char domain_suffix_match[DOMAIN_MATCH_MAX_LENGTH];
     /** CA (Certificate Authority) certification blob (Binary Large Object) in PEM (Base64 ASCII)/DER (binary) format for phase two */
     unsigned char *ca_cert2_data;
     /** CA (Certificate Authority) certification blob (Binary Large Object) length for phase two */

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2019 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -50,23 +50,23 @@ extern "C" {
 /** @brief FPU events. */
 typedef enum
 {
-    NRF_FPU_EVENT_INVALIDOPERATION = offsetof(NRF_FPU_Type, EVENTS_INVALIDOPERATION), /**< An FPUIOC exception triggered by an invalid operation has occurred in the FPU. */
-    NRF_FPU_EVENT_DIVIDEBYZERO     = offsetof(NRF_FPU_Type, EVENTS_DIVIDEBYZERO),     /**< An FPUDZC exception triggered by a floating-point divide-by-zero operation has occurred in the FPU. */
-    NRF_FPU_EVENT_OVERFLOW         = offsetof(NRF_FPU_Type, EVENTS_OVERFLOW),         /**< An FPUOFC exception triggered by a floating-point overflow has occurred in the FPU. */
-    NRF_FPU_EVENT_UNDERFLOW        = offsetof(NRF_FPU_Type, EVENTS_UNDERFLOW),        /**< An FPUUFC exception triggered by a floating-point underflow has occurred in the FPU. */
-    NRF_FPU_EVENT_INEXACT          = offsetof(NRF_FPU_Type, EVENTS_INEXACT),          /**< An FPUIXC exception triggered by an inexact floating-point operation has occurred in the FPU. */
-    NRF_FPU_EVENT_DENORMALINPUT    = offsetof(NRF_FPU_Type, EVENTS_DENORMALINPUT),    /**< An FPUIDC exception triggered by a denormal floating-point input has occurred in the FPU. */
+    NRF_FPU_EVENT_INVALIDOPERATION = offsetof(NRF_FPU_Type, EVENTS_INVALIDOPERATION),
+    NRF_FPU_EVENT_DIVIDEBYZERO     = offsetof(NRF_FPU_Type, EVENTS_DIVIDEBYZERO),
+    NRF_FPU_EVENT_OVERFLOW         = offsetof(NRF_FPU_Type, EVENTS_OVERFLOW),
+    NRF_FPU_EVENT_UNDERFLOW        = offsetof(NRF_FPU_Type, EVENTS_UNDERFLOW),
+    NRF_FPU_EVENT_INEXACT          = offsetof(NRF_FPU_Type, EVENTS_INEXACT),
+    NRF_FPU_EVENT_DENORMALINPUT    = offsetof(NRF_FPU_Type, EVENTS_DENORMALINPUT),
 } nrf_fpu_event_t;
 
 /** @brief FPU interrupts. */
 typedef enum
 {
-    NRF_FPU_INT_INVALIDOPERATION = FPU_INTEN_INVALIDOPERATION_Msk, /**< Interrupt on event INVALIDOPERATION. */
-    NRF_FPU_INT_DIVIDEBYZERO     = FPU_INTEN_DIVIDEBYZERO_Msk,     /**< Interrupt on event DIVIDEBYZERO. */
-    NRF_FPU_INT_OVERFLOW         = FPU_INTEN_OVERFLOW_Msk,         /**< Interrupt on event OVERFLOW. */
-    NRF_FPU_INT_UNDERFLOW        = FPU_INTEN_UNDERFLOW_Msk,        /**< Interrupt on event UNDERFLOW. */
-    NRF_FPU_INT_INEXACT          = FPU_INTEN_INEXACT_Msk,          /**< Interrupt on event INEXACT. */
-    NRF_FPU_INT_DENORMALINPUT    = FPU_INTEN_DENORMALINPUT_Msk,    /**< Interrupt on event DENORMALINPUT. */
+    NRF_FPU_INT_INVALIDOPERATION = FPU_INTEN_INVALIDOPERATION_Msk,
+    NRF_FPU_INT_DIVIDEBYZERO     = FPU_INTEN_DIVIDEBYZERO_Msk,
+    NRF_FPU_INT_OVERFLOW         = FPU_INTEN_OVERFLOW_Msk,
+    NRF_FPU_INT_UNDERFLOW        = FPU_INTEN_UNDERFLOW_Msk,
+    NRF_FPU_INT_INEXACT          = FPU_INTEN_INEXACT_Msk,
+    NRF_FPU_INT_DENORMALINPUT    = FPU_INTEN_DENORMALINPUT_Msk,
 } nrf_fpu_int_mask_t;
 
 /**

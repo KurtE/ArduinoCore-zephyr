@@ -27,7 +27,7 @@ struct mcs_instance_t *lookup_inst_by_conn(struct bt_conn *conn);
 enum mcc_flag {
 	MCC_FLAG_BUSY,
 
-	MCC_FLAG_NUM_FLAGS, /* keep as last */
+	MCC_FLAG_NUM_FLAGS,
 };
 
 struct mcs_instance_t {

@@ -13,13 +13,13 @@
 #define NRF5_PHR_LENGTH   (1)
 
 struct nrf5_802154_rx_frame {
-	void *fifo_reserved; /* 1st word reserved for use by fifo. */
-	uint8_t *psdu; /* Pointer to a received frame. */
-	uint64_t time; /* RX timestamp. */
-	uint8_t lqi; /* Last received frame LQI value. */
-	int8_t rssi; /* Last received frame RSSI value. */
-	bool ack_fpb; /* FPB value in ACK sent for the received frame. */
-	bool ack_seb; /* SEB value in ACK sent for the received frame. */
+	void *fifo_reserved;
+	uint8_t *psdu;
+	uint64_t time;
+	uint8_t lqi;
+	int8_t rssi;
+	bool ack_fpb;
+	bool ack_seb;
 };
 
 struct nrf5_802154_data {

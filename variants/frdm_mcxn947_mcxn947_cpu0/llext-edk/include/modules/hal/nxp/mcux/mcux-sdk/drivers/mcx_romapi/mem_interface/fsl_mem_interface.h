@@ -39,8 +39,8 @@
 /*! @brief Memory group definition. */
 enum
 {
-    kMemoryGroup_Internal = 0U, /*!<  Memory belongs internal 4G memory region. */
-    kMemoryGroup_External = 1U, /*!<  Memory belongs external memory region. */
+    kMemoryGroup_Internal = 0U,
+    kMemoryGroup_External = 1U,
 };
 
 /*! @brief Memory device ID definition. */
@@ -80,22 +80,22 @@ enum
         INT : Internal 4G memory, including internal memory modules, and XIP external memory modules.
         EXT : Non-XIP external memory modules.
     */
-    kMemoryInternal = MAKE_MEMORYID(kMemoryGroup_Internal, 0U), /*!< Internal memory (include all on chip memory) */
-    kMemoryQuadSpi0 = MAKE_MEMORYID(kMemoryGroup_Internal, 1U), /*!< Qsuad SPI memory 0 */
+    kMemoryInternal = MAKE_MEMORYID(kMemoryGroup_Internal, 0U),
+    kMemoryQuadSpi0 = MAKE_MEMORYID(kMemoryGroup_Internal, 1U),
     kMemoryIFR0 =
-        MAKE_MEMORYID(kMemoryGroup_Internal, 4U), /*!< Nonvolatile information register 0. Only used by SB loader. */
-    kMemoryFFR              = MAKE_MEMORYID(kMemoryGroup_Internal, 5U),    /*!< LPCc040hd flash FFR region. */
-    kMemorySemcNor          = MAKE_MEMORYID(kMemoryGroup_Internal, 8U),    /*!< SEMC Nor memory */
-    kMemoryFlexSpiNor       = MAKE_MEMORYID(kMemoryGroup_Internal, 9U),    /*!< Flex SPI Nor memory */
-    kMemorySpifiNor         = MAKE_MEMORYID(kMemoryGroup_Internal, 0xAU),  /*!< SPIFI Nor memory */
-    kMemoryFlashExecuteOnly = MAKE_MEMORYID(kMemoryGroup_Internal, 0x10U), /*!< Execute-only region on internal Flash */
+        MAKE_MEMORYID(kMemoryGroup_Internal, 4U),
+    kMemoryFFR              = MAKE_MEMORYID(kMemoryGroup_Internal, 5U),
+    kMemorySemcNor          = MAKE_MEMORYID(kMemoryGroup_Internal, 8U),
+    kMemoryFlexSpiNor       = MAKE_MEMORYID(kMemoryGroup_Internal, 9U),
+    kMemorySpifiNor         = MAKE_MEMORYID(kMemoryGroup_Internal, 0xAU),
+    kMemoryFlashExecuteOnly = MAKE_MEMORYID(kMemoryGroup_Internal, 0x10U),
 
-    kMemorySemcNand     = MAKE_MEMORYID(kMemoryGroup_External, 0U),    /*!< SEMC NAND memory */
-    kMemorySpiNand      = MAKE_MEMORYID(kMemoryGroup_External, 1U),    /*!< SPI NAND memory */
-    kMemorySpiNorEeprom = MAKE_MEMORYID(kMemoryGroup_External, 0x10U), /*!< SPI NOR/EEPROM memory */
-    kMemoryI2cNorEeprom = MAKE_MEMORYID(kMemoryGroup_External, 0x11U), /*!< I2C NOR/EEPROM memory */
-    kMemorySDCard       = MAKE_MEMORYID(kMemoryGroup_External, 0x20U), /*!< eSD, SD, SDHC, SDXC memory Card */
-    kMemoryMMCCard      = MAKE_MEMORYID(kMemoryGroup_External, 0x21U), /*!< MMC, eMMC memory Card */
+    kMemorySemcNand     = MAKE_MEMORYID(kMemoryGroup_External, 0U),
+    kMemorySpiNand      = MAKE_MEMORYID(kMemoryGroup_External, 1U),
+    kMemorySpiNorEeprom = MAKE_MEMORYID(kMemoryGroup_External, 0x10U),
+    kMemoryI2cNorEeprom = MAKE_MEMORYID(kMemoryGroup_External, 0x11U),
+    kMemorySDCard       = MAKE_MEMORYID(kMemoryGroup_External, 0x20U),
+    kMemoryMMCCard      = MAKE_MEMORYID(kMemoryGroup_External, 0x21U),
 };
 
 /*! @brief Bootloader status group numbers.
@@ -104,8 +104,8 @@ enum
  */
 enum
 {
-    kStatusGroup_Bootloader      = 100, /*!< Bootloader status group number (100). */
-    kStatusGroup_MemoryInterface = 102, /*!< Memory interface status group number (102). */
+    kStatusGroup_Bootloader      = 100,
+    kStatusGroup_MemoryInterface = 102,
 };
 
 /*! @brief Memory interface status codes. */
@@ -184,12 +184,12 @@ typedef union StandardVersion
 {
     struct
     {
-        uint8_t bugfix; /*!< bugfix version [7:0] */
-        uint8_t minor;  /*!< minor version [15:8] */
-        uint8_t major;  /*!< major version [23:16] */
-        char name;      /*!< name [31:24] */
+        uint8_t bugfix;
+        uint8_t minor;
+        uint8_t major;
+        char name;
     };
-    uint32_t version; /*!< combined version numbers */
+    uint32_t version;
 } standard_version_t;
 
 /*! @brief API initialization data structure */

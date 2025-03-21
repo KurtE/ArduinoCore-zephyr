@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2016 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -97,44 +97,44 @@ extern "C" {
 /** @brief QSPI tasks. */
 typedef enum
 {
-    NRF_QSPI_TASK_ACTIVATE   = offsetof(NRF_QSPI_Type, TASKS_ACTIVATE),   /**< Activate the QSPI interface. */
-    NRF_QSPI_TASK_READSTART  = offsetof(NRF_QSPI_Type, TASKS_READSTART),  /**< Start transfer from external flash memory to internal RAM. */
-    NRF_QSPI_TASK_WRITESTART = offsetof(NRF_QSPI_Type, TASKS_WRITESTART), /**< Start transfer from internal RAM to external flash memory. */
-    NRF_QSPI_TASK_ERASESTART = offsetof(NRF_QSPI_Type, TASKS_ERASESTART), /**< Start external flash memory erase operation. */
-    NRF_QSPI_TASK_DEACTIVATE = offsetof(NRF_QSPI_Type, TASKS_DEACTIVATE), /**< Deactivate the QSPI interface. */
+    NRF_QSPI_TASK_ACTIVATE   = offsetof(NRF_QSPI_Type, TASKS_ACTIVATE),
+    NRF_QSPI_TASK_READSTART  = offsetof(NRF_QSPI_Type, TASKS_READSTART),
+    NRF_QSPI_TASK_WRITESTART = offsetof(NRF_QSPI_Type, TASKS_WRITESTART),
+    NRF_QSPI_TASK_ERASESTART = offsetof(NRF_QSPI_Type, TASKS_ERASESTART),
+    NRF_QSPI_TASK_DEACTIVATE = offsetof(NRF_QSPI_Type, TASKS_DEACTIVATE),
 } nrf_qspi_task_t;
 
 /** @brief QSPI events. */
 typedef enum
 {
-    NRF_QSPI_EVENT_READY = offsetof(NRF_QSPI_Type, EVENTS_READY) /**< QSPI peripheral is ready after it executes any task. */
+    NRF_QSPI_EVENT_READY = offsetof(NRF_QSPI_Type, EVENTS_READY)
 } nrf_qspi_event_t;
 
 /** @brief QSPI interrupts. */
 typedef enum
 {
-    NRF_QSPI_INT_READY_MASK = QSPI_INTENSET_READY_Msk /**< Interrupt on READY event. */
+    NRF_QSPI_INT_READY_MASK = QSPI_INTENSET_READY_Msk
 } nrf_qspi_int_mask_t;
 
 /** @brief QSPI base clock frequency divider values. */
 typedef enum
 {
-    NRF_QSPI_FREQ_DIV1,  /**< Divide by 1. */
-    NRF_QSPI_FREQ_DIV2,  /**< Divide by 2. */
-    NRF_QSPI_FREQ_DIV3,  /**< Divide by 3. */
-    NRF_QSPI_FREQ_DIV4,  /**< Divide by 4. */
-    NRF_QSPI_FREQ_DIV5,  /**< Divide by 5. */
-    NRF_QSPI_FREQ_DIV6,  /**< Divide by 6. */
-    NRF_QSPI_FREQ_DIV7,  /**< Divide by 7. */
-    NRF_QSPI_FREQ_DIV8,  /**< Divide by 8. */
-    NRF_QSPI_FREQ_DIV9,  /**< Divide by 9. */
-    NRF_QSPI_FREQ_DIV10, /**< Divide by 10. */
-    NRF_QSPI_FREQ_DIV11, /**< Divide by 11. */
-    NRF_QSPI_FREQ_DIV12, /**< Divide by 12. */
-    NRF_QSPI_FREQ_DIV13, /**< Divide by 13. */
-    NRF_QSPI_FREQ_DIV14, /**< Divide by 14. */
-    NRF_QSPI_FREQ_DIV15, /**< Divide by 15. */
-    NRF_QSPI_FREQ_DIV16, /**< Divide by 16. */
+    NRF_QSPI_FREQ_DIV1,
+    NRF_QSPI_FREQ_DIV2,
+    NRF_QSPI_FREQ_DIV3,
+    NRF_QSPI_FREQ_DIV4,
+    NRF_QSPI_FREQ_DIV5,
+    NRF_QSPI_FREQ_DIV6,
+    NRF_QSPI_FREQ_DIV7,
+    NRF_QSPI_FREQ_DIV8,
+    NRF_QSPI_FREQ_DIV9,
+    NRF_QSPI_FREQ_DIV10,
+    NRF_QSPI_FREQ_DIV11,
+    NRF_QSPI_FREQ_DIV12,
+    NRF_QSPI_FREQ_DIV13,
+    NRF_QSPI_FREQ_DIV14,
+    NRF_QSPI_FREQ_DIV15,
+    NRF_QSPI_FREQ_DIV16,
 } nrf_qspi_frequency_t;
 
 #if defined(NRF52_SERIES)
@@ -160,76 +160,76 @@ typedef enum
 /** @brief Interface configuration for a read operation. */
 typedef enum
 {
-    NRF_QSPI_READOC_FASTREAD = QSPI_IFCONFIG0_READOC_FASTREAD, /**< Single data line SPI. FAST_READ (opcode 0x0B). */
-    NRF_QSPI_READOC_READ2O   = QSPI_IFCONFIG0_READOC_READ2O,   /**< Dual data line SPI. READ2O (opcode 0x3B). */
-    NRF_QSPI_READOC_READ2IO  = QSPI_IFCONFIG0_READOC_READ2IO,  /**< Dual data line SPI. READ2IO (opcode 0xBB). */
-    NRF_QSPI_READOC_READ4O   = QSPI_IFCONFIG0_READOC_READ4O,   /**< Quad data line SPI. READ4O (opcode 0x6B). */
-    NRF_QSPI_READOC_READ4IO  = QSPI_IFCONFIG0_READOC_READ4IO   /**< Quad data line SPI. READ4IO (opcode 0xEB). */
+    NRF_QSPI_READOC_FASTREAD = QSPI_IFCONFIG0_READOC_FASTREAD,
+    NRF_QSPI_READOC_READ2O   = QSPI_IFCONFIG0_READOC_READ2O,
+    NRF_QSPI_READOC_READ2IO  = QSPI_IFCONFIG0_READOC_READ2IO,
+    NRF_QSPI_READOC_READ4O   = QSPI_IFCONFIG0_READOC_READ4O,
+    NRF_QSPI_READOC_READ4IO  = QSPI_IFCONFIG0_READOC_READ4IO
 } nrf_qspi_readoc_t;
 
 /** @brief Interface configuration for a write operation. */
 typedef enum
 {
-    NRF_QSPI_WRITEOC_PP    = QSPI_IFCONFIG0_WRITEOC_PP,    /**< Single data line SPI. PP (opcode 0x02). */
-    NRF_QSPI_WRITEOC_PP2O  = QSPI_IFCONFIG0_WRITEOC_PP2O,  /**< Dual data line SPI. PP2O (opcode 0xA2). */
-    NRF_QSPI_WRITEOC_PP4O  = QSPI_IFCONFIG0_WRITEOC_PP4O,  /**< Quad data line SPI. PP4O (opcode 0x32). */
-    NRF_QSPI_WRITEOC_PP4IO = QSPI_IFCONFIG0_WRITEOC_PP4IO, /**< Quad data line SPI. READ4O (opcode 0x38). */
+    NRF_QSPI_WRITEOC_PP    = QSPI_IFCONFIG0_WRITEOC_PP,
+    NRF_QSPI_WRITEOC_PP2O  = QSPI_IFCONFIG0_WRITEOC_PP2O,
+    NRF_QSPI_WRITEOC_PP4O  = QSPI_IFCONFIG0_WRITEOC_PP4O,
+    NRF_QSPI_WRITEOC_PP4IO = QSPI_IFCONFIG0_WRITEOC_PP4IO,
 } nrf_qspi_writeoc_t;
 
 /** @brief Interface configuration for addressing mode. */
 typedef enum
 {
-    NRF_QSPI_ADDRMODE_24BIT = QSPI_IFCONFIG0_ADDRMODE_24BIT, /**< 24-bit addressing. */
-    NRF_QSPI_ADDRMODE_32BIT = QSPI_IFCONFIG0_ADDRMODE_32BIT  /**< 32-bit addressing. */
+    NRF_QSPI_ADDRMODE_24BIT = QSPI_IFCONFIG0_ADDRMODE_24BIT,
+    NRF_QSPI_ADDRMODE_32BIT = QSPI_IFCONFIG0_ADDRMODE_32BIT
 } nrf_qspi_addrmode_t;
 
 /** @brief QSPI SPI mode. Polarization and phase configuration. */
 typedef enum
 {
-    NRF_QSPI_MODE_0 = QSPI_IFCONFIG1_SPIMODE_MODE0, /**< Mode 0 (CPOL=0, CPHA=0). */
+    NRF_QSPI_MODE_0 = QSPI_IFCONFIG1_SPIMODE_MODE0,
 #if NRF_QSPI_HAS_MODE_1
-    NRF_QSPI_MODE_1 = QSPI_IFCONFIG1_SPIMODE_MODE3  /**< Mode 1 (CPOL=1, CPHA=1). */
+    NRF_QSPI_MODE_1 = QSPI_IFCONFIG1_SPIMODE_MODE3
 #endif
 } nrf_qspi_spi_mode_t;
 
 /** @brief Addressing configuration mode. */
 typedef enum
 {
-    NRF_QSPI_ADDRCONF_MODE_NOINSTR = QSPI_ADDRCONF_MODE_NoInstr, /**< Do not send any instruction. */
-    NRF_QSPI_ADDRCONF_MODE_OPCODE  = QSPI_ADDRCONF_MODE_Opcode,  /**< Send opcode. */
-    NRF_QSPI_ADDRCONF_MODE_OPBYTE0 = QSPI_ADDRCONF_MODE_OpByte0, /**< Send opcode, byte0. */
-    NRF_QSPI_ADDRCONF_MODE_ALL     = QSPI_ADDRCONF_MODE_All      /**< Send opcode, byte0, byte1. */
+    NRF_QSPI_ADDRCONF_MODE_NOINSTR = QSPI_ADDRCONF_MODE_NoInstr,
+    NRF_QSPI_ADDRCONF_MODE_OPCODE  = QSPI_ADDRCONF_MODE_Opcode,
+    NRF_QSPI_ADDRCONF_MODE_OPBYTE0 = QSPI_ADDRCONF_MODE_OpByte0,
+    NRF_QSPI_ADDRCONF_MODE_ALL     = QSPI_ADDRCONF_MODE_All
 } nrf_qspi_addrconfig_mode_t;
 
 /** @brief Erasing data length. */
 typedef enum
 {
-    NRF_QSPI_ERASE_LEN_4KB  = QSPI_ERASE_LEN_LEN_4KB,  /**< Erase 4 kB block (flash command 0x20). */
-    NRF_QSPI_ERASE_LEN_64KB = QSPI_ERASE_LEN_LEN_64KB, /**< Erase 64 kB block (flash command 0xD8). */
-    NRF_QSPI_ERASE_LEN_ALL  = QSPI_ERASE_LEN_LEN_All   /**< Erase all (flash command 0xC7). */
+    NRF_QSPI_ERASE_LEN_4KB  = QSPI_ERASE_LEN_LEN_4KB,
+    NRF_QSPI_ERASE_LEN_64KB = QSPI_ERASE_LEN_LEN_64KB,
+    NRF_QSPI_ERASE_LEN_ALL  = QSPI_ERASE_LEN_LEN_All
 } nrf_qspi_erase_len_t;
 
 /** @brief Custom instruction length. */
 typedef enum
 {
-    NRF_QSPI_CINSTR_LEN_1B = QSPI_CINSTRCONF_LENGTH_1B, /**< Send opcode only. */
-    NRF_QSPI_CINSTR_LEN_2B = QSPI_CINSTRCONF_LENGTH_2B, /**< Send opcode, CINSTRDAT0.BYTE0. */
-    NRF_QSPI_CINSTR_LEN_3B = QSPI_CINSTRCONF_LENGTH_3B, /**< Send opcode, CINSTRDAT0.BYTE0 -> CINSTRDAT0.BYTE1. */
-    NRF_QSPI_CINSTR_LEN_4B = QSPI_CINSTRCONF_LENGTH_4B, /**< Send opcode, CINSTRDAT0.BYTE0 -> CINSTRDAT0.BYTE2. */
-    NRF_QSPI_CINSTR_LEN_5B = QSPI_CINSTRCONF_LENGTH_5B, /**< Send opcode, CINSTRDAT0.BYTE0 -> CINSTRDAT0.BYTE3. */
-    NRF_QSPI_CINSTR_LEN_6B = QSPI_CINSTRCONF_LENGTH_6B, /**< Send opcode, CINSTRDAT0.BYTE0 -> CINSTRDAT1.BYTE4. */
-    NRF_QSPI_CINSTR_LEN_7B = QSPI_CINSTRCONF_LENGTH_7B, /**< Send opcode, CINSTRDAT0.BYTE0 -> CINSTRDAT1.BYTE5. */
-    NRF_QSPI_CINSTR_LEN_8B = QSPI_CINSTRCONF_LENGTH_8B, /**< Send opcode, CINSTRDAT0.BYTE0 -> CINSTRDAT1.BYTE6. */
-    NRF_QSPI_CINSTR_LEN_9B = QSPI_CINSTRCONF_LENGTH_9B  /**< Send opcode, CINSTRDAT0.BYTE0 -> CINSTRDAT1.BYTE7. */
+    NRF_QSPI_CINSTR_LEN_1B = QSPI_CINSTRCONF_LENGTH_1B,
+    NRF_QSPI_CINSTR_LEN_2B = QSPI_CINSTRCONF_LENGTH_2B,
+    NRF_QSPI_CINSTR_LEN_3B = QSPI_CINSTRCONF_LENGTH_3B,
+    NRF_QSPI_CINSTR_LEN_4B = QSPI_CINSTRCONF_LENGTH_4B,
+    NRF_QSPI_CINSTR_LEN_5B = QSPI_CINSTRCONF_LENGTH_5B,
+    NRF_QSPI_CINSTR_LEN_6B = QSPI_CINSTRCONF_LENGTH_6B,
+    NRF_QSPI_CINSTR_LEN_7B = QSPI_CINSTRCONF_LENGTH_7B,
+    NRF_QSPI_CINSTR_LEN_8B = QSPI_CINSTRCONF_LENGTH_8B,
+    NRF_QSPI_CINSTR_LEN_9B = QSPI_CINSTRCONF_LENGTH_9B
 } nrf_qspi_cinstr_len_t;
 
 /** @brief Pin configuration. */
 typedef struct
 {
-    uint32_t sck_pin; /**< SCK pin number. */
-    uint32_t csn_pin; /**< Chip select pin number. */
-    uint32_t io0_pin; /**< IO0/MOSI pin number. */
-    uint32_t io1_pin; /**< IO1/MISO pin number. */
+    uint32_t sck_pin;
+    uint32_t csn_pin;
+    uint32_t io0_pin;
+    uint32_t io1_pin;
     uint32_t io2_pin; /**< IO2 pin number (optional).
                        *   Set to @ref NRF_QSPI_PIN_NOT_CONNECTED if this signal is not needed.
                        */
@@ -241,40 +241,40 @@ typedef struct
 /** @brief Custom instruction configuration. */
 typedef struct
 {
-    uint8_t               opcode;    /**< Opcode used in custom instruction transmission. */
-    nrf_qspi_cinstr_len_t length;    /**< Length of the custom instruction data. */
-    bool                  io2_level; /**< I/O line level during transmission. */
-    bool                  io3_level; /**< I/O line level during transmission. */
-    bool                  wipwait;   /**< Wait if a Wait in Progress bit is set in the memory status byte. */
-    bool                  wren;      /**< Send write enable before instruction. */
+    uint8_t               opcode;
+    nrf_qspi_cinstr_len_t length;
+    bool                  io2_level;
+    bool                  io3_level;
+    bool                  wipwait;
+    bool                  wren;
 } nrf_qspi_cinstr_conf_t;
 
 /** @brief Addressing mode register configuration. See @ref nrf_qspi_addrconfig_set */
 typedef struct
 {
-    uint8_t                    opcode;  /**< Opcode used to enter the proper addressing mode. */
-    uint8_t                    byte0;   /**< Byte following the opcode. */
-    uint8_t                    byte1;   /**< Byte following byte0. */
-    nrf_qspi_addrconfig_mode_t mode;    /**< Extended addresing mode. */
-    bool                       wipwait; /**< Enable or disable waiting for complete operation execution. */
-    bool                       wren;    /**< Send write enable before instruction. */
+    uint8_t                    opcode;
+    uint8_t                    byte0;
+    uint8_t                    byte1;
+    nrf_qspi_addrconfig_mode_t mode;
+    bool                       wipwait;
+    bool                       wren;
 } nrf_qspi_addrconfig_conf_t;
 
 /** @brief Structure with QSPI protocol interface configuration. */
 typedef struct
 {
-    nrf_qspi_readoc_t   readoc;    /**< Read operation code. */
-    nrf_qspi_writeoc_t  writeoc;   /**< Write operation code. */
-    nrf_qspi_addrmode_t addrmode;  /**< Addresing mode (24-bit or 32-bit). */
-    bool                dpmconfig; /**< Enable the Deep Power-down Mode (DPM) feature. */
+    nrf_qspi_readoc_t   readoc;
+    nrf_qspi_writeoc_t  writeoc;
+    nrf_qspi_addrmode_t addrmode;
+    bool                dpmconfig;
 } nrf_qspi_prot_conf_t;
 
 /** @brief QSPI physical interface configuration. */
 typedef struct
 {
-    uint8_t              sck_delay; /**< tSHSL, tWHSL, and tSHWL in number of 16 MHz periods (62.5ns). */
-    bool                 dpmen;     /**< Enable the DPM feature. */
-    nrf_qspi_spi_mode_t  spi_mode;  /**< SPI phase and polarization. */
+    uint8_t              sck_delay;
+    bool                 dpmen;
+    nrf_qspi_spi_mode_t  spi_mode;
     nrf_qspi_frequency_t sck_freq;  /**< SCK frequency given as QSPI base clock frequency divider.
                                      *   To calculate @p sck_freq value corresponding to chosen frequency,
                                      *   use the following equation:
@@ -291,8 +291,8 @@ typedef struct
 /** @brief QSPI encryption settings for XIP and DMA transfers. */
 typedef struct
 {
-    uint32_t key[4];   /**< AES 128-bit key, stored on 4 32-bit words. */
-    uint32_t nonce[3]; /**< AES 96-bit nonce, stored on 3 32-bit words. */
+    uint32_t key[4];
+    uint32_t nonce[3];
 } nrf_qspi_encryption_t;
 #endif
 
@@ -399,6 +399,54 @@ NRF_STATIC_INLINE void nrf_qspi_disable(NRF_QSPI_Type * p_reg);
  */
 NRF_STATIC_INLINE void nrf_qspi_pins_set(NRF_QSPI_Type *         p_reg,
                                          nrf_qspi_pins_t const * p_pins);
+
+/**
+ * @brief Function for setting the SCK pin.
+ *
+ * @param[in] p_reg Pointer to the structure of registers of the peripheral.
+ * @param[in] pin   SCK pin number.
+ */
+NRF_STATIC_INLINE void nrf_qspi_pin_sck_set(NRF_QSPI_Type * p_reg, uint32_t pin);
+
+/**
+ * @brief Function for setting the CSN pin.
+ *
+ * @param[in] p_reg Pointer to the structure of registers of the peripheral.
+ * @param[in] pin   CSN pin number.
+ */
+NRF_STATIC_INLINE void nrf_qspi_pin_csn_set(NRF_QSPI_Type * p_reg, uint32_t pin);
+
+/**
+ * @brief Function for setting the IO0 pin.
+ *
+ * @param[in] p_reg Pointer to the structure of registers of the peripheral.
+ * @param[in] pin   IO0 pin number.
+ */
+NRF_STATIC_INLINE void nrf_qspi_pin_io0_set(NRF_QSPI_Type * p_reg, uint32_t pin);
+
+/**
+ * @brief Function for setting the IO1 pin.
+ *
+ * @param[in] p_reg Pointer to the structure of registers of the peripheral.
+ * @param[in] pin   IO1 pin number.
+ */
+NRF_STATIC_INLINE void nrf_qspi_pin_io1_set(NRF_QSPI_Type * p_reg, uint32_t pin);
+
+/**
+ * @brief Function for setting the IO2 pin.
+ *
+ * @param[in] p_reg Pointer to the structure of registers of the peripheral.
+ * @param[in] pin   IO2 pin number.
+ */
+NRF_STATIC_INLINE void nrf_qspi_pin_io2_set(NRF_QSPI_Type * p_reg, uint32_t pin);
+
+/**
+ * @brief Function for setting the IO3 pin.
+ *
+ * @param[in] p_reg Pointer to the structure of registers of the peripheral.
+ * @param[in] pin   IO3 pin number.
+ */
+NRF_STATIC_INLINE void nrf_qspi_pin_io3_set(NRF_QSPI_Type * p_reg, uint32_t pin);
 
 /**
  * @brief Function for getting the currently configured QSPI pins.
@@ -733,11 +781,13 @@ NRF_STATIC_INLINE void nrf_qspi_enable(NRF_QSPI_Type * p_reg)
 
 NRF_STATIC_INLINE void nrf_qspi_disable(NRF_QSPI_Type * p_reg)
 {
+#if NRFX_CHECK(NRF52_ERRATA_122_ENABLE_WORKAROUND)
     if (nrf52_errata_122())
     {
         // Workaround for anomaly 122: "QSPI: QSPI uses current after being disabled".
         *(volatile uint32_t *)0x40029054ul = 1ul;
     }
+#endif
     p_reg->ENABLE = (QSPI_ENABLE_ENABLE_Disabled << QSPI_ENABLE_ENABLE_Pos);
 }
 
@@ -749,6 +799,36 @@ NRF_STATIC_INLINE void nrf_qspi_pins_set(NRF_QSPI_Type * p_reg, nrf_qspi_pins_t 
     p_reg->PSEL.IO1 = NRF_QSPI_PIN_VAL(p_pins->io1_pin);
     p_reg->PSEL.IO2 = NRF_QSPI_PIN_VAL(p_pins->io2_pin);
     p_reg->PSEL.IO3 = NRF_QSPI_PIN_VAL(p_pins->io3_pin);
+}
+
+NRF_STATIC_INLINE void nrf_qspi_pin_sck_set(NRF_QSPI_Type * p_reg, uint32_t pin)
+{
+    p_reg->PSEL.SCK = NRF_QSPI_PIN_VAL(pin);
+}
+
+NRF_STATIC_INLINE void nrf_qspi_pin_csn_set(NRF_QSPI_Type * p_reg, uint32_t pin)
+{
+    p_reg->PSEL.CSN = NRF_QSPI_PIN_VAL(pin);
+}
+
+NRF_STATIC_INLINE void nrf_qspi_pin_io0_set(NRF_QSPI_Type * p_reg, uint32_t pin)
+{
+    p_reg->PSEL.IO0 = NRF_QSPI_PIN_VAL(pin);
+}
+
+NRF_STATIC_INLINE void nrf_qspi_pin_io1_set(NRF_QSPI_Type * p_reg, uint32_t pin)
+{
+    p_reg->PSEL.IO1 = NRF_QSPI_PIN_VAL(pin);
+}
+
+NRF_STATIC_INLINE void nrf_qspi_pin_io2_set(NRF_QSPI_Type * p_reg, uint32_t pin)
+{
+    p_reg->PSEL.IO2 = NRF_QSPI_PIN_VAL(pin);
+}
+
+NRF_STATIC_INLINE void nrf_qspi_pin_io3_set(NRF_QSPI_Type * p_reg, uint32_t pin)
+{
+    p_reg->PSEL.IO3 = NRF_QSPI_PIN_VAL(pin);
 }
 
 NRF_STATIC_INLINE void nrf_qspi_pins_get(NRF_QSPI_Type const * p_reg,

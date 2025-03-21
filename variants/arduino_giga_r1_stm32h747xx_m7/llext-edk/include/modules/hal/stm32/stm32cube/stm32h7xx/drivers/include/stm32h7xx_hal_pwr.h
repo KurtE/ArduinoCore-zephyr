@@ -92,13 +92,13 @@ typedef struct
 /** @defgroup PWR_PVD_Mode PWR PVD Mode
   * @{
   */
-#define PWR_PVD_MODE_NORMAL               (0x00000000U) /*!< Basic mode is used                                        */
-#define PWR_PVD_MODE_IT_RISING            (0x00010001U) /*!< Interrupt Mode with Rising edge trigger detection         */
-#define PWR_PVD_MODE_IT_FALLING           (0x00010002U) /*!< Interrupt Mode with Falling edge trigger detection        */
-#define PWR_PVD_MODE_IT_RISING_FALLING    (0x00010003U) /*!< Interrupt Mode with Rising/Falling edge trigger detection */
-#define PWR_PVD_MODE_EVENT_RISING         (0x00020001U) /*!< Event Mode with Rising edge trigger detection             */
-#define PWR_PVD_MODE_EVENT_FALLING        (0x00020002U) /*!< Event Mode with Falling edge trigger detection            */
-#define PWR_PVD_MODE_EVENT_RISING_FALLING (0x00020003U) /*!< Event Mode with Rising/Falling edge trigger detection     */
+#define PWR_PVD_MODE_NORMAL               (0x00000000U)
+#define PWR_PVD_MODE_IT_RISING            (0x00010001U)
+#define PWR_PVD_MODE_IT_FALLING           (0x00010002U)
+#define PWR_PVD_MODE_IT_RISING_FALLING    (0x00010003U)
+#define PWR_PVD_MODE_EVENT_RISING         (0x00020001U)
+#define PWR_PVD_MODE_EVENT_FALLING        (0x00020002U)
+#define PWR_PVD_MODE_EVENT_RISING_FALLING (0x00020003U)
 /**
   * @}
   */
@@ -248,9 +248,9 @@ typedef struct
 #define __HAL_PWR_VOLTAGESCALING_CONFIG(__REGULATOR__)                         \
 do {                                                                           \
       __IO uint32_t tmpreg = 0x00;                                             \
-      /* Configure the Voltage Scaling */                                      \
+                                      \
       MODIFY_REG(PWR->SRDCR, PWR_SRDCR_VOS, (__REGULATOR__));                  \
-      /* Delay after setting the voltage scaling */                            \
+                            \
       tmpreg = READ_BIT(PWR->SRDCR, PWR_SRDCR_VOS);                            \
       UNUSED(tmpreg);                                                          \
 } while(0)
@@ -259,27 +259,27 @@ do {                                                                           \
 #define __HAL_PWR_VOLTAGESCALING_CONFIG(__REGULATOR__)                         \
 do {                                                                           \
       __IO uint32_t tmpreg = 0x00;                                             \
-      /* Check the voltage scaling to be configured */                         \
+                         \
       if((__REGULATOR__) == PWR_REGULATOR_VOLTAGE_SCALE0)                      \
       {                                                                        \
-        /* Configure the Voltage Scaling 1 */                                  \
+                                  \
         MODIFY_REG(PWR->D3CR, PWR_D3CR_VOS, PWR_REGULATOR_VOLTAGE_SCALE1);     \
-        /* Delay after setting the voltage scaling */                          \
+                          \
         tmpreg = READ_BIT(PWR->D3CR, PWR_D3CR_VOS);                            \
-        /* Enable the PWR overdrive */                                         \
+                                         \
         SET_BIT(SYSCFG->PWRCR, SYSCFG_PWRCR_ODEN);                             \
-        /* Delay after setting the syscfg boost setting */                     \
+                     \
         tmpreg = READ_BIT(SYSCFG->PWRCR, SYSCFG_PWRCR_ODEN);                   \
       }                                                                        \
       else                                                                     \
       {                                                                        \
-        /* Disable the PWR overdrive */                                        \
+                                        \
         CLEAR_BIT(SYSCFG->PWRCR, SYSCFG_PWRCR_ODEN);                           \
-        /* Delay after setting the syscfg boost setting */                     \
+                     \
         tmpreg = READ_BIT(SYSCFG->PWRCR, SYSCFG_PWRCR_ODEN);                   \
-        /* Configure the Voltage Scaling x */                                  \
+                                  \
         MODIFY_REG(PWR->D3CR, PWR_D3CR_VOS, (__REGULATOR__));                  \
-        /* Delay after setting the voltage scaling */                          \
+                          \
         tmpreg = READ_BIT(PWR->D3CR, PWR_D3CR_VOS);                            \
       }                                                                        \
       UNUSED(tmpreg);                                                          \
@@ -288,9 +288,9 @@ do {                                                                           \
 #define __HAL_PWR_VOLTAGESCALING_CONFIG(__REGULATOR__)                         \
 do {                                                                           \
       __IO uint32_t tmpreg = 0x00;                                             \
-      /* Configure the Voltage Scaling */                                      \
+                                      \
       MODIFY_REG (PWR->D3CR, PWR_D3CR_VOS, (__REGULATOR__));                   \
-      /* Delay after setting the voltage scaling */                            \
+                            \
       tmpreg = READ_BIT(PWR->D3CR, PWR_D3CR_VOS);                              \
       UNUSED(tmpreg);                                                          \
 } while(0)

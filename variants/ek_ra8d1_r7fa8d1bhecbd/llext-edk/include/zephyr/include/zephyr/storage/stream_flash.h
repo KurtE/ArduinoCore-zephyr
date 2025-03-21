@@ -54,22 +54,22 @@ typedef int (*stream_flash_callback_t)(uint8_t *buf, size_t len, size_t offset);
  * with them through the below API.
  */
 struct stream_flash_ctx {
-	uint8_t *buf; /* Write buffer */
-	size_t buf_len; /* Length of write buffer */
-	size_t buf_bytes; /* Number of bytes currently stored in write buf */
-	const struct device *fdev; /* Flash device */
-	size_t bytes_written; /* Number of bytes written to flash */
-	size_t offset; /* Offset from base of flash device to write area */
-	size_t available; /* Available bytes in write area */
+	uint8_t *buf;
+	size_t buf_len;
+	size_t buf_bytes;
+	const struct device *fdev;
+	size_t bytes_written;
+	size_t offset;
+	size_t available;
 #ifdef CONFIG_STREAM_FLASH_POST_WRITE_CALLBACK
-	stream_flash_callback_t callback; /* Callback invoked after write op */
+	stream_flash_callback_t callback;
 #endif
 #ifdef CONFIG_STREAM_FLASH_ERASE
 	size_t erased_up_to;		/* Offset of last erased byte, relative to
 					 * offset in this context.
 					 */
 #endif
-	size_t write_block_size;	/* Offset/size device write alignment */
+	size_t write_block_size;
 	uint8_t erase_value;
 };
 

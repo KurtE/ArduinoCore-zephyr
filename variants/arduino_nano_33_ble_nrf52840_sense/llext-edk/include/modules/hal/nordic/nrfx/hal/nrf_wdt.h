@@ -78,68 +78,68 @@ extern "C" {
 #define NRF_WDT_CHANNEL_NUMBER 0x8UL
 
 /** @brief WDT register reload value. */
-#define NRF_WDT_RR_VALUE       0x6E524635UL /* Fixed value; should not be modified. */
+#define NRF_WDT_RR_VALUE       0x6E524635UL
 
 /** @brief WDT tasks. */
 typedef enum
 {
-    NRF_WDT_TASK_START = offsetof(NRF_WDT_Type, TASKS_START), /**< Task for starting WDT. */
+    NRF_WDT_TASK_START = offsetof(NRF_WDT_Type, TASKS_START),
 #if NRF_WDT_HAS_STOP
-    NRF_WDT_TASK_STOP  = offsetof(NRF_WDT_Type, TASKS_STOP),  /**< Task for stopping WDT. */
+    NRF_WDT_TASK_STOP  = offsetof(NRF_WDT_Type, TASKS_STOP),
 #endif
 } nrf_wdt_task_t;
 
 /** @brief WDT events. */
 typedef enum
 {
-    NRF_WDT_EVENT_TIMEOUT = offsetof(NRF_WDT_Type, EVENTS_TIMEOUT), /**< Event from WDT time-out. */
+    NRF_WDT_EVENT_TIMEOUT = offsetof(NRF_WDT_Type, EVENTS_TIMEOUT),
 #if NRF_WDT_HAS_STOP
-    NRF_WDT_EVENT_STOPPED = offsetof(NRF_WDT_Type, EVENTS_STOPPED), /**< Event from WDT stop. */
+    NRF_WDT_EVENT_STOPPED = offsetof(NRF_WDT_Type, EVENTS_STOPPED),
 #endif
 } nrf_wdt_event_t;
 
 /** @brief WDT behavior in the SLEEP or HALT CPU modes. */
 typedef enum
 {
-    NRF_WDT_BEHAVIOUR_RUN_SLEEP_MASK     = WDT_CONFIG_SLEEP_Msk,  /**< WDT will run when CPU is in SLEEP mode. */
-    NRF_WDT_BEHAVIOUR_RUN_HALT_MASK      = WDT_CONFIG_HALT_Msk,   /**< WDT will run when CPU is in HALT mode. */
+    NRF_WDT_BEHAVIOUR_RUN_SLEEP_MASK     = WDT_CONFIG_SLEEP_Msk,
+    NRF_WDT_BEHAVIOUR_RUN_HALT_MASK      = WDT_CONFIG_HALT_Msk,
 #if NRF_WDT_HAS_STOP
-    NRF_WDT_BEHAVIOUR_STOP_ENABLE_MASK   = WDT_CONFIG_STOPEN_Msk, /**< WDT allows stopping. */
+    NRF_WDT_BEHAVIOUR_STOP_ENABLE_MASK   = WDT_CONFIG_STOPEN_Msk,
 #endif
 } nrf_wdt_behaviour_mask_t;
 
 /** @brief WDT reload request registers. */
 typedef enum
 {
-    NRF_WDT_RR0 = 0, /**< Reload request register 0. */
-    NRF_WDT_RR1,     /**< Reload request register 1. */
-    NRF_WDT_RR2,     /**< Reload request register 2. */
-    NRF_WDT_RR3,     /**< Reload request register 3. */
-    NRF_WDT_RR4,     /**< Reload request register 4. */
-    NRF_WDT_RR5,     /**< Reload request register 5. */
-    NRF_WDT_RR6,     /**< Reload request register 6. */
-    NRF_WDT_RR7      /**< Reload request register 7. */
+    NRF_WDT_RR0 = 0,
+    NRF_WDT_RR1,
+    NRF_WDT_RR2,
+    NRF_WDT_RR3,
+    NRF_WDT_RR4,
+    NRF_WDT_RR5,
+    NRF_WDT_RR6,
+    NRF_WDT_RR7
 } nrf_wdt_rr_register_t;
 
 /** @brief WDT reload request registers mask. */
 typedef enum
 {
-    NRF_WDT_RR0_MASK = (1UL << NRF_WDT_RR0), /**< Mask for reload request register 0. */
-    NRF_WDT_RR1_MASK = (1UL << NRF_WDT_RR1), /**< Mask for reload request register 1. */
-    NRF_WDT_RR2_MASK = (1UL << NRF_WDT_RR2), /**< Mask for reload request register 2. */
-    NRF_WDT_RR3_MASK = (1UL << NRF_WDT_RR3), /**< Mask for reload request register 3. */
-    NRF_WDT_RR4_MASK = (1UL << NRF_WDT_RR4), /**< Mask for reload request register 4. */
-    NRF_WDT_RR5_MASK = (1UL << NRF_WDT_RR5), /**< Mask for reload request register 5. */
-    NRF_WDT_RR6_MASK = (1UL << NRF_WDT_RR6), /**< Mask for reload request register 6. */
-    NRF_WDT_RR7_MASK = (1UL << NRF_WDT_RR7), /**< Mask for reload request register 7. */
+    NRF_WDT_RR0_MASK = (1UL << NRF_WDT_RR0),
+    NRF_WDT_RR1_MASK = (1UL << NRF_WDT_RR1),
+    NRF_WDT_RR2_MASK = (1UL << NRF_WDT_RR2),
+    NRF_WDT_RR3_MASK = (1UL << NRF_WDT_RR3),
+    NRF_WDT_RR4_MASK = (1UL << NRF_WDT_RR4),
+    NRF_WDT_RR5_MASK = (1UL << NRF_WDT_RR5),
+    NRF_WDT_RR6_MASK = (1UL << NRF_WDT_RR6),
+    NRF_WDT_RR7_MASK = (1UL << NRF_WDT_RR7),
 } nrf_wdt_rr_register_mask_t;
 
 /** @brief WDT interrupts. */
 typedef enum
 {
-    NRF_WDT_INT_TIMEOUT_MASK = WDT_INTENSET_TIMEOUT_Msk, /**< WDT interrupt from time-out event. */
+    NRF_WDT_INT_TIMEOUT_MASK = WDT_INTENSET_TIMEOUT_Msk,
 #if NRF_WDT_HAS_STOP
-    NRF_WDT_INT_STOPPED_MASK = WDT_INTENSET_STOPPED_Msk, /**< WDT interrupt from stop event. */
+    NRF_WDT_INT_STOPPED_MASK = WDT_INTENSET_STOPPED_Msk,
 #endif
 } nrf_wdt_int_mask_t;
 

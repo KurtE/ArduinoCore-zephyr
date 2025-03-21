@@ -12,34 +12,34 @@
 #define BT_HF_CLIENT_MAX_PDU BT_HFP_MAX_MTU
 
 /* HFP AG Features */
-#define BT_HFP_AG_FEATURE_3WAY_CALL       0x00000001 /* Three-way calling */
-#define BT_HFP_AG_FEATURE_ECNR            0x00000002 /* EC and/or NR function */
-#define BT_HFP_AG_FEATURE_VOICE_RECG      0x00000004 /* Voice recognition */
-#define BT_HFP_AG_FEATURE_INBAND_RINGTONE 0x00000008 /* In-band ring capability */
-#define BT_HFP_AG_FEATURE_VOICE_TAG       0x00000010 /* Attach no. to voice tag */
-#define BT_HFP_AG_FEATURE_REJECT_CALL     0x00000020 /* Ability to reject call */
-#define BT_HFP_AG_FEATURE_ECS             0x00000040 /* Enhanced call status */
-#define BT_HFP_AG_FEATURE_ECC             0x00000080 /* Enhanced call control */
-#define BT_HFP_AG_FEATURE_EXT_ERR         0x00000100 /* Extended error codes */
-#define BT_HFP_AG_FEATURE_CODEC_NEG       0x00000200 /* Codec negotiation */
-#define BT_HFP_AG_FEATURE_HF_IND          0x00000400 /* HF Indicators */
-#define BT_HFP_AG_FEATURE_ESCO_S4         0x00000800 /* eSCO S4 Settings */
-#define BT_HFP_AG_FEATURE_ENH_VOICE_RECG  0x00001000 /* Enhanced Voice Recognition Status */
-#define BT_HFP_AG_FEATURE_VOICE_RECG_TEXT 0x00002000 /* Voice Recognition Text */
+#define BT_HFP_AG_FEATURE_3WAY_CALL       0x00000001
+#define BT_HFP_AG_FEATURE_ECNR            0x00000002
+#define BT_HFP_AG_FEATURE_VOICE_RECG      0x00000004
+#define BT_HFP_AG_FEATURE_INBAND_RINGTONE 0x00000008
+#define BT_HFP_AG_FEATURE_VOICE_TAG       0x00000010
+#define BT_HFP_AG_FEATURE_REJECT_CALL     0x00000020
+#define BT_HFP_AG_FEATURE_ECS             0x00000040
+#define BT_HFP_AG_FEATURE_ECC             0x00000080
+#define BT_HFP_AG_FEATURE_EXT_ERR         0x00000100
+#define BT_HFP_AG_FEATURE_CODEC_NEG       0x00000200
+#define BT_HFP_AG_FEATURE_HF_IND          0x00000400
+#define BT_HFP_AG_FEATURE_ESCO_S4         0x00000800
+#define BT_HFP_AG_FEATURE_ENH_VOICE_RECG  0x00001000
+#define BT_HFP_AG_FEATURE_VOICE_RECG_TEXT 0x00002000
 
 /* HFP HF Features */
-#define BT_HFP_HF_FEATURE_ECNR            0x00000001 /* EC and/or NR function */
-#define BT_HFP_HF_FEATURE_3WAY_CALL       0x00000002 /* Three-way calling */
-#define BT_HFP_HF_FEATURE_CLI             0x00000004 /* CLI presentation */
-#define BT_HFP_HF_FEATURE_VOICE_RECG      0x00000008 /* Voice recognition */
-#define BT_HFP_HF_FEATURE_VOLUME          0x00000010 /* Remote volume control */
-#define BT_HFP_HF_FEATURE_ECS             0x00000020 /* Enhanced call status */
-#define BT_HFP_HF_FEATURE_ECC             0x00000040 /* Enhanced call control */
-#define BT_HFP_HF_FEATURE_CODEC_NEG       0x00000080 /* CODEC Negotiation */
-#define BT_HFP_HF_FEATURE_HF_IND          0x00000100 /* HF Indicators */
-#define BT_HFP_HF_FEATURE_ESCO_S4         0x00000200 /* eSCO S4 Settings */
-#define BT_HFP_HF_FEATURE_ENH_VOICE_RECG  0x00000400 /* Enhanced Voice Recognition Status */
-#define BT_HFP_HF_FEATURE_VOICE_RECG_TEXT 0x00000800 /* Voice Recognition Text */
+#define BT_HFP_HF_FEATURE_ECNR            0x00000001
+#define BT_HFP_HF_FEATURE_3WAY_CALL       0x00000002
+#define BT_HFP_HF_FEATURE_CLI             0x00000004
+#define BT_HFP_HF_FEATURE_VOICE_RECG      0x00000008
+#define BT_HFP_HF_FEATURE_VOLUME          0x00000010
+#define BT_HFP_HF_FEATURE_ECS             0x00000020
+#define BT_HFP_HF_FEATURE_ECC             0x00000040
+#define BT_HFP_HF_FEATURE_CODEC_NEG       0x00000080
+#define BT_HFP_HF_FEATURE_HF_IND          0x00000100
+#define BT_HFP_HF_FEATURE_ESCO_S4         0x00000200
+#define BT_HFP_HF_FEATURE_ENH_VOICE_RECG  0x00000400
+#define BT_HFP_HF_FEATURE_VOICE_RECG_TEXT 0x00000800
 
 /* HFP HF Supported features */
 #define BT_HFP_HF_SUPPORTED_FEATURES (BT_HFP_HF_FEATURE_CLI | BT_HFP_HF_FEATURE_VOLUME)

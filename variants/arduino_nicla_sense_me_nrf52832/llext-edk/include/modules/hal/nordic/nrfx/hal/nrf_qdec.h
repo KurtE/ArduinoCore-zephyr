@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2014 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -91,94 +91,94 @@ extern "C" {
 /** @brief QDEC tasks. */
 typedef enum
 {
-    NRF_QDEC_TASK_START      = offsetof(NRF_QDEC_Type, TASKS_START),      /**< Starting the quadrature decoder. */
-    NRF_QDEC_TASK_STOP       = offsetof(NRF_QDEC_Type, TASKS_STOP),       /**< Stopping the quadrature decoder. */
-    NRF_QDEC_TASK_READCLRACC = offsetof(NRF_QDEC_Type, TASKS_READCLRACC), /**< Reading and clearing ACC and ACCDBL registers. */
+    NRF_QDEC_TASK_START      = offsetof(NRF_QDEC_Type, TASKS_START),
+    NRF_QDEC_TASK_STOP       = offsetof(NRF_QDEC_Type, TASKS_STOP),
+    NRF_QDEC_TASK_READCLRACC = offsetof(NRF_QDEC_Type, TASKS_READCLRACC),
 #if NRF_QDEC_HAS_TASK_RDCLRACC
-    NRF_QDEC_TASK_RDCLRACC   = offsetof(NRF_QDEC_Type, TASKS_RDCLRACC),   /**< Reading and clearing ACC register. */
+    NRF_QDEC_TASK_RDCLRACC   = offsetof(NRF_QDEC_Type, TASKS_RDCLRACC),
 #endif
 #if NRF_QDEC_HAS_TASK_RDCLRDBL
-    NRF_QDEC_TASK_RDCLRDBL   = offsetof(NRF_QDEC_Type, TASKS_RDCLRDBL)    /**< Reading and clearing ACCDBL register. */
+    NRF_QDEC_TASK_RDCLRDBL   = offsetof(NRF_QDEC_Type, TASKS_RDCLRDBL)
 #endif
 } nrf_qdec_task_t;
 
 /** @brief QDEC events. */
 typedef enum
 {
-    NRF_QDEC_EVENT_SAMPLERDY = offsetof(NRF_QDEC_Type, EVENTS_SAMPLERDY), /**< Event generated for every new sample.  */
-    NRF_QDEC_EVENT_REPORTRDY = offsetof(NRF_QDEC_Type, EVENTS_REPORTRDY), /**< Event generated for every new report.  */
-    NRF_QDEC_EVENT_ACCOF     = offsetof(NRF_QDEC_Type, EVENTS_ACCOF),     /**< Event generated for every accumulator overflow. */
+    NRF_QDEC_EVENT_SAMPLERDY = offsetof(NRF_QDEC_Type, EVENTS_SAMPLERDY),
+    NRF_QDEC_EVENT_REPORTRDY = offsetof(NRF_QDEC_Type, EVENTS_REPORTRDY),
+    NRF_QDEC_EVENT_ACCOF     = offsetof(NRF_QDEC_Type, EVENTS_ACCOF),
 #if NRF_QDEC_HAS_EVENT_DBLRDY
-    NRF_QDEC_EVENT_DBLRDY    = offsetof(NRF_QDEC_Type, EVENTS_DBLRDY),    /**< Event generated for every double displacement(s) detected. */
+    NRF_QDEC_EVENT_DBLRDY    = offsetof(NRF_QDEC_Type, EVENTS_DBLRDY),
 #endif
 #if NRF_QDEC_HAS_EVENT_STOPPED
-    NRF_QDEC_EVENT_STOPPED   = offsetof(NRF_QDEC_Type, EVENTS_STOPPED)    /**< Event generated for every QDEC stop. */
+    NRF_QDEC_EVENT_STOPPED   = offsetof(NRF_QDEC_Type, EVENTS_STOPPED)
 #endif
 } nrf_qdec_event_t;
 
 /** @brief QDEC shortcuts. */
 typedef enum
 {
-    NRF_QDEC_SHORT_REPORTRDY_READCLRACC_MASK = QDEC_SHORTS_REPORTRDY_READCLRACC_Msk, /**< Shortcut between REPORTRDY event and READCLRACC task.  */
-    NRF_QDEC_SHORT_SAMPLERDY_STOP_MASK       = QDEC_SHORTS_SAMPLERDY_STOP_Msk        /**< Shortcut between SAMPLERDY event and STOP task.  */
+    NRF_QDEC_SHORT_REPORTRDY_READCLRACC_MASK = QDEC_SHORTS_REPORTRDY_READCLRACC_Msk,
+    NRF_QDEC_SHORT_SAMPLERDY_STOP_MASK       = QDEC_SHORTS_SAMPLERDY_STOP_Msk
 } nrf_qdec_short_mask_t;
 
 /** @brief QDEC interrupts. */
 typedef enum
 {
-    NRF_QDEC_INT_SAMPLERDY_MASK = QDEC_INTENSET_SAMPLERDY_Msk, /**< Mask for enabling or disabling an interrupt on SAMPLERDY event.  */
-    NRF_QDEC_INT_REPORTRDY_MASK = QDEC_INTENSET_REPORTRDY_Msk, /**< Mask for enabling or disabling an interrupt on REPORTRDY event.  */
-    NRF_QDEC_INT_ACCOF_MASK     = QDEC_INTENSET_ACCOF_Msk      /**< Mask for enabling or disabling an interrupt on ACCOF event.  */
+    NRF_QDEC_INT_SAMPLERDY_MASK = QDEC_INTENSET_SAMPLERDY_Msk,
+    NRF_QDEC_INT_REPORTRDY_MASK = QDEC_INTENSET_REPORTRDY_Msk,
+    NRF_QDEC_INT_ACCOF_MASK     = QDEC_INTENSET_ACCOF_Msk
 } nrf_qdec_int_mask_t;
 
 /** @brief States of the enable bit. */
 typedef enum
 {
-    NRF_QDEC_DISABLE = QDEC_ENABLE_ENABLE_Disabled, /**< Mask for disabling the QDEC periperal. When disabled, the QDEC decoder pins are not active.  */
-    NRF_QDEC_ENABLE  = QDEC_ENABLE_ENABLE_Enabled   /**< Mask for enabling the QDEC periperal. When enabled, the QDEC pins are active. */
+    NRF_QDEC_DISABLE = QDEC_ENABLE_ENABLE_Disabled,
+    NRF_QDEC_ENABLE  = QDEC_ENABLE_ENABLE_Enabled
 } nrf_qdec_enable_t;
 
 /** @brief States of the debounce filter enable bit. */
 typedef enum
 {
-    NRF_QDEC_DBFEN_DISABLE = QDEC_DBFEN_DBFEN_Disabled, /**< Mask for disabling the debounce filter.  */
-    NRF_QDEC_DBFEN_ENABLE  = QDEC_DBFEN_DBFEN_Enabled   /**< Mask for enabling the debounce filter.  */
+    NRF_QDEC_DBFEN_DISABLE = QDEC_DBFEN_DBFEN_Disabled,
+    NRF_QDEC_DBFEN_ENABLE  = QDEC_DBFEN_DBFEN_Enabled
 } nrf_qdec_dbfen_t;
 
 /** @brief Active LED polarity. */
 typedef enum
 {
-    NRF_QDEC_LEPOL_ACTIVE_LOW  = QDEC_LEDPOL_LEDPOL_ActiveLow, /**< QDEC LED active on output pin low.  */
-    NRF_QDEC_LEPOL_ACTIVE_HIGH = QDEC_LEDPOL_LEDPOL_ActiveHigh /**< QDEC LED active on output pin high.  */
+    NRF_QDEC_LEPOL_ACTIVE_LOW  = QDEC_LEDPOL_LEDPOL_ActiveLow,
+    NRF_QDEC_LEPOL_ACTIVE_HIGH = QDEC_LEDPOL_LEDPOL_ActiveHigh
 } nrf_qdec_ledpol_t;
 
 /** @brief Available sampling periods. */
 typedef enum
 {
-    NRF_QDEC_SAMPLEPER_128US   = QDEC_SAMPLEPER_SAMPLEPER_128us,  /**< QDEC sampling period 128 microseconds.  */
-    NRF_QDEC_SAMPLEPER_256US   = QDEC_SAMPLEPER_SAMPLEPER_256us,  /**< QDEC sampling period 256 microseconds.  */
-    NRF_QDEC_SAMPLEPER_512US   = QDEC_SAMPLEPER_SAMPLEPER_512us,  /**< QDEC sampling period 512 microseconds.  */
-    NRF_QDEC_SAMPLEPER_1024US  = QDEC_SAMPLEPER_SAMPLEPER_1024us, /**< QDEC sampling period 1024 microseconds.  */
-    NRF_QDEC_SAMPLEPER_2048US  = QDEC_SAMPLEPER_SAMPLEPER_2048us, /**< QDEC sampling period 2048 microseconds.  */
-    NRF_QDEC_SAMPLEPER_4096US  = QDEC_SAMPLEPER_SAMPLEPER_4096us, /**< QDEC sampling period 4096 microseconds.  */
-    NRF_QDEC_SAMPLEPER_8192US  = QDEC_SAMPLEPER_SAMPLEPER_8192us, /**< QDEC sampling period 8192 microseconds.  */
-    NRF_QDEC_SAMPLEPER_16384US = QDEC_SAMPLEPER_SAMPLEPER_16384us /**< QDEC sampling period 16384 microseconds.  */
+    NRF_QDEC_SAMPLEPER_128US   = QDEC_SAMPLEPER_SAMPLEPER_128us,
+    NRF_QDEC_SAMPLEPER_256US   = QDEC_SAMPLEPER_SAMPLEPER_256us,
+    NRF_QDEC_SAMPLEPER_512US   = QDEC_SAMPLEPER_SAMPLEPER_512us,
+    NRF_QDEC_SAMPLEPER_1024US  = QDEC_SAMPLEPER_SAMPLEPER_1024us,
+    NRF_QDEC_SAMPLEPER_2048US  = QDEC_SAMPLEPER_SAMPLEPER_2048us,
+    NRF_QDEC_SAMPLEPER_4096US  = QDEC_SAMPLEPER_SAMPLEPER_4096us,
+    NRF_QDEC_SAMPLEPER_8192US  = QDEC_SAMPLEPER_SAMPLEPER_8192us,
+    NRF_QDEC_SAMPLEPER_16384US = QDEC_SAMPLEPER_SAMPLEPER_16384us
 } nrf_qdec_sampleper_t;
 
 /** @brief Available report periods. */
 typedef enum
 {
 #if defined(QDEC_REPORTPER_REPORTPER_1Smpl) || defined(__NRFX_DOXYGEN__)
-    NRF_QDEC_REPORTPER_1        = QDEC_REPORTPER_REPORTPER_1Smpl,                                    /**< QDEC report period 1 sample. */
+    NRF_QDEC_REPORTPER_1        = QDEC_REPORTPER_REPORTPER_1Smpl,
 #endif
-    NRF_QDEC_REPORTPER_10       = QDEC_REPORTPER_REPORTPER_10Smpl,                                   /**< QDEC report period 10 samples. */
-    NRF_QDEC_REPORTPER_40       = QDEC_REPORTPER_REPORTPER_40Smpl,                                   /**< QDEC report period 40 samples. */
-    NRF_QDEC_REPORTPER_80       = QDEC_REPORTPER_REPORTPER_80Smpl,                                   /**< QDEC report period 80 samples. */
-    NRF_QDEC_REPORTPER_120      = QDEC_REPORTPER_REPORTPER_120Smpl,                                  /**< QDEC report period 120 samples. */
-    NRF_QDEC_REPORTPER_160      = QDEC_REPORTPER_REPORTPER_160Smpl,                                  /**< QDEC report period 160 samples. */
-    NRF_QDEC_REPORTPER_200      = QDEC_REPORTPER_REPORTPER_200Smpl,                                  /**< QDEC report period 200 samples. */
-    NRF_QDEC_REPORTPER_240      = QDEC_REPORTPER_REPORTPER_240Smpl,                                  /**< QDEC report period 240 samples. */
-    NRF_QDEC_REPORTPER_280      = QDEC_REPORTPER_REPORTPER_280Smpl,                                  /**< QDEC report period 280 samples. */
+    NRF_QDEC_REPORTPER_10       = QDEC_REPORTPER_REPORTPER_10Smpl,
+    NRF_QDEC_REPORTPER_40       = QDEC_REPORTPER_REPORTPER_40Smpl,
+    NRF_QDEC_REPORTPER_80       = QDEC_REPORTPER_REPORTPER_80Smpl,
+    NRF_QDEC_REPORTPER_120      = QDEC_REPORTPER_REPORTPER_120Smpl,
+    NRF_QDEC_REPORTPER_160      = QDEC_REPORTPER_REPORTPER_160Smpl,
+    NRF_QDEC_REPORTPER_200      = QDEC_REPORTPER_REPORTPER_200Smpl,
+    NRF_QDEC_REPORTPER_240      = QDEC_REPORTPER_REPORTPER_240Smpl,
+    NRF_QDEC_REPORTPER_280      = QDEC_REPORTPER_REPORTPER_280Smpl,
 } nrf_qdec_reportper_t;
 
 /**
@@ -269,6 +269,30 @@ NRF_STATIC_INLINE void nrf_qdec_pins_set(NRF_QDEC_Type * p_reg,
                                          uint32_t        phase_a_pin,
                                          uint32_t        phase_b_pin,
                                          uint32_t        led_pin);
+
+/**
+ * @brief Function for setting the Phase A pin.
+ *
+ * @param[in] p_reg Pointer to the structure of registers of the peripheral.
+ * @param[in] pin   Phase A pin number.
+ */
+NRF_STATIC_INLINE void nrf_qdec_phase_a_pin_set(NRF_QDEC_Type * p_reg, uint32_t pin);
+
+/**
+ * @brief Function for setting the Phase B pin.
+ *
+ * @param[in] p_reg Pointer to the structure of registers of the peripheral.
+ * @param[in] pin   Phase B pin number.
+ */
+NRF_STATIC_INLINE void nrf_qdec_phase_b_pin_set(NRF_QDEC_Type * p_reg, uint32_t pin);
+
+/**
+ * @brief Function for setting the LED pin.
+ *
+ * @param[in] p_reg Pointer to the structure of registers of the peripheral.
+ * @param[in] pin   LED pin number.
+ */
+NRF_STATIC_INLINE void nrf_qdec_led_pin_set(NRF_QDEC_Type * p_reg, uint32_t pin);
 
 /**
  * @brief Function for getting the Phase A pin selection.
@@ -565,6 +589,33 @@ NRF_STATIC_INLINE void nrf_qdec_pins_set(NRF_QDEC_Type * p_reg,
     p_reg->PSEL.LED = led_pin;
 #else
     p_reg->PSELLED = led_pin;
+#endif
+}
+
+NRF_STATIC_INLINE void nrf_qdec_phase_a_pin_set(NRF_QDEC_Type * p_reg, uint32_t pin)
+{
+#if defined(QDEC_PSEL_A_CONNECT_Pos)
+    p_reg->PSEL.A = pin;
+#else
+    p_reg->PSELA = pin;
+#endif
+}
+
+NRF_STATIC_INLINE void nrf_qdec_phase_b_pin_set(NRF_QDEC_Type * p_reg, uint32_t pin)
+{
+#if defined(QDEC_PSEL_B_CONNECT_Pos)
+    p_reg->PSEL.B = pin;
+#else
+    p_reg->PSELB = pin;
+#endif
+}
+
+NRF_STATIC_INLINE void nrf_qdec_led_pin_set(NRF_QDEC_Type * p_reg, uint32_t pin)
+{
+#if defined(QDEC_PSEL_LED_CONNECT_Pos)
+    p_reg->PSEL.LED = pin;
+#else
+    p_reg->PSELLED = pin;
 #endif
 }
 

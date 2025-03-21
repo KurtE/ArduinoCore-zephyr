@@ -18,7 +18,7 @@
 #ifndef _ASMLANGUAGE
 #include <zephyr/types.h>
 
-#define LOAPIC_IRQ_COUNT 6  /* Default to LOAPIC_TIMER to LOAPIC_ERROR */
+#define LOAPIC_IRQ_COUNT 6
 
 void z_irq_controller_irq_config(unsigned int vector, unsigned int irq,
 				 uint32_t flags);

@@ -89,21 +89,21 @@
 /*! @brief Endpoint state structure */
 typedef struct _usb_device_khci_endpoint_state_struct
 {
-    uint8_t *transferBuffer; /*!< Address of buffer containing the data to be transmitted */
-    uint32_t transferLength; /*!< Length of data to transmit. */
-    uint32_t transferDone;   /*!< The data length has been transferred*/
+    uint8_t *transferBuffer;
+    uint32_t transferLength;
+    uint32_t transferDone;
     union
     {
-        uint32_t state; /*!< The state of the endpoint */
+        uint32_t state;
         struct
         {
-            uint32_t maxPacketSize : 10U; /*!< The maximum packet size of the endpoint */
-            uint32_t stalled : 1U;        /*!< The endpoint is stalled or not */
-            uint32_t data0 : 1U;          /*!< The data toggle of the transaction */
-            uint32_t bdtOdd : 1U;         /*!< The BDT toggle of the endpoint */
-            uint32_t dmaAlign : 1U;       /*!< Whether the transferBuffer is DMA aligned or not */
-            uint32_t transferring : 1U;   /*!< The endpoint is transferring */
-            uint32_t zlt : 1U;            /*!< zlt flag */
+            uint32_t maxPacketSize : 10U;
+            uint32_t stalled : 1U;
+            uint32_t data0 : 1U;
+            uint32_t bdtOdd : 1U;
+            uint32_t dmaAlign : 1U;
+            uint32_t transferring : 1U;
+            uint32_t zlt : 1U;
         } stateBitField;
     } stateUnion;
 } usb_device_khci_endpoint_state_struct_t;
@@ -111,14 +111,14 @@ typedef struct _usb_device_khci_endpoint_state_struct
 /*! @brief KHCI state structure */
 typedef struct _usb_device_khci_state_struct
 {
-    usb_device_struct_t *deviceHandle; /*!< Device handle used to identify the device object belongs to */
+    usb_device_struct_t *deviceHandle;
 #if defined(__DSC__) || defined(__CW__)
-    uint8_t *bdt; /*!< BDT buffer address */
+    uint8_t *bdt;
 #else
-    uint32_t *bdt; /*!< BDT buffer address */
+    uint32_t *bdt;
 #endif
-    USB_Type *registerBase;                               /*!< The base address of the register */
-    uint8_t setupPacketBuffer[USB_SETUP_PACKET_SIZE * 2]; /*!< The setup request buffer */
+    USB_Type *registerBase;
+    uint8_t setupPacketBuffer[USB_SETUP_PACKET_SIZE * 2];
     uint8_t *dmaAlignBuffer; /*!< This buffer is used to fix the transferBuffer or transferLength does
                                not align to 4-bytes when the function USB_DeviceKhciRecv is called.
                                The macro USB_DEVICE_CONFIG_KHCI_DMA_ALIGN is used to enable or disable this feature.
@@ -131,11 +131,11 @@ typedef struct _usb_device_khci_state_struct
                                to the transferBuffer, and the flag isDmaAlignBufferInusing is cleared.
                                 */
     usb_device_khci_endpoint_state_struct_t
-        endpointState[USB_DEVICE_CONFIG_ENDPOINTS * 2]; /*!< Endpoint state structures */
-    uint8_t isDmaAlignBufferInusing;                    /*!< The dmaAlignBuffer is used or not */
-    uint8_t isResetting;                                /*!< Is doing device reset or not */
-    uint8_t controllerId;                               /*!< Controller ID */
-    uint8_t setupBufferIndex;                           /*!< A valid setup buffer flag */
+        endpointState[USB_DEVICE_CONFIG_ENDPOINTS * 2];
+    uint8_t isDmaAlignBufferInusing;
+    uint8_t isResetting;
+    uint8_t controllerId;
+    uint8_t setupBufferIndex;
 #if (defined(USB_DEVICE_CONFIG_OTG) && (USB_DEVICE_CONFIG_OTG))
     uint8_t otgStatus;
 #endif
@@ -145,9 +145,9 @@ typedef struct _usb_device_khci_state_struct
     (defined(FSL_FEATURE_SOC_USBDCD_COUNT) && (FSL_FEATURE_SOC_USBDCD_COUNT > 0U))
 typedef struct _usb_device_dcd_state_struct
 {
-    usb_device_struct_t *deviceHandle; /*!< Device handle used to identify the device object belongs to */
-    USBDCD_Type *dcdRegisterBase;      /*!< The base address of the dcd module */
-    uint8_t controllerId;              /*!< Controller ID */
+    usb_device_struct_t *deviceHandle;
+    USBDCD_Type *dcdRegisterBase;
+    uint8_t controllerId;
 } usb_device_dcd_state_struct_t;
 #endif
 

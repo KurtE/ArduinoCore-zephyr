@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2010 - 2024, Nordic Semiconductor ASA All rights reserved.
+Copyright (c) 2010 - 2025, Nordic Semiconductor ASA All rights reserved.
 
 SPDX-License-Identifier: BSD-3-Clause
 
@@ -75,16 +75,16 @@ POSSIBILITY OF SUCH DAMAGE.
     #endif
 
     #define EASYVDMA_PRESENT
-    #define VDMADESCRIPTOR_CONFIG_CNT_Pos (0UL)        /*!< Position of CNT field.                                               */
-    #define VDMADESCRIPTOR_CONFIG_CNT_Msk (0xFFFFFFUL << VDMADESCRIPTOR_CONFIG_CNT_Pos) /*!< Bit mask of CNT field.              */
-    #define VDMADESCRIPTOR_CONFIG_ATTRIBUTE_Pos (24UL) /*!< Position of ATTRIBUTE field.                                         */
+    #define VDMADESCRIPTOR_CONFIG_CNT_Pos (0UL)
+    #define VDMADESCRIPTOR_CONFIG_CNT_Msk (0xFFFFFFUL << VDMADESCRIPTOR_CONFIG_CNT_Pos)
+    #define VDMADESCRIPTOR_CONFIG_ATTRIBUTE_Pos (24UL)
 
     #define SAADC_CH_NUM SAADC_CH_MaxCount
     #define SAADC_EASYDMA_MAXCNT_SIZE 15
 
     #define LPCOMP_REFSEL_RESOLUTION 16
 
-    #define MPC_MASTER_PORTS_MaxCount (15UL) /*!< Max number of master ports. */
+    #define MPC_MASTER_PORTS_MaxCount (15UL)
 
     #define GPIOTE20_CH_NUM GPIOTE20_GPIOTE_NCHANNELS_SIZE
     #define GPIOTE30_CH_NUM GPIOTE30_GPIOTE_NCHANNELS_SIZE

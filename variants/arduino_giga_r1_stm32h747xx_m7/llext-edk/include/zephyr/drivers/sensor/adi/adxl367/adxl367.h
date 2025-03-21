@@ -46,76 +46,76 @@
 /*
  * ADXL367 registers definition
  */
-#define ADXL367_DEVID		0x00u  /* Analog Devices accelerometer ID */
-#define ADXL367_DEVID_MST	0x01u  /* Analog Devices MEMS device ID */
-#define ADXL367_PART_ID		0x02u  /* Device ID */
-#define ADXL367_REV_ID		0x03u  /* product revision ID*/
-#define ADXL367_SERIAL_NR_3	0x04u  /* Serial Number 3 */
-#define ADXL367_SERIAL_NR_2	0x05u  /* Serial Number 2 */
-#define ADXL367_SERIAL_NR_1	0x06u  /* Serial Number 1 */
-#define ADXL367_SERIAL_NR_0	0x07u  /* Serial Number 0 */
-#define ADXL367_XDATA		0x08u  /* X-axis acceleration data [13:6] */
-#define ADXL367_YDATA		0x09u  /* Y-axis acceleration data [13:6] */
-#define ADXL367_ZDATA		0x0Au  /* Z-axis acceleration data [13:6] */
-#define ADXL367_STATUS		0x0Bu  /* Status */
-#define ADXL367_FIFO_ENTRIES_L	0x0Cu  /* FIFO Entries Low */
-#define ADXL367_FIFO_ENTRIES_H	0x0Du  /* FIFO Entries High */
-#define ADXL367_X_DATA_H	0x0Eu  /* X-axis acceleration data [13:6] */
-#define ADXL367_X_DATA_L	0x0Fu  /* X-axis acceleration data [5:0] */
-#define ADXL367_Y_DATA_H	0x10u  /* Y-axis acceleration data [13:6] */
-#define ADXL367_Y_DATA_L	0x11u  /* Y-axis acceleration data [5:0] */
-#define ADXL367_Z_DATA_H	0x12u  /* Z-axis acceleration data [13:6] */
-#define ADXL367_Z_DATA_L	0x13u  /* Z-axis acceleration data [5:0] */
-#define ADXL367_TEMP_H		0x14u  /* Temperate data [13:6] */
-#define ADXL367_TEMP_L		0x15u  /* Temperate data [5:0] */
-#define ADXL367_EX_ADC_H	0x16u  /* Extended ADC data [13:6] */
-#define ADXL367_EX_ADC_L	0x17u  /* Extended ADC data [5:0] */
-#define ADXL367_I2C_FIFO_DATA	0x18u  /* I2C FIFO Data address */
-#define ADXL367_SOFT_RESET	0x1Fu  /* Software reset register */
-#define ADXL367_THRESH_ACT_H	0x20u  /* Activity Threshold [12:6] */
-#define ADXL367_THRESH_ACT_L	0x21u  /* Activity Threshold [5:0] */
-#define ADXL367_TIME_ACT	0x22u  /* Activity Time */
-#define ADXL367_THRESH_INACT_H	0x23u  /* Inactivity Threshold [12:6] */
-#define ADXL367_THRESH_INACT_L	0x24u  /* Inactivity Threshold [5:0] */
-#define ADXL367_TIME_INACT_H	0x25u  /* Inactivity Time [12:6] */
-#define ADXL367_TIME_INACT_L	0x26u  /* Inactivity Time [5:0] */
-#define ADXL367_ACT_INACT_CTL	0x27u  /* Activity Inactivity Control */
-#define ADXL367_FIFO_CONTROL	0x28u  /* FIFO Control */
-#define ADXL367_FIFO_SAMPLES	0x29u  /* FIFO Samples */
-#define ADXL367_INTMAP1_LOWER	0x2Au  /* Interrupt 1 mapping control lower */
-#define ADXL367_INTMAP2_LOWER   0x2Bu  /* Interrupt 2 mapping control lower */
-#define ADXL367_FILTER_CTL	0x2Cu  /* Filter Control register */
-#define ADXL367_POWER_CTL	0x2Du  /* Power Control register */
-#define ADXL367_SELF_TEST	0x2Eu  /* Self Test */
-#define ADXL367_TAP_THRESH	0x2Fu  /* Tap Threshold */
-#define ADXL367_TAP_DUR		0x30u  /* Tap Duration */
-#define ADXL367_TAP_LATENT	0x31u  /* Tap Latency */
-#define ADXL367_TAP_WINDOW	0x32u  /* Tap Window */
-#define ADXL367_X_OFFSET	0x33u  /* X-axis offset */
-#define ADXL367_Y_OFFSET	0x34u  /* Y-axis offset */
-#define ADXL367_Z_OFFSET	0x35u  /* Z-axis offset */
-#define ADXL367_X_SENS		0x36u  /* X-axis user sensitivity */
-#define ADXL367_Y_SENS		0x37u  /* Y-axis user sensitivity */
-#define ADXL367_Z_SENS		0x38u  /* Z-axis user sensitivity */
-#define ADXL367_TIMER_CTL	0x39u  /* Timer Control */
-#define ADXL367_INTMAP1_UPPER	0x3Au  /* Interrupt 1 mapping control upper */
-#define ADXL367_INTMAP2_UPPER   0x3Bu  /* Interrupt 2 mapping control upper */
-#define ADXL367_ADC_CTL		0x3Cu  /* ADC Control Register */
-#define ADXL367_TEMP_CTL	0x3Du  /* Temperature Control Register */
-#define ADXL367_TEMP_ADC_OTH_H	0x3Eu  /* Temperature ADC Over Threshold [12:6]*/
-#define ADXL367_TEMP_ADC_OTH_L	0x3Fu  /* Temperature ADC Over Threshold [5:0]*/
-#define ADXL367_TEMP_ADC_UTH_H	0x40u  /* Temperature ADC Under Threshold [12:6]*/
-#define ADXL367_TEMP_ADC_UTH_L	0x41u  /* Temperature ADC Under Threshold [5:0]*/
-#define ADXL367_TEMP_ADC_TIMER	0x42u  /* Temperature Activiy Inactivity Timer */
-#define ADXL367_AXIS_MASK	0x43u  /* Axis Mask Register */
-#define ADXL367_STATUS_COPY	0x44u  /* Status Copy Register */
-#define ADXL367_STATUS2		0x45u  /* Status 2 Register */
+#define ADXL367_DEVID		0x00u
+#define ADXL367_DEVID_MST	0x01u
+#define ADXL367_PART_ID		0x02u
+#define ADXL367_REV_ID		0x03u
+#define ADXL367_SERIAL_NR_3	0x04u
+#define ADXL367_SERIAL_NR_2	0x05u
+#define ADXL367_SERIAL_NR_1	0x06u
+#define ADXL367_SERIAL_NR_0	0x07u
+#define ADXL367_XDATA		0x08u
+#define ADXL367_YDATA		0x09u
+#define ADXL367_ZDATA		0x0Au
+#define ADXL367_STATUS		0x0Bu
+#define ADXL367_FIFO_ENTRIES_L	0x0Cu
+#define ADXL367_FIFO_ENTRIES_H	0x0Du
+#define ADXL367_X_DATA_H	0x0Eu
+#define ADXL367_X_DATA_L	0x0Fu
+#define ADXL367_Y_DATA_H	0x10u
+#define ADXL367_Y_DATA_L	0x11u
+#define ADXL367_Z_DATA_H	0x12u
+#define ADXL367_Z_DATA_L	0x13u
+#define ADXL367_TEMP_H		0x14u
+#define ADXL367_TEMP_L		0x15u
+#define ADXL367_EX_ADC_H	0x16u
+#define ADXL367_EX_ADC_L	0x17u
+#define ADXL367_I2C_FIFO_DATA	0x18u
+#define ADXL367_SOFT_RESET	0x1Fu
+#define ADXL367_THRESH_ACT_H	0x20u
+#define ADXL367_THRESH_ACT_L	0x21u
+#define ADXL367_TIME_ACT	0x22u
+#define ADXL367_THRESH_INACT_H	0x23u
+#define ADXL367_THRESH_INACT_L	0x24u
+#define ADXL367_TIME_INACT_H	0x25u
+#define ADXL367_TIME_INACT_L	0x26u
+#define ADXL367_ACT_INACT_CTL	0x27u
+#define ADXL367_FIFO_CONTROL	0x28u
+#define ADXL367_FIFO_SAMPLES	0x29u
+#define ADXL367_INTMAP1_LOWER	0x2Au
+#define ADXL367_INTMAP2_LOWER   0x2Bu
+#define ADXL367_FILTER_CTL	0x2Cu
+#define ADXL367_POWER_CTL	0x2Du
+#define ADXL367_SELF_TEST	0x2Eu
+#define ADXL367_TAP_THRESH	0x2Fu
+#define ADXL367_TAP_DUR		0x30u
+#define ADXL367_TAP_LATENT	0x31u
+#define ADXL367_TAP_WINDOW	0x32u
+#define ADXL367_X_OFFSET	0x33u
+#define ADXL367_Y_OFFSET	0x34u
+#define ADXL367_Z_OFFSET	0x35u
+#define ADXL367_X_SENS		0x36u
+#define ADXL367_Y_SENS		0x37u
+#define ADXL367_Z_SENS		0x38u
+#define ADXL367_TIMER_CTL	0x39u
+#define ADXL367_INTMAP1_UPPER	0x3Au
+#define ADXL367_INTMAP2_UPPER   0x3Bu
+#define ADXL367_ADC_CTL		0x3Cu
+#define ADXL367_TEMP_CTL	0x3Du
+#define ADXL367_TEMP_ADC_OTH_H	0x3Eu
+#define ADXL367_TEMP_ADC_OTH_L	0x3Fu
+#define ADXL367_TEMP_ADC_UTH_H	0x40u
+#define ADXL367_TEMP_ADC_UTH_L	0x41u
+#define ADXL367_TEMP_ADC_TIMER	0x42u
+#define ADXL367_AXIS_MASK	0x43u
+#define ADXL367_STATUS_COPY	0x44u
+#define ADXL367_STATUS2		0x45u
 
-#define ADXL367_DEVID_VAL	0xADu  /* Analog Devices accelerometer ID */
-#define ADXL367_MST_DEVID_VAL	0x1Du  /* Analog Devices MEMS device ID */
-#define ADXL367_PARTID_VAL	0xF7u  /* Device ID */
-#define ADXL367_REVID_VAL	0x03u  /* product revision ID*/
-#define ADXL367_RESET_CODE	0x52u  /* Writing code 0x52 resets the device */
+#define ADXL367_DEVID_VAL	0xADu
+#define ADXL367_MST_DEVID_VAL	0x1Du
+#define ADXL367_PARTID_VAL	0xF7u
+#define ADXL367_REVID_VAL	0x03u
+#define ADXL367_RESET_CODE	0x52u
 
 #define ADXL367_READ					0x01u
 #define ADXL367_REG_READ(x)				(((x & 0xFF) << 1) | ADXL367_READ)

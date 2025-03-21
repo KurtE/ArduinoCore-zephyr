@@ -9,25 +9,25 @@
 
 #include <stdint.h>
 
-#define DAI_INTEL_IPC3_SSP_FMT_I2S	1 /**< I2S mode */
-#define DAI_INTEL_IPC3_SSP_FMT_RIGHT_J	2 /**< Right Justified mode */
-#define DAI_INTEL_IPC3_SSP_FMT_LEFT_J	3 /**< Left Justified mode */
-#define DAI_INTEL_IPC3_SSP_FMT_DSP_A	4 /**< L data MSB after FRM LRC */
-#define DAI_INTEL_IPC3_SSP_FMT_DSP_B	5 /**< L data MSB during FRM LRC */
-#define DAI_INTEL_IPC3_SSP_FMT_PDM	6 /**< Pulse density modulation */
+#define DAI_INTEL_IPC3_SSP_FMT_I2S	1
+#define DAI_INTEL_IPC3_SSP_FMT_RIGHT_J	2
+#define DAI_INTEL_IPC3_SSP_FMT_LEFT_J	3
+#define DAI_INTEL_IPC3_SSP_FMT_DSP_A	4
+#define DAI_INTEL_IPC3_SSP_FMT_DSP_B	5
+#define DAI_INTEL_IPC3_SSP_FMT_PDM	6
 
-#define DAI_INTEL_IPC3_SSP_FMT_CONT	(1 << 4) /**< continuous clock */
-#define DAI_INTEL_IPC3_SSP_FMT_GATED	(0 << 4) /**< clock is gated */
+#define DAI_INTEL_IPC3_SSP_FMT_CONT	(1 << 4)
+#define DAI_INTEL_IPC3_SSP_FMT_GATED	(0 << 4)
 
-#define DAI_INTEL_IPC3_SSP_FMT_NB_NF	(0 << 8) /**< normal bit clock + frame */
-#define DAI_INTEL_IPC3_SSP_FMT_NB_IF	(2 << 8) /**< normal BCLK + inv FRM */
-#define DAI_INTEL_IPC3_SSP_FMT_IB_NF	(3 << 8) /**< invert BCLK + nor FRM */
-#define DAI_INTEL_IPC3_SSP_FMT_IB_IF	(4 << 8) /**< invert BCLK + FRM */
+#define DAI_INTEL_IPC3_SSP_FMT_NB_NF	(0 << 8)
+#define DAI_INTEL_IPC3_SSP_FMT_NB_IF	(2 << 8)
+#define DAI_INTEL_IPC3_SSP_FMT_IB_NF	(3 << 8)
+#define DAI_INTEL_IPC3_SSP_FMT_IB_IF	(4 << 8)
 
-#define DAI_INTEL_IPC3_SSP_FMT_CBP_CFP	(0 << 12) /**< codec bclk provider & frame provider */
-#define DAI_INTEL_IPC3_SSP_FMT_CBC_CFP	(2 << 12) /**< codec bclk consumer & frame provider */
-#define DAI_INTEL_IPC3_SSP_FMT_CBP_CFC	(3 << 12) /**< codec bclk provider & frame consumer */
-#define DAI_INTEL_IPC3_SSP_FMT_CBC_CFC	(4 << 12) /**< codec bclk consumer & frame consumer */
+#define DAI_INTEL_IPC3_SSP_FMT_CBP_CFP	(0 << 12)
+#define DAI_INTEL_IPC3_SSP_FMT_CBC_CFP	(2 << 12)
+#define DAI_INTEL_IPC3_SSP_FMT_CBP_CFC	(3 << 12)
+#define DAI_INTEL_IPC3_SSP_FMT_CBC_CFC	(4 << 12)
 
 #define DAI_INTEL_IPC3_SSP_FMT_FORMAT_MASK		0x000f
 #define DAI_INTEL_IPC3_SSP_FMT_CLOCK_MASK		0x00f0
@@ -40,9 +40,9 @@
  * commands.
  */
 #define DAI_INTEL_IPC3_SSP_CONFIG_FLAGS_CMD_MASK	0xF
-#define DAI_INTEL_IPC3_SSP_CONFIG_FLAGS_NONE		0 /**< config without stage information */
-#define DAI_INTEL_IPC3_SSP_CONFIG_FLAGS_HW_PARAMS	BIT(0) /**< config during hw_params stage */
-#define DAI_INTEL_IPC3_SSP_CONFIG_FLAGS_HW_FREE		BIT(1) /**< config during hw_free stage */
+#define DAI_INTEL_IPC3_SSP_CONFIG_FLAGS_NONE		0
+#define DAI_INTEL_IPC3_SSP_CONFIG_FLAGS_HW_PARAMS	BIT(0)
+#define DAI_INTEL_IPC3_SSP_CONFIG_FLAGS_HW_FREE		BIT(1)
 
 /**< DAI_CONFIG sent during pause trigger. Only available ABI 3.20 onwards */
 #define DAI_INTEL_IPC3_SSP_CONFIG_FLAGS_PAUSE	BIT(2)
@@ -103,9 +103,9 @@ struct dai_intel_ipc3_ssp_params {
 	uint16_t reserved1;
 	uint16_t mclk_id;
 
-	uint32_t mclk_rate;	/* mclk frequency in Hz */
-	uint32_t fsync_rate;	/* fsync frequency in Hz */
-	uint32_t bclk_rate;	/* bclk frequency in Hz */
+	uint32_t mclk_rate;
+	uint32_t fsync_rate;
+	uint32_t bclk_rate;
 
 	/* TDM */
 	uint32_t tdm_slots;
@@ -115,7 +115,7 @@ struct dai_intel_ipc3_ssp_params {
 	/* data */
 	uint32_t sample_valid_bits;
 	uint16_t tdm_slot_width;
-	uint16_t reserved2;	/* alignment */
+	uint16_t reserved2;
 
 	/* MCLK */
 	uint32_t mclk_direction;

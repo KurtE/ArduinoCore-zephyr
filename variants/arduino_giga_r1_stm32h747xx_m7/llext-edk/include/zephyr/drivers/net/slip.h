@@ -23,10 +23,10 @@ struct slip_context {
 	bool first;		/* SLIP received it's byte or not after
 				 * driver initialization or SLIP_END byte.
 				 */
-	uint8_t buf[1];		/* SLIP data is read into this buf */
-	struct net_pkt *rx;	/* and then placed into this net_pkt */
-	struct net_buf *last;	/* Pointer to last buffer in the list */
-	uint8_t *ptr;		/* Where in net_pkt to add data */
+	uint8_t buf[1];
+	struct net_pkt *rx;
+	struct net_buf *last;
+	uint8_t *ptr;
 	struct net_if *iface;
 	uint8_t state;
 

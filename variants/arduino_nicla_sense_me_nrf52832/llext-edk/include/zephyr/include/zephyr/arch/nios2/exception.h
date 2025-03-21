@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#ifndef ZEPHYR_INCLUDE_ARCH_NIOS2_EXPCEPTION_H_
-#define ZEPHYR_INCLUDE_ARCH_NIOS2_EXPCEPTION_H_
+#ifndef ZEPHYR_INCLUDE_ARCH_NIOS2_EXCEPTION_H_
+#define ZEPHYR_INCLUDE_ARCH_NIOS2_EXCEPTION_H_
 
 #ifndef _ASMLANGUAGE
 #include <zephyr/types.h>
@@ -15,24 +15,24 @@ extern "C" {
 #endif
 
 struct arch_esf {
-	uint32_t ra; /* return address r31 */
-	uint32_t r1; /* at */
-	uint32_t r2; /* return value */
-	uint32_t r3; /* return value */
-	uint32_t r4; /* register args */
-	uint32_t r5; /* register args */
-	uint32_t r6; /* register args */
-	uint32_t r7; /* register args */
-	uint32_t r8; /* Caller-saved general purpose */
-	uint32_t r9; /* Caller-saved general purpose */
-	uint32_t r10; /* Caller-saved general purpose */
-	uint32_t r11; /* Caller-saved general purpose */
-	uint32_t r12; /* Caller-saved general purpose */
-	uint32_t r13; /* Caller-saved general purpose */
-	uint32_t r14; /* Caller-saved general purpose */
-	uint32_t r15; /* Caller-saved general purpose */
+	uint32_t ra;
+	uint32_t r1;
+	uint32_t r2;
+	uint32_t r3;
+	uint32_t r4;
+	uint32_t r5;
+	uint32_t r6;
+	uint32_t r7;
+	uint32_t r8;
+	uint32_t r9;
+	uint32_t r10;
+	uint32_t r11;
+	uint32_t r12;
+	uint32_t r13;
+	uint32_t r14;
+	uint32_t r15;
 	uint32_t estatus;
-	uint32_t instr; /* Instruction being executed when exc occurred */
+	uint32_t instr;
 };
 
 #ifdef __cplusplus
@@ -41,4 +41,4 @@ struct arch_esf {
 
 #endif /* _ASMLANGUAGE */
 
-#endif /* ZEPHYR_INCLUDE_ARCH_NIOS2_EXPCEPTION_H_ */
+#endif /* ZEPHYR_INCLUDE_ARCH_NIOS2_EXCEPTION_H_ */

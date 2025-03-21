@@ -21,7 +21,7 @@
 #define APDS9253_LS_MEAS_RATE_RES_MASK        GENMASK(6, 4)
 #define APDS9253_LS_MEAS_RATE_RES_20BIT_400MS 0
 #define APDS9253_LS_MEAS_RATE_RES_19BIT_200MS BIT(4)
-#define APDS9253_LS_MEAS_RATE_RES_18BIT_100MS BIT(5) /* default */
+#define APDS9253_LS_MEAS_RATE_RES_18BIT_100MS BIT(5)
 #define APDS9253_LS_MEAS_RATE_RES_17BIT_50MS  (BIT(5) | BIT(4))
 #define APDS9253_LS_MEAS_RATE_RES_16BIT_25MS  BIT(6)
 #define APDS9253_LS_MEAS_RATE_RES_13_3MS      (BIT(6) | BIT(4))
@@ -30,7 +30,7 @@
 #define APDS9253_LS_MEAS_RATE_MES_1000MS      (BIT(2) | BIT(0))
 #define APDS9253_LS_MEAS_RATE_MES_500MS       BIT(2)
 #define APDS9253_LS_MEAS_RATE_MES_200MS       (BIT(1) | BIT(0))
-#define APDS9253_LS_MEAS_RATE_MES_100MS       BIT(1) /* default */
+#define APDS9253_LS_MEAS_RATE_MES_100MS       BIT(1)
 #define APDS9253_LS_MEAS_RATE_MES_50MS        BIT(0)
 #define APDS9253_LS_MEAS_RATE_MES_25MS        0
 
@@ -39,7 +39,7 @@
 #define APDS9253_LS_GAIN_RANGE_18 BIT(2)
 #define APDS9253_LS_GAIN_RANGE_9  (BIT(1) | BIT(0))
 #define APDS9253_LS_GAIN_RANGE_6  BIT(1)
-#define APDS9253_LS_GAIN_RANGE_3  BIT(0) /* default */
+#define APDS9253_LS_GAIN_RANGE_3  BIT(0)
 #define APDS9253_LS_GAIN_RANGE_1  0
 
 #define APDS9253_PART_ID          0x06
@@ -69,7 +69,7 @@
 
 #define APDS9253_INT_CFG                 0x19
 #define APDS9253_INT_CFG_LS_INT_SEL_IR   0
-#define APDS9253_INT_CFG_LS_INT_SEL_ALS  BIT(4) /* default */
+#define APDS9253_INT_CFG_LS_INT_SEL_ALS  BIT(4)
 #define APDS9253_INT_CFG_LS_INT_SEL_RED  BIT(5)
 #define APDS9253_INT_CFG_LS_INT_SEL_BLUE (BIT(5) | BIT(4))
 #define APDS9253_INT_CFG_LS_VAR_MODE_EN  BIT(3)
@@ -100,6 +100,8 @@ struct apds9253_data {
 	const struct device *dev;
 	uint32_t sample_crgb[4];
 	uint8_t pdata;
+	uint8_t gain;
+	uint8_t meas_rate_mes;
 	struct k_sem data_sem;
 };
 

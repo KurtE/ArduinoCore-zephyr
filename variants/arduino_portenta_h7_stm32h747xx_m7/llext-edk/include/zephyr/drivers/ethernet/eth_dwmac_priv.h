@@ -59,8 +59,8 @@ struct dwmac_priv {
 	uintptr_t tx_descs_phys, rx_descs_phys;
 #endif
 
-	struct net_buf *tx_frags[NB_TX_DESCS]; /* index shared with tx_descs */
-	struct net_buf *rx_frags[NB_RX_DESCS]; /* index shared with rx_descs */
+	struct net_buf *tx_frags[NB_TX_DESCS];
+	struct net_buf *rx_frags[NB_RX_DESCS];
 
 	struct net_pkt *rx_pkt;
 	unsigned int rx_bytes;

@@ -35,7 +35,7 @@ extern "C" {
 #endif
 
 struct _callee_saved {
-	uintptr_t sp; /* r28 */
+	uintptr_t sp;
 };
 typedef struct _callee_saved _callee_saved_t;
 

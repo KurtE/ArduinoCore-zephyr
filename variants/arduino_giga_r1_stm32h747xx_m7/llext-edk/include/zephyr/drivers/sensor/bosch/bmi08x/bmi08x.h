@@ -504,7 +504,7 @@ struct bmi08x_accel_data {
 	struct gpio_callback gpio_cb;
 #endif
 	uint16_t acc_sample[3];
-	uint16_t scale; /* micro m/s^2/lsb */
+	uint16_t scale;
 
 #if defined(CONFIG_BMI08X_ACCEL_TRIGGER_OWN_THREAD)
 	K_KERNEL_STACK_MEMBER(thread_stack, CONFIG_BMI08X_ACCEL_THREAD_STACK_SIZE);
@@ -527,7 +527,7 @@ struct bmi08x_gyro_data {
 	struct gpio_callback gpio_cb;
 #endif
 	uint16_t gyr_sample[3];
-	uint16_t scale; /* micro radians/s/lsb */
+	uint16_t scale;
 
 #if defined(CONFIG_BMI08X_GYRO_TRIGGER_OWN_THREAD)
 	K_KERNEL_STACK_MEMBER(thread_stack, CONFIG_BMI08X_GYRO_THREAD_STACK_SIZE);

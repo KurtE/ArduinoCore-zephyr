@@ -150,34 +150,34 @@ typedef uint8_t chunk_t[BYTES_PER_CHUNK];
 /*! @brief Boot command definition */
 typedef struct _boot_cmd
 {
-    uint8_t checksum; /*!< 8-bit checksum over command chunk */
-    uint8_t tag;      /*!< command tag (identifier) */
-    uint16_t flags;   /*!< command flags (modifier) */
-    uint32_t address; /*!< address argument */
-    uint32_t count;   /*!< count argument */
-    uint32_t data;    /*!< data argument */
+    uint8_t checksum;
+    uint8_t tag;
+    uint16_t flags;
+    uint32_t address;
+    uint32_t count;
+    uint32_t data;
 } boot_cmd_t;
 
 /*! @brief Definition for boot image file header chunk 1 */
 typedef struct _boot_hdr1
 {
-    uint32_t hash;       /*!< last 32-bits of SHA-1 hash */
-    uint32_t signature;  /*!< must equal "STMP" */
-    uint8_t major;       /*!< major file format version */
-    uint8_t minor;       /*!< minor file format version */
-    uint16_t fileFlags;  /*!< global file flags */
-    uint32_t fileChunks; /*!< total chunks in the file */
+    uint32_t hash;
+    uint32_t signature;
+    uint8_t major;
+    uint8_t minor;
+    uint16_t fileFlags;
+    uint32_t fileChunks;
 } boot_hdr1_t;
 
 /*! @brief Definition for boot image file header chunk 2 */
 typedef struct _boot_hdr2
 {
-    uint32_t bootOffset; /*!< chunk offset to the first boot section */
-    uint32_t bootSectID; /*!< section ID of the first boot section */
-    uint16_t keyCount;   /*!< number of keys in the key dictionary */
-    uint16_t keyOffset;  /*!< chunk offset to the key dictionary */
-    uint16_t hdrChunks;  /*!< number of chunks in the header */
-    uint16_t sectCount;  /*!< number of sections in the image */
+    uint32_t bootOffset;
+    uint32_t bootSectID;
+    uint16_t keyCount;
+    uint16_t keyOffset;
+    uint16_t hdrChunks;
+    uint16_t sectCount;
 } boot_hdr2_t;
 
 /*! @brief Provides forward reference to the loader context definition. */
@@ -195,36 +195,36 @@ typedef status_t (*pCallFnc_t)(uint32_t parameter, uint32_t *func);
 /*! @brief State information for the CRC32 algorithm. */
 typedef struct Crc32Data
 {
-    uint32_t currentCrc;   /*!< Current CRC value. */
-    uint32_t byteCountCrc; /*!< Number of bytes processed. */
+    uint32_t currentCrc;
+    uint32_t byteCountCrc;
 } crc32_data_t;
 
 /*! @brief Loader context definition. */
 struct _ldr_Context
 {
-    pLdrFnc_t Action;        /*!<  pointer to loader action function */
-    uint32_t fileChunks;     /*!<  chunks remaining in file */
-    uint32_t sectChunks;     /*!<  chunks remaining in section */
-    uint32_t bootSectChunks; /*!<  number of chunks we need to complete the boot section */
-    uint32_t receivedChunks; /*!<  number of chunks we need to complete the boot section */
-    uint16_t fileFlags;      /*!<  file header flags */
-    uint16_t keyCount;       /*!<  number of keys in the key dictionary */
-    uint32_t objectID;       /*!<  ID of the current boot section or image */
-    crc32_data_t crc32;      /*!<  crc calculated over load command payload */
-    uint8_t *src;            /*!<  source buffer address */
-    chunk_t initVector;      /*!<  decryption initialization vector */
-    chunk_t dek;             /*!<  chunk size DEK if the image is encrypted */
-    chunk_t scratchPad;      /*!<  chunk size scratch pad area */
-    boot_cmd_t bootCmd;      /*!<  current boot command */
-    uint32_t skipCount;      /*!<  Number of chunks to skip */
-    bool skipToEnd;          /*!<  true if skipping to end of file */
+    pLdrFnc_t Action;
+    uint32_t fileChunks;
+    uint32_t sectChunks;
+    uint32_t bootSectChunks;
+    uint32_t receivedChunks;
+    uint16_t fileFlags;
+    uint16_t keyCount;
+    uint32_t objectID;
+    crc32_data_t crc32;
+    uint8_t *src;
+    chunk_t initVector;
+    chunk_t dek;
+    chunk_t scratchPad;
+    boot_cmd_t bootCmd;
+    uint32_t skipCount;
+    bool skipToEnd;
 
     // extended for SB 2.0
     uint32_t nonce[4];
     uint32_t keyBlobBlock;
     uint32_t keyBlobBlockCount;
     uint8_t *keyBlobBuffer;
-    uint32_t offsetSignatureBytes; /*!< offset to signagure block header in bytesn */
+    uint32_t offsetSignatureBytes;
     uint8_t *headerBuffer;
 };
 

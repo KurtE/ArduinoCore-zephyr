@@ -40,8 +40,8 @@
  * @details See sections 7.4.2.1 and 7.4.3.1.
  */
 enum ieee802154_ie_type {
-	IEEE802154_IE_TYPE_HEADER = 0x0, /**< Header type */
-	IEEE802154_IE_TYPE_PAYLOAD,      /**< Payload type */
+	IEEE802154_IE_TYPE_HEADER = 0x0,
+	IEEE802154_IE_TYPE_PAYLOAD,
 };
 
 /**
@@ -51,13 +51,13 @@ enum ieee802154_ie_type {
  * are implemented.
  */
 enum ieee802154_header_ie_element_id {
-	IEEE802154_HEADER_IE_ELEMENT_ID_VENDOR_SPECIFIC_IE = 0x00,   /**< Vendor specific IE */
-	IEEE802154_HEADER_IE_ELEMENT_ID_CSL_IE = 0x1a,	             /**< CSL IE */
-	IEEE802154_HEADER_IE_ELEMENT_ID_RIT_IE = 0x1b,               /**< RIT IE */
-	IEEE802154_HEADER_IE_ELEMENT_ID_RENDEZVOUS_TIME_IE = 0x1d,   /**< Rendezvous time IE */
-	IEEE802154_HEADER_IE_ELEMENT_ID_TIME_CORRECTION_IE = 0x1e,   /**< Time correction IE */
-	IEEE802154_HEADER_IE_ELEMENT_ID_HEADER_TERMINATION_1 = 0x7e, /**< Header termination 1 */
-	IEEE802154_HEADER_IE_ELEMENT_ID_HEADER_TERMINATION_2 = 0x7f, /**< Header termination 2 */
+	IEEE802154_HEADER_IE_ELEMENT_ID_VENDOR_SPECIFIC_IE = 0x00,
+	IEEE802154_HEADER_IE_ELEMENT_ID_CSL_IE = 0x1a,
+	IEEE802154_HEADER_IE_ELEMENT_ID_RIT_IE = 0x1b,
+	IEEE802154_HEADER_IE_ELEMENT_ID_RENDEZVOUS_TIME_IE = 0x1d,
+	IEEE802154_HEADER_IE_ELEMENT_ID_TIME_CORRECTION_IE = 0x1e,
+	IEEE802154_HEADER_IE_ELEMENT_ID_HEADER_TERMINATION_1 = 0x7e,
+	IEEE802154_HEADER_IE_ELEMENT_ID_HEADER_TERMINATION_2 = 0x7f,
 	/* partial list, add additional ids as needed */
 };
 
@@ -75,15 +75,15 @@ struct ieee802154_header_ie_vendor_specific {
 
 /** @brief Full CSL IE, see section 7.4.2.3. */
 struct ieee802154_header_ie_csl_full {
-	uint16_t csl_phase;           /**< CSL phase */
-	uint16_t csl_period;          /**< CSL period */
-	uint16_t csl_rendezvous_time; /**< Rendezvous time */
+	uint16_t csl_phase;
+	uint16_t csl_period;
+	uint16_t csl_rendezvous_time;
 } __packed;
 
 /** @brief Reduced CSL IE, see section 7.4.2.3. */
 struct ieee802154_header_ie_csl_reduced {
-	uint16_t csl_phase;  /**< CSL phase */
-	uint16_t csl_period; /**< CSL period */
+	uint16_t csl_phase;
+	uint16_t csl_period;
 } __packed;
 
 /** @brief Generic CSL IE, see section 7.4.2.3. */
@@ -98,9 +98,9 @@ struct ieee802154_header_ie_csl {
 
 /** @brief RIT IE, see section 7.4.2.4. */
 struct ieee802154_header_ie_rit {
-	uint8_t time_to_first_listen;    /**< Time to First Listen */
-	uint8_t number_of_repeat_listen; /**< Number of Repeat Listen */
-	uint16_t repeat_listen_interval; /**< Repeat listen interval */
+	uint8_t time_to_first_listen;
+	uint8_t number_of_repeat_listen;
+	uint16_t repeat_listen_interval;
 } __packed;
 
 /**
@@ -108,8 +108,8 @@ struct ieee802154_header_ie_rit {
  * (macCslInterval is nonzero).
  */
 struct ieee802154_header_ie_rendezvous_time_full {
-	uint16_t rendezvous_time; /**< Rendezvous time */
-	uint16_t wakeup_interval; /**< Wakeup interval */
+	uint16_t rendezvous_time;
+	uint16_t wakeup_interval;
 } __packed;
 
 /**
@@ -117,7 +117,7 @@ struct ieee802154_header_ie_rendezvous_time_full {
  * (macCslInterval is zero).
  */
 struct ieee802154_header_ie_rendezvous_time_reduced {
-	uint16_t rendezvous_time; /**< Rendezvous time */
+	uint16_t rendezvous_time;
 } __packed;
 
 /** @brief Rendezvous Time IE, see section 7.4.2.6. */
@@ -132,7 +132,7 @@ struct ieee802154_header_ie_rendezvous_time {
 
 /** @brief Time Correction IE, see section 7.4.2.7. */
 struct ieee802154_header_ie_time_correction {
-	uint16_t time_sync_info;  /**< Time synchronization information */
+	uint16_t time_sync_info;
 } __packed;
 
 /** @cond INTERNAL_HIDDEN */
@@ -141,13 +141,13 @@ struct ieee802154_header_ie_time_correction {
 struct ieee802154_header_ie {
 #if CONFIG_LITTLE_ENDIAN
 	uint16_t length : 7;
-	uint16_t element_id_low : 1; /* see enum ieee802154_header_ie_element_id */
+	uint16_t element_id_low : 1;
 	uint16_t element_id_high : 7;
-	uint16_t type : 1; /* always 0 */
+	uint16_t type : 1;
 #else
-	uint16_t element_id_low : 1; /* see enum ieee802154_header_ie_element_id */
+	uint16_t element_id_low : 1;
 	uint16_t length : 7;
-	uint16_t type : 1; /* always 0 */
+	uint16_t type : 1;
 	uint16_t element_id_high : 7;
 #endif
 	union {

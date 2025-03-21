@@ -57,6 +57,6 @@
  */
 #define IRQ_DEFAULT_PRIORITY	3
 
-#define ESP_INTR_FLAG_SHARED	(1<<8)	/* Interrupt can be shared between ISRs */
+#define ESP_INTR_FLAG_SHARED	(1<<8)
 
 #endif

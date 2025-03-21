@@ -14,13 +14,13 @@ extern "C" {
 #include <zephyr/kernel.h>
 
 struct getopt_state {
-	int opterr;	/* if error message should be printed */
-	int optind;	/* index into parent argv vector */
-	int optopt;	/* character checked for validity */
-	int optreset;	/* reset getopt */
-	char *optarg;	/* argument associated with option */
+	int opterr;
+	int optind;
+	int optopt;
+	int optreset;
+	char *optarg;
 
-	char *place;	/* option letter processing */
+	char *place;
 
 #if CONFIG_GETOPT_LONG
 	int nonopt_start;
@@ -28,7 +28,7 @@ struct getopt_state {
 #endif
 };
 
-extern int optreset;	/* reset getopt */
+extern int optreset;
 extern char *optarg;
 extern int opterr;
 extern int optind;

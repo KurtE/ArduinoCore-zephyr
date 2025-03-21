@@ -9,15 +9,15 @@
 #define LLL_CIS_FLUSH_COMPLETE  2
 
 struct lll_conn_iso_stream_rxtx {
-	uint64_t payload_count:39; /* cisPayloadCounter */
-	uint64_t phy_flags:1;      /* S2 or S8 coding scheme */
-	uint64_t max_pdu:8;        /* Maximum PDU size */
-	uint64_t ft:8;             /* Flush timeout (FT) */
-	uint64_t bn:4;             /* Burst number (BN) */
-	uint64_t phy:3;            /* PHY */
+	uint64_t payload_count:39;
+	uint64_t phy_flags:1;
+	uint64_t max_pdu:8;
+	uint64_t ft:8;
+	uint64_t bn:4;
+	uint64_t phy:3;
 	uint64_t rfu0:1;
 
-	uint8_t bn_curr:4;        /* Current burst number */
+	uint8_t bn_curr:4;
 	uint8_t rfu1:4;
 
 #if defined(CONFIG_BT_CTLR_LE_ENC)
@@ -29,33 +29,33 @@ struct lll_conn_iso_stream {
 	uint16_t acl_handle;        /* ACL connection handle (for encryption,
 				     * channel map, crc init)
 				     */
-	uint16_t handle;            /* CIS handle */
+	uint16_t handle;
 
 	/* Connection parameters */
-	uint8_t  access_addr[4];    /* Access address */
-	uint32_t offset;            /* Offset of CIS from start of CIG in us */
-	uint32_t sub_interval;      /* Interval between subevents in us */
-	uint8_t  nse:5;             /* Number of subevents */
+	uint8_t  access_addr[4];
+	uint32_t offset;
+	uint32_t sub_interval;
+	uint8_t  nse:5;
 
 	/* Frame Spacing */
 	uint16_t tifs_us;
 
 	/* Stream parameters */
-	struct lll_conn_iso_stream_rxtx rx; /* RX parameters */
-	struct lll_conn_iso_stream_rxtx tx; /* TX parameters */
+	struct lll_conn_iso_stream_rxtx rx;
+	struct lll_conn_iso_stream_rxtx tx;
 
 	/* Event and payload counters */
-	uint64_t event_count_prepare:39; /* cisEventCount in overlapping CIG prepare */
-	uint64_t event_count:39;         /* cisEventCount in current CIG event */
+	uint64_t event_count_prepare:39;
+	uint64_t event_count:39;
 
 	/* Acknowledgment and flow control */
-	uint8_t sn:1;               /* Sequence number */
-	uint8_t nesn:1;             /* Next expected sequence number */
-	uint8_t cie:1;              /* Close isochronous event */
-	uint8_t npi:1;              /* 1 if CIS LLL has Tx-ed Null PDU Indicator */
-	uint8_t flush:2;            /* See states LLL_CIS_FLUSH_XXX */
-	uint8_t active:1;           /* 1 if CIS LLL is active */
-	uint8_t datapath_ready_rx:1;/* 1 if datapath for RX is ready */
+	uint8_t sn:1;
+	uint8_t nesn:1;
+	uint8_t cie:1;
+	uint8_t npi:1;
+	uint8_t flush:2;
+	uint8_t active:1;
+	uint8_t datapath_ready_rx:1;
 
 #if !defined(CONFIG_BT_CTLR_JIT_SCHEDULING)
 	/* Lazy at CIS active. Number of previously skipped CIG events that is
@@ -67,7 +67,7 @@ struct lll_conn_iso_stream {
 #endif /* !CONFIG_BT_CTLR_JIT_SCHEDULING */
 
 	/* Resumption information */
-	uint8_t next_subevent;      /* Next subevent to schedule */
+	uint8_t next_subevent;
 
 	/* Transmission queue */
 	MEMQ_DECLARE(tx);
@@ -80,15 +80,15 @@ struct lll_conn_iso_stream {
 struct lll_conn_iso_group {
 	struct lll_hdr hdr;
 
-	uint16_t handle;      /* CIG handle (internal) */
+	uint16_t handle;
 
 	/* Resumption information */
-	uint16_t resume_cis;  /* CIS handle to schedule at resume */
+	uint16_t resume_cis;
 
 	/* ISO group information */
-	uint32_t num_cis:5;   /* Number of CISes in this CIG */
-	uint32_t role:1;      /* 0: CENTRAL, 1: PERIPHERAL*/
-	uint32_t paused:1;    /* 1: CIG is paused */
+	uint32_t num_cis:5;
+	uint32_t role:1;
+	uint32_t paused:1;
 	uint32_t rfu0:1;
 
 	/* ISO interval to calculate timestamp under FT > 1,
@@ -116,7 +116,7 @@ struct lll_conn_iso_group {
 						    * us fractions for active
 						    * event.
 						    */
-	uint32_t window_widening_max_us;	   /* Maximum widening in us */
+	uint32_t window_widening_max_us;
 #endif /* CONFIG_BT_CTLR_PERIPHERAL_ISO */
 };
 

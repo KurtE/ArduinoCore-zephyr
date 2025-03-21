@@ -40,7 +40,7 @@
 struct lll_df_adv_cfg {
 	uint8_t is_enabled:1;
 	uint8_t is_started:1;
-	uint8_t cte_length:6;   /* Length of CTE in 8us units */
+	uint8_t cte_length:6;
 	uint8_t cte_type:2;
 	uint8_t cte_count:6;
 	uint8_t ant_sw_len:6;
@@ -119,9 +119,9 @@ struct node_rx_iq_report {
  */
 struct lll_df_sync_cfg {
 	uint8_t is_enabled:1;
-	uint8_t slot_durations:2; /* Bit field where: BIT(0) is 1us, BIT(1) is 2us. */
-	uint8_t max_cte_count:5;  /* Max number of received CTEs. */
-	uint8_t cte_count:5;      /* Received CTEs count. */
+	uint8_t slot_durations:2;
+	uint8_t max_cte_count:5;
+	uint8_t cte_count:5;
 	uint8_t ant_sw_len:7;
 	uint8_t ant_ids[BT_CTLR_DF_MAX_ANT_SW_PATTERN_LEN];
 };
@@ -138,7 +138,7 @@ struct lll_df_conn_rx_params {
 	uint8_t is_enabled:1;
 	uint8_t ant_sw_len:7;
 	uint8_t ant_ids[BT_CTLR_DF_MAX_ANT_SW_PATTERN_LEN];
-	uint8_t slot_durations:2; /* Bit field where: BIT(0) is 1us, BIT(1) is 2us. */
+	uint8_t slot_durations:2;
 };
 
 /* Double buffer to store receive and sampling configuration for connected mode */
@@ -180,7 +180,7 @@ struct lll_df_conn_tx_cfg {
 	 */
 	uint8_t is_initialized:1;
 	uint8_t ant_sw_len:7;
-	uint8_t cte_rsp_en:1; /* CTE response is enabled */
-	uint8_t cte_types_allowed:3; /* Bitfield with allowed CTE types */
+	uint8_t cte_rsp_en:1;
+	uint8_t cte_types_allowed:3;
 	uint8_t ant_ids[BT_CTLR_DF_MAX_ANT_SW_PATTERN_LEN];
 };

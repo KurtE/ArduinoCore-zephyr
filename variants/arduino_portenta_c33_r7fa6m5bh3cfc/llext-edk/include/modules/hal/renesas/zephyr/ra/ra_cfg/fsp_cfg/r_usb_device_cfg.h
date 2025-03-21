@@ -13,7 +13,7 @@ extern "C" {
 #define USBHS_PHY_CLOCK_SOURCE_IS_XTAL    (DT_ENUM_IDX_OR(DT_NODELABEL(usbhs_phy), phys_clock_src, 0))
 
 #define USBD_CFG_PARAM_CHECKING_ENABLE    (BSP_CFG_PARAM_CHECKING_ENABLE)
-#define USBD_CFG_BUS_WAIT_TIME            (0x000FU) /* 17 access cycles */
+#define USBD_CFG_BUS_WAIT_TIME            (0x000FU)
 
 #if USBHS_PHY_CLOCK_SOURCE_IS_XTAL
 #if BSP_CFG_XTAL_HZ == 12000000

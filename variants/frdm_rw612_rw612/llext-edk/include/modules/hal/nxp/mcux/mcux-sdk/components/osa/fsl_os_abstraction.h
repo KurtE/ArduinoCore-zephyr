@@ -67,54 +67,54 @@ typedef uint32_t osa_notify_time_ms_t;
 /*! @brief Thread Definition structure contains startup information of a thread.*/
 typedef struct osa_task_def_tag
 {
-    osa_task_ptr_t pthread; /*!< start address of thread function*/
-    uint32_t tpriority;     /*!< initial thread priority*/
-    uint32_t instances;     /*!< maximum number of instances of that thread function*/
-    uint32_t stacksize;     /*!< stack size requirements in bytes; 0 is default stack size*/
-    uint8_t *tstack;           /*!< stack pointer, which can be used on freertos static allocation*/
-    void *tlink;            /*!< link pointer*/
-    uint8_t *tname;         /*!< name pointer*/
-    uint8_t useFloat;       /*!< is use float*/
+    osa_task_ptr_t pthread;
+    uint32_t tpriority;
+    uint32_t instances;
+    uint32_t stacksize;
+    uint8_t *tstack;
+    void *tlink;
+    uint8_t *tname;
+    uint8_t useFloat;
 } osa_task_def_t;
 /*! @brief Thread Link Definition structure .*/
 typedef struct osa_thread_link_tag
 {
-    uint8_t link[12];                  /*!< link*/
-    osa_task_handle_t osThreadId;      /*!< thread id*/
-    osa_task_def_t *osThreadDefHandle; /*!< pointer of thread define handle*/
-    uint32_t *osThreadStackHandle;     /*!< pointer of thread stack handle*/
+    uint8_t link[12];
+    osa_task_handle_t osThreadId;
+    osa_task_def_t *osThreadDefHandle;
+    uint32_t *osThreadStackHandle;
 } osa_thread_link_t, *osa_thread_link_handle_t;
 
 /*! @brief Definition structure contains timer parameters.*/
 typedef struct osa_time_def_tag
 {
-    osa_timer_fct_ptr_t pfCallback; /* < start address of a timer function */
-    void *argument;                 /* < argument of a timer function */
+    osa_timer_fct_ptr_t pfCallback;
+    void *argument;
 } osa_time_def_t;
 
 /*! @brief Type for the timer definition*/
 typedef enum _osa_timer
 {
-    KOSA_TimerOnce     = 0, /*!< one-shot timer*/
-    KOSA_TimerPeriodic = 1  /*!< repeating timer*/
+    KOSA_TimerOnce     = 0,
+    KOSA_TimerPeriodic = 1
 } osa_timer_t;
 
 /*! @brief Defines the return status of OSA's functions */
 #if (defined(SDK_COMPONENT_DEPENDENCY_FSL_COMMON) && (SDK_COMPONENT_DEPENDENCY_FSL_COMMON > 0U))
 typedef enum _osa_status
 {
-    KOSA_StatusSuccess = kStatus_Success,                  /*!< Success */
-    KOSA_StatusError   = MAKE_STATUS(kStatusGroup_OSA, 1), /*!< Failed */
-    KOSA_StatusTimeout = MAKE_STATUS(kStatusGroup_OSA, 2), /*!< Timeout occurs while waiting */
+    KOSA_StatusSuccess = kStatus_Success,
+    KOSA_StatusError   = MAKE_STATUS(kStatusGroup_OSA, 1),
+    KOSA_StatusTimeout = MAKE_STATUS(kStatusGroup_OSA, 2),
     KOSA_StatusIdle    = MAKE_STATUS(kStatusGroup_OSA, 3), /*!< Used for bare metal only, the wait object is not ready
                                                                  and timeout still not occur */
 } osa_status_t;
 #else
 typedef enum _osa_status
 {
-    KOSA_StatusSuccess = 0, /*!< Success */
-    KOSA_StatusError   = 1, /*!< Failed */
-    KOSA_StatusTimeout = 2, /*!< Timeout occurs while waiting */
+    KOSA_StatusSuccess = 0,
+    KOSA_StatusError   = 1,
+    KOSA_StatusTimeout = 2,
     KOSA_StatusIdle    = 3, /*!< Used for bare metal only, the wait object is not ready
                                                 and timeout still not occur */
 } osa_status_t;

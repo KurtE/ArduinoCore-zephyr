@@ -16,7 +16,7 @@
 /**
  * FSM flags that control how it operates.
  */
-#define FSM_RESTART    BIT(0) /**< Treat 2nd OPEN as DOWN followed by UP    */
+#define FSM_RESTART    BIT(0)
 
 /**
  * PPP packet format.

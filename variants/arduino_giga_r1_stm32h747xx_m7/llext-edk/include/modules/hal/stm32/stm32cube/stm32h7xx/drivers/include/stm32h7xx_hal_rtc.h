@@ -45,11 +45,11 @@ extern "C" {
   */
 typedef enum
 {
-  HAL_RTC_STATE_RESET             = 0x00U,  /*!< RTC not yet initialized or disabled */
-  HAL_RTC_STATE_READY             = 0x01U,  /*!< RTC initialized and ready for use   */
-  HAL_RTC_STATE_BUSY              = 0x02U,  /*!< RTC process is ongoing              */
-  HAL_RTC_STATE_TIMEOUT           = 0x03U,  /*!< RTC timeout state                   */
-  HAL_RTC_STATE_ERROR             = 0x04U   /*!< RTC error state                     */
+  HAL_RTC_STATE_RESET             = 0x00U,
+  HAL_RTC_STATE_READY             = 0x01U,
+  HAL_RTC_STATE_BUSY              = 0x02U,
+  HAL_RTC_STATE_TIMEOUT           = 0x03U,
+  HAL_RTC_STATE_ERROR             = 0x04U
 
 } HAL_RTCStateTypeDef;
 
@@ -144,7 +144,7 @@ typedef struct
   */
 typedef struct
 {
-  RTC_TimeTypeDef AlarmTime;     /*!< Specifies the RTC Alarm Time members */
+  RTC_TimeTypeDef AlarmTime;
 
   uint32_t AlarmMask;            /*!< Specifies the RTC Alarm Masks.
                                       This parameter can be a value of @ref RTC_AlarmMask_Definitions */
@@ -172,48 +172,48 @@ typedef struct __RTC_HandleTypeDef
 typedef struct
 #endif /* (USE_HAL_RTC_REGISTER_CALLBACKS) */
 {
-  RTC_TypeDef               *Instance;  /*!< Register base address    */
+  RTC_TypeDef               *Instance;
 
-  RTC_InitTypeDef           Init;       /*!< RTC required parameters  */
+  RTC_InitTypeDef           Init;
 
-  HAL_LockTypeDef           Lock;       /*!< RTC locking object       */
+  HAL_LockTypeDef           Lock;
 
-  __IO HAL_RTCStateTypeDef  State;      /*!< Time communication state */
+  __IO HAL_RTCStateTypeDef  State;
 
 #if (USE_HAL_RTC_REGISTER_CALLBACKS == 1)
-  void (* AlarmAEventCallback)(struct __RTC_HandleTypeDef *hrtc);            /*!< RTC Alarm A Event callback         */
+  void (* AlarmAEventCallback)(struct __RTC_HandleTypeDef *hrtc);
 
-  void (* AlarmBEventCallback)(struct __RTC_HandleTypeDef *hrtc);            /*!< RTC Alarm B Event callback         */
+  void (* AlarmBEventCallback)(struct __RTC_HandleTypeDef *hrtc);
 
-  void (* TimeStampEventCallback)(struct __RTC_HandleTypeDef *hrtc);         /*!< RTC TimeStamp Event callback       */
+  void (* TimeStampEventCallback)(struct __RTC_HandleTypeDef *hrtc);
 
-  void (* WakeUpTimerEventCallback)(struct __RTC_HandleTypeDef *hrtc);       /*!< RTC WakeUpTimer Event callback     */
+  void (* WakeUpTimerEventCallback)(struct __RTC_HandleTypeDef *hrtc);
 
-  void (* Tamper1EventCallback)(struct __RTC_HandleTypeDef *hrtc);         /*!< RTC Tamper 1 Event callback        */
+  void (* Tamper1EventCallback)(struct __RTC_HandleTypeDef *hrtc);
 
-  void (* Tamper2EventCallback)(struct __RTC_HandleTypeDef *hrtc);         /*!< RTC Tamper 2 Event callback        */
+  void (* Tamper2EventCallback)(struct __RTC_HandleTypeDef *hrtc);
 
-  void (* Tamper3EventCallback)(struct __RTC_HandleTypeDef *hrtc);         /*!< RTC Tamper 3 Event callback        */
+  void (* Tamper3EventCallback)(struct __RTC_HandleTypeDef *hrtc);
 
 #if defined(TAMP)
-  void (* InternalTamper1EventCallback)(struct __RTC_HandleTypeDef *hrtc);           /*!< RTC Internal Tamper 1 Event callback  */
+  void (* InternalTamper1EventCallback)(struct __RTC_HandleTypeDef *hrtc);
 
-  void (* InternalTamper2EventCallback)(struct __RTC_HandleTypeDef *hrtc);           /*!< RTC Internal Tamper 2 Event callback  */
+  void (* InternalTamper2EventCallback)(struct __RTC_HandleTypeDef *hrtc);
 
-  void (* InternalTamper3EventCallback)(struct __RTC_HandleTypeDef *hrtc);           /*!< RTC Internal Tamper 3 Event callback  */
+  void (* InternalTamper3EventCallback)(struct __RTC_HandleTypeDef *hrtc);
 
-  void (* InternalTamper4EventCallback)(struct __RTC_HandleTypeDef *hrtc);           /*!< RTC Internal Tamper 4 Event callback  */
+  void (* InternalTamper4EventCallback)(struct __RTC_HandleTypeDef *hrtc);
 
-  void (* InternalTamper5EventCallback)(struct __RTC_HandleTypeDef *hrtc);           /*!< RTC Internal Tamper 5 Event callback  */
+  void (* InternalTamper5EventCallback)(struct __RTC_HandleTypeDef *hrtc);
 
-  void (* InternalTamper6EventCallback)(struct __RTC_HandleTypeDef *hrtc);           /*!< RTC Internal Tamper 6 Event callback  */
+  void (* InternalTamper6EventCallback)(struct __RTC_HandleTypeDef *hrtc);
 
-  void (* InternalTamper8EventCallback)(struct __RTC_HandleTypeDef *hrtc);           /*!< RTC Internal Tamper 8 Event callback  */
+  void (* InternalTamper8EventCallback)(struct __RTC_HandleTypeDef *hrtc);
 #endif /* TAMP */
 
-  void (* MspInitCallback)(struct __RTC_HandleTypeDef *hrtc);                /*!< RTC Msp Init callback              */
+  void (* MspInitCallback)(struct __RTC_HandleTypeDef *hrtc);
 
-  void (* MspDeInitCallback)(struct __RTC_HandleTypeDef *hrtc);              /*!< RTC Msp DeInit callback            */
+  void (* MspDeInitCallback)(struct __RTC_HandleTypeDef *hrtc);
 
 #endif /* (USE_HAL_RTC_REGISTER_CALLBACKS == 1) */
 
@@ -225,30 +225,30 @@ typedef struct
   */
 typedef enum
 {
-  HAL_RTC_ALARM_A_EVENT_CB_ID           = 0u,    /*!< RTC Alarm A Event Callback ID      */
-  HAL_RTC_ALARM_B_EVENT_CB_ID           = 1u,    /*!< RTC Alarm B Event Callback ID      */
-  HAL_RTC_TIMESTAMP_EVENT_CB_ID         = 2u,    /*!< RTC TimeStamp Event Callback ID    */
-  HAL_RTC_WAKEUPTIMER_EVENT_CB_ID       = 3u,    /*!< RTC WakeUp Timer Event Callback ID */
-  HAL_RTC_TAMPER1_EVENT_CB_ID           = 4u,    /*!< RTC Tamper 1 Callback ID           */
-  HAL_RTC_TAMPER2_EVENT_CB_ID           = 5u,    /*!< RTC Tamper 2 Callback ID           */
-  HAL_RTC_TAMPER3_EVENT_CB_ID           = 6u,    /*!< RTC Tamper 3 Callback ID           */
+  HAL_RTC_ALARM_A_EVENT_CB_ID           = 0u,
+  HAL_RTC_ALARM_B_EVENT_CB_ID           = 1u,
+  HAL_RTC_TIMESTAMP_EVENT_CB_ID         = 2u,
+  HAL_RTC_WAKEUPTIMER_EVENT_CB_ID       = 3u,
+  HAL_RTC_TAMPER1_EVENT_CB_ID           = 4u,
+  HAL_RTC_TAMPER2_EVENT_CB_ID           = 5u,
+  HAL_RTC_TAMPER3_EVENT_CB_ID           = 6u,
 #if defined(TAMP)
-  HAL_RTC_INTERNAL_TAMPER1_EVENT_CB_ID  = 12u,   /*!< RTC Internal Tamper 1 Callback ID  */
-  HAL_RTC_INTERNAL_TAMPER2_EVENT_CB_ID  = 13u,   /*!< RTC Internal Tamper 2 Callback ID  */
-  HAL_RTC_INTERNAL_TAMPER3_EVENT_CB_ID  = 14u,   /*!< RTC Internal Tamper 3 Callback ID  */
-  HAL_RTC_INTERNAL_TAMPER4_EVENT_CB_ID  = 15u,   /*!< RTC Internal Tamper 4 Callback ID  */
-  HAL_RTC_INTERNAL_TAMPER5_EVENT_CB_ID  = 16u,   /*!< RTC Internal Tamper 5 Callback ID  */
-  HAL_RTC_INTERNAL_TAMPER6_EVENT_CB_ID  = 17u,   /*!< RTC Internal Tamper 6 Callback ID  */
-  HAL_RTC_INTERNAL_TAMPER8_EVENT_CB_ID  = 19u,   /*!< RTC Internal Tamper 8 Callback ID  */
+  HAL_RTC_INTERNAL_TAMPER1_EVENT_CB_ID  = 12u,
+  HAL_RTC_INTERNAL_TAMPER2_EVENT_CB_ID  = 13u,
+  HAL_RTC_INTERNAL_TAMPER3_EVENT_CB_ID  = 14u,
+  HAL_RTC_INTERNAL_TAMPER4_EVENT_CB_ID  = 15u,
+  HAL_RTC_INTERNAL_TAMPER5_EVENT_CB_ID  = 16u,
+  HAL_RTC_INTERNAL_TAMPER6_EVENT_CB_ID  = 17u,
+  HAL_RTC_INTERNAL_TAMPER8_EVENT_CB_ID  = 19u,
 #endif /* TAMP */
-  HAL_RTC_MSPINIT_CB_ID                 = 20u,   /*!< RTC Msp Init callback ID           */
-  HAL_RTC_MSPDEINIT_CB_ID               = 21u    /*!< RTC Msp DeInit callback ID         */
+  HAL_RTC_MSPINIT_CB_ID                 = 20u,
+  HAL_RTC_MSPDEINIT_CB_ID               = 21u
 } HAL_RTC_CallbackIDTypeDef;
 
 /**
   * @brief  HAL RTC Callback pointer definition
   */
-typedef  void (*pRTC_CallbackTypeDef)(RTC_HandleTypeDef *hrtc);  /*!< pointer to an RTC callback function */
+typedef  void (*pRTC_CallbackTypeDef)(RTC_HandleTypeDef *hrtc);
 #endif /* (USE_HAL_RTC_REGISTER_CALLBACKS == 1) */
 
 /**
@@ -483,10 +483,10 @@ typedef  void (*pRTC_CallbackTypeDef)(RTC_HandleTypeDef *hrtc);  /*!< pointer to
 /** @defgroup RTC_Interrupts_Definitions RTC Interrupts Definitions
   * @{
   */
-#define RTC_IT_TS                         RTC_CR_TSIE         /*!< Enable Timestamp Interrupt               */
-#define RTC_IT_WUT                        RTC_CR_WUTIE        /*!< Enable Wakeup timer Interrupt            */
-#define RTC_IT_ALRA                       RTC_CR_ALRAIE       /*!< Enable Alarm A Interrupt                 */
-#define RTC_IT_ALRB                       RTC_CR_ALRBIE       /*!< Enable Alarm B Interrupt                 */
+#define RTC_IT_TS                         RTC_CR_TSIE
+#define RTC_IT_WUT                        RTC_CR_WUTIE
+#define RTC_IT_ALRA                       RTC_CR_ALRAIE
+#define RTC_IT_ALRB                       RTC_CR_ALRBIE
 /**
   * @}
   */
@@ -495,20 +495,20 @@ typedef  void (*pRTC_CallbackTypeDef)(RTC_HandleTypeDef *hrtc);  /*!< pointer to
   * @{
   */
 #if defined(TAMP)
-#define RTC_FLAG_RECALPF                  RTC_ICSR_RECALPF  /*!< Recalibration pending Flag */
-#define RTC_FLAG_INITF                    RTC_ICSR_INITF    /*!< Initialization pending flag */
-#define RTC_FLAG_RSF                      RTC_ICSR_RSF      /*!< Registers synchronization flag */
-#define RTC_FLAG_INITS                    RTC_ICSR_INITS    /*!< Initialization status flag */
-#define RTC_FLAG_SHPF                     RTC_ICSR_SHPF     /*!< Shift operation pending flag */
-#define RTC_FLAG_WUTWF                    RTC_ICSR_WUTWF    /*!< Wakeup timer write operation pending flag */
-#define RTC_FLAG_ALRBWF                   RTC_ICSR_ALRBWF   /*!< Alarm B write operation pending flag */
-#define RTC_FLAG_ALRAWF                   RTC_ICSR_ALRAWF   /*!< Alarm A write operation pending flag */
-#define RTC_FLAG_ITSF                     RTC_SR_ITSF       /*!< Internal Time-stamp flag */
-#define RTC_FLAG_TSOVF                    RTC_SR_TSOVF      /*!< Time-stamp overflow flag */
-#define RTC_FLAG_TSF                      RTC_SR_TSF        /*!< Time-stamp flag */
-#define RTC_FLAG_WUTF                     RTC_SR_WUTF       /*!< Wakeup timer flag */
-#define RTC_FLAG_ALRBF                    RTC_SR_ALRBF      /*!< Alarm B flag */
-#define RTC_FLAG_ALRAF                    RTC_SR_ALRAF      /*!< Alarm A flag */
+#define RTC_FLAG_RECALPF                  RTC_ICSR_RECALPF
+#define RTC_FLAG_INITF                    RTC_ICSR_INITF
+#define RTC_FLAG_RSF                      RTC_ICSR_RSF
+#define RTC_FLAG_INITS                    RTC_ICSR_INITS
+#define RTC_FLAG_SHPF                     RTC_ICSR_SHPF
+#define RTC_FLAG_WUTWF                    RTC_ICSR_WUTWF
+#define RTC_FLAG_ALRBWF                   RTC_ICSR_ALRBWF
+#define RTC_FLAG_ALRAWF                   RTC_ICSR_ALRAWF
+#define RTC_FLAG_ITSF                     RTC_SR_ITSF
+#define RTC_FLAG_TSOVF                    RTC_SR_TSOVF
+#define RTC_FLAG_TSF                      RTC_SR_TSF
+#define RTC_FLAG_WUTF                     RTC_SR_WUTF
+#define RTC_FLAG_ALRBF                    RTC_SR_ALRBF
+#define RTC_FLAG_ALRAF                    RTC_SR_ALRAF
 #else
 #define RTC_FLAG_RECALPF                  RTC_ISR_RECALPF
 #define RTC_FLAG_TSOVF                    RTC_ISR_TSOVF
@@ -533,12 +533,12 @@ typedef  void (*pRTC_CallbackTypeDef)(RTC_HandleTypeDef *hrtc);  /*!< pointer to
   * @{
   */
 #if defined(TAMP)
-#define RTC_CLEAR_ITSF                      RTC_SCR_CITSF    /*!< Clear Internal Time-stamp flag */
-#define RTC_CLEAR_TSOVF                     RTC_SCR_CTSOVF   /*!< Clear Time-stamp overflow flag */
-#define RTC_CLEAR_TSF                       RTC_SCR_CTSF     /*!< Clear Time-stamp flag */
-#define RTC_CLEAR_WUTF                      RTC_SCR_CWUTF    /*!< Clear Wakeup timer flag */
-#define RTC_CLEAR_ALRBF                     RTC_SCR_CALRBF   /*!< Clear Alarm B flag */
-#define RTC_CLEAR_ALRAF                     RTC_SCR_CALRAF   /*!< Clear Alarm A flag */
+#define RTC_CLEAR_ITSF                      RTC_SCR_CITSF
+#define RTC_CLEAR_TSOVF                     RTC_SCR_CTSOVF
+#define RTC_CLEAR_TSF                       RTC_SCR_CTSF
+#define RTC_CLEAR_WUTF                      RTC_SCR_CWUTF
+#define RTC_CLEAR_ALRBF                     RTC_SCR_CALRBF
+#define RTC_CLEAR_ALRAF                     RTC_SCR_CALRAF
 #endif /* TAMP
  */
 /**
@@ -1006,7 +1006,7 @@ HAL_RTCStateTypeDef HAL_RTC_GetState(const RTC_HandleTypeDef *hrtc);
 
 #define RTC_TIMEOUT_VALUE  1000u
 
-#define RTC_EXTI_LINE_ALARM_EVENT    EXTI_IMR1_IM17  /*!< External interrupt line 17 Connected to the RTC Alarm event */
+#define RTC_EXTI_LINE_ALARM_EVENT    EXTI_IMR1_IM17
 
 /**
   * @}

@@ -32,26 +32,27 @@ extern "C" {
 
 /** @brief ADC channel gain factors. */
 enum adc_gain {
-	ADC_GAIN_1_6, /**< x 1/6. */
-	ADC_GAIN_1_5, /**< x 1/5. */
-	ADC_GAIN_1_4, /**< x 1/4. */
-	ADC_GAIN_1_3, /**< x 1/3. */
-	ADC_GAIN_2_5, /**< x 2/5. */
-	ADC_GAIN_1_2, /**< x 1/2. */
-	ADC_GAIN_2_3, /**< x 2/3. */
-	ADC_GAIN_4_5, /**< x 4/5. */
-	ADC_GAIN_1,   /**< x 1. */
-	ADC_GAIN_2,   /**< x 2. */
-	ADC_GAIN_3,   /**< x 3. */
-	ADC_GAIN_4,   /**< x 4. */
-	ADC_GAIN_6,   /**< x 6. */
-	ADC_GAIN_8,   /**< x 8. */
-	ADC_GAIN_12,  /**< x 12. */
-	ADC_GAIN_16,  /**< x 16. */
-	ADC_GAIN_24,  /**< x 24. */
-	ADC_GAIN_32,  /**< x 32. */
-	ADC_GAIN_64,  /**< x 64. */
-	ADC_GAIN_128, /**< x 128. */
+	ADC_GAIN_1_6,
+	ADC_GAIN_1_5,
+	ADC_GAIN_1_4,
+	ADC_GAIN_2_7,
+	ADC_GAIN_1_3,
+	ADC_GAIN_2_5,
+	ADC_GAIN_1_2,
+	ADC_GAIN_2_3,
+	ADC_GAIN_4_5,
+	ADC_GAIN_1,
+	ADC_GAIN_2,
+	ADC_GAIN_3,
+	ADC_GAIN_4,
+	ADC_GAIN_6,
+	ADC_GAIN_8,
+	ADC_GAIN_12,
+	ADC_GAIN_16,
+	ADC_GAIN_24,
+	ADC_GAIN_32,
+	ADC_GAIN_64,
+	ADC_GAIN_128,
 };
 
 /**
@@ -75,13 +76,13 @@ int adc_gain_invert(enum adc_gain gain,
 
 /** @brief ADC references. */
 enum adc_reference {
-	ADC_REF_VDD_1,     /**< VDD. */
-	ADC_REF_VDD_1_2,   /**< VDD/2. */
-	ADC_REF_VDD_1_3,   /**< VDD/3. */
-	ADC_REF_VDD_1_4,   /**< VDD/4. */
-	ADC_REF_INTERNAL,  /**< Internal. */
-	ADC_REF_EXTERNAL0, /**< External, input 0. */
-	ADC_REF_EXTERNAL1, /**< External, input 1. */
+	ADC_REF_VDD_1,
+	ADC_REF_VDD_1_2,
+	ADC_REF_VDD_1_3,
+	ADC_REF_VDD_1_4,
+	ADC_REF_INTERNAL,
+	ADC_REF_EXTERNAL0,
+	ADC_REF_EXTERNAL1,
 };
 
 /**
@@ -705,7 +706,7 @@ __subsystem struct adc_driver_api {
 #ifdef CONFIG_ADC_ASYNC
 	adc_api_read_async    read_async;
 #endif
-	uint16_t ref_internal;	/* mV */
+	uint16_t ref_internal;
 };
 
 /**

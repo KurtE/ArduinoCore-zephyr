@@ -49,9 +49,9 @@ struct k_thread;
 
 struct _pipe_desc {
 	sys_dnode_t      node;
-	unsigned char   *buffer;         /* Position in src/dest buffer */
-	size_t           bytes_to_xfer;  /* # bytes left to transfer */
-	struct k_thread *thread;         /* Back pointer to pended thread */
+	unsigned char   *buffer;
+	size_t           bytes_to_xfer;
+	struct k_thread *thread;
 };
 
 /* can be used for creating 'dummy' threads, e.g. for pending on objects */
@@ -105,7 +105,9 @@ struct _thread_base {
 	int prio_deadline;
 #endif /* CONFIG_SCHED_DEADLINE */
 
+#if defined(CONFIG_SCHED_SCALABLE) || defined(CONFIG_WAITQ_SCALABLE)
 	uint32_t order_key;
+#endif
 
 #ifdef CONFIG_SMP
 	/* True for the per-CPU idle threads */
@@ -143,7 +145,7 @@ struct _thread_base {
 #endif /* CONFIG_TIMESLICE_PER_THREAD */
 
 #ifdef CONFIG_SCHED_THREAD_USAGE
-	struct k_cycle_stats  usage;   /* Track thread usage statistics */
+	struct k_cycle_stats  usage;
 #endif /* CONFIG_SCHED_THREAD_USAGE */
 };
 
@@ -210,8 +212,8 @@ typedef struct k_thread_runtime_stats {
 	 * For CPU stats, execution_cycles is the sum of non-idle + idle cycles.
 	 * For thread stats, execution_cycles = total_cycles.
 	 */
-	uint64_t execution_cycles;    /* total # of cycles (cpu: non-idle + idle) */
-	uint64_t total_cycles;        /* total # of non-idle cycles */
+	uint64_t execution_cycles;
+	uint64_t total_cycles;
 #endif /* CONFIG_SCHED_THREAD_USAGE */
 
 #ifdef CONFIG_SCHED_THREAD_USAGE_ANALYSIS
@@ -222,9 +224,9 @@ typedef struct k_thread_runtime_stats {
 	 * non-idle threads as bounded by the idle thread(s).
 	 */
 
-	uint64_t current_cycles;      /* current # of non-idle cycles */
-	uint64_t peak_cycles;         /* peak # of non-idle cycles */
-	uint64_t average_cycles;      /* average # of non-idle cycles */
+	uint64_t current_cycles;
+	uint64_t peak_cycles;
+	uint64_t average_cycles;
 #endif /* CONFIG_SCHED_THREAD_USAGE_ANALYSIS */
 
 #ifdef CONFIG_SCHED_THREAD_USAGE_ALL

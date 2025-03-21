@@ -49,7 +49,7 @@ extern "C" {
   */
 typedef struct
 {
-  uint32_t                    ClockErrorDetection; /*!< CED Clock error detection */
+  uint32_t                    ClockErrorDetection;
 } RNG_InitTypeDef;
 
 /**
@@ -61,11 +61,11 @@ typedef struct
   */
 typedef enum
 {
-  HAL_RNG_STATE_RESET     = 0x00U,  /*!< RNG not yet initialized or disabled */
-  HAL_RNG_STATE_READY     = 0x01U,  /*!< RNG initialized and ready for use   */
-  HAL_RNG_STATE_BUSY      = 0x02U,  /*!< RNG internal process is ongoing     */
-  HAL_RNG_STATE_TIMEOUT   = 0x03U,  /*!< RNG timeout state                   */
-  HAL_RNG_STATE_ERROR     = 0x04U   /*!< RNG error state                     */
+  HAL_RNG_STATE_RESET     = 0x00U,
+  HAL_RNG_STATE_READY     = 0x01U,
+  HAL_RNG_STATE_BUSY      = 0x02U,
+  HAL_RNG_STATE_TIMEOUT   = 0x03U,
+  HAL_RNG_STATE_ERROR     = 0x04U
 
 } HAL_RNG_StateTypeDef;
 
@@ -82,24 +82,24 @@ typedef struct  __RNG_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_RNG_REGISTER_CALLBACKS */
 {
-  RNG_TypeDef                 *Instance;    /*!< Register base address   */
+  RNG_TypeDef                 *Instance;
 
-  RNG_InitTypeDef             Init;         /*!< RNG configuration parameters */
+  RNG_InitTypeDef             Init;
 
-  HAL_LockTypeDef             Lock;         /*!< RNG locking object      */
+  HAL_LockTypeDef             Lock;
 
-  __IO HAL_RNG_StateTypeDef   State;        /*!< RNG communication state */
+  __IO HAL_RNG_StateTypeDef   State;
 
-  __IO  uint32_t              ErrorCode;    /*!< RNG Error code          */
+  __IO  uint32_t              ErrorCode;
 
-  uint32_t                    RandomNumber; /*!< Last Generated RNG Data */
+  uint32_t                    RandomNumber;
 
 #if (USE_HAL_RNG_REGISTER_CALLBACKS == 1)
-  void (* ReadyDataCallback)(struct __RNG_HandleTypeDef *hrng, uint32_t random32bit);  /*!< RNG Data Ready Callback    */
-  void (* ErrorCallback)(struct __RNG_HandleTypeDef *hrng);                            /*!< RNG Error Callback         */
+  void (* ReadyDataCallback)(struct __RNG_HandleTypeDef *hrng, uint32_t random32bit);
+  void (* ErrorCallback)(struct __RNG_HandleTypeDef *hrng);
 
-  void (* MspInitCallback)(struct __RNG_HandleTypeDef *hrng);                          /*!< RNG Msp Init callback      */
-  void (* MspDeInitCallback)(struct __RNG_HandleTypeDef *hrng);                        /*!< RNG Msp DeInit callback    */
+  void (* MspInitCallback)(struct __RNG_HandleTypeDef *hrng);
+  void (* MspDeInitCallback)(struct __RNG_HandleTypeDef *hrng);
 #endif  /* USE_HAL_RNG_REGISTER_CALLBACKS */
 
 } RNG_HandleTypeDef;
@@ -110,18 +110,18 @@ typedef struct
   */
 typedef enum
 {
-  HAL_RNG_ERROR_CB_ID                   = 0x00U,     /*!< RNG Error Callback ID          */
+  HAL_RNG_ERROR_CB_ID                   = 0x00U,
 
-  HAL_RNG_MSPINIT_CB_ID                 = 0x01U,     /*!< RNG MspInit callback ID        */
-  HAL_RNG_MSPDEINIT_CB_ID               = 0x02U      /*!< RNG MspDeInit callback ID      */
+  HAL_RNG_MSPINIT_CB_ID                 = 0x01U,
+  HAL_RNG_MSPDEINIT_CB_ID               = 0x02U
 
 } HAL_RNG_CallbackIDTypeDef;
 
 /**
   * @brief  HAL RNG Callback pointer definition
   */
-typedef  void (*pRNG_CallbackTypeDef)(RNG_HandleTypeDef *hrng);                                  /*!< pointer to a common RNG callback function */
-typedef  void (*pRNG_ReadyDataCallbackTypeDef)(RNG_HandleTypeDef *hrng, uint32_t random32bit);   /*!< pointer to an RNG Data Ready specific callback function */
+typedef  void (*pRNG_CallbackTypeDef)(RNG_HandleTypeDef *hrng);
+typedef  void (*pRNG_ReadyDataCallbackTypeDef)(RNG_HandleTypeDef *hrng, uint32_t random32bit);
 
 #endif /* USE_HAL_RNG_REGISTER_CALLBACKS */
 
@@ -141,9 +141,9 @@ typedef  void (*pRNG_ReadyDataCallbackTypeDef)(RNG_HandleTypeDef *hrng, uint32_t
 /** @defgroup RNG_Exported_Constants_Group1 RNG Interrupt definition
   * @{
   */
-#define RNG_IT_DRDY  RNG_SR_DRDY  /*!< Data Ready interrupt  */
-#define RNG_IT_CEI   RNG_SR_CEIS  /*!< Clock error interrupt */
-#define RNG_IT_SEI   RNG_SR_SEIS  /*!< Seed error interrupt  */
+#define RNG_IT_DRDY  RNG_SR_DRDY
+#define RNG_IT_CEI   RNG_SR_CEIS
+#define RNG_IT_SEI   RNG_SR_SEIS
 /**
   * @}
   */
@@ -151,9 +151,9 @@ typedef  void (*pRNG_ReadyDataCallbackTypeDef)(RNG_HandleTypeDef *hrng, uint32_t
 /** @defgroup RNG_Exported_Constants_Group2 RNG Flag definition
   * @{
   */
-#define RNG_FLAG_DRDY   RNG_SR_DRDY  /*!< Data ready                 */
-#define RNG_FLAG_CECS   RNG_SR_CECS  /*!< Clock error current status */
-#define RNG_FLAG_SECS   RNG_SR_SECS  /*!< Seed error current status  */
+#define RNG_FLAG_DRDY   RNG_SR_DRDY
+#define RNG_FLAG_CECS   RNG_SR_CECS
+#define RNG_FLAG_SECS   RNG_SR_SECS
 /**
   * @}
   */
@@ -161,8 +161,8 @@ typedef  void (*pRNG_ReadyDataCallbackTypeDef)(RNG_HandleTypeDef *hrng, uint32_t
 /** @defgroup RNG_Exported_Constants_Group3 RNG Clock Error Detection
   * @{
   */
-#define RNG_CED_ENABLE          0x00000000U /*!< Clock error detection Enabled  */
-#define RNG_CED_DISABLE         RNG_CR_CED  /*!< Clock error detection Disabled */
+#define RNG_CED_ENABLE          0x00000000U
+#define RNG_CED_DISABLE         RNG_CR_CED
 /**
   * @}
   */
@@ -170,16 +170,16 @@ typedef  void (*pRNG_ReadyDataCallbackTypeDef)(RNG_HandleTypeDef *hrng, uint32_t
 /** @defgroup RNG_Error_Definition   RNG Error Definition
   * @{
   */
-#define  HAL_RNG_ERROR_NONE             0x00000000U    /*!< No error          */
+#define  HAL_RNG_ERROR_NONE             0x00000000U
 #if (USE_HAL_RNG_REGISTER_CALLBACKS == 1)
-#define  HAL_RNG_ERROR_INVALID_CALLBACK 0x00000001U    /*!< Invalid Callback error  */
+#define  HAL_RNG_ERROR_INVALID_CALLBACK 0x00000001U
 #endif /* USE_HAL_RNG_REGISTER_CALLBACKS */
-#define  HAL_RNG_ERROR_TIMEOUT          0x00000002U    /*!< Timeout error     */
-#define  HAL_RNG_ERROR_BUSY             0x00000004U    /*!< Busy error        */
-#define  HAL_RNG_ERROR_SEED             0x00000008U    /*!< Seed error        */
-#define  HAL_RNG_ERROR_CLOCK            0x00000010U    /*!< Clock error       */
+#define  HAL_RNG_ERROR_TIMEOUT          0x00000002U
+#define  HAL_RNG_ERROR_BUSY             0x00000004U
+#define  HAL_RNG_ERROR_SEED             0x00000008U
+#define  HAL_RNG_ERROR_CLOCK            0x00000010U
 #if defined(RNG_CR_CONDRST)
-#define  HAL_RNG_ERROR_RECOVERSEED      0x00000020U    /*!< Recover Seed error */
+#define  HAL_RNG_ERROR_RECOVERSEED      0x00000020U
 #endif /* RNG_CR_CONDRST */
 /**
   * @}
@@ -242,7 +242,7 @@ typedef  void (*pRNG_ReadyDataCallbackTypeDef)(RNG_HandleTypeDef *hrng, uint32_t
   *         flags RNG_FLAG_DRDY, RNG_FLAG_CECS and RNG_FLAG_SECS are read-only.
   * @retval None
   */
-#define __HAL_RNG_CLEAR_FLAG(__HANDLE__, __FLAG__)                      /* dummy  macro */
+#define __HAL_RNG_CLEAR_FLAG(__HANDLE__, __FLAG__)
 
 /**
   * @brief  Enables the RNG interrupts.

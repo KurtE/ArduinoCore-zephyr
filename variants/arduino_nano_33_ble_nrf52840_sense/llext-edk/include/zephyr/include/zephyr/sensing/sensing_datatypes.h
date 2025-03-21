@@ -67,7 +67,7 @@ struct sensing_sensor_value_header {
 struct sensing_sensor_value_3d_q31 {
 	/** Header of the sensor value data structure. */
 	struct sensing_sensor_value_header header;
-	int8_t shift; /**< The shift value for the q31_t v[3] reading. */
+	int8_t shift;
 	struct {
 		/** Timestamp delta of the reading. Unit is micro seconds. */
 		uint32_t timestamp_delta;
@@ -81,12 +81,12 @@ struct sensing_sensor_value_3d_q31 {
 			 */
 			q31_t v[3];
 			struct {
-				q31_t x; /**< X value of the 3D vector. */
-				q31_t y; /**< Y value of the 3D vector. */
-				q31_t z; /**< Z value of the 3D vector. */
+				q31_t x;
+				q31_t y;
+				q31_t z;
 			};
 		};
-	} readings[1]; /**< Array of readings. */
+	} readings[1];
 };
 
 /**
@@ -105,7 +105,7 @@ struct sensing_sensor_value_uint32 {
 		 * For SENSING_SENSOR_TYPE_LIGHT_AMBIENTLIGHT, the unit is luxs.
 		 */
 		uint32_t v;
-	} readings[1];      /**< Array of readings. */
+	} readings[1];
 };
 
 /**
@@ -116,7 +116,7 @@ struct sensing_sensor_value_uint32 {
 struct sensing_sensor_value_q31 {
 	/** Header of the sensor value data structure. */
 	struct sensing_sensor_value_header header;
-	int8_t shift; /**< The shift value for the q31_t v reading. */
+	int8_t shift;
 	struct {
 		/** Timestamp delta of the reading. Unit is micro seconds. */
 		uint32_t timestamp_delta;
@@ -125,7 +125,7 @@ struct sensing_sensor_value_q31 {
 		 * For SENSING_SENSOR_TYPE_MOTION_HINGE_ANGLE, the unit is degrees.
 		 */
 		q31_t v;
-	} readings[1];   /**< Array of readings. */
+	} readings[1];
 };
 
 /**

@@ -5,7 +5,7 @@
  */
 
 #define EVENT_OVERHEAD_XTAL_US        1500
-#define EVENT_OVERHEAD_PREEMPT_US     0    /* if <= min, then dynamic preempt */
+#define EVENT_OVERHEAD_PREEMPT_US     0
 #define EVENT_OVERHEAD_PREEMPT_MIN_US 0
 #define EVENT_OVERHEAD_PREEMPT_MAX_US EVENT_OVERHEAD_XTAL_US
 
@@ -21,22 +21,22 @@
 /* Active connection in peripheral role with extended scanning on 1M and Coded
  * PHY, scheduling and receiving auxiliary PDUs.
  */
-#define EVENT_OVERHEAD_START_US       733 /* 24 RTC ticks */
+#define EVENT_OVERHEAD_START_US       733
 #else /* !CONFIG_BT_CTLR_PHY_CODED */
 /* Active connection in peripheral role with extended scanning on 1M only,
  * scheduling and receiving auxiliary PDUs.
  */
-#define EVENT_OVERHEAD_START_US       428 /* 14 RTC ticks */
+#define EVENT_OVERHEAD_START_US       428
 #endif /* !CONFIG_BT_CTLR_PHY_CODED */
 #else /* !CONFIG_BT_OBSERVER */
 /* Active connection in peripheral role with legacy scanning on 1M.
  */
-#define EVENT_OVERHEAD_START_US       275 /* 9 RTC ticks */
+#define EVENT_OVERHEAD_START_US       275
 #endif /* !CONFIG_BT_OBSERVER */
 #else /* !CONFIG_BT_CTLR_ADV_EXT */
 /* Active connection in peripheral role with additional advertising state.
  */
-#define EVENT_OVERHEAD_START_US       275 /* 9 RTC ticks */
+#define EVENT_OVERHEAD_START_US       275
 #endif /* !CONFIG_BT_CTLR_ADV_EXT */
 
 /* Worst-case time margin needed after event end-time in the air
@@ -58,7 +58,7 @@
 #define EVENT_TICKER_RES_MARGIN_US DIV_ROUND_UP(HAL_TICKER_CNTR_CLK_UNIT_FSEC, \
 						HAL_TICKER_FSEC_PER_USEC)
 
-#define EVENT_RX_JITTER_US(phy) 16    /* Radio Rx timing uncertainty */
+#define EVENT_RX_JITTER_US(phy) 16
 #define EVENT_RX_TO_US(phy) ((((((phy)&0x03) + 4)<<3)/BIT((((phy)&0x3)>>1))) + \
 				  EVENT_RX_JITTER_US(phy))
 

@@ -54,11 +54,11 @@ typedef struct
   uint32_t ChromaSubsampling;        /*!< Chroma Subsampling in case of YCBCR or CMYK color space, 0-> 4:4:4 , 1-> 4:2:2, 2 -> 4:1:1, 3 -> 4:2:0
                                            This parameter can be a value of @ref JPEG_ChromaSubsampling */
 
-  uint32_t ImageHeight;              /*!< Image height : number of lines */
+  uint32_t ImageHeight;
 
-  uint32_t ImageWidth;               /*!< Image width : number of pixels per line */
+  uint32_t ImageWidth;
 
-  uint32_t ImageQuality;             /*!< Quality of the JPEG encoding : from 1 to 100 */
+  uint32_t ImageQuality;
 
 } JPEG_ConfTypeDef;
 /**
@@ -71,13 +71,13 @@ typedef struct
   */
 typedef enum
 {
-  HAL_JPEG_STATE_RESET              = 0x00U,  /*!< JPEG not yet initialized or disabled  */
-  HAL_JPEG_STATE_READY              = 0x01U,  /*!< JPEG initialized and ready for use    */
-  HAL_JPEG_STATE_BUSY               = 0x02U,  /*!< JPEG internal processing is ongoing   */
-  HAL_JPEG_STATE_BUSY_ENCODING      = 0x03U,  /*!< JPEG encoding processing is ongoing   */
-  HAL_JPEG_STATE_BUSY_DECODING      = 0x04U,  /*!< JPEG decoding processing is ongoing   */
-  HAL_JPEG_STATE_TIMEOUT            = 0x05U,  /*!< JPEG timeout state                    */
-  HAL_JPEG_STATE_ERROR              = 0x06U   /*!< JPEG error state                      */
+  HAL_JPEG_STATE_RESET              = 0x00U,
+  HAL_JPEG_STATE_READY              = 0x01U,
+  HAL_JPEG_STATE_BUSY               = 0x02U,
+  HAL_JPEG_STATE_BUSY_ENCODING      = 0x03U,
+  HAL_JPEG_STATE_BUSY_DECODING      = 0x04U,
+  HAL_JPEG_STATE_TIMEOUT            = 0x05U,
+  HAL_JPEG_STATE_ERROR              = 0x06U
 } HAL_JPEG_STATETypeDef;
 
 /**
@@ -95,61 +95,61 @@ typedef struct __JPEG_HandleTypeDef
 typedef struct
 #endif /* (USE_HAL_JPEG_REGISTER_CALLBACKS) */
 {
-  JPEG_TypeDef             *Instance;        /*!< JPEG peripheral register base address */
+  JPEG_TypeDef             *Instance;
 
-  JPEG_ConfTypeDef         Conf;             /*!< Current JPEG encoding/decoding parameters */
+  JPEG_ConfTypeDef         Conf;
 
-  uint8_t                  *pJpegInBuffPtr;  /*!< Pointer to JPEG processing (encoding, decoding,...) input buffer */
+  uint8_t                  *pJpegInBuffPtr;
 
-  uint8_t                  *pJpegOutBuffPtr; /*!< Pointer to JPEG processing (encoding, decoding,...) output buffer */
+  uint8_t                  *pJpegOutBuffPtr;
 
-  __IO uint32_t            JpegInCount;      /*!< Internal Counter of input data */
+  __IO uint32_t            JpegInCount;
 
-  __IO uint32_t            JpegOutCount;     /*!< Internal Counter of output data */
+  __IO uint32_t            JpegOutCount;
 
-  uint32_t                 InDataLength;     /*!< Input Buffer Length in Bytes */
+  uint32_t                 InDataLength;
 
-  uint32_t                 OutDataLength;    /*!< Output Buffer Length in Bytes */
+  uint32_t                 OutDataLength;
 
-  MDMA_HandleTypeDef        *hdmain;          /*!< JPEG In MDMA handle parameters */
+  MDMA_HandleTypeDef        *hdmain;
 
-  MDMA_HandleTypeDef        *hdmaout;         /*!< JPEG Out MDMA handle parameters */
+  MDMA_HandleTypeDef        *hdmaout;
 
-  uint8_t                  CustomQuanTable;  /*!< If set to 1 specify that user customized quantization tables are used */
+  uint8_t                  CustomQuanTable;
 
-  uint8_t                  *QuantTable0;     /*!< Basic Quantization Table for component 0 */
+  uint8_t                  *QuantTable0;
 
-  uint8_t                  *QuantTable1;     /*!< Basic Quantization Table for component 1 */
+  uint8_t                  *QuantTable1;
 
-  uint8_t                  *QuantTable2;     /*!< Basic Quantization Table for component 2 */
+  uint8_t                  *QuantTable2;
 
-  uint8_t                  *QuantTable3;     /*!< Basic Quantization Table for component 3 */
+  uint8_t                  *QuantTable3;
 
-  HAL_LockTypeDef          Lock;             /*!< JPEG locking object */
+  HAL_LockTypeDef          Lock;
 
-  __IO  HAL_JPEG_STATETypeDef State;         /*!< JPEG peripheral state */
+  __IO  HAL_JPEG_STATETypeDef State;
 
-  __IO  uint32_t           ErrorCode;        /*!< JPEG Error code */
+  __IO  uint32_t           ErrorCode;
 
-  __IO uint32_t Context;                     /*!< JPEG Internal context */
+  __IO uint32_t Context;
 
 #if (USE_HAL_JPEG_REGISTER_CALLBACKS == 1)
   void (*InfoReadyCallback)(struct __JPEG_HandleTypeDef *hjpeg,
-                            JPEG_ConfTypeDef *pInfo);  /*!< JPEG Info ready callback      */
+                            JPEG_ConfTypeDef *pInfo);
   void (*EncodeCpltCallback)(struct __JPEG_HandleTypeDef
-                             *hjpeg);                          /*!< JPEG Encode complete callback */
+                             *hjpeg);
   void (*DecodeCpltCallback)(struct __JPEG_HandleTypeDef
-                             *hjpeg);                          /*!< JPEG Decode complete callback */
+                             *hjpeg);
   void (*ErrorCallback)(struct __JPEG_HandleTypeDef
-                        *hjpeg);                               /*!< JPEG Error callback           */
+                        *hjpeg);
   void (*GetDataCallback)(struct __JPEG_HandleTypeDef *hjpeg,
-                          uint32_t NbDecodedData);     /*!< JPEG Get Data callback        */
+                          uint32_t NbDecodedData);
   void (*DataReadyCallback)(struct __JPEG_HandleTypeDef *hjpeg, uint8_t *pDataOut,
-                            uint32_t OutDataLength);   /*!< JPEG Data ready callback */
+                            uint32_t OutDataLength);
 
-  void (* MspInitCallback)(struct __JPEG_HandleTypeDef *hjpeg);                            /*!< JPEG Msp Init callback  */
+  void (* MspInitCallback)(struct __JPEG_HandleTypeDef *hjpeg);
   void (* MspDeInitCallback)(struct __JPEG_HandleTypeDef
-                             *hjpeg);                          /*!< JPEG Msp DeInit callback  */
+                             *hjpeg);
 
 
 #endif /* (USE_HAL_JPEG_REGISTER_CALLBACKS) */
@@ -168,12 +168,12 @@ typedef struct
   */
 typedef enum
 {
-  HAL_JPEG_ENCODE_CPLT_CB_ID    = 0x01U,    /*!< JPEG Encode Complete callback ID */
-  HAL_JPEG_DECODE_CPLT_CB_ID    = 0x02U,    /*!< JPEG Decode Complete callback ID */
-  HAL_JPEG_ERROR_CB_ID          = 0x03U,    /*!< JPEG Error callback ID           */
+  HAL_JPEG_ENCODE_CPLT_CB_ID    = 0x01U,
+  HAL_JPEG_DECODE_CPLT_CB_ID    = 0x02U,
+  HAL_JPEG_ERROR_CB_ID          = 0x03U,
 
-  HAL_JPEG_MSPINIT_CB_ID        = 0x04U,    /*!< JPEG MspInit callback ID         */
-  HAL_JPEG_MSPDEINIT_CB_ID      = 0x05U     /*!< JPEG MspDeInit callback ID       */
+  HAL_JPEG_MSPINIT_CB_ID        = 0x04U,
+  HAL_JPEG_MSPDEINIT_CB_ID      = 0x05U
 
 } HAL_JPEG_CallbackIDTypeDef;
 /**
@@ -184,13 +184,13 @@ typedef enum
   * @brief  HAL JPEG Callback pointer definition
   * @{
   */
-typedef  void (*pJPEG_CallbackTypeDef)(JPEG_HandleTypeDef *hjpeg);    /*!< pointer to a common JPEG callback function */
+typedef  void (*pJPEG_CallbackTypeDef)(JPEG_HandleTypeDef *hjpeg);
 typedef  void (*pJPEG_InfoReadyCallbackTypeDef)(JPEG_HandleTypeDef *hjpeg,
-                                                JPEG_ConfTypeDef *pInfo);  /*!< pointer to an Info ready JPEG callback function */
+                                                JPEG_ConfTypeDef *pInfo);
 typedef  void (*pJPEG_GetDataCallbackTypeDef)(JPEG_HandleTypeDef *hjpeg,
-                                              uint32_t NbDecodedData);     /*!< pointer to a Get data JPEG callback function */
+                                              uint32_t NbDecodedData);
 typedef  void (*pJPEG_DataReadyCallbackTypeDef)(JPEG_HandleTypeDef *hjpeg, uint8_t *pDataOut,
-                                                uint32_t OutDataLength);  /*!< pointer to a Data ready JPEG callback function */
+                                                uint32_t OutDataLength);
 /**
   * @}
   */
@@ -212,13 +212,13 @@ typedef  void (*pJPEG_DataReadyCallbackTypeDef)(JPEG_HandleTypeDef *hjpeg, uint8
   * @{
   */
 
-#define  HAL_JPEG_ERROR_NONE        ((uint32_t)0x00000000U)    /*!< No error             */
-#define  HAL_JPEG_ERROR_HUFF_TABLE  ((uint32_t)0x00000001U)    /*!< HUffman Table programming error */
-#define  HAL_JPEG_ERROR_QUANT_TABLE ((uint32_t)0x00000002U)    /*!< Quantization Table programming error */
-#define  HAL_JPEG_ERROR_DMA         ((uint32_t)0x00000004U)    /*!< DMA transfer error   */
-#define  HAL_JPEG_ERROR_TIMEOUT     ((uint32_t)0x00000008U)    /*!< Timeout error        */
+#define  HAL_JPEG_ERROR_NONE        ((uint32_t)0x00000000U)
+#define  HAL_JPEG_ERROR_HUFF_TABLE  ((uint32_t)0x00000001U)
+#define  HAL_JPEG_ERROR_QUANT_TABLE ((uint32_t)0x00000002U)
+#define  HAL_JPEG_ERROR_DMA         ((uint32_t)0x00000004U)
+#define  HAL_JPEG_ERROR_TIMEOUT     ((uint32_t)0x00000008U)
 #if (USE_HAL_JPEG_REGISTER_CALLBACKS == 1)
-#define  HAL_JPEG_ERROR_INVALID_CALLBACK ((uint32_t)0x00000010U)    /*!< Invalid Callback error  */
+#define  HAL_JPEG_ERROR_INVALID_CALLBACK ((uint32_t)0x00000010U)
 #endif /* USE_HAL_JPEG_REGISTER_CALLBACKS */
 /**
   * @}
@@ -228,7 +228,7 @@ typedef  void (*pJPEG_DataReadyCallbackTypeDef)(JPEG_HandleTypeDef *hjpeg, uint8
   * @brief  JPEG Quantization Table Size
   * @{
   */
-#define JPEG_QUANT_TABLE_SIZE  ((uint32_t)64U) /*!< JPEG Quantization Table Size in bytes  */
+#define JPEG_QUANT_TABLE_SIZE  ((uint32_t)64U)
 /**
   * @}
   */
@@ -252,9 +252,9 @@ typedef  void (*pJPEG_DataReadyCallbackTypeDef)(JPEG_HandleTypeDef *hjpeg, uint8
   * @brief  JPEG Chrominance Sampling
   * @{
   */
-#define JPEG_444_SUBSAMPLING     ((uint32_t)0x00000000U)   /*!< Chroma Subsampling 4:4:4 */
-#define JPEG_420_SUBSAMPLING     ((uint32_t)0x00000001U)   /*!< Chroma Subsampling 4:2:0 */
-#define JPEG_422_SUBSAMPLING     ((uint32_t)0x00000002U)   /*!< Chroma Subsampling 4:2:2 */
+#define JPEG_444_SUBSAMPLING     ((uint32_t)0x00000000U)
+#define JPEG_420_SUBSAMPLING     ((uint32_t)0x00000001U)
+#define JPEG_422_SUBSAMPLING     ((uint32_t)0x00000002U)
 
 /**
   * @}
@@ -264,8 +264,8 @@ typedef  void (*pJPEG_DataReadyCallbackTypeDef)(JPEG_HandleTypeDef *hjpeg, uint8
   * @brief  JPEG Min and Max Image Quality
   * @{
   */
-#define JPEG_IMAGE_QUALITY_MIN     ((uint32_t)1U)     /*!< Minimum JPEG quality */
-#define JPEG_IMAGE_QUALITY_MAX     ((uint32_t)100U)   /*!< Maximum JPEG quality */
+#define JPEG_IMAGE_QUALITY_MIN     ((uint32_t)1U)
+#define JPEG_IMAGE_QUALITY_MAX     ((uint32_t)100U)
 
 /**
   * @}
@@ -275,12 +275,12 @@ typedef  void (*pJPEG_DataReadyCallbackTypeDef)(JPEG_HandleTypeDef *hjpeg, uint8
   * @brief JPEG Interrupt definition
   * @{
   */
-#define JPEG_IT_IFT     ((uint32_t)JPEG_CR_IFTIE)   /*!< Input FIFO Threshold Interrupt */
-#define JPEG_IT_IFNF    ((uint32_t)JPEG_CR_IFNFIE)  /*!< Input FIFO Not Full Interrupt */
-#define JPEG_IT_OFT     ((uint32_t)JPEG_CR_OFTIE)   /*!< Output FIFO Threshold Interrupt */
-#define JPEG_IT_OFNE    ((uint32_t)JPEG_CR_OFTIE)   /*!< Output FIFO Not Empty Interrupt */
-#define JPEG_IT_EOC     ((uint32_t)JPEG_CR_EOCIE)   /*!< End of Conversion Interrupt */
-#define JPEG_IT_HPD     ((uint32_t)JPEG_CR_HPDIE)   /*!< Header Parsing Done Interrupt */
+#define JPEG_IT_IFT     ((uint32_t)JPEG_CR_IFTIE)
+#define JPEG_IT_IFNF    ((uint32_t)JPEG_CR_IFNFIE)
+#define JPEG_IT_OFT     ((uint32_t)JPEG_CR_OFTIE)
+#define JPEG_IT_OFNE    ((uint32_t)JPEG_CR_OFTIE)
+#define JPEG_IT_EOC     ((uint32_t)JPEG_CR_EOCIE)
+#define JPEG_IT_HPD     ((uint32_t)JPEG_CR_HPDIE)
 /**
   * @}
   */
@@ -289,15 +289,15 @@ typedef  void (*pJPEG_DataReadyCallbackTypeDef)(JPEG_HandleTypeDef *hjpeg, uint8
   * @brief JPEG Flags definition
   * @{
   */
-#define JPEG_FLAG_IFTF     ((uint32_t)JPEG_SR_IFTF)   /*!< Input FIFO is not full and is below its threshold flag */
-#define JPEG_FLAG_IFNFF    ((uint32_t)JPEG_SR_IFNFF)  /*!< Input FIFO Not Full Flag, a data can be written */
-#define JPEG_FLAG_OFTF     ((uint32_t)JPEG_SR_OFTF)   /*!< Output FIFO is not empty and has reach its threshold */
-#define JPEG_FLAG_OFNEF    ((uint32_t)JPEG_SR_OFNEF)  /*!< Output FIFO is not empty, a data is available  */
-#define JPEG_FLAG_EOCF     ((uint32_t)JPEG_SR_EOCF)   /*!< JPEG Codec core has finished the encoding or the decoding process and than last data has been sent to the output FIFO  */
-#define JPEG_FLAG_HPDF     ((uint32_t)JPEG_SR_HPDF)   /*!< JPEG Codec has finished the parsing of the headers and the internal registers have been updated  */
-#define JPEG_FLAG_COF      ((uint32_t)JPEG_SR_COF)    /*!< JPEG Codec operation on going  flag*/
+#define JPEG_FLAG_IFTF     ((uint32_t)JPEG_SR_IFTF)
+#define JPEG_FLAG_IFNFF    ((uint32_t)JPEG_SR_IFNFF)
+#define JPEG_FLAG_OFTF     ((uint32_t)JPEG_SR_OFTF)
+#define JPEG_FLAG_OFNEF    ((uint32_t)JPEG_SR_OFNEF)
+#define JPEG_FLAG_EOCF     ((uint32_t)JPEG_SR_EOCF)
+#define JPEG_FLAG_HPDF     ((uint32_t)JPEG_SR_HPDF)
+#define JPEG_FLAG_COF      ((uint32_t)JPEG_SR_COF)
 
-#define JPEG_FLAG_ALL      ((uint32_t)0x000000FEU)     /*!< JPEG Codec All previous flag*/
+#define JPEG_FLAG_ALL      ((uint32_t)0x000000FEU)
 /**
   * @}
   */
@@ -306,9 +306,9 @@ typedef  void (*pJPEG_DataReadyCallbackTypeDef)(JPEG_HandleTypeDef *hjpeg, uint8
   * @brief JPEG process pause, resume definition
   * @{
   */
-#define JPEG_PAUSE_RESUME_INPUT          ((uint32_t)0x00000001U)     /*!< Pause/Resume Input FIFO Xfer*/
-#define JPEG_PAUSE_RESUME_OUTPUT         ((uint32_t)0x00000002U)     /*!< Pause/Resume Output FIFO Xfer*/
-#define JPEG_PAUSE_RESUME_INPUT_OUTPUT   ((uint32_t)0x00000003U)     /*!< Pause/Resume Input and Output FIFO Xfer*/
+#define JPEG_PAUSE_RESUME_INPUT          ((uint32_t)0x00000001U)
+#define JPEG_PAUSE_RESUME_OUTPUT         ((uint32_t)0x00000002U)
+#define JPEG_PAUSE_RESUME_INPUT_OUTPUT   ((uint32_t)0x00000003U)
 /**
   * @}
   */

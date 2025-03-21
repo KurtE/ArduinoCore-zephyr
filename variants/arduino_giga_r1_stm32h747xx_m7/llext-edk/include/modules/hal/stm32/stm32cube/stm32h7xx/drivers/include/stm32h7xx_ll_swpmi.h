@@ -103,13 +103,13 @@ typedef struct
   * @brief    Flags defines which can be used with LL_SWPMI_WriteReg function
   * @{
   */
-#define LL_SWPMI_ICR_CRXBFF                SWPMI_ICR_CRXBFF  /*!< Clear receive buffer full flag     */
-#define LL_SWPMI_ICR_CTXBEF                SWPMI_ICR_CTXBEF  /*!< Clear transmit buffer empty flag   */
-#define LL_SWPMI_ICR_CRXBERF               SWPMI_ICR_CRXBERF /*!< Clear receive CRC error flag       */
-#define LL_SWPMI_ICR_CRXOVRF               SWPMI_ICR_CRXOVRF /*!< Clear receive overrun error flag   */
-#define LL_SWPMI_ICR_CTXUNRF               SWPMI_ICR_CTXUNRF /*!< Clear transmit underrun error flag */
-#define LL_SWPMI_ICR_CTCF                  SWPMI_ICR_CTCF    /*!< Clear transfer complete flag       */
-#define LL_SWPMI_ICR_CSRF                  SWPMI_ICR_CSRF    /*!< Clear slave resume flag            */
+#define LL_SWPMI_ICR_CRXBFF                SWPMI_ICR_CRXBFF
+#define LL_SWPMI_ICR_CTXBEF                SWPMI_ICR_CTXBEF
+#define LL_SWPMI_ICR_CRXBERF               SWPMI_ICR_CRXBERF
+#define LL_SWPMI_ICR_CRXOVRF               SWPMI_ICR_CRXOVRF
+#define LL_SWPMI_ICR_CTXUNRF               SWPMI_ICR_CTXUNRF
+#define LL_SWPMI_ICR_CTCF                  SWPMI_ICR_CTCF
+#define LL_SWPMI_ICR_CSRF                  SWPMI_ICR_CSRF
 /**
   * @}
   */
@@ -118,17 +118,17 @@ typedef struct
   * @brief    Flags defines which can be used with LL_SWPMI_ReadReg function
   * @{
   */
-#define LL_SWPMI_ISR_RXBFF                 SWPMI_ISR_RXBFF   /*!< Receive buffer full flag           */
-#define LL_SWPMI_ISR_TXBEF                 SWPMI_ISR_TXBEF   /*!< Transmit buffer empty flag         */
-#define LL_SWPMI_ISR_RXBERF                SWPMI_ISR_RXBERF  /*!< Receive CRC error flag             */
-#define LL_SWPMI_ISR_RXOVRF                SWPMI_ISR_RXOVRF  /*!< Receive overrun error flag         */
-#define LL_SWPMI_ISR_TXUNRF                SWPMI_ISR_TXUNRF  /*!< Transmit underrun error flag       */
-#define LL_SWPMI_ISR_RXNE                  SWPMI_ISR_RXNE    /*!< Receive data register not empty    */
-#define LL_SWPMI_ISR_TXE                   SWPMI_ISR_TXE     /*!< Transmit data register empty       */
-#define LL_SWPMI_ISR_TCF                   SWPMI_ISR_TCF     /*!< Transfer complete flag             */
-#define LL_SWPMI_ISR_SRF                   SWPMI_ISR_SRF     /*!< Slave resume flag                  */
-#define LL_SWPMI_ISR_SUSP                  SWPMI_ISR_SUSP    /*!< SUSPEND flag                       */
-#define LL_SWPMI_ISR_DEACTF                SWPMI_ISR_DEACTF  /*!< DEACTIVATED flag                   */
+#define LL_SWPMI_ISR_RXBFF                 SWPMI_ISR_RXBFF
+#define LL_SWPMI_ISR_TXBEF                 SWPMI_ISR_TXBEF
+#define LL_SWPMI_ISR_RXBERF                SWPMI_ISR_RXBERF
+#define LL_SWPMI_ISR_RXOVRF                SWPMI_ISR_RXOVRF
+#define LL_SWPMI_ISR_TXUNRF                SWPMI_ISR_TXUNRF
+#define LL_SWPMI_ISR_RXNE                  SWPMI_ISR_RXNE
+#define LL_SWPMI_ISR_TXE                   SWPMI_ISR_TXE
+#define LL_SWPMI_ISR_TCF                   SWPMI_ISR_TCF
+#define LL_SWPMI_ISR_SRF                   SWPMI_ISR_SRF
+#define LL_SWPMI_ISR_SUSP                  SWPMI_ISR_SUSP
+#define LL_SWPMI_ISR_DEACTF                SWPMI_ISR_DEACTF
 /**
   * @}
   */
@@ -137,15 +137,15 @@ typedef struct
   * @brief    IT defines which can be used with LL_SWPMI_ReadReg and  LL_SWPMI_WriteReg functions
   * @{
   */
-#define LL_SWPMI_IER_SRIE                  SWPMI_IER_SRIE    /*!< Slave resume interrupt enable            */
-#define LL_SWPMI_IER_TCIE                  SWPMI_IER_TCIE    /*!< Transmit complete interrupt enable       */
-#define LL_SWPMI_IER_TIE                   SWPMI_IER_TIE     /*!< Transmit interrupt enable                */
-#define LL_SWPMI_IER_RIE                   SWPMI_IER_RIE     /*!< Receive interrupt enable                 */
-#define LL_SWPMI_IER_TXUNRIE               SWPMI_IER_TXUNRIE /*!< Transmit underrun error interrupt enable */
-#define LL_SWPMI_IER_RXOVRIE               SWPMI_IER_RXOVRIE /*!< Receive overrun error interrupt enable   */
-#define LL_SWPMI_IER_RXBERIE               SWPMI_IER_RXBERIE /*!< Receive CRC error interrupt enable       */
-#define LL_SWPMI_IER_TXBEIE                SWPMI_IER_TXBEIE  /*!< Transmit buffer empty interrupt enable   */
-#define LL_SWPMI_IER_RXBFIE                SWPMI_IER_RXBFIE  /*!< Receive buffer full interrupt enable     */
+#define LL_SWPMI_IER_SRIE                  SWPMI_IER_SRIE
+#define LL_SWPMI_IER_TCIE                  SWPMI_IER_TCIE
+#define LL_SWPMI_IER_TIE                   SWPMI_IER_TIE
+#define LL_SWPMI_IER_RIE                   SWPMI_IER_RIE
+#define LL_SWPMI_IER_TXUNRIE               SWPMI_IER_TXUNRIE
+#define LL_SWPMI_IER_RXOVRIE               SWPMI_IER_RXOVRIE
+#define LL_SWPMI_IER_RXBERIE               SWPMI_IER_RXBERIE
+#define LL_SWPMI_IER_TXBEIE                SWPMI_IER_TXBEIE
+#define LL_SWPMI_IER_RXBFIE                SWPMI_IER_RXBFIE
 /**
   * @}
   */
@@ -153,8 +153,8 @@ typedef struct
 /** @defgroup SWPMI_LL_EC_SW_BUFFER_RX SW BUFFER RX
   * @{
   */
-#define LL_SWPMI_SW_BUFFER_RX_SINGLE ((uint32_t)0x00000000)  /*!< Single software buffer mode for reception */
-#define LL_SWPMI_SW_BUFFER_RX_MULTI  SWPMI_CR_RXMODE         /*!< Multi software buffermode for reception   */
+#define LL_SWPMI_SW_BUFFER_RX_SINGLE ((uint32_t)0x00000000)
+#define LL_SWPMI_SW_BUFFER_RX_MULTI  SWPMI_CR_RXMODE
 /**
   * @}
   */
@@ -162,8 +162,8 @@ typedef struct
 /** @defgroup SWPMI_LL_EC_SW_BUFFER_TX SW BUFFER TX
   * @{
   */
-#define LL_SWPMI_SW_BUFFER_TX_SINGLE ((uint32_t)0x00000000)  /*!< Single software buffer mode for transmission */
-#define LL_SWPMI_SW_BUFFER_TX_MULTI  SWPMI_CR_TXMODE         /*!< Multi software buffermode for transmission   */
+#define LL_SWPMI_SW_BUFFER_TX_SINGLE ((uint32_t)0x00000000)
+#define LL_SWPMI_SW_BUFFER_TX_MULTI  SWPMI_CR_TXMODE
 /**
   * @}
   */
@@ -171,8 +171,8 @@ typedef struct
 /** @defgroup SWPMI_LL_EC_VOLTAGE_CLASS VOLTAGE CLASS
   * @{
   */
-#define LL_SWPMI_VOLTAGE_CLASS_C     ((uint32_t)0x00000000)  /*!< SWPMI_IO uses directly VDD voltage to operate in class C          */
-#define LL_SWPMI_VOLTAGE_CLASS_B     SWPMI_OR_CLASS          /*!< SWPMI_IO uses an internal voltage regulator to operate in class B */
+#define LL_SWPMI_VOLTAGE_CLASS_C     ((uint32_t)0x00000000)
+#define LL_SWPMI_VOLTAGE_CLASS_B     SWPMI_OR_CLASS
 /**
   * @}
   */
@@ -180,8 +180,8 @@ typedef struct
 /** @defgroup SWPMI_LL_EC_DMA_REG_DATA DMA register data
   * @{
   */
-#define LL_SWPMI_DMA_REG_DATA_TRANSMIT     (uint32_t)0       /*!< Get address of data register used for transmission */
-#define LL_SWPMI_DMA_REG_DATA_RECEIVE      (uint32_t)1       /*!< Get address of data register used for reception    */
+#define LL_SWPMI_DMA_REG_DATA_TRANSMIT     (uint32_t)0
+#define LL_SWPMI_DMA_REG_DATA_RECEIVE      (uint32_t)1
 /**
   * @}
   */

@@ -409,11 +409,11 @@ enum pax_dma_dir {
 
 /* Completion packet */
 struct cmpl_pkt {
-	uint64_t opq : 16; /*pkt_id 15:0*/
-	uint64_t res : 16; /*reserved 16:31*/
-	uint64_t dma_status : 16; /*PAX DMA status 32:47*/
-	uint64_t ae_num : 6; /*RM status[47:53] processing AE number */
-	uint64_t rm_status : 10; /*RM status[54:63] completion/timeout status*/
+	uint64_t opq : 16;
+	uint64_t res : 16;
+	uint64_t dma_status : 16;
+	uint64_t ae_num : 6;
+	uint64_t rm_status : 10;
 } __attribute__ ((__packed__));
 
 /* Driver internal structures */

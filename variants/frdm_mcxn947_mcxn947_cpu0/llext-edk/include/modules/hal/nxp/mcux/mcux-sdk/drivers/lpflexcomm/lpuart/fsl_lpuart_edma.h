@@ -40,18 +40,18 @@ typedef void (*lpuart_edma_transfer_callback_t)(LPUART_Type *base,
  */
 struct _lpuart_edma_handle
 {
-    lpuart_edma_transfer_callback_t callback; /*!< Callback function. */
-    void *userData;                           /*!< LPUART callback function parameter.*/
-    size_t rxDataSizeAll;                     /*!< Size of the data to receive. */
-    size_t txDataSizeAll;                     /*!< Size of the data to send out. */
+    lpuart_edma_transfer_callback_t callback;
+    void *userData;
+    size_t rxDataSizeAll;
+    size_t txDataSizeAll;
 
-    edma_handle_t *txEdmaHandle; /*!< The eDMA TX channel used. */
-    edma_handle_t *rxEdmaHandle; /*!< The eDMA RX channel used. */
+    edma_handle_t *txEdmaHandle;
+    edma_handle_t *rxEdmaHandle;
 
-    uint8_t nbytes; /*!< eDMA minor byte transfer count initially configured. */
+    uint8_t nbytes;
 
-    volatile uint8_t txState; /*!< TX transfer state. */
-    volatile uint8_t rxState; /*!< RX transfer state */
+    volatile uint8_t txState;
+    volatile uint8_t rxState;
 };
 
 /*******************************************************************************

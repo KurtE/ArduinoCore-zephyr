@@ -13,7 +13,7 @@ extern "C" {
 /**
  * Command IDs for zephyr basic management group.
  */
-#define ZEPHYR_MGMT_GRP_BASIC_CMD_ERASE_STORAGE	0	/* Command to erase storage partition */
+#define ZEPHYR_MGMT_GRP_BASIC_CMD_ERASE_STORAGE	0
 
 /**
  * Command result codes for statistics management group.

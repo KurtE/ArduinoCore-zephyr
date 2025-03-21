@@ -32,11 +32,11 @@
 /*! @brief LPSPI FreeRTOS handle */
 typedef struct _lpspi_rtos_handle
 {
-    LPSPI_Type *base;                 /*!< LPSPI base address */
-    lpspi_master_handle_t drv_handle; /*!< Handle of the underlying driver, treated as opaque by the RTOS layer */
+    LPSPI_Type *base;
+    lpspi_master_handle_t drv_handle;
     status_t async_status;
-    SemaphoreHandle_t mutex; /*!< Mutex to lock the handle during a trasfer */
-    SemaphoreHandle_t event; /*!< Semaphore to notify and unblock task when transfer ends */
+    SemaphoreHandle_t mutex;
+    SemaphoreHandle_t event;
 } lpspi_rtos_handle_t;
 
 /*******************************************************************************

@@ -19,26 +19,26 @@
 #include <stdint.h>
 
 enum pcie_ob_mem_type {
-	PCIE_OB_ANYMEM,  /**< PCIe OB window within any address range */
-	PCIE_OB_LOWMEM,  /**< PCIe OB window within 32-bit address range */
-	PCIE_OB_HIGHMEM, /**< PCIe OB window above 32-bit address range */
+	PCIE_OB_ANYMEM,
+	PCIE_OB_LOWMEM,
+	PCIE_OB_HIGHMEM,
 };
 
 enum pci_ep_irq_type {
-	PCIE_EP_IRQ_LEGACY,	/**< Raise Legacy interrupt */
-	PCIE_EP_IRQ_MSI,	/**< Raise MSI interrupt */
-	PCIE_EP_IRQ_MSIX,	/**< Raise MSIX interrupt */
+	PCIE_EP_IRQ_LEGACY,
+	PCIE_EP_IRQ_MSI,
+	PCIE_EP_IRQ_MSIX,
 };
 
 enum xfer_direction {
-	HOST_TO_DEVICE,		/**< Read from Host */
-	DEVICE_TO_HOST,		/**< Write to Host */
+	HOST_TO_DEVICE,
+	DEVICE_TO_HOST,
 };
 
 enum pcie_reset {
-	PCIE_PERST,	/**< Cold reset */
-	PCIE_PERST_INB,	/**< Inband hot reset */
-	PCIE_FLR,	/**< Functional Level Reset */
+	PCIE_PERST,
+	PCIE_PERST_INB,
+	PCIE_FLR,
 	PCIE_RESET_MAX
 };
 

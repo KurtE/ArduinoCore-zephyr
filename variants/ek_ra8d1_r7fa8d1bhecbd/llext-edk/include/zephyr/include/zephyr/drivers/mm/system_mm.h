@@ -409,9 +409,9 @@ int sys_mm_drv_page_phys_get(void *virt, uintptr_t *phys);
  * attributes can be used to guide the proper usage of each region.
  */
 struct sys_mm_drv_region {
-	void *addr; /**< @brief Address of the memory region */
-	size_t size; /**< @brief Size of the memory region */
-	uint32_t attr; /**< @brief Driver defined attributes of the memory region */
+	void *addr;
+	size_t size;
+	uint32_t attr;
 };
 
 /* TODO is it safe to assume no valid region has size == 0? */

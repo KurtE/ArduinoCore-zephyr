@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2015 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -40,12 +40,8 @@
 extern "C" {
 #endif
 
-#if defined(NRF54H20_XXAA) || defined(NRF54H20_ENGB_XXAA) || defined(NRF92_SERIES)
+#if defined(NRF54H20_XXAA) || defined(NRF92_SERIES)
 #define NRF_UARTE_CLOCKPIN_TXD_NEEDED 1
-#endif
-
-#if defined(NRF54H20_ENGA_XXAA)
-#define NRF_UARTE_CLOCKPIN_RTS_NEEDED 1
 #endif
 
 #define NRF_UARTE_PSEL_DISCONNECTED 0xFFFFFFFF
@@ -101,6 +97,13 @@ extern "C" {
 #define NRF_UARTE_HAS_FRAME_TIMEOUT 1
 #else
 #define NRF_UARTE_HAS_FRAME_TIMEOUT 0
+#endif
+
+#if defined(UARTE_ADDRESS_ADDRESS_Msk) || defined(__NRFX_DOXYGEN__)
+/** @brief Symbol indicating whether UARTE supports variable frame size. */
+#define NRF_UARTE_HAS_FRAME_SIZE 1
+#else
+#define NRF_UARTE_HAS_FRAME_SIZE 0
 #endif
 
 /** @brief Base frequency value 320 MHz for UARTE. */
@@ -306,6 +309,24 @@ typedef enum {
 } nrf_uarte_frame_timeout_t;
 #endif
 
+#if NRF_UARTE_HAS_FRAME_SIZE
+/** @brief Types of UARTE Frame size. */
+typedef enum {
+    NRF_UARTE_FRAME_SIZE_4_BIT  = UARTE_CONFIG_FRAMESIZE_4bit << UARTE_CONFIG_FRAMESIZE_Pos,  ///< 4 bit frame size.
+    NRF_UARTE_FRAME_SIZE_5_BIT  = UARTE_CONFIG_FRAMESIZE_5bit << UARTE_CONFIG_FRAMESIZE_Pos,  ///< 5 bit frame size.
+    NRF_UARTE_FRAME_SIZE_6_BIT  = UARTE_CONFIG_FRAMESIZE_6bit << UARTE_CONFIG_FRAMESIZE_Pos,  ///< 6 bit frame size.
+    NRF_UARTE_FRAME_SIZE_7_BIT  = UARTE_CONFIG_FRAMESIZE_7bit << UARTE_CONFIG_FRAMESIZE_Pos,  ///< 7 bit frame size.
+    NRF_UARTE_FRAME_SIZE_8_BIT  = UARTE_CONFIG_FRAMESIZE_8bit << UARTE_CONFIG_FRAMESIZE_Pos,  ///< 8 bit frame size.
+    NRF_UARTE_FRAME_SIZE_9_BIT  = UARTE_CONFIG_FRAMESIZE_9bit << UARTE_CONFIG_FRAMESIZE_Pos,  ///< 9 bit frame size.
+} nrf_uarte_frame_size_t;
+
+/** @brief Types of UARTE Frame trimming endianness when frame size is less than 8. */
+typedef enum {
+    NRF_UARTE_ENDIAN_MSB  = UARTE_CONFIG_ENDIAN_MSB << UARTE_CONFIG_ENDIAN_Pos,  ///< Data is trimmed from MSB end.
+    NRF_UARTE_ENDIAN_LSB  = UARTE_CONFIG_ENDIAN_LSB << UARTE_CONFIG_ENDIAN_Pos,  ///< Data is trimmed from LSB end.
+} nrf_uarte_endian_t;
+#endif
+
 /** @brief Structure for UARTE transmission configuration. */
 typedef struct
 {
@@ -319,6 +340,10 @@ typedef struct
 #endif
 #if NRF_UARTE_HAS_FRAME_TIMEOUT
     nrf_uarte_frame_timeout_t frame_timeout; ///< Frame timeout.
+#endif
+#if NRF_UARTE_HAS_FRAME_SIZE
+    nrf_uarte_frame_size_t frame_size;       ///< Frame size.
+    nrf_uarte_endian_t     endian;           ///< Frame trimming endianness.
 #endif
 } nrf_uarte_config_t;
 
@@ -532,6 +557,14 @@ NRF_STATIC_INLINE void nrf_uarte_txrx_pins_set(NRF_UARTE_Type * p_reg,
 NRF_STATIC_INLINE void nrf_uarte_txrx_pins_disconnect(NRF_UARTE_Type * p_reg);
 
 /**
+ * @brief Function for configuring TX pin.
+ *
+ * @param[in] p_reg   Pointer to the structure of registers of the peripheral.
+ * @param[in] pseltxd TXD pin number.
+ */
+NRF_STATIC_INLINE void nrf_uarte_tx_pin_set(NRF_UARTE_Type * p_reg, uint32_t pseltxd);
+
+/**
  * @brief Function for getting TX pin selection.
  *
  * @param[in] p_reg Pointer to the structure of registers of the peripheral.
@@ -539,6 +572,14 @@ NRF_STATIC_INLINE void nrf_uarte_txrx_pins_disconnect(NRF_UARTE_Type * p_reg);
  * @return TX pin selection.
  */
 NRF_STATIC_INLINE uint32_t nrf_uarte_tx_pin_get(NRF_UARTE_Type const * p_reg);
+
+/**
+ * @brief Function for configuring RX pin.
+ *
+ * @param[in] p_reg   Pointer to the structure of registers of the peripheral.
+ * @param[in] pselrxd RXD pin number.
+ */
+NRF_STATIC_INLINE void nrf_uarte_rx_pin_set(NRF_UARTE_Type * p_reg, uint32_t pselrxd);
 
 /**
  * @brief Function for getting RX pin selection.
@@ -550,6 +591,14 @@ NRF_STATIC_INLINE uint32_t nrf_uarte_tx_pin_get(NRF_UARTE_Type const * p_reg);
 NRF_STATIC_INLINE uint32_t nrf_uarte_rx_pin_get(NRF_UARTE_Type const * p_reg);
 
 /**
+ * @brief Function for configuring RTS pin.
+ *
+ * @param[in] p_reg   Pointer to the structure of registers of the peripheral.
+ * @param[in] pselrts RTS pin number.
+ */
+NRF_STATIC_INLINE void nrf_uarte_rts_pin_set(NRF_UARTE_Type * p_reg, uint32_t pselrts);
+
+/**
  * @brief Function for getting RTS pin selection.
  *
  * @param[in] p_reg Pointer to the structure of registers of the peripheral.
@@ -557,6 +606,14 @@ NRF_STATIC_INLINE uint32_t nrf_uarte_rx_pin_get(NRF_UARTE_Type const * p_reg);
  * @return RTS pin selection.
  */
 NRF_STATIC_INLINE uint32_t nrf_uarte_rts_pin_get(NRF_UARTE_Type const * p_reg);
+
+/**
+ * @brief Function for configuring CTS pin.
+ *
+ * @param[in] p_reg   Pointer to the structure of registers of the peripheral.
+ * @param[in] pselcts CTS pin number.
+ */
+NRF_STATIC_INLINE void nrf_uarte_cts_pin_set(NRF_UARTE_Type * p_reg, uint32_t pselcts);
 
 /**
  * @brief Function for getting CTS pin selection.
@@ -690,6 +747,25 @@ NRF_STATIC_INLINE uint32_t nrf_uarte_rx_amount_get(NRF_UARTE_Type const * p_reg)
 NRF_STATIC_INLINE void nrf_uarte_frame_timeout_set(NRF_UARTE_Type * p_reg, uint32_t timeout);
 #endif
 
+#if NRF_UARTE_HAS_FRAME_SIZE
+/**
+ * @brief Function for setting address register.
+ *
+ * @param[in] p_reg   Pointer to the structure of registers of the peripheral.
+ * @param[in] address Address.
+ */
+NRF_STATIC_INLINE void nrf_uarte_address_set(NRF_UARTE_Type * p_reg, uint8_t address);
+
+/**
+ * @brief Function for getting address.
+ *
+ * @param[in] p_reg   Pointer to the structure of registers of the peripheral.
+ *
+ * @retval Address value.
+ */
+NRF_STATIC_INLINE uint8_t nrf_uarte_address_get(NRF_UARTE_Type const * p_reg);
+#endif
+
 #ifndef NRF_DECLARE_ONLY
 NRF_STATIC_INLINE void nrf_uarte_event_clear(NRF_UARTE_Type * p_reg, nrf_uarte_event_t event)
 {
@@ -819,9 +895,19 @@ NRF_STATIC_INLINE void nrf_uarte_txrx_pins_disconnect(NRF_UARTE_Type * p_reg)
     nrf_uarte_txrx_pins_set(p_reg, NRF_UARTE_PSEL_DISCONNECTED, NRF_UARTE_PSEL_DISCONNECTED);
 }
 
+NRF_STATIC_INLINE void nrf_uarte_tx_pin_set(NRF_UARTE_Type * p_reg, uint32_t pseltxd)
+{
+    p_reg->PSEL.TXD = pseltxd;
+}
+
 NRF_STATIC_INLINE uint32_t nrf_uarte_tx_pin_get(NRF_UARTE_Type const * p_reg)
 {
     return p_reg->PSEL.TXD;
+}
+
+NRF_STATIC_INLINE void nrf_uarte_rx_pin_set(NRF_UARTE_Type * p_reg, uint32_t pselrxd)
+{
+    p_reg->PSEL.RXD = pselrxd;
 }
 
 NRF_STATIC_INLINE uint32_t nrf_uarte_rx_pin_get(NRF_UARTE_Type const * p_reg)
@@ -829,9 +915,19 @@ NRF_STATIC_INLINE uint32_t nrf_uarte_rx_pin_get(NRF_UARTE_Type const * p_reg)
     return p_reg->PSEL.RXD;
 }
 
+NRF_STATIC_INLINE void nrf_uarte_rts_pin_set(NRF_UARTE_Type * p_reg, uint32_t pselrts)
+{
+    p_reg->PSEL.RTS = pselrts;
+}
+
 NRF_STATIC_INLINE uint32_t nrf_uarte_rts_pin_get(NRF_UARTE_Type const * p_reg)
 {
     return p_reg->PSEL.RTS;
+}
+
+NRF_STATIC_INLINE void nrf_uarte_cts_pin_set(NRF_UARTE_Type * p_reg, uint32_t pselcts)
+{
+    p_reg->PSEL.CTS = pselcts;
 }
 
 NRF_STATIC_INLINE uint32_t nrf_uarte_cts_pin_get(NRF_UARTE_Type const * p_reg)
@@ -875,6 +971,10 @@ NRF_STATIC_INLINE void nrf_uarte_configure(NRF_UARTE_Type           * p_reg,
 #endif
 #if NRF_UARTE_HAS_FRAME_TIMEOUT
                     | (uint32_t)p_cfg->frame_timeout
+#endif
+#if NRF_UARTE_HAS_FRAME_SIZE
+                    | (uint32_t)p_cfg->frame_size
+                    | (uint32_t)p_cfg->endian
 #endif
                     | (uint32_t)p_cfg->hwfc;
 }
@@ -950,6 +1050,18 @@ NRF_STATIC_INLINE uint32_t nrf_uarte_rx_amount_get(NRF_UARTE_Type const * p_reg)
 NRF_STATIC_INLINE void nrf_uarte_frame_timeout_set(NRF_UARTE_Type * p_reg, uint32_t timeout)
 {
     p_reg->FRAMETIMEOUT = timeout;
+}
+#endif
+
+#if NRF_UARTE_HAS_FRAME_SIZE
+NRF_STATIC_INLINE void nrf_uarte_address_set(NRF_UARTE_Type * p_reg, uint8_t address)
+{
+    p_reg->ADDRESS = (uint32_t)address;
+}
+
+NRF_STATIC_INLINE uint8_t nrf_uarte_address_get(NRF_UARTE_Type const * p_reg)
+{
+    return (uint8_t)p_reg->ADDRESS;
 }
 #endif
 

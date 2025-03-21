@@ -48,17 +48,17 @@ typedef void (*i2s_dma_transfer_callback_t)(I2S_Type *base,
 /*! @brief i2s dma handle */
 struct _i2s_dma_handle
 {
-    uint32_t state;                                    /*!< Internal state of I2S DMA transfer */
-    uint8_t bytesPerFrame;                             /*!< bytes per frame */
-    i2s_dma_transfer_callback_t completionCallback;    /*!< Callback function pointer */
-    void *userData;                                    /*!< Application data passed to callback */
-    dma_handle_t *dmaHandle;                           /*!< DMA handle */
-    volatile i2s_transfer_t i2sQueue[I2S_NUM_BUFFERS]; /*!< Transfer queue storing transfer buffers */
-    volatile uint8_t queueUser;                        /*!< Queue index where user's next transfer will be stored */
-    volatile uint8_t queueDriver;                      /*!< Queue index of buffer actually used by the driver */
+    uint32_t state;
+    uint8_t bytesPerFrame;
+    i2s_dma_transfer_callback_t completionCallback;
+    void *userData;
+    dma_handle_t *dmaHandle;
+    volatile i2s_transfer_t i2sQueue[I2S_NUM_BUFFERS];
+    volatile uint8_t queueUser;
+    volatile uint8_t queueDriver;
 
-    dma_descriptor_t *i2sLoopDMADescriptor; /*!< descriptor pool pointer */
-    size_t i2sLoopDMADescriptorNum;         /*!< number of descriptor in descriptors pool */
+    dma_descriptor_t *i2sLoopDMADescriptor;
+    size_t i2sLoopDMADescriptorNum;
 };
 
 /*******************************************************************************

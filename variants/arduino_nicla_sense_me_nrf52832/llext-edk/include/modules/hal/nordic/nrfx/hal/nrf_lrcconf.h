@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2023 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -69,67 +69,67 @@ extern "C" {
 /** @brief Tasks. */
 typedef enum
 {
-    NRF_LRCCONF_TASK_CLKSTART_0        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[0]),       /**< Request the clock source for clock 0. */
-    NRF_LRCCONF_TASK_CLKSTART_1        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[1]),       /**< Request the clock source for clock 1. */
-    NRF_LRCCONF_TASK_CLKSTART_2        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[2]),       /**< Request the clock source for clock 2. */
-    NRF_LRCCONF_TASK_CLKSTART_3        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[3]),       /**< Request the clock source for clock 3. */
-    NRF_LRCCONF_TASK_CLKSTART_4        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[4]),       /**< Request the clock source for clock 4. */
-    NRF_LRCCONF_TASK_CLKSTART_5        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[5]),       /**< Request the clock source for clock 5. */
-    NRF_LRCCONF_TASK_CLKSTART_6        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[6]),       /**< Request the clock source for clock 6. */
-    NRF_LRCCONF_TASK_CLKSTART_7        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[7]),       /**< Request the clock source for clock 7. */
-    NRF_LRCCONF_TASK_CLKSTOP_0         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[0]),   /**< Stop requesting the clock source for clock 0. */
-    NRF_LRCCONF_TASK_CLKSTOP_1         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[1]),   /**< Stop requesting the clock source for clock 1. */
-    NRF_LRCCONF_TASK_CLKSTOP_2         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[2]),   /**< Stop requesting the clock source for clock 2. */
-    NRF_LRCCONF_TASK_CLKSTOP_3         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[3]),   /**< Stop requesting the clock source for clock 3. */
-    NRF_LRCCONF_TASK_CLKSTOP_4         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[4]),   /**< Stop requesting the clock source for clock 4. */
-    NRF_LRCCONF_TASK_CLKSTOP_5         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[5]),   /**< Stop requesting the clock source for clock 5. */
-    NRF_LRCCONF_TASK_CLKSTOP_6         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[6]),   /**< Stop requesting the clock source for clock 6. */
-    NRF_LRCCONF_TASK_CLKSTOP_7         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[7]),   /**< Stop requesting the clock source for clock 7. */
-    NRF_LRCCONF_TASK_CONSTLAT_ENABLE   = offsetof(NRF_LRCCONF_Type, TASKS_CONSTLAT.ENABLE),    /**< Enable constant latency mode. */
-    NRF_LRCCONF_TASK_CONSTLAT_DISABLE  = offsetof(NRF_LRCCONF_Type, TASKS_CONSTLAT.DISABLE),   /**< Disable constant latency mode. */
-    NRF_LRCCONF_TASK_SYSTEMOFFNOTREADY = offsetof(NRF_LRCCONF_Type, TASKS_SYSTEMOFF.NOTREADY), /**< Indicate being not ready to system off .*/
-    NRF_LRCCONF_TASK_SYSTEMOFFREADY    = offsetof(NRF_LRCCONF_Type, TASKS_SYSTEMOFF.READY),    /**< Indicate being ready to system off .*/
+    NRF_LRCCONF_TASK_CLKSTART_0        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[0]),
+    NRF_LRCCONF_TASK_CLKSTART_1        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[1]),
+    NRF_LRCCONF_TASK_CLKSTART_2        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[2]),
+    NRF_LRCCONF_TASK_CLKSTART_3        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[3]),
+    NRF_LRCCONF_TASK_CLKSTART_4        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[4]),
+    NRF_LRCCONF_TASK_CLKSTART_5        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[5]),
+    NRF_LRCCONF_TASK_CLKSTART_6        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[6]),
+    NRF_LRCCONF_TASK_CLKSTART_7        = offsetof(NRF_LRCCONF_Type, TASKS_REQCLKSRC[7]),
+    NRF_LRCCONF_TASK_CLKSTOP_0         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[0]),
+    NRF_LRCCONF_TASK_CLKSTOP_1         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[1]),
+    NRF_LRCCONF_TASK_CLKSTOP_2         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[2]),
+    NRF_LRCCONF_TASK_CLKSTOP_3         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[3]),
+    NRF_LRCCONF_TASK_CLKSTOP_4         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[4]),
+    NRF_LRCCONF_TASK_CLKSTOP_5         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[5]),
+    NRF_LRCCONF_TASK_CLKSTOP_6         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[6]),
+    NRF_LRCCONF_TASK_CLKSTOP_7         = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQCLKSRC[7]),
+    NRF_LRCCONF_TASK_CONSTLAT_ENABLE   = offsetof(NRF_LRCCONF_Type, TASKS_CONSTLAT.ENABLE),
+    NRF_LRCCONF_TASK_CONSTLAT_DISABLE  = offsetof(NRF_LRCCONF_Type, TASKS_CONSTLAT.DISABLE),
+    NRF_LRCCONF_TASK_SYSTEMOFFNOTREADY = offsetof(NRF_LRCCONF_Type, TASKS_SYSTEMOFF.NOTREADY),
+    NRF_LRCCONF_TASK_SYSTEMOFFREADY    = offsetof(NRF_LRCCONF_Type, TASKS_SYSTEMOFF.READY),
 #if NRF_LRCCONF_HAS_HFXO
-    NRF_LRCCONF_TASK_REQHFXO           = offsetof(NRF_LRCCONF_Type, TASKS_REQHFXO),            /**< Request HFXO. */
-    NRF_LRCCONF_TASK_STOPREQHFXO       = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQHFXO),        /**< Stop requesting HFXO. */
+    NRF_LRCCONF_TASK_REQHFXO           = offsetof(NRF_LRCCONF_Type, TASKS_REQHFXO),
+    NRF_LRCCONF_TASK_STOPREQHFXO       = offsetof(NRF_LRCCONF_Type, TASKS_STOPREQHFXO),
 #endif
 } nrf_lrcconf_task_t;
 
 /** @brief Events. */
 typedef enum
 {
-    NRF_LRCCONF_EVENT_CLKSTARTED_0 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[0]), /**< Clock 0 started. */
-    NRF_LRCCONF_EVENT_CLKSTARTED_1 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[1]), /**< Clock 1 started. */
-    NRF_LRCCONF_EVENT_CLKSTARTED_2 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[2]), /**< Clock 2 started. */
-    NRF_LRCCONF_EVENT_CLKSTARTED_3 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[3]), /**< Clock 3 started. */
-    NRF_LRCCONF_EVENT_CLKSTARTED_4 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[4]), /**< Clock 4 started. */
-    NRF_LRCCONF_EVENT_CLKSTARTED_5 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[5]), /**< Clock 5 started. */
-    NRF_LRCCONF_EVENT_CLKSTARTED_6 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[6]), /**< Clock 6 started. */
-    NRF_LRCCONF_EVENT_CLKSTARTED_7 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[7]), /**< Clock 7 started. */
+    NRF_LRCCONF_EVENT_CLKSTARTED_0 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[0]),
+    NRF_LRCCONF_EVENT_CLKSTARTED_1 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[1]),
+    NRF_LRCCONF_EVENT_CLKSTARTED_2 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[2]),
+    NRF_LRCCONF_EVENT_CLKSTARTED_3 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[3]),
+    NRF_LRCCONF_EVENT_CLKSTARTED_4 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[4]),
+    NRF_LRCCONF_EVENT_CLKSTARTED_5 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[5]),
+    NRF_LRCCONF_EVENT_CLKSTARTED_6 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[6]),
+    NRF_LRCCONF_EVENT_CLKSTARTED_7 = offsetof(NRF_LRCCONF_Type, EVENTS_CLKSRCSTARTED[7]),
 #if NRF_LRCCONF_HAS_HFXO
-    NRF_LRCCONF_EVENT_HFXOSTARTED  = offsetof(NRF_LRCCONF_Type, EVENTS_HFXOSTARTED),      /**< HFXO started. */
+    NRF_LRCCONF_EVENT_HFXOSTARTED  = offsetof(NRF_LRCCONF_Type, EVENTS_HFXOSTARTED),
 #endif
 } nrf_lrcconf_event_t;
 
 /** @brief Clock sources. */
 typedef enum
 {
-    NRF_LRCCONF_CLK_SRC_OPEN_LOOP   = LRCCONF_CLKSTAT_SRC_SRC_OpenLoop,   /**< Open loop mode. */
-    NRF_LRCCONF_CLK_SRC_CLOSED_LOOP = LRCCONF_CLKSTAT_SRC_SRC_ClosedLoop, /**< Closed loop mode. */
+    NRF_LRCCONF_CLK_SRC_OPEN_LOOP   = LRCCONF_CLKSTAT_SRC_SRC_OpenLoop,
+    NRF_LRCCONF_CLK_SRC_CLOSED_LOOP = LRCCONF_CLKSTAT_SRC_SRC_ClosedLoop,
 } nrf_lrcconf_clk_src_t;
 
 /** @brief Power domain mask. */
 typedef enum
 {
-    NRF_LRCCONF_POWER_MAIN     = LRCCONF_POWERON_MAIN_Msk,    /**< Mask for main power domain. */
-    NRF_LRCCONF_POWER_DOMAIN_0 = LRCCONF_POWERON_ACTIVE0_Msk, /**< Mask for power domain 0. */
-    NRF_LRCCONF_POWER_DOMAIN_1 = LRCCONF_POWERON_ACTIVE1_Msk, /**< Mask for power domain 1. */
-    NRF_LRCCONF_POWER_DOMAIN_2 = LRCCONF_POWERON_ACTIVE2_Msk, /**< Mask for power domain 2. */
-    NRF_LRCCONF_POWER_DOMAIN_3 = LRCCONF_POWERON_ACTIVE3_Msk, /**< Mask for power domain 3. */
-    NRF_LRCCONF_POWER_DOMAIN_4 = LRCCONF_POWERON_ACTIVE4_Msk, /**< Mask for power domain 4. */
-    NRF_LRCCONF_POWER_DOMAIN_5 = LRCCONF_POWERON_ACTIVE5_Msk, /**< Mask for power domain 5. */
-    NRF_LRCCONF_POWER_DOMAIN_6 = LRCCONF_POWERON_ACTIVE6_Msk, /**< Mask for power domain 6. */
-    NRF_LRCCONF_POWER_DOMAIN_7 = LRCCONF_POWERON_ACTIVE7_Msk, /**< Mask for power domain 7. */
+    NRF_LRCCONF_POWER_MAIN     = LRCCONF_POWERON_MAIN_Msk,
+    NRF_LRCCONF_POWER_DOMAIN_0 = LRCCONF_POWERON_ACTIVE0_Msk,
+    NRF_LRCCONF_POWER_DOMAIN_1 = LRCCONF_POWERON_ACTIVE1_Msk,
+    NRF_LRCCONF_POWER_DOMAIN_2 = LRCCONF_POWERON_ACTIVE2_Msk,
+    NRF_LRCCONF_POWER_DOMAIN_3 = LRCCONF_POWERON_ACTIVE3_Msk,
+    NRF_LRCCONF_POWER_DOMAIN_4 = LRCCONF_POWERON_ACTIVE4_Msk,
+    NRF_LRCCONF_POWER_DOMAIN_5 = LRCCONF_POWERON_ACTIVE5_Msk,
+    NRF_LRCCONF_POWER_DOMAIN_6 = LRCCONF_POWERON_ACTIVE6_Msk,
+    NRF_LRCCONF_POWER_DOMAIN_7 = LRCCONF_POWERON_ACTIVE7_Msk,
 } nrf_lrcconf_power_domain_mask_t;
 
 /**

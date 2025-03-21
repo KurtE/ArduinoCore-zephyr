@@ -95,38 +95,38 @@
 
 struct lpc11u6x_uart0_regs {
 	union {
-		volatile const uint32_t rbr; /* RX buffer (RO) */
-		volatile uint32_t thr;       /* TX buffer (WO) */
-		volatile uint32_t dll;       /* Divisor latch LSB */
+		volatile const uint32_t rbr;
+		volatile uint32_t thr;
+		volatile uint32_t dll;
 	};
 	union {
-		volatile uint32_t dlm;       /* Divisor latch MSB */
-		volatile uint32_t ier;       /* Interrupt enable */
+		volatile uint32_t dlm;
+		volatile uint32_t ier;
 	};
 	union {
-		volatile uint32_t iir;       /* Interrupt ID */
-		volatile uint32_t fcr;       /* FIFO Control */
+		volatile uint32_t iir;
+		volatile uint32_t fcr;
 	};
-	volatile uint32_t lcr;               /* Line Control */
-	volatile uint32_t mcr;               /* Modem Control */
-	volatile uint32_t lsr;               /* Line Status */
-	volatile uint32_t msr;               /* Modem Status */
-	volatile uint32_t scr;               /* Scratch pad */
-	volatile uint32_t acr;               /* Auto-baud Control */
-	volatile uint32_t icr;               /* IrDA Control */
-	volatile uint32_t fdr;               /* Fractional Divider */
-	volatile uint32_t osr;               /* Oversampling register */
-	volatile uint32_t ter;               /* Transmit enable */
+	volatile uint32_t lcr;
+	volatile uint32_t mcr;
+	volatile uint32_t lsr;
+	volatile uint32_t msr;
+	volatile uint32_t scr;
+	volatile uint32_t acr;
+	volatile uint32_t icr;
+	volatile uint32_t fdr;
+	volatile uint32_t osr;
+	volatile uint32_t ter;
 	volatile uint32_t reserved1[3];
-	volatile uint32_t hden;              /* Half duplex */
+	volatile uint32_t hden;
 	volatile uint32_t reserved2;
-	volatile uint32_t sci_ctrl;          /* Smart card interface */
-	volatile uint32_t rs485_ctrl;        /* RS-485 control */
-	volatile uint32_t rs485_addr_match;  /* RS-485 address match */
+	volatile uint32_t sci_ctrl;
+	volatile uint32_t rs485_ctrl;
+	volatile uint32_t rs485_addr_match;
 	volatile uint32_t rs485_dly;         /* RS-485 delay direction control
 					      * delay
 					      */
-	volatile uint32_t sync_ctrl;         /* Synchronous mode control */
+	volatile uint32_t sync_ctrl;
 };
 
 struct lpc11u6x_uart0_config {
@@ -154,18 +154,18 @@ struct lpc11u6x_uart0_data {
 };
 
 struct lpc11u6x_uartx_regs {
-	volatile uint32_t cfg;               /* Configuration register */
-	volatile uint32_t ctl;               /* Control register */
-	volatile uint32_t stat;              /* Status register */
-	volatile uint32_t int_en_set;        /* Interrupt enable and set */
-	volatile uint32_t int_en_clr;        /* Interrupt enable clear */
-	volatile const uint32_t rx_dat;      /* Receiver data */
-	volatile const uint32_t rx_dat_stat; /* Receiver data status */
-	volatile uint32_t tx_dat;            /* Transmit data */
-	volatile uint32_t brg;               /* Baud rate generator */
-	volatile const uint32_t int_stat;    /* Interrupt status */
-	volatile uint32_t osr;               /* Oversample selection */
-	volatile uint32_t addr;              /* Address register*/
+	volatile uint32_t cfg;
+	volatile uint32_t ctl;
+	volatile uint32_t stat;
+	volatile uint32_t int_en_set;
+	volatile uint32_t int_en_clr;
+	volatile const uint32_t rx_dat;
+	volatile const uint32_t rx_dat_stat;
+	volatile uint32_t tx_dat;
+	volatile uint32_t brg;
+	volatile const uint32_t int_stat;
+	volatile uint32_t osr;
+	volatile uint32_t addr;
 };
 
 struct lpc11u6x_uartx_config {

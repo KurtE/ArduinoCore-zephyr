@@ -133,7 +133,7 @@ struct _ready_q {
 	struct k_thread *cache;
 #endif
 
-#if defined(CONFIG_SCHED_DUMB)
+#if defined(CONFIG_SCHED_SIMPLE)
 	sys_dlist_t runq;
 #elif defined(CONFIG_SCHED_SCALABLE)
 	struct _priq_rb runq;
@@ -206,7 +206,7 @@ struct z_kernel {
 	struct _cpu cpus[CONFIG_MP_MAX_NUM_CPUS];
 
 #ifdef CONFIG_PM
-	int32_t idle; /* Number of ticks for kernel idling */
+	int32_t idle;
 #endif
 
 	/*
@@ -217,22 +217,8 @@ struct z_kernel {
 	struct _ready_q ready_q;
 #endif
 
-#ifdef CONFIG_FPU_SHARING
-	/*
-	 * A 'current_sse' field does not exist in addition to the 'current_fp'
-	 * field since it's not possible to divide the IA-32 non-integer
-	 * registers into 2 distinct blocks owned by differing threads.  In
-	 * other words, given that the 'fxnsave/fxrstor' instructions
-	 * save/restore both the X87 FPU and XMM registers, it's not possible
-	 * for a thread to only "own" the XMM registers.
-	 */
-
-	/* thread that owns the FP regs */
-	struct k_thread *current_fp;
-#endif
-
 #if defined(CONFIG_THREAD_MONITOR)
-	struct k_thread *threads; /* singly linked list of ALL threads */
+	struct k_thread *threads;
 #endif
 #ifdef CONFIG_SCHED_THREAD_USAGE_ALL
 	struct k_cycle_stats usage[CONFIG_MP_MAX_NUM_CPUS];

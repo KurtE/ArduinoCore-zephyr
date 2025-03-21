@@ -27,7 +27,7 @@
 #ifndef __CMSIS_ARMCLANG_H
 #define __CMSIS_ARMCLANG_H
 
-#pragma clang system_header   /* treat file as system include file */
+#pragma clang system_header
 
 /* CMSIS compiler specific defines */
 #ifndef   __ASM
@@ -436,7 +436,7 @@ __STATIC_FORCEINLINE uint8_t __LDRBT(volatile uint8_t *ptr)
   uint32_t result;
 
   __ASM volatile ("ldrbt %0, %1" : "=r" (result) : "Q" (*ptr) );
-  return ((uint8_t) result);    /* Add explicit type cast here */
+  return ((uint8_t) result);
 }
 
 
@@ -451,7 +451,7 @@ __STATIC_FORCEINLINE uint16_t __LDRHT(volatile uint16_t *ptr)
   uint32_t result;
 
   __ASM volatile ("ldrht %0, %1" : "=r" (result) : "Q" (*ptr) );
-  return ((uint16_t) result);    /* Add explicit type cast here */
+  return ((uint16_t) result);
 }
 
 

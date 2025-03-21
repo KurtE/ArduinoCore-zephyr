@@ -14,7 +14,7 @@
 /** Voltage limit of 6.0V */
 #define NX20P3483_U_THRESHOLD_6_0 0
 /** Voltage limit of 6.8V */
-#define NX20P3483_U_THRESHOLD_6_8 1 /* <-- default */
+#define NX20P3483_U_THRESHOLD_6_8 1
 /** Voltage limit of 10.0V */
 #define NX20P3483_U_THRESHOLD_10_0 2
 /** Voltage limit of 11.5V */
@@ -39,7 +39,7 @@
 /** Current limit of 1400mA */
 #define NX20P3483_I_THRESHOLD_1_400 5
 /** Current limit of 1600mA */
-#define NX20P3483_I_THRESHOLD_1_600 6 /* <-- default */
+#define NX20P3483_I_THRESHOLD_1_600 6
 /** Current limit of 1800mA */
 #define NX20P3483_I_THRESHOLD_1_800 7
 /** Current limit of 2000mA */

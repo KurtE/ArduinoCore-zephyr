@@ -59,14 +59,14 @@ extern "C" {
 /** @defgroup WWDG_LL_EC_PRESCALER  PRESCALER
   * @{
   */
-#define LL_WWDG_PRESCALER_1                 0x00000000u                                               /*!< WWDG counter clock = (PCLK1/4096)/1 */
-#define LL_WWDG_PRESCALER_2                 WWDG_CFR_WDGTB_0                                          /*!< WWDG counter clock = (PCLK1/4096)/2 */
-#define LL_WWDG_PRESCALER_4                 WWDG_CFR_WDGTB_1                                          /*!< WWDG counter clock = (PCLK1/4096)/4 */
-#define LL_WWDG_PRESCALER_8                 (WWDG_CFR_WDGTB_0 | WWDG_CFR_WDGTB_1)                     /*!< WWDG counter clock = (PCLK1/4096)/8 */
-#define LL_WWDG_PRESCALER_16                WWDG_CFR_WDGTB_2                                          /*!< WWDG counter clock = (PCLK1/4096)/16 */
-#define LL_WWDG_PRESCALER_32                (WWDG_CFR_WDGTB_2 | WWDG_CFR_WDGTB_0)                     /*!< WWDG counter clock = (PCLK1/4096)/32 */
-#define LL_WWDG_PRESCALER_64                (WWDG_CFR_WDGTB_2 | WWDG_CFR_WDGTB_1)                     /*!< WWDG counter clock = (PCLK1/4096)/64 */
-#define LL_WWDG_PRESCALER_128               (WWDG_CFR_WDGTB_2 | WWDG_CFR_WDGTB_1 | WWDG_CFR_WDGTB_0)  /*!< WWDG counter clock = (PCLK1/4096)/128 */
+#define LL_WWDG_PRESCALER_1                 0x00000000u
+#define LL_WWDG_PRESCALER_2                 WWDG_CFR_WDGTB_0
+#define LL_WWDG_PRESCALER_4                 WWDG_CFR_WDGTB_1
+#define LL_WWDG_PRESCALER_8                 (WWDG_CFR_WDGTB_0 | WWDG_CFR_WDGTB_1)
+#define LL_WWDG_PRESCALER_16                WWDG_CFR_WDGTB_2
+#define LL_WWDG_PRESCALER_32                (WWDG_CFR_WDGTB_2 | WWDG_CFR_WDGTB_0)
+#define LL_WWDG_PRESCALER_64                (WWDG_CFR_WDGTB_2 | WWDG_CFR_WDGTB_1)
+#define LL_WWDG_PRESCALER_128               (WWDG_CFR_WDGTB_2 | WWDG_CFR_WDGTB_1 | WWDG_CFR_WDGTB_0)
 /**
   * @}
   */

@@ -14,16 +14,16 @@
 
 /* bt_hfp_ag flags: the flags defined here represent HFP AG parameters */
 enum {
-	BT_HFP_AG_CMEE_ENABLE,   /* Extended Audio Gateway Error Result Code */
-	BT_HFP_AG_CMER_ENABLE,   /* Indicator Events Reporting */
-	BT_HFP_AG_CLIP_ENABLE,   /* Calling Line Identification notification */
-	BT_HFP_AG_INBAND_RING,   /* In-band ring */
-	BT_HFP_AG_COPS_SET,      /* Query Operator selection */
-	BT_HFP_AG_INCOMING_CALL, /* Incoming call */
-	BT_HFP_AG_CODEC_CONN,    /* Codec connection is ongoing */
-	BT_HFP_AG_CODEC_CHANGED, /* Codec Id Changed */
-	BT_HFP_AG_TX_ONGOING,    /* TX is ongoing */
-	BT_HFP_AG_CREATING_SCO,  /* SCO is creating */
+	BT_HFP_AG_CMEE_ENABLE,
+	BT_HFP_AG_CMER_ENABLE,
+	BT_HFP_AG_CLIP_ENABLE,
+	BT_HFP_AG_INBAND_RING,
+	BT_HFP_AG_COPS_SET,
+	BT_HFP_AG_INCOMING_CALL,
+	BT_HFP_AG_CODEC_CONN,
+	BT_HFP_AG_CODEC_CHANGED,
+	BT_HFP_AG_TX_ONGOING,
+	BT_HFP_AG_CREATING_SCO,
 
 	/* Total number of flags - must be at the end of the enum */
 	BT_HFP_AG_NUM_FLAGS,
@@ -31,8 +31,8 @@ enum {
 
 /* HFP HF Indicators */
 enum {
-	HFP_HF_ENHANCED_SAFETY_IND = 1, /* Enhanced Safety */
-	HFP_HF_BATTERY_LEVEL_IND = 2,   /* Remaining level of Battery */
+	HFP_HF_ENHANCED_SAFETY_IND = 1,
+	HFP_HF_BATTERY_LEVEL_IND = 2,
 	HFP_HF_IND_MAX
 };
 

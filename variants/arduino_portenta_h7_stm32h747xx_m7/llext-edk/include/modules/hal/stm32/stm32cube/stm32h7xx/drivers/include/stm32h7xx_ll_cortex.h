@@ -66,8 +66,8 @@ extern "C" {
 /** @defgroup CORTEX_LL_EC_CLKSOURCE_HCLK SYSTICK Clock Source
   * @{
   */
-#define LL_SYSTICK_CLKSOURCE_HCLK_DIV8     0x00000000UL                /*!< AHB clock divided by 8 selected as SysTick clock source.*/
-#define LL_SYSTICK_CLKSOURCE_HCLK          SysTick_CTRL_CLKSOURCE_Msk  /*!< AHB clock selected as SysTick clock source. */
+#define LL_SYSTICK_CLKSOURCE_HCLK_DIV8     0x00000000UL
+#define LL_SYSTICK_CLKSOURCE_HCLK          SysTick_CTRL_CLKSOURCE_Msk
 /**
   * @}
   */
@@ -75,9 +75,9 @@ extern "C" {
 /** @defgroup CORTEX_LL_EC_FAULT Handler Fault type
   * @{
   */
-#define LL_HANDLER_FAULT_USG               SCB_SHCSR_USGFAULTENA_Msk              /*!< Usage fault */
-#define LL_HANDLER_FAULT_BUS               SCB_SHCSR_BUSFAULTENA_Msk              /*!< Bus fault */
-#define LL_HANDLER_FAULT_MEM               SCB_SHCSR_MEMFAULTENA_Msk              /*!< Memory management fault */
+#define LL_HANDLER_FAULT_USG               SCB_SHCSR_USGFAULTENA_Msk
+#define LL_HANDLER_FAULT_BUS               SCB_SHCSR_BUSFAULTENA_Msk
+#define LL_HANDLER_FAULT_MEM               SCB_SHCSR_MEMFAULTENA_Msk
 /**
   * @}
   */
@@ -87,10 +87,10 @@ extern "C" {
 /** @defgroup CORTEX_LL_EC_CTRL_HFNMI_PRIVDEF MPU Control
   * @{
   */
-#define LL_MPU_CTRL_HFNMI_PRIVDEF_NONE     0x00000000UL                                      /*!< Disable NMI and privileged SW access */
-#define LL_MPU_CTRL_HARDFAULT_NMI          MPU_CTRL_HFNMIENA_Msk                             /*!< Enables the operation of MPU during hard fault, NMI, and FAULTMASK handlers */
-#define LL_MPU_CTRL_PRIVILEGED_DEFAULT     MPU_CTRL_PRIVDEFENA_Msk                           /*!< Enable privileged software access to default memory map */
-#define LL_MPU_CTRL_HFNMI_PRIVDEF          (MPU_CTRL_HFNMIENA_Msk | MPU_CTRL_PRIVDEFENA_Msk) /*!< Enable NMI and privileged SW access */
+#define LL_MPU_CTRL_HFNMI_PRIVDEF_NONE     0x00000000UL
+#define LL_MPU_CTRL_HARDFAULT_NMI          MPU_CTRL_HFNMIENA_Msk
+#define LL_MPU_CTRL_PRIVILEGED_DEFAULT     MPU_CTRL_PRIVDEFENA_Msk
+#define LL_MPU_CTRL_HFNMI_PRIVDEF          (MPU_CTRL_HFNMIENA_Msk | MPU_CTRL_PRIVDEFENA_Msk)
 /**
   * @}
   */
@@ -98,23 +98,23 @@ extern "C" {
 /** @defgroup CORTEX_LL_EC_REGION MPU Region Number
   * @{
   */
-#define LL_MPU_REGION_NUMBER0              0x00UL /*!< REGION Number 0  */
-#define LL_MPU_REGION_NUMBER1              0x01UL /*!< REGION Number 1  */
-#define LL_MPU_REGION_NUMBER2              0x02UL /*!< REGION Number 2  */
-#define LL_MPU_REGION_NUMBER3              0x03UL /*!< REGION Number 3  */
-#define LL_MPU_REGION_NUMBER4              0x04UL /*!< REGION Number 4  */
-#define LL_MPU_REGION_NUMBER5              0x05UL /*!< REGION Number 5  */
-#define LL_MPU_REGION_NUMBER6              0x06UL /*!< REGION Number 6  */
-#define LL_MPU_REGION_NUMBER7              0x07UL /*!< REGION Number 7  */
+#define LL_MPU_REGION_NUMBER0              0x00UL
+#define LL_MPU_REGION_NUMBER1              0x01UL
+#define LL_MPU_REGION_NUMBER2              0x02UL
+#define LL_MPU_REGION_NUMBER3              0x03UL
+#define LL_MPU_REGION_NUMBER4              0x04UL
+#define LL_MPU_REGION_NUMBER5              0x05UL
+#define LL_MPU_REGION_NUMBER6              0x06UL
+#define LL_MPU_REGION_NUMBER7              0x07UL
 #if !defined(CORE_CM4)
-#define LL_MPU_REGION_NUMBER8              0x08UL /*!< REGION Number 8  */
-#define LL_MPU_REGION_NUMBER9              0x09UL /*!< REGION Number 9  */
-#define LL_MPU_REGION_NUMBER10             0x0AUL /*!< REGION Number 10 */
-#define LL_MPU_REGION_NUMBER11             0x0BUL /*!< REGION Number 11 */
-#define LL_MPU_REGION_NUMBER12             0x0CUL /*!< REGION Number 12 */
-#define LL_MPU_REGION_NUMBER13             0x0DUL /*!< REGION Number 13 */
-#define LL_MPU_REGION_NUMBER14             0x0EUL /*!< REGION Number 14 */
-#define LL_MPU_REGION_NUMBER15             0x0FUL /*!< REGION Number 15 */
+#define LL_MPU_REGION_NUMBER8              0x08UL
+#define LL_MPU_REGION_NUMBER9              0x09UL
+#define LL_MPU_REGION_NUMBER10             0x0AUL
+#define LL_MPU_REGION_NUMBER11             0x0BUL
+#define LL_MPU_REGION_NUMBER12             0x0CUL
+#define LL_MPU_REGION_NUMBER13             0x0DUL
+#define LL_MPU_REGION_NUMBER14             0x0EUL
+#define LL_MPU_REGION_NUMBER15             0x0FUL
 #endif /* !defined(CORE_CM4) */
 /**
   * @}
@@ -123,34 +123,34 @@ extern "C" {
 /** @defgroup CORTEX_LL_EC_REGION_SIZE MPU Region Size
   * @{
   */
-#define LL_MPU_REGION_SIZE_32B             (0x04UL << MPU_RASR_SIZE_Pos) /*!< 32B Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_64B             (0x05UL << MPU_RASR_SIZE_Pos) /*!< 64B Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_128B            (0x06UL << MPU_RASR_SIZE_Pos) /*!< 128B Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_256B            (0x07UL << MPU_RASR_SIZE_Pos) /*!< 256B Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_512B            (0x08UL << MPU_RASR_SIZE_Pos) /*!< 512B Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_1KB             (0x09UL << MPU_RASR_SIZE_Pos) /*!< 1KB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_2KB             (0x0AUL << MPU_RASR_SIZE_Pos) /*!< 2KB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_4KB             (0x0BUL << MPU_RASR_SIZE_Pos) /*!< 4KB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_8KB             (0x0CUL << MPU_RASR_SIZE_Pos) /*!< 8KB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_16KB            (0x0DUL << MPU_RASR_SIZE_Pos) /*!< 16KB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_32KB            (0x0EUL << MPU_RASR_SIZE_Pos) /*!< 32KB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_64KB            (0x0FUL << MPU_RASR_SIZE_Pos) /*!< 64KB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_128KB           (0x10UL << MPU_RASR_SIZE_Pos) /*!< 128KB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_256KB           (0x11UL << MPU_RASR_SIZE_Pos) /*!< 256KB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_512KB           (0x12UL << MPU_RASR_SIZE_Pos) /*!< 512KB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_1MB             (0x13UL << MPU_RASR_SIZE_Pos) /*!< 1MB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_2MB             (0x14UL << MPU_RASR_SIZE_Pos) /*!< 2MB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_4MB             (0x15UL << MPU_RASR_SIZE_Pos) /*!< 4MB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_8MB             (0x16UL << MPU_RASR_SIZE_Pos) /*!< 8MB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_16MB            (0x17UL << MPU_RASR_SIZE_Pos) /*!< 16MB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_32MB            (0x18UL << MPU_RASR_SIZE_Pos) /*!< 32MB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_64MB            (0x19UL << MPU_RASR_SIZE_Pos) /*!< 64MB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_128MB           (0x1AUL << MPU_RASR_SIZE_Pos) /*!< 128MB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_256MB           (0x1BUL << MPU_RASR_SIZE_Pos) /*!< 256MB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_512MB           (0x1CUL << MPU_RASR_SIZE_Pos) /*!< 512MB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_1GB             (0x1DUL << MPU_RASR_SIZE_Pos) /*!< 1GB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_2GB             (0x1EUL << MPU_RASR_SIZE_Pos) /*!< 2GB Size of the MPU protection region */
-#define LL_MPU_REGION_SIZE_4GB             (0x1FUL << MPU_RASR_SIZE_Pos) /*!< 4GB Size of the MPU protection region */
+#define LL_MPU_REGION_SIZE_32B             (0x04UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_64B             (0x05UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_128B            (0x06UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_256B            (0x07UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_512B            (0x08UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_1KB             (0x09UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_2KB             (0x0AUL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_4KB             (0x0BUL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_8KB             (0x0CUL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_16KB            (0x0DUL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_32KB            (0x0EUL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_64KB            (0x0FUL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_128KB           (0x10UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_256KB           (0x11UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_512KB           (0x12UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_1MB             (0x13UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_2MB             (0x14UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_4MB             (0x15UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_8MB             (0x16UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_16MB            (0x17UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_32MB            (0x18UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_64MB            (0x19UL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_128MB           (0x1AUL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_256MB           (0x1BUL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_512MB           (0x1CUL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_1GB             (0x1DUL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_2GB             (0x1EUL << MPU_RASR_SIZE_Pos)
+#define LL_MPU_REGION_SIZE_4GB             (0x1FUL << MPU_RASR_SIZE_Pos)
 /**
   * @}
   */
@@ -158,12 +158,12 @@ extern "C" {
 /** @defgroup CORTEX_LL_EC_REGION_PRIVILEDGES MPU Region Privileges
   * @{
   */
-#define LL_MPU_REGION_NO_ACCESS            (0x00UL << MPU_RASR_AP_Pos) /*!< No access*/
-#define LL_MPU_REGION_PRIV_RW              (0x01UL << MPU_RASR_AP_Pos) /*!< RW privileged (privileged access only)*/
-#define LL_MPU_REGION_PRIV_RW_URO          (0x02UL << MPU_RASR_AP_Pos) /*!< RW privileged - RO user (Write in a user program generates a fault) */
-#define LL_MPU_REGION_FULL_ACCESS          (0x03UL << MPU_RASR_AP_Pos) /*!< RW privileged & user (Full access) */
-#define LL_MPU_REGION_PRIV_RO              (0x05UL << MPU_RASR_AP_Pos) /*!< RO privileged (privileged read only)*/
-#define LL_MPU_REGION_PRIV_RO_URO          (0x06UL << MPU_RASR_AP_Pos) /*!< RO privileged & user (read only) */
+#define LL_MPU_REGION_NO_ACCESS            (0x00UL << MPU_RASR_AP_Pos)
+#define LL_MPU_REGION_PRIV_RW              (0x01UL << MPU_RASR_AP_Pos)
+#define LL_MPU_REGION_PRIV_RW_URO          (0x02UL << MPU_RASR_AP_Pos)
+#define LL_MPU_REGION_FULL_ACCESS          (0x03UL << MPU_RASR_AP_Pos)
+#define LL_MPU_REGION_PRIV_RO              (0x05UL << MPU_RASR_AP_Pos)
+#define LL_MPU_REGION_PRIV_RO_URO          (0x06UL << MPU_RASR_AP_Pos)
 /**
   * @}
   */
@@ -171,12 +171,12 @@ extern "C" {
 /** @defgroup CORTEX_LL_EC_TEX MPU TEX Level
   * @{
   */
-#define LL_MPU_TEX_LEVEL0                  (0x00UL << MPU_RASR_TEX_Pos) /*!< b000 for TEX bits */
-#define LL_MPU_TEX_LEVEL1                  (0x01UL << MPU_RASR_TEX_Pos) /*!< b001 for TEX bits */
-#define LL_MPU_TEX_LEVEL2                  (0x02UL << MPU_RASR_TEX_Pos) /*!< b010 for TEX bits */
+#define LL_MPU_TEX_LEVEL0                  (0x00UL << MPU_RASR_TEX_Pos)
+#define LL_MPU_TEX_LEVEL1                  (0x01UL << MPU_RASR_TEX_Pos)
+#define LL_MPU_TEX_LEVEL2                  (0x02UL << MPU_RASR_TEX_Pos)
 
 /* Legacy Define */
-#define LL_MPU_TEX_LEVEL4                  (0x04UL << MPU_RASR_TEX_Pos) /*!< b100 for TEX bits */
+#define LL_MPU_TEX_LEVEL4                  (0x04UL << MPU_RASR_TEX_Pos)
 /**
   * @}
   */
@@ -184,8 +184,8 @@ extern "C" {
 /** @defgroup CORTEX_LL_EC_INSTRUCTION_ACCESS MPU Instruction Access
   * @{
   */
-#define LL_MPU_INSTRUCTION_ACCESS_ENABLE   0x00UL            /*!< Instruction fetches enabled */
-#define LL_MPU_INSTRUCTION_ACCESS_DISABLE  MPU_RASR_XN_Msk  /*!< Instruction fetches disabled*/
+#define LL_MPU_INSTRUCTION_ACCESS_ENABLE   0x00UL
+#define LL_MPU_INSTRUCTION_ACCESS_DISABLE  MPU_RASR_XN_Msk
 /**
   * @}
   */
@@ -193,8 +193,8 @@ extern "C" {
 /** @defgroup CORTEX_LL_EC_SHAREABLE_ACCESS MPU Shareable Access
   * @{
   */
-#define LL_MPU_ACCESS_SHAREABLE            MPU_RASR_S_Msk   /*!< Shareable memory attribute */
-#define LL_MPU_ACCESS_NOT_SHAREABLE        0x00UL           /*!< Not Shareable memory attribute */
+#define LL_MPU_ACCESS_SHAREABLE            MPU_RASR_S_Msk
+#define LL_MPU_ACCESS_NOT_SHAREABLE        0x00UL
 /**
   * @}
   */
@@ -202,8 +202,8 @@ extern "C" {
 /** @defgroup CORTEX_LL_EC_CACHEABLE_ACCESS MPU Cacheable Access
   * @{
   */
-#define LL_MPU_ACCESS_CACHEABLE            MPU_RASR_C_Msk   /*!< Cacheable memory attribute */
-#define LL_MPU_ACCESS_NOT_CACHEABLE        0x00UL           /*!< Not Cacheable memory attribute */
+#define LL_MPU_ACCESS_CACHEABLE            MPU_RASR_C_Msk
+#define LL_MPU_ACCESS_NOT_CACHEABLE        0x00UL
 /**
   * @}
   */
@@ -211,8 +211,8 @@ extern "C" {
 /** @defgroup CORTEX_LL_EC_BUFFERABLE_ACCESS MPU Bufferable Access
   * @{
   */
-#define LL_MPU_ACCESS_BUFFERABLE           MPU_RASR_B_Msk   /*!< Bufferable memory attribute */
-#define LL_MPU_ACCESS_NOT_BUFFERABLE       0x00UL           /*!< Not Bufferable memory attribute */
+#define LL_MPU_ACCESS_BUFFERABLE           MPU_RASR_B_Msk
+#define LL_MPU_ACCESS_NOT_BUFFERABLE       0x00UL
 /**
   * @}
   */

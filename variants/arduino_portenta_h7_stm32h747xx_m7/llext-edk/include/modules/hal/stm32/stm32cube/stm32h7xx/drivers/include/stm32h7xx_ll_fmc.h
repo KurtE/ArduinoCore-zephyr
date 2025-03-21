@@ -440,7 +440,7 @@ typedef struct
                                               in auto refresh mode.
                                               This parameter can be a value between Min_Data = 1 and Max_Data = 15   */
 
-  uint32_t ModeRegisterDefinition;       /*!< Defines the SDRAM Mode register content                                */
+  uint32_t ModeRegisterDefinition;
 } FMC_SDRAM_CommandTypeDef;
 /**
   * @}

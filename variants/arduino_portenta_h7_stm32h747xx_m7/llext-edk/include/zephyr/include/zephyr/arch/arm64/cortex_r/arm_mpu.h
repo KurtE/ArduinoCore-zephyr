@@ -33,7 +33,7 @@
 #define MPU_RLAR_EN_Msk		(0x1UL)
 
 /* PRBAR_ELx: Attribute flag for not-allowing execution (eXecute Never) */
-#define NOT_EXEC	MPU_RBAR_XN_Msk /* PRBAR_EL1 */
+#define NOT_EXEC	MPU_RBAR_XN_Msk
 
 /* PRBAR_ELx: Attribute flag for access permissions */
 /* Privileged Read Write, Unprivileged No Access */
@@ -86,19 +86,19 @@
 #define DEVICE_GRE	0xCU
 
 /* Read/Write Allocation Configurations for Cacheable Memory */
-#define R_NON_W_NON	0x0U	/* Do not allocate Read/Write */
-#define R_NON_W_ALLOC	0x1U	/* Do not allocate Read, Allocate Write */
-#define R_ALLOC_W_NON	0x2U	/* Allocate Read, Do not allocate Write */
-#define R_ALLOC_W_ALLOC 0x3U	/* Allocate Read/Write */
+#define R_NON_W_NON	0x0U
+#define R_NON_W_ALLOC	0x1U
+#define R_ALLOC_W_NON	0x2U
+#define R_ALLOC_W_ALLOC 0x3U
 
 /* Memory Attributes for Normal Memory */
-#define NORMAL_O_WT_NT	0x80U	/* Normal, Outer Write-through non-transient */
-#define NORMAL_O_WB_NT	0xC0U	/* Normal, Outer Write-back non-transient */
-#define NORMAL_O_NON_C	0x40U	/* Normal, Outer Non-Cacheable	*/
+#define NORMAL_O_WT_NT	0x80U
+#define NORMAL_O_WB_NT	0xC0U
+#define NORMAL_O_NON_C	0x40U
 
-#define NORMAL_I_WT_NT	0x08U	/* Normal, Inner Write-through non-transient */
-#define NORMAL_I_WB_NT	0x0CU	/* Normal, Inner Write-back non-transient */
-#define NORMAL_I_NON_C	0x04U	/* Normal, Inner Non-Cacheable	*/
+#define NORMAL_I_WT_NT	0x08U
+#define NORMAL_I_WB_NT	0x0CU
+#define NORMAL_I_NON_C	0x04U
 
 /* Global MAIR configurations */
 #define MPU_MAIR_INDEX_DEVICE		0U
@@ -134,41 +134,41 @@
  */
 #define REGION_IO_ATTR						      \
 	{							      \
-		/* AP, XN, SH */				      \
+				      \
 		.rbar = NOT_EXEC | P_RW_U_NA_Msk | NON_SHAREABLE_Msk, \
-		/* Cache-ability */				      \
+				      \
 		.mair_idx = MPU_MAIR_INDEX_DEVICE,		      \
 	}
 
 #define REGION_RAM_ATTR							\
 	{								\
-		/* AP, XN, SH */					\
+					\
 		.rbar = NOT_EXEC | P_RW_U_NA_Msk | OUTER_SHAREABLE_Msk, \
-		/* Cache-ability */					\
+					\
 		.mair_idx = MPU_MAIR_INDEX_SRAM,			\
 	}
 
 #define REGION_RAM_NOCACHE_ATTR					      \
 	{							      \
-		/* AP, XN, SH */				      \
+				      \
 		.rbar = NOT_EXEC | P_RW_U_NA_Msk | NON_SHAREABLE_Msk, \
-		/* Cache-ability */				      \
+				      \
 		.mair_idx = MPU_MAIR_INDEX_SRAM_NOCACHE,	      \
 	}
 
 #define REGION_RAM_TEXT_ATTR					\
 	{							\
-		/* AP, XN, SH */				\
+				\
 		.rbar = P_RO_U_RO_Msk | INNER_SHAREABLE_Msk,	\
-		/* Cache-ability */				\
+				\
 		.mair_idx = MPU_MAIR_INDEX_SRAM,		\
 	}
 
 #define REGION_RAM_RO_ATTR						\
 	{								\
-		/* AP, XN, SH */					\
+					\
 		.rbar = NOT_EXEC | P_RO_U_RO_Msk | INNER_SHAREABLE_Msk, \
-		/* Cache-ability */					\
+					\
 		.mair_idx = MPU_MAIR_INDEX_SRAM,			\
 	}
 
@@ -177,15 +177,15 @@
  */
 #define REGION_FLASH_ATTR						    \
 	{								    \
-		.rbar = P_RW_U_RW_Msk | NON_SHAREABLE_Msk, /* AP, XN, SH */ \
-		/* Cache-ability */					    \
+		.rbar = P_RW_U_RW_Msk | NON_SHAREABLE_Msk, \
+					    \
 		.mair_idx = MPU_MAIR_INDEX_FLASH,			    \
 	}
 #else /* CONFIG_MPU_ALLOW_FLASH_WRITE */
 #define REGION_FLASH_ATTR						    \
 	{								    \
-		.rbar = P_RO_U_RO_Msk | NON_SHAREABLE_Msk, /* AP, XN, SH */ \
-		/* Cache-ability */					    \
+		.rbar = P_RO_U_RO_Msk | NON_SHAREABLE_Msk, \
+					    \
 		.mair_idx = MPU_MAIR_INDEX_FLASH,			    \
 	}
 #endif /* CONFIG_MPU_ALLOW_FLASH_WRITE */
@@ -254,7 +254,7 @@ struct dynamic_region_info {
 };
 
 #define ARM64_MPU_MAX_DYNAMIC_REGIONS						\
-	1 + /* data section */							\
+	1 +							\
 	(CONFIG_MAX_DOMAIN_PARTITIONS + 2) +					\
 	(IS_ENABLED(CONFIG_ARM64_STACK_PROTECTION) ? 2 : 0) +			\
 	(IS_ENABLED(CONFIG_USERSPACE) ? 2 : 0)

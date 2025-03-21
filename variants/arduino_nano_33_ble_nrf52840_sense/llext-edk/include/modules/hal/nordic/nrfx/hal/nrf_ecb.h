@@ -157,16 +157,16 @@ extern "C" {
 typedef enum
 {
 #if NRF_ECB_HAS_TASK_STARTECB
-    NRF_ECB_TASK_STARTECB = offsetof(NRF_ECB_Type, TASKS_STARTECB), /**< Task for starting the ECB block encryption. */
+    NRF_ECB_TASK_STARTECB = offsetof(NRF_ECB_Type, TASKS_STARTECB),
 #endif
 #if NRF_ECB_HAS_TASK_START
-    NRF_ECB_TASK_START    = offsetof(NRF_ECB_Type, TASKS_START),    /**< Task for starting the ECB block encryption. */
+    NRF_ECB_TASK_START    = offsetof(NRF_ECB_Type, TASKS_START),
 #endif
 #if NRF_ECB_HAS_TASK_STOPECB
-    NRF_ECB_TASK_STOPECB  = offsetof(NRF_ECB_Type, TASKS_STOPECB),  /**< Task for stopping the ECB block encryption. */
+    NRF_ECB_TASK_STOPECB  = offsetof(NRF_ECB_Type, TASKS_STOPECB),
 #endif
 #if NRF_ECB_HAS_TASK_STOP
-    NRF_ECB_TASK_STOP     = offsetof(NRF_ECB_Type, TASKS_STOP),     /**< Task for stopping the ECB block encryption. */
+    NRF_ECB_TASK_STOP     = offsetof(NRF_ECB_Type, TASKS_STOP),
 #endif
 } nrf_ecb_task_t;
 
@@ -174,16 +174,16 @@ typedef enum
 typedef enum
 {
 #if NRF_ECB_HAS_EVENT_ENDECB
-    NRF_ECB_EVENT_ENDECB   = offsetof(NRF_ECB_Type, EVENTS_ENDECB),   /**< ECB block encrypt complete. */
+    NRF_ECB_EVENT_ENDECB   = offsetof(NRF_ECB_Type, EVENTS_ENDECB),
 #endif
 #if NRF_ECB_HAS_EVENT_ERRORECB
-    NRF_ECB_EVENT_ERRORECB = offsetof(NRF_ECB_Type, EVENTS_ERRORECB), /**< ECB block encrypt aborted because of a STOPECB task or due to an error. */
+    NRF_ECB_EVENT_ERRORECB = offsetof(NRF_ECB_Type, EVENTS_ERRORECB),
 #endif
 #if NRF_ECB_HAS_EVENT_END
-    NRF_ECB_EVENT_END      = offsetof(NRF_ECB_Type, EVENTS_END),      /**< ECB block encrypt complete. */
+    NRF_ECB_EVENT_END      = offsetof(NRF_ECB_Type, EVENTS_END),
 #endif
 #if NRF_ECB_HAS_EVENT_ERROR
-    NRF_ECB_EVENT_ERROR    = offsetof(NRF_ECB_Type, EVENTS_ERROR),    /**< ECB block encrypt aborted because of a STOPECB task or due to an error. */
+    NRF_ECB_EVENT_ERROR    = offsetof(NRF_ECB_Type, EVENTS_ERROR),
 #endif
 } nrf_ecb_event_t;
 

@@ -33,14 +33,14 @@ enum {
 enum {
 	TRACE_FUNCTION_NONE = 0,
 	TRACE_FUNCTION_I2C  = 1,
-	TRACE_FUNCTION_ALL  = 0x7fffffff /* all bits except sign */
+	TRACE_FUNCTION_ALL  = 0x7fffffff
 };
 
 enum {
 	TRACE_MODULE_NONE              = 0x0,
 	TRACE_MODULE_API               = 0x1,
 	TRACE_MODULE_PLATFORM          = 0x2,
-	TRACE_MODULE_ALL               = 0x7fffffff /* all bits except sign */
+	TRACE_MODULE_ALL               = 0x7fffffff
 };
 
 #define _LOG_FUNCTION_START(module, fmt, ...) (void)0

@@ -238,32 +238,32 @@ extern "C" {
 #define TLS_DTLS_HANDSHAKE_ON_CONNECT 18
 
 /* Valid values for @ref TLS_PEER_VERIFY option */
-#define TLS_PEER_VERIFY_NONE 0     /**< Peer verification disabled. */
-#define TLS_PEER_VERIFY_OPTIONAL 1 /**< Peer verification optional. */
-#define TLS_PEER_VERIFY_REQUIRED 2 /**< Peer verification required. */
+#define TLS_PEER_VERIFY_NONE 0
+#define TLS_PEER_VERIFY_OPTIONAL 1
+#define TLS_PEER_VERIFY_REQUIRED 2
 
 /* Valid values for @ref TLS_DTLS_ROLE option */
-#define TLS_DTLS_ROLE_CLIENT 0 /**< Client role in a DTLS session. */
-#define TLS_DTLS_ROLE_SERVER 1 /**< Server role in a DTLS session. */
+#define TLS_DTLS_ROLE_CLIENT 0
+#define TLS_DTLS_ROLE_SERVER 1
 
 /* Valid values for @ref TLS_CERT_NOCOPY option */
-#define TLS_CERT_NOCOPY_NONE 0     /**< Cert duplicated in heap */
-#define TLS_CERT_NOCOPY_OPTIONAL 1 /**< Cert not copied in heap if DER */
+#define TLS_CERT_NOCOPY_NONE 0
+#define TLS_CERT_NOCOPY_OPTIONAL 1
 
 /* Valid values for @ref TLS_SESSION_CACHE option */
-#define TLS_SESSION_CACHE_DISABLED 0 /**< Disable TLS session caching. */
-#define TLS_SESSION_CACHE_ENABLED 1 /**< Enable TLS session caching. */
+#define TLS_SESSION_CACHE_DISABLED 0
+#define TLS_SESSION_CACHE_ENABLED 1
 
 /* Valid values for @ref TLS_DTLS_CID (Connection ID) option */
-#define TLS_DTLS_CID_DISABLED		0 /**< CID is disabled  */
-#define TLS_DTLS_CID_SUPPORTED		1 /**< CID is supported */
-#define TLS_DTLS_CID_ENABLED		2 /**< CID is enabled   */
+#define TLS_DTLS_CID_DISABLED		0
+#define TLS_DTLS_CID_SUPPORTED		1
+#define TLS_DTLS_CID_ENABLED		2
 
 /* Valid values for @ref TLS_DTLS_CID_STATUS option */
-#define TLS_DTLS_CID_STATUS_DISABLED		0 /**< CID is disabled */
-#define TLS_DTLS_CID_STATUS_DOWNLINK		1 /**< CID is in use by us */
-#define TLS_DTLS_CID_STATUS_UPLINK		2 /**< CID is in use by peer */
-#define TLS_DTLS_CID_STATUS_BIDIRECTIONAL	3 /**< CID is in use by us and peer */
+#define TLS_DTLS_CID_STATUS_DISABLED		0
+#define TLS_DTLS_CID_STATUS_DOWNLINK		1
+#define TLS_DTLS_CID_STATUS_UPLINK		2
+#define TLS_DTLS_CID_STATUS_BIDIRECTIONAL	3
 /** @} */ /* for @name */
 /** @} */ /* for @defgroup */
 
@@ -274,15 +274,15 @@ extern "C" {
  * is also passed as hints when calling the getaddrinfo() function.
  */
 struct zsock_addrinfo {
-	struct zsock_addrinfo *ai_next; /**< Pointer to next address entry */
-	int ai_flags;             /**< Additional options */
-	int ai_family;            /**< Address family of the returned addresses */
-	int ai_socktype;          /**< Socket type, for example SOCK_STREAM or SOCK_DGRAM */
-	int ai_protocol;          /**< Protocol for addresses, 0 means any protocol */
-	int ai_eflags;            /**< Extended flags for special usage */
-	socklen_t ai_addrlen;     /**< Length of the socket address */
-	struct sockaddr *ai_addr; /**< Pointer to the address */
-	char *ai_canonname;       /**< Optional official name of the host */
+	struct zsock_addrinfo *ai_next;
+	int ai_flags;
+	int ai_family;
+	int ai_socktype;
+	int ai_protocol;
+	int ai_eflags;
+	socklen_t ai_addrlen;
+	struct sockaddr *ai_addr;
+	char *ai_canonname;
 
 /** @cond INTERNAL_HIDDEN */
 	struct sockaddr _ai_addr;
@@ -817,7 +817,7 @@ int zsock_getnameinfo(const struct sockaddr *addr, socklen_t addrlen,
 
 /** Interface description structure */
 struct ifreq {
-	char ifr_name[IFNAMSIZ]; /**< Network interface name */
+	char ifr_name[IFNAMSIZ];
 };
 /** @} */
 
@@ -949,9 +949,9 @@ struct ifreq {
  * option is set.
  */
 struct in_pktinfo {
-	unsigned int   ipi_ifindex;  /**< Network interface index */
-	struct in_addr ipi_spec_dst; /**< Local address */
-	struct in_addr ipi_addr;     /**< Header Destination address */
+	unsigned int   ipi_ifindex;
+	struct in_addr ipi_spec_dst;
+	struct in_addr ipi_addr;
 };
 
 /** Retrieve the current known path MTU of the current socket. Returns an
@@ -973,17 +973,17 @@ struct in_pktinfo {
  * @brief Struct used when joining or leaving a IPv4 multicast group.
  */
 struct ip_mreqn {
-	struct in_addr imr_multiaddr; /**< IP multicast group address */
-	struct in_addr imr_address;   /**< IP address of local interface */
-	int            imr_ifindex;   /**< Network interface index */
+	struct in_addr imr_multiaddr;
+	struct in_addr imr_address;
+	int            imr_ifindex;
 };
 
 /**
  * @brief Struct used when setting a IPv4 multicast network interface.
  */
 struct ip_mreq  {
-	struct in_addr imr_multiaddr;   /**< IP multicast group address */
-	struct in_addr imr_interface;   /**< IP address of local interface */
+	struct in_addr imr_multiaddr;
+	struct in_addr imr_interface;
 };
 
 /** Clamp down the global port range for a given socket */
@@ -1072,8 +1072,8 @@ struct ipv6_mreq {
  * option is set.
  */
 struct in6_pktinfo {
-	struct in6_addr ipi6_addr;    /**< Destination IPv6 address */
-	unsigned int    ipi6_ifindex; /**< Receive interface index */
+	struct in6_addr ipi6_addr;
+	unsigned int    ipi6_ifindex;
 };
 
 /** Set or receive the traffic class value for an outgoing packet. */

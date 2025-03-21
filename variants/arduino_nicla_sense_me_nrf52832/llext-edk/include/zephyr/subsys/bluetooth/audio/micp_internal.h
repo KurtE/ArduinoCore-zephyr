@@ -23,7 +23,7 @@
 enum bt_micp_mic_ctlr_flag {
 	BT_MICP_MIC_CTLR_FLAG_BUSY,
 
-	BT_MICP_MIC_CTLR_FLAG_NUM_FLAGS, /* keep as last */
+	BT_MICP_MIC_CTLR_FLAG_NUM_FLAGS,
 };
 
 struct bt_micp_mic_ctlr {
@@ -33,7 +33,7 @@ struct bt_micp_mic_ctlr {
 	struct bt_gatt_subscribe_params mute_sub_params;
 	struct bt_gatt_discover_params mute_sub_disc_params;
 
-	uint8_t mute_val_buf[1]; /* Mute value is a single octet */
+	uint8_t mute_val_buf[1];
 	struct bt_gatt_write_params write_params;
 	struct bt_gatt_read_params read_params;
 	struct bt_gatt_discover_params discover_params;

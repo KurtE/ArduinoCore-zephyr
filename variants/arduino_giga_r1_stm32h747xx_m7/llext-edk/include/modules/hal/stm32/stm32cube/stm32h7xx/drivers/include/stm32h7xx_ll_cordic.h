@@ -63,7 +63,7 @@ extern "C" {
   * @brief    IT defines which can be used with LL_CORDIC_ReadReg and LL_CORDIC_WriteReg functions.
   * @{
   */
-#define LL_CORDIC_IT_IEN                   CORDIC_CSR_IEN            /*!< Result Ready interrupt enable */
+#define LL_CORDIC_IT_IEN                   CORDIC_CSR_IEN
 /**
   * @}
   */
@@ -71,16 +71,16 @@ extern "C" {
 /** @defgroup CORDIC_LL_EC_FUNCTION FUNCTION
   * @{
   */
-#define LL_CORDIC_FUNCTION_COSINE          (0x00000000U)                                                          /*!< Cosine */
-#define LL_CORDIC_FUNCTION_SINE            ((uint32_t)(CORDIC_CSR_FUNC_0))                                        /*!< Sine */
-#define LL_CORDIC_FUNCTION_PHASE           ((uint32_t)(CORDIC_CSR_FUNC_1))                                        /*!< Phase */
-#define LL_CORDIC_FUNCTION_MODULUS         ((uint32_t)(CORDIC_CSR_FUNC_1 | CORDIC_CSR_FUNC_0))                    /*!< Modulus */
-#define LL_CORDIC_FUNCTION_ARCTANGENT      ((uint32_t)(CORDIC_CSR_FUNC_2))                                        /*!< Arctangent */
-#define LL_CORDIC_FUNCTION_HCOSINE         ((uint32_t)(CORDIC_CSR_FUNC_2 | CORDIC_CSR_FUNC_0))                    /*!< Hyperbolic Cosine */
-#define LL_CORDIC_FUNCTION_HSINE           ((uint32_t)(CORDIC_CSR_FUNC_2 | CORDIC_CSR_FUNC_1))                    /*!< Hyperbolic Sine */
-#define LL_CORDIC_FUNCTION_HARCTANGENT     ((uint32_t)(CORDIC_CSR_FUNC_2 | CORDIC_CSR_FUNC_1 | CORDIC_CSR_FUNC_0))/*!< Hyperbolic Arctangent */
-#define LL_CORDIC_FUNCTION_NATURALLOG      ((uint32_t)(CORDIC_CSR_FUNC_3))                                        /*!< Natural Logarithm */
-#define LL_CORDIC_FUNCTION_SQUAREROOT      ((uint32_t)(CORDIC_CSR_FUNC_3 | CORDIC_CSR_FUNC_0))                    /*!< Square Root */
+#define LL_CORDIC_FUNCTION_COSINE          (0x00000000U)
+#define LL_CORDIC_FUNCTION_SINE            ((uint32_t)(CORDIC_CSR_FUNC_0))
+#define LL_CORDIC_FUNCTION_PHASE           ((uint32_t)(CORDIC_CSR_FUNC_1))
+#define LL_CORDIC_FUNCTION_MODULUS         ((uint32_t)(CORDIC_CSR_FUNC_1 | CORDIC_CSR_FUNC_0))
+#define LL_CORDIC_FUNCTION_ARCTANGENT      ((uint32_t)(CORDIC_CSR_FUNC_2))
+#define LL_CORDIC_FUNCTION_HCOSINE         ((uint32_t)(CORDIC_CSR_FUNC_2 | CORDIC_CSR_FUNC_0))
+#define LL_CORDIC_FUNCTION_HSINE           ((uint32_t)(CORDIC_CSR_FUNC_2 | CORDIC_CSR_FUNC_1))
+#define LL_CORDIC_FUNCTION_HARCTANGENT     ((uint32_t)(CORDIC_CSR_FUNC_2 | CORDIC_CSR_FUNC_1 | CORDIC_CSR_FUNC_0))
+#define LL_CORDIC_FUNCTION_NATURALLOG      ((uint32_t)(CORDIC_CSR_FUNC_3))
+#define LL_CORDIC_FUNCTION_SQUAREROOT      ((uint32_t)(CORDIC_CSR_FUNC_3 | CORDIC_CSR_FUNC_0))
 /**
   * @}
   */
@@ -157,8 +157,8 @@ extern "C" {
 /** @defgroup CORDIC_LL_EC_INSIZE INSIZE
   * @{
   */
-#define LL_CORDIC_INSIZE_32BITS            (0x00000000U)             /*!< 32 bits input data size (Q1.31 format) */
-#define LL_CORDIC_INSIZE_16BITS            CORDIC_CSR_ARGSIZE        /*!< 16 bits input data size (Q1.15 format) */
+#define LL_CORDIC_INSIZE_32BITS            (0x00000000U)
+#define LL_CORDIC_INSIZE_16BITS            CORDIC_CSR_ARGSIZE
 /**
   * @}
   */
@@ -166,8 +166,8 @@ extern "C" {
 /** @defgroup CORDIC_LL_EC_OUTSIZE OUTSIZE
   * @{
   */
-#define LL_CORDIC_OUTSIZE_32BITS           (0x00000000U)             /*!< 32 bits output data size (Q1.31 format) */
-#define LL_CORDIC_OUTSIZE_16BITS           CORDIC_CSR_RESSIZE        /*!< 16 bits output data size (Q1.15 format) */
+#define LL_CORDIC_OUTSIZE_32BITS           (0x00000000U)
+#define LL_CORDIC_OUTSIZE_16BITS           CORDIC_CSR_RESSIZE
 /**
   * @}
   */
@@ -175,8 +175,8 @@ extern "C" {
 /** @defgroup CORDIC_LL_EC_DMA_REG_DATA DMA register data
   * @{
   */
-#define LL_CORDIC_DMA_REG_DATA_IN          (0x00000000U)             /*!< Get address of input data register */
-#define LL_CORDIC_DMA_REG_DATA_OUT         (0x00000001U)             /*!< Get address of output data register */
+#define LL_CORDIC_DMA_REG_DATA_IN          (0x00000000U)
+#define LL_CORDIC_DMA_REG_DATA_OUT         (0x00000001U)
 /**
   * @}
   */

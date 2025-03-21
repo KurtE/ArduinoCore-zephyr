@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2019 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -51,9 +51,9 @@ extern "C" {
 
 /** @brief Events from USB power system */
 typedef enum {
-    NRFX_USBREG_EVT_DETECTED, /**< USB power detected on the connector (plugged in). */
-    NRFX_USBREG_EVT_REMOVED,  /**< USB power removed from the connector. */
-    NRFX_USBREG_EVT_READY     /**< USB power regulator ready. */
+    NRFX_USBREG_EVT_DETECTED,
+    NRFX_USBREG_EVT_REMOVED,
+    NRFX_USBREG_EVT_READY
 } nrfx_usbreg_evt_t;
 
 /**
@@ -65,9 +65,9 @@ typedef enum {
  * Organized this way that higher power state has higher numeric value
  */
 typedef enum {
-    NRFX_USBREG_STATE_DISCONNECTED, /**< No power on USB lines detected. */
-    NRFX_USBREG_STATE_CONNECTED,    /**< The USB power is detected, but USB power regulator is not ready. */
-    NRFX_USBREG_STATE_READY         /**< From the power viewpoint, USB is ready for working. */
+    NRFX_USBREG_STATE_DISCONNECTED,
+    NRFX_USBREG_STATE_CONNECTED,
+    NRFX_USBREG_STATE_READY
 } nrfx_usbreg_state_t;
 
 /**

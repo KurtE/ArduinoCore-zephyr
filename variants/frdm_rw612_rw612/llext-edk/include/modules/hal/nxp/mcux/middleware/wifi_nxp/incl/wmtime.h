@@ -27,12 +27,12 @@
 /*! @brief Structure is used to hold the date and time */
 struct datetime_t
 {
-    uint16_t year;  /*!< Range from 1970 to 2099.*/
-    uint8_t month;  /*!< Range from 1 to 12.*/
-    uint8_t day;    /*!< Range from 1 to 31 (depending on month).*/
-    uint8_t hour;   /*!< Range from 0 to 23.*/
-    uint8_t minute; /*!< Range from 0 to 59.*/
-    uint8_t second; /*!< Range from 0 to 59.*/
+    uint16_t year;
+    uint8_t month;
+    uint8_t day;
+    uint8_t hour;
+    uint8_t minute;
+    uint8_t second;
 };
 
 typedef long suseconds_t;

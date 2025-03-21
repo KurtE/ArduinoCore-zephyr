@@ -22,12 +22,12 @@ extern "C" {
 
 /** Unprovisioned device has URI hash value */
 #define BT_MESH_RPR_UNPROV_HASH           BIT(0)
-#define BT_MESH_RPR_UNPROV_ACTIVE         BIT(1) /**< Internal */
-#define BT_MESH_RPR_UNPROV_FOUND          BIT(2) /**< Internal */
-#define BT_MESH_RPR_UNPROV_REPORTED       BIT(3) /**< Internal */
-#define BT_MESH_RPR_UNPROV_EXT            BIT(4) /**< Internal */
-#define BT_MESH_RPR_UNPROV_HAS_LINK       BIT(5) /**< Internal */
-#define BT_MESH_RPR_UNPROV_EXT_ADV_RXD    BIT(6) /**< Internal */
+#define BT_MESH_RPR_UNPROV_ACTIVE         BIT(1)
+#define BT_MESH_RPR_UNPROV_FOUND          BIT(2)
+#define BT_MESH_RPR_UNPROV_REPORTED       BIT(3)
+#define BT_MESH_RPR_UNPROV_EXT            BIT(4)
+#define BT_MESH_RPR_UNPROV_HAS_LINK       BIT(5)
+#define BT_MESH_RPR_UNPROV_EXT_ADV_RXD    BIT(6)
 
 /** Minimum extended scan duration in seconds */
 #define BT_MESH_RPR_EXT_SCAN_TIME_MIN 1

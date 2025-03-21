@@ -20,17 +20,17 @@
  */
 
 /* Keep the LEVELx values as they are here; they match up with (1<<level) */
-#define ESP_INTR_FLAG_LEVEL1		(1<<1)	/* Accept a Level 1 int vector, lowest priority */
-#define ESP_INTR_FLAG_LEVEL2		(1<<2)	/* Accept a Level 2 int vector */
-#define ESP_INTR_FLAG_LEVEL3		(1<<3)	/* Accept a Level 3 int vector */
-#define ESP_INTR_FLAG_LEVEL4		(1<<4)	/* Accept a Level 4 int vector */
-#define ESP_INTR_FLAG_LEVEL5		(1<<5)	/* Accept a Level 5 int vector */
-#define ESP_INTR_FLAG_LEVEL6		(1<<6)	/* Accept a Level 6 int vector */
-#define ESP_INTR_FLAG_NMI		(1<<7)	/* Accept a Level 7 int vector, highest priority */
-#define ESP_INTR_FLAG_SHARED		(1<<8)	/* Interrupt can be shared between ISRs */
-#define ESP_INTR_FLAG_EDGE		(1<<9)	/* Edge-triggered interrupt */
-#define ESP_INTR_FLAG_IRAM		(1<<10)	/* ISR can be called if cache is disabled */
-#define ESP_INTR_FLAG_INTRDISABLED	(1<<11)	/* Return with this interrupt disabled */
+#define ESP_INTR_FLAG_LEVEL1		(1<<1)
+#define ESP_INTR_FLAG_LEVEL2		(1<<2)
+#define ESP_INTR_FLAG_LEVEL3		(1<<3)
+#define ESP_INTR_FLAG_LEVEL4		(1<<4)
+#define ESP_INTR_FLAG_LEVEL5		(1<<5)
+#define ESP_INTR_FLAG_LEVEL6		(1<<6)
+#define ESP_INTR_FLAG_NMI		(1<<7)
+#define ESP_INTR_FLAG_SHARED		(1<<8)
+#define ESP_INTR_FLAG_EDGE		(1<<9)
+#define ESP_INTR_FLAG_IRAM		(1<<10)
+#define ESP_INTR_FLAG_INTRDISABLED	(1<<11)
 
 /* Low and medium prio interrupts. These can be handled in C. */
 #define ESP_INTR_FLAG_LOWMED	(ESP_INTR_FLAG_LEVEL1|ESP_INTR_FLAG_LEVEL2|ESP_INTR_FLAG_LEVEL3)
@@ -61,12 +61,12 @@
  * sources that do not pass through the interrupt mux. To allocate an interrupt for these sources,
  * pass these pseudo-sources to the functions.
  */
-#define ETS_INTERNAL_TIMER0_INTR_SOURCE         -1 /* Xtensa timer 0 interrupt source */
-#define ETS_INTERNAL_TIMER1_INTR_SOURCE         -2 /* Xtensa timer 1 interrupt source */
-#define ETS_INTERNAL_TIMER2_INTR_SOURCE         -3 /* Xtensa timer 2 interrupt source */
-#define ETS_INTERNAL_SW0_INTR_SOURCE            -4 /* Software int source 1 */
-#define ETS_INTERNAL_SW1_INTR_SOURCE            -5 /* Software int source 2 */
-#define ETS_INTERNAL_PROFILING_INTR_SOURCE      -6 /* Int source for profiling */
+#define ETS_INTERNAL_TIMER0_INTR_SOURCE         -1
+#define ETS_INTERNAL_TIMER1_INTR_SOURCE         -2
+#define ETS_INTERNAL_TIMER2_INTR_SOURCE         -3
+#define ETS_INTERNAL_SW0_INTR_SOURCE            -4
+#define ETS_INTERNAL_SW1_INTR_SOURCE            -5
+#define ETS_INTERNAL_PROFILING_INTR_SOURCE      -6
 
 /* Function prototype for interrupt handler function */
 typedef void (*intr_handler_t)(void *arg);
@@ -83,11 +83,11 @@ struct shared_vector_desc_t {
 
 /* Pack using bitfields for better memory use */
 struct vector_desc_t {
-	int flags : 16;                                 /* OR of VECDESC_FLAG_* defines */
+	int flags : 16;
 	unsigned int cpu : 1;
 	unsigned int intno : 5;
-	int source : 8;                                 /* Int mux flags, used when not shared */
-	struct shared_vector_desc_t *shared_vec_info;   /* used when VECDESC_FL_SHARED */
+	int source : 8;
+	struct shared_vector_desc_t *shared_vec_info;
 	struct vector_desc_t *next;
 };
 

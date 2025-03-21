@@ -83,8 +83,8 @@ enum mqtt_evt_type {
 
 /** @brief MQTT version protocol level. */
 enum mqtt_version {
-	MQTT_VERSION_3_1_0 = 3, /**< Protocol level for 3.1.0. */
-	MQTT_VERSION_3_1_1 = 4  /**< Protocol level for 3.1.1. */
+	MQTT_VERSION_3_1_0 = 3,
+	MQTT_VERSION_3_1_1 = 4
 };
 
 /** @brief MQTT Quality of Service types. */
@@ -150,8 +150,8 @@ enum mqtt_suback_return_code {
 
 /** @brief Abstracts UTF-8 encoded strings. */
 struct mqtt_utf8 {
-	const uint8_t *utf8;       /**< Pointer to UTF-8 string. */
-	uint32_t size;             /**< Size of UTF string, in bytes. */
+	const uint8_t *utf8;
+	uint32_t size;
 };
 
 /**
@@ -168,8 +168,8 @@ struct mqtt_utf8 {
 
 /** @brief Abstracts binary strings. */
 struct mqtt_binstr {
-	uint8_t *data;             /**< Pointer to binary stream. */
-	uint32_t len;              /**< Length of binary stream. */
+	uint8_t *data;
+	uint32_t len;
 };
 
 /** @brief Abstracts MQTT UTF-8 encoded topic that can be subscribed
@@ -187,8 +187,8 @@ struct mqtt_topic {
 
 /** @brief Parameters for a publish message. */
 struct mqtt_publish_message {
-	struct mqtt_topic topic;     /**< Topic on which data was published. */
-	struct mqtt_binstr payload; /**< Payload on the topic published. */
+	struct mqtt_topic topic;
+	struct mqtt_binstr payload;
 };
 
 /** @brief Parameters for a connection acknowledgment (CONNACK). */

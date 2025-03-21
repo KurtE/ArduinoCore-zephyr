@@ -6,36 +6,36 @@
 #ifndef ZEPHYR_INCLUDE_ARCH_X86_INTEL64_THREAD_H_
 #define ZEPHYR_INCLUDE_ARCH_X86_INTEL64_THREAD_H_
 
-#define X86_THREAD_FLAG_ALL 0x01 /* _thread_arch.flags: entire state saved */
+#define X86_THREAD_FLAG_ALL 0x01
 
 /*
  * GDT selectors - these must agree with the GDT layout in locore.S.
  */
 
-#define X86_KERNEL_CS_32	0x08	/* 32-bit kernel code */
-#define X86_KERNEL_DS_32	0x10	/* 32-bit kernel data */
-#define X86_KERNEL_CS		0x18	/* 64-bit kernel code */
-#define X86_KERNEL_DS		0x20	/* 64-bit kernel data */
-#define X86_USER_CS_32		0x28	/* 32-bit user data (unused) */
-#define X86_USER_DS		0x30	/* 64-bit user mode data */
-#define X86_USER_CS		0x38	/* 64-bit user mode code */
+#define X86_KERNEL_CS_32	0x08
+#define X86_KERNEL_DS_32	0x10
+#define X86_KERNEL_CS		0x18
+#define X86_KERNEL_DS		0x20
+#define X86_USER_CS_32		0x28
+#define X86_USER_DS		0x30
+#define X86_USER_CS		0x38
 
 /* Value programmed into bits 63:32 of STAR MSR with proper segment
  * descriptors for implementing user mode with syscall/sysret
  */
 #define X86_STAR_UPPER		((X86_USER_CS_32 << 16) | X86_KERNEL_CS)
 
-#define X86_KERNEL_CPU0_TR	0x40	/* 64-bit task state segment */
-#define X86_KERNEL_CPU1_TR	0x50	/* 64-bit task state segment */
-#define X86_KERNEL_CPU2_TR	0x60	/* 64-bit task state segment */
-#define X86_KERNEL_CPU3_TR	0x70	/* 64-bit task state segment */
+#define X86_KERNEL_CPU0_TR	0x40
+#define X86_KERNEL_CPU1_TR	0x50
+#define X86_KERNEL_CPU2_TR	0x60
+#define X86_KERNEL_CPU3_TR	0x70
 
 /*
  * Some SSE definitions. Ideally these will ultimately be shared with 32-bit.
  */
 
-#define X86_FXSAVE_SIZE		512	/* size and alignment of buffer ... */
-#define X86_FXSAVE_ALIGN	16	/* ... for FXSAVE/FXRSTOR ops */
+#define X86_FXSAVE_SIZE		512
+#define X86_FXSAVE_ALIGN	16
 
 /* MXCSR Control and Status Register for SIMD floating-point operations.
  * Set default value 1F80H according to the Intel(R) 64 and IA-32 Manual.
@@ -61,13 +61,13 @@ struct x86_tss64 {
 
 	uint8_t reserved0[4];
 
-	uint64_t rsp0;		/* privileged stacks */
+	uint64_t rsp0;
 	uint64_t rsp1;
 	uint64_t rsp2;
 
 	uint8_t reserved[8];
 
-	uint64_t ist1;		/* interrupt stacks */
+	uint64_t ist1;
 	uint64_t ist2;
 	uint64_t ist3;
 	uint64_t ist4;
@@ -77,7 +77,7 @@ struct x86_tss64 {
 
 	uint8_t reserved1[10];
 
-	uint16_t iomapb;		/* offset to I/O base */
+	uint16_t iomapb;
 
 	/*
 	 * Zephyr specific portion. Stash per-CPU data here for convenience.

@@ -21,9 +21,9 @@
 extern "C" {
 #endif
 
-#define OSDP_CMD_TEXT_MAX_LEN          32 /**< Max length of text for text command */
-#define OSDP_CMD_KEYSET_KEY_MAX_LEN    32 /**< Max length of key data for keyset command */
-#define OSDP_EVENT_MAX_DATALEN         64 /**< Max length of event data */
+#define OSDP_CMD_TEXT_MAX_LEN          32
+#define OSDP_CMD_KEYSET_KEY_MAX_LEN    32
+#define OSDP_EVENT_MAX_DATALEN         64
 
 /**
  * @brief Command sent from CP to Control digital output of PD.
@@ -57,12 +57,12 @@ struct osdp_cmd_output {
  * @brief LED Colors as specified in OSDP for the on_color/off_color parameters.
  */
 enum osdp_led_color_e {
-	OSDP_LED_COLOR_NONE,     /**< No color */
-	OSDP_LED_COLOR_RED,      /**< Red */
-	OSDP_LED_COLOR_GREEN,    /**< Green */
-	OSDP_LED_COLOR_AMBER,    /**< Amber */
-	OSDP_LED_COLOR_BLUE,     /**< Blue */
-	OSDP_LED_COLOR_SENTINEL  /**< Max value */
+	OSDP_LED_COLOR_NONE,
+	OSDP_LED_COLOR_RED,
+	OSDP_LED_COLOR_GREEN,
+	OSDP_LED_COLOR_AMBER,
+	OSDP_LED_COLOR_BLUE,
+	OSDP_LED_COLOR_SENTINEL
 };
 
 /**
@@ -238,13 +238,13 @@ struct osdp_cmd_keyset {
  * @brief OSDP application exposed commands
  */
 enum osdp_cmd_e {
-	OSDP_CMD_OUTPUT = 1,  /**< Output control command */
-	OSDP_CMD_LED,         /**< Reader LED control command */
-	OSDP_CMD_BUZZER,      /**< Reader buzzer control command */
-	OSDP_CMD_TEXT,        /**< Reader text output command */
-	OSDP_CMD_KEYSET,      /**< Encryption Key Set Command */
-	OSDP_CMD_COMSET,      /**< PD Communication Configuration Command */
-	OSDP_CMD_SENTINEL     /**< Max command value */
+	OSDP_CMD_OUTPUT = 1,
+	OSDP_CMD_LED,
+	OSDP_CMD_BUZZER,
+	OSDP_CMD_TEXT,
+	OSDP_CMD_KEYSET,
+	OSDP_CMD_COMSET,
+	OSDP_CMD_SENTINEL
 };
 
 /**
@@ -262,12 +262,12 @@ struct osdp_cmd {
 	enum osdp_cmd_e id;
 	/** Command */
 	union {
-		struct osdp_cmd_led    led;    /**< LED command structure */
-		struct osdp_cmd_buzzer buzzer; /**< Buzzer command structure */
-		struct osdp_cmd_text   text;   /**< Text command structure */
-		struct osdp_cmd_output output; /**< Output command structure */
-		struct osdp_cmd_comset comset; /**< Comset command structure */
-		struct osdp_cmd_keyset keyset; /**< Keyset command structure */
+		struct osdp_cmd_led    led;
+		struct osdp_cmd_buzzer buzzer;
+		struct osdp_cmd_text   text;
+		struct osdp_cmd_output output;
+		struct osdp_cmd_comset comset;
+		struct osdp_cmd_keyset keyset;
 	};
 };
 
@@ -276,10 +276,10 @@ struct osdp_cmd {
  * when a PD must report a card read.
  */
 enum osdp_event_cardread_format_e {
-	OSDP_CARD_FMT_RAW_UNSPECIFIED, /**< Unspecified card format */
-	OSDP_CARD_FMT_RAW_WIEGAND,     /**< Wiegand card format */
-	OSDP_CARD_FMT_ASCII,           /**< ASCII card format */
-	OSDP_CARD_FMT_SENTINEL         /**< Max card format value */
+	OSDP_CARD_FMT_RAW_UNSPECIFIED,
+	OSDP_CARD_FMT_RAW_WIEGAND,
+	OSDP_CARD_FMT_ASCII,
+	OSDP_CARD_FMT_SENTINEL
 };
 
 /**
@@ -339,9 +339,9 @@ struct osdp_event_keypress {
  * @brief OSDP PD Events
  */
 enum osdp_event_type {
-	OSDP_EVENT_CARDREAD,  /**< Card read event */
-	OSDP_EVENT_KEYPRESS,  /**< Keypad press event */
-	OSDP_EVENT_SENTINEL   /**< Max event value */
+	OSDP_EVENT_CARDREAD,
+	OSDP_EVENT_KEYPRESS,
+	OSDP_EVENT_SENTINEL
 };
 
 /**
@@ -358,8 +358,8 @@ struct osdp_event {
 	enum osdp_event_type type;
 	/** Event */
 	union {
-		struct osdp_event_keypress keypress; /**< Keypress event structure */
-		struct osdp_event_cardread cardread; /**< Card read event structure */
+		struct osdp_event_keypress keypress;
+		struct osdp_event_cardread cardread;
 	};
 };
 

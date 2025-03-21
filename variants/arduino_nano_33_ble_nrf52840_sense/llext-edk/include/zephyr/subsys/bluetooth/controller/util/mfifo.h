@@ -43,16 +43,16 @@
  */
 #define MFIFO_DEFINE(name, sz, cnt) \
 		const struct { \
-			uint16_t s; /* Stride between elements */ \
-			uint16_t n; /* Number of buffers */ \
+			uint16_t s; \
+			uint16_t n; \
 		} mfifo_##name = { \
 			.s = MROUND(sz), \
 			.n = ((cnt) + 1), \
 		}; \
 		static struct { \
 			uint8_t MALIGN(4) m[MROUND(sz) * ((cnt) + 1)]; \
-			uint8_t f; /* First. Read index */ \
-			uint8_t l; /* Last. Write index */ \
+			uint8_t f; \
+			uint8_t l; \
 		} mfifo_fifo_##name;
 
 /**
@@ -93,11 +93,11 @@ static inline bool mfifo_enqueue_idx_get(uint8_t count, uint8_t first,
 	 * can not continue
 	 */
 	if (last == first) {
-		return false; /* Queue is full */
+		return false;
 	}
 
-	*idx = last; /* Emit the allocated buffer's index */
-	return true; /* Successfully allocated new buffer */
+	*idx = last;
+	return true;
 }
 
 /**
@@ -118,11 +118,11 @@ static inline void mfifo_by_idx_enqueue(uint8_t *fifo, uint8_t size,
 					uint8_t idx, void *mem, uint8_t *last)
 {
 	/* API 2: fifo is array of void-ptrs */
-	void **p = (void **)(fifo + (*last) * size); /* buffer preceding idx */
-	*p = mem; /* store the payload which for API 2 is only a void-ptr */
+	void **p = (void **)(fifo + (*last) * size);
+	*p = mem;
 
-	cpu_dmb(); /* Ensure data accesses are synchronized */
-	*last = idx; /* Commit: Update write index */
+	cpu_dmb();
+	*last = idx;
 }
 
 /**
@@ -149,15 +149,15 @@ static inline uint8_t mfifo_enqueue_get(uint8_t *fifo, uint8_t size,
 	/* Attempt to allocate new buffer (idx) */
 	if (!mfifo_enqueue_idx_get(count, first, last, &idx)) {
 		/* Buffer could not be allocated */
-		*mem = NULL; /* Signal the failure */
-		return 0;    /* DontCare */
+		*mem = NULL;
+		return 0;
 	}
 
 	/* We keep idx as the always-one-free, so we return preceding
 	 * buffer (last). Recall that last has not been updated,
 	 * so idx != last
 	 */
-	*mem = (void *)(fifo + last * size); /* preceding buffer */
+	*mem = (void *)(fifo + last * size);
 
 	return idx;
 }
@@ -189,8 +189,8 @@ static inline uint8_t mfifo_enqueue_get(uint8_t *fifo, uint8_t size,
  */
 static inline void mfifo_enqueue(uint8_t idx, uint8_t *last)
 {
-	cpu_dmb(); /* Ensure data accesses are synchronized */
-	*last = idx; /* Commit: Update write index */
+	cpu_dmb();
+	*last = idx;
 }
 
 /**
@@ -255,7 +255,7 @@ static inline void *mfifo_dequeue_peek(uint8_t *fifo, uint8_t size,
 				       uint8_t first, uint8_t last)
 {
 	if (first == last) {
-		return NULL; /* Queue is empty */
+		return NULL;
 	}
 
 	/* API 2: fifo is array of void-ptrs */
@@ -315,7 +315,7 @@ static inline void *mfifo_dequeue_iter_get(uint8_t *fifo, uint8_t size,
 static inline void *mfifo_dequeue(uint8_t *fifo, uint8_t size, uint8_t count,
 				  uint8_t last, uint8_t *first)
 {
-	uint8_t _first = *first; /* Copy read-index */
+	uint8_t _first = *first;
 	void *mem;
 
 	/* Queue is empty if first == last */
@@ -334,7 +334,7 @@ static inline void *mfifo_dequeue(uint8_t *fifo, uint8_t size, uint8_t count,
 		_first = 0U;
 	}
 
-	*first = _first; /* Write back read-index */
+	*first = _first;
 
 	return mem;
 }

@@ -32,14 +32,14 @@
 /*! @brief LPI2C FreeRTOS handle */
 typedef struct _lpi2c_rtos_handle
 {
-    LPI2C_Type *base;                 /*!< LPI2C base address */
-    lpi2c_master_handle_t drv_handle; /*!< A handle of the underlying driver, treated as opaque by the RTOS layer */
-    status_t async_status;            /*!< Transactional state of the underlying driver */
-    SemaphoreHandle_t mutex;          /*!< A mutex to lock the handle during a transfer */
-    SemaphoreHandle_t semaphore;      /*!< A semaphore to notify and unblock task when the transfer ends */
+    LPI2C_Type *base;
+    lpi2c_master_handle_t drv_handle;
+    status_t async_status;
+    SemaphoreHandle_t mutex;
+    SemaphoreHandle_t semaphore;
 #if (configSUPPORT_STATIC_ALLOCATION == 1)
-    StaticSemaphore_t mutexBuffer;     /*!< Statically allocated memory for mutex */
-    StaticSemaphore_t semaphoreBuffer; /*!< Statically allocated memory for semaphore */
+    StaticSemaphore_t mutexBuffer;
+    StaticSemaphore_t semaphoreBuffer;
 #endif
 } lpi2c_rtos_handle_t;
 

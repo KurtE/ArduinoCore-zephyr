@@ -11,46 +11,46 @@
 extern "C" {
 #endif
 
-#define CTRL_SLU	(1 << 6) /* Set Link Up */
+#define CTRL_SLU	(1 << 6)
 
 #define TCTL_EN		(1 << 1)
 #define RCTL_EN		(1 << 1)
 
-#define ICR_TXDW	     (1) /* Transmit Descriptor Written Back */
-#define ICR_TXQE	(1 << 1) /* Transmit Queue Empty */
-#define ICR_RXO		(1 << 6) /* Receiver Overrun */
+#define ICR_TXDW	     (1)
+#define ICR_TXQE	(1 << 1)
+#define ICR_RXO		(1 << 6)
 
-#define IMS_RXO		(1 << 6) /* Receiver FIFO Overrun */
+#define IMS_RXO		(1 << 6)
 
-#define RCTL_MPE	(1 << 4) /* Multicast Promiscuous Enabled */
+#define RCTL_MPE	(1 << 4)
 
-#define TDESC_EOP	     (1) /* End Of Packet */
-#define TDESC_RS	(1 << 3) /* Report Status */
+#define TDESC_EOP	     (1)
+#define TDESC_RS	(1 << 3)
 
-#define RDESC_STA_DD	     (1) /* Descriptor Done */
-#define TDESC_STA_DD	     (1) /* Descriptor Done */
+#define RDESC_STA_DD	     (1)
+#define TDESC_STA_DD	     (1)
 
-#define ETH_ALEN 6	/* TODO: Add a global reusable definition in OS */
+#define ETH_ALEN 6
 
 enum e1000_reg_t {
-	CTRL	= 0x0000,	/* Device Control */
-	ICR	= 0x00C0,	/* Interrupt Cause Read */
-	ICS	= 0x00C8,	/* Interrupt Cause Set */
-	IMS	= 0x00D0,	/* Interrupt Mask Set */
-	RCTL	= 0x0100,	/* Receive Control */
-	TCTL	= 0x0400,	/* Transmit Control */
-	RDBAL	= 0x2800,	/* Rx Descriptor Base Address Low */
-	RDBAH	= 0x2804,	/* Rx Descriptor Base Address High */
-	RDLEN	= 0x2808,	/* Rx Descriptor Length */
-	RDH	= 0x2810,	/* Rx Descriptor Head */
-	RDT	= 0x2818,	/* Rx Descriptor Tail */
-	TDBAL	= 0x3800,	/* Tx Descriptor Base Address Low */
-	TDBAH	= 0x3804,	/* Tx Descriptor Base Address High */
-	TDLEN	= 0x3808,	/* Tx Descriptor Length */
-	TDH	= 0x3810,	/* Tx Descriptor Head */
-	TDT	= 0x3818,	/* Tx Descriptor Tail */
-	RAL	= 0x5400,	/* Receive Address Low */
-	RAH	= 0x5404,	/* Receive Address High */
+	CTRL	= 0x0000,
+	ICR	= 0x00C0,
+	ICS	= 0x00C8,
+	IMS	= 0x00D0,
+	RCTL	= 0x0100,
+	TCTL	= 0x0400,
+	RDBAL	= 0x2800,
+	RDBAH	= 0x2804,
+	RDLEN	= 0x2808,
+	RDH	= 0x2810,
+	RDT	= 0x2818,
+	TDBAL	= 0x3800,
+	TDBAH	= 0x3804,
+	TDLEN	= 0x3808,
+	TDH	= 0x3810,
+	TDT	= 0x3818,
+	RAL	= 0x5400,
+	RAH	= 0x5404,
 };
 
 /* Legacy TX Descriptor */

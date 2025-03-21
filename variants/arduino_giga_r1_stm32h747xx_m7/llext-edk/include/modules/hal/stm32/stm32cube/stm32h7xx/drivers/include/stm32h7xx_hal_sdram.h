@@ -47,12 +47,12 @@ extern "C" {
   */
 typedef enum
 {
-  HAL_SDRAM_STATE_RESET             = 0x00U,  /*!< SDRAM not yet initialized or disabled */
-  HAL_SDRAM_STATE_READY             = 0x01U,  /*!< SDRAM initialized and ready for use   */
-  HAL_SDRAM_STATE_BUSY              = 0x02U,  /*!< SDRAM internal process is ongoing     */
-  HAL_SDRAM_STATE_ERROR             = 0x03U,  /*!< SDRAM error state                     */
-  HAL_SDRAM_STATE_WRITE_PROTECTED   = 0x04U,  /*!< SDRAM device write protected          */
-  HAL_SDRAM_STATE_PRECHARGED        = 0x05U   /*!< SDRAM device precharged               */
+  HAL_SDRAM_STATE_RESET             = 0x00U,
+  HAL_SDRAM_STATE_READY             = 0x01U,
+  HAL_SDRAM_STATE_BUSY              = 0x02U,
+  HAL_SDRAM_STATE_ERROR             = 0x03U,
+  HAL_SDRAM_STATE_WRITE_PROTECTED   = 0x04U,
+  HAL_SDRAM_STATE_PRECHARGED        = 0x05U
 
 } HAL_SDRAM_StateTypeDef;
 
@@ -65,22 +65,22 @@ typedef struct __SDRAM_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_SDRAM_REGISTER_CALLBACKS  */
 {
-  FMC_SDRAM_TypeDef             *Instance;  /*!< Register base address                 */
+  FMC_SDRAM_TypeDef             *Instance;
 
-  FMC_SDRAM_InitTypeDef         Init;       /*!< SDRAM device configuration parameters */
+  FMC_SDRAM_InitTypeDef         Init;
 
-  __IO HAL_SDRAM_StateTypeDef   State;      /*!< SDRAM access state                    */
+  __IO HAL_SDRAM_StateTypeDef   State;
 
-  HAL_LockTypeDef               Lock;       /*!< SDRAM locking object                  */
+  HAL_LockTypeDef               Lock;
 
-  MDMA_HandleTypeDef             *hmdma;      /*!< Pointer DMA handler                   */
+  MDMA_HandleTypeDef             *hmdma;
 
 #if (USE_HAL_SDRAM_REGISTER_CALLBACKS == 1)
-  void (* MspInitCallback)(struct __SDRAM_HandleTypeDef *hsdram);               /*!< SDRAM Msp Init callback              */
-  void (* MspDeInitCallback)(struct __SDRAM_HandleTypeDef *hsdram);             /*!< SDRAM Msp DeInit callback            */
-  void (* RefreshErrorCallback)(struct __SDRAM_HandleTypeDef *hsdram);          /*!< SDRAM Refresh Error callback         */
-  void (* DmaXferCpltCallback)(MDMA_HandleTypeDef *hmdma);                        /*!< SDRAM DMA Xfer Complete callback     */
-  void (* DmaXferErrorCallback)(MDMA_HandleTypeDef *hmdma);                       /*!< SDRAM DMA Xfer Error callback        */
+  void (* MspInitCallback)(struct __SDRAM_HandleTypeDef *hsdram);
+  void (* MspDeInitCallback)(struct __SDRAM_HandleTypeDef *hsdram);
+  void (* RefreshErrorCallback)(struct __SDRAM_HandleTypeDef *hsdram);
+  void (* DmaXferCpltCallback)(MDMA_HandleTypeDef *hmdma);
+  void (* DmaXferErrorCallback)(MDMA_HandleTypeDef *hmdma);
 #endif /* USE_HAL_SDRAM_REGISTER_CALLBACKS */
 } SDRAM_HandleTypeDef;
 
@@ -90,11 +90,11 @@ typedef struct
   */
 typedef enum
 {
-  HAL_SDRAM_MSP_INIT_CB_ID       = 0x00U,  /*!< SDRAM MspInit Callback ID           */
-  HAL_SDRAM_MSP_DEINIT_CB_ID     = 0x01U,  /*!< SDRAM MspDeInit Callback ID         */
-  HAL_SDRAM_REFRESH_ERR_CB_ID    = 0x02U,  /*!< SDRAM Refresh Error Callback ID     */
-  HAL_SDRAM_DMA_XFER_CPLT_CB_ID  = 0x03U,  /*!< SDRAM DMA Xfer Complete Callback ID */
-  HAL_SDRAM_DMA_XFER_ERR_CB_ID   = 0x04U   /*!< SDRAM DMA Xfer Error Callback ID    */
+  HAL_SDRAM_MSP_INIT_CB_ID       = 0x00U,
+  HAL_SDRAM_MSP_DEINIT_CB_ID     = 0x01U,
+  HAL_SDRAM_REFRESH_ERR_CB_ID    = 0x02U,
+  HAL_SDRAM_DMA_XFER_CPLT_CB_ID  = 0x03U,
+  HAL_SDRAM_DMA_XFER_ERR_CB_ID   = 0x04U
 } HAL_SDRAM_CallbackIDTypeDef;
 
 /**

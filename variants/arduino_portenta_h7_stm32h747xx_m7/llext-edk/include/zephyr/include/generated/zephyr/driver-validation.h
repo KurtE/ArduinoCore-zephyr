@@ -4,8 +4,6 @@
 		(K_SYSCALL_OBJ(ptr, K_OBJ_DRIVER_##driver_upper_case) || \
 		 K_SYSCALL_DRIVER_OP(ptr, driver_lower_case##_driver_api, op))
                 
-#define K_SYSCALL_DRIVER_CHARGER(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, charger, CHARGER)
-
 #define K_SYSCALL_DRIVER_ENTROPY(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, entropy, ENTROPY)
 
 #define K_SYSCALL_DRIVER_FLASH(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, flash, FLASH)
@@ -35,6 +33,8 @@
 #define K_SYSCALL_DRIVER_CAN(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, can, CAN)
 
 #define K_SYSCALL_DRIVER_CELLULAR(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, cellular, CELLULAR)
+
+#define K_SYSCALL_DRIVER_CHARGER(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, charger, CHARGER)
 
 #define K_SYSCALL_DRIVER_CLOCK_CONTROL(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, clock_control, CLOCK_CONTROL)
 
@@ -81,8 +81,6 @@
 #define K_SYSCALL_DRIVER_I3C(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, i3c, I3C)
 
 #define K_SYSCALL_DRIVER_IPM(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, ipm, IPM)
-
-#define K_SYSCALL_DRIVER_KSCAN(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, kscan, KSCAN)
 
 #define K_SYSCALL_DRIVER_LED(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, led, LED)
 

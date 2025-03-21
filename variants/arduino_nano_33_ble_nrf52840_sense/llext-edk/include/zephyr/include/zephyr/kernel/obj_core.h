@@ -90,8 +90,8 @@ extern sys_slist_t z_obj_type_list;
 
 /** Object core statistics descriptor */
 struct k_obj_core_stats_desc {
-	size_t  raw_size;   /**< Internal representation stats buffer size */
-	size_t  query_size; /**< Stats buffer size used for reporting */
+	size_t  raw_size;
+	size_t  query_size;
 
 	/** Function pointer to retrieve internal representation of stats */
 	int (*raw)(struct k_obj_core *obj_core, void *stats);
@@ -107,10 +107,10 @@ struct k_obj_core_stats_desc {
 
 /** Object type structure */
 struct k_obj_type {
-	sys_snode_t    node;   /**< Node within list of object types */
-	sys_slist_t    list;   /**< List of objects of this object type */
-	uint32_t       id;     /**< Unique type ID */
-	size_t         obj_core_offset;  /**< Offset to obj_core field */
+	sys_snode_t    node;
+	sys_slist_t    list;
+	uint32_t       id;
+	size_t         obj_core_offset;
 #ifdef CONFIG_OBJ_CORE_STATS
 	/** Pointer to object core statistics descriptor */
 	struct k_obj_core_stats_desc *stats_desc;
@@ -119,10 +119,10 @@ struct k_obj_type {
 
 /** Object core structure */
 struct k_obj_core {
-	sys_snode_t        node;   /**< Object node within object type's list */
-	struct k_obj_type *type;   /**< Object type to which object belongs */
+	sys_snode_t        node;
+	struct k_obj_type *type;
 #ifdef CONFIG_OBJ_CORE_STATS
-	void  *stats;              /**< Pointer to kernel object's stats */
+	void  *stats;
 #endif /* CONFIG_OBJ_CORE_STATS */
 };
 

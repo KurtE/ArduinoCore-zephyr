@@ -288,24 +288,24 @@ typedef struct
 /** Scan result information */
 struct wifi_scan_result2
 {
-    uint8_t bssid[MLAN_MAC_ADDR_LENGTH]; /*!< BSSID array */
-    bool is_ibss_bit_set;                /*!< Is bssid set? */
+    uint8_t bssid[MLAN_MAC_ADDR_LENGTH];
+    bool is_ibss_bit_set;
 
-    uint8_t ssid[MLAN_MAX_SSID_LENGTH];  /*!< ssid array */
-    int ssid_len;                        /*!< SSID length */
-    uint8_t Channel;                     /*!< Channel associated to the BSSID */
-    uint8_t RSSI;                        /*!< Received signal strength */
-    uint16_t beacon_period;              /*!< Beacon period */
-    uint16_t dtim_period;                /*!< DTIM period */
-    _SecurityMode_t WPA_WPA2_WEP;        /*!< Security mode info */
-    _Cipher_t wpa_mcstCipher;            /*!< WPA multicast cipher */
-    _Cipher_t wpa_ucstCipher;            /*!< WPA unicast cipher */
-    _Cipher_t rsn_mcstCipher;            /*!< No security multicast cipher */
-    _Cipher_t rsn_ucstCipher;            /*!< No security unicast cipher */
-    bool is_pmf_required;                /*!< Is pmf required flag */
-    t_u8 ap_mfpc;                        /*!< MFPC bit of AP */
-    t_u8 ap_mfpr;                        /*!< MFPR bit of AP */
-    t_u8 ap_pwe;                         /*!< PWE bit of AP */
+    uint8_t ssid[MLAN_MAX_SSID_LENGTH];
+    int ssid_len;
+    uint8_t Channel;
+    uint8_t RSSI;
+    uint16_t beacon_period;
+    uint16_t dtim_period;
+    _SecurityMode_t WPA_WPA2_WEP;
+    _Cipher_t wpa_mcstCipher;
+    _Cipher_t wpa_ucstCipher;
+    _Cipher_t rsn_mcstCipher;
+    _Cipher_t rsn_ucstCipher;
+    bool is_pmf_required;
+    t_u8 ap_mfpc;
+    t_u8 ap_mfpr;
+    t_u8 ap_pwe;
 
     /*!<
      **  WPA_WPA2 = 0 => Security not enabled
@@ -313,8 +313,8 @@ struct wifi_scan_result2
      **  = 2 => WPA2 mode
      **  = 3 => WEP mode
      */
-    bool phtcap_ie_present;  /*!< PHT CAP IE present info */
-    bool phtinfo_ie_present; /*!< PHT INFO IE present info */
+    bool phtcap_ie_present;
+    bool phtinfo_ie_present;
 #if CONFIG_11AC
     /** 11AC VHT capab support */
     bool pvhtcap_ie_present;
@@ -324,18 +324,18 @@ struct wifi_scan_result2
     bool phecap_ie_present;
 #endif
 
-    bool wmm_ie_present;                       /*!< WMM IE present info */
-    uint16_t band;                             /*!< Band info */
+    bool wmm_ie_present;
+    uint16_t band;
 
-    bool wps_IE_exist;                         /*!< WPS IE exist info */
-    uint16_t wps_session;                      /*!< WPS session */
-    bool wpa2_entp_IE_exist;                   /*!< WPA2 enterprise IE exist info */
-    uint8_t trans_mode;                        /*!< Trans mode */
-    uint8_t trans_bssid[MLAN_MAC_ADDR_LENGTH]; /*!< Trans bssid array */
-    uint8_t trans_ssid[MLAN_MAX_SSID_LENGTH];  /*!< Trans ssid array */
-    int trans_ssid_len;                        /*!< Trans bssid length */
+    bool wps_IE_exist;
+    uint16_t wps_session;
+    bool wpa2_entp_IE_exist;
+    uint8_t trans_mode;
+    uint8_t trans_bssid[MLAN_MAC_ADDR_LENGTH];
+    uint8_t trans_ssid[MLAN_MAX_SSID_LENGTH];
+    int trans_ssid_len;
 #if CONFIG_DRIVER_MBO
-    bool mbo_assoc_disallowed;                 /*!< MBO disallowed */
+    bool mbo_assoc_disallowed;
 #endif
 #if CONFIG_11R
     /** Mobility domain identifier */

@@ -47,19 +47,19 @@ extern "C" {
   */
 typedef struct
 {
-  FunctionalState InnerVLANTagInStatus;      /*!< Enables or disables Inner VLAN Tag in Rx Status  */
+  FunctionalState InnerVLANTagInStatus;
 
   uint32_t StripInnerVLANTag;                /*!< Sets the Inner VLAN Tag Stripping on Receive
                                                   This parameter can be a value of
                                                   @ref ETHEx_Rx_Inner_VLAN_Tag_Stripping */
 
-  FunctionalState InnerVLANTag;              /*!< Enables or disables Inner VLAN Tag */
+  FunctionalState InnerVLANTag;
 
-  FunctionalState DoubleVLANProcessing;      /*!< Enable or Disable double VLAN processing */
+  FunctionalState DoubleVLANProcessing;
 
-  FunctionalState VLANTagHashTableMatch;     /*!< Enable or Disable VLAN Tag Hash Table Match */
+  FunctionalState VLANTagHashTableMatch;
 
-  FunctionalState VLANTagInStatus;           /*!< Enable or Disable VLAN Tag in Rx status */
+  FunctionalState VLANTagInStatus;
 
   uint32_t StripVLANTag;                     /*!< Set the VLAN Tag Stripping on Receive
                                                   This parameter can be a value of @ref ETHEx_Rx_VLAN_Tag_Stripping */
@@ -67,7 +67,7 @@ typedef struct
   uint32_t VLANTypeCheck;                    /*!< Enable or Disable VLAN Type Check
                                                   This parameter can be a value of @ref ETHEx_VLAN_Type_Check */
 
-  FunctionalState VLANTagInverceMatch;       /*!< Enable or disable VLAN Tag Inverse Match */
+  FunctionalState VLANTagInverceMatch;
 } ETH_RxVLANConfigTypeDef;
 /**
   *
@@ -78,9 +78,9 @@ typedef struct
   */
 typedef struct
 {
-  FunctionalState SourceTxDesc;   /*!< Enable or Disable VLAN tag source from DMA tx descriptors */
+  FunctionalState SourceTxDesc;
 
-  FunctionalState SVLANType;      /*!< Enable or Disable insertion of SVLAN type */
+  FunctionalState SVLANType;
 
   uint32_t VLANTagControl;        /*!< Sets the VLAN tag control in tx packets
                                       This parameter can be a value of @ref ETHEx_VLAN_Tag_Control */

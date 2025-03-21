@@ -25,14 +25,14 @@
  *    to both the UltraScale and the Zynq-7000.
  */
 
-#define XLNX_GEM_MDC_DIVIDER_8   0 /* cpu_1x or IOU_SWITCH_CLK     <  20 MHz */
-#define XLNX_GEM_MDC_DIVIDER_16  1 /* cpu_1x or IOU_SWITCH_CLK  20 -  40 MHz */
-#define XLNX_GEM_MDC_DIVIDER_32  2 /* cpu_1x or IOU_SWITCH_CLK  40 -  80 MHz */
-#define XLNX_GEM_MDC_DIVIDER_48  3 /* cpu_1x or IOU_SWITCH_CLK  80 - 120 MHz */
-#define XLNX_GEM_MDC_DIVIDER_64  4 /* cpu_1x or IOU_SWITCH_CLK 120 - 160 MHz */
-#define XLNX_GEM_MDC_DIVIDER_96  5 /* cpu_1x or IOU_SWITCH_CLK 160 - 240 MHz */
-#define XLNX_GEM_MDC_DIVIDER_128 6 /* cpu_1x or IOU_SWITCH_CLK 240 - 320 MHz */
-#define XLNX_GEM_MDC_DIVIDER_224 7 /* cpu_1x or IOU_SWITCH_CLK 320 - 540 MHz */
+#define XLNX_GEM_MDC_DIVIDER_8   0
+#define XLNX_GEM_MDC_DIVIDER_16  1
+#define XLNX_GEM_MDC_DIVIDER_32  2
+#define XLNX_GEM_MDC_DIVIDER_48  3
+#define XLNX_GEM_MDC_DIVIDER_64  4
+#define XLNX_GEM_MDC_DIVIDER_96  5
+#define XLNX_GEM_MDC_DIVIDER_128 6
+#define XLNX_GEM_MDC_DIVIDER_224 7
 
 /* Link speed values */
 #define XLNX_GEM_LINK_SPEED_10MBIT  1

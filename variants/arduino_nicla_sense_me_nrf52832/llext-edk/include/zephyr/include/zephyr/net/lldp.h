@@ -121,17 +121,17 @@ struct net_if;
 
 /** TLV Types. Please refer to table 8-1 from IEEE 802.1AB standard. */
 enum net_lldp_tlv_type {
-	LLDP_TLV_END_LLDPDU          = 0, /**< End Of LLDPDU (optional)      */
-	LLDP_TLV_CHASSIS_ID          = 1, /**< Chassis ID (mandatory)        */
-	LLDP_TLV_PORT_ID             = 2, /**< Port ID (mandatory)           */
-	LLDP_TLV_TTL                 = 3, /**< Time To Live (mandatory)      */
-	LLDP_TLV_PORT_DESC           = 4, /**< Port Description (optional)   */
-	LLDP_TLV_SYSTEM_NAME         = 5, /**< System Name (optional)        */
-	LLDP_TLV_SYSTEM_DESC         = 6, /**< System Description (optional) */
-	LLDP_TLV_SYSTEM_CAPABILITIES = 7, /**< System Capability (optional)  */
-	LLDP_TLV_MANAGEMENT_ADDR     = 8, /**< Management Address (optional) */
+	LLDP_TLV_END_LLDPDU          = 0,
+	LLDP_TLV_CHASSIS_ID          = 1,
+	LLDP_TLV_PORT_ID             = 2,
+	LLDP_TLV_TTL                 = 3,
+	LLDP_TLV_PORT_DESC           = 4,
+	LLDP_TLV_SYSTEM_NAME         = 5,
+	LLDP_TLV_SYSTEM_DESC         = 6,
+	LLDP_TLV_SYSTEM_CAPABILITIES = 7,
+	LLDP_TLV_MANAGEMENT_ADDR     = 8,
 	/* Types 9 - 126 are reserved. */
-	LLDP_TLV_ORG_SPECIFIC       = 127, /**< Org specific TLVs (optional) */
+	LLDP_TLV_ORG_SPECIFIC       = 127,
 };
 
 /** Chassis ID TLV, see chapter 8.5.2 in IEEE 802.1AB */
@@ -167,9 +167,9 @@ struct net_lldp_time_to_live_tlv {
  * as stated in "8.2 LLDPDU format" from the IEEE 802.1AB
  */
 struct net_lldpdu {
-	struct net_lldp_chassis_tlv chassis_id;	/**< Mandatory Chassis TLV */
-	struct net_lldp_port_tlv port_id;	/**< Mandatory Port TLV */
-	struct net_lldp_time_to_live_tlv ttl;	/**< Mandatory TTL TLV */
+	struct net_lldp_chassis_tlv chassis_id;
+	struct net_lldp_port_tlv port_id;
+	struct net_lldp_time_to_live_tlv ttl;
 } __packed;
 
 /**
@@ -224,16 +224,6 @@ typedef enum net_verdict (*net_lldp_recv_cb_t)(struct net_if *iface,
  * @return 0 if ok, < 0 if error
  */
 int net_lldp_register_callback(struct net_if *iface, net_lldp_recv_cb_t cb);
-
-/**
- * @brief Parse LLDP packet
- *
- * @param iface Network interface
- * @param pkt Network packet
- *
- * @return Return the policy for network buffer
- */
-enum net_verdict net_lldp_recv(struct net_if *iface, struct net_pkt *pkt);
 
 /**
  * @brief Set LLDP protocol data unit (LLDPDU) for the network interface.

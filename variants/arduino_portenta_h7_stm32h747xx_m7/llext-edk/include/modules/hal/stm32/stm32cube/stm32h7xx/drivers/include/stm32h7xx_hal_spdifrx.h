@@ -120,12 +120,12 @@ typedef struct
   */
 typedef enum
 {
-  HAL_SPDIFRX_STATE_RESET      = 0x00U,  /*!< SPDIFRX not yet initialized or disabled                */
-  HAL_SPDIFRX_STATE_READY      = 0x01U,  /*!< SPDIFRX initialized and ready for use                  */
-  HAL_SPDIFRX_STATE_BUSY       = 0x02U,  /*!< SPDIFRX internal process is ongoing                    */
-  HAL_SPDIFRX_STATE_BUSY_RX    = 0x03U,  /*!< SPDIFRX internal Data Flow RX process is ongoing       */
-  HAL_SPDIFRX_STATE_BUSY_CX    = 0x04U,  /*!< SPDIFRX internal Control Flow RX process is ongoing    */
-  HAL_SPDIFRX_STATE_ERROR      = 0x07U   /*!< SPDIFRX error state                                    */
+  HAL_SPDIFRX_STATE_RESET      = 0x00U,
+  HAL_SPDIFRX_STATE_READY      = 0x01U,
+  HAL_SPDIFRX_STATE_BUSY       = 0x02U,
+  HAL_SPDIFRX_STATE_BUSY_RX    = 0x03U,
+  HAL_SPDIFRX_STATE_BUSY_CX    = 0x04U,
+  HAL_SPDIFRX_STATE_ERROR      = 0x07U
 } HAL_SPDIFRX_StateTypeDef;
 
 /**
@@ -137,15 +137,15 @@ typedef struct __SPDIFRX_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_SPDIFRX_REGISTER_CALLBACKS */
 {
-  SPDIFRX_TypeDef            *Instance;    /* SPDIFRX registers base address */
+  SPDIFRX_TypeDef            *Instance;
 
-  SPDIFRX_InitTypeDef        Init;         /* SPDIFRX communication parameters */
+  SPDIFRX_InitTypeDef        Init;
 
-  uint32_t                   *pRxBuffPtr;  /* Pointer to SPDIFRX Rx transfer buffer */
+  uint32_t                   *pRxBuffPtr;
 
-  uint32_t                   *pCsBuffPtr;  /* Pointer to SPDIFRX Cx transfer buffer */
+  uint32_t                   *pCsBuffPtr;
 
-  __IO uint16_t              RxXferSize;   /* SPDIFRX Rx transfer size */
+  __IO uint16_t              RxXferSize;
 
   __IO uint16_t              RxXferCount;  /* SPDIFRX Rx transfer counter
                                               (This field is initialized at the
@@ -154,7 +154,7 @@ typedef struct
                                                decremented when a sample is received.
                                                NbSamplesReceived = RxBufferSize-RxBufferCount) */
 
-  __IO uint16_t              CsXferSize;   /* SPDIFRX Rx transfer size */
+  __IO uint16_t              CsXferSize;
 
   __IO uint16_t              CsXferCount;  /* SPDIFRX Rx transfer counter
                                               (This field is initialized at the
@@ -166,24 +166,24 @@ typedef struct
   DMA_HandleTypeDef          *hdmaCsRx;    /* SPDIFRX EC60958_channel_status and user_information
                                               DMA handle parameters */
 
-  DMA_HandleTypeDef          *hdmaDrRx;    /* SPDIFRX Rx DMA handle parameters */
+  DMA_HandleTypeDef          *hdmaDrRx;
 
-  __IO HAL_LockTypeDef       Lock;         /* SPDIFRX locking object */
+  __IO HAL_LockTypeDef       Lock;
 
-  __IO HAL_SPDIFRX_StateTypeDef  State;    /* SPDIFRX communication state */
+  __IO HAL_SPDIFRX_StateTypeDef  State;
 
-  __IO uint32_t  ErrorCode;                /* SPDIFRX Error code */
+  __IO uint32_t  ErrorCode;
 
 #if (USE_HAL_SPDIFRX_REGISTER_CALLBACKS == 1)
   void (*RxHalfCpltCallback)(struct __SPDIFRX_HandleTypeDef *hspdif);   /*!< SPDIFRX Data flow half completed
                                                                              callback */
-  void (*RxCpltCallback)(struct __SPDIFRX_HandleTypeDef *hspdif);       /*!< SPDIFRX Data flow completed callback */
+  void (*RxCpltCallback)(struct __SPDIFRX_HandleTypeDef *hspdif);
   void (*CxHalfCpltCallback)(struct __SPDIFRX_HandleTypeDef *hspdif);   /*!< SPDIFRX Control flow half completed
                                                                              callback */
-  void (*CxCpltCallback)(struct __SPDIFRX_HandleTypeDef *hspdif);       /*!< SPDIFRX Control flow completed callback */
-  void (*ErrorCallback)(struct __SPDIFRX_HandleTypeDef *hspdif);        /*!< SPDIFRX error callback */
-  void (* MspInitCallback)(struct __SPDIFRX_HandleTypeDef *hspdif);     /*!< SPDIFRX Msp Init callback  */
-  void (* MspDeInitCallback)(struct __SPDIFRX_HandleTypeDef *hspdif);   /*!< SPDIFRX Msp DeInit callback  */
+  void (*CxCpltCallback)(struct __SPDIFRX_HandleTypeDef *hspdif);
+  void (*ErrorCallback)(struct __SPDIFRX_HandleTypeDef *hspdif);
+  void (* MspInitCallback)(struct __SPDIFRX_HandleTypeDef *hspdif);
+  void (* MspDeInitCallback)(struct __SPDIFRX_HandleTypeDef *hspdif);
 #endif /* USE_HAL_SPDIFRX_REGISTER_CALLBACKS */
 
 } SPDIFRX_HandleTypeDef;
@@ -194,13 +194,13 @@ typedef struct
   */
 typedef enum
 {
-  HAL_SPDIFRX_RX_HALF_CB_ID   = 0x00U,    /*!< SPDIFRX Data flow half completed callback ID */
-  HAL_SPDIFRX_RX_CPLT_CB_ID   = 0x01U,    /*!< SPDIFRX Data flow completed callback */
-  HAL_SPDIFRX_CX_HALF_CB_ID   = 0x02U,    /*!< SPDIFRX Control flow half completed callback */
-  HAL_SPDIFRX_CX_CPLT_CB_ID   = 0x03U,    /*!< SPDIFRX Control flow completed callback */
-  HAL_SPDIFRX_ERROR_CB_ID     = 0x04U,    /*!< SPDIFRX error callback */
-  HAL_SPDIFRX_MSPINIT_CB_ID   = 0x05U,    /*!< SPDIFRX Msp Init callback ID     */
-  HAL_SPDIFRX_MSPDEINIT_CB_ID = 0x06U     /*!< SPDIFRX Msp DeInit callback ID   */
+  HAL_SPDIFRX_RX_HALF_CB_ID   = 0x00U,
+  HAL_SPDIFRX_RX_CPLT_CB_ID   = 0x01U,
+  HAL_SPDIFRX_CX_HALF_CB_ID   = 0x02U,
+  HAL_SPDIFRX_CX_CPLT_CB_ID   = 0x03U,
+  HAL_SPDIFRX_ERROR_CB_ID     = 0x04U,
+  HAL_SPDIFRX_MSPINIT_CB_ID   = 0x05U,
+  HAL_SPDIFRX_MSPDEINIT_CB_ID = 0x06U
 } HAL_SPDIFRX_CallbackIDTypeDef;
 
 /**
@@ -219,14 +219,14 @@ typedef  void (*pSPDIFRX_CallbackTypeDef)(SPDIFRX_HandleTypeDef *hspdif);  /*!< 
 /** @defgroup SPDIFRX_ErrorCode SPDIFRX Error Code
   * @{
   */
-#define HAL_SPDIFRX_ERROR_NONE      ((uint32_t)0x00000000U)  /*!< No error           */
-#define HAL_SPDIFRX_ERROR_TIMEOUT   ((uint32_t)0x00000001U)  /*!< Timeout error      */
-#define HAL_SPDIFRX_ERROR_OVR       ((uint32_t)0x00000002U)  /*!< OVR error          */
-#define HAL_SPDIFRX_ERROR_PE        ((uint32_t)0x00000004U)  /*!< Parity error       */
-#define HAL_SPDIFRX_ERROR_DMA       ((uint32_t)0x00000008U)  /*!< DMA transfer error */
-#define HAL_SPDIFRX_ERROR_UNKNOWN   ((uint32_t)0x00000010U)  /*!< Unknown Error error */
+#define HAL_SPDIFRX_ERROR_NONE      ((uint32_t)0x00000000U)
+#define HAL_SPDIFRX_ERROR_TIMEOUT   ((uint32_t)0x00000001U)
+#define HAL_SPDIFRX_ERROR_OVR       ((uint32_t)0x00000002U)
+#define HAL_SPDIFRX_ERROR_PE        ((uint32_t)0x00000004U)
+#define HAL_SPDIFRX_ERROR_DMA       ((uint32_t)0x00000008U)
+#define HAL_SPDIFRX_ERROR_UNKNOWN   ((uint32_t)0x00000010U)
 #if (USE_HAL_SPDIFRX_REGISTER_CALLBACKS == 1)
-#define  HAL_SPDIFRX_ERROR_INVALID_CALLBACK   ((uint32_t)0x00000020U)    /*!< Invalid Callback error  */
+#define  HAL_SPDIFRX_ERROR_INVALID_CALLBACK   ((uint32_t)0x00000020U)
 #endif /* USE_HAL_SPDIFRX_REGISTER_CALLBACKS */
 /**
   * @}

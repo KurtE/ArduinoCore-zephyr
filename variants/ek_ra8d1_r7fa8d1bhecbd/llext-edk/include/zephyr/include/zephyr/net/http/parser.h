@@ -154,17 +154,17 @@ struct http_content_range {
 
 struct http_parser {
 	/** PRIVATE **/
-	unsigned int type : 2;         /* enum http_parser_type */
+	unsigned int type : 2;
 	unsigned int flags : 8;		/* F_xxx values from 'flags' enum;
 					 * semi-public
 					 */
-	unsigned int state : 7;        /* enum state from http_parser.c */
+	unsigned int state : 7;
 	unsigned int header_state : 7; /* enum header_state from http_parser.c
 					*/
-	unsigned int index : 7;        /* index into current matcher */
+	unsigned int index : 7;
 	unsigned int lenient_http_headers : 1;
 
-	uint32_t nread;          /* # bytes read in various scenarios */
+	uint32_t nread;
 	uint64_t content_length; /* # bytes in body (0 if no Content-Length
 				  * header)
 				  */
@@ -173,8 +173,8 @@ struct http_parser {
 	/** READ-ONLY **/
 	unsigned short http_major;
 	unsigned short http_minor;
-	unsigned int status_code : 16; /* responses only */
-	unsigned int method : 8;       /* requests only */
+	unsigned int status_code : 16;
+	unsigned int method : 8;
 	unsigned int http_errno : 7;
 
 	/* 1 = Upgrade header was present and the parser has exited because of

@@ -51,49 +51,49 @@
 #define LPC11U6X_USART_CLOCK_RATE           14745600
 
 struct lpc11u6x_syscon_regs {
-	volatile uint32_t sys_mem_remap;        /* System memory remap */
-	volatile uint32_t p_reset_ctrl;         /* Peripheral reset control */
-	volatile uint32_t sys_pll_ctrl;         /* System PLL control */
-	volatile const uint32_t sys_pll_stat;   /* System PLL status */
-	volatile uint32_t usb_pll_ctrl;         /* USB PLL control */
-	volatile const uint32_t usb_pll_stat;   /* USB PLL status */
+	volatile uint32_t sys_mem_remap;
+	volatile uint32_t p_reset_ctrl;
+	volatile uint32_t sys_pll_ctrl;
+	volatile const uint32_t sys_pll_stat;
+	volatile uint32_t usb_pll_ctrl;
+	volatile const uint32_t usb_pll_stat;
 	volatile const uint32_t reserved1;
-	volatile uint32_t rtc_osc_ctrl;         /* RTC oscillator control */
-	volatile uint32_t sys_osc_ctrl;         /* System oscillator control */
+	volatile uint32_t rtc_osc_ctrl;
+	volatile uint32_t sys_osc_ctrl;
 	volatile uint32_t wdt_osc_ctrl;         /* Watchdog oscillator
 						 * control
 						 */
-	volatile uint32_t irc_ctrl;             /* IRC Control */
+	volatile uint32_t irc_ctrl;
 	volatile const uint32_t reserved2;
-	volatile uint32_t sys_rst_stat;         /* System reset status */
+	volatile uint32_t sys_rst_stat;
 	volatile const uint32_t reserved3[3];
-	volatile uint32_t sys_pll_clk_sel;      /* System PLL clock source */
-	volatile uint32_t sys_pll_clk_uen;      /* System PLL source update */
-	volatile uint32_t usb_pll_clk_sel;      /* USB PLL clock source */
+	volatile uint32_t sys_pll_clk_sel;
+	volatile uint32_t sys_pll_clk_uen;
+	volatile uint32_t usb_pll_clk_sel;
 	volatile uint32_t usb_pll_clk_uen;      /* USB PLL clock source
 						 * update
 						 */
 	volatile const uint32_t reserved4[8];
-	volatile uint32_t main_clk_sel;         /* Main clock select */
-	volatile uint32_t main_clk_uen;         /* Main clock update */
-	volatile uint32_t sys_ahb_clk_div;      /* System clock divider */
+	volatile uint32_t main_clk_sel;
+	volatile uint32_t main_clk_uen;
+	volatile uint32_t sys_ahb_clk_div;
 	volatile const uint32_t reserved5;
-	volatile uint32_t sys_ahb_clk_ctrl;     /* System clock control */
+	volatile uint32_t sys_ahb_clk_ctrl;
 	volatile const uint32_t reserved6[4];
-	volatile uint32_t ssp0_clk_div;         /* SSP0 clock divider */
-	volatile uint32_t usart0_clk_div;       /* USART0 clock divider */
-	volatile uint32_t ssp1_clk_div;         /* SSP1 clock divider */
+	volatile uint32_t ssp0_clk_div;
+	volatile uint32_t usart0_clk_div;
+	volatile uint32_t ssp1_clk_div;
 	volatile uint32_t frg_clk_div;          /* USART 1-4 fractional baud
 						 * rate generator clock divider
 						 */
 	volatile const uint32_t reserved7[7];
-	volatile uint32_t usb_clk_sel;          /* USB clock select */
-	volatile uint32_t usb_clk_uen;          /* USB clock update */
-	volatile uint32_t usb_clk_div;          /* USB clock divider */
+	volatile uint32_t usb_clk_sel;
+	volatile uint32_t usb_clk_uen;
+	volatile uint32_t usb_clk_div;
 	volatile const uint32_t reserved8[5];
-	volatile uint32_t clk_out_sel;          /* CLKOUT source select */
-	volatile uint32_t clk_out_uen;          /* CLKOUT source update */
-	volatile uint32_t clk_out_div;          /* CLKOUT divider */
+	volatile uint32_t clk_out_sel;
+	volatile uint32_t clk_out_uen;
+	volatile uint32_t clk_out_div;
 	volatile const uint32_t reserved9;
 	volatile uint32_t uart_frg_div;         /* USART1-4 fractional
 						 * generator divider
@@ -105,21 +105,21 @@ struct lpc11u6x_syscon_regs {
 	volatile uint32_t ext_trace_cmd;        /* External trace buffer
 						 * command
 						 */
-	volatile const uint32_t pio_por_cap[3]; /* CLKOUT source select */
+	volatile const uint32_t pio_por_cap[3];
 	volatile const uint32_t reserved11[10];
-	volatile uint32_t iocon_clk_div[7];     /* IOCON clock divider */
-	volatile uint32_t bod_ctrl;             /* Brown-out detect control */
-	volatile uint32_t sys_tck_cal;          /* System tick calibration */
+	volatile uint32_t iocon_clk_div[7];
+	volatile uint32_t bod_ctrl;
+	volatile uint32_t sys_tck_cal;
 	volatile const uint32_t reserved12[6];
-	volatile uint32_t irq_latency;          /* IRQ latency */
-	volatile uint32_t nmi_src;              /* NMI source control */
-	volatile uint32_t pint_sel[8];          /* GPIO pin interrupt select */
-	volatile uint32_t usb_clk_ctrl;         /* USB clock control */
-	volatile const uint32_t usb_clk_stat;   /* USB clock status */
+	volatile uint32_t irq_latency;
+	volatile uint32_t nmi_src;
+	volatile uint32_t pint_sel[8];
+	volatile uint32_t usb_clk_ctrl;
+	volatile const uint32_t usb_clk_stat;
 	volatile uint32_t reserved13[25];
-	volatile uint32_t starterp0;            /* Start logic 0 int wake-up */
+	volatile uint32_t starterp0;
 	volatile const uint32_t reserved14[3];
-	volatile uint32_t starterp1;            /* Start logic 1 int wake-up */
+	volatile uint32_t starterp1;
 	volatile const uint32_t reserved15[6];
 	volatile uint32_t pd_sleep_cfg;         /* Deep-sleep power-down
 						 * states
@@ -127,9 +127,9 @@ struct lpc11u6x_syscon_regs {
 	volatile uint32_t pd_awake_cfg;         /* Power-down states for
 						 * wake-up from deep-sleep
 						 */
-	volatile uint32_t pd_run_cfg;           /* Power configuration */
+	volatile uint32_t pd_run_cfg;
 	volatile const uint32_t reserved16[110];
-	volatile const uint32_t device_id;      /* Device identifier */
+	volatile const uint32_t device_id;
 };
 
 struct lpc11u6x_syscon_config {

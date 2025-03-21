@@ -128,21 +128,21 @@ struct sensor_q31_data {
 		uint32_t timestamp_delta;
 		union {
 			q31_t value;
-			q31_t light;           /**< Unit: lux */
-			q31_t pressure;        /**< Unit: kilopascal */
-			q31_t temperature;     /**< Unit: degrees Celsius */
-			q31_t percent;         /**< Unit: percent */
-			q31_t distance;        /**< Unit: meters */
-			q31_t density;         /**< Unit: ug/m^3 */
-			q31_t density_ppm;     /**< Unit: parts per million */
-			q31_t density_ppb;     /**< Unit: parts per billion */
-			q31_t resistance;      /**< Unit: ohms */
-			q31_t voltage;         /**< Unit: volts */
-			q31_t current;         /**< Unit: amps */
-			q31_t power;           /**< Unit: watts */
-			q31_t angle;           /**< Unit: degrees */
-			q31_t electric_charge; /**< Unit: mAh */
-			q31_t humidity;        /**< Unit: RH */
+			q31_t light;
+			q31_t pressure;
+			q31_t temperature;
+			q31_t percent;
+			q31_t distance;
+			q31_t density;
+			q31_t density_ppm;
+			q31_t density_ppb;
+			q31_t resistance;
+			q31_t voltage;
+			q31_t current;
+			q31_t power;
+			q31_t angle;
+			q31_t electric_charge;
+			q31_t humidity;
 		};
 	} readings[1];
 };

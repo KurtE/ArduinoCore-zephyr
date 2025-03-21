@@ -51,10 +51,10 @@
 #define ESP32_UART1_MODULE              2
 #define ESP32_I2C0_MODULE               3
 #define ESP32_TIMG0_MODULE              4
-#define ESP32_TIMG1_MODULE              5  /* No timg1 on esp32c2, TODO: IDF-3825 */
+#define ESP32_TIMG1_MODULE              5
 #define ESP32_UHCI0_MODULE              6
-#define ESP32_SPI_MODULE                7  /* SPI1 */
-#define ESP32_SPI2_MODULE               8  /* SPI2 */
+#define ESP32_SPI_MODULE                7
+#define ESP32_SPI2_MODULE               8
 #define ESP32_RNG_MODULE                9
 #define ESP32_WIFI_MODULE               10
 #define ESP32_BT_MODULE                 11

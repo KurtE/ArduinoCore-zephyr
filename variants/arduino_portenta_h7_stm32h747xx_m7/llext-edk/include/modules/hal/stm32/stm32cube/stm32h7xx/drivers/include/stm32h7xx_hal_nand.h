@@ -47,10 +47,10 @@ extern "C" {
   */
 typedef enum
 {
-  HAL_NAND_STATE_RESET     = 0x00U,  /*!< NAND not yet initialized or disabled */
-  HAL_NAND_STATE_READY     = 0x01U,  /*!< NAND initialized and ready for use   */
-  HAL_NAND_STATE_BUSY      = 0x02U,  /*!< NAND internal process is ongoing     */
-  HAL_NAND_STATE_ERROR     = 0x03U   /*!< NAND error state                     */
+  HAL_NAND_STATE_RESET     = 0x00U,
+  HAL_NAND_STATE_READY     = 0x01U,
+  HAL_NAND_STATE_BUSY      = 0x02U,
+  HAL_NAND_STATE_ERROR     = 0x03U
 } HAL_NAND_StateTypeDef;
 
 /**
@@ -74,11 +74,11 @@ typedef struct
   */
 typedef struct
 {
-  uint16_t Page;   /*!< NAND memory Page address  */
+  uint16_t Page;
 
-  uint16_t Plane;   /*!< NAND memory Zone address  */
+  uint16_t Plane;
 
-  uint16_t Block;  /*!< NAND memory Block address */
+  uint16_t Block;
 
 } NAND_AddressTypeDef;
 
@@ -93,13 +93,13 @@ typedef struct
   uint32_t        SpareAreaSize;         /*!< NAND memory spare area size measured in bytes
                                               for 8 bits addressing or words for 16 bits addressing             */
 
-  uint32_t        BlockSize;             /*!< NAND memory block size measured in number of pages               */
+  uint32_t        BlockSize;
 
-  uint32_t        BlockNbr;              /*!< NAND memory number of total blocks                               */
+  uint32_t        BlockNbr;
 
-  uint32_t        PlaneNbr;              /*!< NAND memory number of planes                                     */
+  uint32_t        PlaneNbr;
 
-  uint32_t        PlaneSize;             /*!< NAND memory zone size measured in number of blocks               */
+  uint32_t        PlaneSize;
 
   FunctionalState ExtraCommandEnable;    /*!< NAND extra command needed for Page reading mode. This
                                               parameter is mandatory for some NAND parts after the read
@@ -117,20 +117,20 @@ typedef struct __NAND_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_NAND_REGISTER_CALLBACKS  */
 {
-  FMC_NAND_TypeDef               *Instance;  /*!< Register base address                                 */
+  FMC_NAND_TypeDef               *Instance;
 
-  FMC_NAND_InitTypeDef           Init;       /*!< NAND device control configuration parameters          */
+  FMC_NAND_InitTypeDef           Init;
 
-  HAL_LockTypeDef                Lock;       /*!< NAND locking object                                   */
+  HAL_LockTypeDef                Lock;
 
-  __IO HAL_NAND_StateTypeDef     State;      /*!< NAND device access state                              */
+  __IO HAL_NAND_StateTypeDef     State;
 
-  NAND_DeviceConfigTypeDef       Config;     /*!< NAND physical characteristic information structure    */
+  NAND_DeviceConfigTypeDef       Config;
 
 #if (USE_HAL_NAND_REGISTER_CALLBACKS == 1)
-  void (* MspInitCallback)(struct __NAND_HandleTypeDef *hnand);               /*!< NAND Msp Init callback              */
-  void (* MspDeInitCallback)(struct __NAND_HandleTypeDef *hnand);             /*!< NAND Msp DeInit callback            */
-  void (* ItCallback)(struct __NAND_HandleTypeDef *hnand);                    /*!< NAND IT callback                    */
+  void (* MspInitCallback)(struct __NAND_HandleTypeDef *hnand);
+  void (* MspDeInitCallback)(struct __NAND_HandleTypeDef *hnand);
+  void (* ItCallback)(struct __NAND_HandleTypeDef *hnand);
 #endif /* USE_HAL_NAND_REGISTER_CALLBACKS */
 } NAND_HandleTypeDef;
 
@@ -140,9 +140,9 @@ typedef struct
   */
 typedef enum
 {
-  HAL_NAND_MSP_INIT_CB_ID       = 0x00U,  /*!< NAND MspInit Callback ID          */
-  HAL_NAND_MSP_DEINIT_CB_ID     = 0x01U,  /*!< NAND MspDeInit Callback ID        */
-  HAL_NAND_IT_CB_ID             = 0x02U   /*!< NAND IT Callback ID               */
+  HAL_NAND_MSP_INIT_CB_ID       = 0x00U,
+  HAL_NAND_MSP_DEINIT_CB_ID     = 0x01U,
+  HAL_NAND_IT_CB_ID             = 0x02U
 } HAL_NAND_CallbackIDTypeDef;
 
 /**
@@ -282,8 +282,8 @@ uint32_t              HAL_NAND_Read_Status(const NAND_HandleTypeDef *hnand);
 #define NAND_DEVICE                0x80000000UL
 #define NAND_WRITE_TIMEOUT         0x01000000UL
 
-#define CMD_AREA                   (1UL<<16U)  /* A16 = CLE high */
-#define ADDR_AREA                  (1UL<<17U)  /* A17 = ALE high */
+#define CMD_AREA                   (1UL<<16U)
+#define ADDR_AREA                  (1UL<<17U)
 
 #define NAND_CMD_AREA_A            ((uint8_t)0x00)
 #define NAND_CMD_AREA_B            ((uint8_t)0x01)
@@ -339,18 +339,18 @@ uint32_t              HAL_NAND_Read_Status(const NAND_HandleTypeDef *hnand);
   * @param  __ADDRESS__ NAND memory address.
   * @retval NAND address cycling value.
   */
-#define ADDR_1ST_CYCLE(__ADDRESS__)       (uint8_t)(__ADDRESS__)              /* 1st addressing cycle */
-#define ADDR_2ND_CYCLE(__ADDRESS__)       (uint8_t)((__ADDRESS__) >> 8)       /* 2nd addressing cycle */
-#define ADDR_3RD_CYCLE(__ADDRESS__)       (uint8_t)((__ADDRESS__) >> 16)      /* 3rd addressing cycle */
-#define ADDR_4TH_CYCLE(__ADDRESS__)       (uint8_t)((__ADDRESS__) >> 24)      /* 4th addressing cycle */
+#define ADDR_1ST_CYCLE(__ADDRESS__)       (uint8_t)(__ADDRESS__)
+#define ADDR_2ND_CYCLE(__ADDRESS__)       (uint8_t)((__ADDRESS__) >> 8)
+#define ADDR_3RD_CYCLE(__ADDRESS__)       (uint8_t)((__ADDRESS__) >> 16)
+#define ADDR_4TH_CYCLE(__ADDRESS__)       (uint8_t)((__ADDRESS__) >> 24)
 
 /**
   * @brief  NAND memory Columns cycling.
   * @param  __ADDRESS__ NAND memory address.
   * @retval NAND Column address cycling value.
   */
-#define COLUMN_1ST_CYCLE(__ADDRESS__)       (uint8_t)((__ADDRESS__) & 0xFFU)    /* 1st Column addressing cycle */
-#define COLUMN_2ND_CYCLE(__ADDRESS__)       (uint8_t)((__ADDRESS__) >> 8)       /* 2nd Column addressing cycle */
+#define COLUMN_1ST_CYCLE(__ADDRESS__)       (uint8_t)((__ADDRESS__) & 0xFFU)
+#define COLUMN_2ND_CYCLE(__ADDRESS__)       (uint8_t)((__ADDRESS__) >> 8)
 
 /**
   * @}

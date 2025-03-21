@@ -45,9 +45,9 @@ extern "C" {
 /** @defgroup IRDAEx_Word_Length IRDAEx Word Length
   * @{
   */
-#define IRDA_WORDLENGTH_7B                  USART_CR1_M1   /*!< 7-bit long frame */
-#define IRDA_WORDLENGTH_8B                  0x00000000U    /*!< 8-bit long frame */
-#define IRDA_WORDLENGTH_9B                  USART_CR1_M0   /*!< 9-bit long frame */
+#define IRDA_WORDLENGTH_7B                  USART_CR1_M1
+#define IRDA_WORDLENGTH_8B                  0x00000000U
+#define IRDA_WORDLENGTH_9B                  USART_CR1_M0
 /**
   * @}
   */

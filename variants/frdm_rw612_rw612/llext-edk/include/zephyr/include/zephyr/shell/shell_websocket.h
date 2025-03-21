@@ -88,7 +88,7 @@ int shell_websocket_enable(const struct shell *sh);
 		.common = {							\
 			.type = HTTP_RESOURCE_TYPE_WEBSOCKET,			\
 										\
-			/* We need HTTP/1.1 GET method for upgrading */		\
+		\
 			.bitmask_of_supported_http_methods = BIT(HTTP_GET),	\
 		},								\
 		.cb = shell_websocket_setup,					\

@@ -143,8 +143,8 @@ typedef struct
 /** @defgroup OPAMP_LL_EC_MODE OPAMP mode calibration or functional.
   * @{
   */
-#define LL_OPAMP_MODE_FUNCTIONAL        0x00000000U                               /*!< OPAMP functional mode */
-#define LL_OPAMP_MODE_CALIBRATION       (OPAMP_CSR_CALON)                           /*!< OPAMP calibration mode */
+#define LL_OPAMP_MODE_FUNCTIONAL        0x00000000U
+#define LL_OPAMP_MODE_CALIBRATION       (OPAMP_CSR_CALON)
 /**
   * @}
   */
@@ -152,10 +152,10 @@ typedef struct
 /** @defgroup OPAMP_LL_EC_FUNCTIONAL_MODE OPAMP functional mode
   * @{
   */
-#define LL_OPAMP_MODE_STANDALONE        0x00000000U                                                 /*!< OPAMP functional mode, OPAMP operation in standalone */
-#define LL_OPAMP_MODE_FOLLOWER          (OPAMP_CSR_VMSEL_1 | OPAMP_CSR_VMSEL_0)                       /*!< OPAMP functional mode, OPAMP operation in follower */
-#define LL_OPAMP_MODE_PGA               (OPAMP_CSR_VMSEL_1)                                           /*!< OPAMP functional mode, OPAMP operation in PGA */
-#define LL_OPAMP_MODE_PGA_IO0           (OPAMP_CSR_PGGAIN_2|OPAMP_CSR_VMSEL_1)                        /*!< In PGA mode, the inverting input is connected to VINM0 for filtering */
+#define LL_OPAMP_MODE_STANDALONE        0x00000000U
+#define LL_OPAMP_MODE_FOLLOWER          (OPAMP_CSR_VMSEL_1 | OPAMP_CSR_VMSEL_0)
+#define LL_OPAMP_MODE_PGA               (OPAMP_CSR_VMSEL_1)
+#define LL_OPAMP_MODE_PGA_IO0           (OPAMP_CSR_PGGAIN_2|OPAMP_CSR_VMSEL_1)
 #define LL_OPAMP_MODE_PGA_IO0_BIAS      (OPAMP_CSR_PGGAIN_3|OPAMP_CSR_VMSEL_1)                        /*!< In PGA mode, the inverting input is connected to VINM0
                                                                                                           - Input signal on VINM0, bias on VINPx: negative gain
                                                                                                           - Bias on VINM0, input signal on VINPx: positive gain */
@@ -177,10 +177,10 @@ typedef struct
   *       see @ref OPAMP_LL_EC_FUNCTIONAL_MODE for more details
   * @{
   */
-#define LL_OPAMP_PGA_GAIN_2_OR_MINUS_1             0x00000000U                                                    /*!< OPAMP PGA gain 2  or -1  */
-#define LL_OPAMP_PGA_GAIN_4_OR_MINUS_3             (                                          OPAMP_CSR_PGGAIN_0) /*!< OPAMP PGA gain 4  or -3  */
-#define LL_OPAMP_PGA_GAIN_8_OR_MINUS_7             (                     OPAMP_CSR_PGGAIN_1                     ) /*!< OPAMP PGA gain 8  or -7  */
-#define LL_OPAMP_PGA_GAIN_16_OR_MINUS_15           (                     OPAMP_CSR_PGGAIN_1 | OPAMP_CSR_PGGAIN_0) /*!< OPAMP PGA gain 16 or -15 */
+#define LL_OPAMP_PGA_GAIN_2_OR_MINUS_1             0x00000000U
+#define LL_OPAMP_PGA_GAIN_4_OR_MINUS_3             (                                          OPAMP_CSR_PGGAIN_0)
+#define LL_OPAMP_PGA_GAIN_8_OR_MINUS_7             (                     OPAMP_CSR_PGGAIN_1                     )
+#define LL_OPAMP_PGA_GAIN_16_OR_MINUS_15           (                     OPAMP_CSR_PGGAIN_1 | OPAMP_CSR_PGGAIN_0)
 /**
   * @}
   */
@@ -225,8 +225,8 @@ typedef struct
 /** @defgroup OPAMP_LL_EC_POWER_MODE OPAMP PowerMode
   * @{
   */
-#define LL_OPAMP_POWERMODE_NORMAL        (OPAMP_POWERMODE_OTR_REGOFFSET)                            /*!< OPAMP output in normal mode */
-#define LL_OPAMP_POWERMODE_HIGHSPEED     (OPAMP_POWERMODE_HSOTR_REGOFFSET | OPAMP_CSR_OPAHSM)       /*!< OPAMP output in highspeed mode */
+#define LL_OPAMP_POWERMODE_NORMAL        (OPAMP_POWERMODE_OTR_REGOFFSET)
+#define LL_OPAMP_POWERMODE_HIGHSPEED     (OPAMP_POWERMODE_HSOTR_REGOFFSET | OPAMP_CSR_OPAHSM)
 /**
   * @}
   */
@@ -234,8 +234,8 @@ typedef struct
 /** @defgroup OPAMP_LL_EC_TRIMMING_MODE OPAMP trimming mode
   * @{
   */
-#define LL_OPAMP_TRIMMING_FACTORY       0x00000000U             /*!< OPAMP trimming factors set to factory values */
-#define LL_OPAMP_TRIMMING_USER          OPAMP_CSR_USERTRIM      /*!< OPAMP trimming factors set to user values */
+#define LL_OPAMP_TRIMMING_FACTORY       0x00000000U
+#define LL_OPAMP_TRIMMING_USER          OPAMP_CSR_USERTRIM
 /**
   * @}
   */
@@ -243,12 +243,12 @@ typedef struct
 /** @defgroup OPAMP_LL_EC_TRIMMING_TRANSISTORS_DIFF_PAIR OPAMP trimming of transistors differential pair NMOS or PMOS
   * @{
   */
-#define LL_OPAMP_TRIMMING_NMOS_VREF_90PC_VDDA  (OPAMP_OTR_TRIMOFFSETN | ((OPAMP_CSR_CALSEL_1 | OPAMP_CSR_CALSEL_0) << 4)) /*!< OPAMP trimming of transistors differential pair NMOS (internal reference voltage set to 0.9*Vdda). Default parameters to be used for calibration using two trimming steps (one with each transistors differential pair NMOS and PMOS). */
-#define LL_OPAMP_TRIMMING_NMOS_VREF_50PC_VDDA  (OPAMP_OTR_TRIMOFFSETN                      | (OPAMP_CSR_CALSEL_1 << 4))   /*!< OPAMP trimming of transistors differential pair NMOS (internal reference voltage set to 0.5*Vdda). */
-#define LL_OPAMP_TRIMMING_PMOS_VREF_10PC_VDDA  (OPAMP_OTR_TRIMOFFSETP                      | (OPAMP_CSR_CALSEL_0 << 4))   /*!< OPAMP trimming of transistors differential pair PMOS (internal reference voltage set to 0.1*Vdda). Default parameters to be used for calibration using two trimming steps (one with each transistors differential pair NMOS and PMOS). */
-#define LL_OPAMP_TRIMMING_PMOS_VREF_3_3PC_VDDA (OPAMP_OTR_TRIMOFFSETP                                          )          /*!< OPAMP trimming of transistors differential pair PMOS (internal reference voltage set to 0.33*Vdda). */
-#define LL_OPAMP_TRIMMING_NMOS                 (LL_OPAMP_TRIMMING_NMOS_VREF_90PC_VDDA)                                    /*!< OPAMP trimming of transistors differential pair NMOS (internal reference voltage set to 0.9*Vdda). Default parameters to be used for calibration using two trimming steps (one with each transistors differential pair NMOS and PMOS). */
-#define LL_OPAMP_TRIMMING_PMOS                 (LL_OPAMP_TRIMMING_PMOS_VREF_10PC_VDDA)                                    /*!< OPAMP trimming of transistors differential pair PMOS (internal reference voltage set to 0.1*Vdda). Default parameters to be used for calibration using two trimming steps (one with each transistors differential pair NMOS and PMOS). */
+#define LL_OPAMP_TRIMMING_NMOS_VREF_90PC_VDDA  (OPAMP_OTR_TRIMOFFSETN | ((OPAMP_CSR_CALSEL_1 | OPAMP_CSR_CALSEL_0) << 4))
+#define LL_OPAMP_TRIMMING_NMOS_VREF_50PC_VDDA  (OPAMP_OTR_TRIMOFFSETN                      | (OPAMP_CSR_CALSEL_1 << 4))
+#define LL_OPAMP_TRIMMING_PMOS_VREF_10PC_VDDA  (OPAMP_OTR_TRIMOFFSETP                      | (OPAMP_CSR_CALSEL_0 << 4))
+#define LL_OPAMP_TRIMMING_PMOS_VREF_3_3PC_VDDA (OPAMP_OTR_TRIMOFFSETP                                          )
+#define LL_OPAMP_TRIMMING_NMOS                 (LL_OPAMP_TRIMMING_NMOS_VREF_90PC_VDDA)
+#define LL_OPAMP_TRIMMING_PMOS                 (LL_OPAMP_TRIMMING_PMOS_VREF_10PC_VDDA)
 /**
   * @}
   */
@@ -270,7 +270,7 @@ typedef struct
 /* Literal set to maximum value (refer to device datasheet,                   */
 /* parameter "tWAKEUP").                                                      */
 /* Unit: us                                                                   */
-#define LL_OPAMP_DELAY_STARTUP_US         (3U)  /*!< Delay for OPAMP startup time */
+#define LL_OPAMP_DELAY_STARTUP_US         (3U)
 /**
   * @}
   */

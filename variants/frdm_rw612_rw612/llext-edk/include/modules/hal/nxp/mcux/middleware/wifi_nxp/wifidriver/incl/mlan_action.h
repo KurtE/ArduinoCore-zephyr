@@ -28,7 +28,7 @@ mlan_status wlan_process_mgmt_action(t_u8 *payload, t_u32 payload_len, RxPD *rxp
 /* frame body for timing measurement action frame */
 typedef PACK_START struct _wifi_wnm_timing_msmt_t
 {
-    t_u8 action; /* 1 */
+    t_u8 action;
     t_u8 dialog_token;
     t_u8 follow_up_dialog_token;
     t_u32 tod;

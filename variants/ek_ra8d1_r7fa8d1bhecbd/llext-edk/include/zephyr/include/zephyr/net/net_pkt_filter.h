@@ -43,15 +43,15 @@ typedef bool (npf_test_fn_t)(struct npf_test *test, struct net_pkt *pkt);
 
 /** @brief common filter test structure to be embedded into larger structures */
 struct npf_test {
-	npf_test_fn_t *fn;	/**< packet condition test function */
+	npf_test_fn_t *fn;
 };
 
 /** @brief filter rule structure */
 struct npf_rule {
-	sys_snode_t node;               /**< Slist rule list node */
-	enum net_verdict result;	/**< result if all tests pass */
-	uint32_t nb_tests;		/**< number of tests for this rule */
-	struct npf_test *tests[];	/**< pointers to @ref npf_test instances */
+	sys_snode_t node;
+	enum net_verdict result;
+	uint32_t nb_tests;
+	struct npf_test *tests[];
 };
 
 /** @brief Default rule list termination for accepting a packet */
@@ -61,8 +61,8 @@ extern struct npf_rule npf_default_drop;
 
 /** @brief rule set for a given test location */
 struct npf_rule_list {
-	sys_slist_t rule_head;   /**< List head */
-	struct k_spinlock lock;  /**< Lock protecting the list access */
+	sys_slist_t rule_head;
+	struct k_spinlock lock;
 };
 
 /** @brief  rule list applied to outgoing packets */
@@ -519,7 +519,7 @@ extern npf_test_fn_t npf_eth_dst_addr_unmatch;
 
 struct npf_test_eth_type {
 	struct npf_test test;
-	uint16_t type;			/* type in network order */
+	uint16_t type;
 };
 
 extern npf_test_fn_t npf_eth_type_match;

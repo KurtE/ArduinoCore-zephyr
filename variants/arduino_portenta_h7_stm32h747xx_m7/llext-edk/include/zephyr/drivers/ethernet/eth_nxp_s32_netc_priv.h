@@ -7,8 +7,8 @@
 #ifndef ZEPHYR_DRIVERS_ETHERNET_ETH_NXP_S32_NETC_PRIV_H_
 #define ZEPHYR_DRIVERS_ETHERNET_ETH_NXP_S32_NETC_PRIV_H_
 
-#define NETC_F3_PSICFGR0_SIVC_CVLAN_BIT	BIT(0)	/* 0x8100 */
-#define NETC_F3_PSICFGR0_SIVC_SVLAN_BIT	BIT(1)	/* 0x88A8 */
+#define NETC_F3_PSICFGR0_SIVC_CVLAN_BIT	BIT(0)
+#define NETC_F3_PSICFGR0_SIVC_SVLAN_BIT	BIT(1)
 
 #define NETC_MIN_RING_LEN	8U
 #define NETC_MIN_RING_BUF_SIZE	64U
@@ -71,7 +71,7 @@
 									\
 		mac_addr[0] = FREESCALE_OUI_B0;				\
 		mac_addr[1] = FREESCALE_OUI_B1;				\
-		/* Set MAC address locally administered bit (LAA) */	\
+	\
 		mac_addr[2] = FREESCALE_OUI_B2 | 0x02;			\
 		mac_addr[3] = (id >> 16) & 0xff;			\
 		mac_addr[4] = (id >> 8) & 0xff;				\

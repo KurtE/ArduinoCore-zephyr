@@ -15,7 +15,7 @@
 
 #define MMS_REG(m, r)        ((((m) & GENMASK(3, 0)) << 16) | ((r) & GENMASK(15, 0)))
 /* Memory Map Sector (MMS) 0 */
-#define OA_ID                MMS_REG(0x0, 0x000) /* expect 0x11 */
+#define OA_ID                MMS_REG(0x0, 0x000)
 #define OA_PHYID             MMS_REG(0x0, 0x001)
 #define OA_RESET             MMS_REG(0x0, 0x003)
 #define OA_RESET_SWRESET     BIT(0)
@@ -87,10 +87,10 @@
 /* PHY – Clause 45 registers memory map selector (MMS) as per table 6 in the
  * OPEN Alliance specification.
  */
-#define OA_TC6_PHY_C45_PCS_MMS2      2 /* MMD 3 */
-#define OA_TC6_PHY_C45_PMA_PMD_MMS3  3 /* MMD 1 */
-#define OA_TC6_PHY_C45_VS_PLCA_MMS4  4 /* MMD 31 */
-#define OA_TC6_PHY_C45_AUTO_NEG_MMS5 5 /* MMD 7 */
+#define OA_TC6_PHY_C45_PCS_MMS2      2
+#define OA_TC6_PHY_C45_PMA_PMD_MMS3  3
+#define OA_TC6_PHY_C45_VS_PLCA_MMS4  4
+#define OA_TC6_PHY_C45_AUTO_NEG_MMS5 5
 
 /**
  * @brief OA TC6 data.

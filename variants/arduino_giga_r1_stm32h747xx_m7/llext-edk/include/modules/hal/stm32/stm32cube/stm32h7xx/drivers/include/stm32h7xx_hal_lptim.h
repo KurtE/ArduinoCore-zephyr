@@ -95,11 +95,11 @@ typedef struct
   */
 typedef struct
 {
-  LPTIM_ClockConfigTypeDef     Clock;             /*!< Specifies the clock parameters */
+  LPTIM_ClockConfigTypeDef     Clock;
 
-  LPTIM_ULPClockConfigTypeDef  UltraLowPowerClock;/*!< Specifies the Ultra Low Power clock parameters */
+  LPTIM_ULPClockConfigTypeDef  UltraLowPowerClock;
 
-  LPTIM_TriggerConfigTypeDef   Trigger;           /*!< Specifies the Trigger parameters */
+  LPTIM_TriggerConfigTypeDef   Trigger;
 
   uint32_t                     OutputPolarity;    /*!< Specifies the Output polarity.
                                                   This parameter can be a value of @ref LPTIM_Output_Polarity */
@@ -126,11 +126,11 @@ typedef struct
   */
 typedef enum
 {
-  HAL_LPTIM_STATE_RESET            = 0x00U,    /*!< Peripheral not yet initialized or disabled  */
-  HAL_LPTIM_STATE_READY            = 0x01U,    /*!< Peripheral Initialized and ready for use    */
-  HAL_LPTIM_STATE_BUSY             = 0x02U,    /*!< An internal process is ongoing              */
-  HAL_LPTIM_STATE_TIMEOUT          = 0x03U,    /*!< Timeout state                               */
-  HAL_LPTIM_STATE_ERROR            = 0x04U     /*!< Internal Process is ongoing                 */
+  HAL_LPTIM_STATE_RESET            = 0x00U,
+  HAL_LPTIM_STATE_READY            = 0x01U,
+  HAL_LPTIM_STATE_BUSY             = 0x02U,
+  HAL_LPTIM_STATE_TIMEOUT          = 0x03U,
+  HAL_LPTIM_STATE_ERROR            = 0x04U
 } HAL_LPTIM_StateTypeDef;
 
 /**
@@ -142,26 +142,26 @@ typedef struct __LPTIM_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_LPTIM_REGISTER_CALLBACKS */
 {
-  LPTIM_TypeDef                 *Instance;         /*!< Register base address     */
+  LPTIM_TypeDef                 *Instance;
 
-  LPTIM_InitTypeDef              Init;             /*!< LPTIM required parameters */
+  LPTIM_InitTypeDef              Init;
 
-  HAL_StatusTypeDef              Status;           /*!< LPTIM peripheral status   */
+  HAL_StatusTypeDef              Status;
 
-  HAL_LockTypeDef                Lock;             /*!< LPTIM locking object      */
+  HAL_LockTypeDef                Lock;
 
-  __IO  HAL_LPTIM_StateTypeDef   State;            /*!< LPTIM peripheral state    */
+  __IO  HAL_LPTIM_StateTypeDef   State;
 
 #if (USE_HAL_LPTIM_REGISTER_CALLBACKS == 1)
-  void (* MspInitCallback)(struct __LPTIM_HandleTypeDef *hlptim);            /*!< LPTIM Base Msp Init Callback                 */
-  void (* MspDeInitCallback)(struct __LPTIM_HandleTypeDef *hlptim);          /*!< LPTIM Base Msp DeInit Callback               */
-  void (* CompareMatchCallback)(struct __LPTIM_HandleTypeDef *hlptim);       /*!< Compare match Callback                       */
-  void (* AutoReloadMatchCallback)(struct __LPTIM_HandleTypeDef *hlptim);    /*!< Auto-reload match Callback                   */
-  void (* TriggerCallback)(struct __LPTIM_HandleTypeDef *hlptim);            /*!< External trigger event detection Callback    */
-  void (* CompareWriteCallback)(struct __LPTIM_HandleTypeDef *hlptim);       /*!< Compare register write complete Callback     */
-  void (* AutoReloadWriteCallback)(struct __LPTIM_HandleTypeDef *hlptim);    /*!< Auto-reload register write complete Callback */
-  void (* DirectionUpCallback)(struct __LPTIM_HandleTypeDef *hlptim);        /*!< Up-counting direction change Callback        */
-  void (* DirectionDownCallback)(struct __LPTIM_HandleTypeDef *hlptim);      /*!< Down-counting direction change Callback      */
+  void (* MspInitCallback)(struct __LPTIM_HandleTypeDef *hlptim);
+  void (* MspDeInitCallback)(struct __LPTIM_HandleTypeDef *hlptim);
+  void (* CompareMatchCallback)(struct __LPTIM_HandleTypeDef *hlptim);
+  void (* AutoReloadMatchCallback)(struct __LPTIM_HandleTypeDef *hlptim);
+  void (* TriggerCallback)(struct __LPTIM_HandleTypeDef *hlptim);
+  void (* CompareWriteCallback)(struct __LPTIM_HandleTypeDef *hlptim);
+  void (* AutoReloadWriteCallback)(struct __LPTIM_HandleTypeDef *hlptim);
+  void (* DirectionUpCallback)(struct __LPTIM_HandleTypeDef *hlptim);
+  void (* DirectionDownCallback)(struct __LPTIM_HandleTypeDef *hlptim);
 #endif /* USE_HAL_LPTIM_REGISTER_CALLBACKS */
 } LPTIM_HandleTypeDef;
 
@@ -171,21 +171,21 @@ typedef struct
   */
 typedef enum
 {
-  HAL_LPTIM_MSPINIT_CB_ID          = 0x00U,    /*!< LPTIM Base Msp Init Callback ID                  */
-  HAL_LPTIM_MSPDEINIT_CB_ID        = 0x01U,    /*!< LPTIM Base Msp DeInit Callback ID                */
-  HAL_LPTIM_COMPARE_MATCH_CB_ID    = 0x02U,    /*!< Compare match Callback ID                        */
-  HAL_LPTIM_AUTORELOAD_MATCH_CB_ID = 0x03U,    /*!< Auto-reload match Callback ID                    */
-  HAL_LPTIM_TRIGGER_CB_ID          = 0x04U,    /*!< External trigger event detection Callback ID     */
-  HAL_LPTIM_COMPARE_WRITE_CB_ID    = 0x05U,    /*!< Compare register write complete Callback ID      */
-  HAL_LPTIM_AUTORELOAD_WRITE_CB_ID = 0x06U,    /*!< Auto-reload register write complete Callback ID  */
-  HAL_LPTIM_DIRECTION_UP_CB_ID     = 0x07U,    /*!< Up-counting direction change Callback ID         */
-  HAL_LPTIM_DIRECTION_DOWN_CB_ID   = 0x08U,    /*!< Down-counting direction change Callback ID       */
+  HAL_LPTIM_MSPINIT_CB_ID          = 0x00U,
+  HAL_LPTIM_MSPDEINIT_CB_ID        = 0x01U,
+  HAL_LPTIM_COMPARE_MATCH_CB_ID    = 0x02U,
+  HAL_LPTIM_AUTORELOAD_MATCH_CB_ID = 0x03U,
+  HAL_LPTIM_TRIGGER_CB_ID          = 0x04U,
+  HAL_LPTIM_COMPARE_WRITE_CB_ID    = 0x05U,
+  HAL_LPTIM_AUTORELOAD_WRITE_CB_ID = 0x06U,
+  HAL_LPTIM_DIRECTION_UP_CB_ID     = 0x07U,
+  HAL_LPTIM_DIRECTION_DOWN_CB_ID   = 0x08U,
 } HAL_LPTIM_CallbackIDTypeDef;
 
 /**
   * @brief  HAL TIM Callback pointer definition
   */
-typedef  void (*pLPTIM_CallbackTypeDef)(LPTIM_HandleTypeDef *hlptim);  /*!< pointer to the LPTIM callback function */
+typedef  void (*pLPTIM_CallbackTypeDef)(LPTIM_HandleTypeDef *hlptim);
 
 #endif /* USE_HAL_LPTIM_REGISTER_CALLBACKS */
 /**
@@ -313,13 +313,13 @@ typedef  void (*pLPTIM_CallbackTypeDef)(LPTIM_HandleTypeDef *hlptim);  /*!< poin
   * @{
   */
 
-#define LPTIM_INPUT1SOURCE_GPIO          0x00000000U                                   /*!< For LPTIM1 and LPTIM2 */
-#define LPTIM_INPUT1SOURCE_COMP1         LPTIM_CFGR2_IN1SEL_0                          /*!< For LPTIM1 and LPTIM2 */
-#define LPTIM_INPUT1SOURCE_COMP2         LPTIM_CFGR2_IN1SEL_1                          /*!< For LPTIM2 */
-#define LPTIM_INPUT1SOURCE_COMP1_COMP2   (LPTIM_CFGR2_IN1SEL_1 | LPTIM_CFGR2_IN1SEL_0) /*!< For LPTIM2 */
-#define LPTIM_INPUT1SOURCE_NOT_CONNECTED 0x00000000U                                   /*!< For LPTIM3 */
-#define LPTIM_INPUT1SOURCE_SAI4_FSA      LPTIM_CFGR2_IN1SEL_0                          /*!< For LPTIM3 */
-#define LPTIM_INPUT1SOURCE_SAI4_FSB      LPTIM_CFGR2_IN1SEL_1                          /*!< For LPTIM3 */
+#define LPTIM_INPUT1SOURCE_GPIO          0x00000000U
+#define LPTIM_INPUT1SOURCE_COMP1         LPTIM_CFGR2_IN1SEL_0
+#define LPTIM_INPUT1SOURCE_COMP2         LPTIM_CFGR2_IN1SEL_1
+#define LPTIM_INPUT1SOURCE_COMP1_COMP2   (LPTIM_CFGR2_IN1SEL_1 | LPTIM_CFGR2_IN1SEL_0)
+#define LPTIM_INPUT1SOURCE_NOT_CONNECTED 0x00000000U
+#define LPTIM_INPUT1SOURCE_SAI4_FSA      LPTIM_CFGR2_IN1SEL_0
+#define LPTIM_INPUT1SOURCE_SAI4_FSB      LPTIM_CFGR2_IN1SEL_1
 /**
   * @}
   */
@@ -328,8 +328,8 @@ typedef  void (*pLPTIM_CallbackTypeDef)(LPTIM_HandleTypeDef *hlptim);  /*!< poin
   * @{
   */
 
-#define LPTIM_INPUT2SOURCE_GPIO         0x00000000U                    /*!< For LPTIM1 */
-#define LPTIM_INPUT2SOURCE_COMP2        LPTIM_CFGR2_IN2SEL_0           /*!< For LPTIM1 */
+#define LPTIM_INPUT2SOURCE_GPIO         0x00000000U
+#define LPTIM_INPUT2SOURCE_COMP2        LPTIM_CFGR2_IN2SEL_0
 /**
   * @}
   */

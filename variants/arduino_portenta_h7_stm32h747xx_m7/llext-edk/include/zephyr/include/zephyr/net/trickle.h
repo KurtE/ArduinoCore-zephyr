@@ -53,20 +53,20 @@ typedef void (*net_trickle_cb_t)(struct net_trickle *trickle,
  * only via the Trickle API.
  */
 struct net_trickle {
-	uint32_t I;		/**< Current interval size */
-	uint32_t Imin;		/**< Min interval size in ms */
-	uint32_t Istart;	/**< Start of the interval in ms */
-	uint32_t Imax_abs;	/**< Max interval size in ms (not doublings) */
-	uint8_t Imax;		/**< Max number of doublings */
+	uint32_t I;
+	uint32_t Imin;
+	uint32_t Istart;
+	uint32_t Imax_abs;
+	uint8_t Imax;
 
-	uint8_t k;		/**< Redundancy constant */
-	uint8_t c;		/**< Consistency counter */
+	uint8_t k;
+	uint8_t c;
 
-	bool double_to;         /**< Flag telling if the internval is doubled */
+	bool double_to;
 
-	struct k_work_delayable timer; /**< Internal timer struct */
-	net_trickle_cb_t cb;	/**< Callback to be called when timer expires */
-	void *user_data;        /**< User specific opaque data */
+	struct k_work_delayable timer;
+	net_trickle_cb_t cb;
+	void *user_data;
 };
 
 /** @cond INTERNAL_HIDDEN */

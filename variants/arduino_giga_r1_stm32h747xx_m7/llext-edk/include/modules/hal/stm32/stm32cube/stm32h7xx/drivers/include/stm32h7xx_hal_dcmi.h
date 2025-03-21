@@ -46,12 +46,12 @@
   */
 typedef enum
 {
-  HAL_DCMI_STATE_RESET             = 0x00U,  /*!< DCMI not yet initialized or disabled  */
-  HAL_DCMI_STATE_READY             = 0x01U,  /*!< DCMI initialized and ready for use    */
-  HAL_DCMI_STATE_BUSY              = 0x02U,  /*!< DCMI internal processing is ongoing   */
-  HAL_DCMI_STATE_TIMEOUT           = 0x03U,  /*!< DCMI timeout state                    */
-  HAL_DCMI_STATE_ERROR             = 0x04U,  /*!< DCMI error state                      */
-  HAL_DCMI_STATE_SUSPENDED         = 0x05U   /*!< DCMI suspend state                    */
+  HAL_DCMI_STATE_RESET             = 0x00U,
+  HAL_DCMI_STATE_READY             = 0x01U,
+  HAL_DCMI_STATE_BUSY              = 0x02U,
+  HAL_DCMI_STATE_TIMEOUT           = 0x03U,
+  HAL_DCMI_STATE_ERROR             = 0x04U,
+  HAL_DCMI_STATE_SUSPENDED         = 0x05U
 } HAL_DCMI_StateTypeDef;
 
 /**
@@ -59,10 +59,10 @@ typedef enum
   */
 typedef struct
 {
-  uint8_t FrameStartCode; /*!< Specifies the code of the frame start delimiter. */
-  uint8_t LineStartCode;  /*!< Specifies the code of the line start delimiter.  */
-  uint8_t LineEndCode;    /*!< Specifies the code of the line end delimiter.    */
-  uint8_t FrameEndCode;   /*!< Specifies the code of the frame end delimiter.   */
+  uint8_t FrameStartCode;
+  uint8_t LineStartCode;
+  uint8_t LineEndCode;
+  uint8_t FrameEndCode;
 } DCMI_CodesInitTypeDef;
 
 /**
@@ -70,10 +70,10 @@ typedef struct
   */
 typedef struct
 {
-  uint8_t FrameStartUnmask; /*!< Specifies the frame start delimiter unmask. */
-  uint8_t LineStartUnmask;  /*!< Specifies the line start delimiter unmask.  */
-  uint8_t LineEndUnmask;    /*!< Specifies the line end delimiter unmask.    */
-  uint8_t FrameEndUnmask;   /*!< Specifies the frame end delimiter unmask.   */
+  uint8_t FrameStartUnmask;
+  uint8_t LineStartUnmask;
+  uint8_t LineEndUnmask;
+  uint8_t FrameEndUnmask;
 } DCMI_SyncUnmaskTypeDef;
 /**
   * @brief   DCMI Init structure definition
@@ -126,33 +126,33 @@ typedef struct  __DCMI_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_DCMI_REGISTER_CALLBACKS */
 {
-  DCMI_TypeDef                  *Instance;           /*!< DCMI Register base address   */
+  DCMI_TypeDef                  *Instance;
 
-  DCMI_InitTypeDef              Init;                /*!< DCMI parameters              */
+  DCMI_InitTypeDef              Init;
 
-  HAL_LockTypeDef               Lock;                /*!< DCMI locking object          */
+  HAL_LockTypeDef               Lock;
 
-  __IO HAL_DCMI_StateTypeDef    State;               /*!< DCMI state                   */
+  __IO HAL_DCMI_StateTypeDef    State;
 
-  __IO uint32_t                 XferCount;           /*!< DMA transfer counter         */
+  __IO uint32_t                 XferCount;
 
-  __IO uint32_t                 XferSize;            /*!< DMA transfer size            */
+  __IO uint32_t                 XferSize;
 
-  uint32_t                      XferTransferNumber;  /*!< DMA transfer number          */
+  uint32_t                      XferTransferNumber;
 
-  uint32_t                      pBuffPtr;            /*!< Pointer to DMA output buffer */
+  uint32_t                      pBuffPtr;
 
-  DMA_HandleTypeDef             *DMA_Handle;         /*!< Pointer to the DMA handler   */
+  DMA_HandleTypeDef             *DMA_Handle;
 
-  __IO uint32_t                 ErrorCode;           /*!< DCMI Error code              */
+  __IO uint32_t                 ErrorCode;
 
 #if (USE_HAL_DCMI_REGISTER_CALLBACKS == 1)
-  void (* FrameEventCallback)(struct __DCMI_HandleTypeDef *hdcmi);       /*!< DCMI Frame Event Callback */
-  void (* VsyncEventCallback)(struct __DCMI_HandleTypeDef *hdcmi);       /*!< DCMI Vsync Event Callback */
-  void (* LineEventCallback)(struct __DCMI_HandleTypeDef *hdcmi);        /*!< DCMI Line Event Callback  */
-  void (* ErrorCallback)(struct __DCMI_HandleTypeDef *hdcmi);            /*!< DCMI Error Callback       */
-  void (* MspInitCallback)(struct __DCMI_HandleTypeDef *hdcmi);          /*!< DCMI Msp Init callback    */
-  void (* MspDeInitCallback)(struct __DCMI_HandleTypeDef *hdcmi);        /*!< DCMI Msp DeInit callback  */
+  void (* FrameEventCallback)(struct __DCMI_HandleTypeDef *hdcmi);
+  void (* VsyncEventCallback)(struct __DCMI_HandleTypeDef *hdcmi);
+  void (* LineEventCallback)(struct __DCMI_HandleTypeDef *hdcmi);
+  void (* ErrorCallback)(struct __DCMI_HandleTypeDef *hdcmi);
+  void (* MspInitCallback)(struct __DCMI_HandleTypeDef *hdcmi);
+  void (* MspDeInitCallback)(struct __DCMI_HandleTypeDef *hdcmi);
 #endif  /* USE_HAL_DCMI_REGISTER_CALLBACKS */
 } DCMI_HandleTypeDef;
 
@@ -162,19 +162,19 @@ typedef struct
   */
 typedef enum
 {
-  HAL_DCMI_FRAME_EVENT_CB_ID    = 0x00U,    /*!< DCMI Frame Event Callback ID */
-  HAL_DCMI_VSYNC_EVENT_CB_ID    = 0x01U,    /*!< DCMI Vsync Event Callback ID */
-  HAL_DCMI_LINE_EVENT_CB_ID     = 0x02U,    /*!< DCMI Line Event Callback ID  */
-  HAL_DCMI_ERROR_CB_ID          = 0x03U,    /*!< DCMI Error Callback ID       */
-  HAL_DCMI_MSPINIT_CB_ID        = 0x04U,    /*!< DCMI MspInit callback ID     */
-  HAL_DCMI_MSPDEINIT_CB_ID      = 0x05U     /*!< DCMI MspDeInit callback ID   */
+  HAL_DCMI_FRAME_EVENT_CB_ID    = 0x00U,
+  HAL_DCMI_VSYNC_EVENT_CB_ID    = 0x01U,
+  HAL_DCMI_LINE_EVENT_CB_ID     = 0x02U,
+  HAL_DCMI_ERROR_CB_ID          = 0x03U,
+  HAL_DCMI_MSPINIT_CB_ID        = 0x04U,
+  HAL_DCMI_MSPDEINIT_CB_ID      = 0x05U
 
 } HAL_DCMI_CallbackIDTypeDef;
 
 /**
   * @brief  HAL DCMI Callback pointer definition
   */
-typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer to a DCMI callback function */
+typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi);
 
 #endif /* USE_HAL_DCMI_REGISTER_CALLBACKS */
 /**
@@ -189,13 +189,13 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_Error_Code DCMI Error Code
   * @{
   */
-#define HAL_DCMI_ERROR_NONE             (0x00000000U)  /*!< No error              */
-#define HAL_DCMI_ERROR_OVR              (0x00000001U)  /*!< Overrun error         */
-#define HAL_DCMI_ERROR_SYNC             (0x00000002U)  /*!< Synchronization error */
-#define HAL_DCMI_ERROR_TIMEOUT          (0x00000020U)  /*!< Timeout error         */
-#define HAL_DCMI_ERROR_DMA              (0x00000040U)  /*!< DMA error             */
+#define HAL_DCMI_ERROR_NONE             (0x00000000U)
+#define HAL_DCMI_ERROR_OVR              (0x00000001U)
+#define HAL_DCMI_ERROR_SYNC             (0x00000002U)
+#define HAL_DCMI_ERROR_TIMEOUT          (0x00000020U)
+#define HAL_DCMI_ERROR_DMA              (0x00000040U)
 #if (USE_HAL_DCMI_REGISTER_CALLBACKS == 1)
-#define  HAL_DCMI_ERROR_INVALID_CALLBACK (0x00000080U)    /*!< Invalid Callback error  */
+#define  HAL_DCMI_ERROR_INVALID_CALLBACK (0x00000080U)
 #endif /* USE_HAL_DCMI_REGISTER_CALLBACKS */
 /**
   * @}
@@ -227,8 +227,8 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_PIXCK_Polarity DCMI PIXCK Polarity
   * @{
   */
-#define DCMI_PCKPOLARITY_FALLING    (0x00000000U)      /*!< Pixel clock active on Falling edge */
-#define DCMI_PCKPOLARITY_RISING     ((uint32_t)DCMI_CR_PCKPOL)  /*!< Pixel clock active on Rising edge  */
+#define DCMI_PCKPOLARITY_FALLING    (0x00000000U)
+#define DCMI_PCKPOLARITY_RISING     ((uint32_t)DCMI_CR_PCKPOL)
 
 /**
   * @}
@@ -237,8 +237,8 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_VSYNC_Polarity DCMI VSYNC Polarity
   * @{
   */
-#define DCMI_VSPOLARITY_LOW     (0x00000000U)     /*!< Vertical synchronization active Low  */
-#define DCMI_VSPOLARITY_HIGH    ((uint32_t)DCMI_CR_VSPOL)  /*!< Vertical synchronization active High */
+#define DCMI_VSPOLARITY_LOW     (0x00000000U)
+#define DCMI_VSPOLARITY_HIGH    ((uint32_t)DCMI_CR_VSPOL)
 
 /**
   * @}
@@ -247,8 +247,8 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_HSYNC_Polarity DCMI HSYNC Polarity
   * @{
   */
-#define DCMI_HSPOLARITY_LOW     (0x00000000U)     /*!< Horizontal synchronization active Low  */
-#define DCMI_HSPOLARITY_HIGH    ((uint32_t)DCMI_CR_HSPOL)  /*!< Horizontal synchronization active High */
+#define DCMI_HSPOLARITY_LOW     (0x00000000U)
+#define DCMI_HSPOLARITY_HIGH    ((uint32_t)DCMI_CR_HSPOL)
 
 /**
   * @}
@@ -257,8 +257,8 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_MODE_JPEG DCMI MODE JPEG
   * @{
   */
-#define DCMI_JPEG_DISABLE   (0x00000000U)    /*!< Mode JPEG Disabled  */
-#define DCMI_JPEG_ENABLE    ((uint32_t)DCMI_CR_JPEG)  /*!< Mode JPEG Enabled   */
+#define DCMI_JPEG_DISABLE   (0x00000000U)
+#define DCMI_JPEG_ENABLE    ((uint32_t)DCMI_CR_JPEG)
 
 /**
   * @}
@@ -267,9 +267,9 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_Capture_Rate DCMI Capture Rate
   * @{
   */
-#define DCMI_CR_ALL_FRAME            (0x00000000U)      /*!< All frames are captured        */
-#define DCMI_CR_ALTERNATE_2_FRAME    ((uint32_t)DCMI_CR_FCRC_0)  /*!< Every alternate frame captured */
-#define DCMI_CR_ALTERNATE_4_FRAME    ((uint32_t)DCMI_CR_FCRC_1)  /*!< One frame in 4 frames captured */
+#define DCMI_CR_ALL_FRAME            (0x00000000U)
+#define DCMI_CR_ALTERNATE_2_FRAME    ((uint32_t)DCMI_CR_FCRC_0)
+#define DCMI_CR_ALTERNATE_4_FRAME    ((uint32_t)DCMI_CR_FCRC_1)
 
 /**
   * @}
@@ -278,10 +278,10 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_Extended_Data_Mode DCMI Extended Data Mode
   * @{
   */
-#define DCMI_EXTEND_DATA_8B     (0x00000000U)                       /*!< Interface captures 8-bit data on every pixel clock  */
-#define DCMI_EXTEND_DATA_10B    ((uint32_t)DCMI_CR_EDM_0)                    /*!< Interface captures 10-bit data on every pixel clock */
-#define DCMI_EXTEND_DATA_12B    ((uint32_t)DCMI_CR_EDM_1)                    /*!< Interface captures 12-bit data on every pixel clock */
-#define DCMI_EXTEND_DATA_14B    ((uint32_t)(DCMI_CR_EDM_0 | DCMI_CR_EDM_1))  /*!< Interface captures 14-bit data on every pixel clock */
+#define DCMI_EXTEND_DATA_8B     (0x00000000U)
+#define DCMI_EXTEND_DATA_10B    ((uint32_t)DCMI_CR_EDM_0)
+#define DCMI_EXTEND_DATA_12B    ((uint32_t)DCMI_CR_EDM_1)
+#define DCMI_EXTEND_DATA_14B    ((uint32_t)(DCMI_CR_EDM_0 | DCMI_CR_EDM_1))
 
 /**
   * @}
@@ -290,7 +290,7 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_Window_Coordinate DCMI Window Coordinate
   * @{
   */
-#define DCMI_WINDOW_COORDINATE    (0x3FFFU)  /*!< Window coordinate */
+#define DCMI_WINDOW_COORDINATE    (0x3FFFU)
 
 /**
   * @}
@@ -299,7 +299,7 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_Window_Height DCMI Window Height
   * @{
   */
-#define DCMI_WINDOW_HEIGHT    (0x1FFFU)  /*!< Window Height */
+#define DCMI_WINDOW_HEIGHT    (0x1FFFU)
 
 /**
   * @}
@@ -308,11 +308,11 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_interrupt_sources  DCMI interrupt sources
   * @{
   */
-#define DCMI_IT_FRAME    ((uint32_t)DCMI_IER_FRAME_IE)    /*!< Capture complete interrupt      */
-#define DCMI_IT_OVR      ((uint32_t)DCMI_IER_OVR_IE)      /*!< Overrun interrupt               */
-#define DCMI_IT_ERR      ((uint32_t)DCMI_IER_ERR_IE)      /*!< Synchronization error interrupt */
-#define DCMI_IT_VSYNC    ((uint32_t)DCMI_IER_VSYNC_IE)    /*!< VSYNC interrupt                 */
-#define DCMI_IT_LINE     ((uint32_t)DCMI_IER_LINE_IE)     /*!< Line interrupt                  */
+#define DCMI_IT_FRAME    ((uint32_t)DCMI_IER_FRAME_IE)
+#define DCMI_IT_OVR      ((uint32_t)DCMI_IER_OVR_IE)
+#define DCMI_IT_ERR      ((uint32_t)DCMI_IER_ERR_IE)
+#define DCMI_IT_VSYNC    ((uint32_t)DCMI_IER_VSYNC_IE)
+#define DCMI_IT_LINE     ((uint32_t)DCMI_IER_LINE_IE)
 /**
   * @}
   */
@@ -324,25 +324,25 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /**
   * @brief   DCMI SR register
   */
-#define DCMI_FLAG_HSYNC     ((uint32_t)DCMI_SR_INDEX|DCMI_SR_HSYNC) /*!< HSYNC pin state (active line / synchronization between lines)   */
-#define DCMI_FLAG_VSYNC     ((uint32_t)DCMI_SR_INDEX|DCMI_SR_VSYNC) /*!< VSYNC pin state (active frame / synchronization between frames) */
-#define DCMI_FLAG_FNE       ((uint32_t)DCMI_SR_INDEX|DCMI_SR_FNE)   /*!< FIFO not empty flag                                                 */
+#define DCMI_FLAG_HSYNC     ((uint32_t)DCMI_SR_INDEX|DCMI_SR_HSYNC)
+#define DCMI_FLAG_VSYNC     ((uint32_t)DCMI_SR_INDEX|DCMI_SR_VSYNC)
+#define DCMI_FLAG_FNE       ((uint32_t)DCMI_SR_INDEX|DCMI_SR_FNE)
 /**
   * @brief   DCMI RIS register
   */
-#define DCMI_FLAG_FRAMERI    ((uint32_t)DCMI_RIS_FRAME_RIS)  /*!< Frame capture complete interrupt flag */
-#define DCMI_FLAG_OVRRI      ((uint32_t)DCMI_RIS_OVR_RIS)    /*!< Overrun interrupt flag                */
-#define DCMI_FLAG_ERRRI      ((uint32_t)DCMI_RIS_ERR_RIS)    /*!< Synchronization error interrupt flag  */
-#define DCMI_FLAG_VSYNCRI    ((uint32_t)DCMI_RIS_VSYNC_RIS)  /*!< VSYNC interrupt flag                  */
-#define DCMI_FLAG_LINERI     ((uint32_t)DCMI_RIS_LINE_RIS)   /*!< Line interrupt flag                   */
+#define DCMI_FLAG_FRAMERI    ((uint32_t)DCMI_RIS_FRAME_RIS)
+#define DCMI_FLAG_OVRRI      ((uint32_t)DCMI_RIS_OVR_RIS)
+#define DCMI_FLAG_ERRRI      ((uint32_t)DCMI_RIS_ERR_RIS)
+#define DCMI_FLAG_VSYNCRI    ((uint32_t)DCMI_RIS_VSYNC_RIS)
+#define DCMI_FLAG_LINERI     ((uint32_t)DCMI_RIS_LINE_RIS)
 /**
   * @brief   DCMI MIS register
   */
-#define DCMI_FLAG_FRAMEMI    ((uint32_t)DCMI_MIS_INDEX|DCMI_MIS_FRAME_MIS)  /*!< DCMI Frame capture complete masked interrupt status */
-#define DCMI_FLAG_OVRMI      ((uint32_t)DCMI_MIS_INDEX|DCMI_MIS_OVR_MIS  )  /*!< DCMI Overrun masked interrupt status                */
-#define DCMI_FLAG_ERRMI      ((uint32_t)DCMI_MIS_INDEX|DCMI_MIS_ERR_MIS  )  /*!< DCMI Synchronization error masked interrupt status  */
-#define DCMI_FLAG_VSYNCMI    ((uint32_t)DCMI_MIS_INDEX|DCMI_MIS_VSYNC_MIS)  /*!< DCMI VSYNC masked interrupt status                  */
-#define DCMI_FLAG_LINEMI     ((uint32_t)DCMI_MIS_INDEX|DCMI_MIS_LINE_MIS )  /*!< DCMI Line masked interrupt status                   */
+#define DCMI_FLAG_FRAMEMI    ((uint32_t)DCMI_MIS_INDEX|DCMI_MIS_FRAME_MIS)
+#define DCMI_FLAG_OVRMI      ((uint32_t)DCMI_MIS_INDEX|DCMI_MIS_OVR_MIS  )
+#define DCMI_FLAG_ERRMI      ((uint32_t)DCMI_MIS_INDEX|DCMI_MIS_ERR_MIS  )
+#define DCMI_FLAG_VSYNCMI    ((uint32_t)DCMI_MIS_INDEX|DCMI_MIS_VSYNC_MIS)
+#define DCMI_FLAG_LINEMI     ((uint32_t)DCMI_MIS_INDEX|DCMI_MIS_LINE_MIS )
 /**
   * @}
   */
@@ -350,10 +350,10 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_Byte_Select_Mode DCMI Byte Select Mode
   * @{
   */
-#define DCMI_BSM_ALL                 (0x00000000U) /*!< Interface captures all received data */
-#define DCMI_BSM_OTHER               ((uint32_t)DCMI_CR_BSM_0) /*!< Interface captures every other byte from the received data */
-#define DCMI_BSM_ALTERNATE_4         ((uint32_t)DCMI_CR_BSM_1) /*!< Interface captures one byte out of four */
-#define DCMI_BSM_ALTERNATE_2         ((uint32_t)(DCMI_CR_BSM_0 | DCMI_CR_BSM_1)) /*!< Interface captures two bytes out of four */
+#define DCMI_BSM_ALL                 (0x00000000U)
+#define DCMI_BSM_OTHER               ((uint32_t)DCMI_CR_BSM_0)
+#define DCMI_BSM_ALTERNATE_4         ((uint32_t)DCMI_CR_BSM_1)
+#define DCMI_BSM_ALTERNATE_2         ((uint32_t)(DCMI_CR_BSM_0 | DCMI_CR_BSM_1))
 
 /**
   * @}
@@ -362,8 +362,8 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_Byte_Select_Start DCMI Byte Select Start
   * @{
   */
-#define DCMI_OEBS_ODD               (0x00000000U) /*!< Interface captures first data from the frame/line start, second one being dropped */
-#define DCMI_OEBS_EVEN              ((uint32_t)DCMI_CR_OEBS) /*!< Interface captures second data from the frame/line start, first one being dropped */
+#define DCMI_OEBS_ODD               (0x00000000U)
+#define DCMI_OEBS_EVEN              ((uint32_t)DCMI_CR_OEBS)
 
 /**
   * @}
@@ -372,8 +372,8 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_Line_Select_Mode DCMI Line Select Mode
   * @{
   */
-#define DCMI_LSM_ALL                 (0x00000000U) /*!< Interface captures all received lines */
-#define DCMI_LSM_ALTERNATE_2         ((uint32_t)DCMI_CR_LSM) /*!< Interface captures one line out of two */
+#define DCMI_LSM_ALL                 (0x00000000U)
+#define DCMI_LSM_ALTERNATE_2         ((uint32_t)DCMI_CR_LSM)
 
 /**
   * @}
@@ -382,8 +382,8 @@ typedef  void (*pDCMI_CallbackTypeDef)(DCMI_HandleTypeDef * hdcmi); /*!< pointer
 /** @defgroup DCMI_Line_Select_Start DCMI Line Select Start
   * @{
   */
-#define DCMI_OELS_ODD               (0x00000000U) /*!< Interface captures first line from the frame start, second one being dropped */
-#define DCMI_OELS_EVEN              ((uint32_t)DCMI_CR_OELS) /*!< Interface captures second line from the frame start, first one being dropped */
+#define DCMI_OELS_ODD               (0x00000000U)
+#define DCMI_OELS_EVEN              ((uint32_t)DCMI_CR_OELS)
 
 /**
   * @}
@@ -592,8 +592,8 @@ uint32_t              HAL_DCMI_GetError(const DCMI_HandleTypeDef *hdcmi);
 /** @defgroup DCMI_Private_Constants DCMI Private Constants
   * @{
   */
-#define DCMI_MIS_INDEX        ((uint32_t)0x1000) /*!< DCMI MIS register index */
-#define DCMI_SR_INDEX         ((uint32_t)0x2000) /*!< DCMI SR register index  */
+#define DCMI_MIS_INDEX        ((uint32_t)0x1000)
+#define DCMI_SR_INDEX         ((uint32_t)0x2000)
 /**
   * @}
   */

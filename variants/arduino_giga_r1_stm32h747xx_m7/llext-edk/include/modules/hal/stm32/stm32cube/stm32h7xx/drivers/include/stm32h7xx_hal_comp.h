@@ -82,12 +82,12 @@ typedef struct
 #define COMP_STATE_BITFIELD_LOCK  ((uint32_t)0x10)
 typedef enum
 {
-  HAL_COMP_STATE_RESET             = 0x00,                                              /*!< COMP not yet initialized                             */
-  HAL_COMP_STATE_RESET_LOCKED      = (HAL_COMP_STATE_RESET | COMP_STATE_BITFIELD_LOCK), /*!< COMP not yet initialized and configuration is locked */
-  HAL_COMP_STATE_READY             = 0x01,                                              /*!< COMP initialized and ready for use                   */
-  HAL_COMP_STATE_READY_LOCKED      = (HAL_COMP_STATE_READY | COMP_STATE_BITFIELD_LOCK), /*!< COMP initialized but configuration is locked         */
-  HAL_COMP_STATE_BUSY              = 0x02,                                              /*!< COMP is running                                      */
-  HAL_COMP_STATE_BUSY_LOCKED       = (HAL_COMP_STATE_BUSY | COMP_STATE_BITFIELD_LOCK)   /*!< COMP is running and configuration is locked          */
+  HAL_COMP_STATE_RESET             = 0x00,
+  HAL_COMP_STATE_RESET_LOCKED      = (HAL_COMP_STATE_RESET | COMP_STATE_BITFIELD_LOCK),
+  HAL_COMP_STATE_READY             = 0x01,
+  HAL_COMP_STATE_READY_LOCKED      = (HAL_COMP_STATE_READY | COMP_STATE_BITFIELD_LOCK),
+  HAL_COMP_STATE_BUSY              = 0x02,
+  HAL_COMP_STATE_BUSY_LOCKED       = (HAL_COMP_STATE_BUSY | COMP_STATE_BITFIELD_LOCK)
 }HAL_COMP_StateTypeDef;
 
 /**
@@ -99,15 +99,15 @@ typedef struct __COMP_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_COMP_REGISTER_CALLBACKS */
 {
-  COMP_TypeDef       *Instance;       /*!< Register base address    */
-  COMP_InitTypeDef   Init;            /*!< COMP required parameters */
-  HAL_LockTypeDef    Lock;            /*!< Locking object           */
-  __IO HAL_COMP_StateTypeDef  State;  /*!< COMP communication state */
-  __IO uint32_t      ErrorCode;       /*!< COMP error code */
+  COMP_TypeDef       *Instance;
+  COMP_InitTypeDef   Init;
+  HAL_LockTypeDef    Lock;
+  __IO HAL_COMP_StateTypeDef  State;
+  __IO uint32_t      ErrorCode;
 #if (USE_HAL_COMP_REGISTER_CALLBACKS == 1)
-  void (* TriggerCallback)(struct __COMP_HandleTypeDef *hcomp);   /*!< COMP trigger callback */
-  void (* MspInitCallback)(struct __COMP_HandleTypeDef *hcomp);   /*!< COMP Msp Init callback */
-  void (* MspDeInitCallback)(struct __COMP_HandleTypeDef *hcomp); /*!< COMP Msp DeInit callback */
+  void (* TriggerCallback)(struct __COMP_HandleTypeDef *hcomp);
+  void (* MspInitCallback)(struct __COMP_HandleTypeDef *hcomp);
+  void (* MspDeInitCallback)(struct __COMP_HandleTypeDef *hcomp);
 #endif /* USE_HAL_COMP_REGISTER_CALLBACKS */
 
 } COMP_HandleTypeDef;
@@ -118,15 +118,15 @@ typedef struct
   */
 typedef enum
 {
-  HAL_COMP_TRIGGER_CB_ID                = 0x00U,  /*!< COMP trigger callback ID */
-  HAL_COMP_MSPINIT_CB_ID                = 0x01U,  /*!< COMP Msp Init callback ID */
-  HAL_COMP_MSPDEINIT_CB_ID              = 0x02U   /*!< COMP Msp DeInit callback ID */
+  HAL_COMP_TRIGGER_CB_ID                = 0x00U,
+  HAL_COMP_MSPINIT_CB_ID                = 0x01U,
+  HAL_COMP_MSPDEINIT_CB_ID              = 0x02U
 } HAL_COMP_CallbackIDTypeDef;
 
 /**
   * @brief  HAL COMP Callback pointer definition
   */
-typedef  void (*pCOMP_CallbackTypeDef)(COMP_HandleTypeDef *hcomp); /*!< pointer to a COMP callback function */
+typedef  void (*pCOMP_CallbackTypeDef)(COMP_HandleTypeDef *hcomp);
 
 #endif /* USE_HAL_COMP_REGISTER_CALLBACKS */
 /**
@@ -141,9 +141,9 @@ typedef  void (*pCOMP_CallbackTypeDef)(COMP_HandleTypeDef *hcomp); /*!< pointer 
 /** @defgroup COMP_Error_Code COMP Error Code
   * @{
   */
-#define HAL_COMP_ERROR_NONE             (0x00U)   /*!< No error */
+#define HAL_COMP_ERROR_NONE             (0x00U)
 #if (USE_HAL_COMP_REGISTER_CALLBACKS == 1)
-#define HAL_COMP_ERROR_INVALID_CALLBACK (0x01U)   /*!< Invalid Callback error */
+#define HAL_COMP_ERROR_INVALID_CALLBACK (0x01U)
 #endif /* USE_HAL_COMP_REGISTER_CALLBACKS */
 /**
   * @}
@@ -152,8 +152,8 @@ typedef  void (*pCOMP_CallbackTypeDef)(COMP_HandleTypeDef *hcomp); /*!< pointer 
 /** @defgroup COMP_WindowMode COMP Window Mode
   * @{
   */
-#define COMP_WINDOWMODE_DISABLE                 ((uint32_t)0x00000000)   /*!< Window mode disable: Comparators instances pair COMP1 and COMP2 are independent */
-#define COMP_WINDOWMODE_COMP1_INPUT_PLUS_COMMON (COMP_CFGRx_WINMODE)     /*!< Window mode enable: Comparators instances pair COMP1 and COMP2 have their input plus connected together. The common input is COMP1 input plus (COMP2 input plus is no more accessible). */
+#define COMP_WINDOWMODE_DISABLE                 ((uint32_t)0x00000000)
+#define COMP_WINDOWMODE_COMP1_INPUT_PLUS_COMMON (COMP_CFGRx_WINMODE)
 
 /**
   * @}
@@ -165,9 +165,9 @@ typedef  void (*pCOMP_CallbackTypeDef)(COMP_HandleTypeDef *hcomp); /*!< pointer 
 /* Note: For the characteritics of comparator power modes                     */
 /*       (propagation delay and power consumption),                           */
 /*       refer to device datasheet.                                           */
-#define COMP_POWERMODE_HIGHSPEED       ((uint32_t)0x00000000)   /*!< High Speed */
-#define COMP_POWERMODE_MEDIUMSPEED     (COMP_CFGRx_PWRMODE_0)   /*!< Medium Speed */
-#define COMP_POWERMODE_ULTRALOWPOWER   (COMP_CFGRx_PWRMODE)     /*!< Ultra-low power mode */
+#define COMP_POWERMODE_HIGHSPEED       ((uint32_t)0x00000000)
+#define COMP_POWERMODE_MEDIUMSPEED     (COMP_CFGRx_PWRMODE_0)
+#define COMP_POWERMODE_ULTRALOWPOWER   (COMP_CFGRx_PWRMODE)
 /**
   * @}
   */
@@ -175,10 +175,10 @@ typedef  void (*pCOMP_CallbackTypeDef)(COMP_HandleTypeDef *hcomp); /*!< pointer 
 /** @defgroup COMP_InputPlus COMP input plus (non-inverting input)
   * @{
   */
-#define COMP_INPUT_PLUS_IO1            ((uint32_t)0x00000000) /*!< Comparator input plus connected to IO1 (pin PB0 for COMP1, pin PE9 for COMP2) */
-#define COMP_INPUT_PLUS_IO2            (COMP_CFGRx_INPSEL)    /*!< Comparator input plus connected to IO2 (pin PB2 for COMP1, pin PE11 for COMP2) */
+#define COMP_INPUT_PLUS_IO1            ((uint32_t)0x00000000)
+#define COMP_INPUT_PLUS_IO2            (COMP_CFGRx_INPSEL)
 #if defined (COMP_CFGRx_INP2SEL)
-#define COMP_INPUT_PLUS_DAC2_CH1       (COMP_CFGRx_INP2SEL)   /*!< Comparator input plus 2 connected to (DAC2_CH1 for COMP1) */
+#define COMP_INPUT_PLUS_DAC2_CH1       (COMP_CFGRx_INP2SEL)
 #endif
 /**
   * @}
@@ -187,17 +187,17 @@ typedef  void (*pCOMP_CallbackTypeDef)(COMP_HandleTypeDef *hcomp); /*!< pointer 
 /** @defgroup COMP_InputMinus COMP input minus (inverting input)
   * @{
   */
-#define COMP_INPUT_MINUS_1_4VREFINT     (                                                                                        COMP_CFGRx_SCALEN | COMP_CFGRx_BRGEN)    /*!< Comparator input minus connected to 1/4 VrefInt */
-#define COMP_INPUT_MINUS_1_2VREFINT     (                                                                  COMP_CFGRx_INMSEL_0 | COMP_CFGRx_SCALEN | COMP_CFGRx_BRGEN)    /*!< Comparator input minus connected to 1/2 VrefInt */
-#define COMP_INPUT_MINUS_3_4VREFINT     (                                            COMP_CFGRx_INMSEL_1                       | COMP_CFGRx_SCALEN | COMP_CFGRx_BRGEN)    /*!< Comparator input minus connected to 3/4 VrefInt */
-#define COMP_INPUT_MINUS_VREFINT        (                                            COMP_CFGRx_INMSEL_1 | COMP_CFGRx_INMSEL_0 | COMP_CFGRx_SCALEN                   )    /*!< Comparator input minus connected to VrefInt */
-#define COMP_INPUT_MINUS_DAC1_CH1       (                      COMP_CFGRx_INMSEL_2                                                                                   )    /*!< Comparator input minus connected to DAC1 channel 1 (DAC_OUT1) */
-#define COMP_INPUT_MINUS_DAC1_CH2       (                      COMP_CFGRx_INMSEL_2                       | COMP_CFGRx_INMSEL_0                                       )    /*!< Comparator input minus connected to DAC1 channel 2 (DAC_OUT2) */
-#define COMP_INPUT_MINUS_IO1            (                      COMP_CFGRx_INMSEL_2 | COMP_CFGRx_INMSEL_1                                                             )    /*!< Comparator input minus connected to IO1 (pin PB1 for COMP1, pin PE10 for COMP2) */
-#define COMP_INPUT_MINUS_IO2            (                      COMP_CFGRx_INMSEL_2 | COMP_CFGRx_INMSEL_1 | COMP_CFGRx_INMSEL_0                                       )    /*!< Comparator input minus connected to IO2 (pin PC4 for COMP1, pin PE7 for COMP2) */
+#define COMP_INPUT_MINUS_1_4VREFINT     (                                                                                        COMP_CFGRx_SCALEN | COMP_CFGRx_BRGEN)
+#define COMP_INPUT_MINUS_1_2VREFINT     (                                                                  COMP_CFGRx_INMSEL_0 | COMP_CFGRx_SCALEN | COMP_CFGRx_BRGEN)
+#define COMP_INPUT_MINUS_3_4VREFINT     (                                            COMP_CFGRx_INMSEL_1                       | COMP_CFGRx_SCALEN | COMP_CFGRx_BRGEN)
+#define COMP_INPUT_MINUS_VREFINT        (                                            COMP_CFGRx_INMSEL_1 | COMP_CFGRx_INMSEL_0 | COMP_CFGRx_SCALEN                   )
+#define COMP_INPUT_MINUS_DAC1_CH1       (                      COMP_CFGRx_INMSEL_2                                                                                   )
+#define COMP_INPUT_MINUS_DAC1_CH2       (                      COMP_CFGRx_INMSEL_2                       | COMP_CFGRx_INMSEL_0                                       )
+#define COMP_INPUT_MINUS_IO1            (                      COMP_CFGRx_INMSEL_2 | COMP_CFGRx_INMSEL_1                                                             )
+#define COMP_INPUT_MINUS_IO2            (                      COMP_CFGRx_INMSEL_2 | COMP_CFGRx_INMSEL_1 | COMP_CFGRx_INMSEL_0                                       )
 #if defined (COMP_CFGRx_INMSEL_3)
-#define COMP_INPUT_MINUS_TPSENS_DAC2CH1 (COMP_CFGRx_INMSEL_3                                                                                                         )    /*!< Comparator input minus connected to (temp sensor which is exist in ADC for COMP1, DAC2_CH1 for COMP2) */
-#define COMP_INPUT_MINUS_VBAT_VDDAP     (COMP_CFGRx_INMSEL_3                                             | COMP_CFGRx_INMSEL_0                                       )    /*!< Comparator input minus connected to (VBAT/4 for COMP1, VDDAP for COMP2) */
+#define COMP_INPUT_MINUS_TPSENS_DAC2CH1 (COMP_CFGRx_INMSEL_3                                                                                                         )
+#define COMP_INPUT_MINUS_VBAT_VDDAP     (COMP_CFGRx_INMSEL_3                                             | COMP_CFGRx_INMSEL_0                                       )
 #endif
 /**
   * @}
@@ -206,10 +206,10 @@ typedef  void (*pCOMP_CallbackTypeDef)(COMP_HandleTypeDef *hcomp); /*!< pointer 
 /** @defgroup COMP_Hysteresis COMP hysteresis
   * @{
   */
-#define COMP_HYSTERESIS_NONE           ((uint32_t)0x00000000)   /*!< No hysteresis */
-#define COMP_HYSTERESIS_LOW            (COMP_CFGRx_HYST_0)      /*!< Hysteresis level low */
-#define COMP_HYSTERESIS_MEDIUM         (COMP_CFGRx_HYST_1)      /*!< Hysteresis level medium */
-#define COMP_HYSTERESIS_HIGH           (COMP_CFGRx_HYST)        /*!< Hysteresis level high */
+#define COMP_HYSTERESIS_NONE           ((uint32_t)0x00000000)
+#define COMP_HYSTERESIS_LOW            (COMP_CFGRx_HYST_0)
+#define COMP_HYSTERESIS_MEDIUM         (COMP_CFGRx_HYST_1)
+#define COMP_HYSTERESIS_HIGH           (COMP_CFGRx_HYST)
 /**
   * @}
   */
@@ -217,8 +217,8 @@ typedef  void (*pCOMP_CallbackTypeDef)(COMP_HandleTypeDef *hcomp); /*!< pointer 
 /** @defgroup COMP_OutputPolarity COMP Output Polarity
   * @{
   */
-#define COMP_OUTPUTPOL_NONINVERTED     ((uint32_t)0x00000000)  /*!< COMP output level is not inverted (comparator output is high when the input plus is at a higher voltage than the input minus) */
-#define COMP_OUTPUTPOL_INVERTED        (COMP_CFGRx_POLARITY)   /*!< COMP output level is inverted     (comparator output is low  when the input plus is at a higher voltage than the input minus) */
+#define COMP_OUTPUTPOL_NONINVERTED     ((uint32_t)0x00000000)
+#define COMP_OUTPUTPOL_INVERTED        (COMP_CFGRx_POLARITY)
 /**
   * @}
   */
@@ -228,13 +228,13 @@ typedef  void (*pCOMP_CallbackTypeDef)(COMP_HandleTypeDef *hcomp); /*!< pointer 
   * @{
   */
 /* Any blanking source can be selected for all comparators */
-#define COMP_BLANKINGSRC_NONE             ((uint32_t)0x00000000)                           /*!< No blanking source */
-#define COMP_BLANKINGSRC_TIM1_OC5         (COMP_CFGRx_BLANKING_0)                          /*!< TIM1 OC5 selected as blanking source for comparator */
-#define COMP_BLANKINGSRC_TIM2_OC3         (COMP_CFGRx_BLANKING_1)                          /*!< TIM2 OC3 selected as blanking source for comparator */
-#define COMP_BLANKINGSRC_TIM3_OC3         (COMP_CFGRx_BLANKING_0 |COMP_CFGRx_BLANKING_1)   /*!< TIM3 OC3 selected as blanking source for compartor */
-#define COMP_BLANKINGSRC_TIM3_OC4         (COMP_CFGRx_BLANKING_2)                          /*!< TIM3 OC4 selected as blanking source for comparator */
-#define COMP_BLANKINGSRC_TIM8_OC5         (COMP_CFGRx_BLANKING_2|COMP_CFGRx_BLANKING_0)    /*!< TIM8 OC5 selected as blanking source for comparator */
-#define COMP_BLANKINGSRC_TIM15_OC1        (COMP_CFGRx_BLANKING_2|COMP_CFGRx_BLANKING_1)    /*!< TIM15 OC1 selected as blanking source for comparator */
+#define COMP_BLANKINGSRC_NONE             ((uint32_t)0x00000000)
+#define COMP_BLANKINGSRC_TIM1_OC5         (COMP_CFGRx_BLANKING_0)
+#define COMP_BLANKINGSRC_TIM2_OC3         (COMP_CFGRx_BLANKING_1)
+#define COMP_BLANKINGSRC_TIM3_OC3         (COMP_CFGRx_BLANKING_0 |COMP_CFGRx_BLANKING_1)
+#define COMP_BLANKINGSRC_TIM3_OC4         (COMP_CFGRx_BLANKING_2)
+#define COMP_BLANKINGSRC_TIM8_OC5         (COMP_CFGRx_BLANKING_2|COMP_CFGRx_BLANKING_0)
+#define COMP_BLANKINGSRC_TIM15_OC1        (COMP_CFGRx_BLANKING_2|COMP_CFGRx_BLANKING_1)
 /**
   * @}
   */
@@ -264,13 +264,13 @@ typedef  void (*pCOMP_CallbackTypeDef)(COMP_HandleTypeDef *hcomp); /*!< pointer 
 /** @defgroup COMP_EXTI_TriggerMode COMP output to EXTI
   * @{
   */
-#define COMP_TRIGGERMODE_NONE                 ((uint32_t)0x00000000)                                    /*!< Comparator output triggering no External Interrupt Line */
-#define COMP_TRIGGERMODE_IT_RISING            (COMP_EXTI_IT | COMP_EXTI_RISING)                         /*!< Comparator output triggering External Interrupt Line event with interruption, on rising edge */
-#define COMP_TRIGGERMODE_IT_FALLING           (COMP_EXTI_IT | COMP_EXTI_FALLING)                        /*!< Comparator output triggering External Interrupt Line event with interruption, on falling edge */
-#define COMP_TRIGGERMODE_IT_RISING_FALLING    (COMP_EXTI_IT | COMP_EXTI_RISING | COMP_EXTI_FALLING)     /*!< Comparator output triggering External Interrupt Line event with interruption, on both rising and falling edges */
-#define COMP_TRIGGERMODE_EVENT_RISING         (COMP_EXTI_EVENT | COMP_EXTI_RISING)                      /*!< Comparator output triggering External Interrupt Line event only (without interruption), on rising edge */
-#define COMP_TRIGGERMODE_EVENT_FALLING        (COMP_EXTI_EVENT | COMP_EXTI_FALLING)                     /*!< Comparator output triggering External Interrupt Line event only (without interruption), on falling edge */
-#define COMP_TRIGGERMODE_EVENT_RISING_FALLING (COMP_EXTI_EVENT | COMP_EXTI_RISING | COMP_EXTI_FALLING)  /*!< Comparator output triggering External Interrupt Line event only (without interruption), on both rising and falling edges */
+#define COMP_TRIGGERMODE_NONE                 ((uint32_t)0x00000000)
+#define COMP_TRIGGERMODE_IT_RISING            (COMP_EXTI_IT | COMP_EXTI_RISING)
+#define COMP_TRIGGERMODE_IT_FALLING           (COMP_EXTI_IT | COMP_EXTI_FALLING)
+#define COMP_TRIGGERMODE_IT_RISING_FALLING    (COMP_EXTI_IT | COMP_EXTI_RISING | COMP_EXTI_FALLING)
+#define COMP_TRIGGERMODE_EVENT_RISING         (COMP_EXTI_EVENT | COMP_EXTI_RISING)
+#define COMP_TRIGGERMODE_EVENT_FALLING        (COMP_EXTI_EVENT | COMP_EXTI_FALLING)
+#define COMP_TRIGGERMODE_EVENT_RISING_FALLING (COMP_EXTI_EVENT | COMP_EXTI_RISING | COMP_EXTI_FALLING)
 
 /**
   * @}
@@ -279,17 +279,17 @@ typedef  void (*pCOMP_CallbackTypeDef)(COMP_HandleTypeDef *hcomp); /*!< pointer 
 /** @defgroup COMP_Flag COMP Flag
   * @{
   */
-#define COMP_FLAG_C1I           COMP_SR_C1IF           /*!< Comparator 1 Interrupt Flag */
-#define COMP_FLAG_C2I           COMP_SR_C2IF           /*!< Comparator 2 Interrupt Flag */
-#define COMP_FLAG_LOCK          COMP_CFGRx_LOCK        /*!< Lock flag */
+#define COMP_FLAG_C1I           COMP_SR_C1IF
+#define COMP_FLAG_C2I           COMP_SR_C2IF
+#define COMP_FLAG_LOCK          COMP_CFGRx_LOCK
 /**
   * @}
   */
 /** @defgroup COMP_IT_CLEAR_Flags  COMP Interruption Clear Flags
   * @{
   */
-#define COMP_CLEAR_C1IF          COMP_ICFR_C1IF     /*!< Clear Comparator 1 Interrupt Flag */
-#define COMP_CLEAR_C2IF          COMP_ICFR_C2IF     /*!< Clear Comparator 2 Interrupt Flag */
+#define COMP_CLEAR_C1IF          COMP_ICFR_C1IF
+#define COMP_CLEAR_C2IF          COMP_ICFR_C2IF
 /**
   * @}
   */
@@ -760,18 +760,18 @@ typedef  void (*pCOMP_CallbackTypeDef)(COMP_HandleTypeDef *hcomp); /*!< pointer 
 /** @defgroup COMP_ExtiLine COMP EXTI Lines
   * @{
   */
-#define COMP_EXTI_LINE_COMP1           (EXTI_IMR1_IM20)  /*!< EXTI line 20 connected to COMP1 output */
-#define COMP_EXTI_LINE_COMP2           (EXTI_IMR1_IM21)  /*!< EXTI line 21 connected to COMP2 output */
+#define COMP_EXTI_LINE_COMP1           (EXTI_IMR1_IM20)
+#define COMP_EXTI_LINE_COMP2           (EXTI_IMR1_IM21)
 /**
   * @}
   */
 /** @defgroup COMP_ExtiLine COMP EXTI Lines
   * @{
   */
-#define COMP_EXTI_IT                        ((uint32_t) 0x01)  /*!< EXTI line event with interruption */
-#define COMP_EXTI_EVENT                     ((uint32_t) 0x02)  /*!< EXTI line event only (without interruption) */
-#define COMP_EXTI_RISING                    ((uint32_t) 0x10)  /*!< EXTI line event on rising edge */
-#define COMP_EXTI_FALLING                   ((uint32_t) 0x20)  /*!< EXTI line event on falling edge */
+#define COMP_EXTI_IT                        ((uint32_t) 0x01)
+#define COMP_EXTI_EVENT                     ((uint32_t) 0x02)
+#define COMP_EXTI_RISING                    ((uint32_t) 0x10)
+#define COMP_EXTI_FALLING                   ((uint32_t) 0x20)
 /**
   * @}
   */

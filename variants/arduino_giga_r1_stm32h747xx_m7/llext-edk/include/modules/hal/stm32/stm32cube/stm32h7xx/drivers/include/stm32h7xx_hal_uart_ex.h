@@ -53,7 +53,7 @@ typedef struct
   uint16_t AddressLength;      /*!< Specifies whether the address is 4 or 7-bit long.
                                     This parameter can be a value of @ref UARTEx_WakeUp_Address_Length.  */
 
-  uint8_t Address;             /*!< UART/USART node address (7-bit long max). */
+  uint8_t Address;
 } UART_WakeUpTypeDef;
 
 /**
@@ -68,9 +68,9 @@ typedef struct
 /** @defgroup UARTEx_Word_Length UARTEx Word Length
   * @{
   */
-#define UART_WORDLENGTH_7B          USART_CR1_M1   /*!< 7-bit long UART frame */
-#define UART_WORDLENGTH_8B          0x00000000U    /*!< 8-bit long UART frame */
-#define UART_WORDLENGTH_9B          USART_CR1_M0   /*!< 9-bit long UART frame */
+#define UART_WORDLENGTH_7B          USART_CR1_M1
+#define UART_WORDLENGTH_8B          0x00000000U
+#define UART_WORDLENGTH_9B          USART_CR1_M0
 /**
   * @}
   */
@@ -78,8 +78,8 @@ typedef struct
 /** @defgroup UARTEx_WakeUp_Address_Length UARTEx WakeUp Address Length
   * @{
   */
-#define UART_ADDRESS_DETECT_4B      0x00000000U      /*!< 4-bit long wake-up address */
-#define UART_ADDRESS_DETECT_7B      USART_CR2_ADDM7  /*!< 7-bit long wake-up address */
+#define UART_ADDRESS_DETECT_4B      0x00000000U
+#define UART_ADDRESS_DETECT_7B      USART_CR2_ADDM7
 /**
   * @}
   */
@@ -88,8 +88,8 @@ typedef struct
   * @brief    UART FIFO mode
   * @{
   */
-#define UART_FIFOMODE_DISABLE       0x00000000U       /*!< FIFO mode disable */
-#define UART_FIFOMODE_ENABLE        USART_CR1_FIFOEN  /*!< FIFO mode enable  */
+#define UART_FIFOMODE_DISABLE       0x00000000U
+#define UART_FIFOMODE_ENABLE        USART_CR1_FIFOEN
 /**
   * @}
   */
@@ -98,12 +98,12 @@ typedef struct
   * @brief    UART TXFIFO threshold level
   * @{
   */
-#define UART_TXFIFO_THRESHOLD_1_8   0x00000000U                               /*!< TX FIFO reaches 1/8 of its depth */
-#define UART_TXFIFO_THRESHOLD_1_4   USART_CR3_TXFTCFG_0                       /*!< TX FIFO reaches 1/4 of its depth */
-#define UART_TXFIFO_THRESHOLD_1_2   USART_CR3_TXFTCFG_1                       /*!< TX FIFO reaches 1/2 of its depth */
-#define UART_TXFIFO_THRESHOLD_3_4   (USART_CR3_TXFTCFG_0|USART_CR3_TXFTCFG_1) /*!< TX FIFO reaches 3/4 of its depth */
-#define UART_TXFIFO_THRESHOLD_7_8   USART_CR3_TXFTCFG_2                       /*!< TX FIFO reaches 7/8 of its depth */
-#define UART_TXFIFO_THRESHOLD_8_8   (USART_CR3_TXFTCFG_2|USART_CR3_TXFTCFG_0) /*!< TX FIFO becomes empty            */
+#define UART_TXFIFO_THRESHOLD_1_8   0x00000000U
+#define UART_TXFIFO_THRESHOLD_1_4   USART_CR3_TXFTCFG_0
+#define UART_TXFIFO_THRESHOLD_1_2   USART_CR3_TXFTCFG_1
+#define UART_TXFIFO_THRESHOLD_3_4   (USART_CR3_TXFTCFG_0|USART_CR3_TXFTCFG_1)
+#define UART_TXFIFO_THRESHOLD_7_8   USART_CR3_TXFTCFG_2
+#define UART_TXFIFO_THRESHOLD_8_8   (USART_CR3_TXFTCFG_2|USART_CR3_TXFTCFG_0)
 /**
   * @}
   */
@@ -112,12 +112,12 @@ typedef struct
   * @brief    UART RXFIFO threshold level
   * @{
   */
-#define UART_RXFIFO_THRESHOLD_1_8   0x00000000U                               /*!< RX FIFO reaches 1/8 of its depth */
-#define UART_RXFIFO_THRESHOLD_1_4   USART_CR3_RXFTCFG_0                       /*!< RX FIFO reaches 1/4 of its depth */
-#define UART_RXFIFO_THRESHOLD_1_2   USART_CR3_RXFTCFG_1                       /*!< RX FIFO reaches 1/2 of its depth */
-#define UART_RXFIFO_THRESHOLD_3_4   (USART_CR3_RXFTCFG_0|USART_CR3_RXFTCFG_1) /*!< RX FIFO reaches 3/4 of its depth */
-#define UART_RXFIFO_THRESHOLD_7_8   USART_CR3_RXFTCFG_2                       /*!< RX FIFO reaches 7/8 of its depth */
-#define UART_RXFIFO_THRESHOLD_8_8   (USART_CR3_RXFTCFG_2|USART_CR3_RXFTCFG_0) /*!< RX FIFO becomes full             */
+#define UART_RXFIFO_THRESHOLD_1_8   0x00000000U
+#define UART_RXFIFO_THRESHOLD_1_4   USART_CR3_RXFTCFG_0
+#define UART_RXFIFO_THRESHOLD_1_2   USART_CR3_RXFTCFG_1
+#define UART_RXFIFO_THRESHOLD_3_4   (USART_CR3_RXFTCFG_0|USART_CR3_RXFTCFG_1)
+#define UART_RXFIFO_THRESHOLD_7_8   USART_CR3_RXFTCFG_2
+#define UART_RXFIFO_THRESHOLD_8_8   (USART_CR3_RXFTCFG_2|USART_CR3_RXFTCFG_0)
 /**
   * @}
   */

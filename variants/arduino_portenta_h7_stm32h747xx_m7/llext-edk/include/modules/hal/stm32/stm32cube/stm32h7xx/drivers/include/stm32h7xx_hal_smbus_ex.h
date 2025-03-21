@@ -44,19 +44,19 @@ extern "C" {
 /** @defgroup SMBUSEx_FastModePlus SMBUS Extended Fast Mode Plus
   * @{
   */
-#define SMBUS_FMP_NOT_SUPPORTED           0xAAAA0000U                                     /*!< Fast Mode Plus not supported       */
-#define SMBUS_FASTMODEPLUS_PB6            SYSCFG_PMCR_I2C_PB6_FMP                        /*!< Enable Fast Mode Plus on PB6       */
-#define SMBUS_FASTMODEPLUS_PB7            SYSCFG_PMCR_I2C_PB7_FMP                        /*!< Enable Fast Mode Plus on PB7       */
-#define SMBUS_FASTMODEPLUS_PB8            SYSCFG_PMCR_I2C_PB8_FMP                        /*!< Enable Fast Mode Plus on PB8       */
-#define SMBUS_FASTMODEPLUS_PB9            SYSCFG_PMCR_I2C_PB9_FMP                        /*!< Enable Fast Mode Plus on PB9       */
-#define SMBUS_FASTMODEPLUS_I2C1           SYSCFG_PMCR_I2C1_FMP                           /*!< Enable Fast Mode Plus on I2C1 pins */
-#define SMBUS_FASTMODEPLUS_I2C2           SYSCFG_PMCR_I2C2_FMP                           /*!< Enable Fast Mode Plus on I2C2 pins */
-#define SMBUS_FASTMODEPLUS_I2C3           SYSCFG_PMCR_I2C3_FMP                           /*!< Enable Fast Mode Plus on I2C3 pins */
-#define SMBUS_FASTMODEPLUS_I2C4           SYSCFG_PMCR_I2C4_FMP                           /*!< Enable Fast Mode Plus on I2C4 pins */
+#define SMBUS_FMP_NOT_SUPPORTED           0xAAAA0000U
+#define SMBUS_FASTMODEPLUS_PB6            SYSCFG_PMCR_I2C_PB6_FMP
+#define SMBUS_FASTMODEPLUS_PB7            SYSCFG_PMCR_I2C_PB7_FMP
+#define SMBUS_FASTMODEPLUS_PB8            SYSCFG_PMCR_I2C_PB8_FMP
+#define SMBUS_FASTMODEPLUS_PB9            SYSCFG_PMCR_I2C_PB9_FMP
+#define SMBUS_FASTMODEPLUS_I2C1           SYSCFG_PMCR_I2C1_FMP
+#define SMBUS_FASTMODEPLUS_I2C2           SYSCFG_PMCR_I2C2_FMP
+#define SMBUS_FASTMODEPLUS_I2C3           SYSCFG_PMCR_I2C3_FMP
+#define SMBUS_FASTMODEPLUS_I2C4           SYSCFG_PMCR_I2C4_FMP
 #if defined(SYSCFG_PMCR_I2C5_FMP)
-#define SMBUS_FASTMODEPLUS_I2C5           SYSCFG_PMCR_I2C5_FMP                           /*!< Enable Fast Mode Plus on I2C5 pins */
+#define SMBUS_FASTMODEPLUS_I2C5           SYSCFG_PMCR_I2C5_FMP
 #else
-#define SMBUS_FASTMODEPLUS_I2C5           (uint32_t)(0x00001000U | SMBUS_FMP_NOT_SUPPORTED) /*!< Fast Mode Plus I2C5 not supported  */
+#define SMBUS_FASTMODEPLUS_I2C5           (uint32_t)(0x00001000U | SMBUS_FMP_NOT_SUPPORTED)
 #endif /* SYSCFG_PMCR_I2C5_FMP */
 /**
   * @}

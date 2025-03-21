@@ -18,12 +18,12 @@
 #include <zephyr/types.h>
 
 struct ieee802154_6lo_fragment_ctx {
-	struct net_buf *buf; /* current original fragment pointer */
-	uint8_t *pos;	     /* current position in buf */
-	uint16_t pkt_size;   /* overall datagram size */
-	uint16_t processed;  /* in bytes */
-	uint8_t hdr_diff;    /* 6lo header size reduction due to compression in bytes */
-	uint8_t offset;	     /* in multiples of 8 bytes */
+	struct net_buf *buf;
+	uint8_t *pos;
+	uint16_t pkt_size;
+	uint16_t processed;
+	uint8_t hdr_diff;
+	uint8_t offset;
 };
 
 /**

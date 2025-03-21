@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2024 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -161,6 +161,15 @@
  */
 #ifndef NRFX_COMP_CONFIG_LOG_LEVEL
 #define NRFX_COMP_CONFIG_LOG_LEVEL 3
+#endif
+
+/**
+ * @brief NRFX_CRACEN_ENABLED
+ *
+ * Boolean. Accepted values: 0 and 1.
+ */
+#ifndef NRFX_CRACEN_ENABLED
+#define NRFX_CRACEN_ENABLED 0
 #endif
 
 /**
@@ -371,6 +380,15 @@
  */
 #ifndef NRFX_GRTC_CONFIG_CLEAR_AT_INIT
 #define NRFX_GRTC_CONFIG_CLEAR_AT_INIT 0
+#endif
+
+/**
+ * @brief NRFX_GRTC_CONFIG_LFCLK_SELECT_AT_INIT
+ *
+ * Boolean. Accepted values: 0 and 1.
+ */
+#ifndef NRFX_GRTC_CONFIG_LFCLK_SELECT_AT_INIT
+#define NRFX_GRTC_CONFIG_LFCLK_SELECT_AT_INIT 1
 #endif
 
 /**
@@ -966,6 +984,66 @@
 #endif
 
 /**
+ * @brief NRFX_QSPI2_ENABLED
+ *
+ * Boolean. Accepted values: 0 and 1.
+ */
+#ifndef NRFX_QSPI2_ENABLED
+#define NRFX_QSPI2_ENABLED 0
+#endif
+
+/**
+ * @brief NRFX_QSPI2_MAX_NUM_DATA_LINES - Maximal number of data lines used by the QSPI peripheral.
+ *
+ * Integer value. Minimum: 1. Maximum: 8.
+ */
+#ifndef NRFX_QSPI2_MAX_NUM_DATA_LINES
+#define NRFX_QSPI2_MAX_NUM_DATA_LINES 2
+#endif
+
+/**
+ * @brief NRFX_QSPI2_TRANSFERS_PER_REQUEST - Maximal number of transfers that can be passed in an array for a single request. It is the maximal value in the xfer_count parameter.
+ *
+ * Integer value.
+ */
+#ifndef NRFX_QSPI2_TRANSFERS_PER_REQUEST
+#define NRFX_QSPI2_TRANSFERS_PER_REQUEST 1
+#endif
+
+/**
+ * @brief NRFX_QSPI2_DEFAULT_CONFIG_IRQ_PRIORITY
+ *
+ * Integer value. Minimum: 0. Maximum: 7.
+ */
+#ifndef NRFX_QSPI2_DEFAULT_CONFIG_IRQ_PRIORITY
+#define NRFX_QSPI2_DEFAULT_CONFIG_IRQ_PRIORITY NRFX_DEFAULT_IRQ_PRIORITY
+#endif
+
+/**
+ * @brief NRFX_QSPI2_CONFIG_LOG_ENABLED
+ *
+ * Boolean. Accepted values: 0 and 1.
+ */
+#ifndef NRFX_QSPI2_CONFIG_LOG_ENABLED
+#define NRFX_QSPI2_CONFIG_LOG_ENABLED 0
+#endif
+
+/**
+ * @brief NRFX_QSPI2_CONFIG_LOG_LEVEL
+ *
+ * Integer value.
+ * Supported values:
+ * - Off     = 0
+ * - Error   = 1
+ * - Warning = 2
+ * - Info    = 3
+ * - Debug   = 4
+ */
+#ifndef NRFX_QSPI2_CONFIG_LOG_LEVEL
+#define NRFX_QSPI2_CONFIG_LOG_LEVEL 3
+#endif
+
+/**
  * @brief NRFX_RRAMC_ENABLED
  *
  * Boolean. Accepted values: 0 and 1.
@@ -1005,66 +1083,6 @@
  */
 #ifndef NRFX_RRAMC_CONFIG_LOG_LEVEL
 #define NRFX_RRAMC_CONFIG_LOG_LEVEL 3
-#endif
-
-/**
- * @brief NRFX_RTC_ENABLED
- *
- * Boolean. Accepted values: 0 and 1.
- */
-#ifndef NRFX_RTC_ENABLED
-#define NRFX_RTC_ENABLED 0
-#endif
-
-/**
- * @brief NRFX_RTC_DEFAULT_CONFIG_IRQ_PRIORITY
- *
- * Integer value. Minimum: 0. Maximum: 7.
- */
-#ifndef NRFX_RTC_DEFAULT_CONFIG_IRQ_PRIORITY
-#define NRFX_RTC_DEFAULT_CONFIG_IRQ_PRIORITY NRFX_DEFAULT_IRQ_PRIORITY
-#endif
-
-/**
- * @brief NRFX_RTC_CONFIG_LOG_ENABLED
- *
- * Boolean. Accepted values: 0 and 1.
- */
-#ifndef NRFX_RTC_CONFIG_LOG_ENABLED
-#define NRFX_RTC_CONFIG_LOG_ENABLED 0
-#endif
-
-/**
- * @brief NRFX_RTC_CONFIG_LOG_LEVEL
- *
- * Integer value.
- * Supported values:
- * - Off     = 0
- * - Error   = 1
- * - Warning = 2
- * - Info    = 3
- * - Debug   = 4
- */
-#ifndef NRFX_RTC_CONFIG_LOG_LEVEL
-#define NRFX_RTC_CONFIG_LOG_LEVEL 3
-#endif
-
-/**
- * @brief NRFX_RTC10_ENABLED
- *
- * Boolean. Accepted values: 0 and 1.
- */
-#ifndef NRFX_RTC10_ENABLED
-#define NRFX_RTC10_ENABLED 0
-#endif
-
-/**
- * @brief NRFX_RTC30_ENABLED
- *
- * Boolean. Accepted values: 0 and 1.
- */
-#ifndef NRFX_RTC30_ENABLED
-#define NRFX_RTC30_ENABLED 0
 #endif
 
 /**

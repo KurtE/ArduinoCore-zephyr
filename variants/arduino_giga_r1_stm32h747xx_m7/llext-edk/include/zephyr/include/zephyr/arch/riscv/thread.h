@@ -27,22 +27,22 @@
  * saved/restored when a context switch occurs.
  */
 struct _callee_saved {
-	unsigned long sp;	/* Stack pointer, (x2 register) */
-	unsigned long ra;	/* return address */
+	unsigned long sp;
+	unsigned long ra;
 
-	unsigned long s0;	/* saved register/frame pointer */
-	unsigned long s1;	/* saved register */
+	unsigned long s0;
+	unsigned long s1;
 #if !defined(CONFIG_RISCV_ISA_RV32E)
-	unsigned long s2;	/* saved register */
-	unsigned long s3;	/* saved register */
-	unsigned long s4;	/* saved register */
-	unsigned long s5;	/* saved register */
-	unsigned long s6;	/* saved register */
-	unsigned long s7;	/* saved register */
-	unsigned long s8;	/* saved register */
-	unsigned long s9;	/* saved register */
-	unsigned long s10;	/* saved register */
-	unsigned long s11;	/* saved register */
+	unsigned long s2;
+	unsigned long s3;
+	unsigned long s4;
+	unsigned long s5;
+	unsigned long s6;
+	unsigned long s7;
+	unsigned long s8;
+	unsigned long s9;
+	unsigned long s10;
+	unsigned long s11;
 #endif
 };
 typedef struct _callee_saved _callee_saved_t;
@@ -63,7 +63,7 @@ struct z_riscv_fp_context {
 };
 typedef struct z_riscv_fp_context z_riscv_fp_context_t;
 
-#define PMP_M_MODE_SLOTS 8	/* 8 is plenty enough for m-mode */
+#define PMP_M_MODE_SLOTS 8
 
 struct _thread_arch {
 #ifdef CONFIG_FPU_SHARING

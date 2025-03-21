@@ -547,7 +547,7 @@ enum bt_audio_metadata_type {
  */
 #define BT_AUDIO_CODEC_CFG(_id, _cid, _vid, _data, _meta)                                          \
 	((struct bt_audio_codec_cfg){                                                              \
-		/* Use HCI data path as default, can be overwritten by application */              \
+              \
 		.path_id = BT_ISO_DATA_PATH_HCI,                                                   \
 		.ctlr_transcode = false,                                                           \
 		.id = _id,                                                                         \
@@ -570,7 +570,7 @@ enum bt_audio_metadata_type {
  */
 #define BT_AUDIO_CODEC_CAP(_id, _cid, _vid, _data, _meta)                                          \
 	((struct bt_audio_codec_cap){                                                              \
-		/* Use HCI data path as default, can be overwritten by application */              \
+              \
 		.path_id = BT_ISO_DATA_PATH_HCI,                                                   \
 		.ctlr_transcode = false,                                                           \
 		.id = (_id),                                                                       \

@@ -93,14 +93,14 @@ typedef struct
   * @brief  HAL State definition
   * @{
   */
-#define HAL_SMBUS_STATE_RESET           (0x00000000U)  /*!< SMBUS not yet initialized or disabled         */
-#define HAL_SMBUS_STATE_READY           (0x00000001U)  /*!< SMBUS initialized and ready for use           */
-#define HAL_SMBUS_STATE_BUSY            (0x00000002U)  /*!< SMBUS internal process is ongoing             */
-#define HAL_SMBUS_STATE_MASTER_BUSY_TX  (0x00000012U)  /*!< Master Data Transmission process is ongoing   */
-#define HAL_SMBUS_STATE_MASTER_BUSY_RX  (0x00000022U)  /*!< Master Data Reception process is ongoing      */
-#define HAL_SMBUS_STATE_SLAVE_BUSY_TX   (0x00000032U)  /*!< Slave Data Transmission process is ongoing    */
-#define HAL_SMBUS_STATE_SLAVE_BUSY_RX   (0x00000042U)  /*!< Slave Data Reception process is ongoing       */
-#define HAL_SMBUS_STATE_LISTEN          (0x00000008U)  /*!< Address Listen Mode is ongoing                */
+#define HAL_SMBUS_STATE_RESET           (0x00000000U)
+#define HAL_SMBUS_STATE_READY           (0x00000001U)
+#define HAL_SMBUS_STATE_BUSY            (0x00000002U)
+#define HAL_SMBUS_STATE_MASTER_BUSY_TX  (0x00000012U)
+#define HAL_SMBUS_STATE_MASTER_BUSY_RX  (0x00000022U)
+#define HAL_SMBUS_STATE_SLAVE_BUSY_TX   (0x00000032U)
+#define HAL_SMBUS_STATE_SLAVE_BUSY_RX   (0x00000042U)
+#define HAL_SMBUS_STATE_LISTEN          (0x00000008U)
 /**
   * @}
   */
@@ -109,19 +109,19 @@ typedef struct
   * @brief  SMBUS Error Code definition
   * @{
   */
-#define HAL_SMBUS_ERROR_NONE            (0x00000000U)    /*!< No error             */
-#define HAL_SMBUS_ERROR_BERR            (0x00000001U)    /*!< BERR error           */
-#define HAL_SMBUS_ERROR_ARLO            (0x00000002U)    /*!< ARLO error           */
-#define HAL_SMBUS_ERROR_ACKF            (0x00000004U)    /*!< ACKF error           */
-#define HAL_SMBUS_ERROR_OVR             (0x00000008U)    /*!< OVR error            */
-#define HAL_SMBUS_ERROR_HALTIMEOUT      (0x00000010U)    /*!< Timeout error        */
-#define HAL_SMBUS_ERROR_BUSTIMEOUT      (0x00000020U)    /*!< Bus Timeout error    */
-#define HAL_SMBUS_ERROR_ALERT           (0x00000040U)    /*!< Alert error          */
-#define HAL_SMBUS_ERROR_PECERR          (0x00000080U)    /*!< PEC error            */
+#define HAL_SMBUS_ERROR_NONE            (0x00000000U)
+#define HAL_SMBUS_ERROR_BERR            (0x00000001U)
+#define HAL_SMBUS_ERROR_ARLO            (0x00000002U)
+#define HAL_SMBUS_ERROR_ACKF            (0x00000004U)
+#define HAL_SMBUS_ERROR_OVR             (0x00000008U)
+#define HAL_SMBUS_ERROR_HALTIMEOUT      (0x00000010U)
+#define HAL_SMBUS_ERROR_BUSTIMEOUT      (0x00000020U)
+#define HAL_SMBUS_ERROR_ALERT           (0x00000040U)
+#define HAL_SMBUS_ERROR_PECERR          (0x00000080U)
 #if (USE_HAL_SMBUS_REGISTER_CALLBACKS == 1)
-#define HAL_SMBUS_ERROR_INVALID_CALLBACK  (0x00000100U)  /*!< Invalid Callback error   */
+#define HAL_SMBUS_ERROR_INVALID_CALLBACK  (0x00000100U)
 #endif /* USE_HAL_SMBUS_REGISTER_CALLBACKS */
-#define HAL_SMBUS_ERROR_INVALID_PARAM    (0x00000200U)   /*!< Invalid Parameters error */
+#define HAL_SMBUS_ERROR_INVALID_PARAM    (0x00000200U)
 /**
   * @}
   */
@@ -136,25 +136,25 @@ typedef struct __SMBUS_HandleTypeDef
 typedef struct
 #endif  /* USE_HAL_SMBUS_REGISTER_CALLBACKS */
 {
-  I2C_TypeDef                  *Instance;       /*!< SMBUS registers base address       */
+  I2C_TypeDef                  *Instance;
 
-  SMBUS_InitTypeDef            Init;            /*!< SMBUS communication parameters     */
+  SMBUS_InitTypeDef            Init;
 
-  uint8_t                      *pBuffPtr;       /*!< Pointer to SMBUS transfer buffer   */
+  uint8_t                      *pBuffPtr;
 
-  uint16_t                     XferSize;        /*!< SMBUS transfer size                */
+  uint16_t                     XferSize;
 
-  __IO uint16_t                XferCount;       /*!< SMBUS transfer counter             */
+  __IO uint16_t                XferCount;
 
-  __IO uint32_t                XferOptions;     /*!< SMBUS transfer options             */
+  __IO uint32_t                XferOptions;
 
-  __IO uint32_t                PreviousState;   /*!< SMBUS communication Previous state */
+  __IO uint32_t                PreviousState;
 
-  HAL_LockTypeDef              Lock;            /*!< SMBUS locking object               */
+  HAL_LockTypeDef              Lock;
 
-  __IO uint32_t                State;           /*!< SMBUS communication state          */
+  __IO uint32_t                State;
 
-  __IO uint32_t                ErrorCode;       /*!< SMBUS Error code                   */
+  __IO uint32_t                ErrorCode;
 
 #if (USE_HAL_SMBUS_REGISTER_CALLBACKS == 1)
   void (* MasterTxCpltCallback)(struct __SMBUS_HandleTypeDef *hsmbus);
@@ -187,15 +187,15 @@ typedef struct
   */
 typedef enum
 {
-  HAL_SMBUS_MASTER_TX_COMPLETE_CB_ID      = 0x00U,    /*!< SMBUS Master Tx Transfer completed callback ID  */
-  HAL_SMBUS_MASTER_RX_COMPLETE_CB_ID      = 0x01U,    /*!< SMBUS Master Rx Transfer completed callback ID  */
-  HAL_SMBUS_SLAVE_TX_COMPLETE_CB_ID       = 0x02U,    /*!< SMBUS Slave Tx Transfer completed callback ID   */
-  HAL_SMBUS_SLAVE_RX_COMPLETE_CB_ID       = 0x03U,    /*!< SMBUS Slave Rx Transfer completed callback ID   */
-  HAL_SMBUS_LISTEN_COMPLETE_CB_ID         = 0x04U,    /*!< SMBUS Listen Complete callback ID               */
-  HAL_SMBUS_ERROR_CB_ID                   = 0x05U,    /*!< SMBUS Error callback ID                         */
+  HAL_SMBUS_MASTER_TX_COMPLETE_CB_ID      = 0x00U,
+  HAL_SMBUS_MASTER_RX_COMPLETE_CB_ID      = 0x01U,
+  HAL_SMBUS_SLAVE_TX_COMPLETE_CB_ID       = 0x02U,
+  HAL_SMBUS_SLAVE_RX_COMPLETE_CB_ID       = 0x03U,
+  HAL_SMBUS_LISTEN_COMPLETE_CB_ID         = 0x04U,
+  HAL_SMBUS_ERROR_CB_ID                   = 0x05U,
 
-  HAL_SMBUS_MSPINIT_CB_ID                 = 0x06U,    /*!< SMBUS Msp Init callback ID                      */
-  HAL_SMBUS_MSPDEINIT_CB_ID               = 0x07U     /*!< SMBUS Msp DeInit callback ID                    */
+  HAL_SMBUS_MSPINIT_CB_ID                 = 0x06U,
+  HAL_SMBUS_MSPDEINIT_CB_ID               = 0x07U
 
 } HAL_SMBUS_CallbackIDTypeDef;
 

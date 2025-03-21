@@ -29,7 +29,7 @@ extern "C" {
  * @name Company Identifiers (see Bluetooth Assigned Numbers)
  * @{
  */
-#define BT_COMP_ID_LF           0x05f1 /**< The Linux Foundation */
+#define BT_COMP_ID_LF           0x05f1
 /**
  * @}
  */
@@ -38,62 +38,62 @@ extern "C" {
  * @name EIR/AD data type definitions
  * @{
  */
-#define BT_DATA_FLAGS                    0x01 /**< AD flags */
-#define BT_DATA_UUID16_SOME              0x02 /**< 16-bit UUID, more available */
-#define BT_DATA_UUID16_ALL               0x03 /**< 16-bit UUID, all listed */
-#define BT_DATA_UUID32_SOME              0x04 /**< 32-bit UUID, more available */
-#define BT_DATA_UUID32_ALL               0x05 /**< 32-bit UUID, all listed */
-#define BT_DATA_UUID128_SOME             0x06 /**< 128-bit UUID, more available */
-#define BT_DATA_UUID128_ALL              0x07 /**< 128-bit UUID, all listed */
-#define BT_DATA_NAME_SHORTENED           0x08 /**< Shortened name */
-#define BT_DATA_NAME_COMPLETE            0x09 /**< Complete name */
-#define BT_DATA_TX_POWER                 0x0a /**< Tx Power */
-#define BT_DATA_DEVICE_CLASS             0x0d /**< Class of Device */
-#define BT_DATA_SIMPLE_PAIRING_HASH_C192 0x0e /**< Simple Pairing Hash C-192 */
-#define BT_DATA_SIMPLE_PAIRING_RAND_C192 0x0f /**< Simple Pairing Randomizer R-192 */
-#define BT_DATA_DEVICE_ID                0x10 /**< Device ID (Profile) */
-#define BT_DATA_SM_TK_VALUE              0x10 /**< Security Manager TK Value */
-#define BT_DATA_SM_OOB_FLAGS             0x11 /**< Security Manager OOB Flags */
-#define BT_DATA_PERIPHERAL_INT_RANGE     0x12 /**< Peripheral Connection Interval Range */
-#define BT_DATA_SOLICIT16                0x14 /**< Solicit UUIDs, 16-bit */
-#define BT_DATA_SOLICIT128               0x15 /**< Solicit UUIDs, 128-bit */
-#define BT_DATA_SVC_DATA16               0x16 /**< Service data, 16-bit UUID */
-#define BT_DATA_PUB_TARGET_ADDR          0x17 /**< Public Target Address */
-#define BT_DATA_RAND_TARGET_ADDR         0x18 /**< Random Target Address */
-#define BT_DATA_GAP_APPEARANCE           0x19 /**< GAP appearance */
-#define BT_DATA_ADV_INT                  0x1a /**< Advertising Interval */
-#define BT_DATA_LE_BT_DEVICE_ADDRESS     0x1b /**< LE Bluetooth Device Address */
-#define BT_DATA_LE_ROLE                  0x1c /**< LE Role */
-#define BT_DATA_SIMPLE_PAIRING_HASH      0x1d /**< Simple Pairing Hash C256 */
-#define BT_DATA_SIMPLE_PAIRING_RAND      0x1e /**< Simple Pairing Randomizer R256 */
-#define BT_DATA_SOLICIT32                0x1f /**< Solicit UUIDs, 32-bit */
-#define BT_DATA_SVC_DATA32               0x20 /**< Service data, 32-bit UUID */
-#define BT_DATA_SVC_DATA128              0x21 /**< Service data, 128-bit UUID */
-#define BT_DATA_LE_SC_CONFIRM_VALUE      0x22 /**< LE SC Confirmation Value */
-#define BT_DATA_LE_SC_RANDOM_VALUE       0x23 /**< LE SC Random Value */
-#define BT_DATA_URI                      0x24 /**< URI */
-#define BT_DATA_INDOOR_POS               0x25 /**< Indoor Positioning */
-#define BT_DATA_TRANS_DISCOVER_DATA      0x26 /**< Transport Discovery Data */
-#define BT_DATA_LE_SUPPORTED_FEATURES    0x27 /**< LE Supported Features */
-#define BT_DATA_CHANNEL_MAP_UPDATE_IND   0x28 /**< Channel Map Update Indication */
-#define BT_DATA_MESH_PROV                0x29 /**< Mesh Provisioning PDU */
-#define BT_DATA_MESH_MESSAGE             0x2a /**< Mesh Networking PDU */
-#define BT_DATA_MESH_BEACON              0x2b /**< Mesh Beacon */
-#define BT_DATA_BIG_INFO                 0x2c /**< BIGInfo */
-#define BT_DATA_BROADCAST_CODE           0x2d /**< Broadcast Code */
-#define BT_DATA_CSIS_RSI                 0x2e /**< CSIS Random Set ID type */
-#define BT_DATA_ADV_INT_LONG             0x2f /**< Advertising Interval long */
-#define BT_DATA_BROADCAST_NAME           0x30 /**< Broadcast Name */
-#define BT_DATA_ENCRYPTED_AD_DATA        0x31 /**< Encrypted Advertising Data */
-#define BT_DATA_PAWR_TIMING_INFO         0x32 /**< Periodic Advertising Response Timing Info */
-#define BT_DATA_ESL                      0x34 /**< Electronic Shelf Label Profile */
-#define BT_DATA_3D_INFO                  0x3D /**< 3D Information Data */
+#define BT_DATA_FLAGS                    0x01
+#define BT_DATA_UUID16_SOME              0x02
+#define BT_DATA_UUID16_ALL               0x03
+#define BT_DATA_UUID32_SOME              0x04
+#define BT_DATA_UUID32_ALL               0x05
+#define BT_DATA_UUID128_SOME             0x06
+#define BT_DATA_UUID128_ALL              0x07
+#define BT_DATA_NAME_SHORTENED           0x08
+#define BT_DATA_NAME_COMPLETE            0x09
+#define BT_DATA_TX_POWER                 0x0a
+#define BT_DATA_DEVICE_CLASS             0x0d
+#define BT_DATA_SIMPLE_PAIRING_HASH_C192 0x0e
+#define BT_DATA_SIMPLE_PAIRING_RAND_C192 0x0f
+#define BT_DATA_DEVICE_ID                0x10
+#define BT_DATA_SM_TK_VALUE              0x10
+#define BT_DATA_SM_OOB_FLAGS             0x11
+#define BT_DATA_PERIPHERAL_INT_RANGE     0x12
+#define BT_DATA_SOLICIT16                0x14
+#define BT_DATA_SOLICIT128               0x15
+#define BT_DATA_SVC_DATA16               0x16
+#define BT_DATA_PUB_TARGET_ADDR          0x17
+#define BT_DATA_RAND_TARGET_ADDR         0x18
+#define BT_DATA_GAP_APPEARANCE           0x19
+#define BT_DATA_ADV_INT                  0x1a
+#define BT_DATA_LE_BT_DEVICE_ADDRESS     0x1b
+#define BT_DATA_LE_ROLE                  0x1c
+#define BT_DATA_SIMPLE_PAIRING_HASH      0x1d
+#define BT_DATA_SIMPLE_PAIRING_RAND      0x1e
+#define BT_DATA_SOLICIT32                0x1f
+#define BT_DATA_SVC_DATA32               0x20
+#define BT_DATA_SVC_DATA128              0x21
+#define BT_DATA_LE_SC_CONFIRM_VALUE      0x22
+#define BT_DATA_LE_SC_RANDOM_VALUE       0x23
+#define BT_DATA_URI                      0x24
+#define BT_DATA_INDOOR_POS               0x25
+#define BT_DATA_TRANS_DISCOVER_DATA      0x26
+#define BT_DATA_LE_SUPPORTED_FEATURES    0x27
+#define BT_DATA_CHANNEL_MAP_UPDATE_IND   0x28
+#define BT_DATA_MESH_PROV                0x29
+#define BT_DATA_MESH_MESSAGE             0x2a
+#define BT_DATA_MESH_BEACON              0x2b
+#define BT_DATA_BIG_INFO                 0x2c
+#define BT_DATA_BROADCAST_CODE           0x2d
+#define BT_DATA_CSIS_RSI                 0x2e
+#define BT_DATA_ADV_INT_LONG             0x2f
+#define BT_DATA_BROADCAST_NAME           0x30
+#define BT_DATA_ENCRYPTED_AD_DATA        0x31
+#define BT_DATA_PAWR_TIMING_INFO         0x32
+#define BT_DATA_ESL                      0x34
+#define BT_DATA_3D_INFO                  0x3D
 
-#define BT_DATA_MANUFACTURER_DATA        0xff /**< Manufacturer Specific Data */
+#define BT_DATA_MANUFACTURER_DATA        0xff
 
-#define BT_LE_AD_LIMITED                 0x01 /**< Limited Discoverable */
-#define BT_LE_AD_GENERAL                 0x02 /**< General Discoverable */
-#define BT_LE_AD_NO_BREDR                0x04 /**< BR/EDR not supported */
+#define BT_LE_AD_LIMITED                 0x01
+#define BT_LE_AD_GENERAL                 0x02
+#define BT_LE_AD_NO_BREDR                0x04
 /**
  * @}
  */
@@ -714,27 +714,27 @@ extern "C" {
  * @name Defined GAP timers
  * @{
  */
-#define BT_GAP_SCAN_FAST_INTERVAL_MIN           0x0030  /* 30 ms    */
-#define BT_GAP_SCAN_FAST_INTERVAL               0x0060  /* 60 ms    */
-#define BT_GAP_SCAN_FAST_WINDOW                 0x0030  /* 30 ms    */
-#define BT_GAP_SCAN_SLOW_INTERVAL_1             0x0800  /* 1.28 s   */
-#define BT_GAP_SCAN_SLOW_WINDOW_1               0x0012  /* 11.25 ms */
-#define BT_GAP_SCAN_SLOW_INTERVAL_2             0x1000  /* 2.56 s   */
-#define BT_GAP_SCAN_SLOW_WINDOW_2               0x0012  /* 11.25 ms */
-#define BT_GAP_ADV_FAST_INT_MIN_1               0x0030  /* 30 ms    */
-#define BT_GAP_ADV_FAST_INT_MAX_1               0x0060  /* 60 ms    */
-#define BT_GAP_ADV_FAST_INT_MIN_2               0x00a0  /* 100 ms   */
-#define BT_GAP_ADV_FAST_INT_MAX_2               0x00f0  /* 150 ms   */
-#define BT_GAP_ADV_SLOW_INT_MIN                 0x0640  /* 1 s      */
-#define BT_GAP_ADV_SLOW_INT_MAX                 0x0780  /* 1.2 s    */
-#define BT_GAP_PER_ADV_FAST_INT_MIN_1           0x0018  /* 30 ms    */
-#define BT_GAP_PER_ADV_FAST_INT_MAX_1           0x0030  /* 60 ms    */
-#define BT_GAP_PER_ADV_FAST_INT_MIN_2           0x0050  /* 100 ms   */
-#define BT_GAP_PER_ADV_FAST_INT_MAX_2           0x0078  /* 150 ms   */
-#define BT_GAP_PER_ADV_SLOW_INT_MIN             0x0320  /* 1 s      */
-#define BT_GAP_PER_ADV_SLOW_INT_MAX             0x03C0  /* 1.2 s    */
-#define BT_GAP_INIT_CONN_INT_MIN                0x0018  /* 30 ms    */
-#define BT_GAP_INIT_CONN_INT_MAX                0x0028  /* 50 ms    */
+#define BT_GAP_SCAN_FAST_INTERVAL_MIN           0x0030
+#define BT_GAP_SCAN_FAST_INTERVAL               0x0060
+#define BT_GAP_SCAN_FAST_WINDOW                 0x0030
+#define BT_GAP_SCAN_SLOW_INTERVAL_1             0x0800
+#define BT_GAP_SCAN_SLOW_WINDOW_1               0x0012
+#define BT_GAP_SCAN_SLOW_INTERVAL_2             0x1000
+#define BT_GAP_SCAN_SLOW_WINDOW_2               0x0012
+#define BT_GAP_ADV_FAST_INT_MIN_1               0x0030
+#define BT_GAP_ADV_FAST_INT_MAX_1               0x0060
+#define BT_GAP_ADV_FAST_INT_MIN_2               0x00a0
+#define BT_GAP_ADV_FAST_INT_MAX_2               0x00f0
+#define BT_GAP_ADV_SLOW_INT_MIN                 0x0640
+#define BT_GAP_ADV_SLOW_INT_MAX                 0x0780
+#define BT_GAP_PER_ADV_FAST_INT_MIN_1           0x0018
+#define BT_GAP_PER_ADV_FAST_INT_MAX_1           0x0030
+#define BT_GAP_PER_ADV_FAST_INT_MIN_2           0x0050
+#define BT_GAP_PER_ADV_FAST_INT_MAX_2           0x0078
+#define BT_GAP_PER_ADV_SLOW_INT_MIN             0x0320
+#define BT_GAP_PER_ADV_SLOW_INT_MAX             0x03C0
+#define BT_GAP_INIT_CONN_INT_MIN                0x0018
+#define BT_GAP_INIT_CONN_INT_MAX                0x0028
 /**
  * @}
  */
@@ -747,8 +747,16 @@ enum {
 	BT_GAP_LE_PHY_1M                      = BIT(0),
 	 /** LE 2M PHY */
 	BT_GAP_LE_PHY_2M                      = BIT(1),
-	/** LE Coded PHY */
+	/** LE Coded PHY, coding scheme not specified */
 	BT_GAP_LE_PHY_CODED                   = BIT(2),
+	/** LE Coded S=8 PHY. Only used for advertising reports
+	 * when Kconfig BT_EXT_ADV_CODING_SELECTION is enabled.
+	 */
+	BT_GAP_LE_PHY_CODED_S8                = BIT(3),
+	/** LE Coded S=2 PHY. Only used for advertising reports
+	 * when Kconfig BT_EXT_ADV_CODING_SELECTION is enabled.
+	 */
+	BT_GAP_LE_PHY_CODED_S2                = BIT(4),
 };
 
 /** Advertising PDU types */
@@ -801,14 +809,14 @@ enum {
 #define BT_GAP_ADV_HIGH_DUTY_CYCLE_MAX_TIMEOUT  128
 
 /** Default data length */
-#define BT_GAP_DATA_LEN_DEFAULT                 0x001b /* 27 bytes */
+#define BT_GAP_DATA_LEN_DEFAULT                 0x001b
 /** Maximum data length */
-#define BT_GAP_DATA_LEN_MAX                     0x00fb /* 251 bytes */
+#define BT_GAP_DATA_LEN_MAX                     0x00fb
 
 /** Default data time */
-#define BT_GAP_DATA_TIME_DEFAULT                0x0148 /* 328 us */
+#define BT_GAP_DATA_TIME_DEFAULT                0x0148
 /** Maximum data time */
-#define BT_GAP_DATA_TIME_MAX                    0x4290 /* 17040 us */
+#define BT_GAP_DATA_TIME_MAX                    0x4290
 
 /** Maximum advertising set number */
 #define BT_GAP_SID_MAX                          0x0F
@@ -817,13 +825,13 @@ enum {
  */
 #define BT_GAP_PER_ADV_MAX_SKIP                 0x01F3
 /** Minimum Periodic Advertising Timeout (N * 10 ms) */
-#define BT_GAP_PER_ADV_MIN_TIMEOUT              0x000A /* 100 ms */
+#define BT_GAP_PER_ADV_MIN_TIMEOUT              0x000A
 /** Maximum Periodic Advertising Timeout (N * 10 ms) */
-#define BT_GAP_PER_ADV_MAX_TIMEOUT              0x4000 /* 163.84 s */
+#define BT_GAP_PER_ADV_MAX_TIMEOUT              0x4000
 /** Minimum Periodic Advertising Interval (N * 1.25 ms) */
-#define BT_GAP_PER_ADV_MIN_INTERVAL             0x0006 /* 7.5 ms */
+#define BT_GAP_PER_ADV_MIN_INTERVAL             0x0006
 /** Maximum Periodic Advertising Interval (N * 1.25 ms) */
-#define BT_GAP_PER_ADV_MAX_INTERVAL             0xFFFF /* 81.91875 s */
+#define BT_GAP_PER_ADV_MAX_INTERVAL             0xFFFF
 
 /**
  * @brief Convert periodic advertising interval (N * 0.625 ms) to microseconds
@@ -1059,15 +1067,15 @@ enum {
 
 /** @brief Peripheral sleep clock accuracy (SCA) in ppm (parts per million) */
 enum {
-	BT_GAP_SCA_UNKNOWN = 0,   /**< Unknown */
-	BT_GAP_SCA_251_500 = 0,   /**< 251 ppm to 500 ppm */
-	BT_GAP_SCA_151_250 = 1,   /**< 151 ppm to 250 ppm */
-	BT_GAP_SCA_101_150 = 2,   /**< 101 ppm to 150 ppm */
-	BT_GAP_SCA_76_100 = 3,    /**< 76 ppm to 100 ppm */
-	BT_GAP_SCA_51_75 = 4,     /**< 51 ppm to 75 ppm */
-	BT_GAP_SCA_31_50 = 5,     /**< 31 ppm to 50 ppm */
-	BT_GAP_SCA_21_30 = 6,     /**< 21 ppm to 30 ppm */
-	BT_GAP_SCA_0_20 = 7,      /**< 0 ppm to 20 ppm */
+	BT_GAP_SCA_UNKNOWN = 0,
+	BT_GAP_SCA_251_500 = 0,
+	BT_GAP_SCA_151_250 = 1,
+	BT_GAP_SCA_101_150 = 2,
+	BT_GAP_SCA_76_100 = 3,
+	BT_GAP_SCA_51_75 = 4,
+	BT_GAP_SCA_31_50 = 5,
+	BT_GAP_SCA_21_30 = 6,
+	BT_GAP_SCA_0_20 = 7,
 };
 
 /**

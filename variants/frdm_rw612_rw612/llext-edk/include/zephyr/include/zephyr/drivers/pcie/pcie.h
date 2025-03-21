@@ -377,7 +377,7 @@ extern bool pcie_connect_dynamic_irq(pcie_bdf_t bdf,
  * Configuration word 13 contains the head of the capabilities list.
  */
 
-#define PCIE_CONF_CAPPTR	13U	/* capabilities pointer */
+#define PCIE_CONF_CAPPTR	13U
 #define PCIE_CONF_CAPPTR_FIRST(w)	(((w) >> 2) & 0x3FU)
 
 /*
@@ -413,20 +413,20 @@ extern bool pcie_connect_dynamic_irq(pcie_bdf_t bdf,
  * Configuration word 1 contains command and status bits.
  */
 
-#define PCIE_CONF_CMDSTAT	1U	/* command/status register */
+#define PCIE_CONF_CMDSTAT	1U
 
-#define PCIE_CONF_CMDSTAT_IO		0x00000001U  /* I/O access enable */
-#define PCIE_CONF_CMDSTAT_MEM		0x00000002U  /* mem access enable */
-#define PCIE_CONF_CMDSTAT_MASTER	0x00000004U  /* bus master enable */
-#define PCIE_CONF_CMDSTAT_INTERRUPT	0x00080000U  /* interrupt status */
-#define PCIE_CONF_CMDSTAT_CAPS		0x00100000U  /* capabilities list */
+#define PCIE_CONF_CMDSTAT_IO		0x00000001U
+#define PCIE_CONF_CMDSTAT_MEM		0x00000002U
+#define PCIE_CONF_CMDSTAT_MASTER	0x00000004U
+#define PCIE_CONF_CMDSTAT_INTERRUPT	0x00080000U
+#define PCIE_CONF_CMDSTAT_CAPS		0x00100000U
 
 /*
  * Configuration word 2 has additional function identification that
  * we only care about for debug output (PCIe shell commands).
  */
 
-#define PCIE_CONF_CLASSREV	2U	/* class/revision register */
+#define PCIE_CONF_CLASSREV	2U
 
 #define PCIE_CONF_CLASSREV_CLASS(w)	(((w) >> 24) & 0xFFU)
 #define PCIE_CONF_CLASSREV_SUBCLASS(w)  (((w) >> 16) & 0xFFU)
@@ -548,7 +548,7 @@ extern bool pcie_connect_dynamic_irq(pcie_bdf_t bdf,
 #define PCIE_CONF_INTR		15U
 
 #define PCIE_CONF_INTR_IRQ(w)	((w) & 0xFFU)
-#define PCIE_CONF_INTR_IRQ_NONE	0xFFU  /* no interrupt routed */
+#define PCIE_CONF_INTR_IRQ_NONE	0xFFU
 
 #define PCIE_MAX_BUS  (0xFFFFFFFFU & PCIE_BDF_BUS_MASK)
 #define PCIE_MAX_DEV  (0xFFFFFFFFU & PCIE_BDF_DEV_MASK)

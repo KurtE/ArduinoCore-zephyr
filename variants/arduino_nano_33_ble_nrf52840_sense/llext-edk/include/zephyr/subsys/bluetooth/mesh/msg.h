@@ -25,10 +25,10 @@ int bt_mesh_msg_send(const struct bt_mesh_model *model, struct bt_mesh_msg_ctx *
  * Message response context.
  */
 struct bt_mesh_msg_rsp_ctx {
-	struct bt_mesh_msg_ack_ctx *ack;       /**< Acknowledged message context. */
-	uint32_t                    op;        /**< Opcode we're waiting for. */
-	void                       *user_data; /**< User specific parameter. */
-	int32_t                     timeout;   /**< Response timeout in milliseconds. */
+	struct bt_mesh_msg_ack_ctx *ack;
+	uint32_t                    op;
+	void                       *user_data;
+	int32_t                     timeout;
 };
 
 /** @brief Send an acknowledged model message.

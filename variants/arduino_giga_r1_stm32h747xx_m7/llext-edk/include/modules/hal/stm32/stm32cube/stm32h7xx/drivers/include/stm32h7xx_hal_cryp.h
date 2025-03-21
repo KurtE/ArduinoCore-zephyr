@@ -51,7 +51,7 @@ typedef struct
                                         or bit swap(1-bit data).this parameter can be a value of @ref CRYP_Data_Type */
   uint32_t KeySize;                    /*!< Used only in AES mode : 128, 192 or 256 bit key length in CRYP1.
                                             This parameter can be a value of @ref CRYP_Key_Size */
-  uint32_t *pKey;                      /*!< The key used for encryption/decryption */
+  uint32_t *pKey;
   uint32_t *pInitVect;                 /*!< The initialization vector used also as initialization
                                          counter in CTR mode */
   uint32_t Algorithm;                  /*!<  DES/ TDES Algorithm ECB/CBC
@@ -60,10 +60,10 @@ typedef struct
   uint32_t *Header;                    /*!< used only in AES GCM and CCM Algorithm for authentication,
                                         GCM : also known as Additional Authentication Data
                                         CCM : named B1 composed of the associated data length and Associated Data. */
-  uint32_t HeaderSize;                 /*!< The size of header buffer */
-  uint32_t *B0;                        /*!< B0 is first authentication block used only  in AES CCM mode */
-  uint32_t DataWidthUnit;              /*!< Payload data Width Unit, this parameter can be value of @ref CRYP_Data_Width_Unit*/
-  uint32_t HeaderWidthUnit;            /*!< Header Width Unit, this parameter can be value of @ref CRYP_Header_Width_Unit*/
+  uint32_t HeaderSize;
+  uint32_t *B0;
+  uint32_t DataWidthUnit;
+  uint32_t HeaderWidthUnit;
   uint32_t KeyIVConfigSkip;            /*!< CRYP peripheral Key and IV configuration skip, to configure Key and Initialization
                                            Vector only once and to skip configuration for consecutive processing.
                                            This parameter can be a value of @ref CRYP_Configuration_Skip */
@@ -77,9 +77,9 @@ typedef struct
 
 typedef enum
 {
-  HAL_CRYP_STATE_RESET             = 0x00U,  /*!< CRYP not yet initialized or disabled  */
-  HAL_CRYP_STATE_READY             = 0x01U,  /*!< CRYP initialized and ready for use    */
-  HAL_CRYP_STATE_BUSY              = 0x02U  /*!< CRYP BUSY, internal processing is ongoing  */
+  HAL_CRYP_STATE_RESET             = 0x00U,
+  HAL_CRYP_STATE_READY             = 0x01U,
+  HAL_CRYP_STATE_BUSY              = 0x02U
 } HAL_CRYP_STATETypeDef;
 
 
@@ -94,35 +94,35 @@ typedef struct
 #endif /* (USE_HAL_CRYP_REGISTER_CALLBACKS) */
 {
 
-  CRYP_TypeDef                      *Instance;            /*!< CRYP registers base address */
+  CRYP_TypeDef                      *Instance;
 
-  CRYP_ConfigTypeDef                Init;             /*!< CRYP required parameters */
+  CRYP_ConfigTypeDef                Init;
 
-  uint32_t                          *pCrypInBuffPtr;  /*!< Pointer to CRYP processing (encryption, decryption,...) buffer */
+  uint32_t                          *pCrypInBuffPtr;
 
-  uint32_t                          *pCrypOutBuffPtr; /*!< Pointer to CRYP processing (encryption, decryption,...) buffer */
+  uint32_t                          *pCrypOutBuffPtr;
 
-  __IO uint16_t                     CrypHeaderCount;   /*!< Counter of header data */
+  __IO uint16_t                     CrypHeaderCount;
 
-  __IO uint16_t                     CrypInCount;      /*!< Counter of input data */
+  __IO uint16_t                     CrypInCount;
 
-  __IO uint16_t                     CrypOutCount;     /*!< Counter of output data */
+  __IO uint16_t                     CrypOutCount;
 
-  uint16_t                          Size;           /*!< length of input data in word or in byte, according to DataWidthUnit */
+  uint16_t                          Size;
 
-  uint32_t                          Phase;            /*!< CRYP peripheral phase */
+  uint32_t                          Phase;
 
-  DMA_HandleTypeDef                 *hdmain;          /*!< CRYP In DMA handle parameters */
+  DMA_HandleTypeDef                 *hdmain;
 
-  DMA_HandleTypeDef                 *hdmaout;         /*!< CRYP Out DMA handle parameters */
+  DMA_HandleTypeDef                 *hdmaout;
 
-  HAL_LockTypeDef                   Lock;             /*!< CRYP locking object */
+  HAL_LockTypeDef                   Lock;
 
-  __IO  HAL_CRYP_STATETypeDef       State;            /*!< CRYP peripheral state */
+  __IO  HAL_CRYP_STATETypeDef       State;
 
-  __IO uint32_t                     ErrorCode;        /*!< CRYP peripheral error code */
+  __IO uint32_t                     ErrorCode;
 
-  uint32_t                          Version;          /*!< CRYP1 IP version*/
+  uint32_t                          Version;
 
   uint32_t                          KeyIVConfig;      /*!< CRYP peripheral Key and IV configuration flag, used when
                                                            configuration can be skipped */
@@ -132,12 +132,12 @@ typedef struct
                                                            messages processing */
 
 #if (USE_HAL_CRYP_REGISTER_CALLBACKS == 1)
-  void (*InCpltCallback)(struct __CRYP_HandleTypeDef *hcryp);      /*!< CRYP Input FIFO transfer completed callback  */
-  void (*OutCpltCallback)(struct __CRYP_HandleTypeDef *hcryp);     /*!< CRYP Output FIFO transfer completed callback */
-  void (*ErrorCallback)(struct __CRYP_HandleTypeDef *hcryp);       /*!< CRYP Error callback */
+  void (*InCpltCallback)(struct __CRYP_HandleTypeDef *hcryp);
+  void (*OutCpltCallback)(struct __CRYP_HandleTypeDef *hcryp);
+  void (*ErrorCallback)(struct __CRYP_HandleTypeDef *hcryp);
 
-  void (* MspInitCallback)(struct __CRYP_HandleTypeDef *hcryp);    /*!< CRYP Msp Init callback  */
-  void (* MspDeInitCallback)(struct __CRYP_HandleTypeDef *hcryp);  /*!< CRYP Msp DeInit callback  */
+  void (* MspInitCallback)(struct __CRYP_HandleTypeDef *hcryp);
+  void (* MspDeInitCallback)(struct __CRYP_HandleTypeDef *hcryp);
 
 #endif /* (USE_HAL_CRYP_REGISTER_CALLBACKS) */
 
@@ -155,12 +155,12 @@ typedef struct
   */
 typedef enum
 {
-  HAL_CRYP_INPUT_COMPLETE_CB_ID    = 0x01U,    /*!< CRYP Input FIFO transfer completed callback ID */
-  HAL_CRYP_OUTPUT_COMPLETE_CB_ID   = 0x02U,    /*!< CRYP Output FIFO transfer completed callback ID */
-  HAL_CRYP_ERROR_CB_ID             = 0x03U,    /*!< CRYP Error callback ID           */
+  HAL_CRYP_INPUT_COMPLETE_CB_ID    = 0x01U,
+  HAL_CRYP_OUTPUT_COMPLETE_CB_ID   = 0x02U,
+  HAL_CRYP_ERROR_CB_ID             = 0x03U,
 
-  HAL_CRYP_MSPINIT_CB_ID        = 0x04U,    /*!< CRYP MspInit callback ID         */
-  HAL_CRYP_MSPDEINIT_CB_ID      = 0x05U     /*!< CRYP MspDeInit callback ID       */
+  HAL_CRYP_MSPINIT_CB_ID        = 0x04U,
+  HAL_CRYP_MSPDEINIT_CB_ID      = 0x05U
 
 } HAL_CRYP_CallbackIDTypeDef;
 /**
@@ -172,7 +172,7 @@ typedef enum
   * @{
   */
 
-typedef  void (*pCRYP_CallbackTypeDef)(CRYP_HandleTypeDef *hcryp);    /*!< pointer to a common CRYP callback function */
+typedef  void (*pCRYP_CallbackTypeDef)(CRYP_HandleTypeDef *hcryp);
 
 /**
   * @}
@@ -188,16 +188,16 @@ typedef  void (*pCRYP_CallbackTypeDef)(CRYP_HandleTypeDef *hcryp);    /*!< point
 /** @defgroup CRYP_Error_Definition   CRYP Error Definition
   * @{
   */
-#define HAL_CRYP_ERROR_NONE              0x00000000U  /*!< No error        */
-#define HAL_CRYP_ERROR_WRITE             0x00000001U  /*!< Write error     */
-#define HAL_CRYP_ERROR_READ              0x00000002U  /*!< Read error      */
-#define HAL_CRYP_ERROR_DMA               0x00000004U  /*!< DMA error       */
-#define HAL_CRYP_ERROR_BUSY              0x00000008U  /*!< Busy flag error */
-#define HAL_CRYP_ERROR_TIMEOUT           0x00000010U  /*!< Timeout error */
-#define HAL_CRYP_ERROR_NOT_SUPPORTED     0x00000020U  /*!< Not supported mode */
-#define HAL_CRYP_ERROR_AUTH_TAG_SEQUENCE 0x00000040U  /*!< Sequence are not respected only for GCM or CCM */
+#define HAL_CRYP_ERROR_NONE              0x00000000U
+#define HAL_CRYP_ERROR_WRITE             0x00000001U
+#define HAL_CRYP_ERROR_READ              0x00000002U
+#define HAL_CRYP_ERROR_DMA               0x00000004U
+#define HAL_CRYP_ERROR_BUSY              0x00000008U
+#define HAL_CRYP_ERROR_TIMEOUT           0x00000010U
+#define HAL_CRYP_ERROR_NOT_SUPPORTED     0x00000020U
+#define HAL_CRYP_ERROR_AUTH_TAG_SEQUENCE 0x00000040U
 #if (USE_HAL_CRYP_REGISTER_CALLBACKS == 1)
-#define  HAL_CRYP_ERROR_INVALID_CALLBACK ((uint32_t)0x00000080U)    /*!< Invalid Callback error  */
+#define  HAL_CRYP_ERROR_INVALID_CALLBACK ((uint32_t)0x00000080U)
 #endif /* USE_HAL_CRYP_REGISTER_CALLBACKS */
 
 /**
@@ -209,8 +209,8 @@ typedef  void (*pCRYP_CallbackTypeDef)(CRYP_HandleTypeDef *hcryp);    /*!< point
   * @{
   */
 
-#define CRYP_DATAWIDTHUNIT_WORD   0x00000000U  /*!< By default, size unit is word */
-#define CRYP_DATAWIDTHUNIT_BYTE   0x00000001U  /*!< Size unit is byte, but all input will be loaded in HW CRYPT IP by block of 4 words */
+#define CRYP_DATAWIDTHUNIT_WORD   0x00000000U
+#define CRYP_DATAWIDTHUNIT_BYTE   0x00000001U
 
 /**
   * @}
@@ -220,8 +220,8 @@ typedef  void (*pCRYP_CallbackTypeDef)(CRYP_HandleTypeDef *hcryp);    /*!< point
   * @{
   */
 
-#define CRYP_HEADERWIDTHUNIT_WORD   0x00000000U  /*!< By default, header size unit is word */
-#define CRYP_HEADERWIDTHUNIT_BYTE   0x00000001U  /*!< Size unit is byte, but all input will be loaded in HW CRYPT IP by block of 4 words */
+#define CRYP_HEADERWIDTHUNIT_WORD   0x00000000U
+#define CRYP_HEADERWIDTHUNIT_BYTE   0x00000001U
 
 /**
   * @}
@@ -274,8 +274,8 @@ typedef  void (*pCRYP_CallbackTypeDef)(CRYP_HandleTypeDef *hcryp);    /*!< point
   * @{
   */
 
-#define CRYP_IT_INI       CRYP_IMSCR_INIM   /*!< Input FIFO Interrupt */
-#define CRYP_IT_OUTI      CRYP_IMSCR_OUTIM  /*!< Output FIFO Interrupt */
+#define CRYP_IT_INI       CRYP_IMSCR_INIM
+#define CRYP_IT_OUTI      CRYP_IMSCR_OUTIM
 
 /**
   * @}
@@ -286,15 +286,15 @@ typedef  void (*pCRYP_CallbackTypeDef)(CRYP_HandleTypeDef *hcryp);    /*!< point
   */
 
 /* Flags in the SR register */
-#define CRYP_FLAG_IFEM    CRYP_SR_IFEM  /*!< Input FIFO is empty */
-#define CRYP_FLAG_IFNF    CRYP_SR_IFNF  /*!< Input FIFO is not Full */
-#define CRYP_FLAG_OFNE    CRYP_SR_OFNE  /*!< Output FIFO is not empty */
-#define CRYP_FLAG_OFFU    CRYP_SR_OFFU  /*!< Output FIFO is Full */
+#define CRYP_FLAG_IFEM    CRYP_SR_IFEM
+#define CRYP_FLAG_IFNF    CRYP_SR_IFNF
+#define CRYP_FLAG_OFNE    CRYP_SR_OFNE
+#define CRYP_FLAG_OFFU    CRYP_SR_OFFU
 #define CRYP_FLAG_BUSY    CRYP_SR_BUSY  /*!< The CRYP core is currently processing a block of data
                                              or a key preparation (for AES decryption). */
 /* Flags in the RISR register */
-#define CRYP_FLAG_OUTRIS  0x01000002U  /*!< Output FIFO service raw interrupt status */
-#define CRYP_FLAG_INRIS   0x01000001U  /*!< Input FIFO service raw interrupt status*/
+#define CRYP_FLAG_OUTRIS  0x01000002U
+#define CRYP_FLAG_INRIS   0x01000001U
 
 /**
   * @}
@@ -304,8 +304,8 @@ typedef  void (*pCRYP_CallbackTypeDef)(CRYP_HandleTypeDef *hcryp);    /*!< point
   * @{
   */
 
-#define CRYP_KEYIVCONFIG_ALWAYS        0x00000000U            /*!< Peripheral Key and IV configuration to do systematically */
-#define CRYP_KEYIVCONFIG_ONCE          0x00000001U            /*!< Peripheral Key and IV configuration to do only once      */
+#define CRYP_KEYIVCONFIG_ALWAYS        0x00000000U
+#define CRYP_KEYIVCONFIG_ONCE          0x00000001U
 
 /**
   * @}

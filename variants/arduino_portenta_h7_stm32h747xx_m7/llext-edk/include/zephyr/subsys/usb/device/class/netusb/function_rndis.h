@@ -70,7 +70,7 @@ struct rndis_query_cmd {
 	uint32_t object_id;
 	uint32_t buf_len;
 	uint32_t buf_offset;
-	uint32_t vc_handle;	/* Reserved for connection-oriented devices */
+	uint32_t vc_handle;
 } __packed;
 
 /* Specifies RNDS objects for Query and Set */
@@ -133,7 +133,7 @@ struct rndis_set_cmd {
 	uint32_t object_id;
 	uint32_t buf_len;
 	uint32_t buf_offset;
-	uint32_t vc_handle;	/* Reserved for connection-oriented devices */
+	uint32_t vc_handle;
 } __packed;
 
 struct rndis_set_cmd_complete {

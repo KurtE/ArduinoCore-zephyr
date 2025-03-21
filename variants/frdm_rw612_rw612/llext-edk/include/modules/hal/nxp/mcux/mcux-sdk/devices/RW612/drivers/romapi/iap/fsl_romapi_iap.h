@@ -46,10 +46,10 @@
 /*! @brief iap version for ROM*/
 enum iap_version_constants
 {
-    kIAP_VersionName   = 'I', /*!< IAP version name.*/
-    kIAP_VersionMajor  = 1,   /*!< Major IAP version.*/
-    kIAP_VersionMinor  = 0,   /*!< Minor IAP version.*/
-    kIAP_VersionBugfix = 0    /*!< Bugfix for IAP version.*/
+    kIAP_VersionName   = 'I',
+    kIAP_VersionMajor  = 1,
+    kIAP_VersionMinor  = 0,
+    kIAP_VersionBugfix = 0
 };
 
 //!@brief ROM API status definitions

@@ -79,7 +79,7 @@ typedef struct
   */
 typedef struct
 {
-  uint32_t VirtualChannelID;             /*!< Virtual channel ID                                                 */
+  uint32_t VirtualChannelID;
 
   uint32_t ColorCoding;                  /*!< Color coding for LTDC interface
                                               This parameter can be any value of @ref DSI_Color_Coding           */
@@ -91,11 +91,11 @@ typedef struct
   uint32_t Mode;                         /*!< Video mode type
                                               This parameter can be any value of @ref DSI_Video_Mode_Type        */
 
-  uint32_t PacketSize;                   /*!< Video packet size                                                  */
+  uint32_t PacketSize;
 
-  uint32_t NumberOfChunks;               /*!< Number of chunks                                                   */
+  uint32_t NumberOfChunks;
 
-  uint32_t NullPacketSize;               /*!< Null packet size                                                   */
+  uint32_t NullPacketSize;
 
   uint32_t HSPolarity;                   /*!< HSYNC pin polarity
                                               This parameter can be any value of @ref DSI_HSYNC_Polarity         */
@@ -106,19 +106,19 @@ typedef struct
   uint32_t DEPolarity;                   /*!< Data Enable pin polarity
                                               This parameter can be any value of @ref DSI_DATA_ENABLE_Polarity   */
 
-  uint32_t HorizontalSyncActive;         /*!< Horizontal synchronism active duration (in lane byte clock cycles) */
+  uint32_t HorizontalSyncActive;
 
-  uint32_t HorizontalBackPorch;          /*!< Horizontal back-porch duration (in lane byte clock cycles)         */
+  uint32_t HorizontalBackPorch;
 
-  uint32_t HorizontalLine;               /*!< Horizontal line duration (in lane byte clock cycles)               */
+  uint32_t HorizontalLine;
 
-  uint32_t VerticalSyncActive;           /*!< Vertical synchronism active duration                               */
+  uint32_t VerticalSyncActive;
 
-  uint32_t VerticalBackPorch;            /*!< Vertical back-porch duration                                       */
+  uint32_t VerticalBackPorch;
 
-  uint32_t VerticalFrontPorch;           /*!< Vertical front-porch duration                                      */
+  uint32_t VerticalFrontPorch;
 
-  uint32_t VerticalActive;               /*!< Vertical active duration                                           */
+  uint32_t VerticalActive;
 
   uint32_t LPCommandEnable;              /*!< Low-power command enable
                                               This parameter can be any value of @ref DSI_LP_Command             */
@@ -157,7 +157,7 @@ typedef struct
   */
 typedef struct
 {
-  uint32_t VirtualChannelID;             /*!< Virtual channel ID                                                */
+  uint32_t VirtualChannelID;
 
   uint32_t ColorCoding;                  /*!< Color coding for LTDC interface
                                               This parameter can be any value of @ref DSI_Color_Coding          */
@@ -254,7 +254,7 @@ typedef struct
   uint32_t DataLaneLP2HSTime;            /*!< The maximum time that the D-PHY data lanes takes to go from low-power
                                               to high-speed transmission                                             */
 
-  uint32_t DataLaneMaxReadTime;          /*!< The maximum time required to perform a read command */
+  uint32_t DataLaneMaxReadTime;
 
   uint32_t StopWaitTime;                 /*!< The minimum wait period to request a High-Speed transmission after the
                                               Stop state                                                             */
@@ -266,24 +266,24 @@ typedef struct
   */
 typedef struct
 {
-  uint32_t TimeoutCkdiv;                 /*!< Time-out clock division                                  */
+  uint32_t TimeoutCkdiv;
 
-  uint32_t HighSpeedTransmissionTimeout; /*!< High-speed transmission time-out                         */
+  uint32_t HighSpeedTransmissionTimeout;
 
-  uint32_t LowPowerReceptionTimeout;     /*!< Low-power reception time-out                             */
+  uint32_t LowPowerReceptionTimeout;
 
-  uint32_t HighSpeedReadTimeout;         /*!< High-speed read time-out                                 */
+  uint32_t HighSpeedReadTimeout;
 
-  uint32_t LowPowerReadTimeout;          /*!< Low-power read time-out                                  */
+  uint32_t LowPowerReadTimeout;
 
-  uint32_t HighSpeedWriteTimeout;        /*!< High-speed write time-out                                */
+  uint32_t HighSpeedWriteTimeout;
 
   uint32_t HighSpeedWritePrespMode;      /*!< High-speed write presp mode
                                               This parameter can be any value of @ref DSI_HS_PrespMode */
 
-  uint32_t LowPowerWriteTimeout;         /*!< Low-speed write time-out                                 */
+  uint32_t LowPowerWriteTimeout;
 
-  uint32_t BTATimeout;                   /*!< BTA time-out                                             */
+  uint32_t BTATimeout;
 
 } DSI_HOST_TimeoutTypeDef;
 
@@ -308,20 +308,20 @@ typedef struct __DSI_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_DSI_REGISTER_CALLBACKS */
 {
-  DSI_TypeDef               *Instance;    /*!< Register base address      */
-  DSI_InitTypeDef           Init;         /*!< DSI required parameters    */
-  HAL_LockTypeDef           Lock;         /*!< DSI peripheral status      */
-  __IO HAL_DSI_StateTypeDef State;        /*!< DSI communication state    */
-  __IO uint32_t             ErrorCode;    /*!< DSI Error code             */
-  uint32_t                  ErrorMsk;     /*!< DSI Error monitoring mask  */
+  DSI_TypeDef               *Instance;
+  DSI_InitTypeDef           Init;
+  HAL_LockTypeDef           Lock;
+  __IO HAL_DSI_StateTypeDef State;
+  __IO uint32_t             ErrorCode;
+  uint32_t                  ErrorMsk;
 
 #if (USE_HAL_DSI_REGISTER_CALLBACKS == 1)
-  void (* TearingEffectCallback)(struct __DSI_HandleTypeDef *hdsi);   /*!< DSI Tearing Effect Callback */
-  void (* EndOfRefreshCallback)(struct __DSI_HandleTypeDef *hdsi);    /*!< DSI End Of Refresh Callback */
-  void (* ErrorCallback)(struct __DSI_HandleTypeDef *hdsi);           /*!< DSI Error Callback          */
+  void (* TearingEffectCallback)(struct __DSI_HandleTypeDef *hdsi);
+  void (* EndOfRefreshCallback)(struct __DSI_HandleTypeDef *hdsi);
+  void (* ErrorCallback)(struct __DSI_HandleTypeDef *hdsi);
 
-  void (* MspInitCallback)(struct __DSI_HandleTypeDef *hdsi);         /*!< DSI Msp Init callback       */
-  void (* MspDeInitCallback)(struct __DSI_HandleTypeDef *hdsi);       /*!< DSI Msp DeInit callback     */
+  void (* MspInitCallback)(struct __DSI_HandleTypeDef *hdsi);
+  void (* MspDeInitCallback)(struct __DSI_HandleTypeDef *hdsi);
 
 #endif /* USE_HAL_DSI_REGISTER_CALLBACKS */
 
@@ -333,19 +333,19 @@ typedef struct
   */
 typedef enum
 {
-  HAL_DSI_MSPINIT_CB_ID            = 0x00U,    /*!< DSI MspInit callback ID        */
-  HAL_DSI_MSPDEINIT_CB_ID          = 0x01U,    /*!< DSI MspDeInit callback ID      */
+  HAL_DSI_MSPINIT_CB_ID            = 0x00U,
+  HAL_DSI_MSPDEINIT_CB_ID          = 0x01U,
 
-  HAL_DSI_TEARING_EFFECT_CB_ID     = 0x02U,    /*!< DSI Tearing Effect Callback ID */
-  HAL_DSI_ENDOF_REFRESH_CB_ID      = 0x03U,    /*!< DSI End Of Refresh Callback ID */
-  HAL_DSI_ERROR_CB_ID              = 0x04U     /*!< DSI Error Callback ID          */
+  HAL_DSI_TEARING_EFFECT_CB_ID     = 0x02U,
+  HAL_DSI_ENDOF_REFRESH_CB_ID      = 0x03U,
+  HAL_DSI_ERROR_CB_ID              = 0x04U
 
 } HAL_DSI_CallbackIDTypeDef;
 
 /**
   * @brief  HAL DSI Callback pointer definition
   */
-typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to an DSI callback function */
+typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);
 
 #endif /* USE_HAL_DSI_REGISTER_CALLBACKS */
 /**
@@ -715,8 +715,8 @@ typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to
 /** @defgroup DSI_Color_Coding DSI Color Coding
   * @{
   */
-#define DSI_RGB565                 0x00000000U /*!< The values 0x00000001 and 0x00000002 can also be used for the RGB565 color mode configuration */
-#define DSI_RGB666                 0x00000003U /*!< The value 0x00000004 can also be used for the RGB666 color mode configuration                 */
+#define DSI_RGB565                 0x00000000U
+#define DSI_RGB666                 0x00000003U
 #define DSI_RGB888                 0x00000005U
 /**
   * @}
@@ -813,11 +813,11 @@ typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to
 /** @defgroup DSI_SHORT_WRITE_PKT_Data_Type DSI SHORT WRITE PKT Data Type
   * @{
   */
-#define DSI_DCS_SHORT_PKT_WRITE_P0  0x00000005U /*!< DCS short write, no parameters      */
-#define DSI_DCS_SHORT_PKT_WRITE_P1  0x00000015U /*!< DCS short write, one parameter      */
-#define DSI_GEN_SHORT_PKT_WRITE_P0  0x00000003U /*!< Generic short write, no parameters  */
-#define DSI_GEN_SHORT_PKT_WRITE_P1  0x00000013U /*!< Generic short write, one parameter  */
-#define DSI_GEN_SHORT_PKT_WRITE_P2  0x00000023U /*!< Generic short write, two parameters */
+#define DSI_DCS_SHORT_PKT_WRITE_P0  0x00000005U
+#define DSI_DCS_SHORT_PKT_WRITE_P1  0x00000015U
+#define DSI_GEN_SHORT_PKT_WRITE_P0  0x00000003U
+#define DSI_GEN_SHORT_PKT_WRITE_P1  0x00000013U
+#define DSI_GEN_SHORT_PKT_WRITE_P2  0x00000023U
 /**
   * @}
   */
@@ -825,8 +825,8 @@ typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to
 /** @defgroup DSI_LONG_WRITE_PKT_Data_Type DSI LONG WRITE PKT Data Type
   * @{
   */
-#define DSI_DCS_LONG_PKT_WRITE      0x00000039U /*!< DCS long write     */
-#define DSI_GEN_LONG_PKT_WRITE      0x00000029U /*!< Generic long write */
+#define DSI_DCS_LONG_PKT_WRITE      0x00000039U
+#define DSI_GEN_LONG_PKT_WRITE      0x00000029U
 /**
   * @}
   */
@@ -834,10 +834,10 @@ typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to
 /** @defgroup DSI_SHORT_READ_PKT_Data_Type DSI SHORT READ PKT Data Type
   * @{
   */
-#define DSI_DCS_SHORT_PKT_READ      0x00000006U /*!< DCS short read                     */
-#define DSI_GEN_SHORT_PKT_READ_P0   0x00000004U /*!< Generic short read, no parameters  */
-#define DSI_GEN_SHORT_PKT_READ_P1   0x00000014U /*!< Generic short read, one parameter  */
-#define DSI_GEN_SHORT_PKT_READ_P2   0x00000024U /*!< Generic short read, two parameters */
+#define DSI_DCS_SHORT_PKT_READ      0x00000006U
+#define DSI_GEN_SHORT_PKT_READ_P0   0x00000004U
+#define DSI_GEN_SHORT_PKT_READ_P1   0x00000014U
+#define DSI_GEN_SHORT_PKT_READ_P2   0x00000024U
 /**
   * @}
   */
@@ -846,18 +846,18 @@ typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to
   * @{
   */
 #define HAL_DSI_ERROR_NONE              0U
-#define HAL_DSI_ERROR_ACK               0x00000001U /*!< Acknowledge errors             */
-#define HAL_DSI_ERROR_PHY               0x00000002U /*!< PHY related errors             */
-#define HAL_DSI_ERROR_TX                0x00000004U /*!< Transmission error             */
-#define HAL_DSI_ERROR_RX                0x00000008U /*!< Reception error                */
-#define HAL_DSI_ERROR_ECC               0x00000010U /*!< ECC errors                     */
-#define HAL_DSI_ERROR_CRC               0x00000020U /*!< CRC error                      */
-#define HAL_DSI_ERROR_PSE               0x00000040U /*!< Packet Size error              */
-#define HAL_DSI_ERROR_EOT               0x00000080U /*!< End Of Transmission error      */
-#define HAL_DSI_ERROR_OVF               0x00000100U /*!< FIFO overflow error            */
-#define HAL_DSI_ERROR_GEN               0x00000200U /*!< Generic FIFO related errors    */
+#define HAL_DSI_ERROR_ACK               0x00000001U
+#define HAL_DSI_ERROR_PHY               0x00000002U
+#define HAL_DSI_ERROR_TX                0x00000004U
+#define HAL_DSI_ERROR_RX                0x00000008U
+#define HAL_DSI_ERROR_ECC               0x00000010U
+#define HAL_DSI_ERROR_CRC               0x00000020U
+#define HAL_DSI_ERROR_PSE               0x00000040U
+#define HAL_DSI_ERROR_EOT               0x00000080U
+#define HAL_DSI_ERROR_OVF               0x00000100U
+#define HAL_DSI_ERROR_GEN               0x00000200U
 #if (USE_HAL_DSI_REGISTER_CALLBACKS == 1)
-#define HAL_DSI_ERROR_INVALID_CALLBACK  0x00000400U /*!< DSI Invalid Callback error      */
+#define HAL_DSI_ERROR_INVALID_CALLBACK  0x00000400U
 #endif /* USE_HAL_DSI_REGISTER_CALLBACKS */
 /**
   * @}
@@ -950,7 +950,7 @@ typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to
 #define __HAL_DSI_ENABLE(__HANDLE__) do { \
                                           __IO uint32_t tmpreg = 0x00U; \
                                           SET_BIT((__HANDLE__)->Instance->CR, DSI_CR_EN);\
-                                          /* Delay after an DSI Host enabling */ \
+ \
                                           tmpreg = READ_BIT((__HANDLE__)->Instance->CR, DSI_CR_EN);\
                                           UNUSED(tmpreg); \
                                         } while(0U)
@@ -963,7 +963,7 @@ typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to
 #define __HAL_DSI_DISABLE(__HANDLE__) do { \
                                            __IO uint32_t tmpreg = 0x00U; \
                                            CLEAR_BIT((__HANDLE__)->Instance->CR, DSI_CR_EN);\
-                                           /* Delay after an DSI Host disabling */ \
+ \
                                            tmpreg = READ_BIT((__HANDLE__)->Instance->CR, DSI_CR_EN);\
                                            UNUSED(tmpreg); \
                                          } while(0U)
@@ -976,7 +976,7 @@ typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to
 #define __HAL_DSI_WRAPPER_ENABLE(__HANDLE__) do { \
                                                   __IO uint32_t tmpreg = 0x00U; \
                                                   SET_BIT((__HANDLE__)->Instance->WCR, DSI_WCR_DSIEN);\
-                                                  /* Delay after an DSI wrapper enabling */ \
+ \
                                                   tmpreg = READ_BIT((__HANDLE__)->Instance->WCR, DSI_WCR_DSIEN);\
                                                   UNUSED(tmpreg); \
                                                 } while(0U)
@@ -989,7 +989,7 @@ typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to
 #define __HAL_DSI_WRAPPER_DISABLE(__HANDLE__) do { \
                                                    __IO uint32_t tmpreg = 0x00U; \
                                                    CLEAR_BIT((__HANDLE__)->Instance->WCR, DSI_WCR_DSIEN);\
-                                                   /* Delay after an DSI wrapper disabling*/ \
+ \
                                                    tmpreg = READ_BIT((__HANDLE__)->Instance->WCR, DSI_WCR_DSIEN);\
                                                    UNUSED(tmpreg); \
                                                  } while(0U)
@@ -1002,7 +1002,7 @@ typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to
 #define __HAL_DSI_PLL_ENABLE(__HANDLE__) do { \
                                               __IO uint32_t tmpreg = 0x00U; \
                                               SET_BIT((__HANDLE__)->Instance->WRPCR, DSI_WRPCR_PLLEN);\
-                                              /* Delay after an DSI PLL enabling */ \
+ \
                                               tmpreg = READ_BIT((__HANDLE__)->Instance->WRPCR, DSI_WRPCR_PLLEN);\
                                               UNUSED(tmpreg); \
                                             } while(0U)
@@ -1015,7 +1015,7 @@ typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to
 #define __HAL_DSI_PLL_DISABLE(__HANDLE__) do { \
                                                __IO uint32_t tmpreg = 0x00U; \
                                                CLEAR_BIT((__HANDLE__)->Instance->WRPCR, DSI_WRPCR_PLLEN);\
-                                               /* Delay after an DSI PLL disabling */ \
+ \
                                                tmpreg = READ_BIT((__HANDLE__)->Instance->WRPCR, DSI_WRPCR_PLLEN);\
                                                UNUSED(tmpreg); \
                                              } while(0U)
@@ -1028,7 +1028,7 @@ typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to
 #define __HAL_DSI_REG_ENABLE(__HANDLE__) do { \
                                               __IO uint32_t tmpreg = 0x00U; \
                                               SET_BIT((__HANDLE__)->Instance->WRPCR, DSI_WRPCR_REGEN);\
-                                              /* Delay after an DSI regulator enabling */ \
+ \
                                               tmpreg = READ_BIT((__HANDLE__)->Instance->WRPCR, DSI_WRPCR_REGEN);\
                                               UNUSED(tmpreg); \
                                             } while(0U)
@@ -1041,7 +1041,7 @@ typedef  void (*pDSI_CallbackTypeDef)(DSI_HandleTypeDef *hdsi);  /*!< pointer to
 #define __HAL_DSI_REG_DISABLE(__HANDLE__) do { \
                                                __IO uint32_t tmpreg = 0x00U; \
                                                CLEAR_BIT((__HANDLE__)->Instance->WRPCR, DSI_WRPCR_REGEN);\
-                                               /* Delay after an DSI regulator disabling */ \
+ \
                                                tmpreg = READ_BIT((__HANDLE__)->Instance->WRPCR, DSI_WRPCR_REGEN);\
                                                UNUSED(tmpreg); \
                                              } while(0U)
@@ -1240,7 +1240,7 @@ HAL_DSI_StateTypeDef HAL_DSI_GetState(const DSI_HandleTypeDef *hdsi);
 /** @defgroup DSI_Private_Constants DSI Private Constants
   * @{
   */
-#define DSI_MAX_RETURN_PKT_SIZE (0x00000037U) /*!< Maximum return packet configuration */
+#define DSI_MAX_RETURN_PKT_SIZE (0x00000037U)
 /**
   * @}
   */

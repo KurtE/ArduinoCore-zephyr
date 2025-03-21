@@ -82,6 +82,10 @@ struct zbus_channel {
 	/** Channel name. */
 	const char *name;
 #endif
+#if defined(CONFIG_ZBUS_CHANNEL_ID) || defined(__DOXYGEN__)
+	/** Unique numeric channel identifier. */
+	uint32_t id;
+#endif
 	/** Message reference. Represents the message's reference that points to the actual
 	 * shared memory region.
 	 */
@@ -221,7 +225,7 @@ struct zbus_channel_observation {
 #define ZBUS_RUNTIME_OBSERVERS_LIST_INIT(_slist_name) .runtime_observers = &_slist_name,
 #else
 #define ZBUS_RUNTIME_OBSERVERS_LIST_DECL(_slist_name)
-#define ZBUS_RUNTIME_OBSERVERS_LIST_INIT(_slist_name) /* No runtime observers */
+#define ZBUS_RUNTIME_OBSERVERS_LIST_INIT(_slist_name)
 #endif
 
 #define _ZBUS_OBS_EXTERN(_name) extern const struct zbus_observer _name
@@ -231,13 +235,13 @@ struct zbus_channel_observation {
 #define ZBUS_REF(_value) &(_value)
 
 #define FOR_EACH_FIXED_ARG_NONEMPTY_TERM(F, sep, fixed_arg, ...)                                   \
-	COND_CODE_0(/* are there zero non-empty arguments ? */                                     \
+	COND_CODE_0(                                     \
 		    NUM_VA_ARGS_LESS_1(                                                            \
-			    LIST_DROP_EMPTY(__VA_ARGS__, _)), /* if so, expand to nothing */       \
-		    (),                                       /* otherwise, expand to: */          \
+			    LIST_DROP_EMPTY(__VA_ARGS__, _)),       \
+		    (),          \
 		    (FOR_EACH_IDX_FIXED_ARG(                                                       \
 			    F, sep, fixed_arg,                                                     \
-			    LIST_DROP_EMPTY(__VA_ARGS__)) /* plus a final terminator */            \
+			    LIST_DROP_EMPTY(__VA_ARGS__))            \
 		     __DEBRACKET sep))
 
 #define _ZBUS_OBSERVATION_PREFIX(_idx)                                                             \
@@ -262,6 +266,34 @@ struct zbus_channel_observation {
 #define _ZBUS_RUNTIME_OBSERVERS(_name)
 #define _ZBUS_RUNTIME_OBSERVERS_DECL(_name)
 #endif /* CONFIG_ZBUS_RUNTIME_OBSERVERS */
+
+#define _ZBUS_MESSAGE_NAME(_name) _CONCAT(_zbus_message_, _name)
+
+/* clang-format off */
+#define _ZBUS_CHAN_DEFINE(_name, _id, _type, _validator, _user_data)                               \
+	static struct zbus_channel_data _CONCAT(_zbus_chan_data_, _name) = {                       \
+		.observers_start_idx = -1,                                                         \
+		.observers_end_idx = -1,                                                           \
+		.sem = Z_SEM_INITIALIZER(_CONCAT(_zbus_chan_data_, _name).sem, 1, 1),              \
+		IF_ENABLED(CONFIG_ZBUS_PRIORITY_BOOST,                                             \
+			   (.highest_observer_priority = ZBUS_MIN_THREAD_PRIORITY,))               \
+		 IF_ENABLED(CONFIG_ZBUS_RUNTIME_OBSERVERS,                                         \
+			   (.observers = SYS_SLIST_STATIC_INIT(                                    \
+				&_CONCAT(_zbus_chan_data_, _name).observers),))                    \
+	};                                                                                         \
+	static K_MUTEX_DEFINE(_CONCAT(_zbus_mutex_, _name));                                       \
+	_ZBUS_CPP_EXTERN const STRUCT_SECTION_ITERABLE(zbus_channel, _name) = {                    \
+		ZBUS_CHANNEL_NAME_INIT(_name)                                  \
+		IF_ENABLED(CONFIG_ZBUS_CHANNEL_ID, (.id = _id,))                                   \
+		.message = &_ZBUS_MESSAGE_NAME(_name),                                             \
+		.message_size = sizeof(_type),                                                     \
+		.user_data = _user_data,                                                           \
+		.validator = _validator,                                                           \
+		.data = &_CONCAT(_zbus_chan_data_, _name),                                         \
+		IF_ENABLED(ZBUS_MSG_SUBSCRIBER_NET_BUF_POOL_ISOLATION,                             \
+			   (.msg_subscriber_pool = &_zbus_msg_subscribers_pool,))                  \
+	}
+/* clang-format on */
 
 /** @endcond */
 
@@ -328,7 +360,11 @@ struct zbus_channel_observation {
  */
 #define ZBUS_OBSERVERS(...) __VA_ARGS__
 
-/* clang-format off */
+/**
+ * @def ZBUS_CHAN_ID_INVALID
+ * This macro indicates the channel does not have a unique ID.
+ */
+#define ZBUS_CHAN_ID_INVALID UINT32_MAX
 
 /**
  * @brief Zbus channel definition.
@@ -345,37 +381,37 @@ struct zbus_channel_observation {
  * first the highest priority.
  * @param _init_val The message initialization.
  */
-#define ZBUS_CHAN_DEFINE(_name, _type, _validator, _user_data, _observers, _init_val)     \
-	static _type _CONCAT(_zbus_message_, _name) = _init_val;                          \
-	static struct zbus_channel_data _CONCAT(_zbus_chan_data_, _name) = {              \
-		.observers_start_idx = -1,                                                \
-		.observers_end_idx = -1,                                                  \
-		.sem = Z_SEM_INITIALIZER(_CONCAT(_zbus_chan_data_, _name).sem, 1, 1),     \
-		IF_ENABLED(CONFIG_ZBUS_PRIORITY_BOOST, (                                  \
-			.highest_observer_priority = ZBUS_MIN_THREAD_PRIORITY,            \
-		))                                                                        \
-		IF_ENABLED(CONFIG_ZBUS_RUNTIME_OBSERVERS, (                               \
-			.observers = SYS_SLIST_STATIC_INIT(                               \
-				&_CONCAT(_zbus_chan_data_, _name).observers),             \
-		))                                                                        \
-	};                                                                                \
-	static K_MUTEX_DEFINE(_CONCAT(_zbus_mutex_, _name));                              \
-	_ZBUS_CPP_EXTERN const STRUCT_SECTION_ITERABLE(zbus_channel, _name) = {           \
-		ZBUS_CHANNEL_NAME_INIT(_name) /* Maybe removed */                         \
-		.message = &_CONCAT(_zbus_message_, _name),                               \
-		.message_size = sizeof(_type),                                            \
-		.user_data = _user_data,                                                  \
-		.validator = _validator,                                                  \
-		.data = &_CONCAT(_zbus_chan_data_, _name),                                \
-		IF_ENABLED(ZBUS_MSG_SUBSCRIBER_NET_BUF_POOL_ISOLATION, (                  \
-			.msg_subscriber_pool = &_zbus_msg_subscribers_pool,               \
-		))                                                                        \
-	};                                                                                \
-	/* Extern declaration of observers */                                             \
-	ZBUS_OBS_DECLARE(_observers);                                                     \
-	/* Create all channel observations from observers list */                         \
+#define ZBUS_CHAN_DEFINE(_name, _type, _validator, _user_data, _observers, _init_val)              \
+	static _type _ZBUS_MESSAGE_NAME(_name) = _init_val;                                        \
+	_ZBUS_CHAN_DEFINE(_name, ZBUS_CHAN_ID_INVALID, _type, _validator, _user_data);             \
+                                                      \
+	ZBUS_OBS_DECLARE(_observers);                                                              \
+                                  \
 	FOR_EACH_FIXED_ARG_NONEMPTY_TERM(_ZBUS_CHAN_OBSERVATION, (;), _name, _observers)
-/* clang-format on */
+
+/**
+ * @brief Zbus channel definition with numeric identifier.
+ *
+ * This macro defines a channel.
+ *
+ * @param _name The channel's name.
+ * @param _id The channel's unique numeric identifier.
+ * @param _type The Message type. It must be a struct or union.
+ * @param _validator The validator function.
+ * @param _user_data A pointer to the user data.
+ *
+ * @see struct zbus_channel
+ * @param _observers The observers list. The sequence indicates the priority of the observer. The
+ * first the highest priority.
+ * @param _init_val The message initialization.
+ */
+#define ZBUS_CHAN_DEFINE_WITH_ID(_name, _id, _type, _validator, _user_data, _observers, _init_val) \
+	static _type _ZBUS_MESSAGE_NAME(_name) = _init_val;                                        \
+	_ZBUS_CHAN_DEFINE(_name, _id, _type, _validator, _user_data);                              \
+                                                      \
+	ZBUS_OBS_DECLARE(_observers);                                                              \
+                                  \
+	FOR_EACH_FIXED_ARG_NONEMPTY_TERM(_ZBUS_CHAN_OBSERVATION, (;), _name, _observers)
 
 /**
  * @brief Initialize a message.
@@ -386,10 +422,7 @@ struct zbus_channel_observation {
  * @param[in] _val Variadic with the initial values. ``ZBUS_INIT(0)`` means ``{0}``, as
  * ZBUS_INIT(.a=10, .b=30) means ``{.a=10, .b=30}``.
  */
-#define ZBUS_MSG_INIT(_val, ...)                                                                   \
-	{                                                                                          \
-		_val, ##__VA_ARGS__                                                                \
-	}
+#define ZBUS_MSG_INIT(_val, ...) {_val, ##__VA_ARGS__}
 
 /* clang-format off */
 
@@ -416,7 +449,7 @@ struct zbus_channel_observation {
 		))                                                            \
 	};                                                                    \
 	_ZBUS_CPP_EXTERN const STRUCT_SECTION_ITERABLE(zbus_observer, _name) = {  \
-		ZBUS_OBSERVER_NAME_INIT(_name) /* Name field */               \
+		ZBUS_OBSERVER_NAME_INIT(_name)               \
 		.type = ZBUS_OBSERVER_SUBSCRIBER_TYPE,                        \
 		.data = &_CONCAT(_zbus_obs_data_, _name),                     \
 		.queue = &_zbus_observer_queue_##_name,                       \
@@ -458,7 +491,7 @@ struct zbus_channel_observation {
 		))                                                                                 \
 	};                                                                                         \
 	_ZBUS_CPP_EXTERN const STRUCT_SECTION_ITERABLE(zbus_observer, _name) = {                   \
-		ZBUS_OBSERVER_NAME_INIT(_name) /* Name field */                                    \
+		ZBUS_OBSERVER_NAME_INIT(_name)                                    \
 		.type = ZBUS_OBSERVER_LISTENER_TYPE,                                               \
 		.data = &_CONCAT(_zbus_obs_data_, _name),                                          \
 		.callback = (_cb)                                                                  \
@@ -498,7 +531,7 @@ struct zbus_channel_observation {
 		))                                                            \
 	};                                                                    \
 	_ZBUS_CPP_EXTERN const STRUCT_SECTION_ITERABLE(zbus_observer, _name) = {  \
-		ZBUS_OBSERVER_NAME_INIT(_name) /* Name field */               \
+		ZBUS_OBSERVER_NAME_INIT(_name)               \
 		.type = ZBUS_OBSERVER_MSG_SUBSCRIBER_TYPE,                    \
 		.data = &_CONCAT(_zbus_obs_data_, _name),                     \
 		.message_fifo = &_zbus_observer_fifo_##_name,                 \
@@ -635,6 +668,20 @@ static inline const char *zbus_chan_name(const struct zbus_channel *chan)
 
 	return chan->name;
 }
+
+#endif
+
+#if defined(CONFIG_ZBUS_CHANNEL_ID) || defined(__DOXYGEN__)
+
+/**
+ * @brief Retrieve a zbus channel from its numeric identifier
+ *
+ * @param channel_id Unique channel ID from @ref ZBUS_CHAN_DEFINE_WITH_ID
+ *
+ * @retval NULL If channel with ID @a channel_id does not exist.
+ * @retval chan Channel pointer with ID @a channel_id otherwise.
+ */
+const struct zbus_channel *zbus_chan_from_id(uint32_t channel_id);
 
 #endif
 

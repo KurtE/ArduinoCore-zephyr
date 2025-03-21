@@ -11,7 +11,7 @@ struct node_tx_iso {
 		memq_link_t *link;
 	};
 
-	uint64_t payload_count:39; /* bisPayloadCounter/cisPayloadCounter */
+	uint64_t payload_count:39;
 	uint64_t sdu_fragments : 8;
 	uint8_t  pdu[];
 };

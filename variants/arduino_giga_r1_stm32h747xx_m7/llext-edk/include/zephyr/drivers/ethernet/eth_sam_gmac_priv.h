@@ -186,12 +186,12 @@ BUILD_ASSERT(ARRAY_SIZE(GMAC->GMAC_TBQBAPQ) + 1 == GMAC_QUEUE_NUM,
 
 /** List of GMAC queues */
 enum queue_idx {
-	GMAC_QUE_0,  /** Main queue */
-	GMAC_QUE_1,  /** Priority queue 1 */
-	GMAC_QUE_2,  /** Priority queue 2 */
-	GMAC_QUE_3,  /** Priority queue 3 */
-	GMAC_QUE_4,  /** Priority queue 4 */
-	GMAC_QUE_5,  /** Priority queue 5 */
+	GMAC_QUE_0,
+	GMAC_QUE_1,
+	GMAC_QUE_2,
+	GMAC_QUE_3,
+	GMAC_QUE_4,
+	GMAC_QUE_5,
 };
 
 #if (DT_INST_PROP(0, max_frame_size) == 1518)

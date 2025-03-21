@@ -266,11 +266,11 @@ typedef uint32_t grant_handle_t;
 struct gnttab_map_grant_ref {
 	/* IN parameters. */
 	uint64_t host_addr;
-	uint32_t flags;		/* GNTMAP_* */
+	uint32_t flags;
 	grant_ref_t ref;
 	domid_t  dom;
 	/* OUT parameters. */
-	int16_t  status;	/* => enum grant_status */
+	int16_t  status;
 	grant_handle_t handle;
 	uint64_t dev_bus_addr;
 };
@@ -294,7 +294,7 @@ struct gnttab_unmap_grant_ref {
 	uint64_t dev_bus_addr;
 	grant_handle_t handle;
 	/* OUT parameters. */
-	int16_t  status;	/* => enum grant_status */
+	int16_t  status;
 };
 typedef struct gnttab_unmap_grant_ref gnttab_unmap_grant_ref_t;
 DEFINE_XEN_GUEST_HANDLE(gnttab_unmap_grant_ref_t);
@@ -314,7 +314,7 @@ struct gnttab_setup_table {
 	uint32_t nr_frames;
 
 	/* OUT parameters. */
-	int16_t status; /* => enum grant_status */
+	int16_t status;
 #if CONFIG_XEN_INTERFACE_VERSION < 0x00040300
 	XEN_GUEST_HANDLE(ulong) frame_list;
 #else
@@ -324,7 +324,23 @@ struct gnttab_setup_table {
 typedef struct gnttab_setup_table gnttab_setup_table_t;
 DEFINE_XEN_GUEST_HANDLE(gnttab_setup_table_t);
 
-
+/*
+ * GNTTABOP_query_size: Query the current and maximum sizes of the shared
+ * grant table.
+ * NOTES:
+ *  1. <dom> may be specified as DOMID_SELF.
+ *  2. Only a sufficiently-privileged domain may specify <dom> != DOMID_SELF.
+ */
+struct gnttab_query_size {
+	/* IN parameters. */
+	domid_t  dom;
+	/* OUT parameters. */
+	uint32_t nr_frames;
+	uint32_t max_nr_frames;
+	int16_t  status;
+};
+typedef struct gnttab_query_size gnttab_query_size_t;
+DEFINE_XEN_GUEST_HANDLE(gnttab_query_size_t);
 
 /*
  * Bitfield values for gnttab_map_grant_ref.flags.
@@ -365,19 +381,19 @@ DEFINE_XEN_GUEST_HANDLE(gnttab_setup_table_t);
  * Values for error status returns. All errors are -ve.
  */
 /* ` enum grant_status { */
-#define GNTST_okay		(0)  /* Normal return */
-#define GNTST_general_error	(-1) /* General undefined error */
-#define GNTST_bad_domain	(-2) /* Unrecognsed domain id */
-#define GNTST_bad_gntref	(-3) /* Unrecognised or inappropriate gntref */
-#define GNTST_bad_handle	(-4) /* Unrecognised or inappropriate handle */
-#define GNTST_bad_virt_addr	(-5) /* Inappropriate virtual address to map */
-#define GNTST_bad_dev_addr	(-6) /* Inappropriate device address to unmap */
-#define GNTST_no_device_space	(-7) /* Out of space in I/O MMU */
-#define GNTST_permission_denied	(-8) /* Not enough privilege for operation */
-#define GNTST_bad_page		(-9) /* Specified page was invalid for op */
-#define GNTST_bad_copy_arg	(-10) /* copy arguments cross page boundary */
-#define GNTST_address_too_big	(-11) /* transfer page address too large */
-#define GNTST_eagain		(-12) /* Operation not done; try again */
+#define GNTST_okay		(0)
+#define GNTST_general_error	(-1)
+#define GNTST_bad_domain	(-2)
+#define GNTST_bad_gntref	(-3)
+#define GNTST_bad_handle	(-4)
+#define GNTST_bad_virt_addr	(-5)
+#define GNTST_bad_dev_addr	(-6)
+#define GNTST_no_device_space	(-7)
+#define GNTST_permission_denied	(-8)
+#define GNTST_bad_page		(-9)
+#define GNTST_bad_copy_arg	(-10)
+#define GNTST_address_too_big	(-11)
+#define GNTST_eagain		(-12)
 /* ` } */
 
 #define GNTTABOP_error_msgs {				\

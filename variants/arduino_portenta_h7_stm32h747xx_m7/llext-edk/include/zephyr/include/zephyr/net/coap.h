@@ -44,28 +44,28 @@ extern "C" {
  * Refer to RFC 7252, section 12.2 for more information.
  */
 enum coap_option_num {
-	COAP_OPTION_IF_MATCH = 1,        /**< If-Match */
-	COAP_OPTION_URI_HOST = 3,        /**< Uri-Host */
-	COAP_OPTION_ETAG = 4,            /**< ETag */
-	COAP_OPTION_IF_NONE_MATCH = 5,   /**< If-None-Match */
-	COAP_OPTION_OBSERVE = 6,         /**< Observe (RFC 7641) */
-	COAP_OPTION_URI_PORT = 7,        /**< Uri-Port */
-	COAP_OPTION_LOCATION_PATH = 8,   /**< Location-Path */
-	COAP_OPTION_URI_PATH = 11,       /**< Uri-Path */
-	COAP_OPTION_CONTENT_FORMAT = 12, /**< Content-Format */
-	COAP_OPTION_MAX_AGE = 14,        /**< Max-Age */
-	COAP_OPTION_URI_QUERY = 15,      /**< Uri-Query */
-	COAP_OPTION_ACCEPT = 17,         /**< Accept */
-	COAP_OPTION_LOCATION_QUERY = 20, /**< Location-Query */
-	COAP_OPTION_BLOCK2 = 23,         /**< Block2 (RFC 7959) */
-	COAP_OPTION_BLOCK1 = 27,         /**< Block1 (RFC 7959) */
-	COAP_OPTION_SIZE2 = 28,          /**< Size2 (RFC 7959) */
-	COAP_OPTION_PROXY_URI = 35,      /**< Proxy-Uri */
-	COAP_OPTION_PROXY_SCHEME = 39,   /**< Proxy-Scheme */
-	COAP_OPTION_SIZE1 = 60,          /**< Size1 */
-	COAP_OPTION_ECHO = 252,          /**< Echo (RFC 9175) */
-	COAP_OPTION_NO_RESPONSE = 258,   /**< No-Response (RFC 7967) */
-	COAP_OPTION_REQUEST_TAG = 292    /**< Request-Tag (RFC 9175) */
+	COAP_OPTION_IF_MATCH = 1,
+	COAP_OPTION_URI_HOST = 3,
+	COAP_OPTION_ETAG = 4,
+	COAP_OPTION_IF_NONE_MATCH = 5,
+	COAP_OPTION_OBSERVE = 6,
+	COAP_OPTION_URI_PORT = 7,
+	COAP_OPTION_LOCATION_PATH = 8,
+	COAP_OPTION_URI_PATH = 11,
+	COAP_OPTION_CONTENT_FORMAT = 12,
+	COAP_OPTION_MAX_AGE = 14,
+	COAP_OPTION_URI_QUERY = 15,
+	COAP_OPTION_ACCEPT = 17,
+	COAP_OPTION_LOCATION_QUERY = 20,
+	COAP_OPTION_BLOCK2 = 23,
+	COAP_OPTION_BLOCK1 = 27,
+	COAP_OPTION_SIZE2 = 28,
+	COAP_OPTION_PROXY_URI = 35,
+	COAP_OPTION_PROXY_SCHEME = 39,
+	COAP_OPTION_SIZE1 = 60,
+	COAP_OPTION_ECHO = 252,
+	COAP_OPTION_NO_RESPONSE = 258,
+	COAP_OPTION_REQUEST_TAG = 292
 };
 
 /**
@@ -74,13 +74,13 @@ enum coap_option_num {
  * To be used when creating a request or a response.
  */
 enum coap_method {
-	COAP_METHOD_GET = 1,     /**< GET */
-	COAP_METHOD_POST = 2,    /**< POST */
-	COAP_METHOD_PUT = 3,     /**< PUT */
-	COAP_METHOD_DELETE = 4,  /**< DELETE */
-	COAP_METHOD_FETCH = 5,   /**< FETCH */
-	COAP_METHOD_PATCH = 6,   /**< PATCH */
-	COAP_METHOD_IPATCH = 7,  /**< IPATCH */
+	COAP_METHOD_GET = 1,
+	COAP_METHOD_POST = 2,
+	COAP_METHOD_PUT = 3,
+	COAP_METHOD_DELETE = 4,
+	COAP_METHOD_FETCH = 5,
+	COAP_METHOD_PATCH = 6,
+	COAP_METHOD_IPATCH = 7,
 };
 
 /** @cond INTERNAL_HIDDEN */
@@ -212,15 +212,15 @@ enum coap_response_code {
  * To be used when encoding or decoding a Content-Format option.
  */
 enum coap_content_format {
-	COAP_CONTENT_FORMAT_TEXT_PLAIN = 0,             /**< text/plain;charset=utf-8 */
-	COAP_CONTENT_FORMAT_APP_LINK_FORMAT = 40,       /**< application/link-format */
-	COAP_CONTENT_FORMAT_APP_XML = 41,               /**< application/xml */
-	COAP_CONTENT_FORMAT_APP_OCTET_STREAM = 42,      /**< application/octet-stream */
-	COAP_CONTENT_FORMAT_APP_EXI = 47,               /**< application/exi */
-	COAP_CONTENT_FORMAT_APP_JSON = 50,              /**< application/json */
-	COAP_CONTENT_FORMAT_APP_JSON_PATCH_JSON = 51,   /**< application/json-patch+json */
-	COAP_CONTENT_FORMAT_APP_MERGE_PATCH_JSON = 52,  /**< application/merge-patch+json */
-	COAP_CONTENT_FORMAT_APP_CBOR = 60               /**< application/cbor */
+	COAP_CONTENT_FORMAT_TEXT_PLAIN = 0,
+	COAP_CONTENT_FORMAT_APP_LINK_FORMAT = 40,
+	COAP_CONTENT_FORMAT_APP_XML = 41,
+	COAP_CONTENT_FORMAT_APP_OCTET_STREAM = 42,
+	COAP_CONTENT_FORMAT_APP_EXI = 47,
+	COAP_CONTENT_FORMAT_APP_JSON = 50,
+	COAP_CONTENT_FORMAT_APP_JSON_PATCH_JSON = 51,
+	COAP_CONTENT_FORMAT_APP_MERGE_PATCH_JSON = 52,
+	COAP_CONTENT_FORMAT_APP_CBOR = 60
 };
 
 /**
@@ -310,12 +310,12 @@ struct coap_observer {
  * @brief Representation of a CoAP Packet.
  */
 struct coap_packet {
-	uint8_t *data;    /**< User allocated buffer */
-	uint16_t offset;  /**< CoAP lib maintains offset while adding data */
-	uint16_t max_len; /**< Max CoAP packet data length */
-	uint8_t hdr_len;  /**< CoAP header length */
-	uint16_t opt_len; /**< Total options length (delta + len + value) */
-	uint16_t delta;   /**< Used for delta calculation in CoAP packet */
+	uint8_t *data;
+	uint16_t offset;
+	uint16_t max_len;
+	uint8_t hdr_len;
+	uint16_t opt_len;
+	uint16_t delta;
 #if defined(CONFIG_COAP_KEEP_USER_DATA) || defined(DOXYGEN)
 	/**
 	 * Application specific user data.
@@ -329,13 +329,13 @@ struct coap_packet {
  * @brief Representation of a CoAP option.
  */
 struct coap_option {
-	uint16_t delta;     /**< Option delta */
+	uint16_t delta;
 #if defined(CONFIG_COAP_EXTENDED_OPTIONS_LEN)
 	uint16_t len;
 	uint8_t value[CONFIG_COAP_EXTENDED_OPTIONS_LEN_VALUE];
 #else
-	uint8_t len;        /**< Option length */
-	uint8_t value[12];  /**< Option value */
+	uint8_t len;
+	uint8_t value[12];
 #endif
 };
 
@@ -374,14 +374,14 @@ struct coap_transmission_parameters {
  * @brief Represents a request awaiting for an acknowledgment (ACK).
  */
 struct coap_pending {
-	struct sockaddr addr; /**< Remote address */
-	int64_t t0;           /**< Time when the request was sent */
-	uint32_t timeout;     /**< Timeout in ms */
-	uint16_t id;          /**< Message id */
-	uint8_t *data;        /**< User allocated buffer */
-	uint16_t len;         /**< Length of the CoAP packet */
-	uint8_t retries;      /**< Number of times the request has been sent */
-	struct coap_transmission_parameters params; /**< Transmission parameters */
+	struct sockaddr addr;
+	int64_t t0;
+	uint32_t timeout;
+	uint16_t id;
+	uint8_t *data;
+	uint16_t len;
+	uint8_t retries;
+	struct coap_transmission_parameters params;
 };
 
 /**
@@ -739,13 +739,13 @@ int coap_handle_request(struct coap_packet *cpkt,
  * https://tools.ietf.org/html/rfc7959
  */
 enum coap_block_size {
-	COAP_BLOCK_16,   /**< 16-byte block size */
-	COAP_BLOCK_32,   /**< 32-byte block size */
-	COAP_BLOCK_64,   /**< 64-byte block size */
-	COAP_BLOCK_128,  /**< 128-byte block size */
-	COAP_BLOCK_256,  /**< 256-byte block size */
-	COAP_BLOCK_512,  /**< 512-byte block size */
-	COAP_BLOCK_1024, /**< 1024-byte block size */
+	COAP_BLOCK_16,
+	COAP_BLOCK_32,
+	COAP_BLOCK_64,
+	COAP_BLOCK_128,
+	COAP_BLOCK_256,
+	COAP_BLOCK_512,
+	COAP_BLOCK_1024,
 };
 
 /**

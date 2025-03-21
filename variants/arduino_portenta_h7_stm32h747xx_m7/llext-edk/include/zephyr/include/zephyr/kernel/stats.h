@@ -16,18 +16,18 @@
  */
 
 struct k_cycle_stats {
-	uint64_t  total;        /**< total usage in cycles */
+	uint64_t  total;
 #if defined(CONFIG_SCHED_THREAD_USAGE_ANALYSIS) || defined(__DOXYGEN__)
 	/**
 	 * @name Fields available when CONFIG_SCHED_THREAD_USAGE_ANALYSIS is selected.
 	 * @{
 	 */
-	uint64_t  current;      /**< \# of cycles in current usage window */
-	uint64_t  longest;      /**< \# of cycles in longest usage window */
-	uint32_t  num_windows;  /**< \# of usage windows */
+	uint64_t  current;
+	uint64_t  longest;
+	uint32_t  num_windows;
 	/** @} */
 #endif /* CONFIG_SCHED_THREAD_USAGE_ANALYSIS */
-	bool      track_usage;  /**< true if gathering usage stats */
+	bool      track_usage;
 };
 
 #endif /* ZEPHYR_INCLUDE_KERNEL_STATS_H_ */

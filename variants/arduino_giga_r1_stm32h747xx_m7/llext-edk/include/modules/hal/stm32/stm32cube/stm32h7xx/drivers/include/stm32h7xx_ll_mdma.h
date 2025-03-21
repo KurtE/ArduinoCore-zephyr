@@ -229,16 +229,16 @@ typedef struct
   */
 typedef struct
 {
-  __IO uint32_t CTCR;     /*!< New CTCR register configuration for the given MDMA linked list node   */
-  __IO uint32_t CBNDTR;   /*!< New CBNDTR register configuration for the given MDMA linked list node */
-  __IO uint32_t CSAR;     /*!< New CSAR register configuration for the given MDMA linked list node   */
-  __IO uint32_t CDAR;     /*!< New CDAR register configuration for the given MDMA linked list node   */
-  __IO uint32_t CBRUR;    /*!< New CBRUR register configuration for the given MDMA linked list node  */
-  __IO uint32_t CLAR;     /*!< New CLAR register configuration for the given MDMA linked list node   */
-  __IO uint32_t CTBR;     /*!< New CTBR register configuration for the given MDMA linked list node   */
-  __IO uint32_t Reserved; /*!< Reserved register*/
-  __IO uint32_t CMAR;     /*!< New CMAR register configuration for the given MDMA linked list node   */
-  __IO uint32_t CMDR;     /*!< New CMDR register configuration for the given MDMA linked list node   */
+  __IO uint32_t CTCR;
+  __IO uint32_t CBNDTR;
+  __IO uint32_t CSAR;
+  __IO uint32_t CDAR;
+  __IO uint32_t CBRUR;
+  __IO uint32_t CLAR;
+  __IO uint32_t CTBR;
+  __IO uint32_t Reserved;
+  __IO uint32_t CMAR;
+  __IO uint32_t CMDR;
 
 }LL_MDMA_LinkNodeTypeDef;
 
@@ -278,8 +278,8 @@ typedef struct
 /** @defgroup MDMA_LL_EC_WORD_ENDIANNESS Word Endianness
   * @{
   */
-#define LL_MDMA_WORD_ENDIANNESS_PRESERVE     0x00000000U  /*!< Little endianness preserved for words */
-#define LL_MDMA_WORD_ENDIANNESS_EXCHANGE     MDMA_CCR_WEX /*!< word order exchanged when destination data size is double word  */
+#define LL_MDMA_WORD_ENDIANNESS_PRESERVE     0x00000000U
+#define LL_MDMA_WORD_ENDIANNESS_EXCHANGE     MDMA_CCR_WEX
 
 /**
   * @}
@@ -288,8 +288,8 @@ typedef struct
 /** @defgroup MDMA_LL_EC_HALFWORD_ENDIANNESS Half Word Endianness
   * @{
   */
-#define LL_MDMA_HALFWORD_ENDIANNESS_PRESERVE     0x00000000U  /*!< Little endianness preserved for half words */
-#define LL_MDMA_HALFWORD_ENDIANNESS_EXCHANGE     MDMA_CCR_HEX /*!< half word order exchanged when destination data size is word or double word  */
+#define LL_MDMA_HALFWORD_ENDIANNESS_PRESERVE     0x00000000U
+#define LL_MDMA_HALFWORD_ENDIANNESS_EXCHANGE     MDMA_CCR_HEX
 
 /**
   * @}
@@ -298,8 +298,8 @@ typedef struct
 /** @defgroup MDMA_LL_EC_BYTE_ENDIANNESS Byte Endianness
   * @{
   */
-#define LL_MDMA_BYTE_ENDIANNESS_PRESERVE     0x00000000U  /*!< Little endianness preserved for bytes */
-#define LL_MDMA_BYTE_ENDIANNESS_EXCHANGE     MDMA_CCR_BEX /*!< byte order exchanged when destination data size is half word , word or double word  */
+#define LL_MDMA_BYTE_ENDIANNESS_PRESERVE     0x00000000U
+#define LL_MDMA_BYTE_ENDIANNESS_EXCHANGE     MDMA_CCR_BEX
 
 /**
   * @}
@@ -308,10 +308,10 @@ typedef struct
 /** @defgroup MDMA_LL_EC_PRIORITY Transfer Priority level
   * @{
   */
-#define LL_MDMA_PRIORITY_LOW               0x00000000U               /*!< Priority level : Low       */
-#define LL_MDMA_PRIORITY_MEDIUM            MDMA_CCR_PL_0             /*!< Priority level : Medium    */
-#define LL_MDMA_PRIORITY_HIGH              MDMA_CCR_PL_1             /*!< Priority level : High      */
-#define LL_MDMA_PRIORITY_VERYHIGH          MDMA_CCR_PL               /*!< Priority level : Very_High */
+#define LL_MDMA_PRIORITY_LOW               0x00000000U
+#define LL_MDMA_PRIORITY_MEDIUM            MDMA_CCR_PL_0
+#define LL_MDMA_PRIORITY_HIGH              MDMA_CCR_PL_1
+#define LL_MDMA_PRIORITY_VERYHIGH          MDMA_CCR_PL
 /**
   * @}
   */
@@ -319,8 +319,8 @@ typedef struct
 /** @defgroup MDMA_LL_EC_BUFF_WRITE_MODE Bufferable Write Mode
   * @{
   */
-#define LL_MDMA_BUFF_WRITE_DISABLE         0x00000000U               /*!< destination write operation is non-bufferable */
-#define LL_MDMA_BUFF_WRITE_ENABLE          MDMA_CTCR_BWM             /*!< destination write operation is bufferable     */
+#define LL_MDMA_BUFF_WRITE_DISABLE         0x00000000U
+#define LL_MDMA_BUFF_WRITE_ENABLE          MDMA_CTCR_BWM
 /**
   * @}
   */
@@ -328,8 +328,8 @@ typedef struct
 /** @defgroup MDMA_LL_EC_REQUEST_MODE Request Mode
   * @{
   */
-#define LL_MDMA_REQUEST_MODE_HW            0x00000000U               /*!< Request mode is Hardware    */
-#define LL_MDMA_REQUEST_MODE_SW            MDMA_CTCR_SWRM            /*!< Request mode is Software    */
+#define LL_MDMA_REQUEST_MODE_HW            0x00000000U
+#define LL_MDMA_REQUEST_MODE_SW            MDMA_CTCR_SWRM
 /**
   * @}
   */
@@ -337,10 +337,10 @@ typedef struct
 /** @defgroup MDMA_LL_EC_TRIGGER_MODE Trigger Mode
   * @{
   */
-#define LL_MDMA_BUFFER_TRANSFER          0x00000000U               /*!< Each MDMA request (SW or HW) triggers a buffer transfer */
-#define LL_MDMA_BLOCK_TRANSFER           MDMA_CTCR_TRGM_0          /*!< Each MDMA request (SW or HW) triggers a block transfer */
-#define LL_MDMA_REPEAT_BLOCK_TRANSFER    MDMA_CTCR_TRGM_1          /*!< Each MDMA request (SW or HW) triggers a repeated block transfer */
-#define LL_MDMA_FULL_TRANSFER            MDMA_CTCR_TRGM            /*!< Each MDMA request (SW or HW) triggers a Full transfer or a linked list transfer if any */
+#define LL_MDMA_BUFFER_TRANSFER          0x00000000U
+#define LL_MDMA_BLOCK_TRANSFER           MDMA_CTCR_TRGM_0
+#define LL_MDMA_REPEAT_BLOCK_TRANSFER    MDMA_CTCR_TRGM_1
+#define LL_MDMA_FULL_TRANSFER            MDMA_CTCR_TRGM
 /**
   * @}
   */
@@ -348,10 +348,10 @@ typedef struct
 /** @defgroup MDMA_LL_EC_PADDING_ALIGNMENT_MODE Padding Alignment Mode
   * @{
   */
-#define LL_MDMA_DATAALIGN_RIGHT          0x00000000U              /*!< Right Aligned, padded w/ 0s (default) */
+#define LL_MDMA_DATAALIGN_RIGHT          0x00000000U
 #define LL_MDMA_DATAALIGN_RIGHT_SIGNED   MDMA_CTCR_PAM_0          /*!< Right Aligned, Sign extended ,
                                                                        Note : this mode is allowed only if the Source data size smaller than Destination data size  */
-#define LL_MDMA_DATAALIGN_LEFT           MDMA_CTCR_PAM_1          /*!< Left Aligned (padded with 0s) */
+#define LL_MDMA_DATAALIGN_LEFT           MDMA_CTCR_PAM_1
 /**
   * @}
   */
@@ -359,8 +359,8 @@ typedef struct
 /** @defgroup MDMA_LL_EC_PACKING_MODE Transfer Packing
   * @{
   */
-#define LL_MDMA_PACK_DISABLE          0x00000000U              /*!< Packing disabled */
-#define LL_MDMA_PACK_ENABLE           MDMA_CTCR_PKE            /*!< Packing enabled  */
+#define LL_MDMA_PACK_DISABLE          0x00000000U
+#define LL_MDMA_PACK_ENABLE           MDMA_CTCR_PKE
 /**
   * @}
   */
@@ -368,14 +368,14 @@ typedef struct
 /** @defgroup MDMA_LL_EC_DEST_BURST Transfer Destination Burst
   * @{
   */
-#define LL_MDMA_DEST_BURST_SINGLE        0x00000000U                               /*!< Single transfer */
-#define LL_MDMA_DEST_BURST_2BEATS        MDMA_CTCR_DBURST_0                        /*!< Burst 2 beats   */
-#define LL_MDMA_DEST_BURST_4BEATS        MDMA_CTCR_DBURST_1                        /*!< Burst 4 beats   */
-#define LL_MDMA_DEST_BURST_8BEATS       (MDMA_CTCR_DBURST_0 | MDMA_CTCR_DBURST_1)  /*!< Burst 8 beats   */
-#define LL_MDMA_DEST_BURST_16BEATS       MDMA_CTCR_DBURST_2                        /*!< Burst 16 beats  */
-#define LL_MDMA_DEST_BURST_32BEATS      (MDMA_CTCR_DBURST_0 | MDMA_CTCR_DBURST_2)  /*!< Burst 32 beats  */
-#define LL_MDMA_DEST_BURST_64BEATS      (MDMA_CTCR_DBURST_1 | MDMA_CTCR_DBURST_2)  /*!< Burst 64 beats  */
-#define LL_MDMA_DEST_BURST_128BEATS     (MDMA_CTCR_DBURST)                         /*!< Burst 128 beats */
+#define LL_MDMA_DEST_BURST_SINGLE        0x00000000U
+#define LL_MDMA_DEST_BURST_2BEATS        MDMA_CTCR_DBURST_0
+#define LL_MDMA_DEST_BURST_4BEATS        MDMA_CTCR_DBURST_1
+#define LL_MDMA_DEST_BURST_8BEATS       (MDMA_CTCR_DBURST_0 | MDMA_CTCR_DBURST_1)
+#define LL_MDMA_DEST_BURST_16BEATS       MDMA_CTCR_DBURST_2
+#define LL_MDMA_DEST_BURST_32BEATS      (MDMA_CTCR_DBURST_0 | MDMA_CTCR_DBURST_2)
+#define LL_MDMA_DEST_BURST_64BEATS      (MDMA_CTCR_DBURST_1 | MDMA_CTCR_DBURST_2)
+#define LL_MDMA_DEST_BURST_128BEATS     (MDMA_CTCR_DBURST)
 /**
   * @}
   */
@@ -383,14 +383,14 @@ typedef struct
 /** @defgroup MDMA_LL_EC_SRC_BURST Transfer Source Burst
   * @{
   */
-#define LL_MDMA_SRC_BURST_SINGLE        0x00000000U                                /*!< Single transfer */
-#define LL_MDMA_SRC_BURST_2BEATS        MDMA_CTCR_SBURST_0                         /*!< Burst 2 beats   */
-#define LL_MDMA_SRC_BURST_4BEATS        MDMA_CTCR_SBURST_1                         /*!< Burst 4 beats   */
-#define LL_MDMA_SRC_BURST_8BEATS       (MDMA_CTCR_SBURST_0 | MDMA_CTCR_SBURST_1)   /*!< Burst 8 beats   */
-#define LL_MDMA_SRC_BURST_16BEATS       MDMA_CTCR_SBURST_2                         /*!< Burst 16 beats  */
-#define LL_MDMA_SRC_BURST_32BEATS      (MDMA_CTCR_SBURST_0 | MDMA_CTCR_SBURST_2)   /*!< Burst 32 beats  */
-#define LL_MDMA_SRC_BURST_64BEATS      (MDMA_CTCR_SBURST_1 | MDMA_CTCR_SBURST_2)   /*!< Burst 64 beats  */
-#define LL_MDMA_SRC_BURST_128BEATS      MDMA_CTCR_SBURST                           /*!< Burst 128 beats */
+#define LL_MDMA_SRC_BURST_SINGLE        0x00000000U
+#define LL_MDMA_SRC_BURST_2BEATS        MDMA_CTCR_SBURST_0
+#define LL_MDMA_SRC_BURST_4BEATS        MDMA_CTCR_SBURST_1
+#define LL_MDMA_SRC_BURST_8BEATS       (MDMA_CTCR_SBURST_0 | MDMA_CTCR_SBURST_1)
+#define LL_MDMA_SRC_BURST_16BEATS       MDMA_CTCR_SBURST_2
+#define LL_MDMA_SRC_BURST_32BEATS      (MDMA_CTCR_SBURST_0 | MDMA_CTCR_SBURST_2)
+#define LL_MDMA_SRC_BURST_64BEATS      (MDMA_CTCR_SBURST_1 | MDMA_CTCR_SBURST_2)
+#define LL_MDMA_SRC_BURST_128BEATS      MDMA_CTCR_SBURST
 /**
   * @}
   */
@@ -398,10 +398,10 @@ typedef struct
 /** @defgroup MDMA_LL_EC_DEST_INC_OFFSET_SIZE Destination Increment Offset Size
   * @{
   */
-#define LL_MDMA_DEST_INC_OFFSET_BYTE        0x00000000U                           /*!< offset is Byte (8-bit)         */
-#define LL_MDMA_DEST_INC_OFFSET_HALFWORD    MDMA_CTCR_DINCOS_0                    /*!< offset is Half Word (16-bit)   */
-#define LL_MDMA_DEST_INC_OFFSET_WORD        MDMA_CTCR_DINCOS_1                    /*!< offset is Word (32-bit)        */
-#define LL_MDMA_DEST_INC_OFFSET_DOUBLEWORD  MDMA_CTCR_DINCOS                      /*!< offset is Double Word (64-bit) */
+#define LL_MDMA_DEST_INC_OFFSET_BYTE        0x00000000U
+#define LL_MDMA_DEST_INC_OFFSET_HALFWORD    MDMA_CTCR_DINCOS_0
+#define LL_MDMA_DEST_INC_OFFSET_WORD        MDMA_CTCR_DINCOS_1
+#define LL_MDMA_DEST_INC_OFFSET_DOUBLEWORD  MDMA_CTCR_DINCOS
 /**
   * @}
   */
@@ -409,10 +409,10 @@ typedef struct
 /** @defgroup MDMA_LL_EC_SRC_INC_OFFSET_SIZE Source Increment Offset Size
   * @{
   */
-#define LL_MDMA_SRC_INC_OFFSET_BYTE        0x00000000U                           /*!< offset is Byte (8-bit)         */
-#define LL_MDMA_SRC_INC_OFFSET_HALFWORD    MDMA_CTCR_SINCOS_0                    /*!< offset is Half Word (16-bit)   */
-#define LL_MDMA_SRC_INC_OFFSET_WORD        MDMA_CTCR_SINCOS_1                    /*!< offset is Word (32-bit)        */
-#define LL_MDMA_SRC_INC_OFFSET_DOUBLEWORD  MDMA_CTCR_SINCOS                      /*!< offset is Double Word (64-bit) */
+#define LL_MDMA_SRC_INC_OFFSET_BYTE        0x00000000U
+#define LL_MDMA_SRC_INC_OFFSET_HALFWORD    MDMA_CTCR_SINCOS_0
+#define LL_MDMA_SRC_INC_OFFSET_WORD        MDMA_CTCR_SINCOS_1
+#define LL_MDMA_SRC_INC_OFFSET_DOUBLEWORD  MDMA_CTCR_SINCOS
 /**
   * @}
   */
@@ -420,10 +420,10 @@ typedef struct
 /** @defgroup MDMA_LL_EC_DEST_DATA_SIZE Destination Data Size
   * @{
   */
-#define LL_MDMA_DEST_DATA_SIZE_BYTE       0x00000000U                            /*!< Destination data size is Byte        */
-#define LL_MDMA_DEST_DATA_SIZE_HALFWORD   MDMA_CTCR_DSIZE_0                      /*!< Destination data size is half word   */
-#define LL_MDMA_DEST_DATA_SIZE_WORD       MDMA_CTCR_DSIZE_1                      /*!< Destination data size is word        */
-#define LL_MDMA_DEST_DATA_SIZE_DOUBLEWORD MDMA_CTCR_DSIZE                        /*!< Destination data size is double word */
+#define LL_MDMA_DEST_DATA_SIZE_BYTE       0x00000000U
+#define LL_MDMA_DEST_DATA_SIZE_HALFWORD   MDMA_CTCR_DSIZE_0
+#define LL_MDMA_DEST_DATA_SIZE_WORD       MDMA_CTCR_DSIZE_1
+#define LL_MDMA_DEST_DATA_SIZE_DOUBLEWORD MDMA_CTCR_DSIZE
 /**
   * @}
   */
@@ -431,10 +431,10 @@ typedef struct
 /** @defgroup MDMA_LL_EC_SRC_DATA_SIZE Source Data Size
   * @{
   */
-#define LL_MDMA_SRC_DATA_SIZE_BYTE       0x00000000U                            /*!< Source data size is Byte        */
-#define LL_MDMA_SRC_DATA_SIZE_HALFWORD   MDMA_CTCR_SSIZE_0                      /*!< Source data size is half word   */
-#define LL_MDMA_SRC_DATA_SIZE_WORD       MDMA_CTCR_SSIZE_1                      /*!< Source data size is word        */
-#define LL_MDMA_SRC_DATA_SIZE_DOUBLEWORD MDMA_CTCR_SSIZE                        /*!< Source data size is double word */
+#define LL_MDMA_SRC_DATA_SIZE_BYTE       0x00000000U
+#define LL_MDMA_SRC_DATA_SIZE_HALFWORD   MDMA_CTCR_SSIZE_0
+#define LL_MDMA_SRC_DATA_SIZE_WORD       MDMA_CTCR_SSIZE_1
+#define LL_MDMA_SRC_DATA_SIZE_DOUBLEWORD MDMA_CTCR_SSIZE
 /**
   * @}
   */
@@ -442,9 +442,9 @@ typedef struct
 /** @defgroup MDMA_LL_EC_DEST_INC_MODE Destination Increment Mode
   * @{
   */
-#define LL_MDMA_DEST_FIXED               0x00000000U                            /*!< Destination address pointer is fixed */
-#define LL_MDMA_DEST_INCREMENT           MDMA_CTCR_DINC_1                       /*!< Destination address pointer is incremented after each data transfer */
-#define LL_MDMA_DEST_DECREMENT           MDMA_CTCR_DINC                         /*!< Destination address pointer is decremented after each data transfer */
+#define LL_MDMA_DEST_FIXED               0x00000000U
+#define LL_MDMA_DEST_INCREMENT           MDMA_CTCR_DINC_1
+#define LL_MDMA_DEST_DECREMENT           MDMA_CTCR_DINC
 /**
   * @}
   */
@@ -452,9 +452,9 @@ typedef struct
 /** @defgroup MDMA_LL_EC_SRC_INC_MODE Source Increment Mode
   * @{
   */
-#define LL_MDMA_SRC_FIXED                0x00000000U                            /*!< Destination address pointer is fixed */
-#define LL_MDMA_SRC_INCREMENT            MDMA_CTCR_SINC_1                       /*!< Destination address pointer is incremented after each data transfer */
-#define LL_MDMA_SRC_DECREMENT            MDMA_CTCR_SINC                         /*!< Destination address pointer is decremented after each data transfer */
+#define LL_MDMA_SRC_FIXED                0x00000000U
+#define LL_MDMA_SRC_INCREMENT            MDMA_CTCR_SINC_1
+#define LL_MDMA_SRC_DECREMENT            MDMA_CTCR_SINC
 /**
   * @}
   */
@@ -462,8 +462,8 @@ typedef struct
 /** @defgroup MDMA_LL_EC_BLK_RPT_DEST_ADDR_UPDATE_MODE Block Repeat Destination address Update Mode
   * @{
   */
-#define LL_MDMA_BLK_RPT_DEST_ADDR_INCREMENT   0x00000000U                       /*!< Destination address pointer is incremented after each block transfer by Destination Update Value */
-#define LL_MDMA_BLK_RPT_DEST_ADDR_DECREMENT   MDMA_CBNDTR_BRDUM                 /*!< Destination address pointer is decremented after each block transfer by Destination Update Value */
+#define LL_MDMA_BLK_RPT_DEST_ADDR_INCREMENT   0x00000000U
+#define LL_MDMA_BLK_RPT_DEST_ADDR_DECREMENT   MDMA_CBNDTR_BRDUM
 /**
   * @}
   */
@@ -471,8 +471,8 @@ typedef struct
 /** @defgroup MDMA_LL_EC_SRC_BLK_RPT_ADDR_UPDATE_MODE Source Block Repeat address Update Mode
   * @{
   */
-#define LL_MDMA_BLK_RPT_SRC_ADDR_INCREMENT   0x00000000U                        /*!< Source address pointer is incremented after each block transfer by Source Update Value */
-#define LL_MDMA_BLK_RPT_SRC_ADDR_DECREMENT   MDMA_CBNDTR_BRSUM                  /*!< Source address pointer is decremented after each block transfer by Source Update Value */
+#define LL_MDMA_BLK_RPT_SRC_ADDR_INCREMENT   0x00000000U
+#define LL_MDMA_BLK_RPT_SRC_ADDR_DECREMENT   MDMA_CBNDTR_BRSUM
 /**
   * @}
   */
@@ -480,8 +480,8 @@ typedef struct
 /** @defgroup MDMA_LL_EC_DEST_BUS Destination BUS Selection
   * @{
   */
-#define  LL_MDMA_DEST_BUS_SYSTEM_AXI    0x00000000U                             /*!< System/AXI bus is used as destination */
-#define  LL_MDMA_DEST_BUS_AHB_TCM       MDMA_CTBR_DBUS                          /*!< AHB bus/TCM is used as destination    */
+#define  LL_MDMA_DEST_BUS_SYSTEM_AXI    0x00000000U
+#define  LL_MDMA_DEST_BUS_AHB_TCM       MDMA_CTBR_DBUS
 /**
   * @}
   */
@@ -489,8 +489,8 @@ typedef struct
 /** @defgroup MDMA_LL_EC_SRC_BUS Source BUS Selection
   * @{
   */
-#define LL_MDMA_SRC_BUS_SYSTEM_AXI     0x00000000U                             /*!< System/AXI bus is used as source */
-#define LL_MDMA_SRC_BUS_AHB_TCM        MDMA_CTBR_SBUS                          /*!< AHB bus/TCM is used as source    */
+#define LL_MDMA_SRC_BUS_SYSTEM_AXI     0x00000000U
+#define LL_MDMA_SRC_BUS_AHB_TCM        MDMA_CTBR_SBUS
 /**
   * @}
   */
@@ -498,53 +498,53 @@ typedef struct
 /** @defgroup MDMA_LL_EC_HW_TRIGGER_SELCTION HW Trigger Selection
   * @{
   */
-#define LL_MDMA_REQ_DMA1_STREAM0_TC          0x00000000U    /*!< MDMA HW Trigger (request) is DMA1 Stream 0 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA1_STREAM1_TC          0x00000001U    /*!< MDMA HW Trigger (request) is DMA1 Stream 1 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA1_STREAM2_TC          0x00000002U    /*!< MDMA HW Trigger (request) is DMA1 Stream 2 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA1_STREAM3_TC          0x00000003U    /*!< MDMA HW Trigger (request) is DMA1 Stream 3 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA1_STREAM4_TC          0x00000004U    /*!< MDMA HW Trigger (request) is DMA1 Stream 4 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA1_STREAM5_TC          0x00000005U    /*!< MDMA HW Trigger (request) is DMA1 Stream 5 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA1_STREAM6_TC          0x00000006U    /*!< MDMA HW Trigger (request) is DMA1 Stream 6 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA1_STREAM7_TC          0x00000007U    /*!< MDMA HW Trigger (request) is DMA1 Stream 7 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA2_STREAM0_TC          0x00000008U    /*!< MDMA HW Trigger (request) is DMA2 Stream 0 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA2_STREAM1_TC          0x00000009U    /*!< MDMA HW Trigger (request) is DMA2 Stream 1 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA2_STREAM2_TC          0x0000000AU    /*!< MDMA HW Trigger (request) is DMA2 Stream 2 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA2_STREAM3_TC          0x0000000BU    /*!< MDMA HW Trigger (request) is DMA2 Stream 3 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA2_STREAM4_TC          0x0000000CU    /*!< MDMA HW Trigger (request) is DMA2 Stream 4 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA2_STREAM5_TC          0x0000000DU    /*!< MDMA HW Trigger (request) is DMA2 Stream 5 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA2_STREAM6_TC          0x0000000EU    /*!< MDMA HW Trigger (request) is DMA2 Stream 6 Transfer Complete Flag   */
-#define LL_MDMA_REQ_DMA2_STREAM7_TC          0x0000000FU    /*!< MDMA HW Trigger (request) is DMA2 Stream 7 Transfer Complete Flag   */
+#define LL_MDMA_REQ_DMA1_STREAM0_TC          0x00000000U
+#define LL_MDMA_REQ_DMA1_STREAM1_TC          0x00000001U
+#define LL_MDMA_REQ_DMA1_STREAM2_TC          0x00000002U
+#define LL_MDMA_REQ_DMA1_STREAM3_TC          0x00000003U
+#define LL_MDMA_REQ_DMA1_STREAM4_TC          0x00000004U
+#define LL_MDMA_REQ_DMA1_STREAM5_TC          0x00000005U
+#define LL_MDMA_REQ_DMA1_STREAM6_TC          0x00000006U
+#define LL_MDMA_REQ_DMA1_STREAM7_TC          0x00000007U
+#define LL_MDMA_REQ_DMA2_STREAM0_TC          0x00000008U
+#define LL_MDMA_REQ_DMA2_STREAM1_TC          0x00000009U
+#define LL_MDMA_REQ_DMA2_STREAM2_TC          0x0000000AU
+#define LL_MDMA_REQ_DMA2_STREAM3_TC          0x0000000BU
+#define LL_MDMA_REQ_DMA2_STREAM4_TC          0x0000000CU
+#define LL_MDMA_REQ_DMA2_STREAM5_TC          0x0000000DU
+#define LL_MDMA_REQ_DMA2_STREAM6_TC          0x0000000EU
+#define LL_MDMA_REQ_DMA2_STREAM7_TC          0x0000000FU
 #if defined (LTDC)
-#define LL_MDMA_REQ_LTDC_LINE_IT             0x00000010U    /*!< MDMA HW Trigger (request) is LTDC Line interrupt Flag               */
+#define LL_MDMA_REQ_LTDC_LINE_IT             0x00000010U
 #endif /* LTDC */
 #if defined (JPEG)
-#define LL_MDMA_REQ_JPEG_INFIFO_TH           0x00000011U    /*!< MDMA HW Trigger (request) is JPEG Input FIFO threshold Flag         */
-#define LL_MDMA_REQ_JPEG_INFIFO_NF           0x00000012U    /*!< MDMA HW Trigger (request) is JPEG Input FIFO not full Flag          */
-#define LL_MDMA_REQ_JPEG_OUTFIFO_TH          0x00000013U    /*!< MDMA HW Trigger (request) is JPEG Output FIFO threshold Flag        */
-#define LL_MDMA_REQ_JPEG_OUTFIFO_NE          0x00000014U    /*!< MDMA HW Trigger (request) is JPEG Output FIFO not empty Flag        */
-#define LL_MDMA_REQ_JPEG_END_CONVERSION      0x00000015U    /*!< MDMA HW Trigger (request) is JPEG End of conversion Flag            */
+#define LL_MDMA_REQ_JPEG_INFIFO_TH           0x00000011U
+#define LL_MDMA_REQ_JPEG_INFIFO_NF           0x00000012U
+#define LL_MDMA_REQ_JPEG_OUTFIFO_TH          0x00000013U
+#define LL_MDMA_REQ_JPEG_OUTFIFO_NE          0x00000014U
+#define LL_MDMA_REQ_JPEG_END_CONVERSION      0x00000015U
 #endif /* JPEG */
 #if defined (QUADSPI)
-#define LL_MDMA_REQ_QUADSPI_FIFO_TH          0x00000016U    /*!< MDMA HW Trigger (request) is QSPI FIFO threshold Flag               */
-#define LL_MDMA_REQ_QUADSPI_TC               0x00000017U    /*!< MDMA HW Trigger (request) is QSPI Transfer complete Flag            */
+#define LL_MDMA_REQ_QUADSPI_FIFO_TH          0x00000016U
+#define LL_MDMA_REQ_QUADSPI_TC               0x00000017U
 #endif /* QUADSPI */
 #if defined (OCTOSPI1)
-#define LL_MDMA_REQ_OCTOSPI1_FIFO_TH         0x00000016U    /*!< MDMA HW Trigger (request) is OCTOSPI1 FIFO threshold Flag           */
-#define LL_MDMA_REQ_OCTOSPI1_TC              0x00000017U    /*!< MDMA HW Trigger (request) is OCTOSPI1 Transfer complete Flag        */
+#define LL_MDMA_REQ_OCTOSPI1_FIFO_TH         0x00000016U
+#define LL_MDMA_REQ_OCTOSPI1_TC              0x00000017U
 #endif /* OCTOSPI1 */
-#define LL_MDMA_REQ_DMA2D_CLUT_TC            0x00000018U    /*!< MDMA HW Trigger (request) is DMA2D CLUT Transfer Complete Flag      */
-#define LL_MDMA_REQ_DMA2D_TC                 0x00000019U    /*!< MDMA HW Trigger (request) is DMA2D Transfer Complete Flag           */
-#define LL_MDMA_REQ_DMA2D_TW                 0x0000001AU    /*!< MDMA HW Trigger (request) is DMA2D Transfer Watermark Flag          */
+#define LL_MDMA_REQ_DMA2D_CLUT_TC            0x00000018U
+#define LL_MDMA_REQ_DMA2D_TC                 0x00000019U
+#define LL_MDMA_REQ_DMA2D_TW                 0x0000001AU
 #if defined (DSI)
-#define LL_MDMA_REQ_DSI_TEARING_EFFECT       0x0000001BU    /*!< MDMA HW Trigger (request) is DSI Tearing Effect Flag                */
-#define LL_MDMA_REQ_DSI_END_REFRESH          0x0000001CU    /*!< MDMA HW Trigger (request) is DSI End of refresh  Flag               */
+#define LL_MDMA_REQ_DSI_TEARING_EFFECT       0x0000001BU
+#define LL_MDMA_REQ_DSI_END_REFRESH          0x0000001CU
 #endif /* DSI */
-#define LL_MDMA_REQ_SDMMC1_END_DATA          0x0000001DU    /*!< MDMA HW Trigger (request) is SDMMC1 End of Data Flag                */
-#define LL_MDMA_REQ_SDMMC1_DMA_ENDBUFFER     0x0000001EU    /*!< MDMA HW Trigger (request) is SDMMC1 Internal DMA buffer End Flag : This trigger is available starting from STM32H7 Rev.B devices */
-#define LL_MDMA_REQ_SDMMC1_COMMAND_END       0x0000001FU    /*!< MDMA HW Trigger (request) is SDMMC1 Command End Flag : This trigger is available starting from STM32H7 Rev.B devices */
+#define LL_MDMA_REQ_SDMMC1_END_DATA          0x0000001DU
+#define LL_MDMA_REQ_SDMMC1_DMA_ENDBUFFER     0x0000001EU
+#define LL_MDMA_REQ_SDMMC1_COMMAND_END       0x0000001FU
 #if defined (OCTOSPI2)
-#define LL_MDMA_REQ_OCTOSPI2_FIFO_TH         0x00000020U    /*!< MDMA HW Trigger (request) is OCTOSPI2 FIFO threshold Flag           */
-#define LL_MDMA_REQ_OCTOSPI2_TC              0x00000021U    /*!< MDMA HW Trigger (request) is OCTOSPI2 Transfer complete Flag        */
+#define LL_MDMA_REQ_OCTOSPI2_FIFO_TH         0x00000020U
+#define LL_MDMA_REQ_OCTOSPI2_TC              0x00000021U
 #endif /* OCTOSPI2 */
 /**
   * @}
@@ -553,8 +553,8 @@ typedef struct
 /** @defgroup MDMA_LL_EC_XFER_ERROR_DIRECTION Transfer Error Direction
   * @{
   */
-#define LL_MDMA_READ_ERROR                       0x00000000U                /*!< Last transfer error on the channel was a related to a read access    */
-#define LL_MDMA_WRITE_ERROR                      MDMA_CESR_TED              /*!< Last transfer error on the channel was a related to a write access   */
+#define LL_MDMA_READ_ERROR                       0x00000000U
+#define LL_MDMA_WRITE_ERROR                      MDMA_CESR_TED
 /**
   * @}
   */

@@ -50,7 +50,7 @@ typedef struct
                                                      This parameter can be a value of @ref CORTEX_MPU_Region_Enable                 */
   uint8_t                Number;                /*!< Specifies the number of the region to protect.
                                                      This parameter can be a value of @ref CORTEX_MPU_Region_Number                 */
-  uint32_t               BaseAddress;           /*!< Specifies the base address of the region to protect.                           */
+  uint32_t               BaseAddress;
   uint8_t                Size;                  /*!< Specifies the size of the region to protect.
                                                      This parameter can be a value of @ref CORTEX_MPU_Region_Size                   */
   uint8_t                SubRegionDisable;      /*!< Specifies the number of the subregion protection to disable.

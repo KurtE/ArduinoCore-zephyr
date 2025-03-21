@@ -231,8 +231,8 @@ struct i2c_atciic100_dev_data_t {
 	uint32_t			target_addr;
 	uint32_t			xfer_wt_num;
 	uint32_t			xfer_rd_num;
-	uint32_t			xfered_data_wt_ptr; /* write pointer  */
-	uint32_t			xfered_data_rd_ptr; /* read pointer  */
+	uint32_t			xfered_data_wt_ptr;
+	uint32_t			xfered_data_rd_ptr;
 	volatile struct _i2c_status	status;
 	const struct i2c_target_callbacks	*target_callbacks;
 	struct i2c_target_config	*target_config;

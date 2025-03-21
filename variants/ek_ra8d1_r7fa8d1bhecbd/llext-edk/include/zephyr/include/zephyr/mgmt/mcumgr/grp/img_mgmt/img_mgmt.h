@@ -9,10 +9,13 @@
 #define H_IMG_MGMT_
 
 #include <inttypes.h>
-#include <zephyr/mgmt/mcumgr/mgmt/mgmt.h>
-#include <zephyr/mgmt/mcumgr/smp/smp.h>
 #include <bootutil/image.h>
 #include <zcbor_common.h>
+
+#ifdef CONFIG_MCUMGR_GRP_IMG_VERBOSE_ERR
+#include <zephyr/mgmt/mcumgr/mgmt/mgmt.h>
+#include <zephyr/mgmt/mcumgr/smp/smp.h>
+#endif
 
 /**
  * @brief MCUmgr img_mgmt API
@@ -25,7 +28,7 @@
 extern "C" {
 #endif
 
-#define IMG_MGMT_DATA_SHA_LEN	32 /* SHA256 */
+#define IMG_MGMT_DATA_SHA_LEN	32
 
 /**
  * Image state flags
@@ -182,12 +185,12 @@ extern struct img_mgmt_state g_img_mgmt_state;
 
 /** Represents an individual upload request. */
 struct img_mgmt_upload_req {
-	uint32_t image;	/* 0 by default */
-	size_t off;	/* SIZE_MAX if unspecified */
-	size_t size;	/* SIZE_MAX if unspecified */
+	uint32_t image;
+	size_t off;
+	size_t size;
 	struct zcbor_string img_data;
 	struct zcbor_string data_sha;
-	bool upgrade;			/* Only allow greater version numbers. */
+	bool upgrade;
 };
 
 /** Global state for upload in progress. */

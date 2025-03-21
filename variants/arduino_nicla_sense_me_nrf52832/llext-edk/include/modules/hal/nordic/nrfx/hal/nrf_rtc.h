@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2014 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -93,38 +93,38 @@ extern "C" {
 /** @brief RTC tasks. */
 typedef enum
 {
-    NRF_RTC_TASK_START            = offsetof(NRF_RTC_Type,TASKS_START),      /**< Start. */
-    NRF_RTC_TASK_STOP             = offsetof(NRF_RTC_Type,TASKS_STOP),       /**< Stop. */
-    NRF_RTC_TASK_CLEAR            = offsetof(NRF_RTC_Type,TASKS_CLEAR),      /**< Clear. */
-    NRF_RTC_TASK_TRIGGER_OVERFLOW = offsetof(NRF_RTC_Type,TASKS_TRIGOVRFLW), /**< Trigger overflow. */
+    NRF_RTC_TASK_START            = offsetof(NRF_RTC_Type,TASKS_START),
+    NRF_RTC_TASK_STOP             = offsetof(NRF_RTC_Type,TASKS_STOP),
+    NRF_RTC_TASK_CLEAR            = offsetof(NRF_RTC_Type,TASKS_CLEAR),
+    NRF_RTC_TASK_TRIGGER_OVERFLOW = offsetof(NRF_RTC_Type,TASKS_TRIGOVRFLW),
 #if defined(RTC_TASKS_CAPTURE_TASKS_CAPTURE_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RTC_TASK_CAPTURE_0        = offsetof(NRF_RTC_Type,TASKS_CAPTURE[0]), /**< Capture the counter value on channel 0. */
-    NRF_RTC_TASK_CAPTURE_1        = offsetof(NRF_RTC_Type,TASKS_CAPTURE[1]), /**< Capture the counter value on channel 1. */
-    NRF_RTC_TASK_CAPTURE_2        = offsetof(NRF_RTC_Type,TASKS_CAPTURE[2]), /**< Capture the counter value on channel 2. */
-    NRF_RTC_TASK_CAPTURE_3        = offsetof(NRF_RTC_Type,TASKS_CAPTURE[3]), /**< Capture the counter value on channel 3. */
+    NRF_RTC_TASK_CAPTURE_0        = offsetof(NRF_RTC_Type,TASKS_CAPTURE[0]),
+    NRF_RTC_TASK_CAPTURE_1        = offsetof(NRF_RTC_Type,TASKS_CAPTURE[1]),
+    NRF_RTC_TASK_CAPTURE_2        = offsetof(NRF_RTC_Type,TASKS_CAPTURE[2]),
+    NRF_RTC_TASK_CAPTURE_3        = offsetof(NRF_RTC_Type,TASKS_CAPTURE[3]),
 #endif
 } nrf_rtc_task_t;
 
 /** @brief RTC events. */
 typedef enum
 {
-    NRF_RTC_EVENT_TICK        = offsetof(NRF_RTC_Type,EVENTS_TICK),       /**< Tick event. */
-    NRF_RTC_EVENT_OVERFLOW    = offsetof(NRF_RTC_Type,EVENTS_OVRFLW),     /**< Overflow event. */
-    NRF_RTC_EVENT_COMPARE_0   = offsetof(NRF_RTC_Type,EVENTS_COMPARE[0]), /**< Compare 0 event. */
-    NRF_RTC_EVENT_COMPARE_1   = offsetof(NRF_RTC_Type,EVENTS_COMPARE[1]), /**< Compare 1 event. */
-    NRF_RTC_EVENT_COMPARE_2   = offsetof(NRF_RTC_Type,EVENTS_COMPARE[2]), /**< Compare 2 event. */
-    NRF_RTC_EVENT_COMPARE_3   = offsetof(NRF_RTC_Type,EVENTS_COMPARE[3])  /**< Compare 3 event. */
+    NRF_RTC_EVENT_TICK        = offsetof(NRF_RTC_Type,EVENTS_TICK),
+    NRF_RTC_EVENT_OVERFLOW    = offsetof(NRF_RTC_Type,EVENTS_OVRFLW),
+    NRF_RTC_EVENT_COMPARE_0   = offsetof(NRF_RTC_Type,EVENTS_COMPARE[0]),
+    NRF_RTC_EVENT_COMPARE_1   = offsetof(NRF_RTC_Type,EVENTS_COMPARE[1]),
+    NRF_RTC_EVENT_COMPARE_2   = offsetof(NRF_RTC_Type,EVENTS_COMPARE[2]),
+    NRF_RTC_EVENT_COMPARE_3   = offsetof(NRF_RTC_Type,EVENTS_COMPARE[3])
 } nrf_rtc_event_t;
 
 /** @brief RTC interrupts. */
 typedef enum
 {
-    NRF_RTC_INT_TICK_MASK     = RTC_INTENSET_TICK_Msk,     /**< RTC interrupt from tick event. */
-    NRF_RTC_INT_OVERFLOW_MASK = RTC_INTENSET_OVRFLW_Msk,   /**< RTC interrupt from overflow event. */
-    NRF_RTC_INT_COMPARE0_MASK = RTC_INTENSET_COMPARE0_Msk, /**< RTC interrupt from compare event on channel 0. */
-    NRF_RTC_INT_COMPARE1_MASK = RTC_INTENSET_COMPARE1_Msk, /**< RTC interrupt from compare event on channel 1. */
-    NRF_RTC_INT_COMPARE2_MASK = RTC_INTENSET_COMPARE2_Msk, /**< RTC interrupt from compare event on channel 2. */
-    NRF_RTC_INT_COMPARE3_MASK = RTC_INTENSET_COMPARE3_Msk  /**< RTC interrupt from compare event on channel 3. */
+    NRF_RTC_INT_TICK_MASK     = RTC_INTENSET_TICK_Msk,
+    NRF_RTC_INT_OVERFLOW_MASK = RTC_INTENSET_OVRFLW_Msk,
+    NRF_RTC_INT_COMPARE0_MASK = RTC_INTENSET_COMPARE0_Msk,
+    NRF_RTC_INT_COMPARE1_MASK = RTC_INTENSET_COMPARE1_Msk,
+    NRF_RTC_INT_COMPARE2_MASK = RTC_INTENSET_COMPARE2_Msk,
+    NRF_RTC_INT_COMPARE3_MASK = RTC_INTENSET_COMPARE3_Msk
 } nrf_rtc_int_t;
 
 /**

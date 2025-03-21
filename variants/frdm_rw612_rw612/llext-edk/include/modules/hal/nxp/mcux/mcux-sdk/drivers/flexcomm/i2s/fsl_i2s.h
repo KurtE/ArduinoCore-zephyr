@@ -41,10 +41,10 @@
 enum
 {
     kStatus_I2S_BufferComplete =
-        MAKE_STATUS(kStatusGroup_I2S, 0),                /*!< Transfer from/into a single buffer has completed */
-    kStatus_I2S_Done = MAKE_STATUS(kStatusGroup_I2S, 1), /*!< All buffers transfers have completed */
+        MAKE_STATUS(kStatusGroup_I2S, 0),
+    kStatus_I2S_Done = MAKE_STATUS(kStatusGroup_I2S, 1),
     kStatus_I2S_Busy =
-        MAKE_STATUS(kStatusGroup_I2S, 2), /*!< Already performing a transfer and cannot queue another buffer */
+        MAKE_STATUS(kStatusGroup_I2S, 2),
 };
 
 /*!
@@ -54,57 +54,57 @@ enum
  */
 typedef enum _i2s_flags
 {
-    kI2S_TxErrorFlag = I2S_FIFOINTENSET_TXERR_MASK, /*!< TX error interrupt */
-    kI2S_TxLevelFlag = I2S_FIFOINTENSET_TXLVL_MASK, /*!< TX level interrupt */
-    kI2S_RxErrorFlag = I2S_FIFOINTENSET_RXERR_MASK, /*!< RX error interrupt */
-    kI2S_RxLevelFlag = I2S_FIFOINTENSET_RXLVL_MASK  /*!< RX level interrupt */
+    kI2S_TxErrorFlag = I2S_FIFOINTENSET_TXERR_MASK,
+    kI2S_TxLevelFlag = I2S_FIFOINTENSET_TXLVL_MASK,
+    kI2S_RxErrorFlag = I2S_FIFOINTENSET_RXERR_MASK,
+    kI2S_RxLevelFlag = I2S_FIFOINTENSET_RXLVL_MASK
 } i2s_flags_t;
 
 /*! @brief Master / slave mode. */
 typedef enum _i2s_master_slave
 {
-    kI2S_MasterSlaveNormalSlave  = 0x0, /*!< Normal slave */
-    kI2S_MasterSlaveWsSyncMaster = 0x1, /*!< WS synchronized master */
-    kI2S_MasterSlaveExtSckMaster = 0x2, /*!< Master using existing SCK */
-    kI2S_MasterSlaveNormalMaster = 0x3  /*!< Normal master */
+    kI2S_MasterSlaveNormalSlave  = 0x0,
+    kI2S_MasterSlaveWsSyncMaster = 0x1,
+    kI2S_MasterSlaveExtSckMaster = 0x2,
+    kI2S_MasterSlaveNormalMaster = 0x3
 } i2s_master_slave_t;
 
 /*! @brief I2S mode. */
 typedef enum _i2s_mode
 {
-    kI2S_ModeI2sClassic = 0x0, /*!< I2S classic mode */
-    kI2S_ModeDspWs50    = 0x1, /*!< DSP mode, WS having 50% duty cycle */
-    kI2S_ModeDspWsShort = 0x2, /*!< DSP mode, WS having one clock long pulse */
-    kI2S_ModeDspWsLong  = 0x3  /*!< DSP mode, WS having one data slot long pulse */
+    kI2S_ModeI2sClassic = 0x0,
+    kI2S_ModeDspWs50    = 0x1,
+    kI2S_ModeDspWsShort = 0x2,
+    kI2S_ModeDspWsLong  = 0x3
 } i2s_mode_t;
 
 /*! @brief _i2s_secondary_channel I2S secondary channel. */
 enum
 {
-    kI2S_SecondaryChannel1 = 0U, /*!< secondary channel 1 */
-    kI2S_SecondaryChannel2 = 1U, /*!< secondary channel 2 */
-    kI2S_SecondaryChannel3 = 2U, /*!< secondary channel 3 */
+    kI2S_SecondaryChannel1 = 0U,
+    kI2S_SecondaryChannel2 = 1U,
+    kI2S_SecondaryChannel3 = 2U,
 };
 
 /*! @brief I2S configuration structure. */
 typedef struct _i2s_config
 {
-    i2s_master_slave_t masterSlave; /*!< Master / slave configuration */
-    i2s_mode_t mode;                /*!< I2S mode */
-    bool rightLow;                  /*!< Right channel data in low portion of FIFO */
-    bool leftJust;                  /*!< Left justify data in FIFO */
+    i2s_master_slave_t masterSlave;
+    i2s_mode_t mode;
+    bool rightLow;
+    bool leftJust;
 #if (defined(FSL_FEATURE_FLEXCOMM_I2S_HAS_DMIC_INTERCONNECTION) && FSL_FEATURE_FLEXCOMM_I2S_HAS_DMIC_INTERCONNECTION)
-    bool pdmData; /*!< Data source is the D-Mic subsystem */
+    bool pdmData;
 #endif
-    bool sckPol;          /*!< SCK polarity */
-    bool wsPol;           /*!< WS polarity */
-    uint16_t divider;     /*!< Flexcomm function clock divider (1 - 4096) */
-    bool oneChannel;      /*!< true mono, false stereo */
-    uint8_t dataLength;   /*!< Data length (4 - 32) */
-    uint16_t frameLength; /*!< Frame width (4 - 512) */
-    uint16_t position;    /*!< Data position in the frame */
-    uint8_t watermark;    /*!< FIFO trigger level */
-    bool txEmptyZero;     /*!< Transmit zero when buffer becomes empty or last item */
+    bool sckPol;
+    bool wsPol;
+    uint16_t divider;
+    bool oneChannel;
+    uint8_t dataLength;
+    uint16_t frameLength;
+    uint16_t position;
+    uint8_t watermark;
+    bool txEmptyZero;
     bool pack48; /*!< Packing format for 48-bit data (false - 24 bit values, true - alternating 32-bit and 16-bit
                     values) */
 } i2s_config_t;
@@ -112,8 +112,8 @@ typedef struct _i2s_config
 /*! @brief Buffer to transfer from or receive audio data into. */
 typedef struct _i2s_transfer
 {
-    uint8_t *data;   /*!< Pointer to data buffer. */
-    size_t dataSize; /*!< Buffer size in bytes. */
+    uint8_t *data;
+    size_t dataSize;
 } i2s_transfer_t;
 
 /*! @brief Transactional state of the intialized transfer or receive I2S operation. */
@@ -136,21 +136,21 @@ typedef void (*i2s_transfer_callback_t)(I2S_Type *base,
 /*! @brief Members not to be accessed / modified outside of the driver. */
 struct _i2s_handle
 {
-    volatile uint32_t state;                    /*!< State of transfer */
-    i2s_transfer_callback_t completionCallback; /*!< Callback function pointer */
-    void *userData;                             /*!< Application data passed to callback */
-    bool oneChannel;                            /*!< true mono, false stereo */
-    uint8_t dataLength;                         /*!< Data length (4 - 32) */
+    volatile uint32_t state;
+    i2s_transfer_callback_t completionCallback;
+    void *userData;
+    bool oneChannel;
+    uint8_t dataLength;
     bool pack48;       /*!< Packing format for 48-bit data (false - 24 bit values, true - alternating 32-bit and 16-bit
                           values) */
-    uint8_t watermark; /*!< FIFO trigger level */
-    bool useFifo48H;   /*!< When dataLength 17-24: true use FIFOWR48H, false use FIFOWR */
+    uint8_t watermark;
+    bool useFifo48H;
 
-    volatile i2s_transfer_t i2sQueue[I2S_NUM_BUFFERS]; /*!< Transfer queue storing transfer buffers */
-    volatile uint8_t queueUser;                        /*!< Queue index where user's next transfer will be stored */
-    volatile uint8_t queueDriver;                      /*!< Queue index of buffer actually used by the driver */
-    volatile uint32_t errorCount;                      /*!< Number of buffer underruns/overruns */
-    volatile uint32_t transferCount;                   /*!< Number of bytes transferred */
+    volatile i2s_transfer_t i2sQueue[I2S_NUM_BUFFERS];
+    volatile uint8_t queueUser;
+    volatile uint8_t queueDriver;
+    volatile uint32_t errorCount;
+    volatile uint32_t transferCount;
 };
 
 /*******************************************************************************

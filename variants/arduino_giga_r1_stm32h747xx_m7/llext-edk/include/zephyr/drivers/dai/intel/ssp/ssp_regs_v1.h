@@ -19,9 +19,9 @@
 #define SSPSP2			0x44
 #define SSIOC			0x4C
 #define SSGFS			0x50
-#define SSDR			0x10 /* Not PTL */
-#define SSTSA			0x30 /* Not PTL */
-#define SSRSA			0x34 /* Not PTL */
+#define SSDR			0x10
+#define SSTSA			0x30
+#define SSRSA			0x34
 
 #define OUT_FIFO		SSDR
 #define IN_FIFO			SSDR

@@ -32,7 +32,7 @@ struct cpg_clk_info_table {
 };
 
 struct rcar_cpg_mssr_data {
-	DEVICE_MMIO_RAM; /* Must be first */
+	DEVICE_MMIO_RAM;
 
 	struct cpg_clk_info_table *clk_info_table[CPG_NUM_DOMAINS];
 	const uint32_t clk_info_table_size[CPG_NUM_DOMAINS];

@@ -725,9 +725,9 @@ typedef struct _wmm_aci_aifsn_t
 /** Data structure of WMM AC parameters  */
 typedef struct _wmm_ac_parameters_t
 {
-    wmm_aci_aifsn_t aci_aifsn; /**< AciAifSn */
-    wmm_ecw_t ecw;             /**< Ecw */
-    t_u16 tx_op_limit;         /**< Tx op limit */
+    wmm_aci_aifsn_t aci_aifsn;
+    wmm_ecw_t ecw;
+    t_u16 tx_op_limit;
 } wmm_ac_parameters_t, *pwmm_ac_parameters_t;
 
 /** Data structure of WMM parameter IE  */
@@ -842,7 +842,7 @@ typedef struct _wmm_parameter_t
 #define MAX_GRP_TIMER 86400
 
 /** Maximum value of 4 byte configuration */
-#define MAX_VALID_DWORD 0x7FFFFFFF /* (1 << 31) - 1 */
+#define MAX_VALID_DWORD 0x7FFFFFFF
 
 /** Band config ACS mode */
 #define BAND_CONFIG_ACS_MODE 0x40U
@@ -2651,14 +2651,14 @@ typedef struct _mlan_ds_pm_cfg
  */
 typedef struct
 {
-    mlan_cmd_result_e cmd_result;                  /**< Firmware execution result */
+    mlan_cmd_result_e cmd_result;
 
-    t_u32 timeout_ms;                              /**< Timeout value in milliseconds */
-    t_u8 ieee_status_code;                         /**< IEEE status code */
+    t_u32 timeout_ms;
+    t_u8 ieee_status_code;
 
-    t_u32 ie_data_len;                             /**< Length of ie block in ie_data */
-    t_u8 ie_data[MLAN_WMM_TSPEC_SIZE               /**< TSPEC to send in the ADDTS */
-                 + MLAN_WMM_ADDTS_EXTRA_IE_BYTES]; /**< Extra IE buf*/
+    t_u32 ie_data_len;
+    t_u8 ie_data[MLAN_WMM_TSPEC_SIZE
+                 + MLAN_WMM_ADDTS_EXTRA_IE_BYTES];
 } wlan_ioctl_wmm_addts_req_t;
 
 /**
@@ -2671,10 +2671,10 @@ typedef struct
  */
 typedef struct
 {
-    mlan_cmd_result_e cmd_result;      /**< Firmware execution result */
-    t_u8 ieee_reason_code;             /**< IEEE reason code sent, unused for WMM */
-    t_u32 ie_data_len;                 /**< Length of ie block in ie_data */
-    t_u8 ie_data[MLAN_WMM_TSPEC_SIZE]; /**< TSPEC to send in the DELTS */
+    mlan_cmd_result_e cmd_result;
+    t_u8 ieee_reason_code;
+    t_u32 ie_data_len;
+    t_u8 ie_data[MLAN_WMM_TSPEC_SIZE];
 } wlan_ioctl_wmm_delts_req_t;
 
 /**
@@ -2689,10 +2689,10 @@ typedef struct
  */
 typedef struct
 {
-    mlan_wmm_queue_config_action_e action; /**< Set, Get, or Default */
-    mlan_wmm_ac_e access_category;         /**< WMM_AC_BK(0) to WMM_AC_VO(3) */
-    t_u16 msdu_lifetime_expiry;            /**< lifetime expiry in TUs */
-    t_u8 supported_rates[10];              /**< Not supported yet */
+    mlan_wmm_queue_config_action_e action;
+    mlan_wmm_ac_e access_category;
+    t_u16 msdu_lifetime_expiry;
+    t_u8 supported_rates[10];
 } wlan_ioctl_wmm_queue_config_t;
 
 /**

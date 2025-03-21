@@ -64,9 +64,9 @@ extern "C" {
  * writer.
  */
 struct spsc_pbuf_common {
-	uint32_t len;		/* Length of data[] in bytes. */
-	uint32_t flags;		/* Flags. See @ref SPSC_PBUF_FLAGS */
-	uint32_t rd_idx;	/* Index of the first valid byte in data[] */
+	uint32_t len;
+	uint32_t flags;
+	uint32_t rd_idx;
 };
 
 /* Padding to fill cache line. */
@@ -80,14 +80,14 @@ struct spsc_pbuf_common {
  */
 struct spsc_pbuf_ext_cache {
 	uint8_t reserved[Z_SPSC_PBUF_PADDING];
-	uint32_t wr_idx;	/* Index of the first free byte in data[] */
-	uint8_t data[];		/* Buffer data. */
+	uint32_t wr_idx;
+	uint8_t data[];
 };
 
 /** @brief Remaining part of a packet buffer when cache is not used. */
 struct spsc_pbuf_ext_nocache {
-	uint32_t wr_idx;	/* Index of the first free byte in data[] */
-	uint8_t data[];		/* Buffer data. */
+	uint32_t wr_idx;
+	uint8_t data[];
 };
 
 /**

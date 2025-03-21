@@ -35,12 +35,12 @@ extern "C" {
 
 struct _dnode {
 	union {
-		struct _dnode *head; /* ptr to head of list (sys_dlist_t) */
-		struct _dnode *next; /* ptr to next node    (sys_dnode_t) */
+		struct _dnode *head;
+		struct _dnode *next;
 	};
 	union {
-		struct _dnode *tail; /* ptr to tail of list (sys_dlist_t) */
-		struct _dnode *prev; /* ptr to previous node (sys_dnode_t) */
+		struct _dnode *tail;
+		struct _dnode *prev;
 	};
 };
 

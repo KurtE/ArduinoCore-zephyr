@@ -31,7 +31,7 @@ enum sd_opcode {
 	SD_ALL_SEND_CID = 2,
 	SD_SEND_RELATIVE_ADDR = 3,
 	MMC_SEND_RELATIVE_ADDR = 3,
-	SDIO_SEND_OP_COND = 5, /* SDIO cards only */
+	SDIO_SEND_OP_COND = 5,
 	SD_SWITCH = 6,
 	SD_SELECT_CARD = 7,
 	SD_SEND_IF_COND = 8,
@@ -58,8 +58,8 @@ enum sd_opcode {
 	SDIO_RW_DIRECT = 52,
 	SDIO_RW_EXTENDED = 53,
 	SD_APP_CMD = 55,
-	SD_SPI_READ_OCR = 58, /* SPI mode only */
-	SD_SPI_CRC_ON_OFF = 59, /* SPI mode only */
+	SD_SPI_READ_OCR = 58,
+	SD_SPI_CRC_ON_OFF = 59,
 };
 
 /**
@@ -314,25 +314,25 @@ enum mmc_ocr_flag {
  */
 enum sdio_ocr_flag {
 	SDIO_OCR_IO_READY_FLAG = BIT(31),
-	SDIO_OCR_IO_NUMBER = (7U << 28U), /*!< Number of io function */
-	SDIO_OCR_MEM_PRESENT_FLAG = BIT(27), /*!< Memory present flag */
-	SDIO_OCR_180_VOL_FLAG = BIT(24),	/*!< Switch to 1.8v signalling */
-	SDIO_OCR_VDD20_21FLAG = BIT(8),  /*!< VDD 2.0-2.1 */
-	SDIO_OCR_VDD21_22FLAG = BIT(9),  /*!< VDD 2.1-2.2 */
-	SDIO_OCR_VDD22_23FLAG = BIT(10), /*!< VDD 2.2-2.3 */
-	SDIO_OCR_VDD23_24FLAG = BIT(11), /*!< VDD 2.3-2.4 */
-	SDIO_OCR_VDD24_25FLAG = BIT(12), /*!< VDD 2.4-2.5 */
-	SDIO_OCR_VDD25_26FLAG = BIT(13), /*!< VDD 2.5-2.6 */
-	SDIO_OCR_VDD26_27FLAG = BIT(14), /*!< VDD 2.6-2.7 */
-	SDIO_OCR_VDD27_28FLAG = BIT(15), /*!< VDD 2.7-2.8 */
-	SDIO_OCR_VDD28_29FLAG = BIT(16), /*!< VDD 2.8-2.9 */
-	SDIO_OCR_VDD29_30FLAG = BIT(17), /*!< VDD 2.9-3.0 */
-	SDIO_OCR_VDD30_31FLAG = BIT(18), /*!< VDD 2.9-3.0 */
-	SDIO_OCR_VDD31_32FLAG = BIT(19), /*!< VDD 3.0-3.1 */
-	SDIO_OCR_VDD32_33FLAG = BIT(20), /*!< VDD 3.1-3.2 */
-	SDIO_OCR_VDD33_34FLAG = BIT(21), /*!< VDD 3.2-3.3 */
-	SDIO_OCR_VDD34_35FLAG = BIT(22), /*!< VDD 3.3-3.4 */
-	SDIO_OCR_VDD35_36FLAG = BIT(23), /*!< VDD 3.4-3.5 */
+	SDIO_OCR_IO_NUMBER = (7U << 28U),
+	SDIO_OCR_MEM_PRESENT_FLAG = BIT(27),
+	SDIO_OCR_180_VOL_FLAG = BIT(24),
+	SDIO_OCR_VDD20_21FLAG = BIT(8),
+	SDIO_OCR_VDD21_22FLAG = BIT(9),
+	SDIO_OCR_VDD22_23FLAG = BIT(10),
+	SDIO_OCR_VDD23_24FLAG = BIT(11),
+	SDIO_OCR_VDD24_25FLAG = BIT(12),
+	SDIO_OCR_VDD25_26FLAG = BIT(13),
+	SDIO_OCR_VDD26_27FLAG = BIT(14),
+	SDIO_OCR_VDD27_28FLAG = BIT(15),
+	SDIO_OCR_VDD28_29FLAG = BIT(16),
+	SDIO_OCR_VDD29_30FLAG = BIT(17),
+	SDIO_OCR_VDD30_31FLAG = BIT(18),
+	SDIO_OCR_VDD31_32FLAG = BIT(19),
+	SDIO_OCR_VDD32_33FLAG = BIT(20),
+	SDIO_OCR_VDD33_34FLAG = BIT(21),
+	SDIO_OCR_VDD34_35FLAG = BIT(22),
+	SDIO_OCR_VDD35_36FLAG = BIT(23),
 };
 
 
@@ -437,7 +437,7 @@ enum sdhc_clock_speed {
 	MMC_CLOCK_52MHZ = MHZ(52),
 	MMC_CLOCK_DDR52 = MHZ(52),
 	MMC_CLOCK_HS200 = MHZ(200),
-	MMC_CLOCK_HS400 = MHZ(200), /* Same clock freq as HS200, just DDR */
+	MMC_CLOCK_HS400 = MHZ(200),
 };
 
 /**
@@ -803,96 +803,96 @@ enum sdio_io_dir {
 	SDIO_IO_WRITE = 1,
 };
 
-#define SDIO_CMD_ARG_RW_SHIFT 31		/*!< read/write flag shift */
-#define SDIO_CMD_ARG_FUNC_NUM_SHIFT 28	/*!< function number shift */
-#define SDIO_DIRECT_CMD_ARG_RAW_SHIFT 27	/*!< direct raw flag shift */
-#define SDIO_CMD_ARG_REG_ADDR_SHIFT 9	/*!< direct reg addr shift */
-#define SDIO_CMD_ARG_REG_ADDR_MASK 0x1FFFF	/*!< direct reg addr mask */
-#define SDIO_DIRECT_CMD_DATA_MASK 0xFF	/*!< data mask */
+#define SDIO_CMD_ARG_RW_SHIFT 31
+#define SDIO_CMD_ARG_FUNC_NUM_SHIFT 28
+#define SDIO_DIRECT_CMD_ARG_RAW_SHIFT 27
+#define SDIO_CMD_ARG_REG_ADDR_SHIFT 9
+#define SDIO_CMD_ARG_REG_ADDR_MASK 0x1FFFF
+#define SDIO_DIRECT_CMD_DATA_MASK 0xFF
 
-#define SDIO_EXTEND_CMD_ARG_BLK_SHIFT 27	/*!< extended write block mode */
-#define SDIO_EXTEND_CMD_ARG_OP_CODE_SHIFT 26	/*!< op code (increment address) */
+#define SDIO_EXTEND_CMD_ARG_BLK_SHIFT 27
+#define SDIO_EXTEND_CMD_ARG_OP_CODE_SHIFT 26
 
 /**
  * @brief Card common control register definitions
  *
  * Card common control registers, present on all SDIO cards
  */
-#define SDIO_CCCR_CCCR 0x00 /*!< SDIO CCCR revision register */
+#define SDIO_CCCR_CCCR 0x00
 #define SDIO_CCCR_CCCR_REV_MASK 0x0F
 #define SDIO_CCCR_CCCR_REV_SHIFT 0x0
-#define SDIO_CCCR_CCCR_REV_1_00 0x0 /*!< CCCR/FBR Version 1.00 */
-#define SDIO_CCCR_CCCR_REV_1_10 0x1 /*!< CCCR/FBR Version 1.10 */
-#define SDIO_CCCR_CCCR_REV_2_00 0x2 /*!< CCCR/FBR Version 2.00 */
-#define SDIO_CCCR_CCCR_REV_3_00 0x3 /*!< CCCR/FBR Version 3.00 */
+#define SDIO_CCCR_CCCR_REV_1_00 0x0
+#define SDIO_CCCR_CCCR_REV_1_10 0x1
+#define SDIO_CCCR_CCCR_REV_2_00 0x2
+#define SDIO_CCCR_CCCR_REV_3_00 0x3
 
-#define SDIO_CCCR_SD 0x01 /*!< SD spec version  register */
+#define SDIO_CCCR_SD 0x01
 #define SDIO_CCCR_SD_SPEC_MASK 0x0F
 #define SDIO_CCCR_SD_SPEC_SHIFT 0x0
 
-#define SDIO_CCCR_IO_EN 0x02 /*!< SDIO IO Enable register */
+#define SDIO_CCCR_IO_EN 0x02
 
-#define SDIO_CCCR_IO_RD 0x03 /*!< SDIO IO Ready register */
+#define SDIO_CCCR_IO_RD 0x03
 
-#define SDIO_CCCR_INT_EN 0x04 /*!< SDIO Interrupt enable register */
+#define SDIO_CCCR_INT_EN 0x04
 
-#define SDIO_CCCR_INT_P 0x05 /*!< SDIO Interrupt pending register */
+#define SDIO_CCCR_INT_P 0x05
 
-#define SDIO_CCCR_ABORT 0x06 /*!< SDIO IO abort register */
+#define SDIO_CCCR_ABORT 0x06
 
-#define SDIO_CCCR_BUS_IF 0x07 /*!< SDIO bus interface control register */
-#define SDIO_CCCR_BUS_IF_WIDTH_MASK 0x3 /*!< SDIO bus width setting mask */
-#define SDIO_CCCR_BUS_IF_WIDTH_1_BIT 0x00 /*!< 1 bit SDIO bus setting */
-#define SDIO_CCCR_BUS_IF_WIDTH_4_BIT 0x02 /*!< 4 bit SDIO bus setting */
-#define SDIO_CCCR_BUS_IF_WIDTH_8_BIT 0x03 /*!< 8 bit SDIO bus setting */
+#define SDIO_CCCR_BUS_IF 0x07
+#define SDIO_CCCR_BUS_IF_WIDTH_MASK 0x3
+#define SDIO_CCCR_BUS_IF_WIDTH_1_BIT 0x00
+#define SDIO_CCCR_BUS_IF_WIDTH_4_BIT 0x02
+#define SDIO_CCCR_BUS_IF_WIDTH_8_BIT 0x03
 
-#define SDIO_CCCR_CAPS 0x08 /*!< SDIO card capabilities */
-#define SDIO_CCCR_CAPS_SDC BIT(0) /*!< support CMD52 while data transfer */
-#define SDIO_CCCR_CAPS_SMB BIT(1) /*!< support multiple block transfer */
-#define SDIO_CCCR_CAPS_SRW BIT(2) /*!< support read wait control */
-#define SDIO_CCCR_CAPS_SBS BIT(3) /*!< support bus control */
-#define SDIO_CCCR_CAPS_S4MI BIT(4) /*!< support block gap interrupt */
-#define SDIO_CCCR_CAPS_E4MI BIT(5) /*!< enable block gap interrupt */
-#define SDIO_CCCR_CAPS_LSC BIT(6) /*!< low speed card */
-#define SDIO_CCCR_CAPS_BLS BIT(7) /*!< low speed card with 4 bit support */
+#define SDIO_CCCR_CAPS 0x08
+#define SDIO_CCCR_CAPS_SDC BIT(0)
+#define SDIO_CCCR_CAPS_SMB BIT(1)
+#define SDIO_CCCR_CAPS_SRW BIT(2)
+#define SDIO_CCCR_CAPS_SBS BIT(3)
+#define SDIO_CCCR_CAPS_S4MI BIT(4)
+#define SDIO_CCCR_CAPS_E4MI BIT(5)
+#define SDIO_CCCR_CAPS_LSC BIT(6)
+#define SDIO_CCCR_CAPS_BLS BIT(7)
 
-#define SDIO_CCCR_CIS 0x09 /*!< SDIO CIS tuples pointer */
+#define SDIO_CCCR_CIS 0x09
 
-#define SDIO_CCCR_SPEED	0x13 /*!< SDIO bus speed select */
-#define SDIO_CCCR_SPEED_SHS BIT(0) /*!< high speed support */
-#define SDIO_CCCR_SPEED_MASK 0xE /*!< bus speed select mask*/
-#define SDIO_CCCR_SPEED_SHIFT 0x1 /*!< bus speed select shift */
-#define SDIO_CCCR_SPEED_SDR12 0x0 /*!< select SDR12 */
-#define SDIO_CCCR_SPEED_HS 0x1 /*!< select High speed mode */
-#define SDIO_CCCR_SPEED_SDR25 0x1 /*!< select SDR25 */
-#define SDIO_CCCR_SPEED_SDR50 0x2 /*!< select SDR50 */
-#define SDIO_CCCR_SPEED_SDR104 0x3 /*!< select SDR104 */
-#define SDIO_CCCR_SPEED_DDR50 0x4 /*!< select DDR50 */
+#define SDIO_CCCR_SPEED	0x13
+#define SDIO_CCCR_SPEED_SHS BIT(0)
+#define SDIO_CCCR_SPEED_MASK 0xE
+#define SDIO_CCCR_SPEED_SHIFT 0x1
+#define SDIO_CCCR_SPEED_SDR12 0x0
+#define SDIO_CCCR_SPEED_HS 0x1
+#define SDIO_CCCR_SPEED_SDR25 0x1
+#define SDIO_CCCR_SPEED_SDR50 0x2
+#define SDIO_CCCR_SPEED_SDR104 0x3
+#define SDIO_CCCR_SPEED_DDR50 0x4
 
-#define SDIO_CCCR_UHS 0x14 /*!< SDIO UHS support */
-#define SDIO_CCCR_UHS_SDR50 BIT(0) /*!< SDR50 support */
-#define SDIO_CCCR_UHS_SDR104 BIT(1) /*!< SDR104 support */
-#define SDIO_CCCR_UHS_DDR50 BIT(2) /*!< DDR50 support */
+#define SDIO_CCCR_UHS 0x14
+#define SDIO_CCCR_UHS_SDR50 BIT(0)
+#define SDIO_CCCR_UHS_SDR104 BIT(1)
+#define SDIO_CCCR_UHS_DDR50 BIT(2)
 
-#define SDIO_CCCR_DRIVE_STRENGTH 0x15 /*!< SDIO drive strength */
-#define SDIO_CCCR_DRIVE_STRENGTH_A BIT(0) /*!< drive type A */
-#define SDIO_CCCR_DRIVE_STRENGTH_C BIT(1) /*!< drive type C */
-#define SDIO_CCCR_DRIVE_STRENGTH_D BIT(2) /*!< drive type D */
+#define SDIO_CCCR_DRIVE_STRENGTH 0x15
+#define SDIO_CCCR_DRIVE_STRENGTH_A BIT(0)
+#define SDIO_CCCR_DRIVE_STRENGTH_C BIT(1)
+#define SDIO_CCCR_DRIVE_STRENGTH_D BIT(2)
 
-#define SDIO_FBR_BASE(n) ((n) * 0x100) /*!< Get function base register addr */
+#define SDIO_FBR_BASE(n) ((n) * 0x100)
 
-#define SDIO_FBR_CIS 0x09 /*!< SDIO function base register CIS pointer */
-#define SDIO_FBR_CSA 0x0C /*!< SDIO function base register CSA pointer */
-#define SDIO_FBR_BLK_SIZE 0x10 /*!< SDIO function base register block size */
+#define SDIO_FBR_CIS 0x09
+#define SDIO_FBR_CSA 0x0C
+#define SDIO_FBR_BLK_SIZE 0x10
 
 
-#define SDIO_MAX_IO_NUMS 7 /*!< Maximum number of I/O functions for SDIO */
+#define SDIO_MAX_IO_NUMS 7
 
-#define SDIO_TPL_CODE_NULL 0x00 /*!< NULL CIS tuple code */
-#define SDIO_TPL_CODE_MANIFID 0x20 /*!< manufacturer ID CIS tuple code */
-#define SDIO_TPL_CODE_FUNCID 0x21 /*!< function ID CIS tuple code */
-#define SDIO_TPL_CODE_FUNCE 0x22 /*!< function extension CIS tuple code */
-#define SDIO_TPL_CODE_END 0xFF /*!< End CIS tuple code */
+#define SDIO_TPL_CODE_NULL 0x00
+#define SDIO_TPL_CODE_MANIFID 0x20
+#define SDIO_TPL_CODE_FUNCID 0x21
+#define SDIO_TPL_CODE_FUNCE 0x22
+#define SDIO_TPL_CODE_END 0xFF
 
 /**
  * @brief Card common control register flags
@@ -917,14 +917,14 @@ enum sdio_cccr_flags {
  */
 struct sdio_cis {
 	/* Manufacturer ID string tuple */
-	uint16_t manf_id; /*!< manufacturer ID */
-	uint16_t manf_code; /*!< manufacturer code */
+	uint16_t manf_id;
+	uint16_t manf_code;
 	/* Function identification tuple */
-	uint8_t func_id; /*!< sdio device class function id */
+	uint8_t func_id;
 	/* Function extension table */
-	uint16_t max_blk_size; /*!< Max transfer block size */
-	uint8_t max_speed; /*!< Max transfer speed */
-	uint16_t rdy_timeout; /*!< I/O ready timeout */
+	uint16_t max_blk_size;
+	uint8_t max_speed;
+	uint16_t rdy_timeout;
 };
 
 #ifdef __cplusplus

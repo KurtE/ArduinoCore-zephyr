@@ -161,7 +161,7 @@ void vli_mmod_fast_secp256r1(unsigned int *result, unsigned int *product);
 static const struct uECC_Curve_t curve_secp256r1 = {
 	NUM_ECC_WORDS,
 	NUM_ECC_BYTES,
-	256, /* num_n_bits */ {
+	256, {
 		BYTES_TO_WORDS_8(FF, FF, FF, FF, FF, FF, FF, FF),
 		BYTES_TO_WORDS_8(FF, FF, FF, FF, 00, 00, 00, 00),
         	BYTES_TO_WORDS_8(00, 00, 00, 00, 00, 00, 00, 00),

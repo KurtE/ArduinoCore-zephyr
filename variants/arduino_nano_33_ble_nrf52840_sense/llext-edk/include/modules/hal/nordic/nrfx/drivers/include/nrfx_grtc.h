@@ -78,17 +78,17 @@ typedef void (*nrfx_grtc_rtcomparesync_handler_t)(void * p_context);
 /** @brief GRTC capture/compare channel description structure. */
 typedef struct
 {
-    nrfx_grtc_cc_handler_t handler;   /**< User handler. */
-    void *                 p_context; /**< User context. */
-    uint8_t                channel;   /**< Capture/compare channel number. */
+    nrfx_grtc_cc_handler_t handler;
+    void *                 p_context;
+    uint8_t                channel;
 } nrfx_grtc_channel_t;
 
 #if NRF_GRTC_HAS_RTCOUNTER || defined(__NRFX_DOXYGEN__)
 /** @brief GRTC RTCOUNTER handler data structure. */
 typedef struct
 {
-    nrfx_grtc_cc_handler_t handler;   /**< User handler. */
-    void *                 p_context; /**< User context. */
+    nrfx_grtc_cc_handler_t handler;
+    void *                 p_context;
 } nrfx_grtc_rtcounter_handler_data_t;
 #endif // NRF_GRTC_HAS_RTCOUNTER || defined(__NRFX_DOXYGEN__)
 
@@ -96,17 +96,17 @@ typedef struct
 /** @brief GRTC action types. */
 typedef enum
 {
-    NRFX_GRTC_ACTION_START = NRF_GRTC_TASK_START, /**< Start the GRTC. */
-    NRFX_GRTC_ACTION_STOP  = NRF_GRTC_TASK_STOP,  /**< Stop the GRTC. */
-    NRFX_GRTC_ACTION_CLEAR = NRF_GRTC_TASK_CLEAR, /**< Clear the GRTC. */
+    NRFX_GRTC_ACTION_START = NRF_GRTC_TASK_START,
+    NRFX_GRTC_ACTION_STOP  = NRF_GRTC_TASK_STOP,
+    NRFX_GRTC_ACTION_CLEAR = NRF_GRTC_TASK_CLEAR,
 } nrfx_grtc_action_t;
 
 /** @brief GRTC SYSCOUNTER sleep configuration structure. */
 typedef struct
 {
-    uint32_t timeout;   /**< Delay in LFCLK cycles after the condition allowing SYSCOUNTER to go to sleep is met. */
-    uint32_t waketime;  /**< Number of LFCLK cycles to wakeup the SYSCOUNTER before the wake-up event occured. */
-    bool     auto_mode; /**< Enable automatic mode, which keeps the SYSCOUNTER active when any of the local CPUs is active. */
+    uint32_t timeout;
+    uint32_t waketime;
+    bool     auto_mode;
 } nrfx_grtc_sleep_config_t;
 
 /**
@@ -128,8 +128,8 @@ typedef struct
 /** @brief GRTC compare event relative references. */
 typedef enum
 {
-    NRFX_GRTC_CC_RELATIVE_SYSCOUNTER = NRF_GRTC_CC_ADD_REFERENCE_SYSCOUNTER, /**< The SYSCOUNTER content will be used as the reference. */
-    NRFX_GRTC_CC_RELATIVE_COMPARE    = NRF_GRTC_CC_ADD_REFERENCE_CC,         /**< The corresponding compare register content will be used as the reference. */
+    NRFX_GRTC_CC_RELATIVE_SYSCOUNTER = NRF_GRTC_CC_ADD_REFERENCE_SYSCOUNTER,
+    NRFX_GRTC_CC_RELATIVE_COMPARE    = NRF_GRTC_CC_ADD_REFERENCE_CC,
 } nrfx_grtc_cc_relative_reference_t;
 
 #if NRFY_GRTC_HAS_EXTENDED || defined(__NRFX_DOXYGEN__)

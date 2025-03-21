@@ -31,8 +31,8 @@
 /*! @brief LPC GPIO direction definition */
 typedef enum _gpio_pin_direction
 {
-    kGPIO_DigitalInput  = 0U, /*!< Set current pin as digital input*/
-    kGPIO_DigitalOutput = 1U, /*!< Set current pin as digital output*/
+    kGPIO_DigitalInput  = 0U,
+    kGPIO_DigitalOutput = 1U,
 } gpio_pin_direction_t;
 
 /*!
@@ -43,9 +43,9 @@ typedef enum _gpio_pin_direction
  */
 typedef struct _gpio_pin_config
 {
-    gpio_pin_direction_t pinDirection; /*!< GPIO direction, input or output */
+    gpio_pin_direction_t pinDirection;
     /* Output configurations, please ignore if configured as a input one */
-    uint8_t outputLogic; /*!< Set default output logic, no use in input */
+    uint8_t outputLogic;
 } gpio_pin_config_t;
 
 #if (defined(FSL_FEATURE_GPIO_HAS_INTERRUPT) && FSL_FEATURE_GPIO_HAS_INTERRUPT)
@@ -58,31 +58,31 @@ typedef struct _gpio_pin_config
 /*! @brief GPIO Pin Interrupt enable mode */
 typedef enum _gpio_pin_enable_mode
 {
-    kGPIO_PinIntEnableLevel = GPIO_PIN_INT_LEVEL, /*!< Generate Pin Interrupt on level mode */
-    kGPIO_PinIntEnableEdge  = GPIO_PIN_INT_EDGE   /*!< Generate Pin Interrupt on edge mode */
+    kGPIO_PinIntEnableLevel = GPIO_PIN_INT_LEVEL,
+    kGPIO_PinIntEnableEdge  = GPIO_PIN_INT_EDGE
 } gpio_pin_enable_mode_t;
 
 /*! @brief GPIO Pin Interrupt enable polarity */
 typedef enum _gpio_pin_enable_polarity
 {
     kGPIO_PinIntEnableHighOrRise =
-        PINT_PIN_INT_HIGH_OR_RISE_TRIGGER, /*!< Generate Pin Interrupt on high level or rising edge */
+        PINT_PIN_INT_HIGH_OR_RISE_TRIGGER,
     kGPIO_PinIntEnableLowOrFall =
-        PINT_PIN_INT_LOW_OR_FALL_TRIGGER /*!< Generate Pin Interrupt on low level or falling edge */
+        PINT_PIN_INT_LOW_OR_FALL_TRIGGER
 } gpio_pin_enable_polarity_t;
 
 /*! @brief LPC GPIO interrupt index definition */
 typedef enum _gpio_interrupt_index
 {
-    kGPIO_InterruptA = 0U, /*!< Set current pin as interrupt A*/
-    kGPIO_InterruptB = 1U, /*!< Set current pin as interrupt B*/
+    kGPIO_InterruptA = 0U,
+    kGPIO_InterruptB = 1U,
 } gpio_interrupt_index_t;
 
 /*! @brief Configures the interrupt generation condition. */
 typedef struct _gpio_interrupt_config
 {
-    uint8_t mode;     /* The trigger mode of GPIO interrupts */
-    uint8_t polarity; /* The polarity of GPIO interrupts */
+    uint8_t mode;
+    uint8_t polarity;
 } gpio_interrupt_config_t;
 #endif
 

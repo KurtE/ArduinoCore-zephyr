@@ -10,56 +10,56 @@
 
 /* All Banks, Offset 0xe: Bank Select Register */
 #define BSR		  0xe
-#define BSR_BANK_MASK	  GENMASK(2, 0) /* Which bank is currently selected */
+#define BSR_BANK_MASK	  GENMASK(2, 0)
 #define BSR_IDENTIFY	  0x33
 #define BSR_IDENTIFY_MASK GENMASK(15, 8)
 
 /* Bank 0, Offset 0x0: Transmit Control Register */
 #define TCR	   0x0
-#define TCR_TXENA  0x0001 /* Enable/disable transmitter */
-#define TCR_PAD_EN 0x0080 /* Pad TX frames to 64 bytes */
+#define TCR_TXENA  0x0001
+#define TCR_PAD_EN 0x0080
 
 /* Bank 0, Offset 0x02: EPH status register */
 #define EPHSR	     0x2
-#define EPHSR_TX_SUC 0x0001 /* Last TX was successful */
+#define EPHSR_TX_SUC 0x0001
 
 /* Bank 0, Offset 0x4: Receive Control Register */
 #define RCR	      0x4
-#define RCR_PRMS      0x0002 /* Promiscuous mode */
-#define RCR_RXEN      0x0100 /* Enable/disable receiver */
-#define RCR_STRIP_CRC 0x0200 /* Strip CRC from RX packets */
-#define RCR_SOFT_RST  0x8000 /* Software reset */
+#define RCR_PRMS      0x0002
+#define RCR_RXEN      0x0100
+#define RCR_STRIP_CRC 0x0200
+#define RCR_SOFT_RST  0x8000
 
 /* Bank0, Offset 0x6: Counter Register */
 #define ECR		  0x6
-#define ECR_SNGLCOL_MASK  GENMASK(3, 0)	  /* Single collisions */
-#define ECR_MULCOL_MASK	  GENMASK(7, 4)	  /* Multiple collisions */
-#define ECR_TX_DEFR_MASK  GENMASK(11, 8)  /* Transmit deferrals */
-#define ECR_EXC_DEFR_MASK GENMASK(15, 12) /* Excessive deferrals */
+#define ECR_SNGLCOL_MASK  GENMASK(3, 0)
+#define ECR_MULCOL_MASK	  GENMASK(7, 4)
+#define ECR_TX_DEFR_MASK  GENMASK(11, 8)
+#define ECR_EXC_DEFR_MASK GENMASK(15, 12)
 
 /* Bank 0, Offset 0x8: Memory information register */
 #define MIR	      0x8
-#define MIR_SIZE_MASK GENMASK(7, 0)  /* Memory size (2k pages) */
-#define MIR_FREE_MASK GENMASK(15, 8) /* Memory free (2k pages) */
+#define MIR_SIZE_MASK GENMASK(7, 0)
+#define MIR_FREE_MASK GENMASK(15, 8)
 
 /* bank 0, offset 0xa: receive/phy control register */
 #define RPCR		  0xa
-#define RPCR_ANEG	  0x0800 /* Put PHY in autonegotiation mode */
-#define RPCR_DPLX	  0x1000 /* Put PHY in full-duplex mode */
-#define RPCR_SPEED	  0x2000 /* Manual speed selection */
+#define RPCR_ANEG	  0x0800
+#define RPCR_DPLX	  0x1000
+#define RPCR_SPEED	  0x2000
 #define RPCR_LSA_MASK	  GENMASK(7, 5)
 #define RPCR_LSB_MASK	  GENMASK(4, 2)
-#define RPCR_LED_LINK_ANY 0x0 /* 10baseT or 100baseTX link detected */
-#define RPCR_LED_LINK_10  0x2 /* 10baseT link detected */
-#define RPCR_LED_LINK_FDX 0x3 /* Full-duplex link detect */
-#define RPCR_LED_LINK_100 0x5 /* 100baseTX link detected */
-#define RPCR_LED_ACT_ANY  0x4 /* TX or RX activity detected */
-#define RPCR_LED_ACT_RX	  0x6 /* RX activity detected */
-#define RPCR_LED_ACT_TX	  0x7 /* TX activity detected */
+#define RPCR_LED_LINK_ANY 0x0
+#define RPCR_LED_LINK_10  0x2
+#define RPCR_LED_LINK_FDX 0x3
+#define RPCR_LED_LINK_100 0x5
+#define RPCR_LED_ACT_ANY  0x4
+#define RPCR_LED_ACT_RX	  0x6
+#define RPCR_LED_ACT_TX	  0x7
 
 /* Bank 1, Offset 0x0: Configuration Register */
 #define CR		0x0
-#define CR_EPH_POWER_EN 0x8000 /* Disable/enable low power mode */
+#define CR_EPH_POWER_EN 0x8000
 
 /* Bank 1, Offset 0x2: Base Address Register */
 #define BAR 0x2
@@ -74,18 +74,18 @@
 
 /* Bank 1, Offset 0xc: Control Register */
 #define CTR		 0xc
-#define CTR_LE_ENABLE	 0x0080 /* Link error causes EPH interrupt */
-#define CTR_AUTO_RELEASE 0x0800 /* Automatically release TX packets */
+#define CTR_LE_ENABLE	 0x0080
+#define CTR_AUTO_RELEASE 0x0800
 
 /* Bank 2, Offset 0x0: MMU Command Register */
 #define MMUCR		      0x0
-#define MMUCR_BUSY	      0x0001	    /* MMU is busy */
-#define MMUCR_CMD_MASK	      GENMASK(7, 5) /* MMU command mask */
-#define MMUCR_CMD_TX_ALLOC    1		    /* Alloc TX memory (256b chunks) */
-#define MMUCR_CMD_MMU_RESET   2		    /* Reset MMU */
-#define MMUCR_CMD_RELEASE     4		    /* Remove and release from RX FIFO */
-#define MMUCR_CMD_RELEASE_PKT 5		    /* Release packet specified in PNR */
-#define MMUCR_CMD_ENQUEUE     6		    /* Enqueue packet for TX */
+#define MMUCR_BUSY	      0x0001
+#define MMUCR_CMD_MASK	      GENMASK(7, 5)
+#define MMUCR_CMD_TX_ALLOC    1
+#define MMUCR_CMD_MMU_RESET   2
+#define MMUCR_CMD_RELEASE     4
+#define MMUCR_CMD_RELEASE_PKT 5
+#define MMUCR_CMD_ENQUEUE     6
 
 /* Bank2, Offset 0x2: Packet Number Register */
 #define PNR	 0x2
@@ -100,41 +100,41 @@
 #define FIFO		 0x04
 #define FIFO_TX		 0x4
 #define FIFO_RX		 0x5
-#define FIFO_EMPTY	 0x80	       /* FIFO empty */
-#define FIFO_PACKET_MASK GENMASK(5, 0) /* Packet number mask */
+#define FIFO_EMPTY	 0x80
+#define FIFO_PACKET_MASK GENMASK(5, 0)
 
 /* Bank2, Offset 0x6: Point Register */
 #define PTR	      0x6
-#define PTR_MASK      GENMASK(10, 0) /* Address accessible within TX/RX */
-#define PTR_NOT_EMPTY 0x0800	     /* Write Data FIFO not empty */
-#define PTR_READ      0x2000	     /* Set read/write */
-#define PTR_AUTO_INCR 0x4000	     /* Auto increment on read/write */
-#define PTR_RCV	      0x8000	     /* Read/write to/from RX/TX */
+#define PTR_MASK      GENMASK(10, 0)
+#define PTR_NOT_EMPTY 0x0800
+#define PTR_READ      0x2000
+#define PTR_AUTO_INCR 0x4000
+#define PTR_RCV	      0x8000
 
 /* Bank2, Offset 0x8: Data register */
 #define DATA0 0x8
 #define DATA1 0xa
 
 /* Bank 2, Offset 0xc: Interrupt Status Registers */
-#define IST 0xc /* read only */
-#define ACK 0xc /* write only */
+#define IST 0xc
+#define ACK 0xc
 #define MSK 0xd
 
-#define RCV_INT	     0x0001 /* RX */
-#define TX_INT	     0x0002 /* TX */
-#define TX_EMPTY_INT 0x0004 /* TX empty */
-#define ALLOC_INT    0x0008 /* Allocation complete */
-#define RX_OVRN_INT  0x0010 /* RX overrun */
-#define EPH_INT	     0x0020 /* EPH interrupt */
-#define ERCV_INT     0x0040 /* Early RX */
-#define MD_INT	     0x0080 /* MII */
+#define RCV_INT	     0x0001
+#define TX_INT	     0x0002
+#define TX_EMPTY_INT 0x0004
+#define ALLOC_INT    0x0008
+#define RX_OVRN_INT  0x0010
+#define EPH_INT	     0x0020
+#define ERCV_INT     0x0040
+#define MD_INT	     0x0080
 
 /* Bank 3, Offset 0x8: Management interface register */
 #define MGMT	  0x8
-#define MGMT_MDO  0x0001 /* MII management output */
-#define MGMT_MDI  0x0002 /* MII management input */
-#define MGMT_MCLK 0x0004 /* MII management clock */
-#define MGMT_MDOE 0x0008 /* MII management output enable */
+#define MGMT_MDO  0x0001
+#define MGMT_MDI  0x0002
+#define MGMT_MCLK 0x0004
+#define MGMT_MDOE 0x0008
 
 /* Bank 3, Offset 0xa: Revision Register */
 #define REV	      0xa
@@ -142,15 +142,15 @@
 #define REV_REV_MASK  GENMASK(3, 0)
 
 /* Control Byte */
-#define CTRL_CRC 0x10 /* Frame has CRC */
-#define CTRL_ODD 0x20 /* Frame has odd bytes count */
+#define CTRL_CRC 0x10
+#define CTRL_ODD 0x20
 
 /* Receive frame status */
-#define RX_TOOSHORT 0x0400 /* Frame was too short */
-#define RX_TOOLNG   0x0800 /* Frame was too long */
-#define RX_ODDFRM   0x1000 /* Frame has odd number of bytes */
-#define RX_BADCRC   0x2000 /* Frame failed CRC */
-#define RX_ALIGNERR 0x8000 /* Frame has alignment error */
+#define RX_TOOSHORT 0x0400
+#define RX_TOOLNG   0x0800
+#define RX_ODDFRM   0x1000
+#define RX_BADCRC   0x2000
+#define RX_ALIGNERR 0x8000
 #define RX_LEN_MASK GENMASK(10, 0)
 
 /* Length of status word + byte count + control bytes for packets */

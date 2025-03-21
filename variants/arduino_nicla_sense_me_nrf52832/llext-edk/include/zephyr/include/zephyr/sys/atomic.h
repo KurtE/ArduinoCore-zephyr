@@ -13,7 +13,7 @@
 #include <zephyr/toolchain.h>
 #include <stddef.h>
 
-#include <zephyr/sys/atomic_types.h> /* IWYU pragma: export */
+#include <zephyr/sys/atomic_types.h>
 #include <zephyr/types.h>
 #include <zephyr/sys/util.h>
 
@@ -474,7 +474,7 @@ atomic_val_t atomic_nand(atomic_t *target, atomic_val_t value);
  */
 
 #ifdef __cplusplus
-} /* extern "C" */
+}
 #endif
 
 #endif /* ZEPHYR_INCLUDE_SYS_ATOMIC_H_ */

@@ -63,14 +63,14 @@
  */
 #define WDT_CR_RPL			GENMASK(4, 2)
 
-#define RPL_PCLK_CYCLES2		0x0 /* 2 pclk cycles */
-#define RPL_PCLK_CYCLES4		0x1 /* 4 pclk cycles */
-#define RPL_PCLK_CYCLES8		0x2 /* 8 pclk cycles */
-#define RPL_PCLK_CYCLES16		0x3 /* 16 pclk cycles */
-#define RPL_PCLK_CYCLES32		0x4 /* 32 pclk cycles */
-#define RPL_PCLK_CYCLES64		0x5 /* 64 pclk cycles */
-#define RPL_PCLK_CYCLES128		0x6 /* 128 pclk cycles */
-#define RPL_PCLK_CYCLES256		0x7 /* 256 pclk cycles */
+#define RPL_PCLK_CYCLES2		0x0
+#define RPL_PCLK_CYCLES4		0x1
+#define RPL_PCLK_CYCLES8		0x2
+#define RPL_PCLK_CYCLES16		0x3
+#define RPL_PCLK_CYCLES32		0x4
+#define RPL_PCLK_CYCLES64		0x5
+#define RPL_PCLK_CYCLES128		0x6
+#define RPL_PCLK_CYCLES256		0x7
 
 /*
  * Redundant R/W bit.
@@ -83,22 +83,22 @@
  */
 #define WDT_TORR			0x4
 
-#define TORR_USER0_OR_64K		0x0 /* Time out of WDT_USER_TOP_0 or 64K Clocks */
-#define TORR_USER1_OR_128K		0x1 /* Time out of WDT_USER_TOP_1 or 128K Clocks */
-#define TORR_USER2_OR_256K		0x2 /* Time out of WDT_USER_TOP_2 or 256K Clocks */
-#define TORR_USER3_OR_512K		0x3 /* Time out of WDT_USER_TOP_3 or 512K Clocks */
-#define TORR_USER4_OR_1M		0x4 /* Time out of WDT_USER_TOP_4 or 1M Clocks */
-#define TORR_USER5_OR_2M		0x5 /* Time out of WDT_USER_TOP_5 or 2M Clocks */
-#define TORR_USER6_OR_4M		0x6 /* Time out of WDT_USER_TOP_6 or 4M Clocks */
-#define TORR_USER7_OR_8M		0x7 /* Time out of WDT_USER_TOP_7 or 8M Clocks */
-#define TORR_USER8_OR_16M		0x8 /* Time out of WDT_USER_TOP_8 or 16M Clocks */
-#define TORR_USER9_OR_32M		0x9 /* Time out of WDT_USER_TOP_9 or 32M Clocks */
-#define TORR_USER10_OR_64M		0xa /* Time out of WDT_USER_TOP_10 or 64M Clocks */
-#define TORR_USER11_OR_128M		0xb /* Time out of WDT_USER_TOP_11 or 128M Clocks */
-#define TORR_USER12_OR_256M		0xc /* Time out of WDT_USER_TOP_12 or 256M Clocks */
-#define TORR_USER13_OR_512M		0xd /* Time out of WDT_USER_TOP_13 or 512M Clocks */
-#define TORR_USER14_OR_1G		0xe /* Time out of WDT_USER_TOP_14 or 1G Clocks */
-#define TORR_USER15_OR_2G		0xf /* Time out of WDT_USER_TOP_15 or 2G Clocks */
+#define TORR_USER0_OR_64K		0x0
+#define TORR_USER1_OR_128K		0x1
+#define TORR_USER2_OR_256K		0x2
+#define TORR_USER3_OR_512K		0x3
+#define TORR_USER4_OR_1M		0x4
+#define TORR_USER5_OR_2M		0x5
+#define TORR_USER6_OR_4M		0x6
+#define TORR_USER7_OR_8M		0x7
+#define TORR_USER8_OR_16M		0x8
+#define TORR_USER9_OR_32M		0x9
+#define TORR_USER10_OR_64M		0xa
+#define TORR_USER11_OR_128M		0xb
+#define TORR_USER12_OR_256M		0xc
+#define TORR_USER13_OR_512M		0xd
+#define TORR_USER14_OR_1G		0xe
+#define TORR_USER15_OR_2G		0xf
 
 /*
  * Timeout period

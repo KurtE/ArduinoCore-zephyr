@@ -45,11 +45,11 @@ extern "C" {
   */
 typedef enum
 {
-  HAL_SAI_STATE_RESET   = 0x00U, /*!< SAI not yet initialized or disabled  */
-  HAL_SAI_STATE_READY   = 0x01U, /*!< SAI initialized and ready for use    */
-  HAL_SAI_STATE_BUSY    = 0x02U, /*!< SAI internal process is ongoing      */
-  HAL_SAI_STATE_BUSY_TX = 0x12U, /*!< Data transmission process is ongoing */
-  HAL_SAI_STATE_BUSY_RX = 0x22U, /*!< Data reception process is ongoing    */
+  HAL_SAI_STATE_RESET   = 0x00U,
+  HAL_SAI_STATE_READY   = 0x01U,
+  HAL_SAI_STATE_BUSY    = 0x02U,
+  HAL_SAI_STATE_BUSY_TX = 0x12U,
+  HAL_SAI_STATE_BUSY_RX = 0x22U,
 } HAL_SAI_StateTypeDef;
 
 /**
@@ -63,7 +63,7 @@ typedef void (*SAIcallback)(void);
   */
 typedef struct
 {
-  FunctionalState  Activation;  /*!< Enable/disable PDM interface */
+  FunctionalState  Activation;
   uint32_t         MicPairsNbr; /*!< Specifies the number of microphone pairs used.
                                      This parameter must be a number between Min_Data = 1 and Max_Data = 3. */
   uint32_t         ClockEnable; /*!< Specifies which clock must be enabled.
@@ -131,7 +131,7 @@ typedef struct
   uint32_t TriState;            /*!< Specifies the companding mode type.
                                      This parameter can be a value of @ref SAI_TRIState_Management */
 
-  SAI_PdmInitTypeDef PdmInit;   /*!< Specifies the PDM configuration. */
+  SAI_PdmInitTypeDef PdmInit;
 
   /* This part of the structure is automatically filled if your are using the high level initialisation
      function HAL_SAI_InitProtocol */
@@ -215,42 +215,42 @@ typedef struct
   */
 typedef struct __SAI_HandleTypeDef
 {
-  SAI_Block_TypeDef         *Instance;    /*!< SAI Blockx registers base address */
+  SAI_Block_TypeDef         *Instance;
 
-  SAI_InitTypeDef           Init;         /*!< SAI communication parameters */
+  SAI_InitTypeDef           Init;
 
-  SAI_FrameInitTypeDef      FrameInit;    /*!< SAI Frame configuration parameters */
+  SAI_FrameInitTypeDef      FrameInit;
 
-  SAI_SlotInitTypeDef       SlotInit;     /*!< SAI Slot configuration parameters */
+  SAI_SlotInitTypeDef       SlotInit;
 
-  uint8_t                  *pBuffPtr;     /*!< Pointer to SAI transfer Buffer */
+  uint8_t                  *pBuffPtr;
 
-  uint16_t                  XferSize;     /*!< SAI transfer size */
+  uint16_t                  XferSize;
 
-  uint16_t                  XferCount;    /*!< SAI transfer counter */
+  uint16_t                  XferCount;
 
-  DMA_HandleTypeDef         *hdmatx;      /*!< SAI Tx DMA handle parameters */
+  DMA_HandleTypeDef         *hdmatx;
 
-  DMA_HandleTypeDef         *hdmarx;      /*!< SAI Rx DMA handle parameters */
+  DMA_HandleTypeDef         *hdmarx;
 
-  SAIcallback               mutecallback; /*!< SAI mute callback */
+  SAIcallback               mutecallback;
 
-  void (*InterruptServiceRoutine)(struct __SAI_HandleTypeDef *hsai); /* function pointer for IRQ handler */
+  void (*InterruptServiceRoutine)(struct __SAI_HandleTypeDef *hsai);
 
-  HAL_LockTypeDef           Lock;         /*!< SAI locking object */
+  HAL_LockTypeDef           Lock;
 
-  __IO HAL_SAI_StateTypeDef State;        /*!< SAI communication state */
+  __IO HAL_SAI_StateTypeDef State;
 
-  __IO uint32_t             ErrorCode;    /*!< SAI Error code */
+  __IO uint32_t             ErrorCode;
 
 #if (USE_HAL_SAI_REGISTER_CALLBACKS == 1)
-  void (*RxCpltCallback)(struct __SAI_HandleTypeDef *hsai);      /*!< SAI receive complete callback */
-  void (*RxHalfCpltCallback)(struct __SAI_HandleTypeDef *hsai);  /*!< SAI receive half complete callback */
-  void (*TxCpltCallback)(struct __SAI_HandleTypeDef *hsai);      /*!< SAI transmit complete callback */
-  void (*TxHalfCpltCallback)(struct __SAI_HandleTypeDef *hsai);  /*!< SAI transmit half complete callback */
-  void (*ErrorCallback)(struct __SAI_HandleTypeDef *hsai);       /*!< SAI error callback */
-  void (*MspInitCallback)(struct __SAI_HandleTypeDef *hsai);     /*!< SAI MSP init callback */
-  void (*MspDeInitCallback)(struct __SAI_HandleTypeDef *hsai);   /*!< SAI MSP de-init callback */
+  void (*RxCpltCallback)(struct __SAI_HandleTypeDef *hsai);
+  void (*RxHalfCpltCallback)(struct __SAI_HandleTypeDef *hsai);
+  void (*TxCpltCallback)(struct __SAI_HandleTypeDef *hsai);
+  void (*TxHalfCpltCallback)(struct __SAI_HandleTypeDef *hsai);
+  void (*ErrorCallback)(struct __SAI_HandleTypeDef *hsai);
+  void (*MspInitCallback)(struct __SAI_HandleTypeDef *hsai);
+  void (*MspDeInitCallback)(struct __SAI_HandleTypeDef *hsai);
 #endif
 } SAI_HandleTypeDef;
 /**
@@ -263,13 +263,13 @@ typedef struct __SAI_HandleTypeDef
   */
 typedef enum
 {
-  HAL_SAI_RX_COMPLETE_CB_ID       = 0x00U, /*!< SAI receive complete callback ID */
-  HAL_SAI_RX_HALFCOMPLETE_CB_ID   = 0x01U, /*!< SAI receive half complete callback ID */
-  HAL_SAI_TX_COMPLETE_CB_ID       = 0x02U, /*!< SAI transmit complete callback ID */
-  HAL_SAI_TX_HALFCOMPLETE_CB_ID   = 0x03U, /*!< SAI transmit half complete callback ID */
-  HAL_SAI_ERROR_CB_ID             = 0x04U, /*!< SAI error callback ID */
-  HAL_SAI_MSPINIT_CB_ID           = 0x05U, /*!< SAI MSP init callback ID */
-  HAL_SAI_MSPDEINIT_CB_ID         = 0x06U  /*!< SAI MSP de-init callback ID */
+  HAL_SAI_RX_COMPLETE_CB_ID       = 0x00U,
+  HAL_SAI_RX_HALFCOMPLETE_CB_ID   = 0x01U,
+  HAL_SAI_TX_COMPLETE_CB_ID       = 0x02U,
+  HAL_SAI_TX_HALFCOMPLETE_CB_ID   = 0x03U,
+  HAL_SAI_ERROR_CB_ID             = 0x04U,
+  HAL_SAI_MSPINIT_CB_ID           = 0x05U,
+  HAL_SAI_MSPDEINIT_CB_ID         = 0x06U
 } HAL_SAI_CallbackIDTypeDef;
 
 /**
@@ -290,17 +290,17 @@ typedef void (*pSAI_CallbackTypeDef)(SAI_HandleTypeDef *hsai);
 /** @defgroup SAI_Error_Code SAI Error Code
   * @{
   */
-#define HAL_SAI_ERROR_NONE          0x00000000U  /*!< No error */
-#define HAL_SAI_ERROR_OVR           0x00000001U  /*!< Overrun Error */
-#define HAL_SAI_ERROR_UDR           0x00000002U  /*!< Underrun error */
-#define HAL_SAI_ERROR_AFSDET        0x00000004U  /*!< Anticipated Frame synchronisation detection */
-#define HAL_SAI_ERROR_LFSDET        0x00000008U  /*!< Late Frame synchronisation detection */
-#define HAL_SAI_ERROR_CNREADY       0x00000010U  /*!< codec not ready */
-#define HAL_SAI_ERROR_WCKCFG        0x00000020U  /*!< Wrong clock configuration */
-#define HAL_SAI_ERROR_TIMEOUT       0x00000040U  /*!< Timeout error */
-#define HAL_SAI_ERROR_DMA           0x00000080U  /*!< DMA error */
+#define HAL_SAI_ERROR_NONE          0x00000000U
+#define HAL_SAI_ERROR_OVR           0x00000001U
+#define HAL_SAI_ERROR_UDR           0x00000002U
+#define HAL_SAI_ERROR_AFSDET        0x00000004U
+#define HAL_SAI_ERROR_LFSDET        0x00000008U
+#define HAL_SAI_ERROR_CNREADY       0x00000010U
+#define HAL_SAI_ERROR_WCKCFG        0x00000020U
+#define HAL_SAI_ERROR_TIMEOUT       0x00000040U
+#define HAL_SAI_ERROR_DMA           0x00000080U
 #if (USE_HAL_SAI_REGISTER_CALLBACKS == 1)
-#define HAL_SAI_ERROR_INVALID_CALLBACK   0x00000100U  /*!< Invalid callback error */
+#define HAL_SAI_ERROR_INVALID_CALLBACK   0x00000100U
 #endif
 /**
   * @}
@@ -439,17 +439,17 @@ typedef void (*pSAI_CallbackTypeDef)(SAI_HandleTypeDef *hsai);
 /** @defgroup SAI_Block_Synchronization SAI Block Synchronization
   * @{
   */
-#define SAI_ASYNCHRONOUS                  0U /*!< Asynchronous */
-#define SAI_SYNCHRONOUS                   1U /*!< Synchronous with other block of same SAI */
-#define SAI_SYNCHRONOUS_EXT_SAI1          2U /*!< Synchronous with other SAI, SAI1 */
+#define SAI_ASYNCHRONOUS                  0U
+#define SAI_SYNCHRONOUS                   1U
+#define SAI_SYNCHRONOUS_EXT_SAI1          2U
 #if defined(SAI2)
-#define SAI_SYNCHRONOUS_EXT_SAI2          3U /*!< Synchronous with other SAI, SAI2 */
+#define SAI_SYNCHRONOUS_EXT_SAI2          3U
 #endif /* SAI2 */
 #if defined(SAI3)
-#define SAI_SYNCHRONOUS_EXT_SAI3          4U /*!< Synchronous with other SAI, SAI3 */
+#define SAI_SYNCHRONOUS_EXT_SAI3          4U
 #endif /* SAI3 */
 #if defined(SAI4)
-#define SAI_SYNCHRONOUS_EXT_SAI4          5U /*!< Synchronous with other SAI, SAI4 */
+#define SAI_SYNCHRONOUS_EXT_SAI4          5U
 #endif /* SAI4 */
 /**
   * @}

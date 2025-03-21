@@ -30,23 +30,23 @@ extern "C" {
 #endif
 
 /* See section 6.16.2.8 - Received Signal Strength Indicator (RSSI) */
-#define IEEE802154_MAC_RSSI_MIN       0U   /* corresponds to -174 dBm */
-#define IEEE802154_MAC_RSSI_MAX       254U /* corresponds to 80 dBm */
-#define IEEE802154_MAC_RSSI_UNDEFINED 255U /* used by us to indicate an undefined RSSI value */
+#define IEEE802154_MAC_RSSI_MIN       0U
+#define IEEE802154_MAC_RSSI_MAX       254U
+#define IEEE802154_MAC_RSSI_UNDEFINED 255U
 
-#define IEEE802154_MAC_RSSI_DBM_MIN       -174      /* in dBm */
-#define IEEE802154_MAC_RSSI_DBM_MAX       80        /* in dBm */
-#define IEEE802154_MAC_RSSI_DBM_UNDEFINED INT16_MIN /* represents an undefined RSSI value */
+#define IEEE802154_MAC_RSSI_DBM_MIN       -174
+#define IEEE802154_MAC_RSSI_DBM_MAX       80
+#define IEEE802154_MAC_RSSI_DBM_UNDEFINED INT16_MIN
 
 struct net_pkt_cb_ieee802154 {
 #if defined(CONFIG_NET_L2_OPENTHREAD)
-	uint32_t ack_fc;   /* Frame counter set in the ACK */
-	uint8_t ack_keyid; /* Key index set in the ACK */
+	uint32_t ack_fc;
+	uint8_t ack_keyid;
 #endif
 	union {
 		/* RX packets */
 		struct {
-			uint8_t lqi;  /* Link Quality Indicator */
+			uint8_t lqi;
 			/* See section 6.16.2.8 - Received Signal Strength Indicator (RSSI)
 			 * "RSSI is represented as one octet of integer [...]; therefore,
 			 * the minimum and maximum values are 0 (–174 dBm) and 254 (80 dBm),
@@ -72,7 +72,7 @@ struct net_pkt_cb_ieee802154 {
 	};
 
 	/* Flags */
-	uint8_t ack_fpb : 1;	   /* Frame Pending Bit was set in the ACK */
+	uint8_t ack_fpb : 1;
 	uint8_t frame_secured : 1; /* Frame is authenticated and
 				    * encrypted according to its
 				    * Auxiliary Security Header
@@ -83,7 +83,7 @@ struct net_pkt_cb_ieee802154 {
 				    * e.g. Frame Counter injection.
 				    */
 #if defined(CONFIG_NET_L2_OPENTHREAD)
-	uint8_t ack_seb : 1; /* Security Enabled Bit was set in the ACK */
+	uint8_t ack_seb : 1;
 #endif
 };
 

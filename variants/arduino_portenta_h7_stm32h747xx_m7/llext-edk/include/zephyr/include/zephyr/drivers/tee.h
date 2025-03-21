@@ -71,21 +71,21 @@ extern "C" {
 #endif
 #define TEE_UUID_LEN 16
 
-#define TEE_GEN_CAP_GP		BIT(0) /* GlobalPlatform compliant TEE */
-#define TEE_GEN_CAP_PRIVILEGED	BIT(1) /* Privileged device (for supplicant) */
-#define TEE_GEN_CAP_REG_MEM	BIT(2) /* Supports registering shared memory */
-#define TEE_GEN_CAP_MEMREF_NULL BIT(3) /* Support NULL MemRef */
+#define TEE_GEN_CAP_GP		BIT(0)
+#define TEE_GEN_CAP_PRIVILEGED	BIT(1)
+#define TEE_GEN_CAP_REG_MEM	BIT(2)
+#define TEE_GEN_CAP_MEMREF_NULL BIT(3)
 
 #define TEE_SHM_REGISTER	BIT(0)
 #define TEE_SHM_ALLOC		BIT(1)
 
-#define TEE_PARAM_ATTR_TYPE_NONE		0 /* parameter not used */
+#define TEE_PARAM_ATTR_TYPE_NONE		0
 #define TEE_PARAM_ATTR_TYPE_VALUE_INPUT		1
 #define TEE_PARAM_ATTR_TYPE_VALUE_OUTPUT	2
-#define TEE_PARAM_ATTR_TYPE_VALUE_INOUT		3 /* input and output */
+#define TEE_PARAM_ATTR_TYPE_VALUE_INOUT		3
 #define TEE_PARAM_ATTR_TYPE_MEMREF_INPUT	5
 #define TEE_PARAM_ATTR_TYPE_MEMREF_OUTPUT	6
-#define TEE_PARAM_ATTR_TYPE_MEMREF_INOUT	7 /* input and output */
+#define TEE_PARAM_ATTR_TYPE_MEMREF_INOUT	7
 #define TEE_PARAM_ATTR_TYPE_MASK		0xff
 #define TEE_PARAM_ATTR_META			0x100
 #define TEE_PARAM_ATTR_MASK			(TEE_PARAM_ATTR_TYPE_MASK | TEE_PARAM_ATTR_META)
@@ -194,22 +194,22 @@ extern "C" {
  * is valid when @ref impl_id == TEE_IMPL_ID_OPTEE.
  */
 struct tee_version_info {
-	uint32_t impl_id; /**< [out] TEE implementation id */
-	uint32_t impl_caps; /**< [out] implementation specific capabilities */
-	uint32_t gen_caps;  /**< Generic capabilities, defined by TEE_GEN_CAPS_* above */
+	uint32_t impl_id;
+	uint32_t impl_caps;
+	uint32_t gen_caps;
 };
 
  /**
   * @brief - Open session argument
   */
 struct tee_open_session_arg {
-	uint8_t uuid[TEE_UUID_LEN]; /**< [in] UUID of the Trusted Application */
-	uint8_t clnt_uuid[TEE_UUID_LEN]; /**< [in] UUID of client */
-	uint32_t clnt_login; /**< login class of client, TEE_IOCTL_LOGIN_* above */
-	uint32_t cancel_id; /**< [in] cancellation id, a unique value to identify this request */
-	uint32_t session; /**< [out] session id */
-	uint32_t ret; /**< [out] return value */
-	uint32_t ret_origin; /**< [out] origin of the return value */
+	uint8_t uuid[TEE_UUID_LEN];
+	uint8_t clnt_uuid[TEE_UUID_LEN];
+	uint32_t clnt_login;
+	uint32_t cancel_id;
+	uint32_t session;
+	uint32_t ret;
+	uint32_t ret_origin;
 };
 
 /**
@@ -227,31 +227,31 @@ struct tee_open_session_arg {
  * (@ref a) to 0 and size (@ref b) to the previously returned size of the object.
  */
 struct tee_param {
-	uint64_t attr; /**< attributes */
-	uint64_t a; /**< if a memref, offset into the shared memory object, else a value*/
-	uint64_t b; /**< if a memref, size of the buffer, else a value parameter */
-	uint64_t c; /**< if a memref, shared memory identifier, else a value parameter */
+	uint64_t attr;
+	uint64_t a;
+	uint64_t b;
+	uint64_t c;
 };
 
 /**
  * @brief Invokes a function in a Trusted Application
  */
 struct tee_invoke_func_arg {
-	uint32_t func;       /**< [in] Trusted Application function, specific to the TA */
-	uint32_t session;    /**< [in] session id */
-	uint32_t cancel_id;  /**< [in] cancellation id, a unique value to identify this request */
-	uint32_t ret;        /**< [out] return value */
-	uint32_t ret_origin; /**< [out] origin of the return value */
+	uint32_t func;
+	uint32_t session;
+	uint32_t cancel_id;
+	uint32_t ret;
+	uint32_t ret_origin;
 };
 
 /**
  * @brief Tee shared memory structure
  */
 struct tee_shm {
-	const struct device *dev; /**< [out] pointer to the device driver structure */
-	void *addr;               /**< [out] shared buffer pointer */
-	uint64_t size;            /**< [out] shared buffer size */
-	uint32_t flags;           /**< [out] shared buffer flags */
+	const struct device *dev;
+	void *addr;
+	uint64_t size;
+	uint32_t flags;
 };
 
 /**

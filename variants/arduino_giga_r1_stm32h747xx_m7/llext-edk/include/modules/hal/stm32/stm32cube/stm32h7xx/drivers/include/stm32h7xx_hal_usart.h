@@ -92,14 +92,14 @@ typedef struct
   */
 typedef enum
 {
-  HAL_USART_STATE_RESET             = 0x00U,    /*!< Peripheral is not initialized                  */
-  HAL_USART_STATE_READY             = 0x01U,    /*!< Peripheral Initialized and ready for use       */
-  HAL_USART_STATE_BUSY              = 0x02U,    /*!< an internal process is ongoing                 */
-  HAL_USART_STATE_BUSY_TX           = 0x12U,    /*!< Data Transmission process is ongoing           */
-  HAL_USART_STATE_BUSY_RX           = 0x22U,    /*!< Data Reception process is ongoing              */
-  HAL_USART_STATE_BUSY_TX_RX        = 0x32U,    /*!< Data Transmission Reception process is ongoing */
-  HAL_USART_STATE_TIMEOUT           = 0x03U,    /*!< Timeout state                                  */
-  HAL_USART_STATE_ERROR             = 0x04U     /*!< Error                                          */
+  HAL_USART_STATE_RESET             = 0x00U,
+  HAL_USART_STATE_READY             = 0x01U,
+  HAL_USART_STATE_BUSY              = 0x02U,
+  HAL_USART_STATE_BUSY_TX           = 0x12U,
+  HAL_USART_STATE_BUSY_RX           = 0x22U,
+  HAL_USART_STATE_BUSY_TX_RX        = 0x32U,
+  HAL_USART_STATE_TIMEOUT           = 0x03U,
+  HAL_USART_STATE_ERROR             = 0x04U
 } HAL_USART_StateTypeDef;
 
 /**
@@ -107,14 +107,14 @@ typedef enum
   */
 typedef enum
 {
-  USART_CLOCKSOURCE_D2PCLK1    = 0x00U,    /*!< Domain2 PCLK1 clock source */
-  USART_CLOCKSOURCE_D2PCLK2    = 0x01U,    /*!< Domain2 PCLK2 clock source */
-  USART_CLOCKSOURCE_PLL2       = 0x02U,    /*!< PLL2Q clock source         */
-  USART_CLOCKSOURCE_PLL3       = 0x04U,    /*!< PLL3Q clock source         */
-  USART_CLOCKSOURCE_HSI        = 0x08U,    /*!< HSI clock source           */
-  USART_CLOCKSOURCE_CSI        = 0x10U,    /*!< CSI clock source           */
-  USART_CLOCKSOURCE_LSE        = 0x20U,    /*!< LSE clock source           */
-  USART_CLOCKSOURCE_UNDEFINED  = 0x40U     /*!< Undefined clock source     */
+  USART_CLOCKSOURCE_D2PCLK1    = 0x00U,
+  USART_CLOCKSOURCE_D2PCLK2    = 0x01U,
+  USART_CLOCKSOURCE_PLL2       = 0x02U,
+  USART_CLOCKSOURCE_PLL3       = 0x04U,
+  USART_CLOCKSOURCE_HSI        = 0x08U,
+  USART_CLOCKSOURCE_CSI        = 0x10U,
+  USART_CLOCKSOURCE_LSE        = 0x20U,
+  USART_CLOCKSOURCE_UNDEFINED  = 0x40U
 } USART_ClockSourceTypeDef;
 
 /**
@@ -122,27 +122,27 @@ typedef enum
   */
 typedef struct __USART_HandleTypeDef
 {
-  USART_TypeDef                 *Instance;               /*!< USART registers base address        */
+  USART_TypeDef                 *Instance;
 
-  USART_InitTypeDef             Init;                    /*!< USART communication parameters      */
+  USART_InitTypeDef             Init;
 
-  const uint8_t                 *pTxBuffPtr;             /*!< Pointer to USART Tx transfer Buffer */
+  const uint8_t                 *pTxBuffPtr;
 
-  uint16_t                      TxXferSize;              /*!< USART Tx Transfer size              */
+  uint16_t                      TxXferSize;
 
-  __IO uint16_t                 TxXferCount;             /*!< USART Tx Transfer Counter           */
+  __IO uint16_t                 TxXferCount;
 
-  uint8_t                       *pRxBuffPtr;             /*!< Pointer to USART Rx transfer Buffer */
+  uint8_t                       *pRxBuffPtr;
 
-  uint16_t                      RxXferSize;              /*!< USART Rx Transfer size              */
+  uint16_t                      RxXferSize;
 
-  __IO uint16_t                 RxXferCount;             /*!< USART Rx Transfer Counter           */
+  __IO uint16_t                 RxXferCount;
 
-  uint16_t                      Mask;                    /*!< USART Rx RDR register mask          */
+  uint16_t                      Mask;
 
-  uint16_t                      NbRxDataToProcess;       /*!< Number of data to process during RX ISR execution */
+  uint16_t                      NbRxDataToProcess;
 
-  uint16_t                      NbTxDataToProcess;       /*!< Number of data to process during TX ISR execution */
+  uint16_t                      NbTxDataToProcess;
 
   uint32_t                      SlaveMode;               /*!< Enable/Disable USART SPI Slave Mode. This parameter can be a value
                                                               of @ref USARTEx_Slave_Mode */
@@ -150,33 +150,33 @@ typedef struct __USART_HandleTypeDef
   uint32_t                      FifoMode;                /*!< Specifies if the FIFO mode will be used. This parameter can be a value
                                                               of @ref USARTEx_FIFO_mode. */
 
-  void (*RxISR)(struct __USART_HandleTypeDef *husart);   /*!< Function pointer on Rx IRQ handler  */
+  void (*RxISR)(struct __USART_HandleTypeDef *husart);
 
-  void (*TxISR)(struct __USART_HandleTypeDef *husart);   /*!< Function pointer on Tx IRQ handler  */
+  void (*TxISR)(struct __USART_HandleTypeDef *husart);
 
-  DMA_HandleTypeDef             *hdmatx;                 /*!< USART Tx DMA Handle parameters      */
+  DMA_HandleTypeDef             *hdmatx;
 
-  DMA_HandleTypeDef             *hdmarx;                 /*!< USART Rx DMA Handle parameters      */
+  DMA_HandleTypeDef             *hdmarx;
 
-  HAL_LockTypeDef               Lock;                    /*!< Locking object                      */
+  HAL_LockTypeDef               Lock;
 
-  __IO HAL_USART_StateTypeDef   State;                   /*!< USART communication state           */
+  __IO HAL_USART_StateTypeDef   State;
 
-  __IO uint32_t                 ErrorCode;               /*!< USART Error code                    */
+  __IO uint32_t                 ErrorCode;
 
 #if (USE_HAL_USART_REGISTER_CALLBACKS == 1)
-  void (* TxHalfCpltCallback)(struct __USART_HandleTypeDef *husart);        /*!< USART Tx Half Complete Callback        */
-  void (* TxCpltCallback)(struct __USART_HandleTypeDef *husart);            /*!< USART Tx Complete Callback             */
-  void (* RxHalfCpltCallback)(struct __USART_HandleTypeDef *husart);        /*!< USART Rx Half Complete Callback        */
-  void (* RxCpltCallback)(struct __USART_HandleTypeDef *husart);            /*!< USART Rx Complete Callback             */
-  void (* TxRxCpltCallback)(struct __USART_HandleTypeDef *husart);          /*!< USART Tx Rx Complete Callback          */
-  void (* ErrorCallback)(struct __USART_HandleTypeDef *husart);             /*!< USART Error Callback                   */
-  void (* AbortCpltCallback)(struct __USART_HandleTypeDef *husart);         /*!< USART Abort Complete Callback          */
-  void (* RxFifoFullCallback)(struct __USART_HandleTypeDef *husart);        /*!< USART Rx Fifo Full Callback            */
-  void (* TxFifoEmptyCallback)(struct __USART_HandleTypeDef *husart);       /*!< USART Tx Fifo Empty Callback           */
+  void (* TxHalfCpltCallback)(struct __USART_HandleTypeDef *husart);
+  void (* TxCpltCallback)(struct __USART_HandleTypeDef *husart);
+  void (* RxHalfCpltCallback)(struct __USART_HandleTypeDef *husart);
+  void (* RxCpltCallback)(struct __USART_HandleTypeDef *husart);
+  void (* TxRxCpltCallback)(struct __USART_HandleTypeDef *husart);
+  void (* ErrorCallback)(struct __USART_HandleTypeDef *husart);
+  void (* AbortCpltCallback)(struct __USART_HandleTypeDef *husart);
+  void (* RxFifoFullCallback)(struct __USART_HandleTypeDef *husart);
+  void (* TxFifoEmptyCallback)(struct __USART_HandleTypeDef *husart);
 
-  void (* MspInitCallback)(struct __USART_HandleTypeDef *husart);           /*!< USART Msp Init callback                */
-  void (* MspDeInitCallback)(struct __USART_HandleTypeDef *husart);         /*!< USART Msp DeInit callback              */
+  void (* MspInitCallback)(struct __USART_HandleTypeDef *husart);
+  void (* MspDeInitCallback)(struct __USART_HandleTypeDef *husart);
 #endif  /* USE_HAL_USART_REGISTER_CALLBACKS */
 
 } USART_HandleTypeDef;
@@ -187,25 +187,25 @@ typedef struct __USART_HandleTypeDef
   */
 typedef enum
 {
-  HAL_USART_TX_HALFCOMPLETE_CB_ID         = 0x00U,    /*!< USART Tx Half Complete Callback ID        */
-  HAL_USART_TX_COMPLETE_CB_ID             = 0x01U,    /*!< USART Tx Complete Callback ID             */
-  HAL_USART_RX_HALFCOMPLETE_CB_ID         = 0x02U,    /*!< USART Rx Half Complete Callback ID        */
-  HAL_USART_RX_COMPLETE_CB_ID             = 0x03U,    /*!< USART Rx Complete Callback ID             */
-  HAL_USART_TX_RX_COMPLETE_CB_ID          = 0x04U,    /*!< USART Tx Rx Complete Callback ID          */
-  HAL_USART_ERROR_CB_ID                   = 0x05U,    /*!< USART Error Callback ID                   */
-  HAL_USART_ABORT_COMPLETE_CB_ID          = 0x06U,    /*!< USART Abort Complete Callback ID          */
-  HAL_USART_RX_FIFO_FULL_CB_ID            = 0x07U,    /*!< USART Rx Fifo Full Callback ID            */
-  HAL_USART_TX_FIFO_EMPTY_CB_ID           = 0x08U,    /*!< USART Tx Fifo Empty Callback ID           */
+  HAL_USART_TX_HALFCOMPLETE_CB_ID         = 0x00U,
+  HAL_USART_TX_COMPLETE_CB_ID             = 0x01U,
+  HAL_USART_RX_HALFCOMPLETE_CB_ID         = 0x02U,
+  HAL_USART_RX_COMPLETE_CB_ID             = 0x03U,
+  HAL_USART_TX_RX_COMPLETE_CB_ID          = 0x04U,
+  HAL_USART_ERROR_CB_ID                   = 0x05U,
+  HAL_USART_ABORT_COMPLETE_CB_ID          = 0x06U,
+  HAL_USART_RX_FIFO_FULL_CB_ID            = 0x07U,
+  HAL_USART_TX_FIFO_EMPTY_CB_ID           = 0x08U,
 
-  HAL_USART_MSPINIT_CB_ID                 = 0x09U,    /*!< USART MspInit callback ID                 */
-  HAL_USART_MSPDEINIT_CB_ID               = 0x0AU     /*!< USART MspDeInit callback ID               */
+  HAL_USART_MSPINIT_CB_ID                 = 0x09U,
+  HAL_USART_MSPDEINIT_CB_ID               = 0x0AU
 
 } HAL_USART_CallbackIDTypeDef;
 
 /**
   * @brief  HAL USART Callback pointer definition
   */
-typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< pointer to an USART callback function */
+typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);
 
 #endif /* USE_HAL_USART_REGISTER_CALLBACKS */
 
@@ -221,17 +221,17 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
 /** @defgroup USART_Error_Definition   USART Error Definition
   * @{
   */
-#define HAL_USART_ERROR_NONE             (0x00000000U)    /*!< No error                  */
-#define HAL_USART_ERROR_PE               (0x00000001U)    /*!< Parity error              */
-#define HAL_USART_ERROR_NE               (0x00000002U)    /*!< Noise error               */
-#define HAL_USART_ERROR_FE               (0x00000004U)    /*!< Frame error               */
-#define HAL_USART_ERROR_ORE              (0x00000008U)    /*!< Overrun error             */
-#define HAL_USART_ERROR_DMA              (0x00000010U)    /*!< DMA transfer error        */
-#define HAL_USART_ERROR_UDR              (0x00000020U)    /*!< SPI slave underrun error  */
+#define HAL_USART_ERROR_NONE             (0x00000000U)
+#define HAL_USART_ERROR_PE               (0x00000001U)
+#define HAL_USART_ERROR_NE               (0x00000002U)
+#define HAL_USART_ERROR_FE               (0x00000004U)
+#define HAL_USART_ERROR_ORE              (0x00000008U)
+#define HAL_USART_ERROR_DMA              (0x00000010U)
+#define HAL_USART_ERROR_UDR              (0x00000020U)
 #if (USE_HAL_USART_REGISTER_CALLBACKS == 1)
-#define HAL_USART_ERROR_INVALID_CALLBACK (0x00000040U)    /*!< Invalid Callback error    */
+#define HAL_USART_ERROR_INVALID_CALLBACK (0x00000040U)
 #endif /* USE_HAL_USART_REGISTER_CALLBACKS */
-#define  HAL_USART_ERROR_RTO              (0x00000080U)    /*!< Receiver Timeout error  */
+#define  HAL_USART_ERROR_RTO              (0x00000080U)
 /**
   * @}
   */
@@ -239,10 +239,10 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
 /** @defgroup USART_Stop_Bits  USART Number of Stop Bits
   * @{
   */
-#define USART_STOPBITS_0_5                   USART_CR2_STOP_0                     /*!< USART frame with 0.5 stop bit  */
-#define USART_STOPBITS_1                     0x00000000U                          /*!< USART frame with 1 stop bit    */
-#define USART_STOPBITS_1_5                  (USART_CR2_STOP_0 | USART_CR2_STOP_1) /*!< USART frame with 1.5 stop bits */
-#define USART_STOPBITS_2                     USART_CR2_STOP_1                     /*!< USART frame with 2 stop bits   */
+#define USART_STOPBITS_0_5                   USART_CR2_STOP_0
+#define USART_STOPBITS_1                     0x00000000U
+#define USART_STOPBITS_1_5                  (USART_CR2_STOP_0 | USART_CR2_STOP_1)
+#define USART_STOPBITS_2                     USART_CR2_STOP_1
 /**
   * @}
   */
@@ -250,9 +250,9 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
 /** @defgroup USART_Parity    USART Parity
   * @{
   */
-#define USART_PARITY_NONE                   0x00000000U                      /*!< No parity   */
-#define USART_PARITY_EVEN                   USART_CR1_PCE                    /*!< Even parity */
-#define USART_PARITY_ODD                    (USART_CR1_PCE | USART_CR1_PS)   /*!< Odd parity  */
+#define USART_PARITY_NONE                   0x00000000U
+#define USART_PARITY_EVEN                   USART_CR1_PCE
+#define USART_PARITY_ODD                    (USART_CR1_PCE | USART_CR1_PS)
 /**
   * @}
   */
@@ -260,9 +260,9 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
 /** @defgroup USART_Mode   USART Mode
   * @{
   */
-#define USART_MODE_RX                       USART_CR1_RE                    /*!< RX mode        */
-#define USART_MODE_TX                       USART_CR1_TE                    /*!< TX mode        */
-#define USART_MODE_TX_RX                    (USART_CR1_TE |USART_CR1_RE)    /*!< RX and TX mode */
+#define USART_MODE_RX                       USART_CR1_RE
+#define USART_MODE_TX                       USART_CR1_TE
+#define USART_MODE_TX_RX                    (USART_CR1_TE |USART_CR1_RE)
 /**
   * @}
   */
@@ -270,8 +270,8 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
 /** @defgroup USART_Clock  USART Clock
   * @{
   */
-#define USART_CLOCK_DISABLE                 0x00000000U       /*!< USART clock disable */
-#define USART_CLOCK_ENABLE                  USART_CR2_CLKEN   /*!< USART clock enable  */
+#define USART_CLOCK_DISABLE                 0x00000000U
+#define USART_CLOCK_ENABLE                  USART_CR2_CLKEN
 /**
   * @}
   */
@@ -279,8 +279,8 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
 /** @defgroup USART_Clock_Polarity  USART Clock Polarity
   * @{
   */
-#define USART_POLARITY_LOW                  0x00000000U      /*!< Driver enable signal is active high */
-#define USART_POLARITY_HIGH                 USART_CR2_CPOL   /*!< Driver enable signal is active low  */
+#define USART_POLARITY_LOW                  0x00000000U
+#define USART_POLARITY_HIGH                 USART_CR2_CPOL
 /**
   * @}
   */
@@ -288,8 +288,8 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
 /** @defgroup USART_Clock_Phase   USART Clock Phase
   * @{
   */
-#define USART_PHASE_1EDGE                   0x00000000U      /*!< USART frame phase on first clock transition  */
-#define USART_PHASE_2EDGE                   USART_CR2_CPHA   /*!< USART frame phase on second clock transition */
+#define USART_PHASE_1EDGE                   0x00000000U
+#define USART_PHASE_2EDGE                   USART_CR2_CPHA
 /**
   * @}
   */
@@ -297,8 +297,8 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
 /** @defgroup USART_Last_Bit  USART Last Bit
   * @{
   */
-#define USART_LASTBIT_DISABLE               0x00000000U      /*!< USART frame last data bit clock pulse not output to SCLK pin */
-#define USART_LASTBIT_ENABLE                USART_CR2_LBCL   /*!< USART frame last data bit clock pulse output to SCLK pin     */
+#define USART_LASTBIT_DISABLE               0x00000000U
+#define USART_LASTBIT_ENABLE                USART_CR2_LBCL
 /**
   * @}
   */
@@ -306,18 +306,18 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
 /** @defgroup USART_ClockPrescaler  USART Clock Prescaler
   * @{
   */
-#define USART_PRESCALER_DIV1    0x00000000U  /*!< fclk_pres = fclk     */
-#define USART_PRESCALER_DIV2    0x00000001U  /*!< fclk_pres = fclk/2   */
-#define USART_PRESCALER_DIV4    0x00000002U  /*!< fclk_pres = fclk/4   */
-#define USART_PRESCALER_DIV6    0x00000003U  /*!< fclk_pres = fclk/6   */
-#define USART_PRESCALER_DIV8    0x00000004U  /*!< fclk_pres = fclk/8   */
-#define USART_PRESCALER_DIV10   0x00000005U  /*!< fclk_pres = fclk/10  */
-#define USART_PRESCALER_DIV12   0x00000006U  /*!< fclk_pres = fclk/12  */
-#define USART_PRESCALER_DIV16   0x00000007U  /*!< fclk_pres = fclk/16  */
-#define USART_PRESCALER_DIV32   0x00000008U  /*!< fclk_pres = fclk/32  */
-#define USART_PRESCALER_DIV64   0x00000009U  /*!< fclk_pres = fclk/64  */
-#define USART_PRESCALER_DIV128  0x0000000AU  /*!< fclk_pres = fclk/128 */
-#define USART_PRESCALER_DIV256  0x0000000BU  /*!< fclk_pres = fclk/256 */
+#define USART_PRESCALER_DIV1    0x00000000U
+#define USART_PRESCALER_DIV2    0x00000001U
+#define USART_PRESCALER_DIV4    0x00000002U
+#define USART_PRESCALER_DIV6    0x00000003U
+#define USART_PRESCALER_DIV8    0x00000004U
+#define USART_PRESCALER_DIV10   0x00000005U
+#define USART_PRESCALER_DIV12   0x00000006U
+#define USART_PRESCALER_DIV16   0x00000007U
+#define USART_PRESCALER_DIV32   0x00000008U
+#define USART_PRESCALER_DIV64   0x00000009U
+#define USART_PRESCALER_DIV128  0x0000000AU
+#define USART_PRESCALER_DIV256  0x0000000BU
 
 /**
   * @}
@@ -326,8 +326,8 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
 /** @defgroup USART_Request_Parameters  USART Request Parameters
   * @{
   */
-#define USART_RXDATA_FLUSH_REQUEST        USART_RQR_RXFRQ        /*!< Receive Data flush Request  */
-#define USART_TXDATA_FLUSH_REQUEST        USART_RQR_TXFRQ        /*!< Transmit data flush Request */
+#define USART_RXDATA_FLUSH_REQUEST        USART_RQR_RXFRQ
+#define USART_TXDATA_FLUSH_REQUEST        USART_RQR_TXFRQ
 /**
   * @}
   */
@@ -337,25 +337,25 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
   *           - 0xXXXX  : Flag mask in the ISR register
   * @{
   */
-#define USART_FLAG_TXFT                     USART_ISR_TXFT          /*!< USART TXFIFO threshold flag                */
-#define USART_FLAG_RXFT                     USART_ISR_RXFT          /*!< USART RXFIFO threshold flag                */
-#define USART_FLAG_RXFF                     USART_ISR_RXFF          /*!< USART RXFIFO Full flag                     */
-#define USART_FLAG_TXFE                     USART_ISR_TXFE          /*!< USART TXFIFO Empty flag                    */
-#define USART_FLAG_REACK                    USART_ISR_REACK         /*!< USART receive enable acknowledge flag      */
-#define USART_FLAG_TEACK                    USART_ISR_TEACK         /*!< USART transmit enable acknowledge flag     */
-#define USART_FLAG_BUSY                     USART_ISR_BUSY          /*!< USART busy flag                            */
-#define USART_FLAG_UDR                      USART_ISR_UDR           /*!< SPI slave underrun error flag              */
-#define USART_FLAG_TXE                      USART_ISR_TXE_TXFNF     /*!< USART transmit data register empty         */
-#define USART_FLAG_TXFNF                    USART_ISR_TXE_TXFNF     /*!< USART TXFIFO not full                      */
-#define USART_FLAG_RTOF                     USART_ISR_RTOF          /*!< USART receiver timeout flag                */
-#define USART_FLAG_TC                       USART_ISR_TC            /*!< USART transmission complete                */
-#define USART_FLAG_RXNE                     USART_ISR_RXNE_RXFNE    /*!< USART read data register not empty         */
-#define USART_FLAG_RXFNE                    USART_ISR_RXNE_RXFNE    /*!< USART RXFIFO not empty                     */
-#define USART_FLAG_IDLE                     USART_ISR_IDLE          /*!< USART idle flag                            */
-#define USART_FLAG_ORE                      USART_ISR_ORE           /*!< USART overrun error                        */
-#define USART_FLAG_NE                       USART_ISR_NE            /*!< USART noise error                          */
-#define USART_FLAG_FE                       USART_ISR_FE            /*!< USART frame error                          */
-#define USART_FLAG_PE                       USART_ISR_PE            /*!< USART parity error                         */
+#define USART_FLAG_TXFT                     USART_ISR_TXFT
+#define USART_FLAG_RXFT                     USART_ISR_RXFT
+#define USART_FLAG_RXFF                     USART_ISR_RXFF
+#define USART_FLAG_TXFE                     USART_ISR_TXFE
+#define USART_FLAG_REACK                    USART_ISR_REACK
+#define USART_FLAG_TEACK                    USART_ISR_TEACK
+#define USART_FLAG_BUSY                     USART_ISR_BUSY
+#define USART_FLAG_UDR                      USART_ISR_UDR
+#define USART_FLAG_TXE                      USART_ISR_TXE_TXFNF
+#define USART_FLAG_TXFNF                    USART_ISR_TXE_TXFNF
+#define USART_FLAG_RTOF                     USART_ISR_RTOF
+#define USART_FLAG_TC                       USART_ISR_TC
+#define USART_FLAG_RXNE                     USART_ISR_RXNE_RXFNE
+#define USART_FLAG_RXFNE                    USART_ISR_RXNE_RXFNE
+#define USART_FLAG_IDLE                     USART_ISR_IDLE
+#define USART_FLAG_ORE                      USART_ISR_ORE
+#define USART_FLAG_NE                       USART_ISR_NE
+#define USART_FLAG_FE                       USART_ISR_FE
+#define USART_FLAG_PE                       USART_ISR_PE
 /**
   * @}
   */
@@ -371,21 +371,21 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
   * @{
   */
 
-#define USART_IT_PE                          0x0028U     /*!< USART parity error interruption                 */
-#define USART_IT_TXE                         0x0727U     /*!< USART transmit data register empty interruption */
-#define USART_IT_TXFNF                       0x0727U     /*!< USART TX FIFO not full interruption             */
-#define USART_IT_TC                          0x0626U     /*!< USART transmission complete interruption        */
-#define USART_IT_RXNE                        0x0525U     /*!< USART read data register not empty interruption */
-#define USART_IT_RXFNE                       0x0525U     /*!< USART RXFIFO not empty interruption             */
-#define USART_IT_IDLE                        0x0424U     /*!< USART idle interruption                         */
-#define USART_IT_ERR                         0x0060U     /*!< USART error interruption                        */
-#define USART_IT_ORE                         0x0300U     /*!< USART overrun error interruption                */
-#define USART_IT_NE                          0x0200U     /*!< USART noise error interruption                  */
-#define USART_IT_FE                          0x0100U     /*!< USART frame error interruption                  */
-#define USART_IT_RXFF                        0x183FU     /*!< USART RXFIFO full interruption                  */
-#define USART_IT_TXFE                        0x173EU     /*!< USART TXFIFO empty interruption                 */
-#define USART_IT_RXFT                        0x1A7CU     /*!< USART RXFIFO threshold reached interruption     */
-#define USART_IT_TXFT                        0x1B77U     /*!< USART TXFIFO threshold reached interruption     */
+#define USART_IT_PE                          0x0028U
+#define USART_IT_TXE                         0x0727U
+#define USART_IT_TXFNF                       0x0727U
+#define USART_IT_TC                          0x0626U
+#define USART_IT_RXNE                        0x0525U
+#define USART_IT_RXFNE                       0x0525U
+#define USART_IT_IDLE                        0x0424U
+#define USART_IT_ERR                         0x0060U
+#define USART_IT_ORE                         0x0300U
+#define USART_IT_NE                          0x0200U
+#define USART_IT_FE                          0x0100U
+#define USART_IT_RXFF                        0x183FU
+#define USART_IT_TXFE                        0x173EU
+#define USART_IT_RXFT                        0x1A7CU
+#define USART_IT_TXFT                        0x1B77U
 
 /**
   * @}
@@ -394,15 +394,15 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
 /** @defgroup USART_IT_CLEAR_Flags    USART Interruption Clear Flags
   * @{
   */
-#define USART_CLEAR_PEF                       USART_ICR_PECF            /*!< Parity Error Clear Flag             */
-#define USART_CLEAR_FEF                       USART_ICR_FECF            /*!< Framing Error Clear Flag            */
-#define USART_CLEAR_NEF                       USART_ICR_NECF            /*!< Noise Error detected Clear Flag     */
-#define USART_CLEAR_OREF                      USART_ICR_ORECF           /*!< OverRun Error Clear Flag            */
-#define USART_CLEAR_IDLEF                     USART_ICR_IDLECF          /*!< IDLE line detected Clear Flag       */
-#define USART_CLEAR_TCF                       USART_ICR_TCCF            /*!< Transmission Complete Clear Flag    */
-#define USART_CLEAR_UDRF                      USART_ICR_UDRCF           /*!< SPI slave underrun error Clear Flag */
-#define USART_CLEAR_TXFECF                    USART_ICR_TXFECF          /*!< TXFIFO Empty Clear Flag             */
-#define USART_CLEAR_RTOF                      USART_ICR_RTOCF           /*!< USART receiver timeout clear flag  */
+#define USART_CLEAR_PEF                       USART_ICR_PECF
+#define USART_CLEAR_FEF                       USART_ICR_FECF
+#define USART_CLEAR_NEF                       USART_ICR_NECF
+#define USART_CLEAR_OREF                      USART_ICR_ORECF
+#define USART_CLEAR_IDLEF                     USART_ICR_IDLECF
+#define USART_CLEAR_TCF                       USART_ICR_TCCF
+#define USART_CLEAR_UDRF                      USART_ICR_UDRCF
+#define USART_CLEAR_TXFECF                    USART_ICR_TXFECF
+#define USART_CLEAR_RTOF                      USART_ICR_RTOCF
 /**
   * @}
   */
@@ -410,11 +410,11 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
 /** @defgroup USART_Interruption_Mask    USART Interruption Flags Mask
   * @{
   */
-#define USART_IT_MASK                             0x001FU     /*!< USART interruptions flags mask */
-#define USART_CR_MASK                             0x00E0U     /*!< USART control register mask */
-#define USART_CR_POS                              5U          /*!< USART control register position */
-#define USART_ISR_MASK                            0x1F00U     /*!< USART ISR register mask         */
-#define USART_ISR_POS                             8U          /*!< USART ISR register position     */
+#define USART_IT_MASK                             0x001FU
+#define USART_CR_MASK                             0x00E0U
+#define USART_CR_POS                              5U
+#define USART_ISR_MASK                            0x1F00U
+#define USART_ISR_POS                             8U
 /**
   * @}
   */

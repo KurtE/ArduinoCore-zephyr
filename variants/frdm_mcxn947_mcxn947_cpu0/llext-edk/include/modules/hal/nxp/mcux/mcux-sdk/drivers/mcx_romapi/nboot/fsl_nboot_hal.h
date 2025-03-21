@@ -72,18 +72,18 @@ typedef uint32_t nboot_timestamp_t[2];
  */
 typedef struct _nboot_sb3_header
 {
-    uint32_t magic;         /*!< offset 0x00: Fixed 4-byte string of 'sbv3' without the trailing NULL */
+    uint32_t magic;
     uint32_t formatVersion; /*!< offset 0x04: (major = 3, minor = 1); The format version determines the manifest
                                (block0) size. */
-    uint32_t flags;         /*!< offset 0x08: not defined yet, keep zero for future compatibility */
-    uint32_t blockCount;    /*!< offset 0x0C: Number of blocks not including the manifest (block0). */
+    uint32_t flags;
+    uint32_t blockCount;
     uint32_t
-        blockSize; /*!< offset 0x10: Size in bytes of data block (repeated blockCount times for SB3 data stream). */
-    nboot_timestamp_t timeStamp;     /*!< offset 0x14: 64-bit value used as key derivation data. */
-    uint32_t firmwareVersion;        /*!< offset 0x1c: Version number of the included firmware */
-    uint32_t imageTotalLength;       /*!< offset 0x20: Total manifest length in bytes, including signatures etc. */
-    uint32_t imageType;              /*!< offset 0x24: image type and flags */
-    uint32_t certificateBlockOffset; /*!< offset 0x28: Offset from start of header block to the certificate block. */
+        blockSize;
+    nboot_timestamp_t timeStamp;
+    uint32_t firmwareVersion;
+    uint32_t imageTotalLength;
+    uint32_t imageType;
+    uint32_t certificateBlockOffset;
     uint8_t description[16];         /*!< offset 0x32: This field provides description of the file. It is an arbitrary
                                                       string injected by the signing tool, which helps to identify the file. */
 } nboot_sb3_header_t;
@@ -96,9 +96,9 @@ typedef struct _nboot_sb3_header
  */
 typedef struct _nboot_certificate_header_block
 {
-    uint32_t magic;                   /*!< magic number. */
-    uint32_t formatMajorMinorVersion; /*!< format major minor version */
-    uint32_t certBlockSize;           /*!< Size of the full certificate block */
+    uint32_t magic;
+    uint32_t formatMajorMinorVersion;
+    uint32_t certBlockSize;
 } nboot_certificate_header_block_t;
 
 typedef uint8_t nboot_ctrk_hash_t[NBOOT_ROOT_OF_TRUST_HASH_SIZE_IN_BYTES];
@@ -121,7 +121,7 @@ typedef struct _nboot_ctrk_hash_table
  *
  */
 typedef uint8_t
-    nboot_ecc_coordinate_t[NBOOT_EC_COORDINATE_MAX_SIZE]; /*!< ECC point coordinate, up to 384-bits. big endian. */
+    nboot_ecc_coordinate_t[NBOOT_EC_COORDINATE_MAX_SIZE];
 
 /*!
  * @brief NBOOT type for an ECC point
@@ -130,8 +130,8 @@ typedef uint8_t
  */
 typedef struct
 {
-    nboot_ecc_coordinate_t x; /*!< x portion of the ECDSA public key, up to 384-bits. big endian. */
-    nboot_ecc_coordinate_t y; /*!< y portion of the ECDSA public key, up to 384-bits. big endian. */
+    nboot_ecc_coordinate_t x;
+    nboot_ecc_coordinate_t y;
 } nboot_ecdsa_public_key_t;
 
 /*!
@@ -141,9 +141,9 @@ typedef struct
  */
 typedef struct _nboot_root_certificate_block
 {
-    uint32_t flags;                         /*!< root certificate flags */
-    nboot_ctrk_hash_table_t ctrkHashTable;  /*!< hash table */
-    nboot_ecdsa_public_key_t rootPublicKey; /*!< root public key */
+    uint32_t flags;
+    nboot_ctrk_hash_table_t ctrkHashTable;
+    nboot_ecdsa_public_key_t rootPublicKey;
 } nboot_root_certificate_block_t;
 
 /*!
@@ -153,8 +153,8 @@ typedef struct _nboot_root_certificate_block
  */
 typedef struct
 {
-    nboot_ecc_coordinate_t r; /*!< r portion of the ECDSA signature, up to 384-bits. big endian. */
-    nboot_ecc_coordinate_t s; /*!< s portion of the ECDSA signature, up to 384-bits. big endian. */
+    nboot_ecc_coordinate_t r;
+    nboot_ecc_coordinate_t s;
 } nboot_ecdsa_signature_t;
 
 /*!
@@ -164,13 +164,13 @@ typedef struct
  */
 typedef struct
 {
-    uint32_t signatureOffset; /*!< Offset of signature in ISK block. */
-    uint32_t constraints;     /*!< Version number of signing certificate. */
-    uint32_t iskFlags;        /*!< Reserved for definiton of ISK certificate flags. */
+    uint32_t signatureOffset;
+    uint32_t constraints;
+    uint32_t iskFlags;
     nboot_ecdsa_public_key_t
-        iskPubKey; /*!< Public key of signing certificate. Variable length; only used to determine start address*/
-    nboot_ecdsa_public_key_t userData; /*!< Space for at lest one addition public key*/
-    nboot_ecdsa_signature_t iskSign;   /*!< ISK signature*/
+        iskPubKey;
+    nboot_ecdsa_public_key_t userData;
+    nboot_ecdsa_signature_t iskSign;
 } nboot_isk_block_t;
 
 /*!
@@ -190,7 +190,7 @@ typedef struct _nboot_certificate_block
     (sizeof(nboot_sb3_header_t) + NBOOT_SB3_BLOCK_HASH384_SIZE_IN_BYTES + sizeof(nboot_certificate_block_t) + \
      NBOOT_EC_COORDINATE_MAX_SIZE * 2)
 #define NBOOT_SB3_BLOCK_MAX_SIZE_IN_BYTES \
-    (4 /* blockNumber */ + NBOOT_SB3_BLOCK_HASH384_SIZE_IN_BYTES + NBOOT_SB3_CHUNK_SIZE_IN_BYTES)
+    (4 + NBOOT_SB3_BLOCK_HASH384_SIZE_IN_BYTES + NBOOT_SB3_CHUNK_SIZE_IN_BYTES)
 
 /*! @brief The size of the DICE certificate. */
 #define NBOOT_DICE_CSR_SIZE_IN_WORD  (36)
@@ -219,11 +219,11 @@ typedef struct _nboot_certificate_block
 /*! @brief Algorithm used for nboot HASH operation */
 typedef enum _nboot_hash_algo_t
 {
-    kHASH_Sha1   = 1, /*!< SHA_1 */
-    kHASH_Sha256 = 2, /*!< SHA_256 */
-    kHASH_Sha512 = 3, /*!< SHA_512 */
-    kHASH_Aes    = 4, /*!< AES */
-    kHASH_AesIcb = 5, /*!< AES_ICB */
+    kHASH_Sha1   = 1,
+    kHASH_Sha256 = 2,
+    kHASH_Sha512 = 3,
+    kHASH_Aes    = 4,
+    kHASH_AesIcb = 5,
 } nboot_hash_algo_t;
 
 /*! @} */

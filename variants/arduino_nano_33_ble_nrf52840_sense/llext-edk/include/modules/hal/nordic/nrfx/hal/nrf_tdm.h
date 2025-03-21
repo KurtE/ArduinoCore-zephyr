@@ -242,17 +242,17 @@ typedef enum
 /** @brief TDM configuration. */
 typedef struct
 {
-    nrf_tdm_mode_t           mode;            /**< Mode of operation (master or slave). */
-    nrf_tdm_align_t          alignment;       /**< Alignment of sample within a frame. */
-    nrf_tdm_swidth_t         sample_width;    /**< Sample width. */
-    nrf_tdm_channel_mask_t   channels;        /**< Enabled channels. */
-    nrf_tdm_channels_count_t num_of_channels; /**< Nnumber of channels within a frame. */
-    nrf_tdm_channel_delay_t  channel_delay;   /**< Channel delay settings. */
-    nrf_tdm_mck_div_t        mck_setup;       /**< Master clock divider setup. */
-    nrf_tdm_sck_div_t        sck_setup;       /**< Serial clock divider setup. */
-    nrf_tdm_polarity_t       sck_polarity;    /**< Serial clock polarity. */
-    nrf_tdm_polarity_t       fsync_polarity;  /**< Frame Synchronization pulse polarity. */
-    nrf_tdm_fsync_duration_t fsync_duration;  /**< Frame Synchronization pulse duration. */
+    nrf_tdm_mode_t           mode;
+    nrf_tdm_align_t          alignment;
+    nrf_tdm_swidth_t         sample_width;
+    nrf_tdm_channel_mask_t   channels;
+    nrf_tdm_channels_count_t num_of_channels;
+    nrf_tdm_channel_delay_t  channel_delay;
+    nrf_tdm_mck_div_t        mck_setup;
+    nrf_tdm_sck_div_t        sck_setup;
+    nrf_tdm_polarity_t       sck_polarity;
+    nrf_tdm_polarity_t       fsync_polarity;
+    nrf_tdm_fsync_duration_t fsync_duration;
 } nrf_tdm_config_t;
 
 /** @brief TDM pins. */

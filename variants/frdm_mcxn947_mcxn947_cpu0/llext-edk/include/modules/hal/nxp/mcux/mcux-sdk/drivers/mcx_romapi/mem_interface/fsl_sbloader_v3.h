@@ -45,15 +45,15 @@ typedef status_t (*pLdrFnc_v3_t)(ldr_Context_v3_t *content);
 /*! @brief section type */
 typedef enum _sectionType
 {
-    kSectionNone       = 0, /*!< end or invalid */
+    kSectionNone       = 0,
     kSectionDataRange  = 1,
     kSectionDiffUpdate = 2,
     kSectionDDRConfig  = 3,
     kSectionRegister   = 4,
 } section_type_t;
 
-#define SB3_DATA_RANGE_HEADER_FLAGS_ERASE_MASK (0x1u) /*!< bit 0 */
-#define SB3_DATA_RANGE_HEADER_FLAGS_LOAD_MASK  (0x2u) /*!< bit 1 */
+#define SB3_DATA_RANGE_HEADER_FLAGS_ERASE_MASK (0x1u)
+#define SB3_DATA_RANGE_HEADER_FLAGS_LOAD_MASK  (0x2u)
 
 /*! @brief section data range structure */
 typedef struct range_header
@@ -97,7 +97,7 @@ typedef struct load_keyblob
 
 typedef struct fill_memory_expansion
 {
-    uint32_t pattern; /*!< word to be used as pattern */
+    uint32_t pattern;
     uint32_t pad0;
     uint32_t pad1;
     uint32_t pad2;
@@ -113,7 +113,7 @@ typedef struct config_memory
 {
     uint32_t tag;
     uint32_t memoryId;
-    uint32_t address; /*!< address of config blob */
+    uint32_t address;
     uint32_t cmd;
 } sb3_config_memory_t;
 
@@ -193,8 +193,8 @@ typedef struct
  */
 typedef enum
 {
-    kRomAuthenticateImage = 1, /*!< Authenticate a signed image. */
-    kRomLoadImage         = 2, /*!< Load SB file. */
+    kRomAuthenticateImage = 1,
+    kRomLoadImage         = 2,
     kRomOperationCount    = 3,
 } kb_operation_t;
 
@@ -218,52 +218,52 @@ typedef struct
 
 typedef struct
 {
-    uint32_t version; /*!< Should be set to #kKbootApiVersion. */
-    uint8_t *buffer;  /*!< Caller-provided buffer used by Kboot. */
+    uint32_t version;
+    uint8_t *buffer;
     uint32_t bufferLength;
     kb_operation_t op;
     union
     {
-        kb_authenticate_t authenticate; /*!< Settings for #kKbootAuthenticate operation.*/
-        kb_load_sb_t loadSB;            /*!< Settings for #kKbootLoadSB operation.*/
+        kb_authenticate_t authenticate;
+        kb_load_sb_t loadSB;
     };
 } kb_options_t;
 
 /*! @brief Loader context definition. */
 struct _ldr_Context_v3
 {
-    pLdrFnc_v3_t Action;        /*!< pointer to loader action function */
-    uint32_t block_size;        /*!< size of each block in bytes */
-    uint32_t block_data_size;   /*!< data size in bytes (NBOOT_SB3_CHUNK_SIZE_IN_BYTES) */
-    uint32_t block_data_total;  /*!< data max size in bytes (block_size * data_size */
-    uint32_t block_buffer_size; /*!< block0 and block size */
+    pLdrFnc_v3_t Action;
+    uint32_t block_size;
+    uint32_t block_data_size;
+    uint32_t block_data_total;
+    uint32_t block_buffer_size;
     uint32_t block_buffer_position;
     uint8_t block_buffer[MAX(NBOOT_SB3_MANIFEST_MAX_SIZE_IN_BYTES,
-                             NBOOT_SB3_BLOCK_MAX_SIZE_IN_BYTES)]; /*! will be used for both block0 and blockx */
+                             NBOOT_SB3_BLOCK_MAX_SIZE_IN_BYTES)];
     uint32_t processedBlocks;
 
-    uint8_t data_block_offset; /*! data block offset in a block. */
-    bool in_data_block;        /*!< in progress of handling a data block within a block */
+    uint8_t data_block_offset;
+    bool in_data_block;
     uint8_t *data_block;
     uint32_t data_block_position;
 
-    bool in_data_section; /*!< in progress of handling a data section within a data block */
+    bool in_data_section;
     uint32_t data_section_handled;
     sb3_section_header_t data_section_header;
 
-    bool in_data_range; /*!< in progress of handling a data range within a data section */
+    bool in_data_range;
     uint32_t data_range_handled;
     uint32_t data_range_gap;
     sb3_data_range_header_t data_range_header;
     bool has_data_range_expansion;
     sb3_data_range_expansion_t data_range_expansion;
 
-    uint32_t commandSet; /*!< support command set during sb file handling */
+    uint32_t commandSet;
 
     uint32_t data_position;
-    uint8_t data_buffer[SB3_DATA_BUFFER_SIZE_IN_BYTE]; /*!< temporary data buffer */
+    uint8_t data_buffer[SB3_DATA_BUFFER_SIZE_IN_BYTE];
 
-    kb_options_t fromAPI; /*!< options from ROM API */
+    kb_options_t fromAPI;
 };
 
 /*! @} */

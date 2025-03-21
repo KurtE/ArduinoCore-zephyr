@@ -29,8 +29,8 @@ typedef enum __packed {
 } bt_avctp_pkt_type_t;
 
 struct bt_avctp_header {
-	uint8_t byte0; /** [7:4]: Transaction label, [3:2]: Packet_type, [1]: C/R, [0]: IPID */
-	uint16_t pid;  /** Profile Identifier */
+	uint8_t byte0;
+	uint16_t pid;
 } __packed;
 
 /** Transaction label provided by the application and is replicated by the sender of the message in

@@ -73,17 +73,14 @@ extern "C" {
 #define USBD_DEFINE_CFG_DATA(name) \
 	static STRUCT_SECTION_ITERABLE(usb_cfg_data, name)
 
-#define USBD_CFG_DATA_DEFINE(p, name) __DEPRECATED_MACRO \
-	static __in_section(_usb_cfg_data, static, p##_name) __used __aligned(4)
-
 /*************************************************************************
  *  USB configuration
  **************************************************************************/
 
-#define USB_MAX_CTRL_MPS	64   /**< maximum packet size (MPS) for EP 0 */
-#define USB_MAX_FS_BULK_MPS	64   /**< full speed MPS for bulk EP */
-#define USB_MAX_FS_INT_MPS	64   /**< full speed MPS for interrupt EP */
-#define USB_MAX_FS_ISO_MPS	1023 /**< full speed MPS for isochronous EP */
+#define USB_MAX_CTRL_MPS	64
+#define USB_MAX_FS_BULK_MPS	64
+#define USB_MAX_FS_INT_MPS	64
+#define USB_MAX_FS_ISO_MPS	1023
 
 /*************************************************************************
  *  USB application interface
@@ -356,9 +353,9 @@ int usb_ep_read_continue(uint8_t ep);
 typedef void (*usb_transfer_callback)(uint8_t ep, int tsize, void *priv);
 
 /* USB transfer flags */
-#define USB_TRANS_READ       BIT(0)   /** Read transfer flag */
-#define USB_TRANS_WRITE      BIT(1)   /** Write transfer flag */
-#define USB_TRANS_NO_ZLP     BIT(2)   /** No zero-length packet flag */
+#define USB_TRANS_READ       BIT(0)
+#define USB_TRANS_WRITE      BIT(1)
+#define USB_TRANS_NO_ZLP     BIT(2)
 
 /**
  * @brief Transfer management endpoint callback

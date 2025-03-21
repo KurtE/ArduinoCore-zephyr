@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2019 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -51,7 +51,7 @@ extern "C" {
 /** @brief Structure for TEMP configuration. */
 typedef struct
 {
-    uint8_t interrupt_priority;    /**< Interrupt priority. */
+    uint8_t interrupt_priority;
 } nrfx_temp_config_t;
 
 /** @brief TEMP default configuration. */

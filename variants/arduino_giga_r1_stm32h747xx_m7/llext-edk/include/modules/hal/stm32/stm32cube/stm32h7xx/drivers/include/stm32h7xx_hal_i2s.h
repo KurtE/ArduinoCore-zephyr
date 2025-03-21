@@ -82,14 +82,14 @@ typedef struct
   */
 typedef enum
 {
-  HAL_I2S_STATE_RESET      = 0x00UL,  /*!< I2S not yet initialized or disabled                */
-  HAL_I2S_STATE_READY      = 0x01UL,  /*!< I2S initialized and ready for use                  */
-  HAL_I2S_STATE_BUSY       = 0x02UL,  /*!< I2S internal process is ongoing                    */
-  HAL_I2S_STATE_BUSY_TX    = 0x03UL,  /*!< Data Transmission process is ongoing               */
-  HAL_I2S_STATE_BUSY_RX    = 0x04UL,  /*!< Data Reception process is ongoing                  */
-  HAL_I2S_STATE_BUSY_TX_RX = 0x05UL,  /*!< Data Transmission and Reception process is ongoing */
-  HAL_I2S_STATE_TIMEOUT    = 0x06UL,  /*!< I2S timeout state                                  */
-  HAL_I2S_STATE_ERROR      = 0x07UL   /*!< I2S error state                                    */
+  HAL_I2S_STATE_RESET      = 0x00UL,
+  HAL_I2S_STATE_READY      = 0x01UL,
+  HAL_I2S_STATE_BUSY       = 0x02UL,
+  HAL_I2S_STATE_BUSY_TX    = 0x03UL,
+  HAL_I2S_STATE_BUSY_RX    = 0x04UL,
+  HAL_I2S_STATE_BUSY_TX_RX = 0x05UL,
+  HAL_I2S_STATE_TIMEOUT    = 0x06UL,
+  HAL_I2S_STATE_ERROR      = 0x07UL
 } HAL_I2S_StateTypeDef;
 
 /**
@@ -97,19 +97,19 @@ typedef enum
   */
 typedef struct __I2S_HandleTypeDef
 {
-  SPI_TypeDef                *Instance;            /*!< I2S registers base address */
+  SPI_TypeDef                *Instance;
 
-  I2S_InitTypeDef            Init;                 /*!< I2S communication parameters */
+  I2S_InitTypeDef            Init;
 
-  const uint16_t             *pTxBuffPtr;          /*!< Pointer to I2S Tx transfer buffer */
+  const uint16_t             *pTxBuffPtr;
 
-  __IO uint16_t              TxXferSize;           /*!< I2S Tx transfer size */
+  __IO uint16_t              TxXferSize;
 
-  __IO uint16_t              TxXferCount;          /*!< I2S Tx transfer Counter */
+  __IO uint16_t              TxXferCount;
 
-  uint16_t                   *pRxBuffPtr;          /*!< Pointer to I2S Rx transfer buffer */
+  uint16_t                   *pRxBuffPtr;
 
-  __IO uint16_t              RxXferSize;           /*!< I2S Rx transfer size */
+  __IO uint16_t              RxXferSize;
 
   __IO uint16_t              RxXferCount;          /*!< I2S Rx transfer counter
                                                       (This field is initialized at the
@@ -118,31 +118,31 @@ typedef struct __I2S_HandleTypeDef
                                                        decremented when a sample is received
                                                        NbSamplesReceived = RxBufferSize-RxBufferCount) */
 
-  void (*RxISR)(struct __I2S_HandleTypeDef *hi2s); /*!< function pointer on Rx ISR */
+  void (*RxISR)(struct __I2S_HandleTypeDef *hi2s);
 
-  void (*TxISR)(struct __I2S_HandleTypeDef *hi2s); /*!< function pointer on Tx ISR */
+  void (*TxISR)(struct __I2S_HandleTypeDef *hi2s);
 
-  DMA_HandleTypeDef          *hdmatx;              /*!< I2S Tx DMA handle parameters */
+  DMA_HandleTypeDef          *hdmatx;
 
-  DMA_HandleTypeDef          *hdmarx;              /*!< I2S Rx DMA handle parameters */
+  DMA_HandleTypeDef          *hdmarx;
 
-  __IO HAL_LockTypeDef       Lock;                 /*!< I2S locking object */
+  __IO HAL_LockTypeDef       Lock;
 
-  __IO HAL_I2S_StateTypeDef  State;                /*!< I2S communication state */
+  __IO HAL_I2S_StateTypeDef  State;
 
   __IO uint32_t              ErrorCode;            /*!< I2S Error code
                                                         This parameter can be a value of @ref I2S_Error */
 
 #if (USE_HAL_I2S_REGISTER_CALLBACKS == 1U)
-  void (* TxCpltCallback)(struct __I2S_HandleTypeDef *hi2s);             /*!< I2S Tx Completed callback          */
-  void (* RxCpltCallback)(struct __I2S_HandleTypeDef *hi2s);             /*!< I2S Rx Completed callback          */
-  void (* TxRxCpltCallback)(struct __I2S_HandleTypeDef *hi2s);           /*!< I2S TxRx Completed callback        */
-  void (* TxHalfCpltCallback)(struct __I2S_HandleTypeDef *hi2s);         /*!< I2S Tx Half Completed callback     */
-  void (* RxHalfCpltCallback)(struct __I2S_HandleTypeDef *hi2s);         /*!< I2S Rx Half Completed callback     */
-  void (* TxRxHalfCpltCallback)(struct __I2S_HandleTypeDef *hi2s);       /*!< I2S TxRx Half Completed callback   */
-  void (* ErrorCallback)(struct __I2S_HandleTypeDef *hi2s);              /*!< I2S Error callback                 */
-  void (* MspInitCallback)(struct __I2S_HandleTypeDef *hi2s);            /*!< I2S Msp Init callback              */
-  void (* MspDeInitCallback)(struct __I2S_HandleTypeDef *hi2s);          /*!< I2S Msp DeInit callback            */
+  void (* TxCpltCallback)(struct __I2S_HandleTypeDef *hi2s);
+  void (* RxCpltCallback)(struct __I2S_HandleTypeDef *hi2s);
+  void (* TxRxCpltCallback)(struct __I2S_HandleTypeDef *hi2s);
+  void (* TxHalfCpltCallback)(struct __I2S_HandleTypeDef *hi2s);
+  void (* RxHalfCpltCallback)(struct __I2S_HandleTypeDef *hi2s);
+  void (* TxRxHalfCpltCallback)(struct __I2S_HandleTypeDef *hi2s);
+  void (* ErrorCallback)(struct __I2S_HandleTypeDef *hi2s);
+  void (* MspInitCallback)(struct __I2S_HandleTypeDef *hi2s);
+  void (* MspDeInitCallback)(struct __I2S_HandleTypeDef *hi2s);
 
 #endif  /* USE_HAL_I2S_REGISTER_CALLBACKS */
 } I2S_HandleTypeDef;
@@ -154,22 +154,22 @@ typedef struct __I2S_HandleTypeDef
   */
 typedef enum
 {
-  HAL_I2S_TX_COMPLETE_CB_ID             = 0x00UL,    /*!< I2S Tx Completed callback ID         */
-  HAL_I2S_RX_COMPLETE_CB_ID             = 0x01UL,    /*!< I2S Rx Completed callback ID         */
-  HAL_I2S_TX_RX_COMPLETE_CB_ID          = 0x02UL,    /*!< I2S TxRx Completed callback ID       */
-  HAL_I2S_TX_HALF_COMPLETE_CB_ID        = 0x03UL,    /*!< I2S Tx Half Completed callback ID    */
-  HAL_I2S_RX_HALF_COMPLETE_CB_ID        = 0x04UL,    /*!< I2S Rx Half Completed callback ID    */
-  HAL_I2S_TX_RX_HALF_COMPLETE_CB_ID     = 0x05UL,    /*!< I2S TxRx Half Completed callback ID  */
-  HAL_I2S_ERROR_CB_ID                   = 0x06UL,    /*!< I2S Error callback ID                */
-  HAL_I2S_MSPINIT_CB_ID                 = 0x07UL,    /*!< I2S Msp Init callback ID             */
-  HAL_I2S_MSPDEINIT_CB_ID               = 0x08UL     /*!< I2S Msp DeInit callback ID           */
+  HAL_I2S_TX_COMPLETE_CB_ID             = 0x00UL,
+  HAL_I2S_RX_COMPLETE_CB_ID             = 0x01UL,
+  HAL_I2S_TX_RX_COMPLETE_CB_ID          = 0x02UL,
+  HAL_I2S_TX_HALF_COMPLETE_CB_ID        = 0x03UL,
+  HAL_I2S_RX_HALF_COMPLETE_CB_ID        = 0x04UL,
+  HAL_I2S_TX_RX_HALF_COMPLETE_CB_ID     = 0x05UL,
+  HAL_I2S_ERROR_CB_ID                   = 0x06UL,
+  HAL_I2S_MSPINIT_CB_ID                 = 0x07UL,
+  HAL_I2S_MSPDEINIT_CB_ID               = 0x08UL
 
 } HAL_I2S_CallbackIDTypeDef;
 
 /**
   * @brief  HAL I2S Callback pointer definition
   */
-typedef  void (*pI2S_CallbackTypeDef)(I2S_HandleTypeDef *hi2s); /*!< pointer to an I2S callback function */
+typedef  void (*pI2S_CallbackTypeDef)(I2S_HandleTypeDef *hi2s);
 
 #endif /* USE_HAL_I2S_REGISTER_CALLBACKS */
 /**
@@ -183,17 +183,17 @@ typedef  void (*pI2S_CallbackTypeDef)(I2S_HandleTypeDef *hi2s); /*!< pointer to 
 /** @defgroup I2S_Error I2S Error
   * @{
   */
-#define HAL_I2S_ERROR_NONE               (0x00000000UL)  /*!< No error                          */
-#define HAL_I2S_ERROR_TIMEOUT            (0x00000001UL)  /*!< Timeout error                     */
-#define HAL_I2S_ERROR_OVR                (0x00000002UL)  /*!< OVR error                         */
-#define HAL_I2S_ERROR_UDR                (0x00000004UL)  /*!< UDR error                         */
-#define HAL_I2S_ERROR_DMA                (0x00000008UL)  /*!< DMA transfer error                */
-#define HAL_I2S_ERROR_PRESCALER          (0x00000010UL)  /*!< Prescaler Calculation error       */
-#define HAL_I2S_ERROR_FRE                (0x00000020UL)  /*!< FRE error                         */
-#define HAL_I2S_ERROR_NO_OGT             (0x00000040UL)  /*!< No On Going Transfer error        */
-#define HAL_I2S_ERROR_NOT_SUPPORTED      (0x00000080UL)  /*!< Requested operation not supported */
+#define HAL_I2S_ERROR_NONE               (0x00000000UL)
+#define HAL_I2S_ERROR_TIMEOUT            (0x00000001UL)
+#define HAL_I2S_ERROR_OVR                (0x00000002UL)
+#define HAL_I2S_ERROR_UDR                (0x00000004UL)
+#define HAL_I2S_ERROR_DMA                (0x00000008UL)
+#define HAL_I2S_ERROR_PRESCALER          (0x00000010UL)
+#define HAL_I2S_ERROR_FRE                (0x00000020UL)
+#define HAL_I2S_ERROR_NO_OGT             (0x00000040UL)
+#define HAL_I2S_ERROR_NOT_SUPPORTED      (0x00000080UL)
 #if (USE_HAL_I2S_REGISTER_CALLBACKS == 1UL)
-#define HAL_I2S_ERROR_INVALID_CALLBACK   (0x00000100UL)  /*!< Invalid Callback error      */
+#define HAL_I2S_ERROR_INVALID_CALLBACK   (0x00000100UL)
 #endif /* USE_HAL_I2S_REGISTER_CALLBACKS */
 /**
   * @}
@@ -323,12 +323,12 @@ typedef  void (*pI2S_CallbackTypeDef)(I2S_HandleTypeDef *hi2s); /*!< pointer to 
 /** @defgroup I2S_Flags_Definition I2S Flags Definition
   * @{
   */
-#define I2S_FLAG_RXP                     SPI_SR_RXP       /* I2S status flag : Rx-Packet available flag              */
-#define I2S_FLAG_TXP                     SPI_SR_TXP       /* I2S status flag : Tx-Packet space available flag        */
-#define I2S_FLAG_DXP                     SPI_SR_DXP       /* I2S status flag : Dx-Packet space available flag        */
-#define I2S_FLAG_UDR                     SPI_SR_UDR       /* I2S Error flag  : Underrun flag                         */
-#define I2S_FLAG_OVR                     SPI_SR_OVR       /* I2S Error flag  : Overrun flag                          */
-#define I2S_FLAG_FRE                     SPI_SR_TIFRE     /* I2S Error flag  : TI mode frame format error flag       */
+#define I2S_FLAG_RXP                     SPI_SR_RXP
+#define I2S_FLAG_TXP                     SPI_SR_TXP
+#define I2S_FLAG_DXP                     SPI_SR_DXP
+#define I2S_FLAG_UDR                     SPI_SR_UDR
+#define I2S_FLAG_OVR                     SPI_SR_OVR
+#define I2S_FLAG_FRE                     SPI_SR_TIFRE
 
 #define I2S_FLAG_MASK                    (SPI_SR_RXP | SPI_SR_TXP | SPI_SR_DXP |SPI_SR_UDR | SPI_SR_OVR | SPI_SR_TIFRE)
 /**

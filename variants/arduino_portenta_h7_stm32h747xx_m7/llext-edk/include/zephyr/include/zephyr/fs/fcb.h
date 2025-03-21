@@ -37,7 +37,7 @@ extern "C" {
  * @{
  */
 
-#define FCB_MAX_LEN	(0x3fffu) /**< Max length of element (16,383) */
+#define FCB_MAX_LEN	(0x3fffu)
 
 /**
  * @brief FCB entry info structure. This data structure describes the element
@@ -58,7 +58,7 @@ struct fcb_entry {
 	uint32_t fe_data_off;
 	/**< Offset from the start of the sector to the start of element. */
 
-	uint16_t fe_data_len; /**< Size of data area in fcb entry*/
+	uint16_t fe_data_len;
 };
 
 /**
@@ -74,7 +74,7 @@ struct fcb_entry {
  * location within flash memory.
  */
 struct fcb_entry_ctx {
-	struct fcb_entry loc; /**< FCB entry info */
+	struct fcb_entry loc;
 	const struct flash_area *fap;
 	/**< Flash area where the entry is placed */
 };
@@ -102,8 +102,8 @@ struct fcb {
 	 * in "erased" state.
 	 */
 
-	uint8_t f_version; /**<  Current version number of the data */
-	uint8_t f_sector_cnt; /**< Number of elements in sector array */
+	uint8_t f_version;
+	uint8_t f_sector_cnt;
 	uint8_t f_scratch_cnt;
 	/**< Number of sectors to keep empty. This can be used if you need
 	 * to have scratch space for garbage collecting when FCB fills up.
@@ -121,7 +121,7 @@ struct fcb {
 	 * internal state
 	 */
 
-	struct fcb_entry f_active; /**< internal state */
+	struct fcb_entry f_active;
 	uint16_t f_active_id;
 	/**< Flash location where the newest data is, internal state */
 

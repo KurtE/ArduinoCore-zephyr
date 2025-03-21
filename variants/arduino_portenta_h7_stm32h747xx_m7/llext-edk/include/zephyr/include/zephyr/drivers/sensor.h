@@ -441,8 +441,8 @@ typedef int (*sensor_channel_get_t)(const struct device *dev,
  * @note Typically passed by value as the size of a sensor_chan_spec is a single word.
  */
 struct sensor_chan_spec {
-	uint16_t chan_type; /**< A sensor channel type */
-	uint16_t chan_idx;  /**< A sensor channel index */
+	uint16_t chan_type;
+	uint16_t chan_idx;
 };
 
 /** @cond INTERNAL_HIDDEN */
@@ -1206,6 +1206,25 @@ static inline void sensor_g_to_ms2(int32_t g, struct sensor_value *ms2)
 {
 	ms2->val1 = ((int64_t)g * SENSOR_G) / 1000000LL;
 	ms2->val2 = ((int64_t)g * SENSOR_G) % 1000000LL;
+}
+
+/**
+ * @brief Helper function to convert acceleration from m/s^2 to milli Gs
+ *
+ * @param ms2 A pointer to a sensor_value struct holding the acceleration,
+ *            in m/s^2.
+ *
+ * @return The converted value, in milli Gs.
+ */
+static inline int32_t sensor_ms2_to_mg(const struct sensor_value *ms2)
+{
+	int64_t nano_ms2 = (ms2->val1 * 1000000LL + ms2->val2) * 1000LL;
+
+	if (nano_ms2 > 0) {
+		return (nano_ms2 + SENSOR_G / 2) / SENSOR_G;
+	} else {
+		return (nano_ms2 - SENSOR_G / 2) / SENSOR_G;
+	}
 }
 
 /**

@@ -100,10 +100,10 @@
 #define BMI270_ANYMO_2_OUT_CONF_BIT_6	(0x07 << BMI270_ANYMO_2_OUT_CONF_POS)
 #define BMI270_ANYMO_2_OUT_CONF_BIT_8	(0x08 << BMI270_ANYMO_2_OUT_CONF_POS)
 
-#define BMI270_INT_IO_CTRL_LVL		BIT(1) /* Output level (0 = active low, 1 = active high) */
-#define BMI270_INT_IO_CTRL_OD		BIT(2) /* Open-drain (0 = push-pull, 1 = open-drain)*/
-#define BMI270_INT_IO_CTRL_OUTPUT_EN	BIT(3) /* Output enabled */
-#define BMI270_INT_IO_CTRL_INPUT_EN	BIT(4) /* Input enabled */
+#define BMI270_INT_IO_CTRL_LVL		BIT(1)
+#define BMI270_INT_IO_CTRL_OD		BIT(2)
+#define BMI270_INT_IO_CTRL_OUTPUT_EN	BIT(3)
+#define BMI270_INT_IO_CTRL_INPUT_EN	BIT(4)
 
 /* Applies to INT1_MAP_FEAT, INT2_MAP_FEAT, INT_STATUS_0 */
 #define BMI270_INT_MAP_SIG_MOTION        BIT(0)

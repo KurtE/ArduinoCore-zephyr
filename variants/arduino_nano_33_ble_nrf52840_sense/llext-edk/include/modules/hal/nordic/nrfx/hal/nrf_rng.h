@@ -50,26 +50,26 @@ extern "C" {
 /** @brief RNG tasks. */
 typedef enum
 {
-    NRF_RNG_TASK_START = offsetof(NRF_RNG_Type, TASKS_START), /**< Start the random number generator. */
-    NRF_RNG_TASK_STOP  = offsetof(NRF_RNG_Type, TASKS_STOP)   /**< Stop the random number generator. */
+    NRF_RNG_TASK_START = offsetof(NRF_RNG_Type, TASKS_START),
+    NRF_RNG_TASK_STOP  = offsetof(NRF_RNG_Type, TASKS_STOP)
 } nrf_rng_task_t;
 
 /** @brief RNG events. */
 typedef enum
 {
-    NRF_RNG_EVENT_VALRDY = offsetof(NRF_RNG_Type, EVENTS_VALRDY) /**< New random number generated event. */
+    NRF_RNG_EVENT_VALRDY = offsetof(NRF_RNG_Type, EVENTS_VALRDY)
 } nrf_rng_event_t;
 
 /** @brief RNG interrupts. */
 typedef enum
 {
-    NRF_RNG_INT_VALRDY_MASK = RNG_INTENSET_VALRDY_Msk /**< Mask for enabling or disabling an interrupt on VALRDY event. */
+    NRF_RNG_INT_VALRDY_MASK = RNG_INTENSET_VALRDY_Msk
 } nrf_rng_int_mask_t;
 
 /** @brief Types of RNG shortcuts. */
 typedef enum
 {
-    NRF_RNG_SHORT_VALRDY_STOP_MASK = RNG_SHORTS_VALRDY_STOP_Msk /**< Mask for setting shortcut between EVENT_VALRDY and TASK_STOP. */
+    NRF_RNG_SHORT_VALRDY_STOP_MASK = RNG_SHORTS_VALRDY_STOP_Msk
 } nrf_rng_short_mask_t;
 
 

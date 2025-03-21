@@ -54,6 +54,9 @@ extern "C" {
 /* Thread is waiting on an object */
 #define _THREAD_PENDING (BIT(1))
 
+/* Thread is sleeping */
+#define _THREAD_SLEEPING (BIT(2))
+
 /* Thread has terminated */
 #define _THREAD_DEAD (BIT(3))
 
@@ -119,6 +122,9 @@ struct _priq_rb {
 struct _priq_mq {
 	sys_dlist_t queues[K_NUM_THREAD_PRIO];
 	unsigned long bitmask[PRIQ_BITMAP_SIZE];
+#ifndef CONFIG_SMP
+	unsigned int cached_queue_index;
+#endif
 };
 
 struct _ready_q {
@@ -127,7 +133,7 @@ struct _ready_q {
 	struct k_thread *cache;
 #endif
 
-#if defined(CONFIG_SCHED_DUMB)
+#if defined(CONFIG_SCHED_SIMPLE)
 	sys_dlist_t runq;
 #elif defined(CONFIG_SCHED_SCALABLE)
 	struct _priq_rb runq;
@@ -168,7 +174,7 @@ struct _cpu {
 #endif
 
 #ifdef CONFIG_SMP
-	/* True when arch_current_thread() is allowed to context switch */
+	/* True when _current is allowed to context switch */
 	uint8_t swap_ok;
 #endif
 
@@ -200,7 +206,7 @@ struct z_kernel {
 	struct _cpu cpus[CONFIG_MP_MAX_NUM_CPUS];
 
 #ifdef CONFIG_PM
-	int32_t idle; /* Number of ticks for kernel idling */
+	int32_t idle;
 #endif
 
 	/*
@@ -211,22 +217,8 @@ struct z_kernel {
 	struct _ready_q ready_q;
 #endif
 
-#ifdef CONFIG_FPU_SHARING
-	/*
-	 * A 'current_sse' field does not exist in addition to the 'current_fp'
-	 * field since it's not possible to divide the IA-32 non-integer
-	 * registers into 2 distinct blocks owned by differing threads.  In
-	 * other words, given that the 'fxnsave/fxrstor' instructions
-	 * save/restore both the X87 FPU and XMM registers, it's not possible
-	 * for a thread to only "own" the XMM registers.
-	 */
-
-	/* thread that owns the FP regs */
-	struct k_thread *current_fp;
-#endif
-
 #if defined(CONFIG_THREAD_MONITOR)
-	struct k_thread *threads; /* singly linked list of ALL threads */
+	struct k_thread *threads;
 #endif
 #ifdef CONFIG_SCHED_THREAD_USAGE_ALL
 	struct k_cycle_stats usage[CONFIG_MP_MAX_NUM_CPUS];
@@ -254,15 +246,27 @@ extern atomic_t _cpus_active;
  * another SMP CPU.
  */
 bool z_smp_cpu_mobile(void);
-
 #define _current_cpu ({ __ASSERT_NO_MSG(!z_smp_cpu_mobile()); \
 			arch_curr_cpu(); })
 
+__attribute_const__ struct k_thread *z_smp_current_get(void);
+#define _current z_smp_current_get()
+
 #else
 #define _current_cpu (&_kernel.cpus[0])
-#endif /* CONFIG_SMP */
+#define _current _kernel.cpus[0].current
+#endif
 
-#define _current arch_current_thread() __DEPRECATED_MACRO
+/* This is always invoked from a context where preemption is disabled */
+#define z_current_thread_set(thread) ({ _current_cpu->current = (thread); })
+
+#ifdef CONFIG_ARCH_HAS_CUSTOM_CURRENT_IMPL
+#undef _current
+#define _current arch_current_thread()
+#undef z_current_thread_set
+#define z_current_thread_set(thread) \
+	arch_current_thread_set(({ _current_cpu->current = (thread); }))
+#endif
 
 /* kernel wait queue record */
 #ifdef CONFIG_WAITQ_SCALABLE

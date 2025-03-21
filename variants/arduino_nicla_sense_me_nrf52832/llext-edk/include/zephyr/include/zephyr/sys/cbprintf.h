@@ -293,7 +293,7 @@ BUILD_ASSERT(Z_IS_POW2(CBPRINTF_PACKAGE_ALIGNMENT));
 #ifdef __CHECKER__
 typedef int (*cbprintf_cb)(int c, void *ctx);
 #else
-typedef int (*cbprintf_cb)(/* int c, void *ctx */);
+typedef int (*cbprintf_cb)();
 #endif
 
 /* Create local cbprintf_cb type to make calng-based compilers happy when handles
@@ -350,7 +350,7 @@ typedef int (*cbvprintf_external_formatter_func)(cbprintf_cb out, void *ctx,
  * @retval 1 if string must be packaged in run time.
  * @retval 0 string can be statically packaged.
  */
-#define CBPRINTF_MUST_RUNTIME_PACKAGE(flags, ... /* fmt, ... */) \
+#define CBPRINTF_MUST_RUNTIME_PACKAGE(flags, ...) \
 	Z_CBPRINTF_MUST_RUNTIME_PACKAGE(flags, __VA_ARGS__)
 
 /** @brief Statically package string.
@@ -383,7 +383,7 @@ typedef int (*cbvprintf_external_formatter_func)(cbprintf_cb out, void *ctx,
  * @param ... formatted string with arguments. Format string must be constant.
  */
 #define CBPRINTF_STATIC_PACKAGE(packaged, inlen, outlen, align_offset, flags, \
-				... /* fmt, ... */) \
+				...) \
 	Z_CBPRINTF_STATIC_PACKAGE(packaged, inlen, outlen, \
 				  align_offset, flags, __VA_ARGS__)
 

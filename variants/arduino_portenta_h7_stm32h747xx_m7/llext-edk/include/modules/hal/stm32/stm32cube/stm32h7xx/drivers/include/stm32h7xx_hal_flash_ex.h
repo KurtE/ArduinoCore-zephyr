@@ -185,7 +185,7 @@ typedef struct
   uint32_t               Area;             /*!< Area from which an ECC was detected.
                                                 This parameter can be a value of @ref FLASHEx_ECC_Area  */
 
-  uint32_t               Address;          /*!< ECC error address */
+  uint32_t               Address;
 
 } FLASH_EccInfoTypeDef;
 #endif /* USE_FLASH_ECC */
@@ -202,8 +202,8 @@ typedef struct
 /** @defgroup FLASHEx_Type_Erase FLASH Type Erase
   * @{
   */
-#define FLASH_TYPEERASE_SECTORS      0x00U  /*!< Sectors erase only          */
-#define FLASH_TYPEERASE_MASSERASE    0x01U  /*!< Flash Mass erase activation */
+#define FLASH_TYPEERASE_SECTORS      0x00U
+#define FLASH_TYPEERASE_MASSERASE    0x01U
 /**
   * @}
   */
@@ -212,10 +212,10 @@ typedef struct
 /** @defgroup FLASHEx_Voltage_Range FLASH Voltage Range
   * @{
   */
-#define FLASH_VOLTAGE_RANGE_1        0x00000000U       /*!< Flash program/erase by 8 bits  */
-#define FLASH_VOLTAGE_RANGE_2        FLASH_CR_PSIZE_0  /*!< Flash program/erase by 16 bits */
-#define FLASH_VOLTAGE_RANGE_3        FLASH_CR_PSIZE_1  /*!< Flash program/erase by 32 bits */
-#define FLASH_VOLTAGE_RANGE_4        FLASH_CR_PSIZE    /*!< Flash program/erase by 64 bits */
+#define FLASH_VOLTAGE_RANGE_1        0x00000000U
+#define FLASH_VOLTAGE_RANGE_2        FLASH_CR_PSIZE_0
+#define FLASH_VOLTAGE_RANGE_3        FLASH_CR_PSIZE_1
+#define FLASH_VOLTAGE_RANGE_4        FLASH_CR_PSIZE
 /**
   * @}
   */
@@ -224,8 +224,8 @@ typedef struct
 /** @defgroup FLASHEx_WRP_State FLASH WRP State
   * @{
   */
-#define OB_WRPSTATE_DISABLE          0x00000000U  /*!< Disable the write protection of the desired bank 1 sectors */
-#define OB_WRPSTATE_ENABLE           0x00000001U  /*!< Enable the write protection of the desired bank 1 sectors  */
+#define OB_WRPSTATE_DISABLE          0x00000000U
+#define OB_WRPSTATE_ENABLE           0x00000001U
 /**
   * @}
   */
@@ -235,8 +235,8 @@ typedef struct
   * @brief    FLASH ECC Area
   * @{
   */
-#define FLASH_ECC_AREA_USER_BANK1         0x00000000U        /*!< FLASH bank 1 area */
-#define FLASH_ECC_AREA_USER_BANK2         0x00000001U        /*!< FLASH bank 2 area */
+#define FLASH_ECC_AREA_USER_BANK1         0x00000000U
+#define FLASH_ECC_AREA_USER_BANK2         0x00000001U
 /**
   * @}
   */
@@ -245,45 +245,45 @@ typedef struct
 /** @defgroup FLASHEx_Option_Type FLASH Option Type
   * @{
   */
-#define OPTIONBYTE_WRP           0x01U  /*!< WRP option byte configuration  */
-#define OPTIONBYTE_RDP           0x02U  /*!< RDP option byte configuration  */
-#define OPTIONBYTE_USER          0x04U  /*!< USER option byte configuration */
-#define OPTIONBYTE_PCROP         0x08U  /*!< PCROP option byte configuration */
-#define OPTIONBYTE_BOR           0x10U  /*!< BOR option byte configuration */
-#define OPTIONBYTE_SECURE_AREA   0x20U  /*!< secure area option byte configuration */
+#define OPTIONBYTE_WRP           0x01U
+#define OPTIONBYTE_RDP           0x02U
+#define OPTIONBYTE_USER          0x04U
+#define OPTIONBYTE_PCROP         0x08U
+#define OPTIONBYTE_BOR           0x10U
+#define OPTIONBYTE_SECURE_AREA   0x20U
 #if defined (DUAL_CORE)
-#define OPTIONBYTE_CM7_BOOTADD   0x40U  /*!< CM7 BOOT ADD option byte configuration */
-#define OPTIONBYTE_CM4_BOOTADD   0x80U  /*!< CM4 BOOT ADD option byte configuration */
-#define OPTIONBYTE_BOOTADD       OPTIONBYTE_CM7_BOOTADD  /*!< BOOT ADD option byte configuration */
+#define OPTIONBYTE_CM7_BOOTADD   0x40U
+#define OPTIONBYTE_CM4_BOOTADD   0x80U
+#define OPTIONBYTE_BOOTADD       OPTIONBYTE_CM7_BOOTADD
 #else /* Single core */
-#define OPTIONBYTE_BOOTADD       0x40U  /*!< BOOT ADD option byte configuration */
+#define OPTIONBYTE_BOOTADD       0x40U
 #endif /*DUAL_CORE*/
 #if defined (FLASH_OTPBL_LOCKBL)
-#define OPTIONBYTE_OTP_LOCK      0x80U  /*!< OTP Lock option byte configuration */
+#define OPTIONBYTE_OTP_LOCK      0x80U
 #endif /* FLASH_OTPBL_LOCKBL */
 #if defined (FLASH_OPTSR2_TCM_AXI_SHARED)
-#define OPTIONBYTE_SHARED_RAM    0x100U /*!< TCM / AXI Shared RAM option byte configuration */
+#define OPTIONBYTE_SHARED_RAM    0x100U
 #endif /* FLASH_OPTSR2_TCM_AXI_SHARED */
 #if defined (FLASH_OPTSR2_CPUFREQ_BOOST)
-#define OPTIONBYTE_FREQ_BOOST    0x200U /*!< CPU Frequency Boost option byte configuration */
+#define OPTIONBYTE_FREQ_BOOST    0x200U
 #endif /* FLASH_OPTSR2_CPUFREQ_BOOST */
 
 #if defined (DUAL_CORE)
 #define OPTIONBYTE_ALL           (OPTIONBYTE_WRP         | OPTIONBYTE_RDP        | OPTIONBYTE_USER        |\
                                   OPTIONBYTE_PCROP       | OPTIONBYTE_BOR        | OPTIONBYTE_SECURE_AREA |\
-                                  OPTIONBYTE_CM7_BOOTADD | OPTIONBYTE_CM4_BOOTADD) /*!< All option byte configuration */
+                                  OPTIONBYTE_CM7_BOOTADD | OPTIONBYTE_CM4_BOOTADD)
 #elif defined (FLASH_OTPBL_LOCKBL)
 #define OPTIONBYTE_ALL           (OPTIONBYTE_WRP         | OPTIONBYTE_RDP        | OPTIONBYTE_USER        |\
                                   OPTIONBYTE_PCROP       | OPTIONBYTE_BOR        | OPTIONBYTE_SECURE_AREA |\
-                                  OPTIONBYTE_BOOTADD     | OPTIONBYTE_OTP_LOCK)    /*!< All option byte configuration */
+                                  OPTIONBYTE_BOOTADD     | OPTIONBYTE_OTP_LOCK)
 #elif defined (FLASH_OPTSR2_TCM_AXI_SHARED)
 #define OPTIONBYTE_ALL           (OPTIONBYTE_WRP         | OPTIONBYTE_RDP        | OPTIONBYTE_USER        |\
                                   OPTIONBYTE_PCROP       | OPTIONBYTE_BOR        | OPTIONBYTE_SECURE_AREA |\
-                                  OPTIONBYTE_BOOTADD     | OPTIONBYTE_SHARED_RAM | OPTIONBYTE_FREQ_BOOST) /*!< All option byte configuration */
+                                  OPTIONBYTE_BOOTADD     | OPTIONBYTE_SHARED_RAM | OPTIONBYTE_FREQ_BOOST)
 #else
 #define OPTIONBYTE_ALL           (OPTIONBYTE_WRP         | OPTIONBYTE_RDP        | OPTIONBYTE_USER        |\
                                   OPTIONBYTE_PCROP       | OPTIONBYTE_BOR        | OPTIONBYTE_SECURE_AREA |\
-                                  OPTIONBYTE_BOOTADD)                              /*!< All option byte configuration */
+                                  OPTIONBYTE_BOOTADD)
 #endif /* DUAL_CORE */
 /**
   * @}
@@ -303,8 +303,8 @@ typedef struct
 /** @defgroup FLASHEx_Option_Bytes_IWatchdog FLASH Option Bytes IWatchdog
   * @{
   */
-#define OB_IWDG_SW           OB_IWDG1_SW  /*!< Software IWDG selected */
-#define OB_IWDG_HW           OB_IWDG1_HW  /*!< Hardware IWDG selected */
+#define OB_IWDG_SW           OB_IWDG1_SW
+#define OB_IWDG_HW           OB_IWDG1_HW
 /**
   * @}
   */
@@ -312,8 +312,8 @@ typedef struct
 /** @defgroup FLASHEx_Option_Bytes_nRST_STOP FLASH Option Bytes nRST_STOP
   * @{
   */
-#define OB_STOP_NO_RST       0x40U /*!< No reset generated when entering in STOP */
-#define OB_STOP_RST          0x00U /*!< Reset generated when entering in STOP    */
+#define OB_STOP_NO_RST       0x40U
+#define OB_STOP_RST          0x00U
 /**
   * @}
   */
@@ -321,8 +321,8 @@ typedef struct
 /** @defgroup FLASHEx_Option_Bytes_nRST_STDBY FLASH Option Bytes nRST_STDBY
   * @{
   */
-#define OB_STDBY_NO_RST      0x80U /*!< No reset generated when entering in STANDBY */
-#define OB_STDBY_RST         0x00U /*!< Reset generated when entering in STANDBY    */
+#define OB_STDBY_NO_RST      0x80U
+#define OB_STDBY_RST         0x00U
 /**
   * @}
   */
@@ -330,8 +330,8 @@ typedef struct
 /** @defgroup FLASHEx_Option_Bytes_IWDG_FREEZE_STOP FLASH IWDG Counter Freeze in STOP
   * @{
   */
-#define OB_IWDG_STOP_FREEZE  0x00000000U /*!< Freeze IWDG counter in STOP mode */
-#define OB_IWDG_STOP_ACTIVE  FLASH_OPTSR_FZ_IWDG_STOP /*!< IWDG counter active in STOP mode */
+#define OB_IWDG_STOP_FREEZE  0x00000000U
+#define OB_IWDG_STOP_ACTIVE  FLASH_OPTSR_FZ_IWDG_STOP
 /**
   * @}
   */
@@ -339,8 +339,8 @@ typedef struct
 /** @defgroup FLASHEx_Option_Bytes_IWDG_FREEZE_SANDBY FLASH IWDG Counter Freeze in STANDBY
   * @{
   */
-#define OB_IWDG_STDBY_FREEZE 0x00000000U /*!< Freeze IWDG counter in STANDBY mode */
-#define OB_IWDG_STDBY_ACTIVE FLASH_OPTSR_FZ_IWDG_SDBY  /*!< IWDG counter active in STANDBY mode */
+#define OB_IWDG_STDBY_FREEZE 0x00000000U
+#define OB_IWDG_STDBY_ACTIVE FLASH_OPTSR_FZ_IWDG_SDBY
 /**
   * @}
   */
@@ -348,10 +348,10 @@ typedef struct
 /** @defgroup FLASHEx_BOR_Reset_Level FLASH BOR Reset Level
   * @{
   */
-#define OB_BOR_LEVEL0        0x00000000U                /*!< Reset level threshold is set to 1.6V */
-#define OB_BOR_LEVEL1        FLASH_OPTSR_BOR_LEV_0      /*!< Reset level threshold is set to 2.1V */
-#define OB_BOR_LEVEL2        FLASH_OPTSR_BOR_LEV_1      /*!< Reset level threshold is set to 2.4V */
-#define OB_BOR_LEVEL3        (FLASH_OPTSR_BOR_LEV_1 | FLASH_OPTSR_BOR_LEV_0) /*!< Reset level threshold is set to 2.7V  */
+#define OB_BOR_LEVEL0        0x00000000U
+#define OB_BOR_LEVEL1        FLASH_OPTSR_BOR_LEV_0
+#define OB_BOR_LEVEL2        FLASH_OPTSR_BOR_LEV_1
+#define OB_BOR_LEVEL3        (FLASH_OPTSR_BOR_LEV_1 | FLASH_OPTSR_BOR_LEV_0)
 /**
   * @}
   */
@@ -361,13 +361,13 @@ typedef struct
 /** @defgroup FLASHEx_Boot_Address FLASH Boot Address
   * @{
   */
-#define OB_BOOTADDR_ITCM_RAM     0x0000U  /*!< Boot from ITCM RAM (0x00000000)                 */
-#define OB_BOOTADDR_SYSTEM       0x0040U  /*!< Boot from System memory bootloader (0x00100000) */
-#define OB_BOOTADDR_ITCM_FLASH   0x0080U  /*!< Boot from Flash on ITCM interface (0x00200000)  */
-#define OB_BOOTADDR_AXIM_FLASH   0x2000U  /*!< Boot from Flash on AXIM interface (0x08000000)  */
-#define OB_BOOTADDR_DTCM_RAM     0x8000U  /*!< Boot from DTCM RAM (0x20000000)                 */
-#define OB_BOOTADDR_SRAM1        0x8004U  /*!< Boot from SRAM1 (0x20010000)                    */
-#define OB_BOOTADDR_SRAM2        0x8013U  /*!< Boot from SRAM2 (0x2004C000)                    */
+#define OB_BOOTADDR_ITCM_RAM     0x0000U
+#define OB_BOOTADDR_SYSTEM       0x0040U
+#define OB_BOOTADDR_ITCM_FLASH   0x0080U
+#define OB_BOOTADDR_AXIM_FLASH   0x2000U
+#define OB_BOOTADDR_DTCM_RAM     0x8000U
+#define OB_BOOTADDR_SRAM1        0x8004U
+#define OB_BOOTADDR_SRAM2        0x8013U
 /**
   * @}
   */
@@ -375,24 +375,24 @@ typedef struct
 /** @defgroup FLASH_Latency FLASH Latency
   * @{
   */
-#define FLASH_LATENCY_0          FLASH_ACR_LATENCY_0WS   /*!< FLASH Zero Latency cycle      */
-#define FLASH_LATENCY_1          FLASH_ACR_LATENCY_1WS   /*!< FLASH One Latency cycle       */
-#define FLASH_LATENCY_2          FLASH_ACR_LATENCY_2WS   /*!< FLASH Two Latency cycles      */
-#define FLASH_LATENCY_3          FLASH_ACR_LATENCY_3WS   /*!< FLASH Three Latency cycles    */
-#define FLASH_LATENCY_4          FLASH_ACR_LATENCY_4WS   /*!< FLASH Four Latency cycles     */
-#define FLASH_LATENCY_5          FLASH_ACR_LATENCY_5WS   /*!< FLASH Five Latency cycles     */
-#define FLASH_LATENCY_6          FLASH_ACR_LATENCY_6WS   /*!< FLASH Six Latency cycles      */
-#define FLASH_LATENCY_7          FLASH_ACR_LATENCY_7WS   /*!< FLASH Seven Latency cycles    */
+#define FLASH_LATENCY_0          FLASH_ACR_LATENCY_0WS
+#define FLASH_LATENCY_1          FLASH_ACR_LATENCY_1WS
+#define FLASH_LATENCY_2          FLASH_ACR_LATENCY_2WS
+#define FLASH_LATENCY_3          FLASH_ACR_LATENCY_3WS
+#define FLASH_LATENCY_4          FLASH_ACR_LATENCY_4WS
+#define FLASH_LATENCY_5          FLASH_ACR_LATENCY_5WS
+#define FLASH_LATENCY_6          FLASH_ACR_LATENCY_6WS
+#define FLASH_LATENCY_7          FLASH_ACR_LATENCY_7WS
 
 /* Unused FLASH Latency defines */
-#define FLASH_LATENCY_8          FLASH_ACR_LATENCY_8WS   /*!< FLASH Eight Latency cycle     */
-#define FLASH_LATENCY_9          FLASH_ACR_LATENCY_9WS   /*!< FLASH Nine Latency cycle      */
-#define FLASH_LATENCY_10         FLASH_ACR_LATENCY_10WS  /*!< FLASH Ten Latency cycles      */
-#define FLASH_LATENCY_11         FLASH_ACR_LATENCY_11WS  /*!< FLASH Eleven Latency cycles   */
-#define FLASH_LATENCY_12         FLASH_ACR_LATENCY_12WS  /*!< FLASH Twelve Latency cycles   */
-#define FLASH_LATENCY_13         FLASH_ACR_LATENCY_13WS  /*!< FLASH Thirteen Latency cycles */
-#define FLASH_LATENCY_14         FLASH_ACR_LATENCY_14WS  /*!< FLASH Fourteen Latency cycles */
-#define FLASH_LATENCY_15         FLASH_ACR_LATENCY_15WS  /*!< FLASH Fifteen Latency cycles  */
+#define FLASH_LATENCY_8          FLASH_ACR_LATENCY_8WS
+#define FLASH_LATENCY_9          FLASH_ACR_LATENCY_9WS
+#define FLASH_LATENCY_10         FLASH_ACR_LATENCY_10WS
+#define FLASH_LATENCY_11         FLASH_ACR_LATENCY_11WS
+#define FLASH_LATENCY_12         FLASH_ACR_LATENCY_12WS
+#define FLASH_LATENCY_13         FLASH_ACR_LATENCY_13WS
+#define FLASH_LATENCY_14         FLASH_ACR_LATENCY_14WS
+#define FLASH_LATENCY_15         FLASH_ACR_LATENCY_15WS
 /**
   * @}
   */
@@ -400,10 +400,10 @@ typedef struct
 /** @defgroup FLASHEx_Banks FLASH Banks
   * @{
   */
-#define FLASH_BANK_1             0x01U                         /*!< Bank 1   */
+#define FLASH_BANK_1             0x01U
 #if defined (DUAL_BANK)
-#define FLASH_BANK_2             0x02U                         /*!< Bank 2   */
-#define FLASH_BANK_BOTH          (FLASH_BANK_1 | FLASH_BANK_2) /*!< Bank1 and Bank2 */
+#define FLASH_BANK_2             0x02U
+#define FLASH_BANK_BOTH          (FLASH_BANK_1 | FLASH_BANK_2)
 #endif /* DUAL_BANK */
 /**
   * @}
@@ -425,49 +425,49 @@ typedef struct
   * @{
   */
 #if (FLASH_SECTOR_TOTAL == 128)
-#define OB_WRP_SECTOR_0TO3       0x00000001U /*!< Write protection of Sector0  to Sector3    */
-#define OB_WRP_SECTOR_4TO7       0x00000002U /*!< Write protection of Sector4  to Sector7    */
-#define OB_WRP_SECTOR_8TO11      0x00000004U /*!< Write protection of Sector8  to Sector11   */
-#define OB_WRP_SECTOR_12TO15     0x00000008U /*!< Write protection of Sector12 to Sector15   */
-#define OB_WRP_SECTOR_16TO19     0x00000010U /*!< Write protection of Sector16 to Sector19   */
-#define OB_WRP_SECTOR_20TO23     0x00000020U /*!< Write protection of Sector20 to Sector23   */
-#define OB_WRP_SECTOR_24TO27     0x00000040U /*!< Write protection of Sector24 to Sector27   */
-#define OB_WRP_SECTOR_28TO31     0x00000080U /*!< Write protection of Sector28 to Sector31   */
-#define OB_WRP_SECTOR_32TO35     0x00000100U /*!< Write protection of Sector32 to Sector35   */
-#define OB_WRP_SECTOR_36TO39     0x00000200U /*!< Write protection of Sector36 to Sector39   */
-#define OB_WRP_SECTOR_40TO43     0x00000400U /*!< Write protection of Sector40 to Sector43   */
-#define OB_WRP_SECTOR_44TO47     0x00000800U /*!< Write protection of Sector44 to Sector47   */
-#define OB_WRP_SECTOR_48TO51     0x00001000U /*!< Write protection of Sector48 to Sector51   */
-#define OB_WRP_SECTOR_52TO55     0x00002000U /*!< Write protection of Sector52 to Sector55   */
-#define OB_WRP_SECTOR_56TO59     0x00004000U /*!< Write protection of Sector56 to Sector59   */
-#define OB_WRP_SECTOR_60TO63     0x00008000U /*!< Write protection of Sector60 to Sector63   */
-#define OB_WRP_SECTOR_64TO67     0x00010000U /*!< Write protection of Sector64 to Sector67   */
-#define OB_WRP_SECTOR_68TO71     0x00020000U /*!< Write protection of Sector68 to Sector71   */
-#define OB_WRP_SECTOR_72TO75     0x00040000U /*!< Write protection of Sector72 to Sector75   */
-#define OB_WRP_SECTOR_76TO79     0x00080000U /*!< Write protection of Sector76 to Sector79   */
-#define OB_WRP_SECTOR_80TO83     0x00100000U /*!< Write protection of Sector80 to Sector83   */
-#define OB_WRP_SECTOR_84TO87     0x00200000U /*!< Write protection of Sector84 to Sector87   */
-#define OB_WRP_SECTOR_88TO91     0x00400000U /*!< Write protection of Sector88 to Sector91   */
-#define OB_WRP_SECTOR_92TO95     0x00800000U /*!< Write protection of Sector92 to Sector95   */
-#define OB_WRP_SECTOR_96TO99     0x01000000U /*!< Write protection of Sector96  to Sector99  */
-#define OB_WRP_SECTOR_100TO103   0x02000000U /*!< Write protection of Sector100 to Sector103 */
-#define OB_WRP_SECTOR_104TO107   0x04000000U /*!< Write protection of Sector104 to Sector107 */
-#define OB_WRP_SECTOR_108TO111   0x08000000U /*!< Write protection of Sector108 to Sector111 */
-#define OB_WRP_SECTOR_112TO115   0x10000000U /*!< Write protection of Sector112 to Sector115 */
-#define OB_WRP_SECTOR_116TO119   0x20000000U /*!< Write protection of Sector116 to Sector119 */
-#define OB_WRP_SECTOR_120TO123   0x40000000U /*!< Write protection of Sector120 to Sector123 */
-#define OB_WRP_SECTOR_124TO127   0x80000000U /*!< Write protection of Sector124 to Sector127 */
-#define OB_WRP_SECTOR_ALL        0xFFFFFFFFU /*!< Write protection of all Sectors            */
+#define OB_WRP_SECTOR_0TO3       0x00000001U
+#define OB_WRP_SECTOR_4TO7       0x00000002U
+#define OB_WRP_SECTOR_8TO11      0x00000004U
+#define OB_WRP_SECTOR_12TO15     0x00000008U
+#define OB_WRP_SECTOR_16TO19     0x00000010U
+#define OB_WRP_SECTOR_20TO23     0x00000020U
+#define OB_WRP_SECTOR_24TO27     0x00000040U
+#define OB_WRP_SECTOR_28TO31     0x00000080U
+#define OB_WRP_SECTOR_32TO35     0x00000100U
+#define OB_WRP_SECTOR_36TO39     0x00000200U
+#define OB_WRP_SECTOR_40TO43     0x00000400U
+#define OB_WRP_SECTOR_44TO47     0x00000800U
+#define OB_WRP_SECTOR_48TO51     0x00001000U
+#define OB_WRP_SECTOR_52TO55     0x00002000U
+#define OB_WRP_SECTOR_56TO59     0x00004000U
+#define OB_WRP_SECTOR_60TO63     0x00008000U
+#define OB_WRP_SECTOR_64TO67     0x00010000U
+#define OB_WRP_SECTOR_68TO71     0x00020000U
+#define OB_WRP_SECTOR_72TO75     0x00040000U
+#define OB_WRP_SECTOR_76TO79     0x00080000U
+#define OB_WRP_SECTOR_80TO83     0x00100000U
+#define OB_WRP_SECTOR_84TO87     0x00200000U
+#define OB_WRP_SECTOR_88TO91     0x00400000U
+#define OB_WRP_SECTOR_92TO95     0x00800000U
+#define OB_WRP_SECTOR_96TO99     0x01000000U
+#define OB_WRP_SECTOR_100TO103   0x02000000U
+#define OB_WRP_SECTOR_104TO107   0x04000000U
+#define OB_WRP_SECTOR_108TO111   0x08000000U
+#define OB_WRP_SECTOR_112TO115   0x10000000U
+#define OB_WRP_SECTOR_116TO119   0x20000000U
+#define OB_WRP_SECTOR_120TO123   0x40000000U
+#define OB_WRP_SECTOR_124TO127   0x80000000U
+#define OB_WRP_SECTOR_ALL        0xFFFFFFFFU
 #else
-#define OB_WRP_SECTOR_0          0x00000001U /*!< Write protection of Sector0                */
-#define OB_WRP_SECTOR_1          0x00000002U /*!< Write protection of Sector1                */
-#define OB_WRP_SECTOR_2          0x00000004U /*!< Write protection of Sector2                */
-#define OB_WRP_SECTOR_3          0x00000008U /*!< Write protection of Sector3                */
-#define OB_WRP_SECTOR_4          0x00000010U /*!< Write protection of Sector4                */
-#define OB_WRP_SECTOR_5          0x00000020U /*!< Write protection of Sector5                */
-#define OB_WRP_SECTOR_6          0x00000040U /*!< Write protection of Sector6                */
-#define OB_WRP_SECTOR_7          0x00000080U /*!< Write protection of Sector7                */
-#define OB_WRP_SECTOR_ALL        0x000000FFU /*!< Write protection of all Sectors            */
+#define OB_WRP_SECTOR_0          0x00000001U
+#define OB_WRP_SECTOR_1          0x00000002U
+#define OB_WRP_SECTOR_2          0x00000004U
+#define OB_WRP_SECTOR_3          0x00000008U
+#define OB_WRP_SECTOR_4          0x00000010U
+#define OB_WRP_SECTOR_5          0x00000020U
+#define OB_WRP_SECTOR_6          0x00000040U
+#define OB_WRP_SECTOR_7          0x00000080U
+#define OB_WRP_SECTOR_ALL        0x000000FFU
 #endif /* FLASH_SECTOR_TOTAL == 128 */
 /**
   * @}
@@ -476,8 +476,8 @@ typedef struct
 /** @defgroup FLASHEx_OB_SECURITY  FLASHEx OB SECURITY
   * @{
   */
-#define OB_SECURITY_DISABLE   0x00000000U             /*!< security enabled */
-#define OB_SECURITY_ENABLE    FLASH_OPTSR_SECURITY    /*!< security disabled */
+#define OB_SECURITY_DISABLE   0x00000000U
+#define OB_SECURITY_ENABLE    FLASH_OPTSR_SECURITY
 /**
   * @}
   */
@@ -485,10 +485,10 @@ typedef struct
 /** @defgroup FLASHEx_OB_ST_RAM_SIZE  FLASHEx OB ST RAM SIZE
   * @{
   */
-#define OB_ST_RAM_SIZE_2KB    0x00000000U               /*!< 2 Kbytes reserved to ST code */
-#define OB_ST_RAM_SIZE_4KB    FLASH_OPTSR_ST_RAM_SIZE_0 /*!< 4 Kbytes reserved to ST code */
-#define OB_ST_RAM_SIZE_8KB    FLASH_OPTSR_ST_RAM_SIZE_1 /*!< 8 Kbytes reserved to ST code */
-#define OB_ST_RAM_SIZE_16KB   FLASH_OPTSR_ST_RAM_SIZE   /*!< 16 Kbytes reserved to ST code */
+#define OB_ST_RAM_SIZE_2KB    0x00000000U
+#define OB_ST_RAM_SIZE_4KB    FLASH_OPTSR_ST_RAM_SIZE_0
+#define OB_ST_RAM_SIZE_8KB    FLASH_OPTSR_ST_RAM_SIZE_1
+#define OB_ST_RAM_SIZE_16KB   FLASH_OPTSR_ST_RAM_SIZE
 /**
   * @}
   */
@@ -497,8 +497,8 @@ typedef struct
 /** @defgroup FLASHEx_OB_BCM7  FLASHEx OB BCM7
   * @{
   */
-#define OB_BCM7_DISABLE       0x00000000U              /*!< CM7 Boot disabled */
-#define OB_BCM7_ENABLE        FLASH_OPTSR_BCM7         /*!< CM7 Boot enabled */
+#define OB_BCM7_DISABLE       0x00000000U
+#define OB_BCM7_ENABLE        FLASH_OPTSR_BCM7
 
 /**
   * @}
@@ -507,8 +507,8 @@ typedef struct
 /** @defgroup FLASHEx_OB_BCM4  FLASHEx OB BCM4
   * @{
   */
-#define OB_BCM4_DISABLE       0x00000000U              /*!< CM4 Boot disabled */
-#define OB_BCM4_ENABLE        FLASH_OPTSR_BCM4         /*!< CM4 Boot enabled */
+#define OB_BCM4_DISABLE       0x00000000U
+#define OB_BCM4_ENABLE        FLASH_OPTSR_BCM4
 /**
   * @}
   */
@@ -517,8 +517,8 @@ typedef struct
 /** @defgroup FLASHEx_OB_IWDG1_SW  FLASHEx OB IWDG1 SW
   * @{
   */
-#define OB_IWDG1_SW            FLASH_OPTSR_IWDG1_SW /*!< Hardware independent watchdog 1 */
-#define OB_IWDG1_HW            0x00000000U          /*!< Software independent watchdog 1 */
+#define OB_IWDG1_SW            FLASH_OPTSR_IWDG1_SW
+#define OB_IWDG1_HW            0x00000000U
 /**
   * @}
   */
@@ -527,8 +527,8 @@ typedef struct
 /** @defgroup FLASHEx_OB_IWDG2_SW  FLASHEx OB IWDG2 SW
   * @{
   */
-#define OB_IWDG2_SW            FLASH_OPTSR_IWDG2_SW  /*!< Hardware independent watchdog 2*/
-#define OB_IWDG2_HW            0x00000000U           /*!< Software independent watchdog 2*/
+#define OB_IWDG2_SW            FLASH_OPTSR_IWDG2_SW
+#define OB_IWDG2_HW            0x00000000U
 /**
   * @}
   */
@@ -537,8 +537,8 @@ typedef struct
 /** @defgroup FLASHEx_OB_NRST_STOP_D1  FLASHEx OB NRST STOP D1
   * @{
   */
-#define OB_STOP_RST_D1         0x00000000U              /*!< Reset generated when entering the D1 to stop mode */
-#define OB_STOP_NO_RST_D1      FLASH_OPTSR_NRST_STOP_D1 /*!< No reset generated when entering the D1 to stop mode */
+#define OB_STOP_RST_D1         0x00000000U
+#define OB_STOP_NO_RST_D1      FLASH_OPTSR_NRST_STOP_D1
 /**
   * @}
   */
@@ -546,8 +546,8 @@ typedef struct
 /** @defgroup FLASHEx_OB_NRST_STDBY_D1  FLASHEx OB NRST STDBY D1
   * @{
   */
-#define OB_STDBY_RST_D1        0x00000000U              /*!< Reset generated when entering the D1 to standby mode */
-#define OB_STDBY_NO_RST_D1     FLASH_OPTSR_NRST_STBY_D1 /*!< No reset generated when entering the D1 to standby mode */
+#define OB_STDBY_RST_D1        0x00000000U
+#define OB_STDBY_NO_RST_D1     FLASH_OPTSR_NRST_STBY_D1
 /**
   * @}
   */
@@ -556,8 +556,8 @@ typedef struct
 /** @defgroup FLASHEx_OB_NRST_STOP_D2  FLASHEx OB NRST STOP D2
   * @{
   */
-#define OB_STOP_RST_D2         0x00000000U              /*!< Reset generated when entering the D2 to stop mode */
-#define OB_STOP_NO_RST_D2      FLASH_OPTSR_NRST_STOP_D2 /*!< No reset generated when entering the D2 to stop mode */
+#define OB_STOP_RST_D2         0x00000000U
+#define OB_STOP_NO_RST_D2      FLASH_OPTSR_NRST_STOP_D2
 /**
   * @}
   */
@@ -565,8 +565,8 @@ typedef struct
 /** @defgroup FLASHEx_OB_NRST_STDBY_D2  FLASHEx OB NRST STDBY D2
   * @{
   */
-#define OB_STDBY_RST_D2        0x00000000U              /*!< Reset generated when entering the D2 to standby mode */
-#define OB_STDBY_NO_RST_D2     FLASH_OPTSR_NRST_STBY_D2 /*!< No reset generated when entering the D2 to standby mode */
+#define OB_STDBY_RST_D2        0x00000000U
+#define OB_STDBY_NO_RST_D2     FLASH_OPTSR_NRST_STBY_D2
 /**
   * @}
   */
@@ -576,8 +576,8 @@ typedef struct
 /** @defgroup FLASHEx_OB_SWAP_BANK  FLASHEx OB SWAP BANK
   * @{
   */
-#define OB_SWAP_BANK_DISABLE   0x00000000U               /*!< Bank swap disabled */
-#define OB_SWAP_BANK_ENABLE    FLASH_OPTSR_SWAP_BANK_OPT /*!< Bank swap enabled */
+#define OB_SWAP_BANK_DISABLE   0x00000000U
+#define OB_SWAP_BANK_ENABLE    FLASH_OPTSR_SWAP_BANK_OPT
 /**
   * @}
   */
@@ -586,8 +586,8 @@ typedef struct
 /** @defgroup FLASHEx_OB_IOHSLV FLASHEx OB IOHSLV
   * @{
   */
-#define OB_IOHSLV_DISABLE      0x00000000U         /*!< IOHSLV disabled */
-#define OB_IOHSLV_ENABLE       FLASH_OPTSR_IO_HSLV /*!< IOHSLV enabled */
+#define OB_IOHSLV_DISABLE      0x00000000U
+#define OB_IOHSLV_ENABLE       FLASH_OPTSR_IO_HSLV
 /**
   * @}
   */
@@ -596,8 +596,8 @@ typedef struct
 /** @defgroup FLASHEx_OB_VDDMMC_HSLV FLASHEx OB VDDMMC HSLV
   * @{
   */
-#define OB_VDDMMC_HSLV_DISABLE 0x00000000U             /*!< VDDMMC HSLV disabled */
-#define OB_VDDMMC_HSLV_ENABLE  FLASH_OPTSR_VDDMMC_HSLV /*!< VDDMMC HSLV enabled */
+#define OB_VDDMMC_HSLV_DISABLE 0x00000000U
+#define OB_VDDMMC_HSLV_ENABLE  FLASH_OPTSR_VDDMMC_HSLV
 /**
   * @}
   */
@@ -607,8 +607,8 @@ typedef struct
 /** @defgroup FLASHEx_OB_CPUFREQ_BOOST FLASHEx OB CPUFREQ BOOST
   * @{
   */
-#define OB_CPUFREQ_BOOST_DISABLE     0x00000000U                /*!< CPUFREQ BOOST disabled */
-#define OB_CPUFREQ_BOOST_ENABLE      FLASH_OPTSR2_CPUFREQ_BOOST /*!< CPUFREQ BOOST enabled */
+#define OB_CPUFREQ_BOOST_DISABLE     0x00000000U
+#define OB_CPUFREQ_BOOST_ENABLE      FLASH_OPTSR2_CPUFREQ_BOOST
 /**
   * @}
   */
@@ -618,10 +618,10 @@ typedef struct
 /** @defgroup FLASHEx_OB_TCM_AXI_SHARED  FLASHEx OB TCM AXI SHARED
   * @{
   */
-#define OB_TCM_AXI_SHARED_ITCM64KB   0x00000000U                   /*!< 64KB ITCM / 320KB system AXI  */
-#define OB_TCM_AXI_SHARED_ITCM128KB  FLASH_OPTSR2_TCM_AXI_SHARED_0 /*!< 128KB ITCM / 256KB system AXI */
-#define OB_TCM_AXI_SHARED_ITCM192KB  FLASH_OPTSR2_TCM_AXI_SHARED_1 /*!< 192KB ITCM / 192KB system AXI */
-#define OB_TCM_AXI_SHARED_ITCM256KB  FLASH_OPTSR2_TCM_AXI_SHARED   /*!< 256KB ITCM / 128KB system AXI */
+#define OB_TCM_AXI_SHARED_ITCM64KB   0x00000000U
+#define OB_TCM_AXI_SHARED_ITCM128KB  FLASH_OPTSR2_TCM_AXI_SHARED_0
+#define OB_TCM_AXI_SHARED_ITCM192KB  FLASH_OPTSR2_TCM_AXI_SHARED_1
+#define OB_TCM_AXI_SHARED_ITCM256KB  FLASH_OPTSR2_TCM_AXI_SHARED
 /**
   * @}
   */
@@ -630,28 +630,28 @@ typedef struct
  /** @defgroup FLASHEx_OB_USER_Type  FLASHEx OB USER Type
   * @{
   */
-#define OB_USER_IWDG1_SW          0x0001U /*!< Independent watchdog selection */
-#define OB_USER_NRST_STOP_D1      0x0002U /*!< Reset when entering Stop mode selection*/
-#define OB_USER_NRST_STDBY_D1     0x0004U /*!< Reset when entering standby mode selection*/
-#define OB_USER_IWDG_STOP         0x0008U /*!< Independent watchdog counter freeze in stop mode */
-#define OB_USER_IWDG_STDBY        0x0010U /*!< Independent watchdog counter freeze in standby mode */
-#define OB_USER_ST_RAM_SIZE       0x0020U /*!< dedicated DTCM Ram size selection */
-#define OB_USER_SECURITY          0x0040U /*!< security selection */
-#define OB_USER_IOHSLV            0x0080U /*!< IO HSLV selection */
+#define OB_USER_IWDG1_SW          0x0001U
+#define OB_USER_NRST_STOP_D1      0x0002U
+#define OB_USER_NRST_STDBY_D1     0x0004U
+#define OB_USER_IWDG_STOP         0x0008U
+#define OB_USER_IWDG_STDBY        0x0010U
+#define OB_USER_ST_RAM_SIZE       0x0020U
+#define OB_USER_SECURITY          0x0040U
+#define OB_USER_IOHSLV            0x0080U
 #if defined (DUAL_BANK)
-#define OB_USER_SWAP_BANK         0x0100U /*!< Bank swap selection */
+#define OB_USER_SWAP_BANK         0x0100U
 #endif /* DUAL_BANK */
 #if defined (FLASH_OPTSR_VDDMMC_HSLV)
-#define OB_USER_VDDMMC_HSLV       0x0200U /*!< VDDMMC HSLV selection */
+#define OB_USER_VDDMMC_HSLV       0x0200U
 #endif /* FLASH_OPTSR_VDDMMC_HSLV */
 #if defined (DUAL_CORE)
-#define OB_USER_IWDG2_SW          0x0200U /*!< Window watchdog selection */
-#define OB_USER_BCM4              0x0400U /*!< CM4 boot selection */
-#define OB_USER_BCM7              0x0800U /*!< CM7 boot selection */
+#define OB_USER_IWDG2_SW          0x0200U
+#define OB_USER_BCM4              0x0400U
+#define OB_USER_BCM7              0x0800U
 #endif /*DUAL_CORE*/
 #if defined (FLASH_OPTSR_NRST_STOP_D2)
-#define OB_USER_NRST_STOP_D2      0x1000U /*!< Reset when entering Stop mode selection */
-#define OB_USER_NRST_STDBY_D2     0x2000U /*!< Reset when entering standby mode selection */
+#define OB_USER_NRST_STOP_D2      0x1000U
+#define OB_USER_NRST_STDBY_D2     0x2000U
 #endif /* FLASH_OPTSR_NRST_STOP_D2 */
 
 #if defined (DUAL_CORE)
@@ -695,9 +695,9 @@ typedef struct
 /** @defgroup FLASHEx_OB_BOOT_OPTION  FLASHEx OB BOOT OPTION
   * @{
   */
-#define OB_BOOT_ADD0           0x01U       /*!< Select Boot Address 0 */
-#define OB_BOOT_ADD1           0x02U       /*!< Select Boot Address 1 */
-#define OB_BOOT_ADD_BOTH       0x03U       /*!< Select Boot Address 0 and 1 */
+#define OB_BOOT_ADD0           0x01U
+#define OB_BOOT_ADD1           0x02U
+#define OB_BOOT_ADD_BOTH       0x03U
 /**
   * @}
   */
@@ -716,9 +716,9 @@ typedef struct
 /** @defgroup FLASHEx_CRC_Selection_Type FLASH CRC Selection Type
   * @{
   */
-#define FLASH_CRC_ADDR         0x00000000U              /*!< CRC selection type by address  */
-#define FLASH_CRC_SECTORS      FLASH_CRCCR_CRC_BY_SECT  /*!< CRC selection type by sectors  */
-#define FLASH_CRC_BANK         (FLASH_CRCCR_ALL_BANK | FLASH_CRCCR_CRC_BY_SECT) /*!< CRC selection type by bank */
+#define FLASH_CRC_ADDR         0x00000000U
+#define FLASH_CRC_SECTORS      FLASH_CRCCR_CRC_BY_SECT
+#define FLASH_CRC_BANK         (FLASH_CRCCR_ALL_BANK | FLASH_CRCCR_CRC_BY_SECT)
 /**
   * @}
   */
@@ -726,10 +726,10 @@ typedef struct
 /** @defgroup FLASHEx_CRC_Burst_Size FLASH CRC Burst Size
   * @{
   */
-#define FLASH_CRC_BURST_SIZE_4    0x00000000U              /*!< Every burst has a size of 4 Flash words (256-bit)  */
-#define FLASH_CRC_BURST_SIZE_16   FLASH_CRCCR_CRC_BURST_0  /*!< Every burst has a size of 16 Flash words (256-bit)   */
-#define FLASH_CRC_BURST_SIZE_64   FLASH_CRCCR_CRC_BURST_1  /*!< Every burst has a size of 64 Flash words (256-bit)   */
-#define FLASH_CRC_BURST_SIZE_256  FLASH_CRCCR_CRC_BURST    /*!< Every burst has a size of 256 Flash words (256-bit) */
+#define FLASH_CRC_BURST_SIZE_4    0x00000000U
+#define FLASH_CRC_BURST_SIZE_16   FLASH_CRCCR_CRC_BURST_0
+#define FLASH_CRC_BURST_SIZE_64   FLASH_CRCCR_CRC_BURST_1
+#define FLASH_CRC_BURST_SIZE_256  FLASH_CRCCR_CRC_BURST
 /**
   * @}
   */
@@ -737,10 +737,10 @@ typedef struct
 /** @defgroup FLASHEx_Programming_Delay FLASH Programming Delay
   * @{
   */
-#define FLASH_PROGRAMMING_DELAY_0   0x00000000U            /*!< programming delay set for Flash running at 70 MHz or below          */
-#define FLASH_PROGRAMMING_DELAY_1   FLASH_ACR_WRHIGHFREQ_0 /*!< programming delay set for Flash running between 70 MHz and 185 MHz  */
-#define FLASH_PROGRAMMING_DELAY_2   FLASH_ACR_WRHIGHFREQ_1 /*!< programming delay set for Flash running between 185 MHz and 225 MHz */
-#define FLASH_PROGRAMMING_DELAY_3   FLASH_ACR_WRHIGHFREQ   /*!< programming delay set for Flash at startup */
+#define FLASH_PROGRAMMING_DELAY_0   0x00000000U
+#define FLASH_PROGRAMMING_DELAY_1   FLASH_ACR_WRHIGHFREQ_0
+#define FLASH_PROGRAMMING_DELAY_2   FLASH_ACR_WRHIGHFREQ_1
+#define FLASH_PROGRAMMING_DELAY_3   FLASH_ACR_WRHIGHFREQ
 /**
   * @}
   */
@@ -749,23 +749,23 @@ typedef struct
 /** @defgroup FLASHEx_OTP_Blocks FLASH OTP blocks
   * @{
   */
-#define FLASH_OTP_BLOCK_0          0x00000001U /*!< OTP Block0     */
-#define FLASH_OTP_BLOCK_1          0x00000002U /*!< OTP Block1     */
-#define FLASH_OTP_BLOCK_2          0x00000004U /*!< OTP Block2     */
-#define FLASH_OTP_BLOCK_3          0x00000008U /*!< OTP Block3     */
-#define FLASH_OTP_BLOCK_4          0x00000010U /*!< OTP Block4     */
-#define FLASH_OTP_BLOCK_5          0x00000020U /*!< OTP Block5     */
-#define FLASH_OTP_BLOCK_6          0x00000040U /*!< OTP Block6     */
-#define FLASH_OTP_BLOCK_7          0x00000080U /*!< OTP Block7     */
-#define FLASH_OTP_BLOCK_8          0x00000100U /*!< OTP Block8     */
-#define FLASH_OTP_BLOCK_9          0x00000200U /*!< OTP Block9     */
-#define FLASH_OTP_BLOCK_10         0x00000400U /*!< OTP Block10    */
-#define FLASH_OTP_BLOCK_11         0x00000800U /*!< OTP Block11    */
-#define FLASH_OTP_BLOCK_12         0x00001000U /*!< OTP Block12    */
-#define FLASH_OTP_BLOCK_13         0x00002000U /*!< OTP Block13    */
-#define FLASH_OTP_BLOCK_14         0x00004000U /*!< OTP Block14    */
-#define FLASH_OTP_BLOCK_15         0x00008000U /*!< OTP Block15    */
-#define FLASH_OTP_BLOCK_ALL        0x0000FFFFU /*!< OTP All Blocks */
+#define FLASH_OTP_BLOCK_0          0x00000001U
+#define FLASH_OTP_BLOCK_1          0x00000002U
+#define FLASH_OTP_BLOCK_2          0x00000004U
+#define FLASH_OTP_BLOCK_3          0x00000008U
+#define FLASH_OTP_BLOCK_4          0x00000010U
+#define FLASH_OTP_BLOCK_5          0x00000020U
+#define FLASH_OTP_BLOCK_6          0x00000040U
+#define FLASH_OTP_BLOCK_7          0x00000080U
+#define FLASH_OTP_BLOCK_8          0x00000100U
+#define FLASH_OTP_BLOCK_9          0x00000200U
+#define FLASH_OTP_BLOCK_10         0x00000400U
+#define FLASH_OTP_BLOCK_11         0x00000800U
+#define FLASH_OTP_BLOCK_12         0x00001000U
+#define FLASH_OTP_BLOCK_13         0x00002000U
+#define FLASH_OTP_BLOCK_14         0x00004000U
+#define FLASH_OTP_BLOCK_15         0x00008000U
+#define FLASH_OTP_BLOCK_ALL        0x0000FFFFU
 /**
   * @}
   */

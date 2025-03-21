@@ -30,9 +30,9 @@
  */
 #define IEEE802154_PHY_CCA_MODE 3
 
-#define IEEE802154_PHY_SHR_DURATION 10 /* in symbols, 8 preamble and 2 SFD, see section 12.1.2 */
+#define IEEE802154_PHY_SHR_DURATION 10
 
-#define IEEE802154_PHY_SYMBOLS_PER_OCTET 2 /* see section 12.2.1 */
+#define IEEE802154_PHY_SYMBOLS_PER_OCTET 2
 
 /* ACK is 2 bytes for PHY header + 2 bytes MAC header + 2 bytes MAC footer */
 #define IEEE802154_ACK_FRAME_OCTETS 6
@@ -65,7 +65,7 @@ struct ieee802154_cc13xx_cc26xx_data {
 
 	struct net_if *iface;
 
-	uint8_t mac[8]; /* in big endian */
+	uint8_t mac[8];
 
 	struct k_mutex tx_mutex;
 

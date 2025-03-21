@@ -18,16 +18,16 @@
 /* Cluster AUX */
 #define _ARC_REG_CLN_BCR                        0xcf
 
-#define _ARC_CLNR_ADDR                          0x640 /* CLN address for CLNR_DATA */
-#define _ARC_CLNR_DATA                          0x641 /* CLN data indicated by CLNR_ADDR */
-#define _ARC_CLNR_DATA_NXT                      0x642 /* CLNR_DATA and then CLNR_ADDR++ */
+#define _ARC_CLNR_ADDR                          0x640
+#define _ARC_CLNR_DATA                          0x641
+#define _ARC_CLNR_DATA_NXT                      0x642
 #define _ARC_CLNR_BCR_0                         0xF61
 #define _ARC_CLNR_BCR_1                         0xF62
 #define _ARC_CLNR_BCR_2                         0xF63
 #define _ARC_CLNR_SCM_BCR_0                     0xF64
 #define _ARC_CLNR_SCM_BCR_1                     0xF65
 
-#define _ARC_REG_CLN_BCR_VER_MAJOR_ARCV3_MIN    32    /* Minimal version of cluster in ARCv3 */
+#define _ARC_REG_CLN_BCR_VER_MAJOR_ARCV3_MIN    32
 #define _ARC_CLN_BCR_VER_MAJOR_MASK             0xff
 #define _ARC_CLNR_BCR_0_HAS_SCM                 BIT(29)
 

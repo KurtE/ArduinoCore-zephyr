@@ -699,8 +699,8 @@ typedef MLAN_PACK_START enum _mlan_wmm_queue_stats_action_e {
     MLAN_WMM_STATS_ACTION_START   = 0,
     MLAN_WMM_STATS_ACTION_STOP    = 1,
     MLAN_WMM_STATS_ACTION_GET_CLR = 2,
-    MLAN_WMM_STATS_ACTION_SET_CFG = 3, /* Not currently used */
-    MLAN_WMM_STATS_ACTION_GET_CFG = 4, /* Not currently used */
+    MLAN_WMM_STATS_ACTION_SET_CFG = 3,
+    MLAN_WMM_STATS_ACTION_GET_CFG = 4,
     MLAN_WMM_STATS_ACTION_MAX
 } MLAN_PACK_END mlan_wmm_queue_stats_action_e;
 

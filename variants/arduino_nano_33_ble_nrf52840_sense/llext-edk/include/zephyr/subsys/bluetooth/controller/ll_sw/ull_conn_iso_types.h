@@ -9,8 +9,8 @@ struct ll_conn;
 typedef void (*ll_iso_stream_released_cb_t)(struct ll_conn *conn);
 
 #define CIG_STATE_NO_CIG       0
-#define CIG_STATE_CONFIGURABLE 1 /* Central only */
-#define CIG_STATE_INITIATING   2 /* Central only */
+#define CIG_STATE_CONFIGURABLE 1
+#define CIG_STATE_INITIATING   2
 #define CIG_STATE_ACTIVE       3
 #define CIG_STATE_INACTIVE     4
 
@@ -20,15 +20,15 @@ struct ll_conn_iso_stream {
 
 	struct ll_conn_iso_group *group;
 
-	uint16_t c_max_sdu:12;    /* Maximum SDU size C_To_P */
-	uint16_t p_max_sdu:12;    /* Maximum SDU size P_To_C */
-	uint8_t  framed:1;        /* 0: unframed, 1: framed */
+	uint16_t c_max_sdu:12;
+	uint16_t p_max_sdu:12;
+	uint8_t  framed:1;
 	uint16_t established:1;   /* 0 if CIS has not yet been established.
 				   * 1 if CIS has been established and host
 				   * notified.
 				   */
-	uint16_t trx_performed:1; /* 1 if CIS had a transaction */
-	uint16_t teardown:1;      /* 1 if CIS teardown has been initiated */
+	uint16_t trx_performed:1;
+	uint16_t teardown:1;
 
 	union {
 		struct {
@@ -38,10 +38,10 @@ struct ll_conn_iso_stream {
 		} central;
 	};
 
-	uint32_t offset;          /* Offset of CIS from ACL event in us */
+	uint32_t offset;
 	uint32_t sync_delay;
 
-	ll_iso_stream_released_cb_t released_cb; /* CIS release callback */
+	ll_iso_stream_released_cb_t released_cb;
 
 	uint16_t event_expire;     /* Supervision & Connect Timeout event
 				    * counter
@@ -80,14 +80,14 @@ struct ll_conn_iso_group {
 				 * CIG_STATE_INITIATING (central only), CIG_STATE_ACTIVE or
 				 * CIG_STATE_INACTIVE.
 				 */
-	uint8_t  sca_update:4;  /* (new SCA)+1 to trigger restart of ticker */
+	uint8_t  sca_update:4;
 
 	union {
 		struct {
 			uint8_t sca;
 			uint8_t packing;
 			uint8_t framing;
-			uint8_t test:1; /* HCI_LE_Set_CIG_Parameters_Test */
+			uint8_t test:1;
 		} central;
 	};
 };

@@ -153,7 +153,7 @@ enum has_client_flags {
 	HAS_CLIENT_DISCOVER_IN_PROGRESS,
 	HAS_CLIENT_CP_OPERATION_IN_PROGRESS,
 
-	HAS_CLIENT_NUM_FLAGS, /* keep as last */
+	HAS_CLIENT_NUM_FLAGS,
 };
 
 struct bt_has_client {

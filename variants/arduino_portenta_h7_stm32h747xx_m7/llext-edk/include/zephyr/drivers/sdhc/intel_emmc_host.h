@@ -183,87 +183,87 @@
 #define ADDRESS_32BIT_MASK 0xFFFFFFFF
 
 struct emmc_reg {
-	volatile uint32_t sdma_sysaddr;  /**< SDMA System Address */
-	volatile uint16_t block_size;    /**< Block Size */
-	volatile uint16_t block_count;   /**< Block Count */
-	volatile uint32_t argument;      /**< Argument */
-	volatile uint16_t transfer_mode; /**< Transfer Mode */
-	volatile uint16_t cmd;           /**< Command */
+	volatile uint32_t sdma_sysaddr;
+	volatile uint16_t block_size;
+	volatile uint16_t block_count;
+	volatile uint32_t argument;
+	volatile uint16_t transfer_mode;
+	volatile uint16_t cmd;
 
-	volatile uint32_t resp_01;              /**< Response Register 0 & 1 */
-	volatile uint16_t resp_2;               /**< Response Register 2*/
-	volatile uint16_t resp_3;               /**< Response Register 3 */
-	volatile uint16_t resp_4;               /**< Response Register 4 */
-	volatile uint16_t resp_5;               /**< Response Register 5 */
-	volatile uint16_t resp_6;               /**< Response Register 6 */
-	volatile uint16_t resp_7;               /**< Response Register 7 */
-	volatile uint32_t data_port;            /**< Buffer Data Port */
-	volatile uint32_t present_state;        /**< Present State */
-	volatile uint8_t host_ctrl1;            /**< Host Control 1 */
-	volatile uint8_t power_ctrl;            /**< Power Control */
-	volatile uint8_t block_gap_ctrl;        /**< Block Gap Control */
-	volatile uint8_t wake_up_ctrl;          /**< Wakeup Control */
-	volatile uint16_t clock_ctrl;           /**< Clock Control */
-	volatile uint8_t timeout_ctrl;          /**< Timeout Control */
-	volatile uint8_t sw_reset;              /**< Software Reset */
-	volatile uint16_t normal_int_stat;      /**< Normal Interrupt Status */
-	volatile uint16_t err_int_stat;         /**< Error Interrupt Status */
-	volatile uint16_t normal_int_stat_en;   /**< Normal Interrupt Status Enable */
-	volatile uint16_t err_int_stat_en;      /**< Error Interrupt Status Enable */
-	volatile uint16_t normal_int_signal_en; /**< Normal Interrupt Signal Enable */
-	volatile uint16_t err_int_signal_en;    /**< Error Interrupt Signal Enable */
-	volatile uint16_t auto_cmd_err_stat;    /**< Auto CMD Error Status */
-	volatile uint16_t host_ctrl2;           /**< Host Control 2 */
-	volatile uint64_t capabilities;         /**< Capabilities */
+	volatile uint32_t resp_01;
+	volatile uint16_t resp_2;
+	volatile uint16_t resp_3;
+	volatile uint16_t resp_4;
+	volatile uint16_t resp_5;
+	volatile uint16_t resp_6;
+	volatile uint16_t resp_7;
+	volatile uint32_t data_port;
+	volatile uint32_t present_state;
+	volatile uint8_t host_ctrl1;
+	volatile uint8_t power_ctrl;
+	volatile uint8_t block_gap_ctrl;
+	volatile uint8_t wake_up_ctrl;
+	volatile uint16_t clock_ctrl;
+	volatile uint8_t timeout_ctrl;
+	volatile uint8_t sw_reset;
+	volatile uint16_t normal_int_stat;
+	volatile uint16_t err_int_stat;
+	volatile uint16_t normal_int_stat_en;
+	volatile uint16_t err_int_stat_en;
+	volatile uint16_t normal_int_signal_en;
+	volatile uint16_t err_int_signal_en;
+	volatile uint16_t auto_cmd_err_stat;
+	volatile uint16_t host_ctrl2;
+	volatile uint64_t capabilities;
 
-	volatile uint64_t max_current_cap;        /**< Max Current Capabilities */
-	volatile uint16_t force_err_autocmd_stat; /**< Force Event for Auto CMD Error Status*/
-	volatile uint16_t force_err_int_stat;     /**< Force Event for Error Interrupt Status */
-	volatile uint8_t adma_err_stat;           /**< ADMA Error Status */
+	volatile uint64_t max_current_cap;
+	volatile uint16_t force_err_autocmd_stat;
+	volatile uint16_t force_err_int_stat;
+	volatile uint8_t adma_err_stat;
 	volatile uint8_t reserved[3];
-	volatile uint32_t adma_sys_addr1; /**< ADMA System Address1 */
-	volatile uint32_t adma_sys_addr2; /**< ADMA System Address2 */
-	volatile uint16_t preset_val_0;   /**< Preset Value 0 */
-	volatile uint16_t preset_val_1;   /**< Preset Value 1 */
-	volatile uint16_t preset_val_2;   /**< Preset Value 2 */
-	volatile uint16_t preset_val_3;   /**< Preset Value 3 */
-	volatile uint16_t preset_val_4;   /**< Preset Value 4 */
-	volatile uint16_t preset_val_5;   /**< Preset Value 5 */
-	volatile uint16_t preset_val_6;   /**< Preset Value 6 */
-	volatile uint16_t preset_val_7;   /**< Preset Value 7 */
-	volatile uint32_t boot_timeout;   /**< Boot Timeout */
-	volatile uint16_t preset_val_8;   /**< Preset Value 8 */
+	volatile uint32_t adma_sys_addr1;
+	volatile uint32_t adma_sys_addr2;
+	volatile uint16_t preset_val_0;
+	volatile uint16_t preset_val_1;
+	volatile uint16_t preset_val_2;
+	volatile uint16_t preset_val_3;
+	volatile uint16_t preset_val_4;
+	volatile uint16_t preset_val_5;
+	volatile uint16_t preset_val_6;
+	volatile uint16_t preset_val_7;
+	volatile uint32_t boot_timeout;
+	volatile uint16_t preset_val_8;
 	volatile uint16_t reserved3;
-	volatile uint16_t vendor_reg; /**< Vendor Enhanced strobe */
+	volatile uint16_t vendor_reg;
 	volatile uint16_t reserved4[56];
 	volatile uint32_t reserved5[4];
-	volatile uint16_t slot_intr_stat;     /**< Slot Interrupt Status */
-	volatile uint16_t host_cntrl_version; /**< Host Controller Version */
+	volatile uint16_t slot_intr_stat;
+	volatile uint16_t host_cntrl_version;
 	volatile uint32_t reserved6[64];
-	volatile uint32_t cq_ver;            /**< Command Queue Version */
-	volatile uint32_t cq_cap;            /**< Command Queue Capabilities */
-	volatile uint32_t cq_cfg;            /**< Command Queue Configuration */
-	volatile uint32_t cq_ctrl;           /**< Command Queue Control */
-	volatile uint32_t cq_intr_stat;      /**< Command Queue Interrupt Status */
-	volatile uint32_t cq_intr_stat_en;   /**< Command Queue Interrupt Status Enable */
-	volatile uint32_t cq_intr_sig_en;    /**< Command Queue Interrupt Signal Enable */
-	volatile uint32_t cq_intr_coalesc;   /**< Command Queue Interrupt Coalescing */
-	volatile uint32_t cq_tdlba;          /**< Command Queue Task Desc List Base Addr */
-	volatile uint32_t cq_tdlba_upr;      /**< Command Queue Task Desc List Base Addr Upr */
-	volatile uint32_t cq_task_db;        /**< Command Queue Task DoorBell */
-	volatile uint32_t cq_task_db_notify; /**< Command Queue Task DoorBell Notify */
-	volatile uint32_t cq_dev_qstat;      /**< Command Queue Device queue status */
-	volatile uint32_t cq_dev_pend_task;  /**< Command Queue Device pending tasks */
-	volatile uint32_t cq_task_clr;       /**< Command Queue Task Clr */
+	volatile uint32_t cq_ver;
+	volatile uint32_t cq_cap;
+	volatile uint32_t cq_cfg;
+	volatile uint32_t cq_ctrl;
+	volatile uint32_t cq_intr_stat;
+	volatile uint32_t cq_intr_stat_en;
+	volatile uint32_t cq_intr_sig_en;
+	volatile uint32_t cq_intr_coalesc;
+	volatile uint32_t cq_tdlba;
+	volatile uint32_t cq_tdlba_upr;
+	volatile uint32_t cq_task_db;
+	volatile uint32_t cq_task_db_notify;
+	volatile uint32_t cq_dev_qstat;
+	volatile uint32_t cq_dev_pend_task;
+	volatile uint32_t cq_task_clr;
 	volatile uint32_t reserved7;
-	volatile uint32_t cq_ssc1;  /**< Command Queue Send Status Configuration 1 */
-	volatile uint32_t cq_ssc2;  /**< Command Queue Send Status Configuration 2 */
-	volatile uint32_t cq_crdct; /**< Command response for direct command */
+	volatile uint32_t cq_ssc1;
+	volatile uint32_t cq_ssc2;
+	volatile uint32_t cq_crdct;
 	volatile uint32_t reserved8;
-	volatile uint32_t cq_rmem;  /**< Command response mode error mask */
-	volatile uint32_t cq_terri; /**< Command Queue Task Error Information */
-	volatile uint32_t cq_cri;   /**< Command Queue Command response index */
-	volatile uint32_t cq_cra;   /**< Command Queue Command response argument */
+	volatile uint32_t cq_rmem;
+	volatile uint32_t cq_terri;
+	volatile uint32_t cq_cri;
+	volatile uint32_t cq_cra;
 	volatile uint32_t reserved9[425];
 };
 

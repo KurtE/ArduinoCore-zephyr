@@ -33,7 +33,7 @@ extern "C" {
 		: [reason] "i" (reason_p), \
 		[id] "i" (_TRAP_S_CALL_RUNTIME_EXCEPT) \
 		: "memory"); \
-		CODE_UNREACHABLE; /* LCOV_EXCL_LINE */ \
+		CODE_UNREACHABLE; \
 	} while (false)
 
 #ifdef __cplusplus

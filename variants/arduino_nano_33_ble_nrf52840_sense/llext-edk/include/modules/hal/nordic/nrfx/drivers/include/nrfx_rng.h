@@ -50,8 +50,8 @@ extern "C" {
 /** @brief Struct for RNG configuration. */
 typedef struct
 {
-    bool     error_correction : 1;  /**< Error correction flag. */
-    uint8_t  interrupt_priority;    /**< Interrupt priority. */
+    bool     error_correction : 1;
+    uint8_t  interrupt_priority;
 } nrfx_rng_config_t;
 
 /**

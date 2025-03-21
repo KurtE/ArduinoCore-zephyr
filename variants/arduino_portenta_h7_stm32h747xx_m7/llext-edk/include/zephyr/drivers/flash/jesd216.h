@@ -29,12 +29,12 @@
 
 /* Layout of a JESD216 parameter header. */
 struct jesd216_param_header {
-	uint8_t id_lsb;		/* ID LSB */
-	uint8_t rev_minor;	/* Minor revision number */
-	uint8_t rev_major;	/* Major revision number */
-	uint8_t len_dw;		/* Length of table in 32-bit DWORDs */
-	uint8_t ptp[3];		/* Address of table in SFDP space (LSB@0) */
-	uint8_t id_msb;		/* ID MSB */
+	uint8_t id_lsb;
+	uint8_t rev_minor;
+	uint8_t rev_major;
+	uint8_t len_dw;
+	uint8_t ptp[3];
+	uint8_t id_msb;
 } __packed;
 
 /* Get the number of bytes required for the parameter table. */
@@ -61,12 +61,12 @@ static inline uint32_t jesd216_param_addr(const struct jesd216_param_header *hp)
 
 /* Layout of the Serial Flash Discoverable Parameters header. */
 struct jesd216_sfdp_header {
-	uint32_t magic;		/* "SFDP" in little endian */
-	uint8_t rev_minor;	/* Minor revision number */
-	uint8_t rev_major;	/* Major revision number */
-	uint8_t nph;		/* Number of parameter headers */
-	uint8_t access;		/* Access protocol */
-	struct jesd216_param_header phdr[]; /* Headers */
+	uint32_t magic;
+	uint8_t rev_minor;
+	uint8_t rev_major;
+	uint8_t nph;
+	uint8_t access;
+	struct jesd216_param_header phdr[];
 } __packed;
 
 /* SFDP access protocol for backwards compatibility with JESD216B. */
@@ -229,7 +229,7 @@ static inline uint64_t jesd216_bfp_density(const struct jesd216_bfp *hp)
  * about instruction support.
  */
 enum jesd216_mode_type {
-	JESD216_MODE_044,	/* implied instruction, execute in place */
+	JESD216_MODE_044,
 	JESD216_MODE_088,
 	JESD216_MODE_111,
 	JESD216_MODE_112,

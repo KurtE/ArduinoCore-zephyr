@@ -39,12 +39,12 @@ enum x86_memmap_entry_type {
 	 * that partially-initialized arrays behave as expected.
 	 */
 
-	X86_MEMMAP_ENTRY_UNUSED,	/* this entry is unused/invalid */
-	X86_MEMMAP_ENTRY_RAM,		/* available RAM */
-	X86_MEMMAP_ENTRY_ACPI,		/* reserved for ACPI */
-	X86_MEMMAP_ENTRY_NVS,		/* preserve during hibernation */
-	X86_MEMMAP_ENTRY_DEFECTIVE,	/* bad memory modules */
-	X86_MEMMAP_ENTRY_UNKNOWN	/* unknown type, do not use */
+	X86_MEMMAP_ENTRY_UNUSED,
+	X86_MEMMAP_ENTRY_RAM,
+	X86_MEMMAP_ENTRY_ACPI,
+	X86_MEMMAP_ENTRY_NVS,
+	X86_MEMMAP_ENTRY_DEFECTIVE,
+	X86_MEMMAP_ENTRY_UNKNOWN
 };
 
 struct x86_memmap_entry {
@@ -63,8 +63,8 @@ extern struct x86_memmap_entry x86_memmap[];
 
 struct x86_memmap_exclusion {
 	char *name;
-	void *start;		/* address of first byte of exclusion */
-	void *end;		/* one byte past end of exclusion */
+	void *start;
+	void *end;
 };
 
 extern struct x86_memmap_exclusion x86_memmap_exclusions[];

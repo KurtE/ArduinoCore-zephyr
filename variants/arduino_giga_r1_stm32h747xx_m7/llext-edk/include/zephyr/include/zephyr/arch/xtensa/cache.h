@@ -337,7 +337,7 @@ static ALWAYS_INLINE void arch_cache_init(void)
 
 
 #ifdef __cplusplus
-} /* extern "C" */
+}
 #endif
 
 #endif /* ZEPHYR_INCLUDE_ARCH_XTENSA_CACHE_H_ */

@@ -16,8 +16,8 @@
 #ifndef ZEPHYR_INCLUDE_ARCH_X86_IA32_SYSCALL_H_
 #define ZEPHYR_INCLUDE_ARCH_X86_IA32_SYSCALL_H_
 
-#define USER_CODE_SEG	0x2b /* at dpl=3 */
-#define USER_DATA_SEG	0x33 /* at dpl=3 */
+#define USER_CODE_SEG	0x2b
+#define USER_DATA_SEG	0x33
 
 #ifdef CONFIG_USERSPACE
 #ifndef _ASMLANGUAGE

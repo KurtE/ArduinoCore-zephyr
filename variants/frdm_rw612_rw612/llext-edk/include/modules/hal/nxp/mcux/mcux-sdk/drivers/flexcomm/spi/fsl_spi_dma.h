@@ -36,22 +36,22 @@ typedef void (*spi_dma_callback_t)(SPI_Type *base, spi_dma_handle_t *handle, sta
 /*! @brief SPI DMA transfer handle, users should not touch the content of the handle.*/
 struct _spi_dma_handle
 {
-    volatile bool txInProgress;  /*!< Send transfer finished */
-    volatile bool rxInProgress;  /*!< Receive transfer finished */
-    uint8_t bytesPerFrame;       /*!< Bytes in a frame for SPI transfer */
-    uint8_t lastwordBytes;       /*!< The Bytes of lastword for master*/
-    dma_handle_t *txHandle;      /*!< DMA handler for SPI send */
-    dma_handle_t *rxHandle;      /*!< DMA handler for SPI receive */
-    spi_dma_callback_t callback; /*!< Callback for SPI DMA transfer */
-    void *userData;              /*!< User Data for SPI DMA callback */
-    uint32_t state;              /*!< Internal state of SPI DMA transfer */
-    size_t transferSize;         /*!< Bytes need to be transfer */
-    uint32_t instance;           /*!< Index of SPI instance*/
-    const uint8_t *txNextData;   /*!< The pointer of next time tx data*/
-    const uint8_t *txEndData;    /*!< The pointer of end of data*/
-    uint8_t *rxNextData;         /*!< The pointer of next time rx data*/
-    uint8_t *rxEndData;          /*!< The pointer of end of rx data*/
-    uint32_t dataBytesEveryTime; /*!< Bytes in a time for DMA transfer, default is DMA_MAX_TRANSFER_COUNT */
+    volatile bool txInProgress;
+    volatile bool rxInProgress;
+    uint8_t bytesPerFrame;
+    uint8_t lastwordBytes;
+    dma_handle_t *txHandle;
+    dma_handle_t *rxHandle;
+    spi_dma_callback_t callback;
+    void *userData;
+    uint32_t state;
+    size_t transferSize;
+    uint32_t instance;
+    const uint8_t *txNextData;
+    const uint8_t *txEndData;
+    uint8_t *rxNextData;
+    uint8_t *rxEndData;
+    uint32_t dataBytesEveryTime;
 };
 
 /*******************************************************************************

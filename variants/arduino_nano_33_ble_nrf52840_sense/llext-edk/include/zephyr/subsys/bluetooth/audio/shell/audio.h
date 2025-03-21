@@ -533,7 +533,7 @@ static inline void print_codec_cap(size_t indent, const struct bt_audio_codec_ca
 		if (ret >= 0) {
 			print_codec_cap_max_codec_frames_per_sdu(indent, (uint8_t)ret);
 		}
-	} else { /* If not LC3, we cannot assume it's LTV */
+	} else {
 		bt_shell_fprintf_print("%*s", indent, "");
 
 		for (uint8_t i = 0U; i < codec_cap->data_len; i++) {
@@ -700,7 +700,7 @@ static inline void print_codec_cfg(size_t indent, const struct bt_audio_codec_cf
 		if (ret >= 0) {
 			print_codec_cfg_frame_blocks_per_sdu(indent, (uint8_t)ret);
 		}
-	} else { /* If not LC3, we cannot assume it's LTV */
+	} else {
 		bt_shell_fprintf_print("%*s", indent, "");
 
 		for (uint8_t i = 0U; i < codec_cfg->data_len; i++) {
@@ -820,7 +820,7 @@ static inline bool print_base_subgroup_bis_cb(const struct bt_bap_base_subgroup_
 			bt_shell_print("%*sCodec specific configuration:", indent, "");
 			print_ltv_array(indent, bis->data, bis->data_len);
 		}
-	} else { /* If not LC3, we cannot assume it's LTV */
+	} else {
 		bt_shell_print("%*sCodec specific configuration:", indent, "");
 
 		indent += SHELL_PRINT_INDENT_LEVEL_SIZE;
@@ -872,7 +872,7 @@ static inline bool print_base_subgroup_cb(const struct bt_bap_base_subgroup *sub
 		/* Print CC data */
 		if (codec_id.id == BT_HCI_CODING_FORMAT_LC3) {
 			print_ltv_array(indent, data, (uint8_t)ret);
-		} else { /* If not LC3, we cannot assume it's LTV */
+		} else {
 			bt_shell_fprintf_print("%*s", indent, "");
 
 			for (uint8_t i = 0U; i < (uint8_t)ret; i++) {
@@ -894,7 +894,7 @@ static inline bool print_base_subgroup_cb(const struct bt_bap_base_subgroup *sub
 		/* Print metadata */
 		if (codec_id.id == BT_HCI_CODING_FORMAT_LC3) {
 			print_ltv_array(indent, data, (uint8_t)ret);
-		} else { /* If not LC3, we cannot assume it's LTV */
+		} else {
 			bt_shell_fprintf_print("%*s", indent, "");
 
 			for (uint8_t i = 0U; i < (uint8_t)ret; i++) {

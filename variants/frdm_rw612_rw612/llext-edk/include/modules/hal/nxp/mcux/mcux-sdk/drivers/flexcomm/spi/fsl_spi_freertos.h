@@ -34,11 +34,11 @@
 /*! @brief SPI FreeRTOS handle */
 typedef struct _spi_rtos_handle
 {
-    SPI_Type *base;                 /*!< SPI base address */
-    spi_master_handle_t drv_handle; /*!< Handle of the underlying driver, treated as opaque by the RTOS layer */
+    SPI_Type *base;
+    spi_master_handle_t drv_handle;
     status_t async_status;
-    SemaphoreHandle_t mutex; /*!< Mutex to lock the handle during a trasfer */
-    SemaphoreHandle_t event; /*!< Semaphore to notify and unblock task when transfer ends */
+    SemaphoreHandle_t mutex;
+    SemaphoreHandle_t event;
 } spi_rtos_handle_t;
 
 /*******************************************************************************

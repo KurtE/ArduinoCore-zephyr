@@ -42,10 +42,10 @@ extern "C" {
  * QOS -1 is not supported yet.
  */
 enum mqtt_sn_qos {
-	MQTT_SN_QOS_0, /**< QOS 0 */
-	MQTT_SN_QOS_1, /**< QOS 1 */
-	MQTT_SN_QOS_2, /**< QOS 2 */
-	MQTT_SN_QOS_M1 /**< QOS -1 */
+	MQTT_SN_QOS_0,
+	MQTT_SN_QOS_1,
+	MQTT_SN_QOS_2,
+	MQTT_SN_QOS_M1
 };
 
 /**
@@ -75,16 +75,16 @@ enum mqtt_sn_topic_type {
  * MQTT-SN return codes.
  */
 enum mqtt_sn_return_code {
-	MQTT_SN_CODE_ACCEPTED = 0x00,            /**< Accepted */
-	MQTT_SN_CODE_REJECTED_CONGESTION = 0x01, /**< Rejected: congestion */
-	MQTT_SN_CODE_REJECTED_TOPIC_ID = 0x02,   /**< Rejected: Invalid Topic ID */
-	MQTT_SN_CODE_REJECTED_NOTSUP = 0x03,     /**< Rejected: Not Supported */
+	MQTT_SN_CODE_ACCEPTED = 0x00,
+	MQTT_SN_CODE_REJECTED_CONGESTION = 0x01,
+	MQTT_SN_CODE_REJECTED_TOPIC_ID = 0x02,
+	MQTT_SN_CODE_REJECTED_NOTSUP = 0x03,
 };
 
 /** @brief Abstracts memory buffers. */
 struct mqtt_sn_data {
-	const uint8_t *data; /**< Pointer to data. */
-	size_t size;         /**< Size of data, in bytes. */
+	const uint8_t *data;
+	size_t size;
 };
 
 /**
@@ -112,15 +112,15 @@ struct mqtt_sn_data {
  * Event types that can be emitted by the library.
  */
 enum mqtt_sn_evt_type {
-	MQTT_SN_EVT_CONNECTED,    /**< Connected to a gateway */
-	MQTT_SN_EVT_DISCONNECTED, /**< Disconnected */
-	MQTT_SN_EVT_ASLEEP,       /**< Entered ASLEEP state */
-	MQTT_SN_EVT_AWAKE,        /**< Entered AWAKE state */
-	MQTT_SN_EVT_PUBLISH,      /**< Received a PUBLISH message */
-	MQTT_SN_EVT_PINGRESP,     /**< Received a PINGRESP */
-	MQTT_SN_EVT_ADVERTISE,    /**< Received a ADVERTISE */
-	MQTT_SN_EVT_GWINFO,       /**< Received a GWINFO */
-	MQTT_SN_EVT_SEARCHGW      /**< Received a SEARCHGW */
+	MQTT_SN_EVT_CONNECTED,
+	MQTT_SN_EVT_DISCONNECTED,
+	MQTT_SN_EVT_ASLEEP,
+	MQTT_SN_EVT_AWAKE,
+	MQTT_SN_EVT_PUBLISH,
+	MQTT_SN_EVT_PINGRESP,
+	MQTT_SN_EVT_ADVERTISE,
+	MQTT_SN_EVT_GWINFO,
+	MQTT_SN_EVT_SEARCHGW
 };
 
 /**

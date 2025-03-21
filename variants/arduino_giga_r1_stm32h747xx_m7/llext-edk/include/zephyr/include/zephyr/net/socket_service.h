@@ -100,7 +100,7 @@ struct net_socket_service_desc {
 	static struct net_socket_service_event				\
 			__z_net_socket_svc_get_name(_name)[_count] = {	\
 		[0 ... ((_count) - 1)] = {				\
-			.event.fd = -1, /* Invalid socket */		\
+			.event.fd = -1,		\
 			.callback = _cb,				\
 		}							\
 	};								\

@@ -19,14 +19,14 @@
 struct bdma_stm32_channel {
 	uint32_t direction;
 #ifdef CONFIG_DMAMUX_STM32
-	int mux_channel; /* stores the dmamux channel */
+	int mux_channel;
 #endif /* CONFIG_DMAMUX_STM32 */
 	bool source_periph;
 	bool hal_override;
 	volatile bool busy;
 	uint32_t src_size;
 	uint32_t dst_size;
-	void *user_data; /* holds the client data */
+	void *user_data;
 	dma_callback_t bdma_callback;
 	bool cyclic;
 };
@@ -42,7 +42,7 @@ struct bdma_stm32_config {
 	uint32_t base;
 	uint32_t max_channels;
 #ifdef CONFIG_DMAMUX_STM32
-	uint8_t offset; /* position in the list of bdmamux channel list */
+	uint8_t offset;
 #endif
 	struct bdma_stm32_channel *channels;
 };

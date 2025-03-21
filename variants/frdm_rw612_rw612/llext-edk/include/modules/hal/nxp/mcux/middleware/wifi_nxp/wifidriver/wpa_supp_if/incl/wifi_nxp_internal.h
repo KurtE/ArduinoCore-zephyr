@@ -529,8 +529,8 @@ typedef MLAN_PACK_START struct _nxp_wifi_sta_info
     unsigned char vht_opmode;
     ieee80211_he_capab_t he_capab;
     size_t he_capab_len;
-    unsigned int flags; /* bitmask of WPA_STA_* flags */
-    int set;            /* Set STA parameters instead of add */
+    unsigned int flags;
+    int set;
     unsigned char qosinfo;
     unsigned char ext_capab[10];
     size_t ext_capab_len;

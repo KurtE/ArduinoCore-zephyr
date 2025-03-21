@@ -261,16 +261,16 @@ __attribute__((section(".revsh_text"))) __STATIC_INLINE __ASM int16_t __REVSH(in
 __attribute__((always_inline)) __STATIC_INLINE uint32_t __RBIT(uint32_t value)
 {
   uint32_t result;
-  uint32_t s = (4U /*sizeof(v)*/ * 8U) - 1U; /* extra shift needed at end */
+  uint32_t s = (4U * 8U) - 1U;
 
-  result = value;                      /* r will be reversed bits of v; first get LSB of v */
+  result = value;
   for (value >>= 1U; value != 0U; value >>= 1U)
   {
     result <<= 1U;
     result |= value & 1U;
     s--;
   }
-  result <<= s;                        /* shift when v's highest bits are zero */
+  result <<= s;
   return result;
 }
 #endif

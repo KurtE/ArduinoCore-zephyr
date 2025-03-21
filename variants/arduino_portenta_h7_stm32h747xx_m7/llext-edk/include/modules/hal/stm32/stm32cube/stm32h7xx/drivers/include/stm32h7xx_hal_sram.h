@@ -45,11 +45,11 @@ extern "C" {
   */
 typedef enum
 {
-  HAL_SRAM_STATE_RESET     = 0x00U,  /*!< SRAM not yet initialized or disabled           */
-  HAL_SRAM_STATE_READY     = 0x01U,  /*!< SRAM initialized and ready for use             */
-  HAL_SRAM_STATE_BUSY      = 0x02U,  /*!< SRAM internal process is ongoing               */
-  HAL_SRAM_STATE_ERROR     = 0x03U,  /*!< SRAM error state                               */
-  HAL_SRAM_STATE_PROTECTED = 0x04U   /*!< SRAM peripheral NORSRAM device write protected */
+  HAL_SRAM_STATE_RESET     = 0x00U,
+  HAL_SRAM_STATE_READY     = 0x01U,
+  HAL_SRAM_STATE_BUSY      = 0x02U,
+  HAL_SRAM_STATE_ERROR     = 0x03U,
+  HAL_SRAM_STATE_PROTECTED = 0x04U
 
 } HAL_SRAM_StateTypeDef;
 
@@ -62,23 +62,23 @@ typedef struct __SRAM_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_SRAM_REGISTER_CALLBACKS  */
 {
-  FMC_NORSRAM_TypeDef           *Instance;  /*!< Register base address                        */
+  FMC_NORSRAM_TypeDef           *Instance;
 
-  FMC_NORSRAM_EXTENDED_TypeDef  *Extended;  /*!< Extended mode register base address          */
+  FMC_NORSRAM_EXTENDED_TypeDef  *Extended;
 
-  FMC_NORSRAM_InitTypeDef       Init;       /*!< SRAM device control configuration parameters */
+  FMC_NORSRAM_InitTypeDef       Init;
 
-  HAL_LockTypeDef               Lock;       /*!< SRAM locking object                          */
+  HAL_LockTypeDef               Lock;
 
-  __IO HAL_SRAM_StateTypeDef    State;      /*!< SRAM device access state                     */
+  __IO HAL_SRAM_StateTypeDef    State;
 
-  MDMA_HandleTypeDef             *hmdma;      /*!< Pointer DMA handler                          */
+  MDMA_HandleTypeDef             *hmdma;
 
 #if (USE_HAL_SRAM_REGISTER_CALLBACKS == 1)
-  void (* MspInitCallback)(struct __SRAM_HandleTypeDef *hsram);               /*!< SRAM Msp Init callback              */
-  void (* MspDeInitCallback)(struct __SRAM_HandleTypeDef *hsram);             /*!< SRAM Msp DeInit callback            */
-  void (* DmaXferCpltCallback)(MDMA_HandleTypeDef *hmdma);                      /*!< SRAM DMA Xfer Complete callback     */
-  void (* DmaXferErrorCallback)(MDMA_HandleTypeDef *hmdma);                     /*!< SRAM DMA Xfer Error callback        */
+  void (* MspInitCallback)(struct __SRAM_HandleTypeDef *hsram);
+  void (* MspDeInitCallback)(struct __SRAM_HandleTypeDef *hsram);
+  void (* DmaXferCpltCallback)(MDMA_HandleTypeDef *hmdma);
+  void (* DmaXferErrorCallback)(MDMA_HandleTypeDef *hmdma);
 #endif /* USE_HAL_SRAM_REGISTER_CALLBACKS  */
 } SRAM_HandleTypeDef;
 
@@ -88,10 +88,10 @@ typedef struct
   */
 typedef enum
 {
-  HAL_SRAM_MSP_INIT_CB_ID       = 0x00U,  /*!< SRAM MspInit Callback ID           */
-  HAL_SRAM_MSP_DEINIT_CB_ID     = 0x01U,  /*!< SRAM MspDeInit Callback ID         */
-  HAL_SRAM_DMA_XFER_CPLT_CB_ID  = 0x02U,  /*!< SRAM DMA Xfer Complete Callback ID */
-  HAL_SRAM_DMA_XFER_ERR_CB_ID   = 0x03U   /*!< SRAM DMA Xfer Complete Callback ID */
+  HAL_SRAM_MSP_INIT_CB_ID       = 0x00U,
+  HAL_SRAM_MSP_DEINIT_CB_ID     = 0x01U,
+  HAL_SRAM_DMA_XFER_CPLT_CB_ID  = 0x02U,
+  HAL_SRAM_DMA_XFER_ERR_CB_ID   = 0x03U
 } HAL_SRAM_CallbackIDTypeDef;
 
 /**

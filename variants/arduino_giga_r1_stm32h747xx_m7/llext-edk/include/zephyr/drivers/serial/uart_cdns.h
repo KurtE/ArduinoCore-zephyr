@@ -91,7 +91,7 @@ enum csr_parity_val {
 #define CSR_RTRIG_MASK	 (1 << 0)
 #define CSR_RTRIG_SHIFT	 (0)
 
-#define RXDATA_MASK   0xFF /* Receive Data Mask */
+#define RXDATA_MASK   0xFF
 #define MAX_FIFO_SIZE (64)
 
 #define DEFAULT_RTO_PERIODS_FACTOR 8
@@ -105,25 +105,25 @@ enum csr_parity_val {
 	: (parity == UART_CFG_PARITY_SPACE) ? SPACE_PARITY_VAL					   \
 					    : EVEN_PARITY_VAL
 struct uart_cdns_regs {
-	volatile uint32_t ctrl;			 /* Control Register */
-	volatile uint32_t mode;			 /* Mode Register */
-	volatile uint32_t intr_enable;		 /* Interrupt Enable Register */
-	volatile uint32_t intr_disable;		 /* Interrupt Disable Register */
-	volatile uint32_t intr_mask;		 /* Interrupt Mask Register */
-	volatile uint32_t channel_intr_status;	 /* Channel Interrupt Status Register */
-	volatile uint32_t baud_rate_gen;	 /* Baud Rate Generator Register */
-	volatile uint32_t rx_timeout;		 /* Receiver Timeout Register */
-	volatile uint32_t rx_fifo_trigger_level; /* Receiver FIFO Trigger Level Register */
-	volatile uint32_t modem_control;	 /* Modem Control Register */
-	volatile uint32_t modem_status;		 /* Modem Status Register */
-	volatile uint32_t channel_status;	 /* Channel status */
-	volatile uint32_t rx_tx_fifo;		 /* RX TX FIFO Register */
-	volatile uint32_t baud_rate_div;	 /* Baud Rate Divider Register */
-	volatile uint32_t flow_ctrl_delay;	 /* Flow Control Delay Register */
-	volatile uint32_t rpwr;			 /* IR Minimum Received Pulse Register */
-	volatile uint32_t tpwr;			 /* IR TRansmitted Pulse Width Register */
-	volatile uint32_t tx_fifo_trigger_level; /* Transmitter FIFO trigger level */
-	volatile uint32_t rbrs;			 /* RX FIFO Byte Status Register */
+	volatile uint32_t ctrl;
+	volatile uint32_t mode;
+	volatile uint32_t intr_enable;
+	volatile uint32_t intr_disable;
+	volatile uint32_t intr_mask;
+	volatile uint32_t channel_intr_status;
+	volatile uint32_t baud_rate_gen;
+	volatile uint32_t rx_timeout;
+	volatile uint32_t rx_fifo_trigger_level;
+	volatile uint32_t modem_control;
+	volatile uint32_t modem_status;
+	volatile uint32_t channel_status;
+	volatile uint32_t rx_tx_fifo;
+	volatile uint32_t baud_rate_div;
+	volatile uint32_t flow_ctrl_delay;
+	volatile uint32_t rpwr;
+	volatile uint32_t tpwr;
+	volatile uint32_t tx_fifo_trigger_level;
+	volatile uint32_t rbrs;
 };
 
 struct uart_cdns_device_config {

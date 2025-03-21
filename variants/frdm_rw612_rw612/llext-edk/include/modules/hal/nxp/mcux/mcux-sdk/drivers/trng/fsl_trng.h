@@ -71,16 +71,16 @@
 /*! @brief TRNG sample mode. Used by trng_config_t. */
 typedef enum _trng_sample_mode
 {
-    kTRNG_SampleModeVonNeumann = 0U, /*!< Use von Neumann data in both Entropy shifter and Statistical Checker. */
-    kTRNG_SampleModeRaw        = 1U, /*!< Use raw data into both Entropy shifter and Statistical Checker. */
+    kTRNG_SampleModeVonNeumann = 0U,
+    kTRNG_SampleModeRaw        = 1U,
     kTRNG_SampleModeVonNeumannRaw =
-        2U /*!< Use von Neumann data in Entropy shifter. Use raw data into Statistical Checker. */
+        2U
 } trng_sample_mode_t;
 
 /*! @brief TRNG clock mode. Used by trng_config_t. */
 typedef enum _trng_clock_mode
 {
-    kTRNG_ClockModeRingOscillator = 0U, /*!< Ring oscillator is used to operate the TRNG (default). */
+    kTRNG_ClockModeRingOscillator = 0U,
     kTRNG_ClockModeSystem         = 1U  /*!< System clock is used to operate the TRNG. This is for test use only, and
                                            indeterminate results may occur. */
 } trng_clock_mode_t;
@@ -88,27 +88,27 @@ typedef enum _trng_clock_mode
 /*! @brief TRNG ring oscillator divide. Used by trng_config_t. */
 typedef enum _trng_ring_osc_div
 {
-    kTRNG_RingOscDiv0 = 0U, /*!< Ring oscillator with no divide */
-    kTRNG_RingOscDiv2 = 1U, /*!< Ring oscillator divided-by-2. */
-    kTRNG_RingOscDiv4 = 2U, /*!< Ring oscillator divided-by-4. */
-    kTRNG_RingOscDiv8 = 3U  /*!< Ring oscillator divided-by-8. */
+    kTRNG_RingOscDiv0 = 0U,
+    kTRNG_RingOscDiv2 = 1U,
+    kTRNG_RingOscDiv4 = 2U,
+    kTRNG_RingOscDiv8 = 3U
 } trng_ring_osc_div_t;
 
 #if defined(FSL_FEATURE_TRNG_HAS_DUAL_OSCILATORS) && (FSL_FEATURE_TRNG_HAS_DUAL_OSCILATORS > 0)
 /*! @brief TRNG oscillator mode . Used by trng_config_t. */
 typedef enum trng_oscillator_mode_t
 {
-    kTRNG_SingleOscillatorModeOsc1 = 0U, /*!< Single oscillator mode, using OSC1 (default)*/
-    kTRNG_DualOscillatorMode       = 1U, /*!< Dual oscillator mode*/
-    kTRNG_SingleOscillatorModeOsc2 = 2U, /*!< Single oscillator mode, using OSC2 */
+    kTRNG_SingleOscillatorModeOsc1 = 0U,
+    kTRNG_DualOscillatorMode       = 1U,
+    kTRNG_SingleOscillatorModeOsc2 = 2U,
 } trng_oscillator_mode_t;
 #endif /* FSL_FEATURE_TRNG_HAS_DUAL_OSCILATORS */
 
 /*! @brief Data structure for definition of statistical check limits. Used by trng_config_t. */
 typedef struct _trng_statistical_check_limit
 {
-    uint32_t maximum; /*!< Maximum limit.*/
-    uint32_t minimum; /*!< Minimum limit.*/
+    uint32_t maximum;
+    uint32_t minimum;
 } trng_statistical_check_limit_t;
 
 /*!
@@ -119,17 +119,17 @@ typedef struct _trng_statistical_check_limit
  */
 typedef struct _trng_user_config
 {
-    bool lock;                      /*!< @brief Disable programmability of TRNG registers.  */
-    trng_clock_mode_t clockMode;    /*!< @brief Clock mode used to operate TRNG.*/
-    trng_ring_osc_div_t ringOscDiv; /*!< @brief Ring oscillator divide used by TRNG. */
-    trng_sample_mode_t sampleMode;  /*!< @brief Sample mode of the TRNG ring oscillator. */
+    bool lock;
+    trng_clock_mode_t clockMode;
+    trng_ring_osc_div_t ringOscDiv;
+    trng_sample_mode_t sampleMode;
 #if defined(FSL_FEATURE_TRNG_HAS_DUAL_OSCILATORS) && (FSL_FEATURE_TRNG_HAS_DUAL_OSCILATORS > 0)
-    trng_oscillator_mode_t oscillatorMode; /*!< @brief TRNG oscillator mode . */
-    trng_ring_osc_div_t ringOsc2Div;       /*!< @brief Divider used for Ring oscillator 2. */
+    trng_oscillator_mode_t oscillatorMode;
+    trng_ring_osc_div_t ringOsc2Div;
 #endif                                     /* FSL_FEATURE_TRNG_HAS_DUAL_OSCILATORS */
     /* Seed Control*/
     uint16_t
-        entropyDelay; /*!< @brief Entropy Delay. Defines the length (in system clocks) of each Entropy sample taken. */
+        entropyDelay;
     uint16_t sampleSize; /*!< @brief Sample Size. Defines the total number of Entropy samples that will be taken during
                             Entropy generation. */
     uint16_t sparseBitLimit; /*!< @brief Sparse Bit Limit which defines the maximum number of
@@ -159,7 +159,7 @@ typedef struct _trng_user_config
                                                         number of runs of length 6 or more detected during entropy
                                                         generation. */
     trng_statistical_check_limit_t
-        pokerLimit; /*!< @brief Maximum and minimum limits for statistical check of "Poker Test". */
+        pokerLimit;
     trng_statistical_check_limit_t frequencyCountLimit; /*!< @brief Maximum and minimum limits for statistical check of
                                                            entropy sample frequency count. */
 } trng_config_t;

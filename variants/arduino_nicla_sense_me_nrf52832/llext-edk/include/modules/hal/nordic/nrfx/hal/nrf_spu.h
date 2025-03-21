@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2018 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -237,51 +237,51 @@ typedef enum
 /** @brief SPU read capabilities for TrustZone Cortex-M secure attribute. */
 typedef enum
 {
-    NRF_SPU_SECUREMAPPING_NONSECURE      = SPU_PERIPH_PERM_SECUREMAPPING_NonSecure,      /**< Peripheral is always accessible as non-secure. */
-    NRF_SPU_SECUREMAPPING_SECURE         = SPU_PERIPH_PERM_SECUREMAPPING_Secure,         /**< Peripheral is always accessible as secure. */
-    NRF_SPU_SECUREMAPPING_USERSELECTABLE = SPU_PERIPH_PERM_SECUREMAPPING_UserSelectable, /**< Non-secure or secure attribute for this peripheral is defined by the PERIPH[n].PERM register. */
-    NRF_SPU_SECUREMAPPING_SPLIT          = SPU_PERIPH_PERM_SECUREMAPPING_Split,          /**< Peripheral implements the split security mechanism. */
+    NRF_SPU_SECUREMAPPING_NONSECURE      = SPU_PERIPH_PERM_SECUREMAPPING_NonSecure,
+    NRF_SPU_SECUREMAPPING_SECURE         = SPU_PERIPH_PERM_SECUREMAPPING_Secure,
+    NRF_SPU_SECUREMAPPING_USERSELECTABLE = SPU_PERIPH_PERM_SECUREMAPPING_UserSelectable,
+    NRF_SPU_SECUREMAPPING_SPLIT          = SPU_PERIPH_PERM_SECUREMAPPING_Split,
 } nrf_spu_securemapping_t;
 
 /** @brief SPU DMA capabilities. */
 typedef enum
 {
-    NRF_SPU_DMA_NODMA               = SPU_PERIPH_PERM_DMA_NoDMA,               /**< Peripheral has no DMA capability. */
-    NRF_SPU_DMA_NOSEPARATEATTRIBUTE = SPU_PERIPH_PERM_DMA_NoSeparateAttribute, /**< DMA transfers always have the same security attribute as assigned to the peripheral. */
-    NRF_SPU_DMA_SEPARATEATTRIBUTE   = SPU_PERIPH_PERM_DMA_SeparateAttribute,   /**< DMA transfers can have a different security attribute than the one assigned to the peripheral. */
+    NRF_SPU_DMA_NODMA               = SPU_PERIPH_PERM_DMA_NoDMA,
+    NRF_SPU_DMA_NOSEPARATEATTRIBUTE = SPU_PERIPH_PERM_DMA_NoSeparateAttribute,
+    NRF_SPU_DMA_SEPARATEATTRIBUTE   = SPU_PERIPH_PERM_DMA_SeparateAttribute,
 } nrf_spu_dma_t;
 
 /** @brief SPU features. */
 typedef enum
 {
 #if NRF_SPU_HAS_IPCT
-    NRF_SPU_FEATURE_IPCT_CHANNEL,         /**< IPCT channel. */
-    NRF_SPU_FEATURE_IPCT_INTERRUPT,       /**< IPCT interrupt. */
+    NRF_SPU_FEATURE_IPCT_CHANNEL,
+    NRF_SPU_FEATURE_IPCT_INTERRUPT,
 #endif
-    NRF_SPU_FEATURE_DPPI_CHANNEL,         /**< DPPI channel. */
-    NRF_SPU_FEATURE_DPPI_CHANNEL_GROUP,   /**< DPPI channel group. */
-    NRF_SPU_FEATURE_GPIOTE_CHANNEL,       /**< GPIOTE channel. */
-    NRF_SPU_FEATURE_GPIOTE_INTERRUPT,     /**< GPIOTE interrupt. */
-    NRF_SPU_FEATURE_GPIO_PIN,             /**< GPIO pin. */
-    NRF_SPU_FEATURE_GRTC_CC,              /**< GRTC compare channel. */
-    NRF_SPU_FEATURE_GRTC_SYSCOUNTER,      /**< GRTC SYSCOUNTER. */
-    NRF_SPU_FEATURE_GRTC_INTERRUPT,       /**< GRTC interrupt. */
+    NRF_SPU_FEATURE_DPPI_CHANNEL,
+    NRF_SPU_FEATURE_DPPI_CHANNEL_GROUP,
+    NRF_SPU_FEATURE_GPIOTE_CHANNEL,
+    NRF_SPU_FEATURE_GPIOTE_INTERRUPT,
+    NRF_SPU_FEATURE_GPIO_PIN,
+    NRF_SPU_FEATURE_GRTC_CC,
+    NRF_SPU_FEATURE_GRTC_SYSCOUNTER,
+    NRF_SPU_FEATURE_GRTC_INTERRUPT,
 #if NRF_SPU_HAS_BELLS
 #if NRF_SPU_HAS_DOMAIN
-    NRF_SPU_FEATURE_BELLS_BELL,           /**< BELLS bell pair. */
+    NRF_SPU_FEATURE_BELLS_BELL,
 #else
-    NRF_SPU_FEATURE_BELLS_TASKS,          /**< BELLS tasks pair. */
-    NRF_SPU_FEATURE_BELLS_EVENTS,         /**< BELLS events pair. */
-    NRF_SPU_FEATURE_BELLS_INTERRUPT,      /**< BELLS interrupt pair. */
+    NRF_SPU_FEATURE_BELLS_TASKS,
+    NRF_SPU_FEATURE_BELLS_EVENTS,
+    NRF_SPU_FEATURE_BELLS_INTERRUPT,
 #endif
 #endif
 #if NRF_SPU_HAS_TDD
-    NRF_SPU_FEATURE_TDD,                  /**< TDD. */
+    NRF_SPU_FEATURE_TDD,
 #endif
 #if NRF_SPU_HAS_MRAMC
-    NRF_SPU_FEATURE_MRAMC_WAITSTATES,     /**< MRAMC waitstates. */
-    NRF_SPU_FEATURE_MRAMC_AUTODPOWERDOWN, /**< MRAMC automatic power-down. */
-    NRF_SPU_FEATURE_MRAMC_READY           /**< MRAMC ready. */
+    NRF_SPU_FEATURE_MRAMC_WAITSTATES,
+    NRF_SPU_FEATURE_MRAMC_AUTODPOWERDOWN,
+    NRF_SPU_FEATURE_MRAMC_READY
 #endif
 } nrf_spu_feature_t;
 

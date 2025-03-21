@@ -12,7 +12,7 @@
 #include <fsl_port.h>
 #include <fsl_common.h>
 
-#define PORT_MUX_GPIO kPORT_MuxAlt0 /* GPIO setting for the Port Mux Register */
+#define PORT_MUX_GPIO kPORT_MuxAlt0
 
 #ifdef __cplusplus
 extern "C" {

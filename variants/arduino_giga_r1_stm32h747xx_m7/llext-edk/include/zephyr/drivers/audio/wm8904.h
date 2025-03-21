@@ -102,7 +102,7 @@
  * [1:0] - x_MODE: Input mode
  */
 #define WM8904_REGVAL_INSEL(cm, nin, pin, mode) \
-	(((cm) & 0b1) << 6) | (((nin) & 0b11) << 4)
+	(((cm) & 0b1) << 6) | (((nin) & 0b11) << 4) | (((pin) & 0b11) << 2)
 #define WM8904_REGMASK_INSEL_CMENA		0b01000000
 #define WM8904_REGMASK_INSEL_IP_SEL_N	0b00110000
 #define WM8904_REGMASK_INSEL_IP_SEL_P	0b00001100
@@ -116,39 +116,39 @@
 
 /*! @brief The audio data transfer protocol. */
 typedef enum _wm8904_protocol {
-	kWM8904_ProtocolI2S            = 0x2,            /*!< I2S type */
-	kWM8904_ProtocolLeftJustified  = 0x1,            /*!< Left justified mode */
-	kWM8904_ProtocolRightJustified = 0x0,            /*!< Right justified mode */
-	kWM8904_ProtocolPCMA           = 0x3,            /*!< PCM A mode */
-	kWM8904_ProtocolPCMB           = 0x3 | (1 << 4), /*!< PCM B mode */
+	kWM8904_ProtocolI2S            = 0x2,
+	kWM8904_ProtocolLeftJustified  = 0x1,
+	kWM8904_ProtocolRightJustified = 0x0,
+	kWM8904_ProtocolPCMA           = 0x3,
+	kWM8904_ProtocolPCMB           = 0x3 | (1 << 4),
 } wm8904_protocol_t;
 
 /*! @brief The SYSCLK / fs ratio. */
 typedef enum _wm8904_fs_ratio {
-	kWM8904_FsRatio64X   = 0x0, /*!< SYSCLK is   64 * sample rate * frame width */
-	kWM8904_FsRatio128X  = 0x1, /*!< SYSCLK is  128 * sample rate * frame width */
-	kWM8904_FsRatio192X  = 0x2, /*!< SYSCLK is  192 * sample rate * frame width */
-	kWM8904_FsRatio256X  = 0x3, /*!< SYSCLK is  256 * sample rate * frame width */
-	kWM8904_FsRatio384X  = 0x4, /*!< SYSCLK is  384 * sample rate * frame width */
-	kWM8904_FsRatio512X  = 0x5, /*!< SYSCLK is  512 * sample rate * frame width */
-	kWM8904_FsRatio768X  = 0x6, /*!< SYSCLK is  768 * sample rate * frame width */
-	kWM8904_FsRatio1024X = 0x7, /*!< SYSCLK is 1024 * sample rate * frame width */
-	kWM8904_FsRatio1408X = 0x8, /*!< SYSCLK is 1408 * sample rate * frame width */
-	kWM8904_FsRatio1536X = 0x9  /*!< SYSCLK is 1536 * sample rate * frame width */
+	kWM8904_FsRatio64X   = 0x0,
+	kWM8904_FsRatio128X  = 0x1,
+	kWM8904_FsRatio192X  = 0x2,
+	kWM8904_FsRatio256X  = 0x3,
+	kWM8904_FsRatio384X  = 0x4,
+	kWM8904_FsRatio512X  = 0x5,
+	kWM8904_FsRatio768X  = 0x6,
+	kWM8904_FsRatio1024X = 0x7,
+	kWM8904_FsRatio1408X = 0x8,
+	kWM8904_FsRatio1536X = 0x9
 } wm8904_fs_ratio_t;
 
 
 /*! @brief Sample rate. */
 typedef enum _wm8904_sample_rate {
-	kWM8904_SampleRate8kHz    = 0x0, /*!< 8 kHz */
-	kWM8904_SampleRate12kHz   = 0x1, /*!< 12kHz */
-	kWM8904_SampleRate16kHz   = 0x2, /*!< 16kHz */
-	kWM8904_SampleRate24kHz   = 0x3, /*!< 24kHz */
-	kWM8904_SampleRate32kHz   = 0x4, /*!< 32kHz */
-	kWM8904_SampleRate48kHz   = 0x5, /*!< 48kHz */
-	kWM8904_SampleRate11025Hz = 0x6, /*!< 11.025kHz */
-	kWM8904_SampleRate22050Hz = 0x7, /*!< 22.05kHz */
-	kWM8904_SampleRate44100Hz = 0x8  /*!< 44.1kHz */
+	kWM8904_SampleRate8kHz    = 0x0,
+	kWM8904_SampleRate12kHz   = 0x1,
+	kWM8904_SampleRate16kHz   = 0x2,
+	kWM8904_SampleRate24kHz   = 0x3,
+	kWM8904_SampleRate32kHz   = 0x4,
+	kWM8904_SampleRate48kHz   = 0x5,
+	kWM8904_SampleRate11025Hz = 0x6,
+	kWM8904_SampleRate22050Hz = 0x7,
+	kWM8904_SampleRate44100Hz = 0x8
 } wm8904_sample_rate_t;
 
 #endif /* ZEPHYR_INCLUDE_CODEC_WM8904_H_ */

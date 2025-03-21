@@ -33,7 +33,7 @@
 #define CONN_ESTAB_COUNTDOWN 6U
 
 #if defined(CONFIG_BT_CTLR_XTAL_ADVANCED)
-#define XON_BITMASK BIT(31) /* XTAL has been retained from previous prepare */
+#define XON_BITMASK BIT(31)
 #endif /* CONFIG_BT_CTLR_XTAL_ADVANCED */
 
 #if defined(CONFIG_BT_BROADCASTER)
@@ -351,8 +351,18 @@ struct node_rx_ftr {
 				* chaining, to reserve node_rx for CSA#2 event
 				* generation etc.
 				*/
-		void *aux_ptr;
-		uint8_t aux_phy;
+		void *lll_aux; /* LLL scheduled auxiliary context associated to
+				* the scan context when enqueuing the node rx.
+				* This does not overlap the below aux_ptr or
+				* aux_phy which are used before enqueue when
+				* setting up LLL scheduling.
+				*/
+		void *aux_ptr; /* aux pointer stored when LLL scheduling the
+				* auxiliary PDU reception by scan context.
+				*/
+		uint8_t aux_phy; /* aux phy stored when LLL scheduling the
+				  * auxiliary PDU reception by scan context.
+				  */
 		struct cte_conn_iq_report *iq_report;
 	};
 	uint32_t ticks_anchor;
@@ -399,10 +409,10 @@ struct node_rx_ftr {
 
 /* Meta-information for isochronous PDUs in node_rx_hdr */
 struct node_rx_iso_meta {
-	uint64_t payload_number:39; /* cisPayloadNumber */
-	uint64_t status:8;          /* Status of reception (OK/not OK) */
-	uint32_t timestamp;         /* Time of reception */
-	void     *next;             /* Pointer to next pre-transmission rx_node (BIS) */
+	uint64_t payload_number:39;
+	uint64_t status:8;
+	uint32_t timestamp;
+	void     *next;
 };
 
 /* Define invalid/unassigned Controller state/role instance handle */
@@ -417,13 +427,13 @@ struct node_rx_iso_meta {
 /* Header of node_rx_pdu */
 struct node_rx_hdr {
 	union {
-		void        *next;    /* For slist, by hci module */
-		memq_link_t *link;    /* Supply memq_link from ULL to LLL */
-		uint8_t     ack_last; /* Tx ack queue index at this node rx */
+		void        *next;
+		memq_link_t *link;
+		uint8_t     ack_last;
 	};
 	enum node_rx_type type;
-	uint8_t           user_meta; /* User metadata */
-	uint16_t          handle;    /* State/Role instance handle */
+	uint8_t           user_meta;
+	uint16_t          handle;
 };
 
 
@@ -531,9 +541,9 @@ struct event_done_extra {
 	*/
 				};
 
-#if defined(CONFIG_BT_CTLR_ADV_EXT)
+#if defined(CONFIG_BT_CTLR_SCAN_AUX_USE_CHAINS)
 				void *lll;
-#endif /* CONFIG_BT_CTLR_ADV_EXT */
+#endif /* CONFIG_BT_CTLR_SCAN_AUX_USE_CHAINS */
 			};
 
 #if defined(CONFIG_BT_CTLR_LE_ENC)

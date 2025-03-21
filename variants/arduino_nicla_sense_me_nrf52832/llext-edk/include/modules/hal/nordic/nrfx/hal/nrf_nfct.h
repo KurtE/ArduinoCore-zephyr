@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2018 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -48,8 +48,8 @@ extern "C" {
  * @brief Hardware access layer (HAL) for the Near Field Communication Tag (NFCT) peripheral.
  */
 
-#define NRF_NFCT_CRC_SIZE 2                 /**< CRC size in bytes. */
-#define NRF_NFCT_DISABLE_ALL_INT 0xFFFFFFFF /**< Value to disable all interrupts. */
+#define NRF_NFCT_CRC_SIZE 2
+#define NRF_NFCT_DISABLE_ALL_INT 0xFFFFFFFF
 
 /**
  * @brief This value can be used as a parameter for the @ref nrf_nfct_mod_ctrl_pin_set
@@ -128,98 +128,98 @@ extern "C" {
 /** @brief NFCT tasks. */
 typedef enum
 {
-    NRF_NFCT_TASK_ACTIVATE     = offsetof(NRF_NFCT_Type, TASKS_ACTIVATE),     /**< Activate the NFCT peripheral for the incoming and outgoing frames, change state to activated. */
-    NRF_NFCT_TASK_DISABLE      = offsetof(NRF_NFCT_Type, TASKS_DISABLE),      /**< Disable the NFCT peripheral. */
-    NRF_NFCT_TASK_SENSE        = offsetof(NRF_NFCT_Type, TASKS_SENSE),        /**< Enable the NFC sense field mode, change state to sense mode. */
-    NRF_NFCT_TASK_STARTTX      = offsetof(NRF_NFCT_Type, TASKS_STARTTX),      /**< Start the transmission of an outgoing frame, change state to transmit. */
+    NRF_NFCT_TASK_ACTIVATE     = offsetof(NRF_NFCT_Type, TASKS_ACTIVATE),
+    NRF_NFCT_TASK_DISABLE      = offsetof(NRF_NFCT_Type, TASKS_DISABLE),
+    NRF_NFCT_TASK_SENSE        = offsetof(NRF_NFCT_Type, TASKS_SENSE),
+    NRF_NFCT_TASK_STARTTX      = offsetof(NRF_NFCT_Type, TASKS_STARTTX),
 #if NRF_NFCT_HAS_STOPTX_TASK
-    NRF_NFCT_TASK_STOPTX       = offsetof(NRF_NFCT_Type, TASKS_STOPTX),       /**< Stop an issued transmission of a frame. */
+    NRF_NFCT_TASK_STOPTX       = offsetof(NRF_NFCT_Type, TASKS_STOPTX),
 #endif
-    NRF_NFCT_TASK_ENABLERXDATA = offsetof(NRF_NFCT_Type, TASKS_ENABLERXDATA), /**< Initialize EasyDMA for receive. */
-    NRF_NFCT_TASK_GOIDLE       = offsetof(NRF_NFCT_Type, TASKS_GOIDLE),       /**< Force state machine to the IDLE state. */
-    NRF_NFCT_TASK_GOSLEEP      = offsetof(NRF_NFCT_Type, TASKS_GOSLEEP),      /**< Force state machine to the SLEEP_A state. */
+    NRF_NFCT_TASK_ENABLERXDATA = offsetof(NRF_NFCT_Type, TASKS_ENABLERXDATA),
+    NRF_NFCT_TASK_GOIDLE       = offsetof(NRF_NFCT_Type, TASKS_GOIDLE),
+    NRF_NFCT_TASK_GOSLEEP      = offsetof(NRF_NFCT_Type, TASKS_GOSLEEP),
 } nrf_nfct_task_t;
 
 /** @brief NFCT events. */
 typedef enum
 {
-    NRF_NFCT_EVENT_READY             = offsetof(NRF_NFCT_Type, EVENTS_READY),             /**< The NFCT peripheral is ready to receive and send frames. */
-    NRF_NFCT_EVENT_FIELDDETECTED     = offsetof(NRF_NFCT_Type, EVENTS_FIELDDETECTED),     /**< Remote NFC field is detected. */
-    NRF_NFCT_EVENT_FIELDLOST         = offsetof(NRF_NFCT_Type, EVENTS_FIELDLOST),         /**< Remote NFC field is lost. */
-    NRF_NFCT_EVENT_TXFRAMESTART      = offsetof(NRF_NFCT_Type, EVENTS_TXFRAMESTART),      /**< The start of the first symbol of a transmitted frame. */
-    NRF_NFCT_EVENT_TXFRAMEEND        = offsetof(NRF_NFCT_Type, EVENTS_TXFRAMEEND),        /**< The end of the last transmitted on-air symbol of a frame. */
-    NRF_NFCT_EVENT_RXFRAMESTART      = offsetof(NRF_NFCT_Type, EVENTS_RXFRAMESTART),      /**< The end of the first symbol of a received frame. */
-    NRF_NFCT_EVENT_RXFRAMEEND        = offsetof(NRF_NFCT_Type, EVENTS_RXFRAMEEND),        /**< Received data was checked (CRC, parity) and transferred to RAM, and EasyDMA ended accessing the RX buffer. */
-    NRF_NFCT_EVENT_ERROR             = offsetof(NRF_NFCT_Type, EVENTS_ERROR),             /**< NFC error reported. The ERRORSTATUS register contains details on the source of the error. */
-    NRF_NFCT_EVENT_RXERROR           = offsetof(NRF_NFCT_Type, EVENTS_RXERROR),           /**< NFC RX frame error reported. The FRAMESTATUS.RX register contains details on the source of the error. */
-    NRF_NFCT_EVENT_ENDRX             = offsetof(NRF_NFCT_Type, EVENTS_ENDRX),             /**< RX buffer (as defined by PACKETPTR and MAXLEN) in Data RAM full. */
-    NRF_NFCT_EVENT_ENDTX             = offsetof(NRF_NFCT_Type, EVENTS_ENDTX),             /**< Transmission of data in RAM ended, and EasyDMA ended accessing the TX buffer. */
-    NRF_NFCT_EVENT_AUTOCOLRESSTARTED = offsetof(NRF_NFCT_Type, EVENTS_AUTOCOLRESSTARTED), /**< Auto collision resolution process started. */
-    NRF_NFCT_EVENT_COLLISION         = offsetof(NRF_NFCT_Type, EVENTS_COLLISION),         /**< NFC auto collision resolution error reported. */
-    NRF_NFCT_EVENT_SELECTED          = offsetof(NRF_NFCT_Type, EVENTS_SELECTED),          /**< NFC auto collision resolution successfully completed. */
-    NRF_NFCT_EVENT_STARTED           = offsetof(NRF_NFCT_Type, EVENTS_STARTED),           /**< EasyDMA is ready to receive or send frames. */
+    NRF_NFCT_EVENT_READY             = offsetof(NRF_NFCT_Type, EVENTS_READY),
+    NRF_NFCT_EVENT_FIELDDETECTED     = offsetof(NRF_NFCT_Type, EVENTS_FIELDDETECTED),
+    NRF_NFCT_EVENT_FIELDLOST         = offsetof(NRF_NFCT_Type, EVENTS_FIELDLOST),
+    NRF_NFCT_EVENT_TXFRAMESTART      = offsetof(NRF_NFCT_Type, EVENTS_TXFRAMESTART),
+    NRF_NFCT_EVENT_TXFRAMEEND        = offsetof(NRF_NFCT_Type, EVENTS_TXFRAMEEND),
+    NRF_NFCT_EVENT_RXFRAMESTART      = offsetof(NRF_NFCT_Type, EVENTS_RXFRAMESTART),
+    NRF_NFCT_EVENT_RXFRAMEEND        = offsetof(NRF_NFCT_Type, EVENTS_RXFRAMEEND),
+    NRF_NFCT_EVENT_ERROR             = offsetof(NRF_NFCT_Type, EVENTS_ERROR),
+    NRF_NFCT_EVENT_RXERROR           = offsetof(NRF_NFCT_Type, EVENTS_RXERROR),
+    NRF_NFCT_EVENT_ENDRX             = offsetof(NRF_NFCT_Type, EVENTS_ENDRX),
+    NRF_NFCT_EVENT_ENDTX             = offsetof(NRF_NFCT_Type, EVENTS_ENDTX),
+    NRF_NFCT_EVENT_AUTOCOLRESSTARTED = offsetof(NRF_NFCT_Type, EVENTS_AUTOCOLRESSTARTED),
+    NRF_NFCT_EVENT_COLLISION         = offsetof(NRF_NFCT_Type, EVENTS_COLLISION),
+    NRF_NFCT_EVENT_SELECTED          = offsetof(NRF_NFCT_Type, EVENTS_SELECTED),
+    NRF_NFCT_EVENT_STARTED           = offsetof(NRF_NFCT_Type, EVENTS_STARTED),
 } nrf_nfct_event_t;
 
 /** @brief NFCT shortcuts. */
 typedef enum
 {
-    NRF_NFCT_SHORT_FIELDDETECTED_ACTIVATE_MASK  = NFCT_SHORTS_FIELDDETECTED_ACTIVATE_Msk,  /**< Shortcut between the FIELDDETECTED event and the ACTIVATE task. */
-    NRF_NFCT_SHORT_FIELDLOST_SENSE_MASK         = NFCT_SHORTS_FIELDLOST_SENSE_Msk,         /**< Shortcut between the FIELDLOST event and the SENSE task. */
+    NRF_NFCT_SHORT_FIELDDETECTED_ACTIVATE_MASK  = NFCT_SHORTS_FIELDDETECTED_ACTIVATE_Msk,
+    NRF_NFCT_SHORT_FIELDLOST_SENSE_MASK         = NFCT_SHORTS_FIELDLOST_SENSE_Msk,
 #if defined(NFCT_SHORTS_TXFRAMEEND_ENABLERXDATA_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_NFCT_SHORT_TXFRAMEEND_ENABLERXDATA_MASK = NFCT_SHORTS_TXFRAMEEND_ENABLERXDATA_Msk, /**< Shortcut between the TXFRAMEEND event and the ENABLERXDATA task. */
+    NRF_NFCT_SHORT_TXFRAMEEND_ENABLERXDATA_MASK = NFCT_SHORTS_TXFRAMEEND_ENABLERXDATA_Msk,
 #endif
 } nrf_nfct_short_mask_t;
 
 /** @brief NFCT interrupts. */
 typedef enum
 {
-    NRF_NFCT_INT_READY_MASK             = NFCT_INTEN_READY_Msk,             /**< Interrupt on READY event. */
-    NRF_NFCT_INT_FIELDDETECTED_MASK     = NFCT_INTEN_FIELDDETECTED_Msk,     /**< Interrupt on FIELDDETECTED event. */
-    NRF_NFCT_INT_FIELDLOST_MASK         = NFCT_INTEN_FIELDLOST_Msk,         /**< Interrupt on FIELDLOST event. */
-    NRF_NFCT_INT_TXFRAMESTART_MASK      = NFCT_INTEN_TXFRAMESTART_Msk,      /**< Interrupt on TXFRAMESTART event. */
-    NRF_NFCT_INT_TXFRAMEEND_MASK        = NFCT_INTEN_TXFRAMEEND_Msk,        /**< Interrupt on TXFRAMEEND event. */
-    NRF_NFCT_INT_RXFRAMESTART_MASK      = NFCT_INTEN_RXFRAMESTART_Msk,      /**< Interrupt on RXFRAMESTART event. */
-    NRF_NFCT_INT_RXFRAMEEND_MASK        = NFCT_INTEN_RXFRAMEEND_Msk,        /**< Interrupt on RXFRAMEEND event. */
-    NRF_NFCT_INT_ERROR_MASK             = NFCT_INTEN_ERROR_Msk,             /**< Interrupt on ERROR event. */
-    NRF_NFCT_INT_RXERROR_MASK           = NFCT_INTEN_RXERROR_Msk,           /**< Interrupt on RXERROR event. */
-    NRF_NFCT_INT_ENDRX_MASK             = NFCT_INTEN_ENDRX_Msk,             /**< Interrupt on ENDRX event. */
-    NRF_NFCT_INT_ENDTX_MASK             = NFCT_INTEN_ENDTX_Msk,             /**< Interrupt on ENDTX event. */
-    NRF_NFCT_INT_AUTOCOLRESSTARTED_MASK = NFCT_INTEN_AUTOCOLRESSTARTED_Msk, /**< Interrupt on AUTOCOLRESSTARTED event. */
-    NRF_NFCT_INT_COLLISION_MASK         = NFCT_INTEN_COLLISION_Msk,         /**< Interrupt on COLLISION event. */
-    NRF_NFCT_INT_SELECTED_MASK          = NFCT_INTEN_SELECTED_Msk,          /**< Interrupt on SELECTED event. */
-    NRF_NFCT_INT_STARTED_MASK           = NFCT_INTEN_STARTED_Msk,           /**< Interrupt on STARTED event. */
+    NRF_NFCT_INT_READY_MASK             = NFCT_INTEN_READY_Msk,
+    NRF_NFCT_INT_FIELDDETECTED_MASK     = NFCT_INTEN_FIELDDETECTED_Msk,
+    NRF_NFCT_INT_FIELDLOST_MASK         = NFCT_INTEN_FIELDLOST_Msk,
+    NRF_NFCT_INT_TXFRAMESTART_MASK      = NFCT_INTEN_TXFRAMESTART_Msk,
+    NRF_NFCT_INT_TXFRAMEEND_MASK        = NFCT_INTEN_TXFRAMEEND_Msk,
+    NRF_NFCT_INT_RXFRAMESTART_MASK      = NFCT_INTEN_RXFRAMESTART_Msk,
+    NRF_NFCT_INT_RXFRAMEEND_MASK        = NFCT_INTEN_RXFRAMEEND_Msk,
+    NRF_NFCT_INT_ERROR_MASK             = NFCT_INTEN_ERROR_Msk,
+    NRF_NFCT_INT_RXERROR_MASK           = NFCT_INTEN_RXERROR_Msk,
+    NRF_NFCT_INT_ENDRX_MASK             = NFCT_INTEN_ENDRX_Msk,
+    NRF_NFCT_INT_ENDTX_MASK             = NFCT_INTEN_ENDTX_Msk,
+    NRF_NFCT_INT_AUTOCOLRESSTARTED_MASK = NFCT_INTEN_AUTOCOLRESSTARTED_Msk,
+    NRF_NFCT_INT_COLLISION_MASK         = NFCT_INTEN_COLLISION_Msk,
+    NRF_NFCT_INT_SELECTED_MASK          = NFCT_INTEN_SELECTED_Msk,
+    NRF_NFCT_INT_STARTED_MASK           = NFCT_INTEN_STARTED_Msk,
 } nrf_nfct_int_mask_t;
 
 /** @brief NFC error status bit masks. */
 typedef enum
 {
-    NRF_NFCT_ERROR_FRAMEDELAYTIMEOUT_MASK = NFCT_ERRORSTATUS_FRAMEDELAYTIMEOUT_Msk, /**< Timeout of the Frame Delay Timer (no frame transmission started in the FDT window). */
+    NRF_NFCT_ERROR_FRAMEDELAYTIMEOUT_MASK = NFCT_ERRORSTATUS_FRAMEDELAYTIMEOUT_Msk,
 #if defined(NFCT_ERRORSTATUS_NFCFIELDTOOSTRONG_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_NFCT_ERROR_NFCFIELDTOOSTRONG_MASK = NFCT_ERRORSTATUS_NFCFIELDTOOSTRONG_Msk, /**< Field level is too high at maximum load resistance. */
+    NRF_NFCT_ERROR_NFCFIELDTOOSTRONG_MASK = NFCT_ERRORSTATUS_NFCFIELDTOOSTRONG_Msk,
 #endif
 #if defined(NFCT_ERRORSTATUS_NFCFIELDTOOWEAK_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_NFCT_ERROR_NFCFIELDTOOWEAK_MASK = NFCT_ERRORSTATUS_NFCFIELDTOOWEAK_Msk,     /**< Field level is too low at minimum load resistance. */
+    NRF_NFCT_ERROR_NFCFIELDTOOWEAK_MASK = NFCT_ERRORSTATUS_NFCFIELDTOOWEAK_Msk,
 #endif
 } nrf_nfct_error_status_t;
 
 /** @brief NFC received frame status bit masks. */
 typedef enum
 {
-    NRF_NFCT_RX_FRAME_STATUS_CRC_MASK     = NFCT_FRAMESTATUS_RX_CRCERROR_Msk,     /**< CRC status mask. */
-    NRF_NFCT_RX_FRAME_STATUS_PARITY_MASK  = NFCT_FRAMESTATUS_RX_PARITYSTATUS_Msk, /**< Parity status mask. */
-    NRF_NFCT_RX_FRAME_STATUS_OVERRUN_MASK = NFCT_FRAMESTATUS_RX_OVERRUN_Msk,      /**< Overrun status mask. */
+    NRF_NFCT_RX_FRAME_STATUS_CRC_MASK     = NFCT_FRAMESTATUS_RX_CRCERROR_Msk,
+    NRF_NFCT_RX_FRAME_STATUS_PARITY_MASK  = NFCT_FRAMESTATUS_RX_PARITYSTATUS_Msk,
+    NRF_NFCT_RX_FRAME_STATUS_OVERRUN_MASK = NFCT_FRAMESTATUS_RX_OVERRUN_Msk,
 } nrf_nfct_rx_frame_status_t;
 
 #if NRF_NFCT_HAS_TAG_STATE_REG
 /** @brief NFC tag state. */
 typedef enum
 {
-    NRF_NFCT_TAG_STATE_DISABLED    = NFCT_NFCTAGSTATE_NFCTAGSTATE_Disabled,   /**< Disabled or sensing NFC field. */
-    NRF_NFCT_TAG_STATE_RAMP_UP     = NFCT_NFCTAGSTATE_NFCTAGSTATE_RampUp,     /**< Ramping up. */
-    NRF_NFCT_TAG_STATE_IDLE        = NFCT_NFCTAGSTATE_NFCTAGSTATE_Idle,       /**< Idle. */
-    NRF_NFCT_TAG_STATE_RECEIVE     = NFCT_NFCTAGSTATE_NFCTAGSTATE_Receive,    /**< Receiving data. */
-    NRF_NFCT_TAG_STATE_FRAME_DELAY = NFCT_NFCTAGSTATE_NFCTAGSTATE_FrameDelay, /**< Counting Frame Delay Time since the last symbol of the last received frame. */
-    NRF_NFCT_TAG_STATE_TRANSMIT    = NFCT_NFCTAGSTATE_NFCTAGSTATE_Transmit    /**< Transmitting data. */
+    NRF_NFCT_TAG_STATE_DISABLED    = NFCT_NFCTAGSTATE_NFCTAGSTATE_Disabled,
+    NRF_NFCT_TAG_STATE_RAMP_UP     = NFCT_NFCTAGSTATE_NFCTAGSTATE_RampUp,
+    NRF_NFCT_TAG_STATE_IDLE        = NFCT_NFCTAGSTATE_NFCTAGSTATE_Idle,
+    NRF_NFCT_TAG_STATE_RECEIVE     = NFCT_NFCTAGSTATE_NFCTAGSTATE_Receive,
+    NRF_NFCT_TAG_STATE_FRAME_DELAY = NFCT_NFCTAGSTATE_NFCTAGSTATE_FrameDelay,
+    NRF_NFCT_TAG_STATE_TRANSMIT    = NFCT_NFCTAGSTATE_NFCTAGSTATE_Transmit
 } nrf_nfct_tag_state_t;
 #endif // NRF_NFCT_HAS_TAG_STATE_REG
 
@@ -232,42 +232,42 @@ typedef enum
  */
 typedef enum
 {
-    NRF_NFCT_SLEEP_STATE_IDLE    = NFCT_SLEEPSTATE_SLEEPSTATE_Idle,  /**< 'IDLE' state. */
-    NRF_NFCT_SLEEP_STATE_SLEEP_A = NFCT_SLEEPSTATE_SLEEPSTATE_SleepA /**< 'SLEEP_A' state. */
+    NRF_NFCT_SLEEP_STATE_IDLE    = NFCT_SLEEPSTATE_SLEEPSTATE_Idle,
+    NRF_NFCT_SLEEP_STATE_SLEEP_A = NFCT_SLEEPSTATE_SLEEPSTATE_SleepA
 } nrf_nfct_sleep_state_t;
 #endif // NRF_NFCT_HAS_SLEEP_STATE_REG
 
 /** @brief NFC field state bit masks. */
 typedef enum
 {
-    NRF_NFCT_FIELD_STATE_PRESENT_MASK = NFCT_FIELDPRESENT_FIELDPRESENT_Msk, /**< Field presence mask. */
-    NRF_NFCT_FIELD_STATE_LOCK_MASK    = NFCT_FIELDPRESENT_LOCKDETECT_Msk    /**< Field lock mask. */
+    NRF_NFCT_FIELD_STATE_PRESENT_MASK = NFCT_FIELDPRESENT_FIELDPRESENT_Msk,
+    NRF_NFCT_FIELD_STATE_LOCK_MASK    = NFCT_FIELDPRESENT_LOCKDETECT_Msk
 } nrf_nfct_field_state_t;
 
 /** @brief NFC frame delay mode for data transmission. */
 typedef enum
 {
-    NRF_NFCT_FRAME_DELAY_MODE_FREERUN    = NFCT_FRAMEDELAYMODE_FRAMEDELAYMODE_FreeRun,   /**< Frame transmission starts when @ref NRF_NFCT_TASK_STARTTX is set (delay timer is not used). */
-    NRF_NFCT_FRAME_DELAY_MODE_WINDOW     = NFCT_FRAMEDELAYMODE_FRAMEDELAYMODE_Window,    /**< Frame transmission starts in a window between FRAMEDELAYMIN and FRAMEDELAYMAX. */
-    NRF_NFCT_FRAME_DELAY_MODE_EXACTVAL   = NFCT_FRAMEDELAYMODE_FRAMEDELAYMODE_ExactVal,  /**< Frame transmission starts when the delay timer reaches FRAMEDELAYMAX. */
-    NRF_NFCT_FRAME_DELAY_MODE_WINDOWGRID = NFCT_FRAMEDELAYMODE_FRAMEDELAYMODE_WindowGrid /**< Frame transmission starts in a bit grid between FRAMEDELAYMIN and FRAMEDELAYMAX. */
+    NRF_NFCT_FRAME_DELAY_MODE_FREERUN    = NFCT_FRAMEDELAYMODE_FRAMEDELAYMODE_FreeRun,
+    NRF_NFCT_FRAME_DELAY_MODE_WINDOW     = NFCT_FRAMEDELAYMODE_FRAMEDELAYMODE_Window,
+    NRF_NFCT_FRAME_DELAY_MODE_EXACTVAL   = NFCT_FRAMEDELAYMODE_FRAMEDELAYMODE_ExactVal,
+    NRF_NFCT_FRAME_DELAY_MODE_WINDOWGRID = NFCT_FRAMEDELAYMODE_FRAMEDELAYMODE_WindowGrid
 } nrf_nfct_frame_delay_mode_t;
 
 /** @brief Bit masks for NFC transmission frame configuration. */
 typedef enum
 {
-    NRF_NFCT_TX_FRAME_CONFIG_PARITY        = NFCT_TXD_FRAMECONFIG_PARITY_Msk,      /**< Indicates whether parity is added in the transmitted frames. */
-    NRF_NFCT_TX_FRAME_CONFIG_DISCARD_START = NFCT_TXD_FRAMECONFIG_DISCARDMODE_Msk, /**< Indicates whether unused bits are discarded at the start or at the end of the transmitted frames. */
-    NRF_NFCT_TX_FRAME_CONFIG_SOF           = NFCT_TXD_FRAMECONFIG_SOF_Msk,         /**< Indicates whether SoF symbol is added in the transmitted frames. */
-    NRF_NFCT_TX_FRAME_CONFIG_CRC16         = NFCT_TXD_FRAMECONFIG_CRCMODETX_Msk    /**< Indicates whether CRC is added in the transmitted frames. */
+    NRF_NFCT_TX_FRAME_CONFIG_PARITY        = NFCT_TXD_FRAMECONFIG_PARITY_Msk,
+    NRF_NFCT_TX_FRAME_CONFIG_DISCARD_START = NFCT_TXD_FRAMECONFIG_DISCARDMODE_Msk,
+    NRF_NFCT_TX_FRAME_CONFIG_SOF           = NFCT_TXD_FRAMECONFIG_SOF_Msk,
+    NRF_NFCT_TX_FRAME_CONFIG_CRC16         = NFCT_TXD_FRAMECONFIG_CRCMODETX_Msk
 } nrf_nfct_tx_frame_config_t;
 
 /** @brief Bit masks for NFC reception frame configuration. */
 typedef enum
 {
-    NRF_NFCT_RX_FRAME_CONFIG_PARITY = NFCT_RXD_FRAMECONFIG_PARITY_Msk,   /**< Indicates whether parity is expected in the received frames. */
-    NRF_NFCT_RX_FRAME_CONFIG_SOF    = NFCT_RXD_FRAMECONFIG_SOF_Msk,      /**< Indicates whether SoF symbol is expected in the received frames. */
-    NRF_NFCT_RX_FRAME_CONFIG_CRC16  = NFCT_RXD_FRAMECONFIG_CRCMODERX_Msk /**< Indicates whether CRC is expected and checked in the received frames. */
+    NRF_NFCT_RX_FRAME_CONFIG_PARITY = NFCT_RXD_FRAMECONFIG_PARITY_Msk,
+    NRF_NFCT_RX_FRAME_CONFIG_SOF    = NFCT_RXD_FRAMECONFIG_SOF_Msk,
+    NRF_NFCT_RX_FRAME_CONFIG_CRC16  = NFCT_RXD_FRAMECONFIG_CRCMODERX_Msk
 } nrf_nfct_rx_frame_config_t;
 
 /**
@@ -277,22 +277,22 @@ typedef enum
 typedef enum
 {
     NRF_NFCT_SENSRES_NFCID1_SIZE_SINGLE =
-        NFCT_SENSRES_NFCIDSIZE_NFCID1Single << NFCT_SENSRES_NFCIDSIZE_Pos, /**< Single size NFCID1 (4 bytes). */
+        NFCT_SENSRES_NFCIDSIZE_NFCID1Single << NFCT_SENSRES_NFCIDSIZE_Pos,
     NRF_NFCT_SENSRES_NFCID1_SIZE_DOUBLE =
-        NFCT_SENSRES_NFCIDSIZE_NFCID1Double << NFCT_SENSRES_NFCIDSIZE_Pos, /**< Double size NFCID1 (7 bytes). */
+        NFCT_SENSRES_NFCIDSIZE_NFCID1Double << NFCT_SENSRES_NFCIDSIZE_Pos,
     NRF_NFCT_SENSRES_NFCID1_SIZE_TRIPLE =
-        NFCT_SENSRES_NFCIDSIZE_NFCID1Triple << NFCT_SENSRES_NFCIDSIZE_Pos, /**< Triple size NFCID1 (10 bytes). */
+        NFCT_SENSRES_NFCIDSIZE_NFCID1Triple << NFCT_SENSRES_NFCIDSIZE_Pos,
     NRF_NFCT_SENSRES_NFCID1_SIZE_DEFAULT =
-        NFCT_SENSRES_NFCIDSIZE_Msk                                         /**< Default size. Use this option to leave NFCID1 size unchanged. */
+        NFCT_SENSRES_NFCIDSIZE_Msk
 } nrf_nfct_sensres_nfcid1_size_t;
 
 /** @brief Bias trim configuration. */
 typedef struct
 {
-    uint8_t trim_ibpsr;        /**< Fine trim IBPSR 4 µA bias current. */
-    uint8_t coarse_ibpsr;      /**< Coarse trim IBPSR 4 µA. */
-    uint8_t reference_volatge; /**< Reference voltage level. */
-    uint8_t spare;             /**< Spare. */
+    uint8_t trim_ibpsr;
+    uint8_t coarse_ibpsr;
+    uint8_t reference_volatge;
+    uint8_t spare;
 } nrf_nfct_bias_config_t;
 
 /**
@@ -302,17 +302,17 @@ typedef struct
 typedef enum
 {
     NRF_NFCT_SENSRES_BIT_FRAME_SDD_00000 =
-        NFCT_SENSRES_BITFRAMESDD_SDD00000 << NFCT_SENSRES_BITFRAMESDD_Pos, /**< SDD pattern 00000. */
+        NFCT_SENSRES_BITFRAMESDD_SDD00000 << NFCT_SENSRES_BITFRAMESDD_Pos,
     NRF_NFCT_SENSRES_BIT_FRAME_SDD_00001 =
-        NFCT_SENSRES_BITFRAMESDD_SDD00001 << NFCT_SENSRES_BITFRAMESDD_Pos, /**< SDD pattern 00001. */
+        NFCT_SENSRES_BITFRAMESDD_SDD00001 << NFCT_SENSRES_BITFRAMESDD_Pos,
     NRF_NFCT_SENSRES_BIT_FRAME_SDD_00010 =
-        NFCT_SENSRES_BITFRAMESDD_SDD00010 << NFCT_SENSRES_BITFRAMESDD_Pos, /**< SDD pattern 00010. */
+        NFCT_SENSRES_BITFRAMESDD_SDD00010 << NFCT_SENSRES_BITFRAMESDD_Pos,
     NRF_NFCT_SENSRES_BIT_FRAME_SDD_00100 =
-        NFCT_SENSRES_BITFRAMESDD_SDD00100 << NFCT_SENSRES_BITFRAMESDD_Pos, /**< SDD pattern 00100. */
+        NFCT_SENSRES_BITFRAMESDD_SDD00100 << NFCT_SENSRES_BITFRAMESDD_Pos,
     NRF_NFCT_SENSRES_BIT_FRAME_SDD_01000 =
-        NFCT_SENSRES_BITFRAMESDD_SDD01000 << NFCT_SENSRES_BITFRAMESDD_Pos, /**< SDD pattern 01000. */
+        NFCT_SENSRES_BITFRAMESDD_SDD01000 << NFCT_SENSRES_BITFRAMESDD_Pos,
     NRF_NFCT_SENSRES_BIT_FRAME_SDD_10000 =
-        NFCT_SENSRES_BITFRAMESDD_SDD10000 << NFCT_SENSRES_BITFRAMESDD_Pos  /**< SDD pattern 10000. */
+        NFCT_SENSRES_BITFRAMESDD_SDD10000 << NFCT_SENSRES_BITFRAMESDD_Pos
 } nrf_nfct_sensres_bit_frame_sdd_t;
 
 /**
@@ -333,20 +333,20 @@ typedef enum
  */
 typedef enum
 {
-    NRF_NFCT_SELRES_PROTOCOL_T2T         = 0,  /**< Type 2 Tag platform. */
-    NRF_NFCT_SELRES_PROTOCOL_T4AT        = 1,  /**< Type 4A Tag platform. */
-    NRF_NFCT_SELRES_PROTOCOL_NFCDEP      = 2,  /**< NFC-DEP Protocol. */
-    NRF_NFCT_SELRES_PROTOCOL_NFCDEP_T4AT = 3,  /**< NFC-DEP Protocol and Type 4A Tag platform). */
+    NRF_NFCT_SELRES_PROTOCOL_T2T         = 0,
+    NRF_NFCT_SELRES_PROTOCOL_T4AT        = 1,
+    NRF_NFCT_SELRES_PROTOCOL_NFCDEP      = 2,
+    NRF_NFCT_SELRES_PROTOCOL_NFCDEP_T4AT = 3,
 } nrf_nfct_selres_protocol_t;
 
 #if NRF_NFCT_HAS_MODULATION_CTRL_REG
 /** @brief Modulation output configuration. */
 typedef enum
 {
-    NRF_NFCT_MODULATION_CTRL_INVALID       = NFCT_MODULATIONCTRL_MODULATIONCTRL_Invalid,             /**< Invalid configuration. Defaults to the same behavior as NRF_NFCT_MODULATION_CTRL_INTERNAL. */
-    NRF_NFCT_MODULATION_CTRL_INTERNAL      = NFCT_MODULATIONCTRL_MODULATIONCTRL_Internal,            /**< Use internal modulator only. */
-    NRF_NFCT_MODULATION_CTRL_GPIO          = NFCT_MODULATIONCTRL_MODULATIONCTRL_ModToGpio,           /**< Transmit output digital modulation signal to a GPIO pin. */
-    NRF_NFCT_MODULATION_CTRL_INTERNAL_GPIO = NFCT_MODULATIONCTRL_MODULATIONCTRL_InternalAndModToGpio /**< Use internal modulator and transmit output digital modulation signal to a GPIO pin. */
+    NRF_NFCT_MODULATION_CTRL_INVALID       = NFCT_MODULATIONCTRL_MODULATIONCTRL_Invalid,
+    NRF_NFCT_MODULATION_CTRL_INTERNAL      = NFCT_MODULATIONCTRL_MODULATIONCTRL_Internal,
+    NRF_NFCT_MODULATION_CTRL_GPIO          = NFCT_MODULATIONCTRL_MODULATIONCTRL_ModToGpio,
+    NRF_NFCT_MODULATION_CTRL_INTERNAL_GPIO = NFCT_MODULATIONCTRL_MODULATIONCTRL_InternalAndModToGpio
 } nrf_nfct_modulation_ctrl_t;
 #endif // NRF_NFCT_HAS_MODULATION_CTRL_REG
 

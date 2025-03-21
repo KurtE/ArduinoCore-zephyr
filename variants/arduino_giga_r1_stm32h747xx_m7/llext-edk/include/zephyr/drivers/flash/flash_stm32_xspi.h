@@ -72,8 +72,8 @@ struct flash_stm32_xspi_config {
 	irq_config_func_t irq_config;
 	size_t flash_size;
 	uint32_t max_frequency;
-	int data_mode; /* SPI or QSPI or OSPI */
-	int data_rate; /* DTR or STR */
+	int data_mode;
+	int data_rate;
 	const struct pinctrl_dev_config *pcfg;
 #if STM32_XSPI_RESET_GPIO
 	const struct gpio_dt_spec reset;

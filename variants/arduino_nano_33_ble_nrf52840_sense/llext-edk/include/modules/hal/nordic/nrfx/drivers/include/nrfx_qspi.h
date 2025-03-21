@@ -140,7 +140,7 @@ typedef struct
  */
 typedef enum
 {
-    NRFX_QSPI_EVENT_DONE, /**< Transfer done. */
+    NRFX_QSPI_EVENT_DONE,
 } nrfx_qspi_evt_t;
 
 /**
@@ -149,25 +149,25 @@ typedef enum
  */
 typedef enum
 {
-    NRFX_QSPI_EVENT_NONE,       /**< No event occurence. */
-    NRFX_QSPI_EVENT_WRITE_DONE, /**< Write done. */
-    NRFX_QSPI_EVENT_READ_DONE,  /**< Read done. */
-    NRFX_QSPI_EVENT_ERASE_DONE, /**< Erase done. */
+    NRFX_QSPI_EVENT_NONE,
+    NRFX_QSPI_EVENT_WRITE_DONE,
+    NRFX_QSPI_EVENT_READ_DONE,
+    NRFX_QSPI_EVENT_ERASE_DONE,
 } nrfx_qspi_evt_ext_type_t;
 
 /** @brief QSPI driver erase event data. */
 typedef struct
 {
-    uint32_t             addr; /**< Erase start address. */
-    nrf_qspi_erase_len_t len;  /**< Erase length. */
+    uint32_t             addr;
+    nrf_qspi_erase_len_t len;
 } nrfx_qspi_evt_ext_erase_t;
 
 /** @brief QSPI driver transfer event data. */
 typedef struct
 {
-    void *   p_buffer; /**< Pointer to the data buffer associated with transfer. */
-    size_t   size;     /**< Data buffer size. */
-    uint32_t addr;     /**< Transfer start address. */
+    void *   p_buffer;
+    size_t   size;
+    uint32_t addr;
 } nrfx_qspi_evt_ext_xfer_t;
 
 /** @brief QSPI driver extended event structure. */

@@ -11,39 +11,39 @@
 #include <zephyr/sys/util.h>
 
 /* Command registers */
-#define GC9X01X_CMD_SLPIN     0x10U /* Enter Sleep Mode */
-#define GC9X01X_CMD_SLPOUT    0x11U /* Exit Sleep Mode */
-#define GC9X01X_CMD_PTLON     0x12U /* Partial Mode ON */
-#define GC9X01X_CMD_NORON     0x13U /* Normal Display Mode ON */
-#define GC9X01X_CMD_INVOFF    0x20U /* Display Inversion OFF */
-#define GC9X01X_CMD_INVON     0x21U /* Display Inversion ON */
-#define GC9X01X_CMD_DISPOFF   0x28U /* Display OFF */
-#define GC9X01X_CMD_DISPON    0x29U /* Display ON */
-#define GC9X01X_CMD_COLSET    0x2AU /* Column Address Set */
-#define GC9X01X_CMD_ROWSET    0x2BU /* Row Address Set */
-#define GC9X01X_CMD_MEMWR     0x2CU /* Memory Write */
-#define GC9X01X_CMD_PTLAR     0x30U /* Partial Area */
-#define GC9X01X_CMD_VSCRDEF   0x33U /* Vertical Scrolling Definition */
-#define GC9X01X_CMD_TEOFF     0x34U /* Tearing Effect Line OFF */
-#define GC9X01X_CMD_TEON      0x35U /* Tearing Effect Line ON */
-#define GC9X01X_CMD_MADCTL    0x36U /* Memory Access Control */
-#define GC9X01X_CMD_VSCRSADD  0x37U /* Vertical Scrolling Start Address */
-#define GC9X01X_CMD_PIXFMT    0x3AU /* Pixel Format Set */
-#define GC9X01X_CMD_DFUNCTR   0xB6U /* Display Function Control */
-#define GC9X01X_CMD_PWRCTRL1  0xC1U /* Power Control 1 */
-#define GC9X01X_CMD_PWRCTRL2  0xC3U /* Power Control 2 */
-#define GC9X01X_CMD_PWRCTRL3  0xC4U /* Power Control 3 */
-#define GC9X01X_CMD_PWRCTRL4  0xC9U /* Power Control 4 */
-#define GC9X01X_CMD_READID1   0xDAU /* Read ID 1 */
-#define GC9X01X_CMD_READID2   0xDBU /* Read ID 2 */
-#define GC9X01X_CMD_READID3   0xDCU /* Read ID 3 */
-#define GC9X01X_CMD_GAMMA1    0xF0U /* Gamma1 (negative polarity) */
-#define GC9X01X_CMD_GAMMA2    0xF1U /* Gamma2 */
-#define GC9X01X_CMD_GAMMA3    0xF2U /* Gamma3  (positive polarity) */
-#define GC9X01X_CMD_GAMMA4    0xF3U /* Gamma4 */
-#define GC9X01X_CMD_INREGEN1  0xFEU /* Inter Register Enable 1 */
-#define GC9X01X_CMD_INREGEN2  0xEFU /* Inter Register Enable 2 */
-#define GC9X01X_CMD_FRAMERATE 0xE8U /* Frame Rate Control */
+#define GC9X01X_CMD_SLPIN     0x10U
+#define GC9X01X_CMD_SLPOUT    0x11U
+#define GC9X01X_CMD_PTLON     0x12U
+#define GC9X01X_CMD_NORON     0x13U
+#define GC9X01X_CMD_INVOFF    0x20U
+#define GC9X01X_CMD_INVON     0x21U
+#define GC9X01X_CMD_DISPOFF   0x28U
+#define GC9X01X_CMD_DISPON    0x29U
+#define GC9X01X_CMD_COLSET    0x2AU
+#define GC9X01X_CMD_ROWSET    0x2BU
+#define GC9X01X_CMD_MEMWR     0x2CU
+#define GC9X01X_CMD_PTLAR     0x30U
+#define GC9X01X_CMD_VSCRDEF   0x33U
+#define GC9X01X_CMD_TEOFF     0x34U
+#define GC9X01X_CMD_TEON      0x35U
+#define GC9X01X_CMD_MADCTL    0x36U
+#define GC9X01X_CMD_VSCRSADD  0x37U
+#define GC9X01X_CMD_PIXFMT    0x3AU
+#define GC9X01X_CMD_DFUNCTR   0xB6U
+#define GC9X01X_CMD_PWRCTRL1  0xC1U
+#define GC9X01X_CMD_PWRCTRL2  0xC3U
+#define GC9X01X_CMD_PWRCTRL3  0xC4U
+#define GC9X01X_CMD_PWRCTRL4  0xC9U
+#define GC9X01X_CMD_READID1   0xDAU
+#define GC9X01X_CMD_READID2   0xDBU
+#define GC9X01X_CMD_READID3   0xDCU
+#define GC9X01X_CMD_GAMMA1    0xF0U
+#define GC9X01X_CMD_GAMMA2    0xF1U
+#define GC9X01X_CMD_GAMMA3    0xF2U
+#define GC9X01X_CMD_GAMMA4    0xF3U
+#define GC9X01X_CMD_INREGEN1  0xFEU
+#define GC9X01X_CMD_INREGEN2  0xEFU
+#define GC9X01X_CMD_FRAMERATE 0xE8U
 
 /* GC9X01X_CMD_MADCTL register fields */
 #define GC9X01X_MADCTL_VAL_MY  BIT(7U)

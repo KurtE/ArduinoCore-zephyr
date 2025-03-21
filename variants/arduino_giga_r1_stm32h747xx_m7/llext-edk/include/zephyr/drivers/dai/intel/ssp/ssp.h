@@ -7,10 +7,10 @@
 #ifndef __INTEL_DAI_DRIVER_SSP_H__
 #define __INTEL_DAI_DRIVER_SSP_H__
 
-#define SSP_IP_VER_1_0 0x10000 /* cAVS */
-#define SSP_IP_VER_1_5 0x10500 /* ACE15 */
-#define SSP_IP_VER_2_0 0x20000 /* ACE20 */
-#define SSP_IP_VER_3_0 0x30000 /* ACE30 */
+#define SSP_IP_VER_1_0 0x10000
+#define SSP_IP_VER_1_5 0x10500
+#define SSP_IP_VER_2_0 0x20000
+#define SSP_IP_VER_3_0 0x30000
 
 /* SSP IP version defined by CONFIG_SOC*/
 #if defined(CONFIG_SOC_SERIES_INTEL_ADSP_CAVS)
@@ -88,9 +88,9 @@
  *	   to change shared input clock.
  */
 enum bclk_source {
-	MN_BCLK_SOURCE_NONE = 0, /**< port is not using any clock */
-	MN_BCLK_SOURCE_MN, /**< port is using clock driven by M/N */
-	MN_BCLK_SOURCE_XTAL, /**< port is using XTAL directly */
+	MN_BCLK_SOURCE_NONE = 0,
+	MN_BCLK_SOURCE_MN,
+	MN_BCLK_SOURCE_XTAL,
 };
 #endif
 
@@ -109,7 +109,7 @@ struct dai_intel_ssp_mn {
 	int bclk_source_mn_clock;
 #endif
 
-	struct k_spinlock lock; /**< lock mechanism */
+	struct k_spinlock lock;
 };
 
 struct dai_intel_ssp_freq_table {
@@ -162,8 +162,8 @@ struct dai_intel_ssp {
 	uint32_t ssp_index;
 	uint32_t tdm_slot_group;
 	uint32_t state[2];
-	struct k_spinlock lock;	/**< locking mechanism */
-	int sref;		/**< simple ref counter, guarded by lock */
+	struct k_spinlock lock;
+	int sref;
 	struct dai_intel_ssp_plat_data *ssp_plat_data;
 	void *priv_data;
 };

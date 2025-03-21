@@ -15,26 +15,26 @@
 #define CMD_1WRB 0x96
 #define CMD_1WWB 0xa5
 #define CMD_1WRS 0xb4
-#define CMD_CHSL 0xc3 /* DS2482-800 only */
-#define CMD_ADJP 0xc3 /* DS2484 only */
+#define CMD_CHSL 0xc3
+#define CMD_ADJP 0xc3
 #define CMD_WCFG 0xd2
 #define CMD_SRP	 0xe1
 #define CMD_DRST 0xf0
 
-#define REG_NONE    0x00 /* special value */
+#define REG_NONE    0x00
 #define REG_CONFIG  0xc3
 #define REG_DATA    0xe1
 #define REG_STATUS  0xf0
-#define REG_CHANNEL 0xd2 /* DS2482-800 only */
-#define REG_PORT    0xb4 /* DS2484 only */
+#define REG_CHANNEL 0xd2
+#define REG_PORT    0xb4
 
 /*
  * Device Configuration Register
  */
 #define DEVICE_APU_pos 0
 #define DEVICE_APU_msk BIT(DEVICE_APU_pos)
-#define DEVICE_PDN_pos 1		   /* DS2484 only */
-#define DEVICE_PDN_msk BIT(DEVICE_PDN_pos) /* DS2484 only */
+#define DEVICE_PDN_pos 1
+#define DEVICE_PDN_msk BIT(DEVICE_PDN_pos)
 #define DEVICE_SPU_pos 2
 #define DEVICE_SPU_msk BIT(DEVICE_SPU_pos)
 #define DEVICE_1WS_pos 3

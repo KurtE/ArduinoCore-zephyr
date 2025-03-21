@@ -147,7 +147,7 @@ union dai_intel_ipc4_connector_node_id {
 
 		/**< Rsvd field. */
 		uint32_t _rsvd : 19;
-	} f; /**<< Bits */
+	} f;
 } __packed;
 
 /*!
@@ -173,7 +173,7 @@ union dai_intel_ipc4_gateway_attributes {
 
 		/**< Reserved field */
 		uint32_t _rsvd : 30;
-	} bits; /**<< Bits */
+	} bits;
 } __packed;
 
 /**< Configuration for the IPC Gateway */
@@ -203,10 +203,10 @@ struct dai_intel_ipc4_gateway_config_blob {
 
 			/**< Reserved field */
 			uint32_t rsvd : 30;
-		} f; /**<< Bits */
+		} f;
 		/**< Raw value of flags */
 		uint32_t flags_raw;
-	} u; /**<< Flags */
+	} u;
 
 	/**< High threshold */
 	/*!

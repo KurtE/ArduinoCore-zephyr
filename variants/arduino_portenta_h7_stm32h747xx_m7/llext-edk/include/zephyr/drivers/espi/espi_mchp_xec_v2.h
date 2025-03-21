@@ -28,10 +28,10 @@ struct espi_vw_isr {
 };
 
 struct espi_xec_irq_info {
-	uint8_t gid;	/* GIRQ id [8, 26] */
-	uint8_t gpos;	/* bit position in GIRQ [0, 31] */
-	uint8_t anid;	/* Aggregated GIRQ NVIC number */
-	uint8_t dnid;	/* Direct GIRQ NVIC number */
+	uint8_t gid;
+	uint8_t gpos;
+	uint8_t anid;
+	uint8_t dnid;
 };
 
 struct espi_xec_config {

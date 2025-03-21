@@ -96,6 +96,17 @@ __syscall void log_panic(void);
 __syscall bool log_process(void);
 
 /**
+ * @brief Process all pending log messages
+ */
+#ifdef CONFIG_LOG_MODE_DEFERRED
+void log_flush(void);
+#else
+static inline void log_flush(void)
+{
+}
+#endif
+
+/**
  * @brief Return number of buffered log messages.
  *
  * @return Number of currently buffered log messages.
@@ -297,7 +308,7 @@ int log_mem_get_max_usage(uint32_t *max);
 #else
 #define LOG_CORE_INIT() do { } while (false)
 #define LOG_INIT() 0
-#define LOG_PANIC() /* Empty */
+#define LOG_PANIC()
 #define LOG_PROCESS() false
 #endif
 

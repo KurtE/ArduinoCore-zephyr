@@ -328,6 +328,8 @@ struct net_stats_tc {
 #endif
 		/** Number of packets sent for this traffic class */
 		net_stats_t pkts;
+		/** Number of packets dropped for this traffic class */
+		net_stats_t dropped;
 		/** Number of bytes sent for this traffic class */
 		net_stats_t bytes;
 		/** Priority of this traffic class */
@@ -345,6 +347,8 @@ struct net_stats_tc {
 #endif
 		/** Number of packets received for this traffic class */
 		net_stats_t pkts;
+		/** Number of packets dropped for this traffic class */
+		net_stats_t dropped;
 		/** Number of bytes received for this traffic class */
 		net_stats_t bytes;
 		/** Priority of this traffic class */
@@ -578,8 +582,8 @@ struct net_stats_eth_hw_timestamp {
  * @brief Ethernet vendor specific statistics
  */
 struct net_stats_eth_vendor {
-	const char * const key; /**< Key name of vendor statistics */
-	uint32_t value;         /**< Value of the statistics key */
+	const char * const key;
+	uint32_t value;
 };
 #endif
 
@@ -1367,7 +1371,7 @@ NET_MGMT_DEFINE_REQUEST_HANDLER(NET_REQUEST_STATS_RESET_WIFI);
 		NET_STATS_GET_COLLECTOR_NAME(dev_id, sfx),		\
 		NET_STATS_GET_VAR(dev_id, sfx, processing_error),	\
 		&(iface)->stats.processing_error);			\
-	/* IP layer error statistics */					\
+					\
 	NET_STATS_PROMETHEUS_COUNTER_DEFINE(				\
 		"IP proto error",					\
 		NET_STATS_GET_INSTANCE(dev_id, sfx, ip_proto_error),	\
@@ -1410,7 +1414,7 @@ NET_MGMT_DEFINE_REQUEST_HANDLER(NET_REQUEST_STATS_RESET_WIFI);
 		NET_STATS_GET_COLLECTOR_NAME(dev_id, sfx),		\
 		NET_STATS_GET_VAR(dev_id, sfx, ip_errors_chkerr),	\
 		&(iface)->stats.ip_errors.chkerr);			\
-	/* General network statistics */				\
+				\
 	NET_STATS_PROMETHEUS_COUNTER_DEFINE(				\
 		"Bytes received",					\
 		NET_STATS_GET_INSTANCE(dev_id, sfx, bytes_recv),	\

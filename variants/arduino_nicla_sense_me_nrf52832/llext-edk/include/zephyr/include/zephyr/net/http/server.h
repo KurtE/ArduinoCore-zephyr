@@ -138,6 +138,16 @@ struct http_resource_detail_static_fs {
 	const char *fs_path;
 };
 
+/** @brief HTTP compressions */
+enum http_compression {
+	HTTP_NONE = 0,
+	HTTP_GZIP = 1,
+	HTTP_COMPRESS = 2,
+	HTTP_DEFLATE = 3,
+	HTTP_BR = 4,
+	HTTP_ZSTD = 5
+};
+
 /** @cond INTERNAL_HIDDEN */
 /* Make sure that the common is the first in the struct. */
 BUILD_ASSERT(offsetof(struct http_resource_detail_static_fs, common) == 0);
@@ -172,34 +182,34 @@ enum http_data_status {
 
 /** @brief Status of captured request headers */
 enum http_header_status {
-	HTTP_HEADER_STATUS_OK,      /**< All available headers were successfully captured. */
-	HTTP_HEADER_STATUS_DROPPED, /**< One or more headers were dropped due to lack of space. */
-	HTTP_HEADER_STATUS_NONE,    /**< No header status is available. */
+	HTTP_HEADER_STATUS_OK,
+	HTTP_HEADER_STATUS_DROPPED,
+	HTTP_HEADER_STATUS_NONE,
 };
 
 /** @brief HTTP header representation */
 struct http_header {
-	const char *name;  /**< Pointer to header name NULL-terminated string. */
-	const char *value; /**< Pointer to header value NULL-terminated string. */
+	const char *name;
+	const char *value;
 };
 
 /** @brief HTTP request context */
 struct http_request_ctx {
-	uint8_t *data;                          /**< HTTP request data */
-	size_t data_len;                        /**< Length of HTTP request data */
-	struct http_header *headers;            /**< Array of HTTP request headers */
-	size_t header_count;                    /**< Array length of HTTP request headers */
-	enum http_header_status headers_status; /**< Status of HTTP request headers */
+	uint8_t *data;
+	size_t data_len;
+	struct http_header *headers;
+	size_t header_count;
+	enum http_header_status headers_status;
 };
 
 /** @brief HTTP response context */
 struct http_response_ctx {
-	enum http_status status;           /**< HTTP status code to include in response */
-	const struct http_header *headers; /**< Array of HTTP headers */
-	size_t header_count;               /**< Length of headers array */
-	const uint8_t *body;               /**< Pointer to body data */
-	size_t body_len;                   /**< Length of body data */
-	bool final_chunk; /**< Flag set to true when the application has no more data to send */
+	enum http_status status;
+	const struct http_header *headers;
+	size_t header_count;
+	const uint8_t *body;
+	size_t body_len;
+	bool final_chunk;
 };
 
 /**
@@ -254,6 +264,7 @@ BUILD_ASSERT(offsetof(struct http_resource_detail_dynamic, common) == 0);
  *        reading and writing websocket data, and closing the connection.
  *
  * @param ws_socket A socket for the Websocket data.
+ * @param request_ctx Request context structure associated with HTTP upgrade request
  * @param user_data User specified data.
  *
  * @return  0 Accepting the connection, HTTP server library will no longer
@@ -261,7 +272,7 @@ BUILD_ASSERT(offsetof(struct http_resource_detail_dynamic, common) == 0);
  *            to send and receive data to/from the supplied socket.
  *         <0 error, close the connection.
  */
-typedef int (*http_resource_websocket_cb_t)(int ws_socket,
+typedef int (*http_resource_websocket_cb_t)(int ws_socket, struct http_request_ctx *request_ctx,
 					    void *user_data);
 
 /** @brief Representation of a websocket server resource */
@@ -338,9 +349,9 @@ enum http1_parser_state {
 
 /** @brief HTTP/2 stream representation. */
 struct http2_stream_ctx {
-	int stream_id; /**< Stream identifier. */
-	enum http2_stream_state stream_state; /**< Stream state. */
-	int window_size; /**< Stream-level window size. */
+	int stream_id;
+	enum http2_stream_state stream_state;
+	int window_size;
 
 	/** Currently processed resource detail. */
 	struct http_resource_detail *current_detail;
@@ -354,11 +365,11 @@ struct http2_stream_ctx {
 
 /** @brief HTTP/2 frame representation. */
 struct http2_frame {
-	uint32_t length; /**< Frame payload length. */
-	uint32_t stream_identifier; /**< Stream ID the frame belongs to. */
-	uint8_t type; /**< Frame type. */
-	uint8_t flags; /**< Frame flags. */
-	uint8_t padding_len; /**< Frame padding length. */
+	uint32_t length;
+	uint32_t stream_identifier;
+	uint8_t type;
+	uint8_t flags;
+	uint8_t padding_len;
 };
 
 /** @cond INTERNAL_HIDDEN */
@@ -389,7 +400,7 @@ struct http_header_capture_ctx {
 
 /** @brief HTTP header name representation */
 struct http_header_name {
-	const char *name; /**< Pointer to header name NULL-terminated string. */
+	const char *name;
 };
 
 /**
@@ -398,6 +409,9 @@ struct http_header_name {
 struct http_client_ctx {
 	/** Socket descriptor associated with the server. */
 	int fd;
+
+	/** HTTP service on which the client is connected */
+	const struct http_service_desc *service;
 
 	/** Client data buffer.  */
 	unsigned char buffer[HTTP_SERVER_CLIENT_BUFFER_SIZE];
@@ -471,6 +485,11 @@ struct http_client_ctx {
 	IF_ENABLED(CONFIG_WEBSOCKET, (uint8_t ws_sec_key[HTTP_SERVER_WS_MAX_SEC_KEY_LEN]));
 /** @endcond */
 
+/** @cond INTERNAL_HIDDEN */
+	/** Client supported compression. */
+	IF_ENABLED(CONFIG_HTTP_SERVER_COMPRESSION, (uint8_t supported_compression));
+/** @endcond */
+
 	/** Flag indicating that HTTP2 preface was sent. */
 	bool preface_sent : 1;
 
@@ -488,6 +507,9 @@ struct http_client_ctx {
 
 	/** Flag indicating Websocket key is being processed. */
 	bool websocket_sec_key_next : 1;
+
+	/** Flag indicating accept encoding is being processed. */
+	IF_ENABLED(CONFIG_HTTP_SERVER_COMPRESSION, (bool accept_encoding_next: 1));
 
 	/** The next frame on the stream is expectd to be a continuation frame. */
 	bool expect_continuation : 1;

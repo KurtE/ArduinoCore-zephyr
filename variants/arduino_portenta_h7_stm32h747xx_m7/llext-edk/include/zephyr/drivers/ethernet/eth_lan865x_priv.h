@@ -52,8 +52,8 @@ struct lan865x_config {
 	int32_t timeout;
 
 	/* MAC */
-	bool tx_cut_through_mode; /* 1 - tx cut through, 0 - Store and forward */
-	bool rx_cut_through_mode; /* 1 - rx cut through, 0 - Store and forward */
+	bool tx_cut_through_mode;
+	bool rx_cut_through_mode;
 };
 
 struct lan865x_data {

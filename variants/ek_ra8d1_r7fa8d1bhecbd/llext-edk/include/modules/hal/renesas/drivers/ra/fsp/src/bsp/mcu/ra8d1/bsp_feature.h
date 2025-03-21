@@ -17,7 +17,7 @@
  **********************************************************************************************************************/
 
 /** The main oscillator drive value is based upon the oscillator frequency selected in the configuration */
-#define CGC_MOMCR_RESERVED_MASK    (0x8U) /* RA8 has reserved bit in MOMCR that must be 1. */
+#define CGC_MOMCR_RESERVED_MASK    (0x8U)
 #if (BSP_CFG_XTAL_HZ > (24000000))
  #define CGC_MAINCLOCK_DRIVE       (0x05U | CGC_MOMCR_RESERVED_MASK)
 #elif (BSP_CFG_XTAL_HZ > (8000000)) && (BSP_CFG_XTAL_HZ <= (24000000))
@@ -444,5 +444,8 @@
 
 #define BSP_FEATURE_ULPT_MAX_CHANNEL_NUM                     (2)
 #define BSP_FEATURE_ULPT_VALID_CHANNEL_MASK                  (0x3U)
+
+#define BSP_FEATURE_USB_NUM_IP                               (2U)
+#define BSP_FEATURE_USB_HAS_USBHS                            (1U)
 
 #endif

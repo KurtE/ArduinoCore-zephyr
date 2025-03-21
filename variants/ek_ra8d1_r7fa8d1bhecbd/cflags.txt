@@ -7,7 +7,6 @@
 -DLL_EXTENSION_BUILD
 -fno-strict-aliasing
 -fno-common
--fdiagnostics-color=always
 -mcpu=cortex-m85+nomve
 -mthumb
 -mabi=aapcs

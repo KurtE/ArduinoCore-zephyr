@@ -12,19 +12,19 @@
 #include <zephyr/drivers/gpio.h>
 
 /* ADT7420 registers */
-#define ADT7420_REG_TEMP_MSB		0x00 /* Temperature value MSB */
-#define ADT7420_REG_TEMP_LSB		0x01 /* Temperature value LSB */
-#define ADT7420_REG_STATUS		0x02 /* Status */
-#define ADT7420_REG_CONFIG		0x03 /* Configuration */
-#define ADT7420_REG_T_HIGH_MSB		0x04 /* Temperature HIGH setpoint MSB */
-#define ADT7420_REG_T_HIGH_LSB		0x05 /* Temperature HIGH setpoint LSB */
-#define ADT7420_REG_T_LOW_MSB		0x06 /* Temperature LOW setpoint MSB */
-#define ADT7420_REG_T_LOW_LSB		0x07 /* Temperature LOW setpoint LSB */
-#define ADT7420_REG_T_CRIT_MSB		0x08 /* Temperature CRIT setpoint MSB */
-#define ADT7420_REG_T_CRIT_LSB		0x09 /* Temperature CRIT setpoint LSB */
-#define ADT7420_REG_HIST		0x0A /* Temperature HYST setpoint */
-#define ADT7420_REG_ID			0x0B /* ID */
-#define ADT7420_REG_RESET		0x2F /* Software reset */
+#define ADT7420_REG_TEMP_MSB		0x00
+#define ADT7420_REG_TEMP_LSB		0x01
+#define ADT7420_REG_STATUS		0x02
+#define ADT7420_REG_CONFIG		0x03
+#define ADT7420_REG_T_HIGH_MSB		0x04
+#define ADT7420_REG_T_HIGH_LSB		0x05
+#define ADT7420_REG_T_LOW_MSB		0x06
+#define ADT7420_REG_T_LOW_LSB		0x07
+#define ADT7420_REG_T_CRIT_MSB		0x08
+#define ADT7420_REG_T_CRIT_LSB		0x09
+#define ADT7420_REG_HIST		0x0A
+#define ADT7420_REG_ID			0x0B
+#define ADT7420_REG_RESET		0x2F
 
 /* ADT7420_REG_STATUS definition */
 #define ADT7420_STATUS_T_LOW		BIT(4)

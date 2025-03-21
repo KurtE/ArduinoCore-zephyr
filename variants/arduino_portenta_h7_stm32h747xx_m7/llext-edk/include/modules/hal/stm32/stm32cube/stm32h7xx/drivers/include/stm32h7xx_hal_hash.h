@@ -48,9 +48,9 @@ typedef struct
   uint32_t DataType;    /*!< 32-bit data, 16-bit data, 8-bit data or 1-bit data.
                               This parameter can be a value of @ref HASH_Data_Type. */
 
-  uint32_t KeySize;     /*!< The key size is used only in HMAC operation. */
+  uint32_t KeySize;
 
-  uint8_t *pKey;        /*!< The key is used only in HMAC operation. */
+  uint8_t *pKey;
 
 } HASH_InitTypeDef;
 
@@ -59,12 +59,12 @@ typedef struct
   */
 typedef enum
 {
-  HAL_HASH_STATE_RESET             = 0x00U,    /*!< Peripheral is not initialized            */
-  HAL_HASH_STATE_READY             = 0x01U,    /*!< Peripheral Initialized and ready for use */
-  HAL_HASH_STATE_BUSY              = 0x02U,    /*!< Processing (hashing) is ongoing          */
-  HAL_HASH_STATE_TIMEOUT           = 0x06U,    /*!< Timeout state                            */
-  HAL_HASH_STATE_ERROR             = 0x07U,    /*!< Error state                              */
-  HAL_HASH_STATE_SUSPENDED         = 0x08U     /*!< Suspended state                          */
+  HAL_HASH_STATE_RESET             = 0x00U,
+  HAL_HASH_STATE_READY             = 0x01U,
+  HAL_HASH_STATE_BUSY              = 0x02U,
+  HAL_HASH_STATE_TIMEOUT           = 0x06U,
+  HAL_HASH_STATE_ERROR             = 0x07U,
+  HAL_HASH_STATE_SUSPENDED         = 0x08U
 } HAL_HASH_StateTypeDef;
 
 /**
@@ -72,8 +72,8 @@ typedef enum
   */
 typedef enum
 {
-  HAL_HASH_PHASE_READY             = 0x01U,    /*!< HASH peripheral is ready to start                    */
-  HAL_HASH_PHASE_PROCESS           = 0x02U,    /*!< HASH peripheral is in HASH processing phase          */
+  HAL_HASH_PHASE_READY             = 0x01U,
+  HAL_HASH_PHASE_PROCESS           = 0x02U,
   HAL_HASH_PHASE_HMAC_STEP_1       = 0x03U,    /*!< HASH peripheral is in HMAC step 1 processing phase
                                               (step 1 consists in entering the inner hash function key) */
   HAL_HASH_PHASE_HMAC_STEP_2       = 0x04U,    /*!< HASH peripheral is in HMAC step 2 processing phase
@@ -87,8 +87,8 @@ typedef enum
   */
 typedef enum
 {
-  HAL_HASH_SUSPEND_NONE            = 0x00U,    /*!< HASH peripheral suspension not requested */
-  HAL_HASH_SUSPEND                 = 0x01U     /*!< HASH peripheral suspension is requested  */
+  HAL_HASH_SUSPEND_NONE            = 0x00U,
+  HAL_HASH_SUSPEND                 = 0x01U
 } HAL_HASH_SuspendTypeDef;
 
 #if (USE_HAL_HASH_REGISTER_CALLBACKS == 1U)
@@ -97,11 +97,11 @@ typedef enum
   */
 typedef enum
 {
-  HAL_HASH_MSPINIT_CB_ID           = 0x00U,    /*!< HASH MspInit callback ID     */
-  HAL_HASH_MSPDEINIT_CB_ID         = 0x01U,    /*!< HASH MspDeInit callback ID   */
-  HAL_HASH_INPUTCPLT_CB_ID         = 0x02U,    /*!< HASH input completion callback ID */
-  HAL_HASH_DGSTCPLT_CB_ID          = 0x03U,    /*!< HASH digest computation completion callback ID */
-  HAL_HASH_ERROR_CB_ID             = 0x04U,    /*!< HASH error callback ID     */
+  HAL_HASH_MSPINIT_CB_ID           = 0x00U,
+  HAL_HASH_MSPDEINIT_CB_ID         = 0x01U,
+  HAL_HASH_INPUTCPLT_CB_ID         = 0x02U,
+  HAL_HASH_DGSTCPLT_CB_ID          = 0x03U,
+  HAL_HASH_ERROR_CB_ID             = 0x04U,
 } HAL_HASH_CallbackIDTypeDef;
 #endif /* USE_HAL_HASH_REGISTER_CALLBACKS */
 
@@ -115,54 +115,54 @@ typedef struct __HASH_HandleTypeDef
 typedef struct
 #endif /* (USE_HAL_HASH_REGISTER_CALLBACKS) */
 {
-  HASH_InitTypeDef           Init;             /*!< HASH required parameters */
+  HASH_InitTypeDef           Init;
 
-  uint8_t const              *pHashInBuffPtr;  /*!< Pointer to input buffer */
+  uint8_t const              *pHashInBuffPtr;
 
-  uint8_t                    *pHashOutBuffPtr; /*!< Pointer to output buffer (digest) */
+  uint8_t                    *pHashOutBuffPtr;
 
-  uint8_t                    *pHashKeyBuffPtr; /*!< Pointer to key buffer (HMAC only) */
+  uint8_t                    *pHashKeyBuffPtr;
 
-  uint8_t const              *pHashMsgBuffPtr; /*!< Pointer to message buffer (HMAC only) */
+  uint8_t const              *pHashMsgBuffPtr;
 
-  uint32_t                   HashBuffSize;     /*!< Size of buffer to be processed */
+  uint32_t                   HashBuffSize;
 
-  __IO uint32_t              HashInCount;      /*!< Counter of inputted data */
+  __IO uint32_t              HashInCount;
 
-  __IO uint32_t              HashITCounter;    /*!< Counter of issued interrupts */
+  __IO uint32_t              HashITCounter;
 
-  __IO uint32_t              HashKeyCount;     /*!< Counter for Key inputted data (HMAC only) */
+  __IO uint32_t              HashKeyCount;
 
-  HAL_StatusTypeDef          Status;           /*!< HASH peripheral status   */
+  HAL_StatusTypeDef          Status;
 
-  HAL_HASH_PhaseTypeDef      Phase;            /*!< HASH peripheral phase   */
+  HAL_HASH_PhaseTypeDef      Phase;
 
-  DMA_HandleTypeDef          *hdmain;          /*!< HASH In DMA Handle parameters */
+  DMA_HandleTypeDef          *hdmain;
 
-  HAL_LockTypeDef            Lock;             /*!< Locking object */
+  HAL_LockTypeDef            Lock;
 
-  __IO HAL_HASH_StateTypeDef State;            /*!< HASH peripheral state */
+  __IO HAL_HASH_StateTypeDef State;
 
-  HAL_HASH_SuspendTypeDef    SuspendRequest;   /*!< HASH peripheral suspension request flag */
+  HAL_HASH_SuspendTypeDef    SuspendRequest;
 
-  FlagStatus                 DigestCalculationDisable;  /*!< Digest calculation phase skip (MDMAT bit control) for multi-buffers DMA-based HMAC computation */
+  FlagStatus                 DigestCalculationDisable;
 
-  __IO uint32_t              NbWordsAlreadyPushed;      /*!< Numbers of words already pushed in FIFO before inputting new block */
+  __IO uint32_t              NbWordsAlreadyPushed;
 
-  __IO  uint32_t             ErrorCode;        /*!< HASH Error code */
+  __IO  uint32_t             ErrorCode;
 
-  __IO  uint32_t             Accumulation;     /*!< HASH multi buffers accumulation flag */
+  __IO  uint32_t             Accumulation;
 
 #if (USE_HAL_HASH_REGISTER_CALLBACKS == 1)
-  void (* InCpltCallback)(struct __HASH_HandleTypeDef *hhash);         /*!< HASH input completion callback */
+  void (* InCpltCallback)(struct __HASH_HandleTypeDef *hhash);
 
-  void (* DgstCpltCallback)(struct __HASH_HandleTypeDef *hhash);       /*!< HASH digest computation completion callback */
+  void (* DgstCpltCallback)(struct __HASH_HandleTypeDef *hhash);
 
-  void (* ErrorCallback)(struct __HASH_HandleTypeDef *hhash);          /*!< HASH error callback */
+  void (* ErrorCallback)(struct __HASH_HandleTypeDef *hhash);
 
-  void (* MspInitCallback)(struct __HASH_HandleTypeDef *hhash);        /*!< HASH Msp Init callback */
+  void (* MspInitCallback)(struct __HASH_HandleTypeDef *hhash);
 
-  void (* MspDeInitCallback)(struct __HASH_HandleTypeDef *hhash);      /*!< HASH Msp DeInit callback */
+  void (* MspDeInitCallback)(struct __HASH_HandleTypeDef *hhash);
 
 #endif /* (USE_HAL_HASH_REGISTER_CALLBACKS) */
 } HASH_HandleTypeDef;
@@ -171,7 +171,7 @@ typedef struct
 /**
   * @brief  HAL HASH Callback pointer definition
   */
-typedef  void (*pHASH_CallbackTypeDef)(HASH_HandleTypeDef *hhash);  /*!< pointer to a HASH common callback functions */
+typedef  void (*pHASH_CallbackTypeDef)(HASH_HandleTypeDef *hhash);
 #endif /* USE_HAL_HASH_REGISTER_CALLBACKS */
 
 /**
@@ -187,10 +187,10 @@ typedef  void (*pHASH_CallbackTypeDef)(HASH_HandleTypeDef *hhash);  /*!< pointer
 /** @defgroup HASH_Algo_Selection   HASH algorithm selection
   * @{
   */
-#define HASH_ALGOSELECTION_SHA1      0x00000000U /*!< HASH function is SHA1   */
-#define HASH_ALGOSELECTION_MD5       HASH_CR_ALGO_0     /*!< HASH function is MD5    */
-#define HASH_ALGOSELECTION_SHA224    HASH_CR_ALGO_1     /*!< HASH function is SHA224 */
-#define HASH_ALGOSELECTION_SHA256    HASH_CR_ALGO       /*!< HASH function is SHA256 */
+#define HASH_ALGOSELECTION_SHA1      0x00000000U
+#define HASH_ALGOSELECTION_MD5       HASH_CR_ALGO_0
+#define HASH_ALGOSELECTION_SHA224    HASH_CR_ALGO_1
+#define HASH_ALGOSELECTION_SHA256    HASH_CR_ALGO
 /**
   * @}
   */
@@ -198,8 +198,8 @@ typedef  void (*pHASH_CallbackTypeDef)(HASH_HandleTypeDef *hhash);  /*!< pointer
 /** @defgroup HASH_Algorithm_Mode   HASH algorithm mode
   * @{
   */
-#define HASH_ALGOMODE_HASH         0x00000000U /*!< Algorithm is HASH */
-#define HASH_ALGOMODE_HMAC         HASH_CR_MODE           /*!< Algorithm is HMAC */
+#define HASH_ALGOMODE_HASH         0x00000000U
+#define HASH_ALGOMODE_HMAC         HASH_CR_MODE
 /**
   * @}
   */
@@ -207,10 +207,10 @@ typedef  void (*pHASH_CallbackTypeDef)(HASH_HandleTypeDef *hhash);  /*!< pointer
 /** @defgroup HASH_Data_Type      HASH input data type
   * @{
   */
-#define HASH_DATATYPE_32B          0x00000000U /*!< 32-bit data. No swapping                     */
-#define HASH_DATATYPE_16B          HASH_CR_DATATYPE_0 /*!< 16-bit data. Each half word is swapped       */
-#define HASH_DATATYPE_8B           HASH_CR_DATATYPE_1 /*!< 8-bit data. All bytes are swapped            */
-#define HASH_DATATYPE_1B           HASH_CR_DATATYPE   /*!< 1-bit data. In the word all bits are swapped */
+#define HASH_DATATYPE_32B          0x00000000U
+#define HASH_DATATYPE_16B          HASH_CR_DATATYPE_0
+#define HASH_DATATYPE_8B           HASH_CR_DATATYPE_1
+#define HASH_DATATYPE_1B           HASH_CR_DATATYPE
 /**
   * @}
   */
@@ -218,8 +218,8 @@ typedef  void (*pHASH_CallbackTypeDef)(HASH_HandleTypeDef *hhash);  /*!< pointer
 /** @defgroup HASH_HMAC_Long_key_only_for_HMAC_mode   HMAC key length type
   * @{
   */
-#define HASH_HMAC_KEYTYPE_SHORTKEY      0x00000000U /*!< HMAC Key size is <= 64 bytes */
-#define HASH_HMAC_KEYTYPE_LONGKEY       HASH_CR_LKEY           /*!< HMAC Key size is > 64 bytes  */
+#define HASH_HMAC_KEYTYPE_SHORTKEY      0x00000000U
+#define HASH_HMAC_KEYTYPE_LONGKEY       HASH_CR_LKEY
 /**
   * @}
   */
@@ -227,11 +227,11 @@ typedef  void (*pHASH_CallbackTypeDef)(HASH_HandleTypeDef *hhash);  /*!< pointer
 /** @defgroup HASH_flags_definition  HASH flags definitions
   * @{
   */
-#define HASH_FLAG_DINIS            HASH_SR_DINIS  /*!< 16 locations are free in the DIN : a new block can be entered in the Peripheral */
-#define HASH_FLAG_DCIS             HASH_SR_DCIS   /*!< Digest calculation complete                                                     */
-#define HASH_FLAG_DMAS             HASH_SR_DMAS   /*!< DMA interface is enabled (DMAE=1) or a transfer is ongoing                      */
-#define HASH_FLAG_BUSY             HASH_SR_BUSY   /*!< The hash core is Busy, processing a block of data                               */
-#define HASH_FLAG_DINNE            HASH_CR_DINNE  /*!< DIN not empty : the input buffer contains at least one word of data             */
+#define HASH_FLAG_DINIS            HASH_SR_DINIS
+#define HASH_FLAG_DCIS             HASH_SR_DCIS
+#define HASH_FLAG_DMAS             HASH_SR_DMAS
+#define HASH_FLAG_BUSY             HASH_SR_BUSY
+#define HASH_FLAG_DINNE            HASH_CR_DINNE
 
 /**
   * @}
@@ -240,8 +240,8 @@ typedef  void (*pHASH_CallbackTypeDef)(HASH_HandleTypeDef *hhash);  /*!< pointer
 /** @defgroup HASH_interrupts_definition   HASH interrupts definitions
   * @{
   */
-#define HASH_IT_DINI               HASH_IMR_DINIE  /*!< A new block can be entered into the input buffer (DIN) */
-#define HASH_IT_DCI                HASH_IMR_DCIE   /*!< Digest calculation complete                            */
+#define HASH_IT_DINI               HASH_IMR_DINIE
+#define HASH_IT_DCI                HASH_IMR_DCIE
 
 /**
   * @}
@@ -250,11 +250,11 @@ typedef  void (*pHASH_CallbackTypeDef)(HASH_HandleTypeDef *hhash);  /*!< pointer
 /** @defgroup HASH_Error_Definition   HASH Error Definition
   * @{
   */
-#define  HAL_HASH_ERROR_NONE             0x00000000U   /*!< No error                */
-#define  HAL_HASH_ERROR_IT               0x00000001U   /*!< IT-based process error  */
-#define  HAL_HASH_ERROR_DMA              0x00000002U   /*!< DMA-based process error */
+#define  HAL_HASH_ERROR_NONE             0x00000000U
+#define  HAL_HASH_ERROR_IT               0x00000001U
+#define  HAL_HASH_ERROR_DMA              0x00000002U
 #if (USE_HAL_HASH_REGISTER_CALLBACKS == 1U)
-#define  HAL_HASH_ERROR_INVALID_CALLBACK 0x00000004U   /*!< Invalid Callback error  */
+#define  HAL_HASH_ERROR_INVALID_CALLBACK 0x00000004U
 #endif /* USE_HAL_HASH_REGISTER_CALLBACKS */
 /**
   * @}

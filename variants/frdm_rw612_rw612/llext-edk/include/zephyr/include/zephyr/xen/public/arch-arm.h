@@ -269,12 +269,12 @@ struct vcpu_guest_core_regs {
 	__DECL_REG(x30,         lr_fiq);
 
 	/* Return address and mode */
-	__DECL_REG(pc64,        pc32);  /* ELR_EL2 */
-	uint32_t cpsr;                  /* SPSR_EL2 */
+	__DECL_REG(pc64,        pc32);
+	uint32_t cpsr;
 
 	union {
-		uint32_t spsr_el1;      /* AArch64 */
-		uint32_t spsr_svc;      /* AArch32 */
+		uint32_t spsr_el1;
+		uint32_t spsr_svc;
 	};
 
 	/* AArch32 guests only */
@@ -292,9 +292,9 @@ DEFINE_XEN_GUEST_HANDLE(vcpu_guest_core_regs_t);
 struct vcpu_guest_context {
 #define _VGCF_online			0
 #define VGCF_online			(1 << _VGCF_online)
-	uint32_t flags; /* VGCF_* */
+	uint32_t flags;
 
-	struct vcpu_guest_core_regs user_regs; /* Core CPU registers */
+	struct vcpu_guest_core_regs user_regs;
 
 	uint64_t sctlr;
 	uint64_t ttbcr, ttbr0, ttbr1;
@@ -351,14 +351,14 @@ typedef uint64_t xen_callback_t;
 #ifdef CONFIG_XEN_DOM0
 
 /* PSR bits (CPSR, SPSR) */
-#define PSR_THUMB			(1 << 5) /* Thumb Mode enable */
-#define PSR_FIQ_MASK			(1 << 6) /* Fast Interrupt mask */
-#define PSR_IRQ_MASK			(1 << 7) /* Interrupt mask */
-#define PSR_ABT_MASK			(1 << 8) /* Asynchronous Abort mask */
-#define PSR_BIG_ENDIAN			(1 << 9) /* arm32: Big Endian Mode */
-#define PSR_DBG_MASK			(1 << 9) /* arm64: Debug Exception mask */
-#define PSR_IT_MASK			(0x0600fc00) /* Thumb If-Then Mask */
-#define PSR_JAZELLE			(1<<24) /* Jazelle Mode */
+#define PSR_THUMB			(1 << 5)
+#define PSR_FIQ_MASK			(1 << 6)
+#define PSR_IRQ_MASK			(1 << 7)
+#define PSR_ABT_MASK			(1 << 8)
+#define PSR_BIG_ENDIAN			(1 << 9)
+#define PSR_DBG_MASK			(1 << 9)
+#define PSR_IT_MASK			(0x0600fc00)
+#define PSR_JAZELLE			(1<<24)
 
 /* 32 bit modes */
 #define PSR_MODE_USR			0x10
@@ -372,7 +372,7 @@ typedef uint64_t xen_callback_t;
 #define PSR_MODE_SYS			0x1f
 
 /* 64 bit modes */
-#define PSR_MODE_BIT			0x10 /* Set iff AArch32 */
+#define PSR_MODE_BIT			0x10
 #define PSR_MODE_EL3h			0x0d
 #define PSR_MODE_EL3t			0x0c
 #define PSR_MODE_EL2h			0x09
@@ -413,7 +413,7 @@ typedef uint64_t xen_callback_t;
 
 #define GUEST_GICV3_RDIST_REGIONS	1
 
-#define GUEST_GICV3_GICR0_BASE		xen_mk_ullong(0x03020000) /* vCPU0..127 */
+#define GUEST_GICV3_GICR0_BASE		xen_mk_ullong(0x03020000)
 #define GUEST_GICV3_GICR0_SIZE		xen_mk_ullong(0x01000000)
 
 /* ACPI tables physical address */
@@ -436,13 +436,13 @@ typedef uint64_t xen_callback_t;
 
 #define GUEST_RAM_BANKS			2
 
-#define GUEST_RAM0_BASE			xen_mk_ullong(0x40000000) /* 3GB of low RAM @ 1GB */
+#define GUEST_RAM0_BASE			xen_mk_ullong(0x40000000)
 #define GUEST_RAM0_SIZE			xen_mk_ullong(0xc0000000)
 
-#define GUEST_RAM1_BASE			xen_mk_ullong(0x0200000000) /* 1016GB of RAM @ 8GB */
+#define GUEST_RAM1_BASE			xen_mk_ullong(0x0200000000)
 #define GUEST_RAM1_SIZE			xen_mk_ullong(0xfe00000000)
 
-#define GUEST_RAM_BASE			GUEST_RAM0_BASE /* Lowest RAM address */
+#define GUEST_RAM_BASE			GUEST_RAM0_BASE
 /* Largest amount of actual RAM, not including holes */
 #define GUEST_RAM_MAX			(GUEST_RAM0_SIZE + GUEST_RAM1_SIZE)
 /* Suitable for e.g. const uint64_t ramfoo[] = GUEST_RAM_BANK_FOOS; */

@@ -48,14 +48,14 @@ extern "C" {
  * @name Group addresses
  * @{
  */
-#define BT_MESH_ADDR_UNASSIGNED    0x0000   /**< unassigned */
-#define BT_MESH_ADDR_ALL_NODES     0xffff   /**< all-nodes */
-#define BT_MESH_ADDR_RELAYS        0xfffe   /**< all-relays */
-#define BT_MESH_ADDR_FRIENDS       0xfffd   /**< all-friends */
-#define BT_MESH_ADDR_PROXIES       0xfffc   /**< all-proxies */
-#define BT_MESH_ADDR_DFW_NODES     0xfffb   /**< all-directed-forwarding-nodes */
-#define BT_MESH_ADDR_IP_NODES      0xfffa   /**< all-ipt-nodes */
-#define BT_MESH_ADDR_IP_BR_ROUTERS 0xfff9   /**< all-ipt-border-routers */
+#define BT_MESH_ADDR_UNASSIGNED    0x0000
+#define BT_MESH_ADDR_ALL_NODES     0xffff
+#define BT_MESH_ADDR_RELAYS        0xfffe
+#define BT_MESH_ADDR_FRIENDS       0xfffd
+#define BT_MESH_ADDR_PROXIES       0xfffc
+#define BT_MESH_ADDR_DFW_NODES     0xfffb
+#define BT_MESH_ADDR_IP_NODES      0xfffa
+#define BT_MESH_ADDR_IP_BR_ROUTERS 0xfff9
 /**
  * @}
  */
@@ -64,12 +64,12 @@ extern "C" {
  * @name Predefined key indexes
  * @{
  */
-#define BT_MESH_KEY_UNUSED        0xffff          /**< Key unused */
-#define BT_MESH_KEY_ANY           0xffff          /**< Any key index */
-#define BT_MESH_KEY_DEV           0xfffe          /**< Device key */
-#define BT_MESH_KEY_DEV_LOCAL     BT_MESH_KEY_DEV /**< Local device key */
-#define BT_MESH_KEY_DEV_REMOTE    0xfffd          /**< Remote device key */
-#define BT_MESH_KEY_DEV_ANY       0xfffc          /**< Any device key */
+#define BT_MESH_KEY_UNUSED        0xffff
+#define BT_MESH_KEY_ANY           0xffff
+#define BT_MESH_KEY_DEV           0xfffe
+#define BT_MESH_KEY_DEV_LOCAL     BT_MESH_KEY_DEV
+#define BT_MESH_KEY_DEV_REMOTE    0xfffd
+#define BT_MESH_KEY_DEV_ANY       0xfffc
 /**
  * @}
  */
@@ -628,7 +628,7 @@ struct bt_mesh_model_op {
  *  @return Mesh transmit value that can be used e.g. for the default
  *          values of the configuration model data.
  */
-#define BT_MESH_TRANSMIT(count, int_ms) ((count) | (((int_ms / 10) - 1) << 3))
+#define BT_MESH_TRANSMIT(count, int_ms) ((uint8_t)((count) | (((int_ms / 10) - 1) << 3)))
 
 /**
  *  @brief Decode transmit count from a transmit value.
@@ -709,23 +709,23 @@ struct bt_mesh_model_pub {
 	/** The model the context belongs to. Initialized by the stack. */
 	const struct bt_mesh_model *mod;
 
-	uint16_t addr;          /**< Publish Address. */
-	const uint8_t *uuid;    /**< Label UUID if Publish Address is Virtual Address. */
-	uint16_t key:12,        /**< Publish AppKey Index. */
-		 cred:1,        /**< Friendship Credentials Flag. */
-		 send_rel:1,    /**< Force reliable sending (segment acks) */
-		 fast_period:1, /**< Use FastPeriodDivisor */
-		 retr_update:1; /**< Call update callback on every retransmission. */
+	uint16_t addr;
+	const uint8_t *uuid;
+	uint16_t key:12,
+		 cred:1,
+		 send_rel:1,
+		 fast_period:1,
+		 retr_update:1;
 
-	uint8_t  ttl;          /**< Publish Time to Live. */
-	uint8_t  retransmit;   /**< Retransmit Count & Interval Steps. */
-	uint8_t  period;       /**< Publish Period. */
-	uint8_t  period_div:4, /**< Divisor for the Period. */
-		 count:4;      /**< Transmissions left. */
+	uint8_t  ttl;
+	uint8_t  retransmit;
+	uint8_t  period;
+	uint8_t  period_div:4,
+		 count:4;
 
-	uint8_t delayable:1;   /**< Use random delay for publishing. */
+	uint8_t delayable:1;
 
-	uint32_t period_start; /**< Start of the current period. */
+	uint32_t period_start;
 
 	/** @brief Publication buffer, containing the publication message.
 	 *
@@ -898,9 +898,9 @@ struct bt_mesh_model {
 
 	/* Model runtime information */
 	struct bt_mesh_model_rt_ctx {
-		uint8_t  elem_idx;   /* Belongs to Nth element */
-		uint8_t  mod_idx;    /* Is the Nth model in the element */
-		uint16_t flags;      /* Model flags for internal bookkeeping */
+		uint8_t  elem_idx;
+		uint8_t  mod_idx;
+		uint16_t flags;
 
 #ifdef CONFIG_BT_MESH_MODEL_EXTENSIONS
 		/* Pointer to the next model in a model extension list. */
@@ -1153,12 +1153,12 @@ int bt_mesh_models_metadata_change_prepare(void);
 
 /** Node Composition */
 struct bt_mesh_comp {
-	uint16_t cid; /**< Company ID */
-	uint16_t pid; /**< Product ID */
-	uint16_t vid; /**< Version ID */
+	uint16_t cid;
+	uint16_t pid;
+	uint16_t vid;
 
-	size_t elem_count; /**< The number of elements in this device. */
-	const struct bt_mesh_elem *elem; /**< List of elements. */
+	size_t elem_count;
+	const struct bt_mesh_elem *elem;
 };
 
 /** Composition data page 2 record. */

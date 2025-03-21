@@ -382,12 +382,12 @@ typedef struct
   * @brief    Flags defines which can be used with LL_DMA2D_ReadReg function
   * @{
   */
-#define LL_DMA2D_FLAG_CEIF          DMA2D_ISR_CEIF     /*!< Configuration Error Interrupt Flag */
-#define LL_DMA2D_FLAG_CTCIF         DMA2D_ISR_CTCIF    /*!< CLUT Transfer Complete Interrupt Flag */
-#define LL_DMA2D_FLAG_CAEIF         DMA2D_ISR_CAEIF    /*!< CLUT Access Error Interrupt Flag */
-#define LL_DMA2D_FLAG_TWIF          DMA2D_ISR_TWIF     /*!< Transfer Watermark Interrupt Flag */
-#define LL_DMA2D_FLAG_TCIF          DMA2D_ISR_TCIF     /*!< Transfer Complete Interrupt Flag */
-#define LL_DMA2D_FLAG_TEIF          DMA2D_ISR_TEIF     /*!< Transfer Error Interrupt Flag */
+#define LL_DMA2D_FLAG_CEIF          DMA2D_ISR_CEIF
+#define LL_DMA2D_FLAG_CTCIF         DMA2D_ISR_CTCIF
+#define LL_DMA2D_FLAG_CAEIF         DMA2D_ISR_CAEIF
+#define LL_DMA2D_FLAG_TWIF          DMA2D_ISR_TWIF
+#define LL_DMA2D_FLAG_TCIF          DMA2D_ISR_TCIF
+#define LL_DMA2D_FLAG_TEIF          DMA2D_ISR_TEIF
 /**
   * @}
   */
@@ -396,12 +396,12 @@ typedef struct
   * @brief    IT defines which can be used with LL_DMA2D_ReadReg and  LL_DMA2D_WriteReg functions
   * @{
   */
-#define LL_DMA2D_IT_CEIE             DMA2D_CR_CEIE    /*!< Configuration Error Interrupt */
-#define LL_DMA2D_IT_CTCIE            DMA2D_CR_CTCIE   /*!< CLUT Transfer Complete Interrupt */
-#define LL_DMA2D_IT_CAEIE            DMA2D_CR_CAEIE   /*!< CLUT Access Error Interrupt */
-#define LL_DMA2D_IT_TWIE             DMA2D_CR_TWIE    /*!< Transfer Watermark Interrupt */
-#define LL_DMA2D_IT_TCIE             DMA2D_CR_TCIE    /*!< Transfer Complete Interrupt */
-#define LL_DMA2D_IT_TEIE             DMA2D_CR_TEIE    /*!< Transfer Error Interrupt */
+#define LL_DMA2D_IT_CEIE             DMA2D_CR_CEIE
+#define LL_DMA2D_IT_CTCIE            DMA2D_CR_CTCIE
+#define LL_DMA2D_IT_CAEIE            DMA2D_CR_CAEIE
+#define LL_DMA2D_IT_TWIE             DMA2D_CR_TWIE
+#define LL_DMA2D_IT_TCIE             DMA2D_CR_TCIE
+#define LL_DMA2D_IT_TEIE             DMA2D_CR_TEIE
 /**
   * @}
   */
@@ -409,12 +409,12 @@ typedef struct
 /** @defgroup DMA2D_LL_EC_MODE Mode
   * @{
   */
-#define LL_DMA2D_MODE_M2M                       0x00000000U                       /*!< DMA2D memory to memory transfer mode */
-#define LL_DMA2D_MODE_M2M_PFC                   DMA2D_CR_MODE_0                   /*!< DMA2D memory to memory with pixel format conversion transfer mode */
-#define LL_DMA2D_MODE_M2M_BLEND                 DMA2D_CR_MODE_1                   /*!< DMA2D memory to memory with blending transfer mode */
-#define LL_DMA2D_MODE_R2M                       (DMA2D_CR_MODE_0|DMA2D_CR_MODE_1) /*!< DMA2D register to memory transfer mode */
-#define LL_DMA2D_MODE_M2M_BLEND_FIXED_COLOR_FG  DMA2D_CR_MODE_2                   /*!< DMA2D memory to memory with blending transfer mode and fixed color foreground */
-#define LL_DMA2D_MODE_M2M_BLEND_FIXED_COLOR_BG  (DMA2D_CR_MODE_0|DMA2D_CR_MODE_2) /*!< DMA2D memory to memory with blending transfer mode and fixed color background */
+#define LL_DMA2D_MODE_M2M                       0x00000000U
+#define LL_DMA2D_MODE_M2M_PFC                   DMA2D_CR_MODE_0
+#define LL_DMA2D_MODE_M2M_BLEND                 DMA2D_CR_MODE_1
+#define LL_DMA2D_MODE_R2M                       (DMA2D_CR_MODE_0|DMA2D_CR_MODE_1)
+#define LL_DMA2D_MODE_M2M_BLEND_FIXED_COLOR_FG  DMA2D_CR_MODE_2
+#define LL_DMA2D_MODE_M2M_BLEND_FIXED_COLOR_BG  (DMA2D_CR_MODE_0|DMA2D_CR_MODE_2)
 /**
   * @}
   */
@@ -422,11 +422,11 @@ typedef struct
 /** @defgroup DMA2D_LL_EC_OUTPUT_COLOR_MODE Output Color Mode
   * @{
   */
-#define LL_DMA2D_OUTPUT_MODE_ARGB8888     0x00000000U                           /*!< ARGB8888 */
-#define LL_DMA2D_OUTPUT_MODE_RGB888       DMA2D_OPFCCR_CM_0                     /*!< RGB888   */
-#define LL_DMA2D_OUTPUT_MODE_RGB565       DMA2D_OPFCCR_CM_1                     /*!< RGB565   */
-#define LL_DMA2D_OUTPUT_MODE_ARGB1555     (DMA2D_OPFCCR_CM_0|DMA2D_OPFCCR_CM_1) /*!< ARGB1555 */
-#define LL_DMA2D_OUTPUT_MODE_ARGB4444     DMA2D_OPFCCR_CM_2                     /*!< ARGB4444 */
+#define LL_DMA2D_OUTPUT_MODE_ARGB8888     0x00000000U
+#define LL_DMA2D_OUTPUT_MODE_RGB888       DMA2D_OPFCCR_CM_0
+#define LL_DMA2D_OUTPUT_MODE_RGB565       DMA2D_OPFCCR_CM_1
+#define LL_DMA2D_OUTPUT_MODE_ARGB1555     (DMA2D_OPFCCR_CM_0|DMA2D_OPFCCR_CM_1)
+#define LL_DMA2D_OUTPUT_MODE_ARGB4444     DMA2D_OPFCCR_CM_2
 /**
   * @}
   */
@@ -434,18 +434,18 @@ typedef struct
 /** @defgroup DMA2D_LL_EC_INPUT_COLOR_MODE Input Color Mode
   * @{
   */
-#define LL_DMA2D_INPUT_MODE_ARGB8888      0x00000000U                                                /*!< ARGB8888 */
-#define LL_DMA2D_INPUT_MODE_RGB888        DMA2D_FGPFCCR_CM_0                                         /*!< RGB888   */
-#define LL_DMA2D_INPUT_MODE_RGB565        DMA2D_FGPFCCR_CM_1                                         /*!< RGB565   */
-#define LL_DMA2D_INPUT_MODE_ARGB1555      (DMA2D_FGPFCCR_CM_0|DMA2D_FGPFCCR_CM_1)                    /*!< ARGB1555 */
-#define LL_DMA2D_INPUT_MODE_ARGB4444      DMA2D_FGPFCCR_CM_2                                         /*!< ARGB4444 */
-#define LL_DMA2D_INPUT_MODE_L8            (DMA2D_FGPFCCR_CM_0|DMA2D_FGPFCCR_CM_2)                    /*!< L8       */
-#define LL_DMA2D_INPUT_MODE_AL44          (DMA2D_FGPFCCR_CM_1|DMA2D_FGPFCCR_CM_2)                    /*!< AL44     */
-#define LL_DMA2D_INPUT_MODE_AL88          (DMA2D_FGPFCCR_CM_0|DMA2D_FGPFCCR_CM_1|DMA2D_FGPFCCR_CM_2) /*!< AL88     */
-#define LL_DMA2D_INPUT_MODE_L4            DMA2D_FGPFCCR_CM_3                                         /*!< L4       */
-#define LL_DMA2D_INPUT_MODE_A8            (DMA2D_FGPFCCR_CM_0|DMA2D_FGPFCCR_CM_3)                    /*!< A8       */
-#define LL_DMA2D_INPUT_MODE_A4            (DMA2D_FGPFCCR_CM_1|DMA2D_FGPFCCR_CM_3)                    /*!< A4       */
-#define LL_DMA2D_INPUT_MODE_YCBCR         (DMA2D_FGPFCCR_CM_0|DMA2D_FGPFCCR_CM_1|DMA2D_FGPFCCR_CM_3) /*!< YCbCr    */
+#define LL_DMA2D_INPUT_MODE_ARGB8888      0x00000000U
+#define LL_DMA2D_INPUT_MODE_RGB888        DMA2D_FGPFCCR_CM_0
+#define LL_DMA2D_INPUT_MODE_RGB565        DMA2D_FGPFCCR_CM_1
+#define LL_DMA2D_INPUT_MODE_ARGB1555      (DMA2D_FGPFCCR_CM_0|DMA2D_FGPFCCR_CM_1)
+#define LL_DMA2D_INPUT_MODE_ARGB4444      DMA2D_FGPFCCR_CM_2
+#define LL_DMA2D_INPUT_MODE_L8            (DMA2D_FGPFCCR_CM_0|DMA2D_FGPFCCR_CM_2)
+#define LL_DMA2D_INPUT_MODE_AL44          (DMA2D_FGPFCCR_CM_1|DMA2D_FGPFCCR_CM_2)
+#define LL_DMA2D_INPUT_MODE_AL88          (DMA2D_FGPFCCR_CM_0|DMA2D_FGPFCCR_CM_1|DMA2D_FGPFCCR_CM_2)
+#define LL_DMA2D_INPUT_MODE_L4            DMA2D_FGPFCCR_CM_3
+#define LL_DMA2D_INPUT_MODE_A8            (DMA2D_FGPFCCR_CM_0|DMA2D_FGPFCCR_CM_3)
+#define LL_DMA2D_INPUT_MODE_A4            (DMA2D_FGPFCCR_CM_1|DMA2D_FGPFCCR_CM_3)
+#define LL_DMA2D_INPUT_MODE_YCBCR         (DMA2D_FGPFCCR_CM_0|DMA2D_FGPFCCR_CM_1|DMA2D_FGPFCCR_CM_3)
 /**
   * @}
   */
@@ -453,7 +453,7 @@ typedef struct
 /** @defgroup DMA2D_LL_EC_ALPHA_MODE Alpha Mode
   * @{
   */
-#define LL_DMA2D_ALPHA_MODE_NO_MODIF       0x00000000U             /*!< No modification of the alpha channel value */
+#define LL_DMA2D_ALPHA_MODE_NO_MODIF       0x00000000U
 #define LL_DMA2D_ALPHA_MODE_REPLACE        DMA2D_FGPFCCR_AM_0      /*!< Replace original alpha channel value by
                                                                         programmed alpha value                     */
 #define LL_DMA2D_ALPHA_MODE_COMBINE        DMA2D_FGPFCCR_AM_1      /*!< Replace original alpha channel value by
@@ -466,8 +466,8 @@ typedef struct
 /** @defgroup DMA2D_LL_EC_OUTPUT_SWAP_MODE Swap Mode
   * @{
   */
-#define LL_DMA2D_SWAP_MODE_REGULAR        0x00000000U                      /*!< Regular order */
-#define LL_DMA2D_SWAP_MODE_TWO_BY_TWO     DMA2D_OPFCCR_SB                  /*!< Bytes swapped two by two */
+#define LL_DMA2D_SWAP_MODE_REGULAR        0x00000000U
+#define LL_DMA2D_SWAP_MODE_TWO_BY_TWO     DMA2D_OPFCCR_SB
 /**
   * @}
   */
@@ -475,8 +475,8 @@ typedef struct
 /** @defgroup DMA2D_LL_EC_RED_BLUE_SWAP Red Blue Swap
   * @{
   */
-#define LL_DMA2D_RB_MODE_REGULAR          0x00000000U                      /*!< RGB or ARGB */
-#define LL_DMA2D_RB_MODE_SWAP             DMA2D_FGPFCCR_RBS                /*!< BGR or ABGR */
+#define LL_DMA2D_RB_MODE_REGULAR          0x00000000U
+#define LL_DMA2D_RB_MODE_SWAP             DMA2D_FGPFCCR_RBS
 /**
   * @}
   */
@@ -484,8 +484,8 @@ typedef struct
 /** @defgroup DMA2D_LL_EC_ALPHA_INVERSION Alpha Inversion
   * @{
   */
-#define LL_DMA2D_ALPHA_REGULAR          0x00000000U                     /*!< Regular alpha  */
-#define LL_DMA2D_ALPHA_INVERTED         DMA2D_FGPFCCR_AI                /*!< Inverted alpha */
+#define LL_DMA2D_ALPHA_REGULAR          0x00000000U
+#define LL_DMA2D_ALPHA_INVERTED         DMA2D_FGPFCCR_AI
 /**
   * @}
   */
@@ -494,8 +494,8 @@ typedef struct
 /** @defgroup DMA2D_LL_EC_LINE_OFFSET_MODE Line Offset Mode
   * @{
   */
-#define LL_DMA2D_LINE_OFFSET_PIXELS     0x00000000U                     /*!< Line offsets are expressed in pixels  */
-#define LL_DMA2D_LINE_OFFSET_BYTES      DMA2D_CR_LOM                    /*!< Line offsets are expressed in bytes   */
+#define LL_DMA2D_LINE_OFFSET_PIXELS     0x00000000U
+#define LL_DMA2D_LINE_OFFSET_BYTES      DMA2D_CR_LOM
 /**
   * @}
   */
@@ -503,8 +503,8 @@ typedef struct
 /** @defgroup DMA2D_LL_EC_CLUT_COLOR_MODE CLUT Color Mode
   * @{
   */
-#define LL_DMA2D_CLUT_COLOR_MODE_ARGB8888          0x00000000U                     /*!< ARGB8888 */
-#define LL_DMA2D_CLUT_COLOR_MODE_RGB888            DMA2D_FGPFCCR_CCM               /*!< RGB888   */
+#define LL_DMA2D_CLUT_COLOR_MODE_ARGB8888          0x00000000U
+#define LL_DMA2D_CLUT_COLOR_MODE_RGB888            DMA2D_FGPFCCR_CCM
 /**
   * @}
   */
@@ -512,9 +512,9 @@ typedef struct
 /** @defgroup DMA2D_LL_CHROMA_SUB_SAMPLING Chroma Sub Sampling
   * @{
   */
-#define LL_DMA2D_CSS_444              0x00000000U             /*!< No chroma sub-sampling 4:4:4 */
-#define LL_DMA2D_CSS_422              DMA2D_FGPFCCR_CSS_0     /*!< chroma sub-sampling 4:2:2 */
-#define LL_DMA2D_CSS_420              DMA2D_FGPFCCR_CSS_1     /*!< chroma sub-sampling 4:2:0 */
+#define LL_DMA2D_CSS_444              0x00000000U
+#define LL_DMA2D_CSS_422              DMA2D_FGPFCCR_CSS_0
+#define LL_DMA2D_CSS_420              DMA2D_FGPFCCR_CSS_1
 /**
   * @}
   */

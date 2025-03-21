@@ -11,8 +11,8 @@
 
 /*- Definitions ------------------------------------------------------------*/
 #define RF2XX_AES_BLOCK_SIZE                16
-#define RF2XX_AES_CORE_CYCLE_TIME           24          /* us */
-#define RF2XX_RANDOM_NUMBER_UPDATE_INTERVAL 1           /* us */
+#define RF2XX_AES_CORE_CYCLE_TIME           24
+#define RF2XX_RANDOM_NUMBER_UPDATE_INTERVAL 1
 #define RX2XX_FRAME_HEADER_SIZE             2
 #define RX2XX_FRAME_FOOTER_SIZE             3
 #define RX2XX_FRAME_FCS_LENGTH              2

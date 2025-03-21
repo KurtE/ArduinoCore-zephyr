@@ -14,7 +14,7 @@ extern atomic_t hci_state_mask;
 #define HCI_STATE_BIT_RESET 0
 #endif
 
-#define HCI_CLASS_NONE            0 /* Invalid class */
+#define HCI_CLASS_NONE            0
 #define HCI_CLASS_EVT_REQUIRED    1 /* Mesh and connection-{established,
 				     * disconnected}
 				     */
@@ -24,11 +24,11 @@ extern atomic_t hci_state_mask;
 #define HCI_CLASS_EVT_CONNECTION  3 /* Connection management; e.g.
 				     * terminate, update, encryption
 				     */
-#define HCI_CLASS_EVT_LLCP        4 /* LL Control Procedures */
+#define HCI_CLASS_EVT_LLCP        4
 #define HCI_CLASS_ACL_DATA        5 /* Asynchronous Connection Less (general
 				     * data)
 				     */
-#define HCI_CLASS_ISO_DATA        6 /* Isochronous data */
+#define HCI_CLASS_ISO_DATA        6
 
 
 void hci_init(struct k_poll_signal *signal_host_buf);

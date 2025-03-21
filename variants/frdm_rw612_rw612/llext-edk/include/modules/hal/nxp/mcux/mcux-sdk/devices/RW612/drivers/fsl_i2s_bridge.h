@@ -26,42 +26,42 @@
 /*! @name Driver version */
 /*@{*/
 /*! @brief Group I2S Bridge driver version for SDK */
-#define FSL_I2S_BRIDGE_DRIVER_VERSION (MAKE_VERSION(2, 0, 0)) /*!< Version 2.0.0. */
+#define FSL_I2S_BRIDGE_DRIVER_VERSION (MAKE_VERSION(2, 0, 0))
 /*@}*/
 
 /*! @brief I2S Bridge share set */
 enum _i2s_bridge_share_set_index
 {
-    kI2S_BRIDGE_OriginalSignal = 0U, /*!< Original FLEXCOMM I2S signals */
-    kI2S_BRIDGE_ShareSet0      = 1U, /*!< share set 0 signals */
-    kI2S_BRIDGE_ShareSet1      = 2U, /*!< share set 1 signals */
+    kI2S_BRIDGE_OriginalSignal = 0U,
+    kI2S_BRIDGE_ShareSet0      = 1U,
+    kI2S_BRIDGE_ShareSet1      = 2U,
 };
 
 /*! @brief I2S signal */
 typedef enum _i2s_bridge_signal
 {
-    kI2S_BRIDGE_SignalSCK     = 0U, /*!< SCK signal */
-    kI2S_BRIDGE_SignalWS      = 1U, /*!< WS signal */
-    kI2S_BRIDGE_SignalDataIn  = 2U, /*!< Data in signal */
-    kI2S_BRIDGE_SignalDataOut = 3U, /*!< Data out signal */
+    kI2S_BRIDGE_SignalSCK     = 0U,
+    kI2S_BRIDGE_SignalWS      = 1U,
+    kI2S_BRIDGE_SignalDataIn  = 2U,
+    kI2S_BRIDGE_SignalDataOut = 3U,
 } i2s_bridge_signal_t;
 
 /*! @brief I2S signal source */
 enum _i2s_bridge_share_src
 {
-    kI2S_BRIDGE_Flexcomm0 = 0U, /*!< Shared signal comes from FLEXCOMM0 */
-    kI2S_BRIDGE_Flexcomm1 = 1U, /*!< Shared signal comes from FLEXCOMM1 */
-    kI2S_BRIDGE_Flexcomm2 = 2U, /*!< Shared signal comes from FLEXCOMM2 */
-    kI2S_BRIDGE_Flexcomm3 = 3U, /*!< Shared signal comes from FLEXCOMM3 */
+    kI2S_BRIDGE_Flexcomm0 = 0U,
+    kI2S_BRIDGE_Flexcomm1 = 1U,
+    kI2S_BRIDGE_Flexcomm2 = 2U,
+    kI2S_BRIDGE_Flexcomm3 = 3U,
 };
 
 /*! @brief I2S Bridge shared data out mask */
 enum _i2s_bridge_dataout_mask
 {
-    kI2S_BRIDGE_Flexcomm0DataOut = SYSCTL1_SHAREDCTRLSET_FC0DATAOUTEN_MASK, /*!< FLEXCOMM0 DATAOUT Output Enable */
-    kI2S_BRIDGE_Flexcomm1DataOut = SYSCTL1_SHAREDCTRLSET_FC1DATAOUTEN_MASK, /*!< FLEXCOMM1 DATAOUT Output Enable */
-    kI2S_BRIDGE_Flexcomm2DataOut = SYSCTL1_SHAREDCTRLSET_FC2DATAOUTEN_MASK, /*!< FLEXCOMM2 DATAOUT Output Enable */
-    kI2S_BRIDGE_Flexcomm3DataOut = SYSCTL1_SHAREDCTRLSET_FC3DATAOUTEN_MASK, /*!< FLEXCOMM3 DATAOUT Output Enable */
+    kI2S_BRIDGE_Flexcomm0DataOut = SYSCTL1_SHAREDCTRLSET_FC0DATAOUTEN_MASK,
+    kI2S_BRIDGE_Flexcomm1DataOut = SYSCTL1_SHAREDCTRLSET_FC1DATAOUTEN_MASK,
+    kI2S_BRIDGE_Flexcomm2DataOut = SYSCTL1_SHAREDCTRLSET_FC2DATAOUTEN_MASK,
+    kI2S_BRIDGE_Flexcomm3DataOut = SYSCTL1_SHAREDCTRLSET_FC3DATAOUTEN_MASK,
 };
 /*******************************************************************************
  * API

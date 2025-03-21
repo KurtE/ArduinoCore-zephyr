@@ -25,11 +25,11 @@ extern "C" {
  *
  */
 typedef struct {
-	VL53L0X_DevData_t Data;    /* embed ST Ewok Dev  data as "Data"*/
+	VL53L0X_DevData_t Data;
 	/*!< user specific field */
-	uint8_t   I2cDevAddr;      /* i2c device address user specific field */
-	uint8_t   comms_type;      /* VL53L0X_COMMS_I2C or VL53L0X_COMMS_SPI */
-	uint16_t  comms_speed_khz; /* Comms speed [kHz] */
+	uint8_t   I2cDevAddr;
+	uint8_t   comms_type;
+	uint16_t  comms_speed_khz;
 	const struct device *i2c;
 } VL53L0X_Dev_t;
 

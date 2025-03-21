@@ -46,12 +46,12 @@ extern "C" {
  * @name TFTP client error codes.
  * @{
  */
-#define TFTPC_SUCCESS             0 /**< Success. */
-#define TFTPC_DUPLICATE_DATA     -1 /**< Duplicate data received. */
-#define TFTPC_BUFFER_OVERFLOW    -2 /**< User buffer is too small. */
-#define TFTPC_UNKNOWN_FAILURE    -3 /**< Unknown failure. */
-#define TFTPC_REMOTE_ERROR       -4 /**< Remote server error. */
-#define TFTPC_RETRIES_EXHAUSTED  -5 /**< Retries exhausted. */
+#define TFTPC_SUCCESS             0
+#define TFTPC_DUPLICATE_DATA     -1
+#define TFTPC_BUFFER_OVERFLOW    -2
+#define TFTPC_UNKNOWN_FAILURE    -3
+#define TFTPC_REMOTE_ERROR       -4
+#define TFTPC_RETRIES_EXHAUSTED  -5
 /**
  * @}
  */
@@ -78,14 +78,14 @@ enum tftp_evt_type {
 
 /** @brief Parameters for data event. */
 struct tftp_data_param {
-	uint8_t *data_ptr;         /**< Pointer to binary data. */
-	uint32_t len;              /**< Length of binary data. */
+	uint8_t *data_ptr;
+	uint32_t len;
 };
 
 /** @brief Parameters for error event. */
 struct tftp_error_param {
-	char *msg;                 /**< Error message. */
-	int code;                  /**< Error code. */
+	char *msg;
+	int code;
 };
 
 /**

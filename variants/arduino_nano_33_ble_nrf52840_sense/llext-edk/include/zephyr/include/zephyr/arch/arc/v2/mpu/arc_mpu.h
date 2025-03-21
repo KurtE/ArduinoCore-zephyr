@@ -8,14 +8,14 @@
 
 
 
-#define AUX_MPU_ATTR_UE  0x008    /* allow user execution */
-#define AUX_MPU_ATTR_UW  0x010    /* allow user write */
-#define AUX_MPU_ATTR_UR  0x020    /* allow user read */
-#define AUX_MPU_ATTR_KE  0x040    /* only allow kernel execution */
-#define AUX_MPU_ATTR_KW  0x080    /* only allow kernel write */
-#define AUX_MPU_ATTR_KR  0x100    /* only allow kernel read */
-#define AUX_MPU_ATTR_S   0x8000   /* secure */
-#define AUX_MPU_ATTR_N   0x0000   /* normal */
+#define AUX_MPU_ATTR_UE  0x008
+#define AUX_MPU_ATTR_UW  0x010
+#define AUX_MPU_ATTR_UR  0x020
+#define AUX_MPU_ATTR_KE  0x040
+#define AUX_MPU_ATTR_KW  0x080
+#define AUX_MPU_ATTR_KR  0x100
+#define AUX_MPU_ATTR_S   0x8000
+#define AUX_MPU_ATTR_N   0x0000
 
 
 /*
@@ -24,7 +24,7 @@
  * entry overlap. For ARC MPUv2, this attribute will be ignored as it
  * supports mpu overlap in hardware.
  */
-#define REGION_DYNAMIC  0x800  /* dynamic flag */
+#define REGION_DYNAMIC  0x800
 
 
 /* Some helper defines for common regions */

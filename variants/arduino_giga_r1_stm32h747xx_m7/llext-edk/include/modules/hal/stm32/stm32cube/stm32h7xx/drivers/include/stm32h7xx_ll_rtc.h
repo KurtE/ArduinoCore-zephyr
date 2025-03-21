@@ -161,7 +161,7 @@ typedef struct
   */
 typedef struct
 {
-  LL_RTC_TimeTypeDef AlarmTime;  /*!< Specifies the RTC Alarm Time members. */
+  LL_RTC_TimeTypeDef AlarmTime;
 
   uint32_t AlarmMask;            /*!< Specifies the RTC Alarm Masks.
                                       This parameter can be a value of @ref RTC_LL_EC_ALMA_MASK for ALARM A or @ref RTC_LL_EC_ALMB_MASK for ALARM B.
@@ -204,8 +204,8 @@ typedef struct
 /** @defgroup RTC_LL_EC_FORMAT FORMAT
   * @{
   */
-#define LL_RTC_FORMAT_BIN                  0x00000000U /*!< Binary data format */
-#define LL_RTC_FORMAT_BCD                  0x00000001U /*!< BCD data format */
+#define LL_RTC_FORMAT_BIN                  0x00000000U
+#define LL_RTC_FORMAT_BCD                  0x00000001U
 /**
   * @}
   */
@@ -213,8 +213,8 @@ typedef struct
 /** @defgroup RTC_LL_EC_ALMA_WEEKDAY_SELECTION RTC Alarm A Date WeekDay
   * @{
   */
-#define LL_RTC_ALMA_DATEWEEKDAYSEL_DATE    0x00000000U             /*!< Alarm A Date is selected */
-#define LL_RTC_ALMA_DATEWEEKDAYSEL_WEEKDAY RTC_ALRMAR_WDSEL        /*!< Alarm A WeekDay is selected */
+#define LL_RTC_ALMA_DATEWEEKDAYSEL_DATE    0x00000000U
+#define LL_RTC_ALMA_DATEWEEKDAYSEL_WEEKDAY RTC_ALRMAR_WDSEL
 /**
   * @}
   */
@@ -222,8 +222,8 @@ typedef struct
 /** @defgroup RTC_LL_EC_ALMB_WEEKDAY_SELECTION RTC Alarm B Date WeekDay
   * @{
   */
-#define LL_RTC_ALMB_DATEWEEKDAYSEL_DATE    0x00000000U             /*!< Alarm B Date is selected */
-#define LL_RTC_ALMB_DATEWEEKDAYSEL_WEEKDAY RTC_ALRMBR_WDSEL        /*!< Alarm B WeekDay is selected */
+#define LL_RTC_ALMB_DATEWEEKDAYSEL_DATE    0x00000000U
+#define LL_RTC_ALMB_DATEWEEKDAYSEL_WEEKDAY RTC_ALRMBR_WDSEL
 /**
   * @}
   */
@@ -292,13 +292,13 @@ typedef struct
 /** @defgroup RTC_LL_EC_WEEKDAY  WEEK DAY
   * @{
   */
-#define LL_RTC_WEEKDAY_MONDAY              (uint8_t)0x01 /*!< Monday    */
-#define LL_RTC_WEEKDAY_TUESDAY             (uint8_t)0x02 /*!< Tuesday   */
-#define LL_RTC_WEEKDAY_WEDNESDAY           (uint8_t)0x03 /*!< Wednesday */
-#define LL_RTC_WEEKDAY_THURSDAY            (uint8_t)0x04 /*!< Thrusday  */
-#define LL_RTC_WEEKDAY_FRIDAY              (uint8_t)0x05 /*!< Friday    */
-#define LL_RTC_WEEKDAY_SATURDAY            (uint8_t)0x06 /*!< Saturday  */
-#define LL_RTC_WEEKDAY_SUNDAY              (uint8_t)0x07 /*!< Sunday    */
+#define LL_RTC_WEEKDAY_MONDAY              (uint8_t)0x01
+#define LL_RTC_WEEKDAY_TUESDAY             (uint8_t)0x02
+#define LL_RTC_WEEKDAY_WEDNESDAY           (uint8_t)0x03
+#define LL_RTC_WEEKDAY_THURSDAY            (uint8_t)0x04
+#define LL_RTC_WEEKDAY_FRIDAY              (uint8_t)0x05
+#define LL_RTC_WEEKDAY_SATURDAY            (uint8_t)0x06
+#define LL_RTC_WEEKDAY_SUNDAY              (uint8_t)0x07
 /**
   * @}
   */
@@ -306,18 +306,18 @@ typedef struct
 /** @defgroup RTC_LL_EC_MONTH  MONTH
   * @{
   */
-#define LL_RTC_MONTH_JANUARY               (uint8_t)0x01  /*!< January   */
-#define LL_RTC_MONTH_FEBRUARY              (uint8_t)0x02  /*!< February  */
-#define LL_RTC_MONTH_MARCH                 (uint8_t)0x03  /*!< March     */
-#define LL_RTC_MONTH_APRIL                 (uint8_t)0x04  /*!< April     */
-#define LL_RTC_MONTH_MAY                   (uint8_t)0x05  /*!< May       */
-#define LL_RTC_MONTH_JUNE                  (uint8_t)0x06  /*!< June      */
-#define LL_RTC_MONTH_JULY                  (uint8_t)0x07  /*!< July      */
-#define LL_RTC_MONTH_AUGUST                (uint8_t)0x08  /*!< August    */
-#define LL_RTC_MONTH_SEPTEMBER             (uint8_t)0x09  /*!< September */
-#define LL_RTC_MONTH_OCTOBER               (uint8_t)0x10  /*!< October   */
-#define LL_RTC_MONTH_NOVEMBER              (uint8_t)0x11  /*!< November  */
-#define LL_RTC_MONTH_DECEMBER              (uint8_t)0x12  /*!< December  */
+#define LL_RTC_MONTH_JANUARY               (uint8_t)0x01
+#define LL_RTC_MONTH_FEBRUARY              (uint8_t)0x02
+#define LL_RTC_MONTH_MARCH                 (uint8_t)0x03
+#define LL_RTC_MONTH_APRIL                 (uint8_t)0x04
+#define LL_RTC_MONTH_MAY                   (uint8_t)0x05
+#define LL_RTC_MONTH_JUNE                  (uint8_t)0x06
+#define LL_RTC_MONTH_JULY                  (uint8_t)0x07
+#define LL_RTC_MONTH_AUGUST                (uint8_t)0x08
+#define LL_RTC_MONTH_SEPTEMBER             (uint8_t)0x09
+#define LL_RTC_MONTH_OCTOBER               (uint8_t)0x10
+#define LL_RTC_MONTH_NOVEMBER              (uint8_t)0x11
+#define LL_RTC_MONTH_DECEMBER              (uint8_t)0x12
 /**
   * @}
   */
@@ -325,8 +325,8 @@ typedef struct
 /** @defgroup RTC_LL_EC_HOURFORMAT  HOUR FORMAT
   * @{
   */
-#define LL_RTC_HOURFORMAT_24HOUR           0x00000000U           /*!< 24 hour/day format */
-#define LL_RTC_HOURFORMAT_AMPM             RTC_CR_FMT            /*!< AM/PM hour format */
+#define LL_RTC_HOURFORMAT_24HOUR           0x00000000U
+#define LL_RTC_HOURFORMAT_AMPM             RTC_CR_FMT
 /**
   * @}
   */
@@ -334,10 +334,10 @@ typedef struct
 /** @defgroup RTC_LL_EC_ALARMOUT  ALARM OUTPUT
   * @{
   */
-#define LL_RTC_ALARMOUT_DISABLE            0x00000000U             /*!< Output disabled */
-#define LL_RTC_ALARMOUT_ALMA               RTC_CR_OSEL_0           /*!< Alarm A output enabled */
-#define LL_RTC_ALARMOUT_ALMB               RTC_CR_OSEL_1           /*!< Alarm B output enabled */
-#define LL_RTC_ALARMOUT_WAKEUP             RTC_CR_OSEL             /*!< Wakeup output enabled */
+#define LL_RTC_ALARMOUT_DISABLE            0x00000000U
+#define LL_RTC_ALARMOUT_ALMA               RTC_CR_OSEL_0
+#define LL_RTC_ALARMOUT_ALMB               RTC_CR_OSEL_1
+#define LL_RTC_ALARMOUT_WAKEUP             RTC_CR_OSEL
 /**
   * @}
   */
@@ -346,11 +346,11 @@ typedef struct
   * @{
   */
 #if defined(TAMP)
-#define LL_RTC_ALARM_OUTPUTTYPE_OPENDRAIN  RTC_CR_TAMPALRM_TYPE   /*!< RTC_ALARM is open-drain output */
-#define LL_RTC_ALARM_OUTPUTTYPE_PUSHPULL   0x00000000U            /*!< RTC_ALARM is push-pull output */
+#define LL_RTC_ALARM_OUTPUTTYPE_OPENDRAIN  RTC_CR_TAMPALRM_TYPE
+#define LL_RTC_ALARM_OUTPUTTYPE_PUSHPULL   0x00000000U
 #else
-#define LL_RTC_ALARM_OUTPUTTYPE_OPENDRAIN  0x00000000U            /*!< RTC_ALARM, when mapped on PC13, is open-drain output */
-#define LL_RTC_ALARM_OUTPUTTYPE_PUSHPULL   RTC_OR_ALARMOUTTYPE    /*!< RTC_ALARM, when mapped on PC13, is push-pull output */
+#define LL_RTC_ALARM_OUTPUTTYPE_OPENDRAIN  0x00000000U
+#define LL_RTC_ALARM_OUTPUTTYPE_PUSHPULL   RTC_OR_ALARMOUTTYPE
 #endif /* TAMP */
 /**
   * @}
@@ -359,8 +359,8 @@ typedef struct
 /** @defgroup RTC_LL_EC_OUTPUTPOLARITY_PIN  OUTPUT POLARITY PIN
   * @{
   */
-#define LL_RTC_OUTPUTPOLARITY_PIN_HIGH     0x00000000U           /*!< Pin is high when ALRAF/ALRBF/WUTF is asserted (depending on OSEL)*/
-#define LL_RTC_OUTPUTPOLARITY_PIN_LOW      RTC_CR_POL            /*!< Pin is low when ALRAF/ALRBF/WUTF is asserted (depending on OSEL) */
+#define LL_RTC_OUTPUTPOLARITY_PIN_HIGH     0x00000000U
+#define LL_RTC_OUTPUTPOLARITY_PIN_LOW      RTC_CR_POL
 /**
   * @}
   */
@@ -368,8 +368,8 @@ typedef struct
 /** @defgroup RTC_LL_EC_TIME_FORMAT TIME FORMAT
   * @{
   */
-#define LL_RTC_TIME_FORMAT_AM_OR_24        0x00000000U           /*!< AM or 24-hour format */
-#define LL_RTC_TIME_FORMAT_PM              RTC_TR_PM             /*!< PM */
+#define LL_RTC_TIME_FORMAT_AM_OR_24        0x00000000U
+#define LL_RTC_TIME_FORMAT_PM              RTC_TR_PM
 /**
   * @}
   */
@@ -377,8 +377,8 @@ typedef struct
 /** @defgroup RTC_LL_EC_SHIFT_SECOND  SHIFT SECOND
   * @{
   */
-#define LL_RTC_SHIFT_SECOND_DELAY          0x00000000U           /* Delay (seconds) = SUBFS / (PREDIV_S + 1) */
-#define LL_RTC_SHIFT_SECOND_ADVANCE        RTC_SHIFTR_ADD1S      /* Advance (seconds) = (1 - (SUBFS / (PREDIV_S + 1))) */
+#define LL_RTC_SHIFT_SECOND_DELAY          0x00000000U
+#define LL_RTC_SHIFT_SECOND_ADVANCE        RTC_SHIFTR_ADD1S
 /**
   * @}
   */
@@ -386,12 +386,12 @@ typedef struct
 /** @defgroup RTC_LL_EC_ALMA_MASK  ALARMA MASK
   * @{
   */
-#define LL_RTC_ALMA_MASK_NONE              0x00000000U             /*!< No masks applied on Alarm A*/
-#define LL_RTC_ALMA_MASK_DATEWEEKDAY       RTC_ALRMAR_MSK4         /*!< Date/day do not care in Alarm A comparison */
-#define LL_RTC_ALMA_MASK_HOURS             RTC_ALRMAR_MSK3         /*!< Hours do not care in Alarm A comparison */
-#define LL_RTC_ALMA_MASK_MINUTES           RTC_ALRMAR_MSK2         /*!< Minutes do not care in Alarm A comparison */
-#define LL_RTC_ALMA_MASK_SECONDS           RTC_ALRMAR_MSK1         /*!< Seconds do not care in Alarm A comparison */
-#define LL_RTC_ALMA_MASK_ALL               (RTC_ALRMAR_MSK4 | RTC_ALRMAR_MSK3 | RTC_ALRMAR_MSK2 | RTC_ALRMAR_MSK1) /*!< Masks all */
+#define LL_RTC_ALMA_MASK_NONE              0x00000000U
+#define LL_RTC_ALMA_MASK_DATEWEEKDAY       RTC_ALRMAR_MSK4
+#define LL_RTC_ALMA_MASK_HOURS             RTC_ALRMAR_MSK3
+#define LL_RTC_ALMA_MASK_MINUTES           RTC_ALRMAR_MSK2
+#define LL_RTC_ALMA_MASK_SECONDS           RTC_ALRMAR_MSK1
+#define LL_RTC_ALMA_MASK_ALL               (RTC_ALRMAR_MSK4 | RTC_ALRMAR_MSK3 | RTC_ALRMAR_MSK2 | RTC_ALRMAR_MSK1)
 /**
   * @}
   */
@@ -399,8 +399,8 @@ typedef struct
 /** @defgroup RTC_LL_EC_ALMA_TIME_FORMAT  ALARMA TIME FORMAT
   * @{
   */
-#define LL_RTC_ALMA_TIME_FORMAT_AM         0x00000000U           /*!< AM or 24-hour format */
-#define LL_RTC_ALMA_TIME_FORMAT_PM         RTC_ALRMAR_PM         /*!< PM */
+#define LL_RTC_ALMA_TIME_FORMAT_AM         0x00000000U
+#define LL_RTC_ALMA_TIME_FORMAT_PM         RTC_ALRMAR_PM
 /**
   * @}
   */
@@ -408,12 +408,12 @@ typedef struct
 /** @defgroup RTC_LL_EC_ALMB_MASK  ALARMB MASK
   * @{
   */
-#define LL_RTC_ALMB_MASK_NONE              0x00000000U             /*!< No masks applied on Alarm B*/
-#define LL_RTC_ALMB_MASK_DATEWEEKDAY       RTC_ALRMBR_MSK4         /*!< Date/day do not care in Alarm B comparison */
-#define LL_RTC_ALMB_MASK_HOURS             RTC_ALRMBR_MSK3         /*!< Hours do not care in Alarm B comparison */
-#define LL_RTC_ALMB_MASK_MINUTES           RTC_ALRMBR_MSK2         /*!< Minutes do not care in Alarm B comparison */
-#define LL_RTC_ALMB_MASK_SECONDS           RTC_ALRMBR_MSK1         /*!< Seconds do not care in Alarm B comparison */
-#define LL_RTC_ALMB_MASK_ALL               (RTC_ALRMBR_MSK4 | RTC_ALRMBR_MSK3 | RTC_ALRMBR_MSK2 | RTC_ALRMBR_MSK1) /*!< Masks all */
+#define LL_RTC_ALMB_MASK_NONE              0x00000000U
+#define LL_RTC_ALMB_MASK_DATEWEEKDAY       RTC_ALRMBR_MSK4
+#define LL_RTC_ALMB_MASK_HOURS             RTC_ALRMBR_MSK3
+#define LL_RTC_ALMB_MASK_MINUTES           RTC_ALRMBR_MSK2
+#define LL_RTC_ALMB_MASK_SECONDS           RTC_ALRMBR_MSK1
+#define LL_RTC_ALMB_MASK_ALL               (RTC_ALRMBR_MSK4 | RTC_ALRMBR_MSK3 | RTC_ALRMBR_MSK2 | RTC_ALRMBR_MSK1)
 /**
   * @}
   */
@@ -421,8 +421,8 @@ typedef struct
 /** @defgroup RTC_LL_EC_ALMB_TIME_FORMAT  ALARMB TIME FORMAT
   * @{
   */
-#define LL_RTC_ALMB_TIME_FORMAT_AM         0x00000000U           /*!< AM or 24-hour format */
-#define LL_RTC_ALMB_TIME_FORMAT_PM         RTC_ALRMBR_PM         /*!< PM */
+#define LL_RTC_ALMB_TIME_FORMAT_AM         0x00000000U
+#define LL_RTC_ALMB_TIME_FORMAT_PM         RTC_ALRMBR_PM
 /**
   * @}
   */
@@ -430,8 +430,8 @@ typedef struct
 /** @defgroup RTC_LL_EC_TIMESTAMP_EDGE  TIMESTAMP EDGE
   * @{
   */
-#define LL_RTC_TIMESTAMP_EDGE_RISING       0x00000000U           /*!< RTC_TS input rising edge generates a time-stamp event */
-#define LL_RTC_TIMESTAMP_EDGE_FALLING      RTC_CR_TSEDGE         /*!< RTC_TS input falling edge generates a time-stamp even */
+#define LL_RTC_TIMESTAMP_EDGE_RISING       0x00000000U
+#define LL_RTC_TIMESTAMP_EDGE_FALLING      RTC_CR_TSEDGE
 /**
   * @}
   */
@@ -439,8 +439,8 @@ typedef struct
 /** @defgroup RTC_LL_EC_TS_TIME_FORMAT  TIMESTAMP TIME FORMAT
   * @{
   */
-#define LL_RTC_TS_TIME_FORMAT_AM           0x00000000U           /*!< AM or 24-hour format */
-#define LL_RTC_TS_TIME_FORMAT_PM           RTC_TSTR_PM           /*!< PM */
+#define LL_RTC_TS_TIME_FORMAT_AM           0x00000000U
+#define LL_RTC_TS_TIME_FORMAT_PM           RTC_TSTR_PM
 /**
   * @}
   */
@@ -449,9 +449,9 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER  TAMPER
   * @{
   */
-#define LL_RTC_TAMPER_1                    TAMP_CR1_TAMP1E /*!< Tamper 1 input detection */
-#define LL_RTC_TAMPER_2                    TAMP_CR1_TAMP2E /*!< Tamper 2 input detection */
-#define LL_RTC_TAMPER_3                    TAMP_CR1_TAMP3E /*!< Tamper 3 input detection */
+#define LL_RTC_TAMPER_1                    TAMP_CR1_TAMP1E
+#define LL_RTC_TAMPER_2                    TAMP_CR1_TAMP2E
+#define LL_RTC_TAMPER_3                    TAMP_CR1_TAMP3E
 /**
   * @}
   */
@@ -459,9 +459,9 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER_MASK  TAMPER MASK
   * @{
   */
-#define LL_RTC_TAMPER_MASK_TAMPER1         TAMP_CR2_TAMP1MSK /*!< Tamper 1 event generates a trigger event. TAMP1F is masked and internally cleared by hardware. The backup registers are not erased */
-#define LL_RTC_TAMPER_MASK_TAMPER2         TAMP_CR2_TAMP2MSK /*!< Tamper 2 event generates a trigger event. TAMP2F is masked and internally cleared by hardware. The backup registers are not erased. */
-#define LL_RTC_TAMPER_MASK_TAMPER3         TAMP_CR2_TAMP3MSK /*!< Tamper 3 event generates a trigger event. TAMP3F is masked and internally cleared by hardware. The backup registers are not erased. */
+#define LL_RTC_TAMPER_MASK_TAMPER1         TAMP_CR2_TAMP1MSK
+#define LL_RTC_TAMPER_MASK_TAMPER2         TAMP_CR2_TAMP2MSK
+#define LL_RTC_TAMPER_MASK_TAMPER3         TAMP_CR2_TAMP3MSK
 /**
   * @}
   */
@@ -469,9 +469,9 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER_NOERASE  TAMPER NO ERASE
   * @{
   */
-#define LL_RTC_TAMPER_NOERASE_TAMPER1      TAMP_CR2_TAMP1NOERASE /*!< Tamper 1 event does not erase the backup registers. */
-#define LL_RTC_TAMPER_NOERASE_TAMPER2      TAMP_CR2_TAMP2NOERASE /*!< Tamper 2 event does not erase the backup registers. */
-#define LL_RTC_TAMPER_NOERASE_TAMPER3      TAMP_CR2_TAMP3NOERASE /*!< Tamper 3 event does not erase the backup registers. */
+#define LL_RTC_TAMPER_NOERASE_TAMPER1      TAMP_CR2_TAMP1NOERASE
+#define LL_RTC_TAMPER_NOERASE_TAMPER2      TAMP_CR2_TAMP2NOERASE
+#define LL_RTC_TAMPER_NOERASE_TAMPER3      TAMP_CR2_TAMP3NOERASE
 /**
   * @}
   */
@@ -479,10 +479,10 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER_DURATION  TAMPER DURATION
   * @{
   */
-#define LL_RTC_TAMPER_DURATION_1RTCCLK     0x00000000U            /*!< Tamper pins are pre-charged before sampling during 1 RTCCLK cycle  */
-#define LL_RTC_TAMPER_DURATION_2RTCCLK     TAMP_FLTCR_TAMPPRCH_0  /*!< Tamper pins are pre-charged before sampling during 2 RTCCLK cycles */
-#define LL_RTC_TAMPER_DURATION_4RTCCLK     TAMP_FLTCR_TAMPPRCH_1  /*!< Tamper pins are pre-charged before sampling during 4 RTCCLK cycles */
-#define LL_RTC_TAMPER_DURATION_8RTCCLK     TAMP_FLTCR_TAMPPRCH    /*!< Tamper pins are pre-charged before sampling during 8 RTCCLK cycles */
+#define LL_RTC_TAMPER_DURATION_1RTCCLK     0x00000000U
+#define LL_RTC_TAMPER_DURATION_2RTCCLK     TAMP_FLTCR_TAMPPRCH_0
+#define LL_RTC_TAMPER_DURATION_4RTCCLK     TAMP_FLTCR_TAMPPRCH_1
+#define LL_RTC_TAMPER_DURATION_8RTCCLK     TAMP_FLTCR_TAMPPRCH
 /**
   * @}
   */
@@ -490,10 +490,10 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER_FILTER  TAMPER FILTER
   * @{
   */
-#define LL_RTC_TAMPER_FILTER_DISABLE       0x00000000U             /*!< Tamper filter is disabled */
-#define LL_RTC_TAMPER_FILTER_2SAMPLE       TAMP_FLTCR_TAMPFLT_0    /*!< Tamper is activated after 2 consecutive samples at the active level */
-#define LL_RTC_TAMPER_FILTER_4SAMPLE       TAMP_FLTCR_TAMPFLT_1    /*!< Tamper is activated after 4 consecutive samples at the active level */
-#define LL_RTC_TAMPER_FILTER_8SAMPLE       TAMP_FLTCR_TAMPFLT      /*!< Tamper is activated after 8 consecutive samples at the active level. */
+#define LL_RTC_TAMPER_FILTER_DISABLE       0x00000000U
+#define LL_RTC_TAMPER_FILTER_2SAMPLE       TAMP_FLTCR_TAMPFLT_0
+#define LL_RTC_TAMPER_FILTER_4SAMPLE       TAMP_FLTCR_TAMPFLT_1
+#define LL_RTC_TAMPER_FILTER_8SAMPLE       TAMP_FLTCR_TAMPFLT
 /**
   * @}
   */
@@ -501,14 +501,14 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER_SAMPLFREQDIV  TAMPER SAMPLING FREQUENCY DIVIDER
   * @{
   */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_32768   0x00000000U                                     /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 32768 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_16384   TAMP_FLTCR_TAMPFREQ_0                           /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 16384 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_8192    TAMP_FLTCR_TAMPFREQ_1                           /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 8192 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_4096    (TAMP_FLTCR_TAMPFREQ_1 | TAMP_FLTCR_TAMPFREQ_0) /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 4096 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_2048    TAMP_FLTCR_TAMPFREQ_2                           /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 2048 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_1024    (TAMP_FLTCR_TAMPFREQ_2 | TAMP_FLTCR_TAMPFREQ_0) /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 1024 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_512     (TAMP_FLTCR_TAMPFREQ_2 | TAMP_FLTCR_TAMPFREQ_1) /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 512 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_256     TAMP_FLTCR_TAMPFREQ                             /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 256 */
+#define LL_RTC_TAMPER_SAMPLFREQDIV_32768   0x00000000U
+#define LL_RTC_TAMPER_SAMPLFREQDIV_16384   TAMP_FLTCR_TAMPFREQ_0
+#define LL_RTC_TAMPER_SAMPLFREQDIV_8192    TAMP_FLTCR_TAMPFREQ_1
+#define LL_RTC_TAMPER_SAMPLFREQDIV_4096    (TAMP_FLTCR_TAMPFREQ_1 | TAMP_FLTCR_TAMPFREQ_0)
+#define LL_RTC_TAMPER_SAMPLFREQDIV_2048    TAMP_FLTCR_TAMPFREQ_2
+#define LL_RTC_TAMPER_SAMPLFREQDIV_1024    (TAMP_FLTCR_TAMPFREQ_2 | TAMP_FLTCR_TAMPFREQ_0)
+#define LL_RTC_TAMPER_SAMPLFREQDIV_512     (TAMP_FLTCR_TAMPFREQ_2 | TAMP_FLTCR_TAMPFREQ_1)
+#define LL_RTC_TAMPER_SAMPLFREQDIV_256     TAMP_FLTCR_TAMPFREQ
 /**
   * @}
   */
@@ -516,9 +516,9 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER_ACTIVELEVEL  TAMPER ACTIVE LEVEL
   * @{
   */
-#define LL_RTC_TAMPER_ACTIVELEVEL_TAMP1    TAMP_CR2_TAMP1TRG /*!< Tamper 1 input falling edge (if TAMPFLT = 00) or staying high (if TAMPFLT != 00) triggers a tamper detection event */
-#define LL_RTC_TAMPER_ACTIVELEVEL_TAMP2    TAMP_CR2_TAMP2TRG /*!< Tamper 2 input falling edge (if TAMPFLT = 00) or staying high (if TAMPFLT != 00) triggers a tamper detection event */
-#define LL_RTC_TAMPER_ACTIVELEVEL_TAMP3    TAMP_CR2_TAMP3TRG /*!< Tamper 3 input falling edge (if TAMPFLT = 00) or staying high (if TAMPFLT != 00) triggers a tamper detection event */
+#define LL_RTC_TAMPER_ACTIVELEVEL_TAMP1    TAMP_CR2_TAMP1TRG
+#define LL_RTC_TAMPER_ACTIVELEVEL_TAMP2    TAMP_CR2_TAMP2TRG
+#define LL_RTC_TAMPER_ACTIVELEVEL_TAMP3    TAMP_CR2_TAMP3TRG
 /**
   * @}
   */
@@ -526,9 +526,9 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER  TAMPER
   * @{
   */
-#define LL_RTC_TAMPER_1                    RTC_TAMPCR_TAMP1E /*!< RTC_TAMP1 input detection */
-#define LL_RTC_TAMPER_2                    RTC_TAMPCR_TAMP2E /*!< RTC_TAMP2 input detection */
-#define LL_RTC_TAMPER_3                    RTC_TAMPCR_TAMP3E /*!< RTC_TAMP3 input detection */
+#define LL_RTC_TAMPER_1                    RTC_TAMPCR_TAMP1E
+#define LL_RTC_TAMPER_2                    RTC_TAMPCR_TAMP2E
+#define LL_RTC_TAMPER_3                    RTC_TAMPCR_TAMP3E
 /**
   * @}
   */
@@ -536,9 +536,9 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER_MASK  TAMPER MASK
   * @{
   */
-#define LL_RTC_TAMPER_MASK_TAMPER1         RTC_TAMPCR_TAMP1MF /*!< Tamper 1 event generates a trigger event. TAMP1F is masked and internally cleared by hardware.The backup registers are not erased */
-#define LL_RTC_TAMPER_MASK_TAMPER2         RTC_TAMPCR_TAMP2MF /*!< Tamper 2 event generates a trigger event. TAMP2F is masked and internally cleared by hardware. The backup registers are not erased. */
-#define LL_RTC_TAMPER_MASK_TAMPER3         RTC_TAMPCR_TAMP3MF /*!< Tamper 3 event generates a trigger event. TAMP3F is masked and internally cleared by hardware. The backup registers are not erased */
+#define LL_RTC_TAMPER_MASK_TAMPER1         RTC_TAMPCR_TAMP1MF
+#define LL_RTC_TAMPER_MASK_TAMPER2         RTC_TAMPCR_TAMP2MF
+#define LL_RTC_TAMPER_MASK_TAMPER3         RTC_TAMPCR_TAMP3MF
 /**
   * @}
   */
@@ -546,9 +546,9 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER_NOERASE  TAMPER NO ERASE
   * @{
   */
-#define LL_RTC_TAMPER_NOERASE_TAMPER1      RTC_TAMPCR_TAMP1NOERASE /*!< Tamper 1 event does not erase the backup registers. */
-#define LL_RTC_TAMPER_NOERASE_TAMPER2      RTC_TAMPCR_TAMP2NOERASE /*!< Tamper 2 event does not erase the backup registers. */
-#define LL_RTC_TAMPER_NOERASE_TAMPER3      RTC_TAMPCR_TAMP3NOERASE /*!< Tamper 3 event does not erase the backup registers. */
+#define LL_RTC_TAMPER_NOERASE_TAMPER1      RTC_TAMPCR_TAMP1NOERASE
+#define LL_RTC_TAMPER_NOERASE_TAMPER2      RTC_TAMPCR_TAMP2NOERASE
+#define LL_RTC_TAMPER_NOERASE_TAMPER3      RTC_TAMPCR_TAMP3NOERASE
 /**
   * @}
   */
@@ -556,10 +556,10 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER_DURATION  TAMPER DURATION
   * @{
   */
-#define LL_RTC_TAMPER_DURATION_1RTCCLK     0x00000000U                             /*!< Tamper pins are pre-charged before sampling during 1 RTCCLK cycle  */
-#define LL_RTC_TAMPER_DURATION_2RTCCLK     RTC_TAMPCR_TAMPPRCH_0  /*!< Tamper pins are pre-charged before sampling during 2 RTCCLK cycles */
-#define LL_RTC_TAMPER_DURATION_4RTCCLK     RTC_TAMPCR_TAMPPRCH_1  /*!< Tamper pins are pre-charged before sampling during 4 RTCCLK cycles */
-#define LL_RTC_TAMPER_DURATION_8RTCCLK     RTC_TAMPCR_TAMPPRCH    /*!< Tamper pins are pre-charged before sampling during 8 RTCCLK cycles */
+#define LL_RTC_TAMPER_DURATION_1RTCCLK     0x00000000U
+#define LL_RTC_TAMPER_DURATION_2RTCCLK     RTC_TAMPCR_TAMPPRCH_0
+#define LL_RTC_TAMPER_DURATION_4RTCCLK     RTC_TAMPCR_TAMPPRCH_1
+#define LL_RTC_TAMPER_DURATION_8RTCCLK     RTC_TAMPCR_TAMPPRCH
 /**
   * @}
   */
@@ -567,10 +567,10 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER_FILTER  TAMPER FILTER
   * @{
   */
-#define LL_RTC_TAMPER_FILTER_DISABLE       0x00000000U                              /*!< Tamper filter is disabled */
-#define LL_RTC_TAMPER_FILTER_2SAMPLE       RTC_TAMPCR_TAMPFLT_0    /*!< Tamper is activated after 2 consecutive samples at the active level */
-#define LL_RTC_TAMPER_FILTER_4SAMPLE       RTC_TAMPCR_TAMPFLT_1    /*!< Tamper is activated after 4 consecutive samples at the active level */
-#define LL_RTC_TAMPER_FILTER_8SAMPLE       RTC_TAMPCR_TAMPFLT      /*!< Tamper is activated after 8 consecutive samples at the active level. */
+#define LL_RTC_TAMPER_FILTER_DISABLE       0x00000000U
+#define LL_RTC_TAMPER_FILTER_2SAMPLE       RTC_TAMPCR_TAMPFLT_0
+#define LL_RTC_TAMPER_FILTER_4SAMPLE       RTC_TAMPCR_TAMPFLT_1
+#define LL_RTC_TAMPER_FILTER_8SAMPLE       RTC_TAMPCR_TAMPFLT
 /**
   * @}
   */
@@ -578,14 +578,14 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER_SAMPLFREQDIV  TAMPER SAMPLING FREQUENCY DIVIDER
   * @{
   */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_32768   0x00000000U                                                      /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 32768 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_16384   RTC_TAMPCR_TAMPFREQ_0                           /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 16384 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_8192    RTC_TAMPCR_TAMPFREQ_1                           /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 8192 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_4096    (RTC_TAMPCR_TAMPFREQ_1 | RTC_TAMPCR_TAMPFREQ_0) /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 4096 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_2048    RTC_TAMPCR_TAMPFREQ_2                           /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 2048 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_1024    (RTC_TAMPCR_TAMPFREQ_2 | RTC_TAMPCR_TAMPFREQ_0) /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 1024 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_512     (RTC_TAMPCR_TAMPFREQ_2 | RTC_TAMPCR_TAMPFREQ_1) /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 512 */
-#define LL_RTC_TAMPER_SAMPLFREQDIV_256     RTC_TAMPCR_TAMPFREQ                             /*!< Each of the tamper inputs are sampled with a frequency =  RTCCLK / 256 */
+#define LL_RTC_TAMPER_SAMPLFREQDIV_32768   0x00000000U
+#define LL_RTC_TAMPER_SAMPLFREQDIV_16384   RTC_TAMPCR_TAMPFREQ_0
+#define LL_RTC_TAMPER_SAMPLFREQDIV_8192    RTC_TAMPCR_TAMPFREQ_1
+#define LL_RTC_TAMPER_SAMPLFREQDIV_4096    (RTC_TAMPCR_TAMPFREQ_1 | RTC_TAMPCR_TAMPFREQ_0)
+#define LL_RTC_TAMPER_SAMPLFREQDIV_2048    RTC_TAMPCR_TAMPFREQ_2
+#define LL_RTC_TAMPER_SAMPLFREQDIV_1024    (RTC_TAMPCR_TAMPFREQ_2 | RTC_TAMPCR_TAMPFREQ_0)
+#define LL_RTC_TAMPER_SAMPLFREQDIV_512     (RTC_TAMPCR_TAMPFREQ_2 | RTC_TAMPCR_TAMPFREQ_1)
+#define LL_RTC_TAMPER_SAMPLFREQDIV_256     RTC_TAMPCR_TAMPFREQ
 /**
   * @}
   */
@@ -593,9 +593,9 @@ typedef struct
 /** @defgroup RTC_LL_EC_TAMPER_ACTIVELEVEL  TAMPER ACTIVE LEVEL
   * @{
   */
-#define LL_RTC_TAMPER_ACTIVELEVEL_TAMP1    RTC_TAMPCR_TAMP1TRG /*!< RTC_TAMP1 input falling edge (if TAMPFLT = 00) or staying high (if TAMPFLT != 00) triggers a tamper detection event*/
-#define LL_RTC_TAMPER_ACTIVELEVEL_TAMP2    RTC_TAMPCR_TAMP2TRG /*!< RTC_TAMP2 input falling edge (if TAMPFLT = 00) or staying high (if TAMPFLT != 00) triggers a tamper detection event*/
-#define LL_RTC_TAMPER_ACTIVELEVEL_TAMP3    RTC_TAMPCR_TAMP3TRG /*!< RTC_TAMP3 input falling edge (if TAMPFLT = 00) or staying high (if TAMPFLT != 00) triggers a tamper detection event*/
+#define LL_RTC_TAMPER_ACTIVELEVEL_TAMP1    RTC_TAMPCR_TAMP1TRG
+#define LL_RTC_TAMPER_ACTIVELEVEL_TAMP2    RTC_TAMPCR_TAMP2TRG
+#define LL_RTC_TAMPER_ACTIVELEVEL_TAMP3    RTC_TAMPCR_TAMP3TRG
 /**
   * @}
   */
@@ -605,9 +605,9 @@ typedef struct
 /** @defgroup RTC_LL_EC_ACTIVE_MODE   ACTIVE TAMPER MODE
   * @{
   */
-#define LL_RTC_TAMPER_ATAMP_TAMP1AM               TAMP_ATCR1_TAMP1AM /*!< tamper 1 is active */
-#define LL_RTC_TAMPER_ATAMP_TAMP2AM               TAMP_ATCR1_TAMP2AM /*!< tamper 2 is active */
-#define LL_RTC_TAMPER_ATAMP_TAMP3AM               TAMP_ATCR1_TAMP3AM /*!< tamper 3 is active */
+#define LL_RTC_TAMPER_ATAMP_TAMP1AM               TAMP_ATCR1_TAMP1AM
+#define LL_RTC_TAMPER_ATAMP_TAMP2AM               TAMP_ATCR1_TAMP2AM
+#define LL_RTC_TAMPER_ATAMP_TAMP3AM               TAMP_ATCR1_TAMP3AM
 /**
   * @}
   */
@@ -615,14 +615,14 @@ typedef struct
 /** @defgroup RTC_LL_EC_ACTIVE_ASYNC_PRESCALER   ACTIVE TAMPER ASYNCHRONOUS PRESCALER CLOCK
   * @{
   */
-#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK      0U                                                                      /*!< RTCCLK */
-#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_2    TAMP_ATCR1_ATCKSEL_0                                                    /*!< RTCCLK/2 */
-#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_4    TAMP_ATCR1_ATCKSEL_1                                                    /*!< RTCCLK/4 */
-#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_8    (TAMP_ATCR1_ATCKSEL_1 | TAMP_ATCR1_ATCKSEL_0)                           /*!< RTCCLK/8 */
-#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_16   TAMP_ATCR1_ATCKSEL_2                                                    /*!< RTCCLK/16 */
-#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_32   (TAMP_ATCR1_ATCKSEL_2 | TAMP_ATCR1_ATCKSEL_0)                           /*!< RTCCLK/32 */
-#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_64   (TAMP_ATCR1_ATCKSEL_2 | TAMP_ATCR1_ATCKSEL_1)                           /*!< RTCCLK/64 */
-#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_128  (TAMP_ATCR1_ATCKSEL_2 | TAMP_ATCR1_ATCKSEL_1 | TAMP_ATCR1_ATCKSEL_0)    /*!< RTCCLK/128 */
+#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK      0U
+#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_2    TAMP_ATCR1_ATCKSEL_0
+#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_4    TAMP_ATCR1_ATCKSEL_1
+#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_8    (TAMP_ATCR1_ATCKSEL_1 | TAMP_ATCR1_ATCKSEL_0)
+#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_16   TAMP_ATCR1_ATCKSEL_2
+#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_32   (TAMP_ATCR1_ATCKSEL_2 | TAMP_ATCR1_ATCKSEL_0)
+#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_64   (TAMP_ATCR1_ATCKSEL_2 | TAMP_ATCR1_ATCKSEL_1)
+#define LL_RTC_TAMPER_ATAMP_ASYNCPRES_RTCCLK_128  (TAMP_ATCR1_ATCKSEL_2 | TAMP_ATCR1_ATCKSEL_1 | TAMP_ATCR1_ATCKSEL_0)
 /**
   * @}
   */
@@ -649,12 +649,12 @@ typedef struct
 /** @defgroup RTC_LL_EC_WAKEUPCLOCK_DIV  WAKEUP CLOCK DIV
   * @{
   */
-#define LL_RTC_WAKEUPCLOCK_DIV_16          0x00000000U                           /*!< RTC/16 clock is selected */
-#define LL_RTC_WAKEUPCLOCK_DIV_8           RTC_CR_WUCKSEL_0                      /*!< RTC/8 clock is selected */
-#define LL_RTC_WAKEUPCLOCK_DIV_4           RTC_CR_WUCKSEL_1                      /*!< RTC/4 clock is selected */
-#define LL_RTC_WAKEUPCLOCK_DIV_2           (RTC_CR_WUCKSEL_1 | RTC_CR_WUCKSEL_0) /*!< RTC/2 clock is selected */
-#define LL_RTC_WAKEUPCLOCK_CKSPRE          RTC_CR_WUCKSEL_2                      /*!< ck_spre (usually 1 Hz) clock is selected */
-#define LL_RTC_WAKEUPCLOCK_CKSPRE_WUT      (RTC_CR_WUCKSEL_2 | RTC_CR_WUCKSEL_1) /*!< ck_spre (usually 1 Hz) clock is selected and 2exp16 is added to the WUT counter value*/
+#define LL_RTC_WAKEUPCLOCK_DIV_16          0x00000000U
+#define LL_RTC_WAKEUPCLOCK_DIV_8           RTC_CR_WUCKSEL_0
+#define LL_RTC_WAKEUPCLOCK_DIV_4           RTC_CR_WUCKSEL_1
+#define LL_RTC_WAKEUPCLOCK_DIV_2           (RTC_CR_WUCKSEL_1 | RTC_CR_WUCKSEL_0)
+#define LL_RTC_WAKEUPCLOCK_CKSPRE          RTC_CR_WUCKSEL_2
+#define LL_RTC_WAKEUPCLOCK_CKSPRE_WUT      (RTC_CR_WUCKSEL_2 | RTC_CR_WUCKSEL_1)
 /**
   * @}
   */
@@ -701,9 +701,9 @@ typedef struct
 /** @defgroup RTC_LL_EC_CALIB_OUTPUT  Calibration output
   * @{
   */
-#define LL_RTC_CALIB_OUTPUT_NONE           0x00000000U                 /*!< Calibration output disabled */
-#define LL_RTC_CALIB_OUTPUT_1HZ            (RTC_CR_COE | RTC_CR_COSEL) /*!< Calibration output is 1 Hz */
-#define LL_RTC_CALIB_OUTPUT_512HZ           RTC_CR_COE                 /*!< Calibration output is 512 Hz */
+#define LL_RTC_CALIB_OUTPUT_NONE           0x00000000U
+#define LL_RTC_CALIB_OUTPUT_1HZ            (RTC_CR_COE | RTC_CR_COSEL)
+#define LL_RTC_CALIB_OUTPUT_512HZ           RTC_CR_COE
 /**
   * @}
   */
@@ -711,8 +711,8 @@ typedef struct
 /** @defgroup RTC_LL_EC_CALIB_INSERTPULSE  Calibration pulse insertion
   * @{
   */
-#define LL_RTC_CALIB_INSERTPULSE_NONE      0x00000000U           /*!< No RTCCLK pulses are added */
-#define LL_RTC_CALIB_INSERTPULSE_SET       RTC_CALR_CALP         /*!< One RTCCLK pulse is effectively inserted every 2exp11 pulses (frequency increased by 488.5 ppm) */
+#define LL_RTC_CALIB_INSERTPULSE_NONE      0x00000000U
+#define LL_RTC_CALIB_INSERTPULSE_SET       RTC_CALR_CALP
 /**
   * @}
   */
@@ -720,9 +720,9 @@ typedef struct
 /** @defgroup RTC_LL_EC_CALIB_PERIOD  Calibration period
   * @{
   */
-#define LL_RTC_CALIB_PERIOD_32SEC          0x00000000U           /*!< Use a 32-second calibration cycle period */
-#define LL_RTC_CALIB_PERIOD_16SEC          RTC_CALR_CALW16       /*!< Use a 16-second calibration cycle period */
-#define LL_RTC_CALIB_PERIOD_8SEC           RTC_CALR_CALW8        /*!< Use a 8-second calibration cycle period */
+#define LL_RTC_CALIB_PERIOD_32SEC          0x00000000U
+#define LL_RTC_CALIB_PERIOD_16SEC          RTC_CALR_CALW16
+#define LL_RTC_CALIB_PERIOD_8SEC           RTC_CALR_CALW8
 /**
   * @}
   */

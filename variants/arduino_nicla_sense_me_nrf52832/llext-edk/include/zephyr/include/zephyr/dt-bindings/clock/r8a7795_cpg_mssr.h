@@ -28,7 +28,7 @@
 #define R8A7795_CLK_S2D4		15
 #define R8A7795_CLK_S3D1		16
 #define R8A7795_CLK_S3D2		17
-#define R8A7795_CLK_S3D4		18  /* SCIF clock */
+#define R8A7795_CLK_S3D4		18
 #define R8A7795_CLK_LB			19
 #define R8A7795_CLK_CL			20
 #define R8A7795_CLK_ZB3			21
@@ -49,7 +49,7 @@
 #define R8A7795_CLK_RPC			36
 #define R8A7795_CLK_RPCD2		37
 #define R8A7795_CLK_MSO			38
-#define R8A7795_CLK_CANFD		39  /* CANFD clock */
+#define R8A7795_CLK_CANFD		39
 #define R8A7795_CLK_HDMI		40
 #define R8A7795_CLK_CSI0		41
 /* CLK_CSIREF was removed */

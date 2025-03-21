@@ -54,7 +54,7 @@ atomic_val_t xtensa_cas(atomic_t *addr, atomic_val_t oldval,
 	__asm__ volatile("wsr %1, SCOMPARE1; s32c1i %0, %2, 0"
 			 : "+r"(newval), "+r"(oldval) : "r"(addr) : "memory");
 
-	return newval; /* got swapped with the old memory by s32c1i */
+	return newval;
 }
 
 /** Implementation of @ref atomic_cas. */

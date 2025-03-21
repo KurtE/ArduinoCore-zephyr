@@ -44,20 +44,20 @@ extern "C" {
  */
 
 /* clang-format off */
-#define LWM2M_OBJECT_SECURITY_ID                0  /**< Security object */
-#define LWM2M_OBJECT_SERVER_ID                  1  /**< Server object */
-#define LWM2M_OBJECT_ACCESS_CONTROL_ID          2  /**< Access Control object */
-#define LWM2M_OBJECT_DEVICE_ID                  3  /**< Device object */
-#define LWM2M_OBJECT_CONNECTIVITY_MONITORING_ID 4  /**< Connectivity Monitoring object */
-#define LWM2M_OBJECT_FIRMWARE_ID                5  /**< Firmware object */
-#define LWM2M_OBJECT_LOCATION_ID                6  /**< Location object */
-#define LWM2M_OBJECT_CONNECTIVITY_STATISTICS_ID 7  /**< Connectivity Statistics object */
-#define LWM2M_OBJECT_SOFTWARE_MANAGEMENT_ID     9  /**< Software Management object */
-#define LWM2M_OBJECT_PORTFOLIO_ID               16 /**< Portfolio object */
-#define LWM2M_OBJECT_BINARYAPPDATACONTAINER_ID  19 /**< Binary App Data Container object */
-#define LWM2M_OBJECT_EVENT_LOG_ID               20 /**< Event Log object */
-#define LWM2M_OBJECT_OSCORE_ID                  21 /**< OSCORE object */
-#define LWM2M_OBJECT_GATEWAY_ID                 25 /**< Gateway object */
+#define LWM2M_OBJECT_SECURITY_ID                0
+#define LWM2M_OBJECT_SERVER_ID                  1
+#define LWM2M_OBJECT_ACCESS_CONTROL_ID          2
+#define LWM2M_OBJECT_DEVICE_ID                  3
+#define LWM2M_OBJECT_CONNECTIVITY_MONITORING_ID 4
+#define LWM2M_OBJECT_FIRMWARE_ID                5
+#define LWM2M_OBJECT_LOCATION_ID                6
+#define LWM2M_OBJECT_CONNECTIVITY_STATISTICS_ID 7
+#define LWM2M_OBJECT_SOFTWARE_MANAGEMENT_ID     9
+#define LWM2M_OBJECT_PORTFOLIO_ID               16
+#define LWM2M_OBJECT_BINARYAPPDATACONTAINER_ID  19
+#define LWM2M_OBJECT_EVENT_LOG_ID               20
+#define LWM2M_OBJECT_OSCORE_ID                  21
+#define LWM2M_OBJECT_GATEWAY_ID                 25
 /* clang-format on */
 
 /** @} */
@@ -71,20 +71,20 @@ extern "C" {
  */
 
 /* clang-format off */
-#define IPSO_OBJECT_GENERIC_SENSOR_ID       3300 /**< IPSO Generic Sensor object */
-#define IPSO_OBJECT_TEMP_SENSOR_ID          3303 /**< IPSO Temperature Sensor object */
-#define IPSO_OBJECT_HUMIDITY_SENSOR_ID      3304 /**< IPSO Humidity Sensor object */
-#define IPSO_OBJECT_LIGHT_CONTROL_ID        3311 /**< IPSO Light Control object */
-#define IPSO_OBJECT_ACCELEROMETER_ID        3313 /**< IPSO Accelerometer object */
-#define IPSO_OBJECT_VOLTAGE_SENSOR_ID       3316 /**< IPSO Voltage Sensor object */
-#define IPSO_OBJECT_CURRENT_SENSOR_ID       3317 /**< IPSO Current Sensor object */
-#define IPSO_OBJECT_PRESSURE_ID             3323 /**< IPSO Pressure Sensor object */
-#define IPSO_OBJECT_BUZZER_ID               3338 /**< IPSO Buzzer object */
-#define IPSO_OBJECT_TIMER_ID                3340 /**< IPSO Timer object */
-#define IPSO_OBJECT_ONOFF_SWITCH_ID         3342 /**< IPSO On/Off Switch object */
-#define IPSO_OBJECT_PUSH_BUTTON_ID          3347 /**< IPSO Push Button object */
-#define UCIFI_OBJECT_BATTERY_ID             3411 /**< uCIFI Battery object */
-#define IPSO_OBJECT_FILLING_LEVEL_SENSOR_ID 3435 /**< IPSO Filling Level Sensor object */
+#define IPSO_OBJECT_GENERIC_SENSOR_ID       3300
+#define IPSO_OBJECT_TEMP_SENSOR_ID          3303
+#define IPSO_OBJECT_HUMIDITY_SENSOR_ID      3304
+#define IPSO_OBJECT_LIGHT_CONTROL_ID        3311
+#define IPSO_OBJECT_ACCELEROMETER_ID        3313
+#define IPSO_OBJECT_VOLTAGE_SENSOR_ID       3316
+#define IPSO_OBJECT_CURRENT_SENSOR_ID       3317
+#define IPSO_OBJECT_PRESSURE_ID             3323
+#define IPSO_OBJECT_BUZZER_ID               3338
+#define IPSO_OBJECT_TIMER_ID                3340
+#define IPSO_OBJECT_ONOFF_SWITCH_ID         3342
+#define IPSO_OBJECT_PUSH_BUTTON_ID          3347
+#define UCIFI_OBJECT_BATTERY_ID             3411
+#define IPSO_OBJECT_FILLING_LEVEL_SENSOR_ID 3435
 /* clang-format on */
 
 /** @} */
@@ -98,21 +98,21 @@ typedef void (*lwm2m_socket_fault_cb_t)(int error);
 
 /** @brief LwM2M object path structure */
 struct lwm2m_obj_path {
-	uint16_t obj_id;         /**< Object ID */
-	uint16_t obj_inst_id;    /**< Object instance ID */
-	uint16_t res_id;         /**< Resource ID */
-	uint16_t res_inst_id;    /**< Resource instance ID */
-	uint8_t  level;          /**< Path level (0-4). Ex. 4 = resource instance. */
+	uint16_t obj_id;
+	uint16_t obj_inst_id;
+	uint16_t res_id;
+	uint16_t res_inst_id;
+	uint8_t  level;
 };
 
 /**
  * @brief Observe callback events
  */
 enum lwm2m_observe_event {
-	LWM2M_OBSERVE_EVENT_OBSERVER_ADDED,    /**< Observer added */
-	LWM2M_OBSERVE_EVENT_OBSERVER_REMOVED,  /**< Observer removed */
-	LWM2M_OBSERVE_EVENT_NOTIFY_ACK,        /**< Notification ACKed */
-	LWM2M_OBSERVE_EVENT_NOTIFY_TIMEOUT,    /**< Notification timed out */
+	LWM2M_OBSERVE_EVENT_OBSERVER_ADDED,
+	LWM2M_OBSERVE_EVENT_OBSERVER_REMOVED,
+	LWM2M_OBSERVE_EVENT_NOTIFY_ACK,
+	LWM2M_OBSERVE_EVENT_NOTIFY_TIMEOUT,
 };
 
 /**
@@ -194,10 +194,10 @@ typedef int (*lwm2m_set_sockopt_cb_t)(struct lwm2m_ctx *client_ctx);
  * actual number of expected datagrams.
  */
 enum lwm2m_socket_states {
-	LWM2M_SOCKET_STATE_ONGOING,	 /**< Ongoing traffic is expected. */
-	LWM2M_SOCKET_STATE_ONE_RESPONSE, /**< One response is expected for the next message. */
-	LWM2M_SOCKET_STATE_LAST,	 /**< Next message is the last one. */
-	LWM2M_SOCKET_STATE_NO_DATA,	 /**< No more data is expected. */
+	LWM2M_SOCKET_STATE_ONGOING,
+	LWM2M_SOCKET_STATE_ONE_RESPONSE,
+	LWM2M_SOCKET_STATE_LAST,
+	LWM2M_SOCKET_STATE_NO_DATA,
 };
 
 /**
@@ -450,15 +450,15 @@ typedef int (*lwm2m_engine_execute_cb_t)(uint16_t obj_inst_id,
  * the LwM2M Device object (3/0/6).
  * @{
  */
-#define LWM2M_DEVICE_PWR_SRC_TYPE_DC_POWER	0 /**< DC power */
-#define LWM2M_DEVICE_PWR_SRC_TYPE_BAT_INT	1 /**< Internal battery */
-#define LWM2M_DEVICE_PWR_SRC_TYPE_BAT_EXT	2 /**< External battery */
-#define LWM2M_DEVICE_PWR_SRC_TYPE_FUEL_CELL	3 /**< Fuel cell */
-#define LWM2M_DEVICE_PWR_SRC_TYPE_PWR_OVER_ETH	4 /**< Power over Ethernet */
-#define LWM2M_DEVICE_PWR_SRC_TYPE_USB		5 /**< USB */
-#define LWM2M_DEVICE_PWR_SRC_TYPE_AC_POWER	6 /**< AC (mains) power */
-#define LWM2M_DEVICE_PWR_SRC_TYPE_SOLAR		7 /**< Solar */
-#define LWM2M_DEVICE_PWR_SRC_TYPE_MAX		8 /**< Max value for Available Power Source type */
+#define LWM2M_DEVICE_PWR_SRC_TYPE_DC_POWER	0
+#define LWM2M_DEVICE_PWR_SRC_TYPE_BAT_INT	1
+#define LWM2M_DEVICE_PWR_SRC_TYPE_BAT_EXT	2
+#define LWM2M_DEVICE_PWR_SRC_TYPE_FUEL_CELL	3
+#define LWM2M_DEVICE_PWR_SRC_TYPE_PWR_OVER_ETH	4
+#define LWM2M_DEVICE_PWR_SRC_TYPE_USB		5
+#define LWM2M_DEVICE_PWR_SRC_TYPE_AC_POWER	6
+#define LWM2M_DEVICE_PWR_SRC_TYPE_SOLAR		7
+#define LWM2M_DEVICE_PWR_SRC_TYPE_MAX		8
 /** @} */
 
 /**
@@ -468,15 +468,15 @@ typedef int (*lwm2m_engine_execute_cb_t)(uint16_t obj_inst_id,
  * the lwm2m_device_add_err() function.
  * @{
  */
-#define LWM2M_DEVICE_ERROR_NONE			0 /**< No error */
-#define LWM2M_DEVICE_ERROR_LOW_POWER		1 /**< Low battery power */
-#define LWM2M_DEVICE_ERROR_EXT_POWER_SUPPLY_OFF	2 /**< External power supply off */
-#define LWM2M_DEVICE_ERROR_GPS_FAILURE		3 /**< GPS module failure */
-#define LWM2M_DEVICE_ERROR_LOW_SIGNAL_STRENGTH	4 /**< Low received signal strength */
-#define LWM2M_DEVICE_ERROR_OUT_OF_MEMORY	5 /**< Out of memory */
-#define LWM2M_DEVICE_ERROR_SMS_FAILURE		6 /**< SMS failure */
-#define LWM2M_DEVICE_ERROR_NETWORK_FAILURE	7 /**< IP Connectivity failure */
-#define LWM2M_DEVICE_ERROR_PERIPHERAL_FAILURE	8 /**< Peripheral malfunction */
+#define LWM2M_DEVICE_ERROR_NONE			0
+#define LWM2M_DEVICE_ERROR_LOW_POWER		1
+#define LWM2M_DEVICE_ERROR_EXT_POWER_SUPPLY_OFF	2
+#define LWM2M_DEVICE_ERROR_GPS_FAILURE		3
+#define LWM2M_DEVICE_ERROR_LOW_SIGNAL_STRENGTH	4
+#define LWM2M_DEVICE_ERROR_OUT_OF_MEMORY	5
+#define LWM2M_DEVICE_ERROR_SMS_FAILURE		6
+#define LWM2M_DEVICE_ERROR_NETWORK_FAILURE	7
+#define LWM2M_DEVICE_ERROR_PERIPHERAL_FAILURE	8
 
 /** @} */
 
@@ -490,14 +490,14 @@ typedef int (*lwm2m_engine_execute_cb_t)(uint16_t obj_inst_id,
 #define LWM2M_DEVICE_BATTERY_STATUS_NORMAL	0 /**< The battery is operating normally and not on
 						    *   power
 						    */
-#define LWM2M_DEVICE_BATTERY_STATUS_CHARGING	1 /**< The battery is currently charging */
+#define LWM2M_DEVICE_BATTERY_STATUS_CHARGING	1
 #define LWM2M_DEVICE_BATTERY_STATUS_CHARGE_COMP	2 /**< The battery is fully charged and the charger
 						    *   is still connected
 						    */
-#define LWM2M_DEVICE_BATTERY_STATUS_DAMAGED	3 /**< The battery has some problem */
-#define LWM2M_DEVICE_BATTERY_STATUS_LOW		4 /**< The battery is low on charge */
-#define LWM2M_DEVICE_BATTERY_STATUS_NOT_INST	5 /**< The battery is not installed */
-#define LWM2M_DEVICE_BATTERY_STATUS_UNKNOWN	6 /**< The battery information is not available */
+#define LWM2M_DEVICE_BATTERY_STATUS_DAMAGED	3
+#define LWM2M_DEVICE_BATTERY_STATUS_LOW		4
+#define LWM2M_DEVICE_BATTERY_STATUS_NOT_INST	5
+#define LWM2M_DEVICE_BATTERY_STATUS_UNKNOWN	6
 
 /** @} */
 
@@ -546,16 +546,16 @@ int lwm2m_device_add_err(uint8_t error_code);
  * @{
  */
 
-#define RESULT_DEFAULT		0	/**< Initial value */
-#define RESULT_SUCCESS		1	/**< Firmware updated successfully */
-#define RESULT_NO_STORAGE	2	/**< Not enough flash memory for the new firmware package */
-#define RESULT_OUT_OF_MEM	3	/**< Out of RAM during downloading process */
-#define RESULT_CONNECTION_LOST	4	/**< Connection lost during downloading process */
-#define RESULT_INTEGRITY_FAILED	5	/**< Integrity check failure for new downloaded package */
-#define RESULT_UNSUP_FW		6	/**< Unsupported package type */
-#define RESULT_INVALID_URI	7	/**< Invalid URI */
-#define RESULT_UPDATE_FAILED	8	/**< Firmware update failed */
-#define RESULT_UNSUP_PROTO	9	/**< Unsupported protocol */
+#define RESULT_DEFAULT		0
+#define RESULT_SUCCESS		1
+#define RESULT_NO_STORAGE	2
+#define RESULT_OUT_OF_MEM	3
+#define RESULT_CONNECTION_LOST	4
+#define RESULT_INTEGRITY_FAILED	5
+#define RESULT_UNSUP_FW		6
+#define RESULT_INVALID_URI	7
+#define RESULT_UPDATE_FAILED	8
+#define RESULT_UNSUP_PROTO	9
 
 /** @} */
 
@@ -786,8 +786,8 @@ void lwm2m_event_log_set_read_log_data_cb(lwm2m_engine_get_data_cb_t cb);
  * @brief LWM2M Objlnk resource type structure
  */
 struct lwm2m_objlnk {
-	uint16_t obj_id;     /**< Object ID */
-	uint16_t obj_inst;   /**< Object instance ID */
+	uint16_t obj_id;
+	uint16_t obj_inst;
 };
 
 /**
@@ -1541,9 +1541,9 @@ char *lwm2m_path_log_buf(char *buf, struct lwm2m_obj_path *path);
  * lwm2m_send_cb()
  */
 enum lwm2m_send_status {
-	LWM2M_SEND_STATUS_SUCCESS,  /**< Succeed */
-	LWM2M_SEND_STATUS_FAILURE,  /**< Failure */
-	LWM2M_SEND_STATUS_TIMEOUT,  /**< Timeout */
+	LWM2M_SEND_STATUS_SUCCESS,
+	LWM2M_SEND_STATUS_FAILURE,
+	LWM2M_SEND_STATUS_TIMEOUT,
 };
 
 /**
@@ -1594,11 +1594,11 @@ int lwm2m_enable_cache(const struct lwm2m_obj_path *path, struct lwm2m_time_seri
  * @brief Security modes as defined in LwM2M Security object.
  */
 enum lwm2m_security_mode_e {
-	LWM2M_SECURITY_PSK = 0,      /**< Pre-Shared Key mode */
-	LWM2M_SECURITY_RAW_PK = 1,   /**< Raw Public Key mode */
-	LWM2M_SECURITY_CERT = 2,     /**< Certificate mode */
-	LWM2M_SECURITY_NOSEC = 3,    /**< NoSec mode */
-	LWM2M_SECURITY_CERT_EST = 4, /**< Certificate mode with EST */
+	LWM2M_SECURITY_PSK = 0,
+	LWM2M_SECURITY_RAW_PK = 1,
+	LWM2M_SECURITY_CERT = 2,
+	LWM2M_SECURITY_NOSEC = 3,
+	LWM2M_SECURITY_CERT_EST = 4,
 };
 
 /**

@@ -51,8 +51,8 @@
   */
 
 
-#define DLYB_MAX_UNIT   ((uint32_t)0x00000080U) /*!< Max UNIT value (128)  */
-#define DLYB_MAX_SELECT ((uint32_t)0x0000000CU) /*!< Max SELECT value (12)  */
+#define DLYB_MAX_UNIT   ((uint32_t)0x00000080U)
+#define DLYB_MAX_SELECT ((uint32_t)0x0000000CU)
 
 /**
   * @}

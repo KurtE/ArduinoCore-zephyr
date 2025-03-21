@@ -83,7 +83,7 @@ struct mdm_hl7800_apn {
 #define MDM_HL7800_SET_POLTE_USER_AND_PASSWORD_FMT_STR "AT%%POLTECMD=\"SERVERAUTH\",\"%s\",\"%s\""
 
 struct mdm_hl7800_site_survey {
-	uint32_t earfcn; /* EUTRA Absolute Radio Frequency Channel Number */
+	uint32_t earfcn;
 	uint32_t cell_id;
 	int rsrp;
 	int rsrq;

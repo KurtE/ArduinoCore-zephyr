@@ -88,22 +88,22 @@ typedef uint64_t nboot_status_protected_t;
  */
 enum
 {
-    kStatus_NBOOT_Success                = 0x5A5A5A5AU, /*!< Operation completed successfully. */
-    kStatus_NBOOT_Fail                   = 0x5A5AA5A5U, /*!< Operation failed. */
-    kStatus_NBOOT_InvalidArgument        = 0x5A5AA5F0U, /*!< Invalid argument passed to the function. */
-    kStatus_NBOOT_RequestTimeout         = 0x5A5AA5E1U, /*!< Operation timed out. */
-    kStatus_NBOOT_KeyNotLoaded           = 0x5A5AA5E2U, /*!< The requested key is not loaded. */
-    kStatus_NBOOT_AuthFail               = 0x5A5AA5E4U, /*!< Authentication failed. */
-    kStatus_NBOOT_OperationNotAvaialable = 0x5A5AA5E5U, /*!< Operation not available on this HW. */
-    kStatus_NBOOT_KeyNotAvailable        = 0x5A5AA5E6U, /*!< Key is not avaialble. */
-    kStatus_NBOOT_IvCounterOverflow      = 0x5A5AA5E7U, /*!< Overflow of IV counter (PRINCE/IPED). */
-    kStatus_NBOOT_SelftestFail           = 0x5A5AA5E8U, /*!< FIPS self-test failure. */
-    kStatus_NBOOT_InvalidDataFormat      = 0x5A5AA5E9U, /*!< Invalid data format for example antipole */
+    kStatus_NBOOT_Success                = 0x5A5A5A5AU,
+    kStatus_NBOOT_Fail                   = 0x5A5AA5A5U,
+    kStatus_NBOOT_InvalidArgument        = 0x5A5AA5F0U,
+    kStatus_NBOOT_RequestTimeout         = 0x5A5AA5E1U,
+    kStatus_NBOOT_KeyNotLoaded           = 0x5A5AA5E2U,
+    kStatus_NBOOT_AuthFail               = 0x5A5AA5E4U,
+    kStatus_NBOOT_OperationNotAvaialable = 0x5A5AA5E5U,
+    kStatus_NBOOT_KeyNotAvailable        = 0x5A5AA5E6U,
+    kStatus_NBOOT_IvCounterOverflow      = 0x5A5AA5E7U,
+    kStatus_NBOOT_SelftestFail           = 0x5A5AA5E8U,
+    kStatus_NBOOT_InvalidDataFormat      = 0x5A5AA5E9U,
     kStatus_NBOOT_IskCertUserDataTooBig =
-        0x5A5AA5EAU, /*!< Size of User data in ISK certificate is greater than 96 bytes */
+        0x5A5AA5EAU,
     kStatus_NBOOT_IskCertSignatureOffsetTooSmall =
-        0x5A5AA5EBU,                        /*!< Signature offset in ISK certificate is smaller than expected */
-    kStatus_NBOOT_MemcpyFail = 0x5A5A845AU, /*!< Unexpected error detected during nboot_memcpy() */
+        0x5A5AA5EBU,
+    kStatus_NBOOT_MemcpyFail = 0x5A5A845AU,
 };
 
 /*! @brief Data structure holding secure counter value used by nboot library */
@@ -121,21 +121,21 @@ typedef struct _nboot_secure_counter
  */
 typedef struct _nboot_context
 {
-    uint32_t totalBlocks; /*!< holds number of SB3 blocks. Initialized by nboot_sb3_load_header(). */
+    uint32_t totalBlocks;
     uint32_t processData; /*!< flag, initialized by nboot_sb3_load_header().
                              SB3 related flag set by NBOOT in case the nboot_sb3_load_block()
                              provides plain data to output buffer (for processing by ROM SB3 loader */
-    uint32_t timeout;     /*!< timeout value for css operation. In case it is 0, infinite wait is performed */
-    uint32_t keyinfo[NBOOT_KEYINFO_WORDLEN]; /*!< data for NBOOT key management. */
-    uint32_t context[NBOOT_CONTEXT_WORDLEN]; /*!< work area for NBOOT lib. */
-    uint32_t uuid[4];                        /*!< holds UUID value from NMPA */
+    uint32_t timeout;
+    uint32_t keyinfo[NBOOT_KEYINFO_WORDLEN];
+    uint32_t context[NBOOT_CONTEXT_WORDLEN];
+    uint32_t uuid[4];
     uint32_t prngReadyFlag; /*!< flag, used by nboot_rng_generate_lq_random() to determine whether CSS is ready to
                                generate rnd number */
     uint32_t multipartMacBuffer[1024 / sizeof(uint32_t)];
     uint32_t oemShareValidFlag; /*!< flag, used during TP to determine whether valid oemShare was set by
                                    nboot_tp_isp_gen_oem_master_share() */
-    uint32_t oemShare[4]; /*!< buffer to store OEM_SHARE computed by nxpCLTrustProv_nboot_isp_gen_oem_master_share() */
-    nboot_secure_counter_t secureCounter; /*!< Secure counter used by nboot */
+    uint32_t oemShare[4];
+    nboot_secure_counter_t secureCounter;
     uint32_t rtf[NXPCLCSS_HASH_RTF_OUTPUT_SIZE_HAL / sizeof(uint32_t)];
     uint32_t imageHash[48 / sizeof(uint32_t)];
     uint32_t authStatus;
@@ -152,17 +152,17 @@ typedef struct _nboot_rot_auth_parms
     /* trusted information originated from CFPA */
     nboot_root_key_revocation_t soc_rootKeyRevocation[NBOOT_ROOT_CERT_COUNT]; /*!< Provided by caller based on NVM
                                                                                  information in CFPA: ROTKH_REVOKE */
-    uint32_t soc_imageKeyRevocation; /*!< Provided by caller based on NVM information in CFPA: IMAGE_KEY_REVOKE */
+    uint32_t soc_imageKeyRevocation;
 
     /* trusted information originated from CMPA */
-    uint32_t soc_rkh[12]; /*!< Provided by caller based on NVM information in CMPA: ROTKH (hash of hashes) */
+    uint32_t soc_rkh[12];
                           /*!< In case of kNBOOT_RootKey_Ecdsa_P384, sock_rkh[0..11] are used */
                           /*!< In case of kNBOOT_RootKey_Ecdsa_P256, sock_rkh[0..7] are used */
 
-    uint32_t soc_numberOfRootKeys; /*!< unsigned int, between minimum = 1 and maximum = 4; */
-    nboot_root_key_usage_t soc_rootKeyUsage[NBOOT_ROOT_CERT_COUNT]; /*!< CMPA */
+    uint32_t soc_numberOfRootKeys;
+    nboot_root_key_usage_t soc_rootKeyUsage[NBOOT_ROOT_CERT_COUNT];
     nboot_root_key_type_and_length_t
-        soc_rootKeyTypeAndLength; /*!< static selection between ECDSA P-256 or ECDSA P-384 based root keys */
+        soc_rootKeyTypeAndLength;
 
     /* trusted information originated from OTP fuses */
     nboot_soc_lifecycle_t soc_lifecycle;
@@ -176,8 +176,8 @@ typedef struct _nboot_rot_auth_parms
  */
 typedef struct _nboot_sb3_load_manifest_parms
 {
-    nboot_rot_auth_parms_t soc_RoTNVM;   /*!< trusted information originated from CFPA and NMPA */
-    uint32_t soc_trustedFirmwareVersion; /*!< Provided by caller based on NVM information in CFPA: Secure_FW_Version */
+    nboot_rot_auth_parms_t soc_RoTNVM;
+    uint32_t soc_trustedFirmwareVersion;
     uint8_t pckBlob[48];
 } nboot_sb3_load_manifest_parms_t;
 
@@ -187,14 +187,14 @@ typedef struct _nboot_sb3_load_manifest_parms
  */
 typedef struct _nboot_img_auth_ecdsa_parms
 {
-    nboot_rot_auth_parms_t soc_RoTNVM;   /*!< trusted information originated from CFPA and NMPA */
-    uint32_t soc_trustedFirmwareVersion; /*!< Provided by caller based on NVM information in CFPA: Secure_FW_Version */
+    nboot_rot_auth_parms_t soc_RoTNVM;
+    uint32_t soc_trustedFirmwareVersion;
 } nboot_img_auth_ecdsa_parms_t;
 
 /*! @brief Data structure holding input arguments for CMAC authentication */
 typedef struct _nboot_cmac_authenticate_parms
 {
-    uint32_t expectedMAC[4]; /*!< expected MAC result */
+    uint32_t expectedMAC[4];
 } nboot_img_authenticate_cmac_parms_t;
 
 /*!
@@ -204,10 +204,10 @@ typedef struct _nboot_cmac_authenticate_parms
  */
 typedef enum _nboot_bool
 {
-    kNBOOT_TRUE                = 0x3C5AC33CU, /*!< Value for TRUE.  */
-    kNBOOT_TRUE256             = 0x3C5AC35AU, /*!< Value for TRUE when P256 was used to sign the image.  */
-    kNBOOT_TRUE384             = 0x3C5AC3A5U, /*!< Value for TRUE when P384 was used to sign the image.  */
-    kNBOOT_FALSE               = 0x5AA55AA5U, /*!< Value for FALSE. */
+    kNBOOT_TRUE                = 0x3C5AC33CU,
+    kNBOOT_TRUE256             = 0x3C5AC35AU,
+    kNBOOT_TRUE384             = 0x3C5AC3A5U,
+    kNBOOT_FALSE               = 0x5AA55AA5U,
     kNBOOT_OperationAllowed    = 0x3c5a33ccU,
     kNBOOT_OperationDisallowed = 0x5aa5cc33U,
 } nboot_bool_t;

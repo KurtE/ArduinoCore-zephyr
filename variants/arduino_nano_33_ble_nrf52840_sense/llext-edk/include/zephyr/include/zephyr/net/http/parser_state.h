@@ -27,7 +27,7 @@ extern "C" {
 #endif
 
 enum state {
-	s_dead = 1, /* important that this is > 0 */
+	s_dead = 1,
 	s_start_req_or_res,
 	s_res_or_resp_H,
 	s_start_res,

@@ -37,9 +37,9 @@
 /*! @brief Level 2 cache controller way size. */
 typedef enum _cache64_policy
 {
-    kCACHE64_PolicyNonCacheable = 0, /*!< Non-cacheable */
-    kCACHE64_PolicyWriteThrough = 1, /*!< Write through */
-    kCACHE64_PolicyWriteBack    = 2, /*!< Write back */
+    kCACHE64_PolicyNonCacheable = 0,
+    kCACHE64_PolicyWriteThrough = 1,
+    kCACHE64_PolicyWriteBack    = 2,
 } cache64_policy_t;
 
 /*! @brief CACHE64 configuration structure. */

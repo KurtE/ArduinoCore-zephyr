@@ -71,7 +71,7 @@ typedef enum {
 #endif
 
 #define __NVIC_PRIO_BITS               NUM_IRQ_PRIO_BITS
-#define __Vendor_SysTickConfig         0 /* Default to standard SysTick */
+#define __Vendor_SysTickConfig         0
 #endif /* __NVIC_PRIO_BITS */
 
 #ifndef __MPU_PRESENT

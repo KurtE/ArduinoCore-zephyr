@@ -37,9 +37,9 @@ struct lsm6dsv16x_fifo_data {
 struct lsm6dsv16x_rtio_data {
 	struct lsm6dsv16x_decoder_header header;
 	struct {
-		uint8_t has_accel: 1; /* set if accel channel has data */
-		uint8_t has_gyro: 1;  /* set if gyro channel has data */
-		uint8_t has_temp: 1;  /* set if temp channel has data */
+		uint8_t has_accel: 1;
+		uint8_t has_gyro: 1;
+		uint8_t has_temp: 1;
 		uint8_t reserved: 5;
 	}  __attribute__((__packed__));
 	int16_t acc[3];

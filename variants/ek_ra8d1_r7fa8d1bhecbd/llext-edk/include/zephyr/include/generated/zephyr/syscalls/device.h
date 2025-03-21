@@ -89,6 +89,29 @@ static inline int device_init(const struct device * dev)
 #endif
 
 
+extern int z_impl_device_deinit(const struct device * dev);
+
+__pinned_func
+static inline int device_deinit(const struct device * dev)
+{
+#ifdef CONFIG_USERSPACE
+	if (z_syscall_trap()) {
+		union { uintptr_t x; const struct device * val; } parm0 = { .val = dev };
+		return (int) arch_syscall_invoke1(parm0.x, K_SYSCALL_DEVICE_DEINIT);
+	}
+#endif
+	compiler_barrier();
+	return z_impl_device_deinit(dev);
+}
+
+#if defined(CONFIG_TRACING_SYSCALL)
+#ifndef DISABLE_SYSCALL_TRACING
+
+#define device_deinit(dev) ({ 	int syscall__retval; 	sys_port_trace_syscall_enter(K_SYSCALL_DEVICE_DEINIT, device_deinit, dev); 	syscall__retval = device_deinit(dev); 	sys_port_trace_syscall_exit(K_SYSCALL_DEVICE_DEINIT, device_deinit, dev, syscall__retval); 	syscall__retval; })
+#endif
+#endif
+
+
 extern const struct device * z_impl_device_get_by_dt_nodelabel(const char * nodelabel);
 
 __pinned_func

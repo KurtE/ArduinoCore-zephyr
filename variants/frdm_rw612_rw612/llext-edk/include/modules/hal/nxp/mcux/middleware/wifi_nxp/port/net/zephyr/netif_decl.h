@@ -21,16 +21,16 @@
  * Packets of this type need o be handled
  * for WPS and Supplicant
  */
-#define ETHTYPE_EAPOL 0x888EU /* EAPOL */
+#define ETHTYPE_EAPOL 0x888EU
 
 /* This is an Token-Ring LLC structure */
 struct eth_llc_hdr
 {
-    t_u8 dsap;      /* destination SAP */
-    t_u8 ssap;      /* source SAP */
-    t_u8 llc;       /* LLC control field */
-    t_u8 protid[3]; /* protocol id */
-    t_u16 type;     /* ether type field */
+    t_u8 dsap;
+    t_u8 ssap;
+    t_u8 llc;
+    t_u8 protid[3];
+    t_u16 type;
 } __packed;
 
 #define SIZEOF_ETH_LLC_HDR (8U)

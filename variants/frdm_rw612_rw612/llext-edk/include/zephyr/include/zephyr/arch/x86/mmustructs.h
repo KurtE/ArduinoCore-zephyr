@@ -16,10 +16,10 @@
  * Slated for removal when virtual memory is implemented, memory
  * mapping APIs will replace memory domains.
  */
-#define Z_X86_MMU_RW		BIT64(1)	/** Read-Write */
-#define Z_X86_MMU_US		BIT64(2)	/** User-Supervisor */
+#define Z_X86_MMU_RW		BIT64(1)
+#define Z_X86_MMU_US		BIT64(2)
 #if defined(CONFIG_X86_PAE) || defined(CONFIG_X86_64)
-#define Z_X86_MMU_XD		BIT64(63)	/** Execute Disable */
+#define Z_X86_MMU_XD		BIT64(63)
 #else
 #define Z_X86_MMU_XD		0
 #endif

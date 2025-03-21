@@ -208,8 +208,8 @@ struct isotp_msg_id {
  * Used to pass the options to the bind and send functions.
  */
 struct isotp_fc_opts {
-	uint8_t bs;    /**< Block size. Number of CF PDUs before next CF is sent */
-	uint8_t stmin; /**< Minimum separation time. Min time between frames */
+	uint8_t bs;
+	uint8_t stmin;
 };
 
 /**

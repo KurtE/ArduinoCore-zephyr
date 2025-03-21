@@ -58,1453 +58,1453 @@
 #define IO_MUX_SCTIMER_MASK(inMsk, outMsk) ((((uint32_t)(outMsk)&0x3FFUL) << 16) | ((uint32_t)(inMsk)&0xFFUL))
 
 #define IO_MUX_FC0_USART_SCK                                                                   \
-    0x00000010U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0x001), IO_MUX_GPIO_FC_MASK(1, 0, 0x02C), /* GPIO&FC mask */ \
-        0x00000000U, 0x00800000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x2, 0x2)            /* SCTimer mask */
+    0x00000010U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0x001), IO_MUX_GPIO_FC_MASK(1, 0, 0x02C), \
+        0x00000000U, 0x00800000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x2, 0x2)
 
 #define IO_MUX_FC0_USART_DATA                                                                  \
-    0x0000000CU, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0x200), IO_MUX_GPIO_FC_MASK(1, 0, 0x12E), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x1, 0x1)            /* SCTimer mask */
+    0x0000000CU, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0x200), IO_MUX_GPIO_FC_MASK(1, 0, 0x12E), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x1, 0x1)
 
 #define IO_MUX_FC0_USART_CMD                                                                   \
-    0x00000021U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0x400), IO_MUX_GPIO_FC_MASK(1, 0, 0x038), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000040U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x1, 0x1),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000021U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0x400), IO_MUX_GPIO_FC_MASK(1, 0, 0x038), \
+        0x00000000U, 0x00000040U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x1, 0x1),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC0_I2C_2_3                                                                     \
-    0x0000000CU, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0x002), IO_MUX_GPIO_FC_MASK(1, 0, 0x32C), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x1, 0x1)            /* SCTimer mask */
+    0x0000000CU, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0x002), IO_MUX_GPIO_FC_MASK(1, 0, 0x32C), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x1, 0x1)
 
 #define IO_MUX_FC0_I2S                                                                         \
-    0x0000001CU, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0x004), IO_MUX_GPIO_FC_MASK(1, 0, 0x32B), /* GPIO&FC mask */ \
-        0x00000000U, 0x00800000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x3, 0x3)            /* SCTimer mask */
+    0x0000001CU, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0x004), IO_MUX_GPIO_FC_MASK(1, 0, 0x32B), \
+        0x00000000U, 0x00800000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x3, 0x3)
 
 #define IO_MUX_FC0_I2S_DATA                                                                    \
-    0x00000004U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0x100), IO_MUX_GPIO_FC_MASK(1, 0, 0x22E), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000004U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0x100), IO_MUX_GPIO_FC_MASK(1, 0, 0x22E), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC0_SPI_SS0                                                                     \
-    0x0000001DU, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0x008), IO_MUX_GPIO_FC_MASK(1, 0, 0x737), /* GPIO&FC mask */ \
-        0x00000000U, 0x00800000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x1, 0x1),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x3, 0x3)            /* SCTimer mask */
+    0x0000001DU, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0x008), IO_MUX_GPIO_FC_MASK(1, 0, 0x737), \
+        0x00000000U, 0x00800000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x1, 0x1),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x3, 0x3)
 
 #define IO_MUX_FC1_USART_SCK                                                                   \
-    0x00000080U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 1, 0x001), IO_MUX_GPIO_FC_MASK(1, 1, 0x0EC), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000080U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 1, 0x001), IO_MUX_GPIO_FC_MASK(1, 1, 0x0EC), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC1_USART_DATA                                                                  \
-    0x00000300U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 1, 0x200), IO_MUX_GPIO_FC_MASK(1, 1, 0x1EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000300U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 1, 0x200), IO_MUX_GPIO_FC_MASK(1, 1, 0x1EE), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC1_USART_CMD                                                                   \
-    0x00000440U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 1, 0x400), IO_MUX_GPIO_FC_MASK(1, 1, 0x038), /* GPIO&FC mask */ \
-        0x00000000U, 0x01000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000440U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 1, 0x400), IO_MUX_GPIO_FC_MASK(1, 1, 0x038), \
+        0x00000000U, 0x01000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC1_I2C_8_9                                                                     \
-    0x00000300U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 1, 0x002), IO_MUX_GPIO_FC_MASK(1, 1, 0x3EC), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000300U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 1, 0x002), IO_MUX_GPIO_FC_MASK(1, 1, 0x3EC), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC1_I2S                                                                         \
-    0x00000380U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 1, 0x004), IO_MUX_GPIO_FC_MASK(1, 1, 0x3EB), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000380U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 1, 0x004), IO_MUX_GPIO_FC_MASK(1, 1, 0x3EB), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC1_I2S_DATA                                                                    \
-    0x00000200U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 1, 0x100), IO_MUX_GPIO_FC_MASK(1, 1, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000200U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 1, 0x100), IO_MUX_GPIO_FC_MASK(1, 1, 0x2EE), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC1_SPI_SS0                                                                     \
-    0x000003C0U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 1, 0x008), IO_MUX_GPIO_FC_MASK(1, 1, 0x7F7), /* GPIO&FC mask */ \
-        0x00000000U, 0x01000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x000003C0U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 1, 0x008), IO_MUX_GPIO_FC_MASK(1, 1, 0x7F7), \
+        0x00000000U, 0x01000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC2_USART_SCK                                                                   \
-    0x00008000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 2, 0x001), IO_MUX_GPIO_FC_MASK(1, 2, 0x0EC), /* GPIO&FC mask */ \
-        0x00000000U, 0x00008400U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00008000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 2, 0x001), IO_MUX_GPIO_FC_MASK(1, 2, 0x0EC), \
+        0x00000000U, 0x00008400U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC2_USART_DATA                                                                  \
-    0x00006000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 2, 0x200), IO_MUX_GPIO_FC_MASK(1, 2, 0x1EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x18, 0x18),           /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00006000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 2, 0x200), IO_MUX_GPIO_FC_MASK(1, 2, 0x1EE), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x18, 0x18),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC2_USART_CMD                                                                   \
-    0x00030000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 2, 0x400), IO_MUX_GPIO_FC_MASK(1, 2, 0x038), /* GPIO&FC mask */ \
-        0x00000000U, 0x00008400U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00030000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 2, 0x400), IO_MUX_GPIO_FC_MASK(1, 2, 0x038), \
+        0x00000000U, 0x00008400U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC2_I2C_13_14                                                                   \
-    0x00006000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 2, 0x002), IO_MUX_GPIO_FC_MASK(1, 2, 0x3EC), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x18, 0x18),           /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00006000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 2, 0x002), IO_MUX_GPIO_FC_MASK(1, 2, 0x3EC), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x18, 0x18),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC2_I2C_16_17                                                                   \
-    0x00030000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 2, 0x010), IO_MUX_GPIO_FC_MASK(1, 2, 0x428), /* GPIO&FC mask */ \
-        0x00000000U, 0x00008400U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00030000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 2, 0x010), IO_MUX_GPIO_FC_MASK(1, 2, 0x428), \
+        0x00000000U, 0x00008400U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC2_I2S                                                                         \
-    0x0000E000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 2, 0x004), IO_MUX_GPIO_FC_MASK(1, 2, 0x3EB), /* GPIO&FC mask */ \
-        0x00000000U, 0x00008400U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x18, 0x18),           /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x0000E000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 2, 0x004), IO_MUX_GPIO_FC_MASK(1, 2, 0x3EB), \
+        0x00000000U, 0x00008400U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x18, 0x18),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC2_I2S_DATA                                                                    \
-    0x00002000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 2, 0x100), IO_MUX_GPIO_FC_MASK(1, 2, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x18, 0x18),           /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00002000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 2, 0x100), IO_MUX_GPIO_FC_MASK(1, 2, 0x2EE), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x18, 0x18),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC2_SPI_SS0                                                                     \
-    0x0001E000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 2, 0x008), IO_MUX_GPIO_FC_MASK(1, 2, 0x7F7), /* GPIO&FC mask */ \
-        0x00000000U, 0x00008400U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x18, 0x18),           /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x0001E000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 2, 0x008), IO_MUX_GPIO_FC_MASK(1, 2, 0x7F7), \
+        0x00000000U, 0x00008400U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x18, 0x18),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC3_USART_SCK                                                                   \
-    0x02000000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 3, 0x001), IO_MUX_GPIO_FC_MASK(1, 3, 0x0EC), /* GPIO&FC mask */ \
-        0x00000000U, 0x00010000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x80, 0x80),           /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x02000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 3, 0x001), IO_MUX_GPIO_FC_MASK(1, 3, 0x0EC), \
+        0x00000000U, 0x00010000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x80, 0x80),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC3_USART_DATA                                                                  \
-    0x05000000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 3, 0x200), IO_MUX_GPIO_FC_MASK(1, 3, 0x1EE), /* GPIO&FC mask */ \
-        0x00000000U, 0xC0000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x40, 0x40),           /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)          /* SCTimer mask */
+    0x05000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 3, 0x200), IO_MUX_GPIO_FC_MASK(1, 3, 0x1EE), \
+        0x00000000U, 0xC0000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x40, 0x40),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)
 
 #define IO_MUX_FC3_USART_CMD                                                                   \
-    0x00180000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 3, 0x400), IO_MUX_GPIO_FC_MASK(1, 3, 0x038), /* GPIO&FC mask */ \
-        0x00000000U, 0x00008000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00180000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 3, 0x400), IO_MUX_GPIO_FC_MASK(1, 3, 0x038), \
+        0x00000000U, 0x00008000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC3_I2C_24_26                                                                   \
-    0x05000000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 3, 0x002), IO_MUX_GPIO_FC_MASK(1, 3, 0x3EC), /* GPIO&FC mask */ \
-        0x00000000U, 0xC0000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x40, 0x40),           /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)          /* SCTimer mask */
+    0x05000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 3, 0x002), IO_MUX_GPIO_FC_MASK(1, 3, 0x3EC), \
+        0x00000000U, 0xC0000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x40, 0x40),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)
 
 #define IO_MUX_FC3_I2C_19_20                                                                   \
-    0x00180000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 3, 0x010), IO_MUX_GPIO_FC_MASK(1, 3, 0x428), /* GPIO&FC mask */ \
-        0x00000000U, 0x00008000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00180000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 3, 0x010), IO_MUX_GPIO_FC_MASK(1, 3, 0x428), \
+        0x00000000U, 0x00008000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC3_I2S                                                                         \
-    0x07000000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 3, 0x004), IO_MUX_GPIO_FC_MASK(1, 3, 0x3EB), /* GPIO&FC mask */ \
-        0x00000000U, 0xC0010000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0xC0, 0xC0),           /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)          /* SCTimer mask */
+    0x07000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 3, 0x004), IO_MUX_GPIO_FC_MASK(1, 3, 0x3EB), \
+        0x00000000U, 0xC0010000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0xC0, 0xC0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)
 
 #define IO_MUX_FC3_I2S_DATA                                                                    \
-    0x01000000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 3, 0x100), IO_MUX_GPIO_FC_MASK(1, 3, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x40000000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x40, 0x40),           /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x01000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 3, 0x100), IO_MUX_GPIO_FC_MASK(1, 3, 0x2EE), \
+        0x00000000U, 0x40000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x40, 0x40),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC3_SPI_SS0                                                                     \
-    0x07100000U, 0x00000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 3, 0x008), IO_MUX_GPIO_FC_MASK(1, 3, 0x7F7), /* GPIO&FC mask */ \
-        0x00000000U, 0xC0018000U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0xC0, 0xC0),           /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)          /* SCTimer mask */
+    0x07100000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 3, 0x008), IO_MUX_GPIO_FC_MASK(1, 3, 0x7F7), \
+        0x00000000U, 0xC0018000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0xC0, 0xC0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)
 
 #define IO_MUX_FC14_USART_SCK                                                                  \
-    0x00000000U, 0x00400000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 6, 0x001), IO_MUX_GPIO_FC_MASK(3, 6, 0x0EC), /* GPIO&FC mask */ \
-        0x00000000U, 0x00200810U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4000, 0x4000),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000000U, 0x00400000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 6, 0x001), IO_MUX_GPIO_FC_MASK(3, 6, 0x0EC), \
+        0x00000000U, 0x00200810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4000, 0x4000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC14_USART_DATA                                                                 \
-    0x00000000U, 0x03000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 6, 0x200), IO_MUX_GPIO_FC_MASK(3, 6, 0x1EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x08000800U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000000U, 0x03000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 6, 0x200), IO_MUX_GPIO_FC_MASK(3, 6, 0x1EE), \
+        0x00000000U, 0x08000800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC14_USART_CMD                                                                  \
-    0x00000000U, 0x00A00000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 6, 0x400), IO_MUX_GPIO_FC_MASK(3, 6, 0x038), /* GPIO&FC mask */ \
-        0x00000000U, 0x00500810U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x2000, 0x2000),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0x200)            /* SCTimer mask */
+    0x00000000U, 0x00A00000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 6, 0x400), IO_MUX_GPIO_FC_MASK(3, 6, 0x038), \
+        0x00000000U, 0x00500810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x2000, 0x2000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0x200)
 
 #define IO_MUX_FC14_I2C_56_57                                                                  \
-    0x00000000U, 0x03000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 6, 0x002), IO_MUX_GPIO_FC_MASK(3, 6, 0x3EC), /* GPIO&FC mask */ \
-        0x00000000U, 0x08000800U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000000U, 0x03000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 6, 0x002), IO_MUX_GPIO_FC_MASK(3, 6, 0x3EC), \
+        0x00000000U, 0x08000800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC14_I2S                                                                        \
-    0x00000000U, 0x03400000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 6, 0x004), IO_MUX_GPIO_FC_MASK(3, 6, 0x3EB), /* GPIO&FC mask */ \
-        0x00000000U, 0x08200810U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4000, 0x4000),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000000U, 0x03400000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 6, 0x004), IO_MUX_GPIO_FC_MASK(3, 6, 0x3EB), \
+        0x00000000U, 0x08200810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4000, 0x4000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC14_I2S_DATA                                                                   \
-    0x00000000U, 0x02000000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 6, 0x100), IO_MUX_GPIO_FC_MASK(3, 6, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x08000800U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),                 /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000000U, 0x02000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 6, 0x100), IO_MUX_GPIO_FC_MASK(3, 6, 0x2EE), \
+        0x00000000U, 0x08000800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FC14_SPI_SS0                                                                    \
-    0x00000000U, 0x03600000U,                                               /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 6, 0x008), IO_MUX_GPIO_FC_MASK(3, 6, 0x7F7), /* GPIO&FC mask */ \
-        0x00000000U, 0x08300810U,                                           /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x6000, 0x6000),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)                /* SCTimer mask */
+    0x00000000U, 0x03600000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 6, 0x008), IO_MUX_GPIO_FC_MASK(3, 6, 0x7F7), \
+        0x00000000U, 0x08300810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x6000, 0x6000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_QUAD_SPI_FLASH                                                          \
-    0xF0000000U, 0x00000007U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00000002U, 0x00000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0xF0000000U, 0x00000007U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00000002U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_QUAD_SPI_PSRAM                                                          \
-    0x00000000U, 0x000003F8U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00000008U, 0x00000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x700, 0x700), /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0xC0, 0xC0)  /* SCTimer mask */
+    0x00000000U, 0x000003F8U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00000008U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x700, 0x700),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0xC0, 0xC0)
 
 #define IO_MUX_PDM                                                                         \
-    0x00000000U, 0x00780000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x4FD), /* GPIO&FC mask */ \
-        0x00000010U, 0x003C0800U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x7800, 0x7800),   /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00780000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x4FD), \
+        0x00000010U, 0x003C0800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x7800, 0x7800),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_USB                                                                         \
-    0x00001000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 1, 0x080), /* GPIO&FC mask */ \
-        0x00000020U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4, 0x4),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00001000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 1, 0x080), \
+        0x00000020U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4, 0x4),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SCT_OUT_0                                                                   \
-    0x00000008U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x22E), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0x1), IO_MUX_SCTIMER_MASK(0x1, 0)        /* SCTimer mask */
+    0x00000008U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x22E), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0x1), IO_MUX_SCTIMER_MASK(0x1, 0)
 
 #define IO_MUX_SCT_OUT_1                                                                   \
-    0x00000010U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x02D), /* GPIO&FC mask */ \
-        0x00000000U, 0x00800000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0x2), IO_MUX_SCTIMER_MASK(0x2, 0)        /* SCTimer mask */
+    0x00000010U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x02D), \
+        0x00000000U, 0x00800000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0x2), IO_MUX_SCTIMER_MASK(0x2, 0)
 
 #define IO_MUX_SCT_OUT_8                                                                   \
-    0x00000800U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 1, 0x040), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0x100), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000800U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 1, 0x040), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0x100), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SCT_OUT_4                                                                   \
-    0x04000000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x80000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0x10), IO_MUX_SCTIMER_MASK(0x10, 0)      /* SCTimer mask */
+    0x04000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x2EE), \
+        0x00000000U, 0x80000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0x10), IO_MUX_SCTIMER_MASK(0x10, 0)
 
 #define IO_MUX_SCT_OUT_5                                                               \
-    0x08000000U, 0x00000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x10000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0x20), IO_MUX_SCTIMER_MASK(0x20, 0)  /* SCTimer mask */
+    0x08000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x10000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0x20), IO_MUX_SCTIMER_MASK(0x20, 0)
 
 #define IO_MUX_SCT_OUT_6                                                               \
-    0x00000000U, 0x00000008U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0x40), IO_MUX_SCTIMER_MASK(0x40, 0)  /* SCTimer mask */
+    0x00000000U, 0x00000008U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0x40), IO_MUX_SCTIMER_MASK(0x40, 0)
 
 #define IO_MUX_SCT_OUT_7                                                               \
-    0x00000000U, 0x00000010U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0x80), IO_MUX_SCTIMER_MASK(0x80, 0)  /* SCTimer mask */
+    0x00000000U, 0x00000010U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0x80), IO_MUX_SCTIMER_MASK(0x80, 0)
 
 #define IO_MUX_SCT_OUT_9                                                                   \
-    0x00000000U, 0x00800000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x430), /* GPIO&FC mask */ \
-        0x00000000U, 0x00400000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0x200), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00800000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x430), \
+        0x00000000U, 0x00400000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0x200), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SCT_IN_0                                                                    \
-    0x00000008U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x22E), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0x1, 0), IO_MUX_SCTIMER_MASK(0, 0x1)        /* SCTimer mask */
+    0x00000008U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x22E), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0x1, 0), IO_MUX_SCTIMER_MASK(0, 0x1)
 
 #define IO_MUX_SCT_IN_1                                                                    \
-    0x00000010U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x02D), /* GPIO&FC mask */ \
-        0x00000000U, 0x00800000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0x2, 0), IO_MUX_SCTIMER_MASK(0, 0x2)        /* SCTimer mask */
+    0x00000010U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x02D), \
+        0x00000000U, 0x00800000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0x2, 0), IO_MUX_SCTIMER_MASK(0, 0x2)
 
 #define IO_MUX_SCT_IN_2                                                                    \
-    0x00400000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x040), /* GPIO&FC mask */ \
-        0x00000000U, 0x04000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0x4, 0), IO_MUX_SCTIMER_MASK(0, 0)          /* SCTimer mask */
+    0x00400000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x040), \
+        0x00000000U, 0x04000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0x4, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SCT_IN_3                                                                    \
-    0x00800000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x080), /* GPIO&FC mask */ \
-        0x00000000U, 0x04000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0x8, 0), IO_MUX_SCTIMER_MASK(0, 0)          /* SCTimer mask */
+    0x00800000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x080), \
+        0x00000000U, 0x04000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0x8, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SCT_IN_4                                                                    \
-    0x04000000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x80000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0x10, 0), IO_MUX_SCTIMER_MASK(0, 0x10)      /* SCTimer mask */
+    0x04000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x2EE), \
+        0x00000000U, 0x80000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0x10, 0), IO_MUX_SCTIMER_MASK(0, 0x10)
 
 #define IO_MUX_SCT_IN_5                                                                \
-    0x08000000U, 0x00000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x10000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0x20, 0), IO_MUX_SCTIMER_MASK(0, 0x20)  /* SCTimer mask */
+    0x08000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x10000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0x20, 0), IO_MUX_SCTIMER_MASK(0, 0x20)
 
 #define IO_MUX_SCT_IN_6                                                                \
-    0x00000000U, 0x00000008U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0x40, 0), IO_MUX_SCTIMER_MASK(0, 0x40)  /* SCTimer mask */
+    0x00000000U, 0x00000008U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0x40, 0), IO_MUX_SCTIMER_MASK(0, 0x40)
 
 #define IO_MUX_SCT_IN_7                                                                \
-    0x00000000U, 0x00000010U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0x80, 0), IO_MUX_SCTIMER_MASK(0, 0x80)  /* SCTimer mask */
+    0x00000000U, 0x00000010U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0x80, 0), IO_MUX_SCTIMER_MASK(0, 0x80)
 
 #define IO_MUX_CT0_MAT0_OUT                                                                \
-    0x00000001U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x418), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x1), IO_MUX_CTIMER_MASK(0x1, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000001U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x418), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0x1), IO_MUX_CTIMER_MASK(0x1, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT0_MAT1_OUT                                                            \
-    0x00000002U, 0x00000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x2), IO_MUX_CTIMER_MASK(0x2, 0),     /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000002U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0x2), IO_MUX_CTIMER_MASK(0x2, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT0_MAT2_OUT                                                                \
-    0x00001000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 1, 0x080), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000020U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x4), IO_MUX_CTIMER_MASK(0x4, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00001000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 1, 0x080), \
+        0x00000000U, 0x00000020U,    \
+        IO_MUX_CTIMER_MASK(0, 0x4), IO_MUX_CTIMER_MASK(0x4, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT0_MAT3_OUT                                                                \
-    0x00002000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x3EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x8), IO_MUX_CTIMER_MASK(0x8, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00002000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x3EE), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0x8), IO_MUX_CTIMER_MASK(0x8, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT1_MAT0_OUT                                                                \
-    0x00004000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x10), IO_MUX_CTIMER_MASK(0x10, 0),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00004000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x2EE), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0x10), IO_MUX_CTIMER_MASK(0x10, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT1_MAT1_OUT                                                                \
-    0x00200000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x040), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x20), IO_MUX_CTIMER_MASK(0x20, 0),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00200000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x040), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0x20), IO_MUX_CTIMER_MASK(0x20, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT1_MAT2_OUT                                                                \
-    0x01000000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x3EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x40000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x40), IO_MUX_CTIMER_MASK(0x40, 0),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x01000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x3EE), \
+        0x00000000U, 0x40000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0x40), IO_MUX_CTIMER_MASK(0x40, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT1_MAT3_OUT                                                                \
-    0x02000000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x0ED), /* GPIO&FC mask */ \
-        0x00000000U, 0x00010000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x80), IO_MUX_CTIMER_MASK(0x80, 0),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x02000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x0ED), \
+        0x00000000U, 0x00010000U,    \
+        IO_MUX_CTIMER_MASK(0, 0x80), IO_MUX_CTIMER_MASK(0x80, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT2_MAT0_OUT                                                            \
-    0x00000000U, 0x00000020U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x100), IO_MUX_CTIMER_MASK(0x100, 0), /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000020U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0x100), IO_MUX_CTIMER_MASK(0x100, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT2_MAT1_OUT                                                            \
-    0x00000000U, 0x00000040U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x200), IO_MUX_CTIMER_MASK(0x200, 0), /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000040U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0x200), IO_MUX_CTIMER_MASK(0x200, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT2_MAT2_OUT                                                            \
-    0x00000000U, 0x00000080U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x400), IO_MUX_CTIMER_MASK(0x400, 0), /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000080U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0x400), IO_MUX_CTIMER_MASK(0x400, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT2_MAT3_OUT                                                                \
-    0x00000000U, 0x00080000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x040), /* GPIO&FC mask */ \
-        0x00000000U, 0x00040810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x800), IO_MUX_CTIMER_MASK(0x800, 0),     /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00080000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x040), \
+        0x00000000U, 0x00040810U,    \
+        IO_MUX_CTIMER_MASK(0, 0x800), IO_MUX_CTIMER_MASK(0x800, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT3_MAT0_OUT                                                                \
-    0x00000000U, 0x00100000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x080), /* GPIO&FC mask */ \
-        0x00000000U, 0x00080810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x1000), IO_MUX_CTIMER_MASK(0x1000, 0),   /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00100000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x080), \
+        0x00000000U, 0x00080810U,    \
+        IO_MUX_CTIMER_MASK(0, 0x1000), IO_MUX_CTIMER_MASK(0x1000, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT3_MAT1_OUT                                                                \
-    0x00000000U, 0x00200000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x418), /* GPIO&FC mask */ \
-        0x00000000U, 0x00100810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x2000), IO_MUX_CTIMER_MASK(0x2000, 0),   /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00200000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x418), \
+        0x00000000U, 0x00100810U,    \
+        IO_MUX_CTIMER_MASK(0, 0x2000), IO_MUX_CTIMER_MASK(0x2000, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT3_MAT2_OUT                                                               \
-    0x00000000U, 0x00400000U,                                          /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0xED), /* GPIO&FC mask */ \
-        0x00000000U, 0x00200810U,                                      /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0x4000), IO_MUX_CTIMER_MASK(0x4000, 0),  /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)           /* SCTimer mask */
+    0x00000000U, 0x00400000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0xED), \
+        0x00000000U, 0x00200810U,    \
+        IO_MUX_CTIMER_MASK(0, 0x4000), IO_MUX_CTIMER_MASK(0x4000, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP0                                                                     \
-    0x00000001U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x418), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x1, 0), IO_MUX_CTIMER_MASK(0, 0x1),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000001U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x418), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0x1, 0), IO_MUX_CTIMER_MASK(0, 0x1),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP1                                                                 \
-    0x00000002U, 0x00000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x2, 0), IO_MUX_CTIMER_MASK(0, 0x2),     /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000002U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0x2, 0), IO_MUX_CTIMER_MASK(0, 0x2),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP2                                                                     \
-    0x00001000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 1, 0x080), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000020U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x4, 0), IO_MUX_CTIMER_MASK(0, 0x4),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00001000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 1, 0x080), \
+        0x00000000U, 0x00000020U,    \
+        IO_MUX_CTIMER_MASK(0x4, 0), IO_MUX_CTIMER_MASK(0, 0x4),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP3                                                                     \
-    0x00002000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x3EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x8, 0), IO_MUX_CTIMER_MASK(0, 0x8),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00002000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x3EE), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0x8, 0), IO_MUX_CTIMER_MASK(0, 0x8),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP4                                                                     \
-    0x00004000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x10, 0), IO_MUX_CTIMER_MASK(0, 0x10),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00004000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x2EE), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0x10, 0), IO_MUX_CTIMER_MASK(0, 0x10),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP5                                                                     \
-    0x00200000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x040), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x20, 0), IO_MUX_CTIMER_MASK(0, 0x20),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00200000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x040), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0x20, 0), IO_MUX_CTIMER_MASK(0, 0x20),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP6                                                                     \
-    0x01000000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x3EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x40000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x40, 0), IO_MUX_CTIMER_MASK(0, 0x40),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x01000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x3EE), \
+        0x00000000U, 0x40000000U,    \
+        IO_MUX_CTIMER_MASK(0x40, 0), IO_MUX_CTIMER_MASK(0, 0x40),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP7                                                                     \
-    0x02000000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x0ED), /* GPIO&FC mask */ \
-        0x00000000U, 0x00010000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x80, 0), IO_MUX_CTIMER_MASK(0, 0x80),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x02000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x0ED), \
+        0x00000000U, 0x00010000U,    \
+        IO_MUX_CTIMER_MASK(0x80, 0), IO_MUX_CTIMER_MASK(0, 0x80),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP8                                                                 \
-    0x00000000U, 0x00000020U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x100, 0), IO_MUX_CTIMER_MASK(0, 0x100), /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000020U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0x100, 0), IO_MUX_CTIMER_MASK(0, 0x100),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP9                                                                 \
-    0x00000000U, 0x00000040U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x200, 0), IO_MUX_CTIMER_MASK(0, 0x200), /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000040U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0x200, 0), IO_MUX_CTIMER_MASK(0, 0x200),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP10                                                                \
-    0x00000000U, 0x00000080U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x400, 0), IO_MUX_CTIMER_MASK(0, 0x400), /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000080U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0x400, 0), IO_MUX_CTIMER_MASK(0, 0x400),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP11                                                                    \
-    0x00000000U, 0x00080000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x040), /* GPIO&FC mask */ \
-        0x00000000U, 0x00040810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x800, 0), IO_MUX_CTIMER_MASK(0, 0x800),     /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00080000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x040), \
+        0x00000000U, 0x00040810U,    \
+        IO_MUX_CTIMER_MASK(0x800, 0), IO_MUX_CTIMER_MASK(0, 0x800),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP12                                                                    \
-    0x00000000U, 0x00100000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x080), /* GPIO&FC mask */ \
-        0x00000000U, 0x00080810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x1000, 0), IO_MUX_CTIMER_MASK(0, 0x1000),   /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00100000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x080), \
+        0x00000000U, 0x00080810U,    \
+        IO_MUX_CTIMER_MASK(0x1000, 0), IO_MUX_CTIMER_MASK(0, 0x1000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP13                                                                    \
-    0x00000000U, 0x00200000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x418), /* GPIO&FC mask */ \
-        0x00000000U, 0x00100810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x2000, 0), IO_MUX_CTIMER_MASK(0, 0x2000),   /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00200000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x418), \
+        0x00000000U, 0x00100810U,    \
+        IO_MUX_CTIMER_MASK(0x2000, 0), IO_MUX_CTIMER_MASK(0, 0x2000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_CT_INP14                                                                   \
-    0x00000000U, 0x00400000U,                                          /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0xED), /* GPIO&FC mask */ \
-        0x00000000U, 0x00200810U,                                      /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0x4000, 0), IO_MUX_CTIMER_MASK(0, 0x4000),  /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)           /* SCTimer mask */
+    0x00000000U, 0x00400000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0xED), \
+        0x00000000U, 0x00200810U,    \
+        IO_MUX_CTIMER_MASK(0x4000, 0), IO_MUX_CTIMER_MASK(0, 0x4000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_MCLK                                                                        \
-    0x00000020U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x430), /* GPIO&FC mask */ \
-        0x00000040U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000020U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x430), \
+        0x00000040U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_UTICK                                                                       \
-    0x00078000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x4FD), /* GPIO&FC mask */ \
-        0x00000200U, 0x0000C400U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00078000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x4FD), \
+        0x00000200U, 0x0000C400U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_USIM                                                                        \
-    0x00078000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x4FD), /* GPIO&FC mask */ \
-        0x00000400U, 0x0000C200U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00078000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x4FD), \
+        0x00000400U, 0x0000C200U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_LCD_8080                                                                    \
-    0x00000000U, 0x037BFC00U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x7FF), /* GPIO&FC mask */ \
-        0x00000800U, 0x083C1010U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x7800, 0x7800),   /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x037BFC00U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x7FF), \
+        0x00000800U, 0x083C1010U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x7800, 0x7800),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_LCD_SPI                                                                 \
-    0x00000000U, 0x0003F000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00001000U, 0x00000800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x0003F000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00001000U, 0x00000800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_FREQ_GPIO_CLK                                                           \
-    0x00000000U, 0x00040000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00002000U, 0x00020000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00040000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00002000U, 0x00020000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO_INT_BMATCH                                                             \
-    0x00040000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x080), /* GPIO&FC mask */ \
-        0x00004000U, 0x00008600U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00040000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 2, 0x080), \
+        0x00004000U, 0x00008600U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GAU_TRIGGER0                                                            \
-    0x00000000U, 0x00040000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x00020000U, 0x00002000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00040000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x00020000U, 0x00002000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_ACOMP0_GPIO_OUT                                                             \
-    0x00000000U, 0x00080000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x040), /* GPIO&FC mask */ \
-        0x00040000U, 0x00000810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x800, 0x800),     /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00080000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x040), \
+        0x00040000U, 0x00000810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x800, 0x800),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_ACOMP0_EDGE_PULSE                                                           \
-    0x00000000U, 0x00100000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x080), /* GPIO&FC mask */ \
-        0x00080000U, 0x00000810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x1000, 0x1000),   /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00100000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x080), \
+        0x00080000U, 0x00000810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x1000, 0x1000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_ACOMP1_GPIO_OUT                                                             \
-    0x00000000U, 0x00200000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x418), /* GPIO&FC mask */ \
-        0x00100000U, 0x00000810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x2000, 0x2000),   /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00200000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x418), \
+        0x00100000U, 0x00000810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x2000, 0x2000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_ACOMP1_EDGE_PULSE                                                           \
-    0x00000000U, 0x00400000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x0ED), /* GPIO&FC mask */ \
-        0x00200000U, 0x00000810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4000, 0x4000),   /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00400000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x0ED), \
+        0x00200000U, 0x00000810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4000, 0x4000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GAU_TRIGGER1                                                                \
-    0x00000000U, 0x00800000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x430), /* GPIO&FC mask */ \
-        0x00400000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0x200)        /* SCTimer mask */
+    0x00000000U, 0x00800000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x430), \
+        0x00400000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0x200)
 
 #define IO_MUX_SDIO                                                                      \
-    0x001F9000U, 0x00000000U,                                         /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0xF, 0), /* GPIO&FC mask */ \
-        0x00008000U, 0x00004620U,                                     /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4, 0x4),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)          /* SCTimer mask */
+    0x001F9000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0xF, 0), \
+        0x00008000U, 0x00004620U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4, 0x4),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_ENET_CLK                                                                    \
-    0x02000000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x0ED), /* GPIO&FC mask */ \
-        0x00010000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x80, 0x80),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x02000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x0ED), \
+        0x00010000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x80, 0x80),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_ENET_RX                                                                     \
-    0x00C00000U, 0xC0000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x0C0), /* GPIO&FC mask */ \
-        0x04000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0xC, 0)          /* SCTimer mask */
+    0x00C00000U, 0xC0000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x0C0), \
+        0x04000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0xC, 0)
 
 #define IO_MUX_ENET_TX                                                                 \
-    0x00000000U, 0x1C000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x02000000U, 0x00000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x1C000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x02000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_ENET_MDIO                                                                   \
-    0x00000000U, 0x03000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x3EE), /* GPIO&FC mask */ \
-        0x08000000U, 0x00000800U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x03000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 6, 0x3EE), \
+        0x08000000U, 0x00000800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_ENET_TIMER0                                                             \
-    0x08000000U, 0x00000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x10000000U, 0x00000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x20, 0x20)  /* SCTimer mask */
+    0x08000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x10000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x20, 0x20)
 
 #define IO_MUX_ENET_TIMER1                                                             \
-    0x00000000U, 0x20000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), /* GPIO&FC mask */ \
-        0x20000000U, 0x00000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x20000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(3, 0, 0), \
+        0x20000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_ENET_TIMER2                                                                 \
-    0x01000000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x3EE), /* GPIO&FC mask */ \
-        0x40000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x40, 0x40),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x01000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x3EE), \
+        0x40000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x40, 0x40),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_ENET_TIMER3                                                                 \
-    0x04000000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x2EE), /* GPIO&FC mask */ \
-        0x80000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)      /* SCTimer mask */
+    0x04000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x2EE), \
+        0x80000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)
 
 #define IO_MUX_CLKIN_FRM_PD                                                                \
-    0x00000010U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x02D), /* GPIO&FC mask */ \
-        0x00800000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x2, 0x2)        /* SCTimer mask */
+    0x00000010U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0x02D), \
+        0x00800000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x2, 0x2)
 
 #define IO_MUX_GPIO0                                                                       \
-    0x00000001U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0x418), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x1, 0x1),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000001U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0x418), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x1, 0x1),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO1                                                                   \
-    0x00000002U, 0x00000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x2, 0x2),     /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000002U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x2, 0x2),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO2                                                                       \
-    0x00000004U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0x32E), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000004U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0x32E), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO3                                                                       \
-    0x00000008U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0x22E), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x1, 0x1)        /* SCTimer mask */
+    0x00000008U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0x22E), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x1, 0x1)
 
 #define IO_MUX_GPIO4                                                                       \
-    0x00000010U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0x02D), /* GPIO&FC mask */ \
-        0x00000000U, 0x00800000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x2, 0x2)        /* SCTimer mask */
+    0x00000010U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0x02D), \
+        0x00000000U, 0x00800000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x2, 0x2)
 
 #define IO_MUX_GPIO5                                                                       \
-    0x00000020U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0x430), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000020U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0x430), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO6                                                                       \
-    0x00000040U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x418), /* GPIO&FC mask */ \
-        0x00000000U, 0x01000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000040U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x418), \
+        0x00000000U, 0x01000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO7                                                                       \
-    0x00000080U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x0ED), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000080U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x0ED), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO8                                                                       \
-    0x00000100U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000100U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x2EE), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO9                                                                       \
-    0x00000200U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x3EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000200U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x3EE), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO10                                                                      \
-    0x00000400U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x430), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000400U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x430), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO11                                                                      \
-    0x00000800U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x040), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0x100)        /* SCTimer mask */
+    0x00000800U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x040), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0x100)
 
 #define IO_MUX_GPIO12                                                                      \
-    0x00001000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x080), /* GPIO&FC mask */ \
-        0x00000000U, 0x00008020U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4, 0x4),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00001000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 1, 0x080), \
+        0x00000000U, 0x00008020U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4, 0x4),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO13                                                                      \
-    0x00002000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x3EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x8, 0x8),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00002000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x3EE), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x8, 0x8),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO14                                                                      \
-    0x00004000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x10, 0x10),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00004000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x2EE), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x10, 0x10),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO15                                                                      \
-    0x00008000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x0ED), /* GPIO&FC mask */ \
-        0x00000000U, 0x00008600U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00008000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x0ED), \
+        0x00000000U, 0x00008600U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO16                                                                      \
-    0x00010000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x418), /* GPIO&FC mask */ \
-        0x00000000U, 0x00008600U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00010000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x418), \
+        0x00000000U, 0x00008600U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO17                                                                      \
-    0x00020000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x430), /* GPIO&FC mask */ \
-        0x00000000U, 0x00008600U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00020000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x430), \
+        0x00000000U, 0x00008600U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO18                                                                      \
-    0x00040000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x080), /* GPIO&FC mask */ \
-        0x00000000U, 0x0000C600U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00040000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x080), \
+        0x00000000U, 0x0000C600U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO19                                                                      \
-    0x00080000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x430), /* GPIO&FC mask */ \
-        0x00000000U, 0x00008000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00080000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x430), \
+        0x00000000U, 0x00008000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO20                                                                      \
-    0x00100000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x418), /* GPIO&FC mask */ \
-        0x00000000U, 0x00008000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00100000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x418), \
+        0x00000000U, 0x00008000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO21                                                                      \
-    0x00200000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x040), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x20, 0x20),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00200000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 2, 0x040), \
+        0x00000000U, 0x00000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x20, 0x20),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO22                                                                      \
-    0x00400000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x040), /* GPIO&FC mask */ \
-        0x00000000U, 0x04000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x4, 0)          /* SCTimer mask */
+    0x00400000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x040), \
+        0x00000000U, 0x04000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x4, 0)
 
 #define IO_MUX_GPIO23                                                                      \
-    0x00800000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x080), /* GPIO&FC mask */ \
-        0x00000000U, 0x04000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x8, 0)          /* SCTimer mask */
+    0x00800000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x080), \
+        0x00000000U, 0x04000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x8, 0)
 
 #define IO_MUX_GPIO24                                                                      \
-    0x01000000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x3EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x40000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x40, 0x40),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x01000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x3EE), \
+        0x00000000U, 0x40000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x40, 0x40),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO25                                                                      \
-    0x02000000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x0ED), /* GPIO&FC mask */ \
-        0x00000000U, 0x00010000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x80, 0x80),       /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x02000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x0ED), \
+        0x00000000U, 0x00010000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x80, 0x80),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO26                                                                      \
-    0x04000000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x80000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)      /* SCTimer mask */
+    0x04000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 3, 0x2EE), \
+        0x00000000U, 0x80000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)
 
 #define IO_MUX_GPIO27                                                                  \
-    0x08000000U, 0x00000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x10000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x20, 0x20)  /* SCTimer mask */
+    0x08000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0), \
+        0x00000000U, 0x10000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x20, 0x20)
 
 #define IO_MUX_GPIO28                                                                  \
-    0x10000000U, 0x00000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000002U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x10000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0), \
+        0x00000000U, 0x00000002U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO29                                                                  \
-    0x20000000U, 0x00000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000002U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x20000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0), \
+        0x00000000U, 0x00000002U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO30                                                                  \
-    0x40000000U, 0x00000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000002U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x40000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0), \
+        0x00000000U, 0x00000002U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO31                                                                  \
-    0x80000000U, 0x00000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000002U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x80000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(0, 0, 0), \
+        0x00000000U, 0x00000002U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO32                                                                  \
-    0x00000000U, 0x00000001U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000002U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000001U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00000002U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO33                                                                  \
-    0x00000000U, 0x00000002U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000002U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000002U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00000002U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO34                                                                  \
-    0x00000000U, 0x00000004U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000002U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000004U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00000002U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO35                                                                  \
-    0x00000000U, 0x00000008U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x40, 0x40)  /* SCTimer mask */
+    0x00000000U, 0x00000008U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x40, 0x40)
 
 #define IO_MUX_GPIO36                                                                  \
-    0x00000000U, 0x00000010U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x80, 0x80)  /* SCTimer mask */
+    0x00000000U, 0x00000010U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x80, 0x80)
 
 #define IO_MUX_GPIO37                                                                  \
-    0x00000000U, 0x00000020U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x100, 0x100), /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000020U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x100, 0x100),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO38                                                                  \
-    0x00000000U, 0x00000040U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x200, 0x200), /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000040U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x200, 0x200),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO39                                                                  \
-    0x00000000U, 0x00000080U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x400, 0x400), /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000080U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x400, 0x400),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO40                                                                  \
-    0x00000000U, 0x00000100U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000100U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO41                                                                  \
-    0x00000000U, 0x00000200U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000200U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO42                                                                  \
-    0x00000000U, 0x00000400U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000400U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00000800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO43                                                                  \
-    0x00000000U, 0x00000800U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000800U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00000800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO44                                                                  \
-    0x00000000U, 0x00001000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00001800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00001000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00001800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO45                                                                  \
-    0x00000000U, 0x00002000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00001800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00002000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00001800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO46                                                                  \
-    0x00000000U, 0x00004000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00001800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00004000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00001800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO47                                                                  \
-    0x00000000U, 0x00008000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00001800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00008000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00001800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO48                                                                  \
-    0x00000000U, 0x00010000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00001800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00010000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00001800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO49                                                                  \
-    0x00000000U, 0x00020000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00001800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00020000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00001800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO50                                                                  \
-    0x00000000U, 0x00040000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00022000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00040000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x00022000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO51                                                                      \
-    0x00000000U, 0x00080000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0x040), /* GPIO&FC mask */ \
-        0x00000000U, 0x00040810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x800, 0x800),     /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00080000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0x040), \
+        0x00000000U, 0x00040810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x800, 0x800),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO52                                                                      \
-    0x00000000U, 0x00100000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0x080), /* GPIO&FC mask */ \
-        0x00000000U, 0x00080810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x1000, 0x1000),   /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00100000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0x080), \
+        0x00000000U, 0x00080810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x1000, 0x1000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO53                                                                      \
-    0x00000000U, 0x00200000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0x418), /* GPIO&FC mask */ \
-        0x00000000U, 0x00100810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x2000, 0x2000),   /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00200000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0x418), \
+        0x00000000U, 0x00100810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x2000, 0x2000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO54                                                                     \
-    0x00000000U, 0x00400000U,                                          /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0xED), /* GPIO&FC mask */ \
-        0x00000000U, 0x00200810U,                                      /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4000, 0x4000),  /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)           /* SCTimer mask */
+    0x00000000U, 0x00400000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0xED), \
+        0x00000000U, 0x00200810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4000, 0x4000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO55                                                                      \
-    0x00000000U, 0x00800000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0x430), /* GPIO&FC mask */ \
-        0x00000000U, 0x00400000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0x200)        /* SCTimer mask */
+    0x00000000U, 0x00800000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0x430), \
+        0x00000000U, 0x00400000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0x200)
 
 #define IO_MUX_GPIO56                                                                      \
-    0x00000000U, 0x01000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x08000800U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x01000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0x2EE), \
+        0x00000000U, 0x08000800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO57                                                                      \
-    0x00000000U, 0x02000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0x3EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x08000800U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x02000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 6, 0x3EE), \
+        0x00000000U, 0x08000800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO58                                                                  \
-    0x00000000U, 0x04000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x02000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x04000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x02000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO59                                                                  \
-    0x00000000U, 0x08000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x02000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x08000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x02000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO60                                                                  \
-    0x00000000U, 0x10000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x02000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x10000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x02000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO61                                                                  \
-    0x00000000U, 0x20000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x20000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x20000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x20000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO62                                                                  \
-    0x00000000U, 0x40000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x04000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x40000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x04000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_GPIO63                                                                  \
-    0x00000000U, 0x80000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x04000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x80000000U,     \
+        IO_MUX_GPIO_FC_MASK(1, 0, 0), IO_MUX_GPIO_FC_MASK(2, 0, 0), \
+        0x00000000U, 0x04000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO0                                                                  \
-    0x00000000U, 0x00000001U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000002U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000001U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000002U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO1                                                                  \
-    0x00000000U, 0x00000002U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000002U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000002U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000002U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO2                                                                  \
-    0x00000000U, 0x00000004U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000002U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000004U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000002U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO3                                                                  \
-    0x00000000U, 0x00000008U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x40, 0x40)  /* SCTimer mask */
+    0x00000000U, 0x00000008U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x40, 0x40)
 
 #define IO_MUX_SGPIO4                                                                  \
-    0x00000000U, 0x00000010U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x80, 0x80)  /* SCTimer mask */
+    0x00000000U, 0x00000010U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x80, 0x80)
 
 #define IO_MUX_SGPIO5                                                                  \
-    0x00000000U, 0x00000020U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x100, 0x100), /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000020U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x100, 0x100),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO6                                                                  \
-    0x00000000U, 0x00000040U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x200, 0x200), /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000040U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x200, 0x200),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO7                                                                  \
-    0x00000000U, 0x00000080U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x400, 0x400), /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000080U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x400, 0x400),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO8                                                                  \
-    0x00000000U, 0x00000100U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000100U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO9                                                                  \
-    0x00000000U, 0x00000200U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000008U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000200U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000008U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO10                                                                 \
-    0x00000000U, 0x00000400U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000400U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO11                                                                 \
-    0x00000000U, 0x00000800U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00000800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00000800U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00000800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO12                                                                 \
-    0x00000000U, 0x00001000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00001800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00001000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00001800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO13                                                                 \
-    0x00000000U, 0x00002000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00001800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00002000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00001800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO14                                                                 \
-    0x00000000U, 0x00004000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00001800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00004000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00001800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO15                                                                 \
-    0x00000000U, 0x00008000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00001800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00008000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00001800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO16                                                                 \
-    0x00000000U, 0x00010000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00001800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00010000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00001800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO17                                                                 \
-    0x00000000U, 0x00020000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00001800U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00020000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00001800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO18                                                                 \
-    0x00000000U, 0x00040000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x00022000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x00040000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x00022000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO19                                                                     \
-    0x00000000U, 0x00080000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0x040), /* GPIO&FC mask */ \
-        0x00000000U, 0x00040810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x800, 0x800),     /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00080000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0x040), \
+        0x00000000U, 0x00040810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x800, 0x800),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO20                                                                     \
-    0x00000000U, 0x00100000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0x080), /* GPIO&FC mask */ \
-        0x00000000U, 0x00080810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x1000, 0x1000),   /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00100000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0x080), \
+        0x00000000U, 0x00080810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x1000, 0x1000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO21                                                                     \
-    0x00000000U, 0x00200000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0x418), /* GPIO&FC mask */ \
-        0x00000000U, 0x00100810U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x2000, 0x2000),   /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x00200000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0x418), \
+        0x00000000U, 0x00100810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x2000, 0x2000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO22                                                                    \
-    0x00000000U, 0x00400000U,                                          /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0xED), /* GPIO&FC mask */ \
-        0x00000000U, 0x00200810U,                                      /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4000, 0x4000),  /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)           /* SCTimer mask */
+    0x00000000U, 0x00400000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0xED), \
+        0x00000000U, 0x00200810U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0x4000, 0x4000),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO23                                                                     \
-    0x00000000U, 0x00800000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0x430), /* GPIO&FC mask */ \
-        0x00000000U, 0x00400000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0x200)        /* SCTimer mask */
+    0x00000000U, 0x00800000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0x430), \
+        0x00000000U, 0x00400000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0x200)
 
 #define IO_MUX_SGPIO24                                                                     \
-    0x00000000U, 0x01000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x08000800U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x01000000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0x2EE), \
+        0x00000000U, 0x08000800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO25                                                                     \
-    0x00000000U, 0x02000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0x3EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x08000800U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)            /* SCTimer mask */
+    0x00000000U, 0x02000000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 6, 0x3EE), \
+        0x00000000U, 0x08000800U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO26                                                                 \
-    0x00000000U, 0x04000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x02000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x04000000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x02000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO27                                                                 \
-    0x00000000U, 0x08000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x02000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x08000000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x02000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO28                                                                 \
-    0x00000000U, 0x10000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x02000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x10000000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x02000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO29                                                                 \
-    0x00000000U, 0x20000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x20000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x20000000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x20000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO30                                                                 \
-    0x00000000U, 0x40000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x04000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x40000000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x04000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_SGPIO31                                                                 \
-    0x00000000U, 0x80000000U,                                       /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), /* GPIO&FC mask */ \
-        0x00000000U, 0x04000000U,                                   /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),         /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)        /* SCTimer mask */
+    0x00000000U, 0x80000000U,     \
+        IO_MUX_GPIO_FC_MASK(2, 0, 0), IO_MUX_GPIO_FC_MASK(1, 0, 0), \
+        0x00000000U, 0x04000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0, 0)
 
 #define IO_MUX_AON_CAPTURE                                                                 \
-    0x04000000U, 0x00000000U,                                           /* Pin mask */     \
-        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x2EE), /* GPIO&FC mask */ \
-        0x00000000U, 0x80000000U,                                       /* FSEL mask */    \
-        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),             /* CTimer mask */  \
-        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)      /* SCTimer mask */
+    0x04000000U, 0x00000000U,     \
+        IO_MUX_GPIO_FC_MASK(0, 0, 0), IO_MUX_GPIO_FC_MASK(1, 3, 0x2EE), \
+        0x00000000U, 0x80000000U,    \
+        IO_MUX_CTIMER_MASK(0, 0), IO_MUX_CTIMER_MASK(0, 0),  \
+        IO_MUX_SCTIMER_MASK(0, 0), IO_MUX_SCTIMER_MASK(0x10, 0x10)
 
 /*! @brief IO MUX pin configuration.
       Bit [1:0] for pull configuration
@@ -1601,7 +1601,7 @@ static inline void IO_MUX_SetPinMux(uint32_t pinLowMask,
         MCI_IO_MUX->GPIO_GRP1 &= ~pinHighMask;
     }
 
-    if (IO_MUX_FC_OFFSET(gpioFcClrMask) == 0xFU) /* Special case for SDIO */
+    if (IO_MUX_FC_OFFSET(gpioFcClrMask) == 0xFU)
     {
         assert(fselSetMask == MCI_IO_MUX_FSEL_SEL_SDIO_MASK);
         MCI_IO_MUX->FC1 &= ~0x080UL;

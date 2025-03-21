@@ -47,10 +47,10 @@ struct multiboot_mmap {
  * Other values should be assumed to be unusable ranges.
  */
 
-#define MULTIBOOT_MMAP_RAM		1	/* available RAM */
-#define MULTIBOOT_MMAP_ACPI		3	/* reserved for ACPI */
-#define MULTIBOOT_MMAP_NVS		4	/* ACPI non-volatile */
-#define MULTIBOOT_MMAP_DEFECTIVE	5	/* defective RAM module */
+#define MULTIBOOT_MMAP_RAM		1
+#define MULTIBOOT_MMAP_ACPI		3
+#define MULTIBOOT_MMAP_NVS		4
+#define MULTIBOOT_MMAP_DEFECTIVE	5
 
 /*
  * Magic numbers: the kernel multiboot header (see crt0.S) begins with
@@ -68,8 +68,8 @@ struct multiboot_mmap {
  * is when we want the loader to configure the framebuffer for us.
  */
 
-#define MULTIBOOT_HEADER_FLAG_MEM	BIT(1)	/* want mem_/mmap_* info */
-#define MULTIBOOT_HEADER_FLAG_FB	BIT(2)	/* want fb_* info */
+#define MULTIBOOT_HEADER_FLAG_MEM	BIT(1)
+#define MULTIBOOT_HEADER_FLAG_FB	BIT(2)
 
 #ifdef CONFIG_INTEL_MULTIBOOTFB_DISPLAY
 #define MULTIBOOT_HEADER_FLAGS \
@@ -80,10 +80,10 @@ struct multiboot_mmap {
 
 /* The flags in the boot info structure tell us which fields are valid. */
 
-#define MULTIBOOT_INFO_FLAGS_MEM		BIT(0)	/* mem_* valid */
-#define MULTIBOOT_INFO_FLAGS_CMDLINE		BIT(2)	/* cmdline* valid */
-#define MULTIBOOT_INFO_FLAGS_MMAP		BIT(6)	/* mmap_* valid */
-#define MULTIBOOT_INFO_FLAGS_FB			BIT(12)	/* fb_* valid */
+#define MULTIBOOT_INFO_FLAGS_MEM		BIT(0)
+#define MULTIBOOT_INFO_FLAGS_CMDLINE		BIT(2)
+#define MULTIBOOT_INFO_FLAGS_MMAP		BIT(6)
+#define MULTIBOOT_INFO_FLAGS_FB			BIT(12)
 
 /* The only fb_type we support is RGB. No text modes and no color palettes. */
 

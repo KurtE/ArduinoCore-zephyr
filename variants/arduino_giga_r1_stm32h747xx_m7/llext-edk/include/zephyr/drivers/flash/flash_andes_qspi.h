@@ -5,26 +5,26 @@
  */
 
 /* Flash opcodes */
-#define FLASH_ANDES_CMD_WRSR	0x01    /* Write status register */
-#define FLASH_ANDES_CMD_RDSR	0x05    /* Read status register */
-#define FLASH_ANDES_CMD_READ	0x03    /* Read data */
-#define FLASH_ANDES_CMD_4READ	0xEB    /* Quad mode Read data*/
-#define FLASH_ANDES_CMD_WREN	0x06    /* Write enable */
-#define FLASH_ANDES_CMD_WRDI	0x04    /* Write disable */
-#define FLASH_ANDES_CMD_PP	0x02    /* Page program */
-#define FLASH_ANDES_CMD_4PP	0x38    /* Quad mode page program*/
-#define FLASH_ANDES_CMD_SE	0x20    /* Sector erase */
-#define FLASH_ANDES_CMD_BE_32K	0x52    /* Block erase 32KB */
-#define FLASH_ANDES_CMD_BE	0xD8    /* Block erase */
-#define FLASH_ANDES_CMD_CE	0xC7    /* Chip erase */
-#define FLASH_ANDES_CMD_RDID	0x9F    /* Read JEDEC ID */
-#define FLASH_ANDES_CMD_ULBPR	0x98    /* Global Block Protection Unlock */
-#define FLASH_ANDES_CMD_DPD	0xB9    /* Deep Power Down */
-#define FLASH_ANDES_CMD_RDPD	0xAB    /* Release from Deep Power Down */
+#define FLASH_ANDES_CMD_WRSR	0x01
+#define FLASH_ANDES_CMD_RDSR	0x05
+#define FLASH_ANDES_CMD_READ	0x03
+#define FLASH_ANDES_CMD_4READ	0xEB
+#define FLASH_ANDES_CMD_WREN	0x06
+#define FLASH_ANDES_CMD_WRDI	0x04
+#define FLASH_ANDES_CMD_PP	0x02
+#define FLASH_ANDES_CMD_4PP	0x38
+#define FLASH_ANDES_CMD_SE	0x20
+#define FLASH_ANDES_CMD_BE_32K	0x52
+#define FLASH_ANDES_CMD_BE	0xD8
+#define FLASH_ANDES_CMD_CE	0xC7
+#define FLASH_ANDES_CMD_RDID	0x9F
+#define FLASH_ANDES_CMD_ULBPR	0x98
+#define FLASH_ANDES_CMD_DPD	0xB9
+#define FLASH_ANDES_CMD_RDPD	0xAB
 
 /* Status register bits */
-#define FLASH_ANDES_WIP_BIT	BIT(0)  /* Write in progress */
-#define FLASH_ANDES_WEL_BIT	BIT(1)  /* Write enable latch */
+#define FLASH_ANDES_WIP_BIT	BIT(0)
+#define FLASH_ANDES_WEL_BIT	BIT(1)
 #define FLASH_ANDES_QE_BIT	BIT(6)
 
 #define QSPI_TFMAT(base)	(base + 0x10)

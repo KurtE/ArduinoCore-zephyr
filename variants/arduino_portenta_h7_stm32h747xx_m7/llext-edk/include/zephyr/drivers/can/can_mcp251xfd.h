@@ -362,7 +362,7 @@ struct mcp251xfd_mailbox {
 #define MCP251XFD_OBJ_FLAGS_DLC_MASK           GENMASK(3, 0)
 #define MCP251XFD_OBJ_FILHIT_MASK	       GENMASK(15, 11)
 
-#define MCP251XFD_OBJ_DATA_OFFSET	       2 /* offset to the data in sizeof(uint32_t) */
+#define MCP251XFD_OBJ_DATA_OFFSET	       2
 #define MCP251XFD_OBJ_HEADER_SIZE	       (MCP251XFD_OBJ_DATA_OFFSET * MCP251XFD_REG_SIZE)
 
 #define MCP251XFD_REG_FRAME_EFF_SID_MASK       GENMASK(28, 18)
@@ -379,7 +379,7 @@ struct mcp251xfd_mailbox {
 #define MCP251XFD_REG_OSC_CLKODIV_1            0
 #define MCP251XFD_REG_OSC_CLKODIV_MASK         GENMASK(6, 5)
 #define MCP251XFD_REG_OSC_SCLKDIV              BIT(4)
-#define MCP251XFD_REG_OSC_LPMEN                BIT(3) /* MCP2518FD only */
+#define MCP251XFD_REG_OSC_LPMEN                BIT(3)
 #define MCP251XFD_REG_OSC_OSCDIS               BIT(2)
 #define MCP251XFD_REG_OSC_PLLEN                BIT(0)
 
@@ -417,7 +417,7 @@ struct mcp251xfd_mailbox {
 #define MCP251XFD_REG_ECCSTAT_DEDIF            BIT(2)
 #define MCP251XFD_REG_ECCSTAT_SECIF            BIT(1)
 
-#define MCP251XFD_REG_DEVID                    0xe14 /* MCP2518FD only */
+#define MCP251XFD_REG_DEVID                    0xe14
 #define MCP251XFD_REG_DEVID_ID_MASK            GENMASK(7, 4)
 #define MCP251XFD_REG_DEVID_REV_MASK           GENMASK(3, 0)
 
@@ -466,8 +466,8 @@ struct mcp251xfd_tefobj {
 #define MCP251XFD_SPI_HEADER_LEN (MCP251XFD_SPI_CMD_LEN + MCP251XFD_SPI_LEN_FIELD_LEN)
 
 struct mcp251xfd_spi_data {
-	uint8_t _unused[4 - (MCP251XFD_SPI_HEADER_LEN % 4)]; /* so that buf is 4-byte aligned */
-	uint8_t header[MCP251XFD_SPI_HEADER_LEN]; /* contains spi_cmd and length field (if used) */
+	uint8_t _unused[4 - (MCP251XFD_SPI_HEADER_LEN % 4)];
+	uint8_t header[MCP251XFD_SPI_HEADER_LEN];
 	uint8_t buf[MCP251XFD_SPI_BUF_SIZE];
 } __packed __aligned(4);
 

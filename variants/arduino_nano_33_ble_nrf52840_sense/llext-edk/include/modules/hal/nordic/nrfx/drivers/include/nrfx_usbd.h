@@ -108,25 +108,25 @@ extern "C" {
  */
 typedef enum
 {
-    NRFX_USBD_EPOUT0 = NRF_USBD_EPOUT(0), /**< Endpoint OUT 0 */
-    NRFX_USBD_EPOUT1 = NRF_USBD_EPOUT(1), /**< Endpoint OUT 1 */
-    NRFX_USBD_EPOUT2 = NRF_USBD_EPOUT(2), /**< Endpoint OUT 2 */
-    NRFX_USBD_EPOUT3 = NRF_USBD_EPOUT(3), /**< Endpoint OUT 3 */
-    NRFX_USBD_EPOUT4 = NRF_USBD_EPOUT(4), /**< Endpoint OUT 4 */
-    NRFX_USBD_EPOUT5 = NRF_USBD_EPOUT(5), /**< Endpoint OUT 5 */
-    NRFX_USBD_EPOUT6 = NRF_USBD_EPOUT(6), /**< Endpoint OUT 6 */
-    NRFX_USBD_EPOUT7 = NRF_USBD_EPOUT(7), /**< Endpoint OUT 7 */
-    NRFX_USBD_EPOUT8 = NRF_USBD_EPOUT(8), /**< Endpoint OUT 8 */
+    NRFX_USBD_EPOUT0 = NRF_USBD_EPOUT(0),
+    NRFX_USBD_EPOUT1 = NRF_USBD_EPOUT(1),
+    NRFX_USBD_EPOUT2 = NRF_USBD_EPOUT(2),
+    NRFX_USBD_EPOUT3 = NRF_USBD_EPOUT(3),
+    NRFX_USBD_EPOUT4 = NRF_USBD_EPOUT(4),
+    NRFX_USBD_EPOUT5 = NRF_USBD_EPOUT(5),
+    NRFX_USBD_EPOUT6 = NRF_USBD_EPOUT(6),
+    NRFX_USBD_EPOUT7 = NRF_USBD_EPOUT(7),
+    NRFX_USBD_EPOUT8 = NRF_USBD_EPOUT(8),
 
-    NRFX_USBD_EPIN0  = NRF_USBD_EPIN(0), /**< Endpoint IN 0 */
-    NRFX_USBD_EPIN1  = NRF_USBD_EPIN(1), /**< Endpoint IN 1 */
-    NRFX_USBD_EPIN2  = NRF_USBD_EPIN(2), /**< Endpoint IN 2 */
-    NRFX_USBD_EPIN3  = NRF_USBD_EPIN(3), /**< Endpoint IN 3 */
-    NRFX_USBD_EPIN4  = NRF_USBD_EPIN(4), /**< Endpoint IN 4 */
-    NRFX_USBD_EPIN5  = NRF_USBD_EPIN(5), /**< Endpoint IN 5 */
-    NRFX_USBD_EPIN6  = NRF_USBD_EPIN(6), /**< Endpoint IN 6 */
-    NRFX_USBD_EPIN7  = NRF_USBD_EPIN(7), /**< Endpoint IN 7 */
-    NRFX_USBD_EPIN8  = NRF_USBD_EPIN(8), /**< Endpoint IN 8 */
+    NRFX_USBD_EPIN0  = NRF_USBD_EPIN(0),
+    NRFX_USBD_EPIN1  = NRF_USBD_EPIN(1),
+    NRFX_USBD_EPIN2  = NRF_USBD_EPIN(2),
+    NRFX_USBD_EPIN3  = NRF_USBD_EPIN(3),
+    NRFX_USBD_EPIN4  = NRF_USBD_EPIN(4),
+    NRFX_USBD_EPIN5  = NRF_USBD_EPIN(5),
+    NRFX_USBD_EPIN6  = NRF_USBD_EPIN(6),
+    NRFX_USBD_EPIN7  = NRF_USBD_EPIN(7),
+    NRFX_USBD_EPIN8  = NRF_USBD_EPIN(8),
 } nrfx_usbd_ep_t;
 
 /**
@@ -136,13 +136,13 @@ typedef enum
  */
 typedef enum
 {
-    NRFX_USBD_EVT_SOF,        /**< Start Of Frame event on USB bus detected. */
-    NRFX_USBD_EVT_RESET,      /**< Reset condition on USB bus detected. */
-    NRFX_USBD_EVT_SUSPEND,    /**< This device should go to suspend mode now. */
-    NRFX_USBD_EVT_RESUME,     /**< This device should resume from suspend now. */
+    NRFX_USBD_EVT_SOF,
+    NRFX_USBD_EVT_RESET,
+    NRFX_USBD_EVT_SUSPEND,
+    NRFX_USBD_EVT_RESUME,
     NRFX_USBD_EVT_WUREQ,      /**< Wakeup request - the USBD peripheral is ready to generate
 	                               WAKEUP signal after exiting low power mode. */
-    NRFX_USBD_EVT_SETUP,      /**< Setup frame received and decoded. */
+    NRFX_USBD_EVT_SETUP,
     NRFX_USBD_EVT_EPTRANSFER, /**< For Rx (OUT: Host->Device):
                                *   1. The packet has been received but there is no buffer prepared for transfer already.
                                *   2. Whole transfer has been finished.
@@ -150,7 +150,7 @@ typedef enum
                                *   For Tx (IN: Device->Host):
                                *   The last packet from requested transfer has been transfered over USB bus and acknowledged.
                                */
-    NRFX_USBD_EVT_CNT         /**< Number of defined events. */
+    NRFX_USBD_EVT_CNT
 } nrfx_usbd_event_type_t;
 
 /**
@@ -161,8 +161,8 @@ typedef enum
  */
 typedef enum
 {
-    NRFX_USBD_EP_OK,       /**< No error occured. */
-    NRFX_USBD_EP_WAITING,  /**< Data received, no buffer prepared already - waiting for configured transfer. */
+    NRFX_USBD_EP_OK,
+    NRFX_USBD_EP_WAITING,
     NRFX_USBD_EP_OVERLOAD, /**< Received number of bytes cannot fit given buffer.
                             *   This error would also be returned when next_transfer function has been defined
                             *   but currently received data cannot fit completely in current buffer.
@@ -174,7 +174,7 @@ typedef enum
     NRFX_USBD_EP_ABORTED,  /**< EP0 transfer can be aborted when new setup comes.
                             *   Any other transfer can be aborted by USB reset or driver stopping.
                             */
-    NRFX_USBD_EP_BUSY,     /**< Transfer is in progress. */
+    NRFX_USBD_EP_BUSY,
 } nrfx_usbd_ep_status_t;
 
 /**
@@ -184,20 +184,20 @@ typedef enum
  */
 typedef struct
 {
-    nrfx_usbd_event_type_t type;          /**< Event type. */
+    nrfx_usbd_event_type_t type;
     union
     {
         struct {
-            uint16_t framecnt;            /**< Current value of frame counter. */
-        } sof;                            /**< Data available for @ref NRFX_USBD_EVT_SOF. */
+            uint16_t framecnt;
+        } sof;
         struct {
-            nrfx_usbd_ep_t        ep;     /**< Endpoint number. */
-        } isocrc;                         /**< Isochronouns channel endpoint number. */
+            nrfx_usbd_ep_t        ep;
+        } isocrc;
         struct {
-            nrfx_usbd_ep_t        ep;     /**< Endpoint number. */
-            nrfx_usbd_ep_status_t status; /**< Status for the endpoint. */
-        } eptransfer;                     /**< Endpoint transfer status. */
-    } data;                               /**< Union to store event data. */
+            nrfx_usbd_ep_t        ep;
+            nrfx_usbd_ep_status_t status;
+        } eptransfer;
+    } data;
 } nrfx_usbd_evt_t;
 
 /**

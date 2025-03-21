@@ -88,11 +88,11 @@ struct flash_sector {
  * algorithm.
  */
 struct flash_area_check {
-	const uint8_t *match;		/** 256 bits match vector */
-	size_t clen;			/** Content len to be compared */
-	size_t off;			/** Start Offset */
-	uint8_t *rbuf;			/** Temporary read buffer  */
-	size_t rblen;			/** Size of read buffer */
+	const uint8_t *match;
+	size_t clen;
+	size_t off;
+	uint8_t *rbuf;
+	size_t rblen;
 };
 
 /**

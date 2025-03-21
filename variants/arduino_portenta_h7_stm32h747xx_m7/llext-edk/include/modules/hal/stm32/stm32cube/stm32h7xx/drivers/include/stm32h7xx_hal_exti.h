@@ -52,8 +52,8 @@ typedef enum
   */
 typedef struct
 {
-  uint32_t Line;                    /*!<  Exti line number */
-  void (* PendingCallback)(void);   /*!<  Exti pending callback */
+  uint32_t Line;
+  void (* PendingCallback)(void);
 } EXTI_HandleTypeDef;
 
 /**
@@ -298,18 +298,18 @@ typedef struct
   * @brief
   * @{
   */
-#define EXTI_D3_PENDCLR_SRC_NONE       0x00000000U /*!< No D3 domain pendclear source , PMRx register to be set to zero  */
-#define EXTI_D3_PENDCLR_SRC_DMACH6     0x00000001U /*!< DMA ch6 event selected as D3 domain pendclear source, PMRx register to be set to 1 */
-#define EXTI_D3_PENDCLR_SRC_DMACH7     0x00000002U /*!< DMA ch7 event selected as D3 domain pendclear source, PMRx register to be set to 1*/
+#define EXTI_D3_PENDCLR_SRC_NONE       0x00000000U
+#define EXTI_D3_PENDCLR_SRC_DMACH6     0x00000001U
+#define EXTI_D3_PENDCLR_SRC_DMACH7     0x00000002U
 #if defined (LPTIM4)
-#define EXTI_D3_PENDCLR_SRC_LPTIM4     0x00000003U /*!< LPTIM4 out selected as D3 domain pendclear source, PMRx register to be set to 1    */
+#define EXTI_D3_PENDCLR_SRC_LPTIM4     0x00000003U
 #else
-#define EXTI_D3_PENDCLR_SRC_LPTIM2     0x00000003U /*!< LPTIM2 out selected as D3 domain pendclear source, PMRx register to be set to 1    */
+#define EXTI_D3_PENDCLR_SRC_LPTIM2     0x00000003U
 #endif
 #if defined (LPTIM5)
-#define EXTI_D3_PENDCLR_SRC_LPTIM5     0x00000004U /*!< LPTIM5 out selected as D3 domain pendclear source, PMRx register to be set to 1    */
+#define EXTI_D3_PENDCLR_SRC_LPTIM5     0x00000004U
 #else
-#define EXTI_D3_PENDCLR_SRC_LPTIM3     0x00000004U /*!< LPTIM3 out selected as D3 domain pendclear source, PMRx register to be set to 1    */
+#define EXTI_D3_PENDCLR_SRC_LPTIM3     0x00000004U
 #endif
 /**
   * @}

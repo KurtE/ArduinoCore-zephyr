@@ -14,9 +14,9 @@
 #include <zephyr/sys/util_macro.h>
 
 struct rcar_pin_func {
-	uint8_t bank:5;      /* bank number 0 - 18 */
-	uint8_t shift:5;     /* bit shift 0 - 28 */
-	uint8_t func:4;      /* choice from 0x0 to 0xF */
+	uint8_t bank:5;
+	uint8_t shift:5;
+	uint8_t func:4;
 };
 
 /** Pull-up, pull-down, or bias disable is requested */
@@ -112,8 +112,8 @@ struct pfc_drive_reg {
 };
 
 struct pfc_bias_reg {
-	uint32_t puen;		/** Pull-enable or pull-up control register */
-	uint32_t pud;		/** Pull-up/down or pull-down control register */
+	uint32_t puen;
+	uint32_t pud;
 	const uint16_t pins[32];
 };
 

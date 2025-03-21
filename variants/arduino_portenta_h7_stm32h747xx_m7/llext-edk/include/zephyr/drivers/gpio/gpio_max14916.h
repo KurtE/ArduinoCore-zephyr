@@ -56,10 +56,10 @@
 #define MAX14906_CHAN_MASK_MSB(x) BIT((x) + 4)
 
 enum max149x6_spi_addr {
-	MAX14906_ADDR_0, /* A0=0, A1=0 */
-	MAX14906_ADDR_1, /* A0=1, A1=0 */
-	MAX14906_ADDR_2, /* A0=0, A1=1 */
-	MAX14906_ADDR_3, /* A0=1, A1=1 */
+	MAX14906_ADDR_0,
+	MAX14906_ADDR_1,
+	MAX14906_ADDR_2,
+	MAX14906_ADDR_3,
 };
 
 enum max14916_fled_time {
@@ -98,66 +98,66 @@ enum max14916_sht_vdd_thr {
 union max14916_interrupt {
 	uint8_t reg_raw;
 	struct {
-		uint8_t OVER_LD_FLT: 1; /* BIT0 */
+		uint8_t OVER_LD_FLT: 1;
 		uint8_t CURR_LIM: 1;
 		uint8_t OW_OFF_FLT: 1;
 		uint8_t OW_ON_FLT: 1;
 		uint8_t SHT_VDD_FLT: 1;
 		uint8_t DE_MAG_FLT: 1;
 		uint8_t SUPPLY_ERR: 1;
-		uint8_t COM_ERR: 1; /* BIT7 */
+		uint8_t COM_ERR: 1;
 	} reg_bits;
 };
 
 union max14916_config1 {
 	uint8_t reg_raw;
 	struct {
-		uint8_t FLED_SET: 1; /* BIT0 */
+		uint8_t FLED_SET: 1;
 		uint8_t SLED_SET: 1;
 		uint8_t FLED_STRETCH: 2;
 		uint8_t FFILTER_EN: 1;
 		uint8_t FILTER_LONG: 1;
 		uint8_t FLATCH_EN: 1;
-		uint8_t LED_CURR_LIM: 1; /* BIT7 */
+		uint8_t LED_CURR_LIM: 1;
 	} reg_bits;
 };
 
 union max14916_config2 {
 	uint8_t reg_raw;
 	struct {
-		uint8_t VDD_ON_THR: 1; /* BIT0 */
+		uint8_t VDD_ON_THR: 1;
 		uint8_t SYNCH_WD_EN: 1;
 		uint8_t SHT_VDD_THR: 2;
 		uint8_t OW_OFF_CS: 2;
-		uint8_t WD_TO: 2; /* BIT7 */
+		uint8_t WD_TO: 2;
 	} reg_bits;
 };
 
 union max14916_mask {
 	uint8_t reg_raw;
 	struct {
-		uint8_t OVER_LD_M: 1; /* BIT0 */
+		uint8_t OVER_LD_M: 1;
 		uint8_t CURR_LIM_M: 1;
 		uint8_t OW_OFF_M: 1;
 		uint8_t OW_ON_M: 1;
 		uint8_t SHT_VDD_M: 1;
 		uint8_t VDD_OK_M: 1;
 		uint8_t SUPPLY_ERR_M: 1;
-		uint8_t COM_ERR_M: 1; /* BIT7 */
+		uint8_t COM_ERR_M: 1;
 	} reg_bits;
 };
 
 union max14916_global_err {
 	uint8_t reg_raw;
 	struct {
-		uint8_t VINT_UV: 1; /* BIT0 */
+		uint8_t VINT_UV: 1;
 		uint8_t VA_UVLO: 1;
 		uint8_t VDD_BAD: 1;
 		uint8_t VDD_WARN: 1;
 		uint8_t VDD_UVLO: 1;
 		uint8_t THRMSHUTD: 1;
 		uint8_t SYNC_ERR: 1;
-		uint8_t WDOG_ERR: 1; /* BIT7 */
+		uint8_t WDOG_ERR: 1;
 	} reg_bits;
 };
 

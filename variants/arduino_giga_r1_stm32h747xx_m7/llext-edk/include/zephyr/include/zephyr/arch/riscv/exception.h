@@ -55,44 +55,44 @@ typedef struct _callee_saved _callee_saved_t;
 	SOC_ISR_STACKING_ESF_DECLARE;
 #else
 struct arch_esf {
-	unsigned long ra;		/* return address */
+	unsigned long ra;
 
-	unsigned long t0;		/* Caller-saved temporary register */
-	unsigned long t1;		/* Caller-saved temporary register */
-	unsigned long t2;		/* Caller-saved temporary register */
+	unsigned long t0;
+	unsigned long t1;
+	unsigned long t2;
 #if !defined(CONFIG_RISCV_ISA_RV32E)
-	unsigned long t3;		/* Caller-saved temporary register */
-	unsigned long t4;		/* Caller-saved temporary register */
-	unsigned long t5;		/* Caller-saved temporary register */
-	unsigned long t6;		/* Caller-saved temporary register */
+	unsigned long t3;
+	unsigned long t4;
+	unsigned long t5;
+	unsigned long t6;
 #endif /* !CONFIG_RISCV_ISA_RV32E */
 
-	unsigned long a0;		/* function argument/return value */
-	unsigned long a1;		/* function argument */
-	unsigned long a2;		/* function argument */
-	unsigned long a3;		/* function argument */
-	unsigned long a4;		/* function argument */
-	unsigned long a5;		/* function argument */
+	unsigned long a0;
+	unsigned long a1;
+	unsigned long a2;
+	unsigned long a3;
+	unsigned long a4;
+	unsigned long a5;
 #if !defined(CONFIG_RISCV_ISA_RV32E)
-	unsigned long a6;		/* function argument */
-	unsigned long a7;		/* function argument */
+	unsigned long a6;
+	unsigned long a7;
 #endif /* !CONFIG_RISCV_ISA_RV32E */
 
 #ifdef CONFIG_CLIC_SUPPORT_INTERRUPT_LEVEL
-	unsigned long mcause;		/* machine cause register */
+	unsigned long mcause;
 #endif /* CONFIG_CLIC_SUPPORT_INTERRUPT_LEVEL */
 
-	unsigned long mepc;		/* machine exception program counter */
-	unsigned long mstatus;	/* machine status register */
+	unsigned long mepc;
+	unsigned long mstatus;
 
-	unsigned long s0;		/* callee-saved s0 */
+	unsigned long s0;
 
 #ifdef CONFIG_USERSPACE
-	unsigned long sp;		/* preserved (user or kernel) stack pointer */
+	unsigned long sp;
 #endif
 
 #ifdef CONFIG_EXTRA_EXCEPTION_INFO
-	_callee_saved_t *csf;		/* pointer to callee-saved-registers */
+	_callee_saved_t *csf;
 #endif /* CONFIG_EXTRA_EXCEPTION_INFO */
 
 #ifdef CONFIG_RISCV_SOC_CONTEXT_SAVE

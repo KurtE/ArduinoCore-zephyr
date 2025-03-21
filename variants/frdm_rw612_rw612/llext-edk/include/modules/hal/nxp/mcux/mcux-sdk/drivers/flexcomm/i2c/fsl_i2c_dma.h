@@ -44,17 +44,17 @@ typedef void (*flexcomm_i2c_dma_master_irq_handler_t)(I2C_Type *base, i2c_master
 /*! @brief I2C master dma transfer structure. */
 struct _i2c_master_dma_handle
 {
-    uint8_t state;              /*!< Transfer state machine current state. */
-    uint32_t transferCount;     /*!< Indicates progress of the transfer */
-    uint32_t remainingBytesDMA; /*!< Remaining byte count to be transferred using DMA. */
-    uint8_t *buf;               /*!< Buffer pointer for current state. */
+    uint8_t state;
+    uint32_t transferCount;
+    uint32_t remainingBytesDMA;
+    uint8_t *buf;
     uint32_t remainingSubaddr;
     uint8_t subaddrBuf[4];
-    bool checkAddrNack;             /*!< Whether to check the nack signal is detected during addressing. */
-    dma_handle_t *dmaHandle;        /*!< The DMA handler used. */
-    i2c_master_transfer_t transfer; /*!< Copy of the current transfer info. */
-    i2c_master_dma_transfer_callback_t completionCallback; /*!< Callback function called after dma transfer finished. */
-    void *userData;                                        /*!< Callback parameter passed to callback function. */
+    bool checkAddrNack;
+    dma_handle_t *dmaHandle;
+    i2c_master_transfer_t transfer;
+    i2c_master_dma_transfer_callback_t completionCallback;
+    void *userData;
 };
 
 /*******************************************************************************

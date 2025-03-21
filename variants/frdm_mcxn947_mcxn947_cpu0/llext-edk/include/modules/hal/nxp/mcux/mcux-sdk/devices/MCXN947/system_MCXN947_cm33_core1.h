@@ -45,7 +45,7 @@
  */
 
 #ifndef _SYSTEM_MCXN947_cm33_core1_H_
-#define _SYSTEM_MCXN947_cm33_core1_H_            /**< Symbol preventing repeated inclusion */
+#define _SYSTEM_MCXN947_cm33_core1_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -54,9 +54,9 @@ extern "C" {
 #include <stdint.h>
 
 
-                #define DEFAULT_SYSTEM_CLOCK           48000000u           /* Default System clock value */
-#define CLK_FRO_12MHZ                  12000000u           /* FRO 12  MHz (fro_12m)  */
-#define CLK_FRO_144MHZ                144000000u           /* FRO 144 MHz (fro_144m) */
+                #define DEFAULT_SYSTEM_CLOCK           48000000u
+#define CLK_FRO_12MHZ                  12000000u
+#define CLK_FRO_144MHZ                144000000u
 
 
 

@@ -51,81 +51,81 @@ extern "C" {
 /** @brief ADC interrupts. */
 typedef enum
 {
-    NRF_ADC_INT_END_MASK  = ADC_INTENSET_END_Msk,   /**< ADC interrupt on END event. */
+    NRF_ADC_INT_END_MASK  = ADC_INTENSET_END_Msk,
 } nrf_adc_int_mask_t;
 
 /** @brief Resolution of the analog-to-digital converter. */
 typedef enum
 {
-    NRF_ADC_CONFIG_RES_8BIT  = ADC_CONFIG_RES_8bit,  /**< 8-bit resolution. */
-    NRF_ADC_CONFIG_RES_9BIT  = ADC_CONFIG_RES_9bit,  /**< 9-bit resolution. */
-    NRF_ADC_CONFIG_RES_10BIT = ADC_CONFIG_RES_10bit, /**< 10-bit resolution. */
+    NRF_ADC_CONFIG_RES_8BIT  = ADC_CONFIG_RES_8bit,
+    NRF_ADC_CONFIG_RES_9BIT  = ADC_CONFIG_RES_9bit,
+    NRF_ADC_CONFIG_RES_10BIT = ADC_CONFIG_RES_10bit,
 } nrf_adc_config_resolution_t;
 
 
 /** @brief Scaling factor of the analog-to-digital conversion. */
 typedef enum
 {
-    NRF_ADC_CONFIG_SCALING_INPUT_FULL_SCALE  = ADC_CONFIG_INPSEL_AnalogInputNoPrescaling,        /**< Full scale input. */
-    NRF_ADC_CONFIG_SCALING_INPUT_TWO_THIRDS  = ADC_CONFIG_INPSEL_AnalogInputTwoThirdsPrescaling, /**< 2/3 scale input. */
-    NRF_ADC_CONFIG_SCALING_INPUT_ONE_THIRD   = ADC_CONFIG_INPSEL_AnalogInputOneThirdPrescaling,  /**< 1/3 scale input. */
-    NRF_ADC_CONFIG_SCALING_SUPPLY_TWO_THIRDS = ADC_CONFIG_INPSEL_SupplyTwoThirdsPrescaling,      /**< 2/3 of supply. */
-    NRF_ADC_CONFIG_SCALING_SUPPLY_ONE_THIRD  = ADC_CONFIG_INPSEL_SupplyOneThirdPrescaling        /**< 1/3 of supply. */
+    NRF_ADC_CONFIG_SCALING_INPUT_FULL_SCALE  = ADC_CONFIG_INPSEL_AnalogInputNoPrescaling,
+    NRF_ADC_CONFIG_SCALING_INPUT_TWO_THIRDS  = ADC_CONFIG_INPSEL_AnalogInputTwoThirdsPrescaling,
+    NRF_ADC_CONFIG_SCALING_INPUT_ONE_THIRD   = ADC_CONFIG_INPSEL_AnalogInputOneThirdPrescaling,
+    NRF_ADC_CONFIG_SCALING_SUPPLY_TWO_THIRDS = ADC_CONFIG_INPSEL_SupplyTwoThirdsPrescaling,
+    NRF_ADC_CONFIG_SCALING_SUPPLY_ONE_THIRD  = ADC_CONFIG_INPSEL_SupplyOneThirdPrescaling
 } nrf_adc_config_scaling_t;
 
 
 /** @brief External reference selection of the analog-to-digital converter. */
 typedef enum
 {
-    NRF_ADC_CONFIG_EXTREFSEL_NONE  = ADC_CONFIG_EXTREFSEL_None,             /**< Analog reference inputs disabled. */
-    NRF_ADC_CONFIG_EXTREFSEL_AREF0 = ADC_CONFIG_EXTREFSEL_AnalogReference0, /**< AREF0 as analog reference. */
-    NRF_ADC_CONFIG_EXTREFSEL_AREF1 = ADC_CONFIG_EXTREFSEL_AnalogReference1  /**< AREF1 as analog reference. */
+    NRF_ADC_CONFIG_EXTREFSEL_NONE  = ADC_CONFIG_EXTREFSEL_None,
+    NRF_ADC_CONFIG_EXTREFSEL_AREF0 = ADC_CONFIG_EXTREFSEL_AnalogReference0,
+    NRF_ADC_CONFIG_EXTREFSEL_AREF1 = ADC_CONFIG_EXTREFSEL_AnalogReference1
 } nrf_adc_config_extref_t;
 
 /** @brief Reference selection of the analog-to-digital converter. */
 typedef enum
 {
-    NRF_ADC_CONFIG_REF_VBG              = ADC_CONFIG_REFSEL_VBG,                      /**< 1.2 V reference. */
-    NRF_ADC_CONFIG_REF_SUPPLY_ONE_HALF  = ADC_CONFIG_REFSEL_SupplyOneHalfPrescaling,  /**< 1/2 of power supply. */
-    NRF_ADC_CONFIG_REF_SUPPLY_ONE_THIRD = ADC_CONFIG_REFSEL_SupplyOneThirdPrescaling, /**< 1/3 of power supply. */
-    NRF_ADC_CONFIG_REF_EXT              = ADC_CONFIG_REFSEL_External                  /**< External reference. See @ref nrf_adc_config_extref_t for further configuration. */
+    NRF_ADC_CONFIG_REF_VBG              = ADC_CONFIG_REFSEL_VBG,
+    NRF_ADC_CONFIG_REF_SUPPLY_ONE_HALF  = ADC_CONFIG_REFSEL_SupplyOneHalfPrescaling,
+    NRF_ADC_CONFIG_REF_SUPPLY_ONE_THIRD = ADC_CONFIG_REFSEL_SupplyOneThirdPrescaling,
+    NRF_ADC_CONFIG_REF_EXT              = ADC_CONFIG_REFSEL_External
 } nrf_adc_config_reference_t;
 
 /** @brief Input selection of the analog-to-digital converter. */
 typedef enum
 {
-    NRF_ADC_CONFIG_INPUT_DISABLED = ADC_CONFIG_PSEL_Disabled,     /**< No input selected. */
-    NRF_ADC_CONFIG_INPUT_0        = ADC_CONFIG_PSEL_AnalogInput0, /**< Input 0. */
-    NRF_ADC_CONFIG_INPUT_1        = ADC_CONFIG_PSEL_AnalogInput1, /**< Input 1. */
-    NRF_ADC_CONFIG_INPUT_2        = ADC_CONFIG_PSEL_AnalogInput2, /**< Input 2. */
-    NRF_ADC_CONFIG_INPUT_3        = ADC_CONFIG_PSEL_AnalogInput3, /**< Input 3. */
-    NRF_ADC_CONFIG_INPUT_4        = ADC_CONFIG_PSEL_AnalogInput4, /**< Input 4. */
-    NRF_ADC_CONFIG_INPUT_5        = ADC_CONFIG_PSEL_AnalogInput5, /**< Input 5. */
-    NRF_ADC_CONFIG_INPUT_6        = ADC_CONFIG_PSEL_AnalogInput6, /**< Input 6. */
-    NRF_ADC_CONFIG_INPUT_7        = ADC_CONFIG_PSEL_AnalogInput7, /**< Input 7. */
+    NRF_ADC_CONFIG_INPUT_DISABLED = ADC_CONFIG_PSEL_Disabled,
+    NRF_ADC_CONFIG_INPUT_0        = ADC_CONFIG_PSEL_AnalogInput0,
+    NRF_ADC_CONFIG_INPUT_1        = ADC_CONFIG_PSEL_AnalogInput1,
+    NRF_ADC_CONFIG_INPUT_2        = ADC_CONFIG_PSEL_AnalogInput2,
+    NRF_ADC_CONFIG_INPUT_3        = ADC_CONFIG_PSEL_AnalogInput3,
+    NRF_ADC_CONFIG_INPUT_4        = ADC_CONFIG_PSEL_AnalogInput4,
+    NRF_ADC_CONFIG_INPUT_5        = ADC_CONFIG_PSEL_AnalogInput5,
+    NRF_ADC_CONFIG_INPUT_6        = ADC_CONFIG_PSEL_AnalogInput6,
+    NRF_ADC_CONFIG_INPUT_7        = ADC_CONFIG_PSEL_AnalogInput7,
 } nrf_adc_config_input_t;
 
 /** @brief Analog-to-digital converter tasks. */
 typedef enum
 {
-    NRF_ADC_TASK_START = offsetof(NRF_ADC_Type, TASKS_START), /**< ADC start sampling task. */
-    NRF_ADC_TASK_STOP  = offsetof(NRF_ADC_Type, TASKS_STOP)   /**< ADC stop sampling task. */
+    NRF_ADC_TASK_START = offsetof(NRF_ADC_Type, TASKS_START),
+    NRF_ADC_TASK_STOP  = offsetof(NRF_ADC_Type, TASKS_STOP)
 } nrf_adc_task_t;
 
 /** @brief Analog-to-digital converter events. */
 typedef enum
 {
-    NRF_ADC_EVENT_END = offsetof(NRF_ADC_Type, EVENTS_END) /**< End of a conversion event. */
+    NRF_ADC_EVENT_END = offsetof(NRF_ADC_Type, EVENTS_END)
 } nrf_adc_event_t;
 
 /** @brief Analog-to-digital converter configuration. */
 typedef struct
 {
-    nrf_adc_config_resolution_t resolution; /**< ADC resolution. */
-    nrf_adc_config_scaling_t    scaling;    /**< ADC scaling factor. */
-    nrf_adc_config_reference_t  reference;  /**< ADC reference. */
-    nrf_adc_config_input_t      input;      /**< ADC input selection. */
-    nrf_adc_config_extref_t     extref;     /**< ADC external reference selection. */
+    nrf_adc_config_resolution_t resolution;
+    nrf_adc_config_scaling_t    scaling;
+    nrf_adc_config_reference_t  reference;
+    nrf_adc_config_input_t      input;
+    nrf_adc_config_extref_t     extref;
 } nrf_adc_config_t;
 
 /** @brief Analog-to-digital value type. */

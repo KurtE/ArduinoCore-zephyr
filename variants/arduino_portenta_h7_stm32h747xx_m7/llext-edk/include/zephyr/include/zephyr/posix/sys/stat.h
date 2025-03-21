@@ -75,7 +75,7 @@ struct stat {
 	struct timespec st_atim;
 	struct timespec st_mtim;
 	struct timespec st_ctim;
-#define st_atime st_atim.tv_sec /* Backward compatibility */
+#define st_atime st_atim.tv_sec
 #define st_mtime st_mtim.tv_sec
 #define st_ctime st_ctim.tv_sec
 #if defined(__linux) && defined(__x86_64__)
@@ -116,25 +116,25 @@ struct stat {
 
 #endif
 
-#define _IFMT	0170000 /* type of file */
-#define _IFDIR	0040000 /* directory */
-#define _IFCHR	0020000 /* character special */
-#define _IFBLK	0060000 /* block special */
-#define _IFREG	0100000 /* regular */
-#define _IFLNK	0120000 /* symbolic link */
-#define _IFSOCK 0140000 /* socket */
-#define _IFIFO	0010000 /* fifo */
+#define _IFMT	0170000
+#define _IFDIR	0040000
+#define _IFCHR	0020000
+#define _IFBLK	0060000
+#define _IFREG	0100000
+#define _IFLNK	0120000
+#define _IFSOCK 0140000
+#define _IFIFO	0010000
 
-#define S_BLKSIZE 1024 /* size of a block */
+#define S_BLKSIZE 1024
 
-#define S_ISUID 0004000 /* set user id on execution */
-#define S_ISGID 0002000 /* set group id on execution */
-#define S_ISVTX 0001000 /* save swapped text even after use */
+#define S_ISUID 0004000
+#define S_ISGID 0002000
+#define S_ISVTX 0001000
 #if __BSD_VISIBLE
-#define S_IREAD	 0000400 /* read permission, owner */
-#define S_IWRITE 0000200 /* write permission, owner */
-#define S_IEXEC	 0000100 /* execute/search permission, owner */
-#define S_ENFMT	 0002000 /* enforcement-mode locking */
+#define S_IREAD	 0000400
+#define S_IWRITE 0000200
+#define S_IEXEC	 0000100
+#define S_ENFMT	 0002000
 #endif			 /* !_BSD_VISIBLE */
 
 #define S_IFMT	 _IFMT
@@ -162,22 +162,22 @@ struct stat {
 #endif
 
 #define S_IRWXU (S_IRUSR | S_IWUSR | S_IXUSR)
-#define S_IRUSR 0000400 /* read permission, owner */
-#define S_IWUSR 0000200 /* write permission, owner */
-#define S_IXUSR 0000100 /* execute/search permission, owner */
+#define S_IRUSR 0000400
+#define S_IWUSR 0000200
+#define S_IXUSR 0000100
 #define S_IRWXG (S_IRGRP | S_IWGRP | S_IXGRP)
-#define S_IRGRP 0000040 /* read permission, group */
-#define S_IWGRP 0000020 /* write permission, grougroup */
-#define S_IXGRP 0000010 /* execute/search permission, group */
+#define S_IRGRP 0000040
+#define S_IWGRP 0000020
+#define S_IXGRP 0000010
 #define S_IRWXO (S_IROTH | S_IWOTH | S_IXOTH)
-#define S_IROTH 0000004 /* read permission, other */
-#define S_IWOTH 0000002 /* write permission, other */
-#define S_IXOTH 0000001 /* execute/search permission, other */
+#define S_IROTH 0000004
+#define S_IWOTH 0000002
+#define S_IXOTH 0000001
 
 #if __BSD_VISIBLE
-#define ACCESSPERMS (S_IRWXU | S_IRWXG | S_IRWXO)				/* 0777 */
-#define ALLPERMS    (S_ISUID | S_ISGID | S_ISVTX | S_IRWXU | S_IRWXG | S_IRWXO) /* 07777 */
-#define DEFFILEMODE (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH) /* 0666 */
+#define ACCESSPERMS (S_IRWXU | S_IRWXG | S_IRWXO)
+#define ALLPERMS    (S_ISUID | S_ISGID | S_ISVTX | S_IRWXU | S_IRWXG | S_IRWXO)
+#define DEFFILEMODE (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH)
 #endif
 
 #define S_ISBLK(m)  (((m)&_IFMT) == _IFBLK)

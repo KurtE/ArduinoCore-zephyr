@@ -242,96 +242,96 @@ extern "C" {
 typedef enum
 {
 #if NRF_GRTC_HAS_EXTENDED
-    NRF_GRTC_TASK_START      = offsetof(NRF_GRTC_Type, TASKS_START),       /**< Start. */
-    NRF_GRTC_TASK_STOP       = offsetof(NRF_GRTC_Type, TASKS_STOP),        /**< Stop. */
-    NRF_GRTC_TASK_CLEAR      = offsetof(NRF_GRTC_Type, TASKS_CLEAR),       /**< Clear. */
+    NRF_GRTC_TASK_START      = offsetof(NRF_GRTC_Type, TASKS_START),
+    NRF_GRTC_TASK_STOP       = offsetof(NRF_GRTC_Type, TASKS_STOP),
+    NRF_GRTC_TASK_CLEAR      = offsetof(NRF_GRTC_Type, TASKS_CLEAR),
 #endif
 #if NRF_GRTC_HAS_PWM
-    NRF_GRTC_TASK_PWM_START  = offsetof(NRF_GRTC_Type, TASKS_PWMSTART),    /**< Start the PWM. */
-    NRF_GRTC_TASK_PWM_STOP   = offsetof(NRF_GRTC_Type, TASKS_PWMSTOP),     /**< Stop the PWM. */
+    NRF_GRTC_TASK_PWM_START  = offsetof(NRF_GRTC_Type, TASKS_PWMSTART),
+    NRF_GRTC_TASK_PWM_STOP   = offsetof(NRF_GRTC_Type, TASKS_PWMSTOP),
 #endif // NRF_GRTC_HAS_PWM
-    NRF_GRTC_TASK_CAPTURE_0  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[0]),  /**< Capture the counter value on channel 0. */
-    NRF_GRTC_TASK_CAPTURE_1  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[1]),  /**< Capture the counter value on channel 1. */
-    NRF_GRTC_TASK_CAPTURE_2  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[2]),  /**< Capture the counter value on channel 2. */
-    NRF_GRTC_TASK_CAPTURE_3  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[3]),  /**< Capture the counter value on channel 3. */
-    NRF_GRTC_TASK_CAPTURE_4  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[4]),  /**< Capture the counter value on channel 4. */
-    NRF_GRTC_TASK_CAPTURE_5  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[5]),  /**< Capture the counter value on channel 5. */
-    NRF_GRTC_TASK_CAPTURE_6  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[6]),  /**< Capture the counter value on channel 6. */
-    NRF_GRTC_TASK_CAPTURE_7  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[7]),  /**< Capture the counter value on channel 7. */
-    NRF_GRTC_TASK_CAPTURE_8  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[8]),  /**< Capture the counter value on channel 8. */
-    NRF_GRTC_TASK_CAPTURE_9  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[9]),  /**< Capture the counter value on channel 9. */
-    NRF_GRTC_TASK_CAPTURE_10 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[10]), /**< Capture the counter value on channel 10. */
-    NRF_GRTC_TASK_CAPTURE_11 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[11]), /**< Capture the counter value on channel 11. */
+    NRF_GRTC_TASK_CAPTURE_0  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[0]),
+    NRF_GRTC_TASK_CAPTURE_1  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[1]),
+    NRF_GRTC_TASK_CAPTURE_2  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[2]),
+    NRF_GRTC_TASK_CAPTURE_3  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[3]),
+    NRF_GRTC_TASK_CAPTURE_4  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[4]),
+    NRF_GRTC_TASK_CAPTURE_5  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[5]),
+    NRF_GRTC_TASK_CAPTURE_6  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[6]),
+    NRF_GRTC_TASK_CAPTURE_7  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[7]),
+    NRF_GRTC_TASK_CAPTURE_8  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[8]),
+    NRF_GRTC_TASK_CAPTURE_9  = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[9]),
+    NRF_GRTC_TASK_CAPTURE_10 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[10]),
+    NRF_GRTC_TASK_CAPTURE_11 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[11]),
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 12
-    NRF_GRTC_TASK_CAPTURE_12 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[12]), /**< Capture the counter value on channel 12. */
-    NRF_GRTC_TASK_CAPTURE_13 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[13]), /**< Capture the counter value on channel 13. */
-    NRF_GRTC_TASK_CAPTURE_14 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[14]), /**< Capture the counter value on channel 14. */
-    NRF_GRTC_TASK_CAPTURE_15 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[15]), /**< Capture the counter value on channel 15. */
+    NRF_GRTC_TASK_CAPTURE_12 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[12]),
+    NRF_GRTC_TASK_CAPTURE_13 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[13]),
+    NRF_GRTC_TASK_CAPTURE_14 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[14]),
+    NRF_GRTC_TASK_CAPTURE_15 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[15]),
 #endif
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 16
-    NRF_GRTC_TASK_CAPTURE_16 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[16]), /**< Capture the counter value on channel 16. */
-    NRF_GRTC_TASK_CAPTURE_17 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[17]), /**< Capture the counter value on channel 17. */
+    NRF_GRTC_TASK_CAPTURE_16 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[16]),
+    NRF_GRTC_TASK_CAPTURE_17 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[17]),
 #endif
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 18
-    NRF_GRTC_TASK_CAPTURE_18 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[18]), /**< Capture the counter value on channel 18. */
+    NRF_GRTC_TASK_CAPTURE_18 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[18]),
 #endif
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 19
-    NRF_GRTC_TASK_CAPTURE_19 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[19]), /**< Capture the counter value on channel 19. */
+    NRF_GRTC_TASK_CAPTURE_19 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[19]),
 #endif
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 20
-    NRF_GRTC_TASK_CAPTURE_20 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[20]), /**< Capture the counter value on channel 20. */
-    NRF_GRTC_TASK_CAPTURE_21 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[21]), /**< Capture the counter value on channel 21. */
-    NRF_GRTC_TASK_CAPTURE_22 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[22]), /**< Capture the counter value on channel 22. */
-    NRF_GRTC_TASK_CAPTURE_23 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[23]), /**< Capture the counter value on channel 23. */
+    NRF_GRTC_TASK_CAPTURE_20 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[20]),
+    NRF_GRTC_TASK_CAPTURE_21 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[21]),
+    NRF_GRTC_TASK_CAPTURE_22 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[22]),
+    NRF_GRTC_TASK_CAPTURE_23 = offsetof(NRF_GRTC_Type, TASKS_CAPTURE[23]),
 #endif
 } nrf_grtc_task_t;
 
 /** @brief GRTC events. */
 typedef enum
 {
-    NRF_GRTC_EVENT_COMPARE_0       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[0]),      /**< Compare 0 event. */
-    NRF_GRTC_EVENT_COMPARE_1       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[1]),      /**< Compare 1 event. */
-    NRF_GRTC_EVENT_COMPARE_2       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[2]),      /**< Compare 2 event. */
-    NRF_GRTC_EVENT_COMPARE_3       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[3]),      /**< Compare 3 event. */
-    NRF_GRTC_EVENT_COMPARE_4       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[4]),      /**< Compare 4 event. */
-    NRF_GRTC_EVENT_COMPARE_5       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[5]),      /**< Compare 5 event. */
-    NRF_GRTC_EVENT_COMPARE_6       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[6]),      /**< Compare 6 event. */
-    NRF_GRTC_EVENT_COMPARE_7       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[7]),      /**< Compare 7 event. */
-    NRF_GRTC_EVENT_COMPARE_8       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[8]),      /**< Compare 8 event. */
-    NRF_GRTC_EVENT_COMPARE_9       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[9]),      /**< Compare 9 event. */
-    NRF_GRTC_EVENT_COMPARE_10      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[10]),     /**< Compare 10 event. */
-    NRF_GRTC_EVENT_COMPARE_11      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[11]),     /**< Compare 11 event. */
-    NRF_GRTC_EVENT_COMPARE_12      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[12]),     /**< Compare 12 event. */
+    NRF_GRTC_EVENT_COMPARE_0       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[0]),
+    NRF_GRTC_EVENT_COMPARE_1       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[1]),
+    NRF_GRTC_EVENT_COMPARE_2       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[2]),
+    NRF_GRTC_EVENT_COMPARE_3       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[3]),
+    NRF_GRTC_EVENT_COMPARE_4       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[4]),
+    NRF_GRTC_EVENT_COMPARE_5       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[5]),
+    NRF_GRTC_EVENT_COMPARE_6       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[6]),
+    NRF_GRTC_EVENT_COMPARE_7       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[7]),
+    NRF_GRTC_EVENT_COMPARE_8       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[8]),
+    NRF_GRTC_EVENT_COMPARE_9       = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[9]),
+    NRF_GRTC_EVENT_COMPARE_10      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[10]),
+    NRF_GRTC_EVENT_COMPARE_11      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[11]),
+    NRF_GRTC_EVENT_COMPARE_12      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[12]),
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 12
-    NRF_GRTC_EVENT_COMPARE_13      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[13]),     /**< Compare 13 event. */
-    NRF_GRTC_EVENT_COMPARE_14      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[14]),     /**< Compare 14 event. */
-    NRF_GRTC_EVENT_COMPARE_15      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[15]),     /**< Compare 15 event. */
+    NRF_GRTC_EVENT_COMPARE_13      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[13]),
+    NRF_GRTC_EVENT_COMPARE_14      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[14]),
+    NRF_GRTC_EVENT_COMPARE_15      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[15]),
 #endif
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 16
-    NRF_GRTC_EVENT_COMPARE_16      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[16]),     /**< Compare 16 event. */
-    NRF_GRTC_EVENT_COMPARE_17      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[17]),     /**< Compare 17 event. */
+    NRF_GRTC_EVENT_COMPARE_16      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[16]),
+    NRF_GRTC_EVENT_COMPARE_17      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[17]),
 #endif
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 18
-    NRF_GRTC_EVENT_COMPARE_18      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[18]),     /**< Compare 18 event. */
+    NRF_GRTC_EVENT_COMPARE_18      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[18]),
 #endif
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 19
-    NRF_GRTC_EVENT_COMPARE_19      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[19]),     /**< Compare 19 event. */
+    NRF_GRTC_EVENT_COMPARE_19      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[19]),
 #endif
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 20
-    NRF_GRTC_EVENT_COMPARE_20      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[20]),     /**< Compare 20 event. */
-    NRF_GRTC_EVENT_COMPARE_21      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[21]),     /**< Compare 21 event. */
-    NRF_GRTC_EVENT_COMPARE_22      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[22]),     /**< Compare 22 event. */
-    NRF_GRTC_EVENT_COMPARE_23      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[23]),     /**< Compare 23 event. */
+    NRF_GRTC_EVENT_COMPARE_20      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[20]),
+    NRF_GRTC_EVENT_COMPARE_21      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[21]),
+    NRF_GRTC_EVENT_COMPARE_22      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[22]),
+    NRF_GRTC_EVENT_COMPARE_23      = offsetof(NRF_GRTC_Type, EVENTS_COMPARE[23]),
 #endif
 #if NRF_GRTC_HAS_RTCOUNTER
-    NRF_GRTC_EVENT_RTCOMPARE       = offsetof(NRF_GRTC_Type, EVENTS_RTCOMPARE),       /**< RTCOUNTER compare event. */
-    NRF_GRTC_EVENT_RTCOMPARESYNC   = offsetof(NRF_GRTC_Type, EVENTS_RTCOMPARESYNC),   /**< RTCOUNTER synchronized compare event. */
+    NRF_GRTC_EVENT_RTCOMPARE       = offsetof(NRF_GRTC_Type, EVENTS_RTCOMPARE),
+    NRF_GRTC_EVENT_RTCOMPARESYNC   = offsetof(NRF_GRTC_Type, EVENTS_RTCOMPARESYNC),
 #endif
 #if NRF_GRTC_HAS_SYSCOUNTERVALID
-    NRF_GRTC_EVENT_SYSCOUNTERVALID = offsetof(NRF_GRTC_Type, EVENTS_SYSCOUNTERVALID), /**< SYSCOUNTER value valid event. */
+    NRF_GRTC_EVENT_SYSCOUNTERVALID = offsetof(NRF_GRTC_Type, EVENTS_SYSCOUNTERVALID),
 #endif
 #if NRF_GRTC_HAS_PWM
-    NRF_GRTC_EVENT_PWM_PERIOD_END  = offsetof(NRF_GRTC_Type, EVENTS_PWMPERIODEND),    /**< End of PWM period event. */
+    NRF_GRTC_EVENT_PWM_PERIOD_END  = offsetof(NRF_GRTC_Type, EVENTS_PWMPERIODEND),
 #endif // NRF_GRTC_HAS_PWM
 } nrf_grtc_event_t;
 
@@ -339,60 +339,60 @@ typedef enum
 /** @brief Types of GRTC shortcuts. */
 typedef enum
 {
-    NRF_GRTC_SHORT_RTCOMPARE_CLEAR_MASK = GRTC_SHORTS_RTCOMPARE_CLEAR_Msk, /**< Shortcut between RTCOMPARE event and CLEAR task. */
+    NRF_GRTC_SHORT_RTCOMPARE_CLEAR_MASK = GRTC_SHORTS_RTCOMPARE_CLEAR_Msk,
 } nrf_grtc_short_mask_t;
 #endif
 
 /** @brief Types of GRTC CC references. */
 typedef enum
 {
-    NRF_GRTC_CC_ADD_REFERENCE_SYSCOUNTER = GRTC_CC_CCADD_REFERENCE_SYSCOUNTER, /**< The SYSCOUNTER register's content will be used as the reference. */
-    NRF_GRTC_CC_ADD_REFERENCE_CC         = GRTC_CC_CCADD_REFERENCE_CC          /**< The CC[n] register's content will be used as the reference. */
+    NRF_GRTC_CC_ADD_REFERENCE_SYSCOUNTER = GRTC_CC_CCADD_REFERENCE_SYSCOUNTER,
+    NRF_GRTC_CC_ADD_REFERENCE_CC         = GRTC_CC_CCADD_REFERENCE_CC
 } nrf_grtc_cc_add_reference_t;
 
 /** @brief GRTC interrupts. */
 typedef enum
 {
-    NRF_GRTC_INT_COMPARE0_MASK        = GRTC_INTENSET0_COMPARE0_Msk,        /**< GRTC interrupt from compare event on channel 0. */
-    NRF_GRTC_INT_COMPARE1_MASK        = GRTC_INTENSET0_COMPARE1_Msk,        /**< GRTC interrupt from compare event on channel 1. */
-    NRF_GRTC_INT_COMPARE2_MASK        = GRTC_INTENSET0_COMPARE2_Msk,        /**< GRTC interrupt from compare event on channel 2. */
-    NRF_GRTC_INT_COMPARE3_MASK        = GRTC_INTENSET0_COMPARE3_Msk,        /**< GRTC interrupt from compare event on channel 3. */
-    NRF_GRTC_INT_COMPARE4_MASK        = GRTC_INTENSET0_COMPARE4_Msk,        /**< GRTC interrupt from compare event on channel 4. */
-    NRF_GRTC_INT_COMPARE5_MASK        = GRTC_INTENSET0_COMPARE5_Msk,        /**< GRTC interrupt from compare event on channel 5. */
-    NRF_GRTC_INT_COMPARE6_MASK        = GRTC_INTENSET0_COMPARE6_Msk,        /**< GRTC interrupt from compare event on channel 6. */
-    NRF_GRTC_INT_COMPARE7_MASK        = GRTC_INTENSET0_COMPARE7_Msk,        /**< GRTC interrupt from compare event on channel 7. */
-    NRF_GRTC_INT_COMPARE8_MASK        = GRTC_INTENSET0_COMPARE8_Msk,        /**< GRTC interrupt from compare event on channel 8. */
-    NRF_GRTC_INT_COMPARE9_MASK        = GRTC_INTENSET0_COMPARE9_Msk,        /**< GRTC interrupt from compare event on channel 9. */
-    NRF_GRTC_INT_COMPARE10_MASK       = GRTC_INTENSET0_COMPARE10_Msk,       /**< GRTC interrupt from compare event on channel 10. */
-    NRF_GRTC_INT_COMPARE11_MASK       = GRTC_INTENSET0_COMPARE11_Msk,       /**< GRTC interrupt from compare event on channel 11. */
+    NRF_GRTC_INT_COMPARE0_MASK        = GRTC_INTENSET0_COMPARE0_Msk,
+    NRF_GRTC_INT_COMPARE1_MASK        = GRTC_INTENSET0_COMPARE1_Msk,
+    NRF_GRTC_INT_COMPARE2_MASK        = GRTC_INTENSET0_COMPARE2_Msk,
+    NRF_GRTC_INT_COMPARE3_MASK        = GRTC_INTENSET0_COMPARE3_Msk,
+    NRF_GRTC_INT_COMPARE4_MASK        = GRTC_INTENSET0_COMPARE4_Msk,
+    NRF_GRTC_INT_COMPARE5_MASK        = GRTC_INTENSET0_COMPARE5_Msk,
+    NRF_GRTC_INT_COMPARE6_MASK        = GRTC_INTENSET0_COMPARE6_Msk,
+    NRF_GRTC_INT_COMPARE7_MASK        = GRTC_INTENSET0_COMPARE7_Msk,
+    NRF_GRTC_INT_COMPARE8_MASK        = GRTC_INTENSET0_COMPARE8_Msk,
+    NRF_GRTC_INT_COMPARE9_MASK        = GRTC_INTENSET0_COMPARE9_Msk,
+    NRF_GRTC_INT_COMPARE10_MASK       = GRTC_INTENSET0_COMPARE10_Msk,
+    NRF_GRTC_INT_COMPARE11_MASK       = GRTC_INTENSET0_COMPARE11_Msk,
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 12
-    NRF_GRTC_INT_COMPARE12_MASK       = GRTC_INTENSET0_COMPARE12_Msk,       /**< GRTC interrupt from compare event on channel 12. */
-    NRF_GRTC_INT_COMPARE13_MASK       = GRTC_INTENSET0_COMPARE13_Msk,       /**< GRTC interrupt from compare event on channel 13. */
-    NRF_GRTC_INT_COMPARE14_MASK       = GRTC_INTENSET0_COMPARE14_Msk,       /**< GRTC interrupt from compare event on channel 14. */
-    NRF_GRTC_INT_COMPARE15_MASK       = GRTC_INTENSET0_COMPARE15_Msk,       /**< GRTC interrupt from compare event on channel 15. */
+    NRF_GRTC_INT_COMPARE12_MASK       = GRTC_INTENSET0_COMPARE12_Msk,
+    NRF_GRTC_INT_COMPARE13_MASK       = GRTC_INTENSET0_COMPARE13_Msk,
+    NRF_GRTC_INT_COMPARE14_MASK       = GRTC_INTENSET0_COMPARE14_Msk,
+    NRF_GRTC_INT_COMPARE15_MASK       = GRTC_INTENSET0_COMPARE15_Msk,
 #endif
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 16
-    NRF_GRTC_INT_COMPARE16_MASK       = GRTC_INTENSET0_COMPARE16_Msk,       /**< GRTC interrupt from compare event on channel 16. */
-    NRF_GRTC_INT_COMPARE17_MASK       = GRTC_INTENSET0_COMPARE17_Msk,       /**< GRTC interrupt from compare event on channel 17. */
+    NRF_GRTC_INT_COMPARE16_MASK       = GRTC_INTENSET0_COMPARE16_Msk,
+    NRF_GRTC_INT_COMPARE17_MASK       = GRTC_INTENSET0_COMPARE17_Msk,
 #endif
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 18
-    NRF_GRTC_INT_COMPARE18_MASK       = GRTC_INTENSET0_COMPARE18_Msk,       /**< GRTC interrupt from compare event on channel 18. */
+    NRF_GRTC_INT_COMPARE18_MASK       = GRTC_INTENSET0_COMPARE18_Msk,
 #endif
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 19
-    NRF_GRTC_INT_COMPARE19_MASK       = GRTC_INTENSET0_COMPARE19_Msk,       /**< GRTC interrupt from compare event on channel 19. */
+    NRF_GRTC_INT_COMPARE19_MASK       = GRTC_INTENSET0_COMPARE19_Msk,
 #endif
 #if NRF_GRTC_SYSCOUNTER_CC_COUNT > 20
-    NRF_GRTC_INT_COMPARE20_MASK       = GRTC_INTENSET0_COMPARE20_Msk,       /**< GRTC interrupt from compare event on channel 20. */
-    NRF_GRTC_INT_COMPARE21_MASK       = GRTC_INTENSET0_COMPARE21_Msk,       /**< GRTC interrupt from compare event on channel 21. */
-    NRF_GRTC_INT_COMPARE22_MASK       = GRTC_INTENSET0_COMPARE22_Msk,       /**< GRTC interrupt from compare event on channel 22. */
-    NRF_GRTC_INT_COMPARE23_MASK       = GRTC_INTENSET0_COMPARE23_Msk,       /**< GRTC interrupt from compare event on channel 23. */
+    NRF_GRTC_INT_COMPARE20_MASK       = GRTC_INTENSET0_COMPARE20_Msk,
+    NRF_GRTC_INT_COMPARE21_MASK       = GRTC_INTENSET0_COMPARE21_Msk,
+    NRF_GRTC_INT_COMPARE22_MASK       = GRTC_INTENSET0_COMPARE22_Msk,
+    NRF_GRTC_INT_COMPARE23_MASK       = GRTC_INTENSET0_COMPARE23_Msk,
 #endif
 #if NRF_GRTC_HAS_RTCOUNTER
-    NRF_GRTC_INT_RTCOMPARE_MASK       = GRTC_INTENSET0_RTCOMPARE_Msk,       /**< GRTC interrupt from RTCOUNTER compare event. */
-    NRF_GRTC_INT_RTCOMPARESYNC_MASK   = GRTC_INTENSET0_RTCOMPARESYNC_Msk,   /**< GRTC interrupt from RTCOUNTER synchronized compare event. */
+    NRF_GRTC_INT_RTCOMPARE_MASK       = GRTC_INTENSET0_RTCOMPARE_Msk,
+    NRF_GRTC_INT_RTCOMPARESYNC_MASK   = GRTC_INTENSET0_RTCOMPARESYNC_Msk,
 #endif
 #if NRF_GRTC_HAS_EXTENDED && NRF_GRTC_HAS_SYSCOUNTERVALID
-    NRF_GRTC_INT_SYSCOUNTERVALID_MASK = GRTC_INTENSET0_SYSCOUNTERVALID_Msk, /**< GRTC interrupt from SYSCOUNTER valid event. */
+    NRF_GRTC_INT_SYSCOUNTERVALID_MASK = GRTC_INTENSET0_SYSCOUNTERVALID_Msk,
 #endif
 } nrf_grtc_int_mask_t;
 
@@ -400,8 +400,8 @@ typedef enum
 /** @brief Configuration of clock output. */
 typedef enum
 {
-    NRF_GRTC_CLKOUT_32K  = GRTC_CLKOUT_CLKOUT32K_Msk,  /**< Enable 32K clock output on pin. */
-    NRF_GRTC_CLKOUT_FAST = GRTC_CLKOUT_CLKOUTFAST_Msk, /**< Enable fast clock output on pin. */
+    NRF_GRTC_CLKOUT_32K  = GRTC_CLKOUT_CLKOUT32K_Msk,
+    NRF_GRTC_CLKOUT_FAST = GRTC_CLKOUT_CLKOUTFAST_Msk,
 } nrf_grtc_clkout_t;
 #endif
 
@@ -409,10 +409,10 @@ typedef enum
 /** @brief Configuration of the GRTC clock source selection. */
 typedef enum
 {
-    NRF_GRTC_CLKSEL_LFXO  = GRTC_CLKCFG_CLKSEL_LFXO,        /**< LFXO oscillator as the clock source. */
-    NRF_GRTC_CLKSEL_LFCLK = GRTC_CLKCFG_CLKSEL_SystemLFCLK, /**< System LFCLK as the clock source. */
+    NRF_GRTC_CLKSEL_LFXO  = GRTC_CLKCFG_CLKSEL_LFXO,
+    NRF_GRTC_CLKSEL_LFCLK = GRTC_CLKCFG_CLKSEL_SystemLFCLK,
 #if NRF_GRTC_HAS_CLKSEL_LFLPRC
-    NRF_GRTC_CLKSEL_LFLPRC = GRTC_CLKCFG_CLKSEL_LFLPRC,     /**< System LFLPRC as the clock source. */
+    NRF_GRTC_CLKSEL_LFLPRC = GRTC_CLKCFG_CLKSEL_LFLPRC,
 #endif
 } nrf_grtc_clksel_t;
 #endif

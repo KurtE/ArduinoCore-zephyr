@@ -57,20 +57,20 @@ extern "C" {
 /** @brief TEMP tasks. */
 typedef enum
 {
-    NRF_TEMP_TASK_START = offsetof(NRF_TEMP_Type, TASKS_START), /**< Start temperature measurement. */
-    NRF_TEMP_TASK_STOP  = offsetof(NRF_TEMP_Type, TASKS_STOP)   /**< Stop temperature measurement. */
+    NRF_TEMP_TASK_START = offsetof(NRF_TEMP_Type, TASKS_START),
+    NRF_TEMP_TASK_STOP  = offsetof(NRF_TEMP_Type, TASKS_STOP)
 } nrf_temp_task_t;
 
 /** @brief TEMP events. */
 typedef enum
 {
-    NRF_TEMP_EVENT_DATARDY = offsetof(NRF_TEMP_Type, EVENTS_DATARDY) /**< Temperature measurement complete, data ready. */
+    NRF_TEMP_EVENT_DATARDY = offsetof(NRF_TEMP_Type, EVENTS_DATARDY)
 } nrf_temp_event_t;
 
 /** @brief TEMP interrupts. */
 typedef enum
 {
-    NRF_TEMP_INT_DATARDY_MASK = TEMP_INTENSET_DATARDY_Msk /**< Interrupt on DATARDY event.  */
+    NRF_TEMP_INT_DATARDY_MASK = TEMP_INTENSET_DATARDY_Msk
 } nrf_temp_int_mask_t;
 
 /**

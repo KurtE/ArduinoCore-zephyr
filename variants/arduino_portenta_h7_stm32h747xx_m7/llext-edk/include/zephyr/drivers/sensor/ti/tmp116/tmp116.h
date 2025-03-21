@@ -21,7 +21,7 @@
 #define TMP116_REG_EEPROM4		0x8
 #define TMP116_REG_DEVICE_ID		0xF
 
-#define TMP116_RESOLUTION		78125       /* in tens of uCelsius*/
+#define TMP116_RESOLUTION		78125
 #define TMP116_RESOLUTION_DIV		10000000
 
 #define TMP116_DEVICE_ID		0x1116

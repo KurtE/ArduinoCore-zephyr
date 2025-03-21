@@ -43,7 +43,7 @@
  * (PLL) that is part of the microcontroller device.
  */
 #ifndef _SYSTEM_RW612_H_
-#define _SYSTEM_RW612_H_                    /**< Symbol preventing repeated inclusion */
+#define _SYSTEM_RW612_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -51,18 +51,18 @@ extern "C" {
 
 #include <stdint.h>
 
-#define CLK_XTAL_OSC_CLK_38400KHZ 38400000u /* XTAL OSC frequency 38.4MHz */
-#define CLK_XTAL_OSC_CLK_40000KHZ 40000000u /* XTAL OSC frequency 40MHz */
+#define CLK_XTAL_OSC_CLK_38400KHZ 38400000u
+#define CLK_XTAL_OSC_CLK_40000KHZ 40000000u
 
 #ifndef CLK_XTAL_OSC_CLK
 #define CLK_XTAL_OSC_CLK \
     (((AON_SOC_CIU->STRAP_RDBK & 0x20U) == 0U) ? CLK_XTAL_OSC_CLK_38400KHZ : CLK_XTAL_OSC_CLK_40000KHZ)
 #endif
-#define CLK_RTC_32K_CLK 32768u /* RTC oscillator 32 kHz (32k_clk) */
+#define CLK_RTC_32K_CLK 32768u
 #ifndef CLK_EXT_CLKIN
-#define CLK_EXT_CLKIN 0u /* Default external CLKIN pin clock */
+#define CLK_EXT_CLKIN 0u
 #endif
-#define DEFAULT_SYSTEM_CLOCK 260000000u /* Default System clock value */
+#define DEFAULT_SYSTEM_CLOCK 260000000u
 
 /**
  * @brief System clock frequency (core clock)

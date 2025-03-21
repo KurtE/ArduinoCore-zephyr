@@ -21,7 +21,7 @@ struct gpio_dw_config {
 	/* gpio_driver_config needs to be first */
 	struct gpio_driver_config common;
 	uint32_t ngpios;
-	uint32_t irq_num; /* set to 0 if GPIO port cannot interrupt */
+	uint32_t irq_num;
 	gpio_config_irq_t config_func;
 };
 

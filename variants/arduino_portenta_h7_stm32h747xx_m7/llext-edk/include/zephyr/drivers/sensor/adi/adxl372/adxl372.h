@@ -31,67 +31,67 @@
 /*
  * ADXL372 registers definition
  */
-#define ADXL372_DEVID		0x00u  /* Analog Devices accelerometer ID */
-#define ADXL372_DEVID_MST	0x01u  /* Analog Devices MEMS device ID */
-#define ADXL372_PARTID		0x02u  /* Device ID */
-#define ADXL372_REVID		0x03u  /* product revision ID*/
-#define ADXL372_STATUS_1	0x04u  /* Status register 1 */
-#define ADXL372_STATUS_2	0x05u  /* Status register 2 */
-#define ADXL372_FIFO_ENTRIES_2	0x06u  /* Valid data samples in the FIFO */
-#define ADXL372_FIFO_ENTRIES_1	0x07u  /* Valid data samples in the FIFO */
-#define ADXL372_X_DATA_H	0x08u  /* X-axis acceleration data [11:4] */
-#define ADXL372_X_DATA_L	0x09u  /* X-axis acceleration data [3:0] */
-#define ADXL372_Y_DATA_H	0x0Au  /* Y-axis acceleration data [11:4] */
-#define ADXL372_Y_DATA_L	0x0Bu  /* Y-axis acceleration data [3:0] */
-#define ADXL372_Z_DATA_H	0x0Cu  /* Z-axis acceleration data [11:4] */
-#define ADXL372_Z_DATA_L	0x0Du  /* Z-axis acceleration data [3:0] */
-#define ADXL372_X_MAXPEAK_H	0x15u  /* X-axis MaxPeak acceleration data */
-#define ADXL372_X_MAXPEAK_L	0x16u  /* X-axis MaxPeak acceleration data */
-#define ADXL372_Y_MAXPEAK_H	0x17u  /* Y-axis MaxPeak acceleration data */
-#define ADXL372_Y_MAXPEAK_L	0x18u  /* Y-axis MaxPeak acceleration data */
-#define ADXL372_Z_MAXPEAK_H	0x19u  /* Z-axis MaxPeak acceleration data */
-#define ADXL372_Z_MAXPEAK_L	0x1Au  /* Z-axis MaxPeak acceleration data */
-#define ADXL372_OFFSET_X	0x20u  /* X axis offset */
-#define ADXL372_OFFSET_Y	0x21u  /* Y axis offset */
-#define ADXL372_OFFSET_Z	0x22u  /* Z axis offset */
-#define ADXL372_X_THRESH_ACT_H	0x23u  /* X axis Activity Threshold [15:8] */
-#define ADXL372_X_THRESH_ACT_L	0x24u  /* X axis Activity Threshold [7:0] */
-#define ADXL372_Y_THRESH_ACT_H	0x25u  /* Y axis Activity Threshold [15:8] */
-#define ADXL372_Y_THRESH_ACT_L	0x26u  /* Y axis Activity Threshold [7:0] */
-#define ADXL372_Z_THRESH_ACT_H	0x27u  /* Z axis Activity Threshold [15:8] */
-#define ADXL372_Z_THRESH_ACT_L	0x28u  /* Z axis Activity Threshold [7:0] */
-#define ADXL372_TIME_ACT	0x29u  /* Activity Time */
-#define ADXL372_X_THRESH_INACT_H	0x2Au  /* X axis Inactivity Threshold */
-#define ADXL372_X_THRESH_INACT_L	0x2Bu  /* X axis Inactivity Threshold */
-#define ADXL372_Y_THRESH_INACT_H	0x2Cu  /* Y axis Inactivity Threshold */
-#define ADXL372_Y_THRESH_INACT_L	0x2Du  /* Y axis Inactivity Threshold */
-#define ADXL372_Z_THRESH_INACT_H	0x2Eu  /* Z axis Inactivity Threshold */
-#define ADXL372_Z_THRESH_INACT_L	0x2Fu  /* Z axis Inactivity Threshold */
-#define ADXL372_TIME_INACT_H	0x30u  /* Inactivity Time [15:8] */
-#define ADXL372_TIME_INACT_L	0x31u  /* Inactivity Time [7:0] */
-#define ADXL372_X_THRESH_ACT2_H	0x32u  /* X axis Activity2 Threshold [15:8] */
-#define ADXL372_X_THRESH_ACT2_L	0x33u  /* X axis Activity2 Threshold [7:0] */
-#define ADXL372_Y_THRESH_ACT2_H	0x34u  /* Y axis Activity2 Threshold [15:8] */
-#define ADXL372_Y_THRESH_ACT2_L	0x35u  /* Y axis Activity2 Threshold [7:0] */
-#define ADXL372_Z_THRESH_ACT2_H	0x36u  /* Z axis Activity2 Threshold [15:8] */
-#define ADXL372_Z_THRESH_ACT2_L	0x37u  /* Z axis Activity2 Threshold [7:0] */
-#define ADXL372_HPF		0x38u  /* High Pass Filter */
-#define ADXL372_FIFO_SAMPLES	0x39u  /* FIFO Samples */
-#define ADXL372_FIFO_CTL	0x3Au  /* FIFO Control */
-#define ADXL372_INT1_MAP	0x3Bu  /* Interrupt 1 mapping control */
-#define ADXL372_INT2_MAP        0x3Cu  /* Interrupt 2 mapping control */
-#define ADXL372_TIMING		0x3Du  /* Timing */
-#define ADXL372_MEASURE		0x3Eu  /* Measure */
-#define ADXL372_POWER_CTL	0x3Fu  /* Power control */
-#define ADXL372_SELF_TEST	0x40u  /* Self Test */
-#define ADXL372_RESET		0x41u  /* Reset */
-#define ADXL372_FIFO_DATA	0x42u  /* FIFO Data */
+#define ADXL372_DEVID		0x00u
+#define ADXL372_DEVID_MST	0x01u
+#define ADXL372_PARTID		0x02u
+#define ADXL372_REVID		0x03u
+#define ADXL372_STATUS_1	0x04u
+#define ADXL372_STATUS_2	0x05u
+#define ADXL372_FIFO_ENTRIES_2	0x06u
+#define ADXL372_FIFO_ENTRIES_1	0x07u
+#define ADXL372_X_DATA_H	0x08u
+#define ADXL372_X_DATA_L	0x09u
+#define ADXL372_Y_DATA_H	0x0Au
+#define ADXL372_Y_DATA_L	0x0Bu
+#define ADXL372_Z_DATA_H	0x0Cu
+#define ADXL372_Z_DATA_L	0x0Du
+#define ADXL372_X_MAXPEAK_H	0x15u
+#define ADXL372_X_MAXPEAK_L	0x16u
+#define ADXL372_Y_MAXPEAK_H	0x17u
+#define ADXL372_Y_MAXPEAK_L	0x18u
+#define ADXL372_Z_MAXPEAK_H	0x19u
+#define ADXL372_Z_MAXPEAK_L	0x1Au
+#define ADXL372_OFFSET_X	0x20u
+#define ADXL372_OFFSET_Y	0x21u
+#define ADXL372_OFFSET_Z	0x22u
+#define ADXL372_X_THRESH_ACT_H	0x23u
+#define ADXL372_X_THRESH_ACT_L	0x24u
+#define ADXL372_Y_THRESH_ACT_H	0x25u
+#define ADXL372_Y_THRESH_ACT_L	0x26u
+#define ADXL372_Z_THRESH_ACT_H	0x27u
+#define ADXL372_Z_THRESH_ACT_L	0x28u
+#define ADXL372_TIME_ACT	0x29u
+#define ADXL372_X_THRESH_INACT_H	0x2Au
+#define ADXL372_X_THRESH_INACT_L	0x2Bu
+#define ADXL372_Y_THRESH_INACT_H	0x2Cu
+#define ADXL372_Y_THRESH_INACT_L	0x2Du
+#define ADXL372_Z_THRESH_INACT_H	0x2Eu
+#define ADXL372_Z_THRESH_INACT_L	0x2Fu
+#define ADXL372_TIME_INACT_H	0x30u
+#define ADXL372_TIME_INACT_L	0x31u
+#define ADXL372_X_THRESH_ACT2_H	0x32u
+#define ADXL372_X_THRESH_ACT2_L	0x33u
+#define ADXL372_Y_THRESH_ACT2_H	0x34u
+#define ADXL372_Y_THRESH_ACT2_L	0x35u
+#define ADXL372_Z_THRESH_ACT2_H	0x36u
+#define ADXL372_Z_THRESH_ACT2_L	0x37u
+#define ADXL372_HPF		0x38u
+#define ADXL372_FIFO_SAMPLES	0x39u
+#define ADXL372_FIFO_CTL	0x3Au
+#define ADXL372_INT1_MAP	0x3Bu
+#define ADXL372_INT2_MAP        0x3Cu
+#define ADXL372_TIMING		0x3Du
+#define ADXL372_MEASURE		0x3Eu
+#define ADXL372_POWER_CTL	0x3Fu
+#define ADXL372_SELF_TEST	0x40u
+#define ADXL372_RESET		0x41u
+#define ADXL372_FIFO_DATA	0x42u
 
-#define ADXL372_DEVID_VAL	0xADu  /* Analog Devices accelerometer ID */
-#define ADXL372_MST_DEVID_VAL	0x1Du  /* Analog Devices MEMS device ID */
-#define ADXL372_PARTID_VAL	0xFAu  /* Device ID */
-#define ADXL372_REVID_VAL	0x02u  /* product revision ID*/
-#define ADXL372_RESET_CODE	0x52u  /* Writing code 0x52 resets the device */
+#define ADXL372_DEVID_VAL	0xADu
+#define ADXL372_MST_DEVID_VAL	0x1Du
+#define ADXL372_PARTID_VAL	0xFAu
+#define ADXL372_REVID_VAL	0x02u
+#define ADXL372_RESET_CODE	0x52u
 
 #define ADXL372_READ		0x01u
 #define ADXL372_REG_READ(x)	(((x & 0xFF) << 1) | ADXL372_READ)

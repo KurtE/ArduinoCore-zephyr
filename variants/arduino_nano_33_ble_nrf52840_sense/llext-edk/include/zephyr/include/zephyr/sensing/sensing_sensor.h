@@ -65,7 +65,7 @@ struct sensing_sensor_register_info {
  * This enumeration defines the various events used by the sensing subsystem.
  */
 enum {
-	EVENT_CONFIG_READY, /**< Configuration is ready. */
+	EVENT_CONFIG_READY,
 };
 
 /**
@@ -74,23 +74,23 @@ enum {
  * This enumeration defines the bit for sensor flag.
  */
 enum {
-	SENSOR_LATER_CFG_BIT, /**< Indicates if there is a configuration request pending. */
+	SENSOR_LATER_CFG_BIT,
 };
 
 /**
  * @brief Connection between a source and sink of sensor data
  */
 struct sensing_connection {
-	sys_snode_t snode;             /**< Node in the singly-linked list of connections. */
-	struct sensing_sensor *source; /**< Source sensor of the connection. */
-	struct sensing_sensor *sink;   /**< Sink sensor of the connection. */
-	uint32_t interval;             /**< Report interval in micro seconds. */
+	sys_snode_t snode;
+	struct sensing_sensor *source;
+	struct sensing_sensor *sink;
+	uint32_t interval;
 	/** Sensitivity of the connection. */
 	int sensitivity[CONFIG_SENSING_MAX_SENSITIVITY_COUNT];
-	void *data;                 /**< Pointer to sensor sample data of the connection. */
+	void *data;
 	/** Next consume time of the connection. Unit is micro seconds. */
 	uint64_t next_consume_time;
-	struct sensing_callback_list *callback_list; /**< Callback list of the connection. */
+	struct sensing_callback_list *callback_list;
 };
 
 /**
@@ -103,22 +103,22 @@ struct sensing_connection {
  * build report relationship model base on them, etc.
  */
 struct sensing_sensor {
-	const struct device *dev;               /**< Device of the sensor instance. */
-	const struct sensing_sensor_info *info; /**< Info of the sensor instance. */
+	const struct device *dev;
+	const struct sensing_sensor_info *info;
 	/** Register info of the sensor instance. */
 	const struct sensing_sensor_register_info *register_info;
-	const uint16_t reporter_num; /**< Reporter number of the sensor instance. */
-	sys_slist_t client_list;     /**< List of the sensor clients. */
-	uint32_t interval;           /**< Report interval of the sensor sample in micro seconds. */
-	uint8_t sensitivity_count;   /**< Sensitivity count of the sensor instance. */
+	const uint16_t reporter_num;
+	sys_slist_t client_list;
+	uint32_t interval;
+	uint8_t sensitivity_count;
 	/** Sensitivity array of the sensor instance. */
 	int sensitivity[CONFIG_SENSING_MAX_SENSITIVITY_COUNT];
-	enum sensing_sensor_state state;  /**< State of the sensor instance. */
-	struct rtio_iodev *iodev;         /**< Pointer to RTIO device of the sensor instance. */
-	struct k_timer timer;             /**< Timer for non streaming mode */
-	struct rtio_sqe *stream_sqe;      /**< Sqe for streaming mode. */
-	atomic_t flag;                    /**< Sensor flag of the sensor instance. */
-	struct sensing_connection *conns; /**< Pointer to sensor connections. */
+	enum sensing_sensor_state state;
+	struct rtio_iodev *iodev;
+	struct k_timer timer;
+	struct rtio_sqe *stream_sqe;
+	atomic_t flag;
+	struct sensing_connection *conns;
 };
 
 /**
@@ -239,9 +239,9 @@ extern struct sensing_sensor SENSING_SENSOR_SOURCE_NAME(idx, node);
  * streaming flag.
  */
 struct sensing_submit_config {
-	enum sensor_channel chan; /**< Channel of the sensor to submit. */
-	const int info_index;     /**< Logical index into the sensor-types array. */
-	const bool is_streaming;  /**< Working in streaming mode or not. */
+	enum sensor_channel chan;
+	const int info_index;
+	const bool is_streaming;
 };
 
 /**

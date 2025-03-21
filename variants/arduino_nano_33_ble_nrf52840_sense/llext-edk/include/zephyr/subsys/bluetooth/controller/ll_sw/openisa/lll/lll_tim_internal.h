@@ -9,7 +9,7 @@
  * "4 / 1000" is an approximation of the propagation time in us of the
  * signal to travel 1 meter.
  */
-#define RANGE_DISTANCE 1000 /* meters */
+#define RANGE_DISTANCE 1000
 #define RANGE_DELAY_US (2 * RANGE_DISTANCE * 4 / 1000)
 
 static inline uint32_t addr_us_get(uint8_t phy)

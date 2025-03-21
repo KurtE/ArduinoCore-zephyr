@@ -65,12 +65,12 @@ enum dai_clock_provider {
  * may use different protocols depending on the scenario.
  */
 enum dai_protocol {
-	DAI_PROTO_I2S = 1, /**< I2S */
-	DAI_PROTO_RIGHT_J, /**< Right Justified */
-	DAI_PROTO_LEFT_J, /**< Left Justified */
-	DAI_PROTO_DSP_A, /**< TDM, FSYNC asserted 1 BCLK early */
-	DAI_PROTO_DSP_B, /**< TDM, FSYNC asserted at the same time as MSB */
-	DAI_PROTO_PDM, /**< Pulse Density Modulation */
+	DAI_PROTO_I2S = 1,
+	DAI_PROTO_RIGHT_J,
+	DAI_PROTO_LEFT_J,
+	DAI_PROTO_DSP_A,
+	DAI_PROTO_DSP_B,
+	DAI_PROTO_PDM,
 };
 
 /** @brief DAI clock inversion
@@ -100,21 +100,22 @@ enum dai_clock_inversion {
  * usually need to pass extra bespoke configuration prior to DAI start.
  */
 enum dai_type {
-	DAI_LEGACY_I2S = 0,	/**< Legacy I2S compatible with i2s.h */
-	DAI_INTEL_SSP,		/**< Intel SSP */
-	DAI_INTEL_DMIC,		/**< Intel DMIC */
-	DAI_INTEL_HDA,		/**< Intel HD/A */
-	DAI_INTEL_ALH,		/**< Intel ALH */
-	DAI_IMX_SAI,		/**< i.MX SAI */
-	DAI_IMX_ESAI,		/**< i.MX ESAI */
-	DAI_AMD_BT,		/**< Amd BT */
-	DAI_AMD_SP,		/**< Amd SP */
-	DAI_AMD_DMIC,		/**< Amd DMIC */
-	DAI_MEDIATEK_AFE,	/**< Mtk AFE */
-	DAI_INTEL_SSP_NHLT,	/**< nhlt ssp */
-	DAI_INTEL_DMIC_NHLT,	/**< nhlt ssp */
-	DAI_INTEL_HDA_NHLT,	/**< nhlt Intel HD/A */
-	DAI_INTEL_ALH_NHLT,	/**< nhlt Intel ALH */
+	DAI_LEGACY_I2S = 0,
+	DAI_INTEL_SSP,
+	DAI_INTEL_DMIC,
+	DAI_INTEL_HDA,
+	DAI_INTEL_ALH,
+	DAI_IMX_SAI,
+	DAI_IMX_ESAI,
+	DAI_AMD_BT,
+	DAI_AMD_SP,
+	DAI_AMD_DMIC,
+	DAI_MEDIATEK_AFE,
+	DAI_INTEL_SSP_NHLT,
+	DAI_INTEL_DMIC_NHLT,
+	DAI_INTEL_HDA_NHLT,
+	DAI_INTEL_ALH_NHLT,
+	DAI_IMX_MICFIL,
 };
 
 /**

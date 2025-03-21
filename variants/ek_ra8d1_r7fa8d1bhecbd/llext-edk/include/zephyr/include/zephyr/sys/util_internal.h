@@ -83,8 +83,8 @@
 	Z_IS_EMPTY__( \
 		Z_HAS_COMMA(__VA_ARGS__), \
 		Z_HAS_COMMA(Z_TRIGGER_PARENTHESIS_ __VA_ARGS__), \
-		Z_HAS_COMMA(__VA_ARGS__ (/*empty*/)), \
-		Z_HAS_COMMA(Z_TRIGGER_PARENTHESIS_ __VA_ARGS__ (/*empty*/)))
+		Z_HAS_COMMA(__VA_ARGS__ ()), \
+		Z_HAS_COMMA(Z_TRIGGER_PARENTHESIS_ __VA_ARGS__ ()))
 #define Z_CAT4(_0, _1, _2, _3) _0 ## _1 ## _2 ## _3
 #define Z_CAT5(_0, _1, _2, _3, _4) _0 ## _1 ## _2 ## _3 ## _4
 #define Z_IS_EMPTY__(_0, _1, _2, _3) \
@@ -137,8 +137,8 @@
 	_61, _62, N, ...) N
 
 /* Used by MACRO_MAP_CAT */
-/* To make sure it works also for 2 arguments in total */
 #define MACRO_MAP_CAT_(...)						\
+	\
 	MACRO_MAP_CAT_N(NUM_VA_ARGS_LESS_1(__VA_ARGS__), __VA_ARGS__)
 #define MACRO_MAP_CAT_N_(N, ...) UTIL_CAT(MACRO_MC_, N)(__VA_ARGS__,)
 #define MACRO_MC_0(...)

@@ -25,7 +25,7 @@
 #include <zephyr/arch/x86/ia32/syscall.h>
 
 #ifndef _ASMLANGUAGE
-#include <stddef.h>	/* for size_t */
+#include <stddef.h>
 
 #include <zephyr/arch/common/addr_types.h>
 #include <zephyr/arch/x86/ia32/segmentation.h>
@@ -199,12 +199,12 @@ typedef struct s_isrList {
 { \
 	__asm__ __volatile__(							\
 		".pushsection .intList\n\t" \
-		".long %c[isr]_irq%c[irq]_stub\n\t"	/* ISR_LIST.fnc */ \
-		".long %c[irq]\n\t"		/* ISR_LIST.irq */ \
-		".long %c[priority]\n\t"	/* ISR_LIST.priority */ \
-		".long %c[vector]\n\t"		/* ISR_LIST.vec */ \
-		".long 0\n\t"			/* ISR_LIST.dpl */ \
-		".long 0\n\t"			/* ISR_LIST.tss */ \
+		".long %c[isr]_irq%c[irq]_stub\n\t" \
+		".long %c[irq]\n\t" \
+		".long %c[priority]\n\t" \
+		".long %c[vector]\n\t" \
+		".long 0\n\t" \
+		".long 0\n\t" \
 		".popsection\n\t" \
 		".pushsection " IRQSTUBS_TEXT_SECTION "\n\t" \
 		".global %c[isr]_irq%c[irq]_stub\n\t" \
@@ -362,7 +362,7 @@ extern struct task_state_segment _main_tss;
 		: \
 		: [vector] "i" (Z_X86_OOPS_VECTOR), \
 		  [reason] "i" (reason_p)); \
-	CODE_UNREACHABLE; /* LCOV_EXCL_LINE */ \
+	CODE_UNREACHABLE; \
 } while (false)
 
 /*

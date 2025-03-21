@@ -81,14 +81,14 @@
  * Transfer function
  */
 #if defined(CONFIG_MPR_TRANSFER_FUNCTION_A)
-#define MPR_OUTPUT_MIN (0x19999A) /* 10% of 2^24 */
-#define MPR_OUTPUT_MAX (0xE66666) /* 90% of 2^24 */
+#define MPR_OUTPUT_MIN (0x19999A)
+#define MPR_OUTPUT_MAX (0xE66666)
 #elif defined(CONFIG_MPR_TRANSFER_FUNCTION_B)
-#define MPR_OUTPUT_MIN (0x66666) /* 2.5% of 2^24 */
-#define MPR_OUTPUT_MAX (0x399999) /* 22.5% of 2^24 */
+#define MPR_OUTPUT_MIN (0x66666)
+#define MPR_OUTPUT_MAX (0x399999)
 #elif defined(CONFIG_MPR_TRANSFER_FUNCTION_C)
-#define MPR_OUTPUT_MIN (0x333333) /* 20% of 2^24 */
-#define MPR_OUTPUT_MAX (0xCCCCCC) /* 80% of 2^24 */
+#define MPR_OUTPUT_MIN (0x333333)
+#define MPR_OUTPUT_MAX (0xCCCCCC)
 #else
 #error "MPR: Unknown pressure reference."
 #endif

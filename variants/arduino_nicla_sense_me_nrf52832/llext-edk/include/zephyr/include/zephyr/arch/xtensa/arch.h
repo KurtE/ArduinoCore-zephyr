@@ -202,7 +202,7 @@ static inline bool arch_mem_coherent(void *ptr)
 #define _SET_ONE_TLB(region) do {				\
 	uint32_t attr = _REGION_ATTR(region);			\
 	if (XCHAL_HAVE_XLT_CACHEATTR) {				\
-		attr |= addr; /* RPO with translation */	\
+		attr |= addr;	\
 	}							\
 	if (region != CONFIG_XTENSA_CACHED_REGION) {		\
 		__asm__ volatile("wdtlb %0, %1; witlb %0, %1"	\

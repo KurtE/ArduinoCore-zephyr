@@ -22,32 +22,32 @@
 
 /* Descriptor Structure */
 struct eth_cyclonev_dma_desc {
-	uint32_t status;		 /*!< Status */
-	uint32_t control_buffer_size;	 /*!< Control and Buffer1, Buffer2 sizes */
-	uint32_t buffer1_addr;		 /*!< Buffer1 address pointer */
-	uint32_t buffer2_next_desc_addr; /*!< Buffer2 or next desc address pointer */
+	uint32_t status;
+	uint32_t control_buffer_size;
+	uint32_t buffer1_addr;
+	uint32_t buffer2_next_desc_addr;
 };
 
 struct eth_cyclonev_priv {
-	mem_addr_t base_addr; /* Base address */
+	mem_addr_t base_addr;
 	uint8_t mac_addr[6];
 	uint32_t interrupt_mask;
-	struct net_if *iface; /* Zephyr net_if Interface Struct (for interface initialisation) */
+	struct net_if *iface;
 	uint32_t tx_current_desc_number;
 	uint32_t rx_current_desc_number;
 	uint32_t tx_tail;
 
-	uint32_t feature; /* HW feature register */
+	uint32_t feature;
 	/* Tx/Rx Descriptor Rings */
 	struct eth_cyclonev_dma_desc tx_desc_ring[NB_TX_DESCS], rx_desc_ring[NB_RX_DESCS];
-	uint32_t rxints;			       /* Tx stats */
-	uint32_t txints;			       /* Rx stats */
-	uint8_t rx_buf[ETH_BUFFER_SIZE * NB_RX_DESCS]; /* Receive Buffer */
-	uint8_t tx_buf[ETH_BUFFER_SIZE * NB_TX_DESCS]; /* Transmit Buffer */
+	uint32_t rxints;
+	uint32_t txints;
+	uint8_t rx_buf[ETH_BUFFER_SIZE * NB_RX_DESCS];
+	uint8_t tx_buf[ETH_BUFFER_SIZE * NB_TX_DESCS];
 
 	struct k_sem free_tx_descs;
-	uint8_t running;     /* Running state flag */
-	uint8_t initialised; /* Initialised state flag */
+	uint8_t running;
+	uint8_t initialised;
 };
 
 /*
@@ -120,15 +120,15 @@ struct eth_cyclonev_priv {
 /* Macros */
 #define EMAC_BASE_ADDRESS DT_INST_REG_ADDR(0)
 
-#define EMAC_DMAGRP_BUS_MODE_ADDR(base)	      (uint32_t)((base) + EMAC_DMA_MODE_OFST) /* Bus Mode */
+#define EMAC_DMAGRP_BUS_MODE_ADDR(base)	      (uint32_t)((base) + EMAC_DMA_MODE_OFST)
 #define EMAC_DMA_RX_DESC_LIST_ADDR(base)      (uint32_t)((base) + EMAC_DMA_RX_DESC_LIST_OFST)
 /* Receive Descriptor Address List */
 #define EMAC_DMA_TX_DESC_LIST_ADDR(base)      (uint32_t)((base) + EMAC_DMA_TX_DESC_LIST_OFST)
 /* Transceive Descriptor Address List */
 #define EMAC_DMAGRP_OPERATION_MODE_ADDR(base) (uint32_t)((base) + EMAC_DMAGRP_OPERATION_MODE_OFST)
 /* Operation Mode */
-#define EMAC_DMAGRP_STATUS_ADDR(base)    (uint32_t)((base) + EMAC_DMAGRP_STATUS_OFST) /* Status */
-#define EMAC_DMAGRP_DEBUG_ADDR(base)     (uint32_t)((base) + EMAC_DMAGRP_DEBUG_OFST) /* Debug */
+#define EMAC_DMAGRP_STATUS_ADDR(base)    (uint32_t)((base) + EMAC_DMAGRP_STATUS_OFST)
+#define EMAC_DMAGRP_DEBUG_ADDR(base)     (uint32_t)((base) + EMAC_DMAGRP_DEBUG_OFST)
 #define EMAC_DMA_INT_EN_ADDR(base)	      (uint32_t)((base) + EMAC_DMA_INT_EN_OFST)
 /* Interrupt Enable */
 #define EMAC_DMAGRP_AXI_BUS_MODE_ADDR(base)   (uint32_t)((base) + EMAC_DMAGRP_AXI_BUS_MODE_OFST)
@@ -195,13 +195,13 @@ struct eth_cyclonev_priv {
 
 /* Operation Mode */
 #define EMAC_DMAGRP_OPERATION_MODE_OFST	       0x1018
-#define EMAC_DMAGRP_OPERATION_MODE_OSF_SET_MSK 0x00000004 /* Operate on Second Frame */
-#define EMAC_DMAGRP_OPERATION_MODE_TSF_SET_MSK 0x00200000 /* Transmit Store and Forward */
-#define EMAC_DMAGRP_OPERATION_MODE_RSF_SET_MSK 0x02000000 /* Receive Store and Forward */
-#define EMAC_DMAGRP_OPERATION_MODE_FTF_SET_MSK 0x00100000 /* Receive Store and Forward */
+#define EMAC_DMAGRP_OPERATION_MODE_OSF_SET_MSK 0x00000004
+#define EMAC_DMAGRP_OPERATION_MODE_TSF_SET_MSK 0x00200000
+#define EMAC_DMAGRP_OPERATION_MODE_RSF_SET_MSK 0x02000000
+#define EMAC_DMAGRP_OPERATION_MODE_FTF_SET_MSK 0x00100000
 #define EMAC_DMAGRP_OPERATION_MODE_ST_SET_MSK  0x00002000
 #define EMAC_DMAGRP_OPERATION_MODE_SR_SET_MSK  0x00000002
-#define EMAC_DMAGRP_OPERATION_MODE_DT_SET_MSK  0x04000000 /* Ignore frame errors */
+#define EMAC_DMAGRP_OPERATION_MODE_DT_SET_MSK  0x04000000
 
 /* Interrupt Enable */
 #define EMAC_DMA_INT_EN_OFST	    0x101C
@@ -244,10 +244,10 @@ struct eth_cyclonev_priv {
 
 #define EMAC_GMACGRP_MAC_CONFIGURATION_OFST	   0x0000
 #define EMAC_GMACGRP_MAC_CONFIGURATION_IPC_SET_MSK 0x00000400
-#define EMAC_GMACGRP_MAC_CONFIGURATION_JD_SET_MSK  0x00400000 /* Jabber Disable */
-#define EMAC_GMACGRP_MAC_CONFIGURATION_PS_SET_MSK  0x00008000 /* Port Select = MII */
-#define EMAC_GMACGRP_MAC_CONFIGURATION_BE_SET_MSK  0x00200000 /* Frame Burst Enable */
-#define EMAC_GMACGRP_MAC_CONFIGURATION_WD_SET_MSK  0x00800000 /* Watchdog Disable */
+#define EMAC_GMACGRP_MAC_CONFIGURATION_JD_SET_MSK  0x00400000
+#define EMAC_GMACGRP_MAC_CONFIGURATION_PS_SET_MSK  0x00008000
+#define EMAC_GMACGRP_MAC_CONFIGURATION_BE_SET_MSK  0x00200000
+#define EMAC_GMACGRP_MAC_CONFIGURATION_WD_SET_MSK  0x00800000
 #define EMAC_GMACGRP_MAC_CONFIGURATION_DO_SET_MSK  0x00002000
 #define EMAC_GMACGRP_MAC_CONFIGURATION_TE_SET_MSK  0x00000008
 #define EMAC_GMACGRP_MAC_CONFIGURATION_RE_SET_MSK  0x00000004
@@ -316,12 +316,12 @@ struct eth_cyclonev_priv {
 
 /* HW Feature */
 #define EMAC_DMA_HW_FEATURE_OFST      0x1058
-#define EMAC_DMA_HW_FEATURE_MIISEL    0x00000001 /* 10/100 Mbps support */
-#define EMAC_DMA_HW_FEATURE_GMIISEL   0x00000002 /* 1000 Mbps support */
-#define EMAC_DMA_HW_FEATURE_HDSEL     0x00000004 /* Half-Duplex support */
-#define EMAC_DMA_HW_FEATURE_RXTYP2COE 0x00040000 /* IP Checksum Offload (Type 2) in Rx */
-#define EMAC_DMA_HW_FEATURE_RXTYP1COE 0x00020000 /* IP Checksum Offload (Type 1) in Rx */
-#define EMAC_DMA_HW_FEATURE_TXOESEL   0x00010000 /* Checksum Offload in Tx */
+#define EMAC_DMA_HW_FEATURE_MIISEL    0x00000001
+#define EMAC_DMA_HW_FEATURE_GMIISEL   0x00000002
+#define EMAC_DMA_HW_FEATURE_HDSEL     0x00000004
+#define EMAC_DMA_HW_FEATURE_RXTYP2COE 0x00040000
+#define EMAC_DMA_HW_FEATURE_RXTYP1COE 0x00020000
+#define EMAC_DMA_HW_FEATURE_TXOESEL   0x00010000
 
 /*
  * DMA Descriptor Flag Definitions
@@ -387,13 +387,13 @@ struct eth_cyclonev_priv {
  */
 
 /*	Bit definition of RDES1 register		  */
-#define ETH_DMARXDESC_DIC  ((uint32_t)0x80000000) /*!< Disable Interrupt on Completion */
-#define ETH_DMARXDESC_RBS2 ((uint32_t)0x1FFF0000) /*!< Receive Buffer2 Size */
-#define ETH_DMARXDESC_RER  ((uint32_t)0x00008000) /*!< Receive End of Ring */
+#define ETH_DMARXDESC_DIC  ((uint32_t)0x80000000)
+#define ETH_DMARXDESC_RBS2 ((uint32_t)0x1FFF0000)
+#define ETH_DMARXDESC_RER  ((uint32_t)0x00008000)
 #define ETH_DMARXDESC_RCH                                                                          \
 	((uint32_t)0x00004000)			  /*!< Second Address Chained                      \
 						   */
-#define ETH_DMARXDESC_RBS1 ((uint32_t)0x00001FFF) /*!< Receive Buffer1 Size */
+#define ETH_DMARXDESC_RBS1 ((uint32_t)0x00001FFF)
 
 /*
  *DMA Tx Descriptor
@@ -482,10 +482,10 @@ struct eth_cyclonev_priv {
 				*/
 
 /*			Bit definition of TDES2 register		  */
-#define ETH_DMATXDESC_B1AP ((uint32_t)0xFFFFFFFF) /*!< Buffer1 Address Pointer */
+#define ETH_DMATXDESC_B1AP ((uint32_t)0xFFFFFFFF)
 
 /*			Bit definition of TDES3 register		  */
-#define ETH_DMATXDESC_B2AP ((uint32_t)0xFFFFFFFF) /*!< Buffer2 Address Pointer */
+#define ETH_DMATXDESC_B2AP ((uint32_t)0xFFFFFFFF)
 
 
 static const uint32_t Rstmgr_Permodrst_Emac_Set_Msk[] = {RSTMGR_PERMODRST_EMAC0_SET_MSK,

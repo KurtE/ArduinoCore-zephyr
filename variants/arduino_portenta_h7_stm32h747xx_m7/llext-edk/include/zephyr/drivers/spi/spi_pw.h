@@ -62,7 +62,7 @@
 #define PW_SPI_BR_5MHZ                  0x13
 #define PW_SPI_BR_10MHZ                 0x9
 #define PW_SPI_BR_20MHZ                 0x5
-#define PW_SPI_BR_MAX_FRQ               20000000	/* 20 MHz */
+#define PW_SPI_BR_MAX_FRQ               20000000
 /* [19:8] 12 bits */
 #define PW_SPI_SCR_MASK                 (BIT_MASK(12) << 8)
 #define PW_SPI_SCR_SHIFT                0x8

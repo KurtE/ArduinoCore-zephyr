@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2022 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -51,8 +51,8 @@ extern "C" {
 /** @brief Structure for TBM configuration. */
 typedef struct
 {
-    uint32_t size;               /**< Buffer size (32 bit words). */
-    uint8_t  interrupt_priority; /**< Interrupt priority. */
+    uint32_t size;
+    uint8_t  interrupt_priority;
 } nrfx_tbm_config_t;
 
 /** @brief tbm default configuration. */

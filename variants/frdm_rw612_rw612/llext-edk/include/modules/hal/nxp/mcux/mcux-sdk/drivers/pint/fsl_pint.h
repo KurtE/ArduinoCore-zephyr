@@ -48,106 +48,106 @@
 /*! @brief PINT Pin Interrupt enable type */
 typedef enum _pint_pin_enable
 {
-    kPINT_PinIntEnableNone      = 0U,                 /*!< Do not generate Pin Interrupt */
-    kPINT_PinIntEnableRiseEdge  = PINT_PIN_RISE_EDGE, /*!< Generate Pin Interrupt on rising edge */
-    kPINT_PinIntEnableFallEdge  = PINT_PIN_FALL_EDGE, /*!< Generate Pin Interrupt on falling edge */
-    kPINT_PinIntEnableBothEdges = PINT_PIN_BOTH_EDGE, /*!< Generate Pin Interrupt on both edges */
-    kPINT_PinIntEnableLowLevel  = PINT_PIN_LOW_LEVEL, /*!< Generate Pin Interrupt on low level */
-    kPINT_PinIntEnableHighLevel = PINT_PIN_HIGH_LEVEL /*!< Generate Pin Interrupt on high level */
+    kPINT_PinIntEnableNone      = 0U,
+    kPINT_PinIntEnableRiseEdge  = PINT_PIN_RISE_EDGE,
+    kPINT_PinIntEnableFallEdge  = PINT_PIN_FALL_EDGE,
+    kPINT_PinIntEnableBothEdges = PINT_PIN_BOTH_EDGE,
+    kPINT_PinIntEnableLowLevel  = PINT_PIN_LOW_LEVEL,
+    kPINT_PinIntEnableHighLevel = PINT_PIN_HIGH_LEVEL
 } pint_pin_enable_t;
 
 /*! @brief PINT Pin Interrupt type */
 typedef enum _pint_int
 {
-    kPINT_PinInt0 = 0U, /*!< Pin Interrupt  0 */
+    kPINT_PinInt0 = 0U,
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 1U)
-    kPINT_PinInt1 = 1U, /*!< Pin Interrupt  1 */
+    kPINT_PinInt1 = 1U,
 #endif
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 2U)
-    kPINT_PinInt2 = 2U, /*!< Pin Interrupt  2 */
+    kPINT_PinInt2 = 2U,
 #endif
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 3U)
-    kPINT_PinInt3 = 3U, /*!< Pin Interrupt  3 */
+    kPINT_PinInt3 = 3U,
 #endif
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 4U)
-    kPINT_PinInt4 = 4U, /*!< Pin Interrupt  4 */
+    kPINT_PinInt4 = 4U,
 #endif
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 5U)
-    kPINT_PinInt5 = 5U, /*!< Pin Interrupt  5 */
+    kPINT_PinInt5 = 5U,
 #endif
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 6U)
-    kPINT_PinInt6 = 6U, /*!< Pin Interrupt  6 */
+    kPINT_PinInt6 = 6U,
 #endif
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 7U)
-    kPINT_PinInt7 = 7U, /*!< Pin Interrupt  7 */
+    kPINT_PinInt7 = 7U,
 #endif
 #if defined(FSL_FEATURE_SECPINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_SECPINT_NUMBER_OF_CONNECTED_OUTPUTS > 0U)
-    kPINT_SecPinInt0 = 0U, /*!< Secure Pin Interrupt  0 */
+    kPINT_SecPinInt0 = 0U,
 #endif
 #if defined(FSL_FEATURE_SECPINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_SECPINT_NUMBER_OF_CONNECTED_OUTPUTS > 1U)
-    kPINT_SecPinInt1 = 1U, /*!< Secure Pin Interrupt  1 */
+    kPINT_SecPinInt1 = 1U,
 #endif
 } pint_pin_int_t;
 
 /*! @brief PINT Pattern Match bit slice input source type */
 typedef enum _pint_pmatch_input_src
 {
-    kPINT_PatternMatchInp0Src    = 0U, /*!< Input source 0 */
-    kPINT_PatternMatchInp1Src    = 1U, /*!< Input source 1 */
-    kPINT_PatternMatchInp2Src    = 2U, /*!< Input source 2 */
-    kPINT_PatternMatchInp3Src    = 3U, /*!< Input source 3 */
-    kPINT_PatternMatchInp4Src    = 4U, /*!< Input source 4 */
-    kPINT_PatternMatchInp5Src    = 5U, /*!< Input source 5 */
-    kPINT_PatternMatchInp6Src    = 6U, /*!< Input source 6 */
-    kPINT_PatternMatchInp7Src    = 7U, /*!< Input source 7 */
-    kPINT_SecPatternMatchInp0Src = 0U, /*!< Input source 0 */
-    kPINT_SecPatternMatchInp1Src = 1U, /*!< Input source 1 */
+    kPINT_PatternMatchInp0Src    = 0U,
+    kPINT_PatternMatchInp1Src    = 1U,
+    kPINT_PatternMatchInp2Src    = 2U,
+    kPINT_PatternMatchInp3Src    = 3U,
+    kPINT_PatternMatchInp4Src    = 4U,
+    kPINT_PatternMatchInp5Src    = 5U,
+    kPINT_PatternMatchInp6Src    = 6U,
+    kPINT_PatternMatchInp7Src    = 7U,
+    kPINT_SecPatternMatchInp0Src = 0U,
+    kPINT_SecPatternMatchInp1Src = 1U,
 } pint_pmatch_input_src_t;
 
 /*! @brief PINT Pattern Match bit slice type */
 typedef enum _pint_pmatch_bslice
 {
-    kPINT_PatternMatchBSlice0 = 0U, /*!< Bit slice 0 */
+    kPINT_PatternMatchBSlice0 = 0U,
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 1U)
-    kPINT_PatternMatchBSlice1 = 1U, /*!< Bit slice 1 */
+    kPINT_PatternMatchBSlice1 = 1U,
 #endif
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 2U)
-    kPINT_PatternMatchBSlice2 = 2U, /*!< Bit slice 2 */
+    kPINT_PatternMatchBSlice2 = 2U,
 #endif
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 3U)
-    kPINT_PatternMatchBSlice3 = 3U, /*!< Bit slice 3 */
+    kPINT_PatternMatchBSlice3 = 3U,
 #endif
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 4U)
-    kPINT_PatternMatchBSlice4 = 4U, /*!< Bit slice 4 */
+    kPINT_PatternMatchBSlice4 = 4U,
 #endif
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 5U)
-    kPINT_PatternMatchBSlice5 = 5U, /*!< Bit slice 5 */
+    kPINT_PatternMatchBSlice5 = 5U,
 #endif
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 6U)
-    kPINT_PatternMatchBSlice6 = 6U, /*!< Bit slice 6 */
+    kPINT_PatternMatchBSlice6 = 6U,
 #endif
 #if defined(FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_PINT_NUMBER_OF_CONNECTED_OUTPUTS > 7U)
-    kPINT_PatternMatchBSlice7 = 7U, /*!< Bit slice 7 */
+    kPINT_PatternMatchBSlice7 = 7U,
 #endif
 #if defined(FSL_FEATURE_SECPINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_SECPINT_NUMBER_OF_CONNECTED_OUTPUTS > 0U)
-    kPINT_SecPatternMatchBSlice0 = 0U, /*!< Bit slice 0 */
+    kPINT_SecPatternMatchBSlice0 = 0U,
 #endif
 #if defined(FSL_FEATURE_SECPINT_NUMBER_OF_CONNECTED_OUTPUTS) && (FSL_FEATURE_SECPINT_NUMBER_OF_CONNECTED_OUTPUTS > 1U)
-    kPINT_SecPatternMatchBSlice1 = 1U, /*!< Bit slice 1 */
+    kPINT_SecPatternMatchBSlice1 = 1U,
 #endif
 } pint_pmatch_bslice_t;
 
 /*! @brief PINT Pattern Match configuration type */
 typedef enum _pint_pmatch_bslice_cfg
 {
-    kPINT_PatternMatchAlways          = 0U, /*!< Always Contributes to product term match */
-    kPINT_PatternMatchStickyRise      = 1U, /*!< Sticky Rising edge */
-    kPINT_PatternMatchStickyFall      = 2U, /*!< Sticky Falling edge */
-    kPINT_PatternMatchStickyBothEdges = 3U, /*!< Sticky Rising or Falling edge */
-    kPINT_PatternMatchHigh            = 4U, /*!< High level */
-    kPINT_PatternMatchLow             = 5U, /*!< Low level */
-    kPINT_PatternMatchNever           = 6U, /*!< Never contributes to product term match */
-    kPINT_PatternMatchBothEdges       = 7U, /*!< Either rising or falling edge */
+    kPINT_PatternMatchAlways          = 0U,
+    kPINT_PatternMatchStickyRise      = 1U,
+    kPINT_PatternMatchStickyFall      = 2U,
+    kPINT_PatternMatchStickyBothEdges = 3U,
+    kPINT_PatternMatchHigh            = 4U,
+    kPINT_PatternMatchLow             = 5U,
+    kPINT_PatternMatchNever           = 6U,
+    kPINT_PatternMatchBothEdges       = 7U,
 } pint_pmatch_bslice_cfg_t;
 
 /*! @brief PINT Callback function. */

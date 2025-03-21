@@ -61,10 +61,10 @@ struct bt_mesh_blob_target {
 	/** BLOB transfer status, see @ref bt_mesh_blob_status. */
 	uint8_t status;
 
-	uint8_t procedure_complete:1, /* Procedure has been completed. */
-		acked:1,              /* Message has been acknowledged. Not used when sending. */
-		timedout:1,           /* Target node didn't respond after specified timeout. */
-		skip:1;               /* Skip Target node from broadcast. */
+	uint8_t procedure_complete:1,
+		acked:1,
+		timedout:1,
+		skip:1;
 };
 
 /** BLOB transfer information.

@@ -93,10 +93,10 @@ struct bt_mesh_friend {
 
 	/* Friend Clear Procedure */
 	struct {
-		uint32_t start;                  /* Clear Procedure start */
-		uint16_t frnd;                   /* Previous Friend's address */
-		uint16_t repeat_sec;             /* Repeat timeout in seconds */
-		struct k_work_delayable timer;   /* Repeat timer */
+		uint32_t start;
+		uint16_t frnd;
+		uint16_t repeat_sec;
+		struct k_work_delayable timer;
 	} clear;
 };
 
@@ -109,15 +109,15 @@ struct bt_mesh_friend {
 /* Low Power Node state */
 struct bt_mesh_lpn {
 	enum __packed {
-		BT_MESH_LPN_DISABLED,     /* LPN feature is disabled */
-		BT_MESH_LPN_CLEAR,        /* Clear in progress */
-		BT_MESH_LPN_TIMER,        /* Waiting for auto timer expiry */
-		BT_MESH_LPN_ENABLED,      /* LPN enabled, but no Friend */
-		BT_MESH_LPN_REQ_WAIT,     /* Wait before scanning for offers */
-		BT_MESH_LPN_WAIT_OFFER,   /* Friend Req sent */
-		BT_MESH_LPN_ESTABLISHED,  /* Friendship established */
-		BT_MESH_LPN_RECV_DELAY,   /* Poll sent, waiting ReceiveDelay */
-		BT_MESH_LPN_WAIT_UPDATE,  /* Waiting for Update or message */
+		BT_MESH_LPN_DISABLED,
+		BT_MESH_LPN_CLEAR,
+		BT_MESH_LPN_TIMER,
+		BT_MESH_LPN_ENABLED,
+		BT_MESH_LPN_REQ_WAIT,
+		BT_MESH_LPN_WAIT_OFFER,
+		BT_MESH_LPN_ESTABLISHED,
+		BT_MESH_LPN_RECV_DELAY,
+		BT_MESH_LPN_WAIT_UPDATE,
 	} state;
 
 	/* Transaction Number (used for subscription list) */
@@ -133,16 +133,16 @@ struct bt_mesh_lpn {
 	/* Value from the friend offer */
 	uint8_t  recv_win;
 
-	uint8_t  req_attempts;     /* Number of Request attempts */
+	uint8_t  req_attempts;
 
 	int32_t poll_timeout;
 
-	uint8_t  groups_changed:1, /* Friend Subscription List needs updating */
-	      pending_poll:1,   /* Poll to be sent after subscription */
-	      disable:1,        /* Disable LPN after clearing */
-	      fsn:1,            /* Friend Sequence Number */
-	      established:1,    /* Friendship established */
-	      clear_success:1;  /* Friend Clear Confirm received */
+	uint8_t  groups_changed:1,
+	      pending_poll:1,
+	      disable:1,
+	      fsn:1,
+	      established:1,
+	      clear_success:1;
 
 	/* Friend Queue Size */
 	uint8_t  queue_size;
@@ -180,16 +180,16 @@ struct bt_mesh_lpn {
 
 /* bt_mesh_net.flags */
 enum {
-	BT_MESH_INIT,            /* We have been initialized */
-	BT_MESH_VALID,           /* We have been provisioned */
-	BT_MESH_SUSPENDED,       /* Network is temporarily suspended */
-	BT_MESH_IVU_IN_PROGRESS, /* IV Update in Progress */
-	BT_MESH_IVU_INITIATOR,   /* IV Update initiated by us */
-	BT_MESH_IVU_TEST,        /* IV Update test mode */
-	BT_MESH_IVU_PENDING,     /* Update blocked by SDU in progress */
-	BT_MESH_COMP_DIRTY,      /* Composition data is dirty */
-	BT_MESH_DEVKEY_CAND,     /* Has device key candidate */
-	BT_MESH_METADATA_DIRTY,  /* Models metadata is dirty */
+	BT_MESH_INIT,
+	BT_MESH_VALID,
+	BT_MESH_SUSPENDED,
+	BT_MESH_IVU_IN_PROGRESS,
+	BT_MESH_IVU_INITIATOR,
+	BT_MESH_IVU_TEST,
+	BT_MESH_IVU_PENDING,
+	BT_MESH_COMP_DIRTY,
+	BT_MESH_DEVKEY_CAND,
+	BT_MESH_METADATA_DIRTY,
 
 	/* Feature flags */
 	BT_MESH_RELAY,
@@ -205,8 +205,8 @@ enum {
 };
 
 struct bt_mesh_net {
-	uint32_t iv_index; /* Current IV Index */
-	uint32_t seq;      /* Next outgoing sequence number (24 bits) */
+	uint32_t iv_index;
+	uint32_t seq;
 
 	ATOMIC_DEFINE(flags, BT_MESH_FLAG_COUNT);
 
@@ -220,7 +220,7 @@ struct bt_mesh_net {
 #endif
 
 #if defined(CONFIG_BT_MESH_LOW_POWER)
-	struct bt_mesh_lpn lpn;  /* Low Power Node state */
+	struct bt_mesh_lpn lpn;
 #endif
 
 	/* Number of hours in current IV Update state */
@@ -245,8 +245,8 @@ struct bt_mesh_net {
 #if defined(CONFIG_BT_MESH_OD_PRIV_PROXY_SRV)
 	uint8_t on_demand_state;
 #endif
-	struct bt_mesh_sar_tx sar_tx; /* Transport SAR Transmitter configuration */
-	struct bt_mesh_sar_rx sar_rx; /* Transport SAR Receiver configuration */
+	struct bt_mesh_sar_tx sar_tx;
+	struct bt_mesh_sar_rx sar_rx;
 };
 
 /* Network interface */
@@ -261,14 +261,14 @@ enum bt_mesh_net_if {
 struct bt_mesh_net_rx {
 	struct bt_mesh_subnet *sub;
 	struct bt_mesh_msg_ctx ctx;
-	uint32_t  seq;            /* Sequence Number */
-	uint8_t   old_iv:1,       /* iv_index - 1 was used */
-	       new_key:1,      /* Data was encrypted with updated key */
-	       friend_cred:1,  /* Data was encrypted with friend cred */
-	       ctl:1,          /* Network Control */
-	       net_if:2,       /* Network interface */
-	       local_match:1,  /* Matched a local element */
-	       friend_match:1; /* Matched an LPN we're friends for */
+	uint32_t  seq;
+	uint8_t   old_iv:1,
+	       new_key:1,
+	       friend_cred:1,
+	       ctl:1,
+	       net_if:2,
+	       local_match:1,
+	       friend_match:1;
 };
 
 /* Encoding context for Network/Transport data */

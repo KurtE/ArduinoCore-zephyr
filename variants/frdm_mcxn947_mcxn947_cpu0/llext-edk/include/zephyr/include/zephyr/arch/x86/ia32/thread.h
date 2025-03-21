@@ -91,7 +91,7 @@ typedef struct _callee_saved _callee_saved_t;
 /* definition of a single x87 (floating point / MMX) register */
 
 typedef struct s_FpReg {
-	unsigned char reg[10]; /* 80 bits: ST[0-7] */
+	unsigned char reg[10];
 } tFpReg;
 
 /*
@@ -103,21 +103,21 @@ typedef struct s_FpReg {
  * Memory, 32-Bit Format.
  */
 
-typedef struct s_FpRegSet {  /* # of bytes: name of register */
-	unsigned short fcw;      /* 2  : x87 FPU control word */
-	unsigned short pad1;     /* 2  : N/A */
-	unsigned short fsw;      /* 2  : x87 FPU status word */
-	unsigned short pad2;     /* 2  : N/A */
-	unsigned short ftw;      /* 2  : x87 FPU tag word */
-	unsigned short pad3;     /* 2  : N/A */
-	unsigned int fpuip;      /* 4  : x87 FPU instruction pointer offset */
-	unsigned short cs;       /* 2  : x87 FPU instruction pointer selector */
-	unsigned short fop : 11; /* 2  : x87 FPU opcode */
-	unsigned short pad4 : 5; /*    : 5 bits = 00000 */
-	unsigned int fpudp;      /* 4  : x87 FPU instr operand ptr offset */
-	unsigned short ds;       /* 2  : x87 FPU instr operand ptr selector */
-	unsigned short pad5;     /* 2  : N/A */
-	tFpReg fpReg[8];	 /* 80 : ST0 -> ST7 */
+typedef struct s_FpRegSet {
+	unsigned short fcw;
+	unsigned short pad1;
+	unsigned short fsw;
+	unsigned short pad2;
+	unsigned short ftw;
+	unsigned short pad3;
+	unsigned int fpuip;
+	unsigned short cs;
+	unsigned short fop : 11;
+	unsigned short pad4 : 5;
+	unsigned int fpudp;
+	unsigned short ds;
+	unsigned short pad5;
+	tFpReg fpReg[8];
 } tFpRegSet __aligned(FP_REG_SET_ALIGN);
 
 #ifdef CONFIG_X86_SSE
@@ -125,14 +125,14 @@ typedef struct s_FpRegSet {  /* # of bytes: name of register */
 /* definition of a single x87 (floating point / MMX) register */
 
 typedef struct s_FpRegEx {
-	unsigned char reg[10];  /* 80 bits: ST[0-7] or MM[0-7] */
-	unsigned char rsrvd[6]; /* 48 bits: reserved */
+	unsigned char reg[10];
+	unsigned char rsrvd[6];
 } tFpRegEx;
 
 /* definition of a single XMM register */
 
 typedef struct s_XmmReg {
-	unsigned char reg[16]; /* 128 bits: XMM[0-7] */
+	unsigned char reg[16];
 } tXmmReg;
 
 /*
@@ -148,24 +148,24 @@ typedef struct s_XmmReg {
  * fxsave/fxrstor are used to write/read the data to/from the structure.
  */
 
-typedef struct s_FpRegSetEx /* # of bytes: name of register */
+typedef struct s_FpRegSetEx
 {
-	unsigned short fcw;     /* 2  : x87 FPU control word */
-	unsigned short fsw;     /* 2  : x87 FPU status word */
-	unsigned char ftw;      /* 1  : x87 FPU abridged tag word */
-	unsigned char rsrvd0;   /* 1  : reserved */
-	unsigned short fop;     /* 2  : x87 FPU opcode */
-	unsigned int fpuip;     /* 4  : x87 FPU instruction pointer offset */
-	unsigned short cs;      /* 2  : x87 FPU instruction pointer selector */
-	unsigned short rsrvd1;  /* 2  : reserved */
-	unsigned int fpudp;     /* 4  : x87 FPU instr operand ptr offset */
-	unsigned short ds;      /* 2  : x87 FPU instr operand ptr selector */
-	unsigned short rsrvd2;  /* 2  : reserved */
-	unsigned int mxcsr;     /* 4  : MXCSR register state */
-	unsigned int mxcsrMask; /* 4  : MXCSR register mask */
-	tFpRegEx fpReg[8];      /* 128 : x87 FPU/MMX registers */
-	tXmmReg xmmReg[8];      /* 128 : XMM registers */
-	unsigned char rsrvd3[176]; /* 176 : reserved */
+	unsigned short fcw;
+	unsigned short fsw;
+	unsigned char ftw;
+	unsigned char rsrvd0;
+	unsigned short fop;
+	unsigned int fpuip;
+	unsigned short cs;
+	unsigned short rsrvd1;
+	unsigned int fpudp;
+	unsigned short ds;
+	unsigned short rsrvd2;
+	unsigned int mxcsr;
+	unsigned int mxcsrMask;
+	tFpRegEx fpReg[8];
+	tXmmReg xmmReg[8];
+	unsigned char rsrvd3[176];
 } tFpRegSetEx __aligned(FP_REG_SET_ALIGN);
 
 #else /* CONFIG_X86_SSE == 0 */
@@ -232,10 +232,10 @@ struct _thread_arch {
 	 * outermost exception.  EXC_ACTIVE is used by z_swap() lazy FP
 	 * save/restore and by debug tools.
 	 */
-	unsigned excNestCount; /* nested exception count */
+	unsigned excNestCount;
 #endif /* CONFIG_LAZY_FPU_SHARING */
 
-	tPreempFloatReg preempFloatReg; /* volatile float register storage */
+	tPreempFloatReg preempFloatReg;
 };
 
 typedef struct _thread_arch _thread_arch_t;

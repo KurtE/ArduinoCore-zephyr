@@ -1,7 +1,7 @@
 -DKERNEL
 -D__ZEPHYR__=1
 -D__LINUX_ERRNO_EXTENSIONS__
--DPICOLIBC_LONG_LONG_PRINTF_SCANF
+-DPICOLIBC_DOUBLE_PRINTF_SCANF
 -DLPFLEXCOMM_INIT_NOT_USED_IN_DRIVER=1
 -D__PROGRAM_START
 -DCPU_MCXN947VDF_cm33_core0
@@ -11,9 +11,7 @@
 -fno-strict-aliasing
 -fstack-protector
 -mstack-protector-guard=global
--fno-printf-return-value
 -fno-common
--fdiagnostics-color=always
 -mcpu=cortex-m33
 -mthumb
 -mabi=aapcs

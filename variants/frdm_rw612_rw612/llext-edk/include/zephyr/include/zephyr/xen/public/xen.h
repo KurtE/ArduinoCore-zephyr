@@ -58,7 +58,7 @@ DEFINE_XEN_GUEST_HANDLE(xen_ulong_t);
 #elif defined(__GNUC__)
 #define XEN_FLEX_ARRAY_DIM 0
 #else
-#define XEN_FLEX_ARRAY_DIM 1 /* variable size */
+#define XEN_FLEX_ARRAY_DIM 1
 #endif
 
 /* Turn a plain number into a C unsigned (long (long)) constant. */
@@ -237,8 +237,8 @@ struct vcpu_time_info {
 	 */
 	uint32_t	version;
 	uint32_t	pad0;
-	uint64_t	tsc_timestamp;	/* TSC at last update of time vals. */
-	uint64_t	system_time;	/* Time, in nanosecs, since boot.*/
+	uint64_t	tsc_timestamp;
+	uint64_t	system_time;
 	/*
 	 * Current system time:
 	 *   system_time +
@@ -254,7 +254,7 @@ struct vcpu_time_info {
 #else
 	int8_t		pad1[3];
 #endif
-}; /* 32 bytes */
+};
 typedef struct vcpu_time_info vcpu_time_info_t;
 
 #define XEN_PVCLOCK_TSC_STABLE_BIT	(1 << 0)
@@ -295,7 +295,7 @@ struct vcpu_info {
 	xen_ulong_t evtchn_pending_sel;
 	struct arch_vcpu_info arch;
 	vcpu_time_info_t time;
-}; /* 64 bytes (x86) */
+};
 #ifndef __XEN__
 typedef struct vcpu_info vcpu_info_t;
 #endif
@@ -355,7 +355,7 @@ struct shared_info {
 	 * by XEN_DOMCTL_settimeoffset, or adjusted via a guest write to the
 	 * emulated RTC.
 	 */
-	uint32_t wc_version;	/* Version counter: see vcpu_time_info_t. */
+	uint32_t wc_version;
 	uint32_t wc_sec;
 	uint32_t wc_nsec;
 #if !defined(__i386__)

@@ -69,14 +69,14 @@ typedef struct __WWDG_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_WWDG_REGISTER_CALLBACKS */
 {
-  WWDG_TypeDef      *Instance;  /*!< Register base address */
+  WWDG_TypeDef      *Instance;
 
-  WWDG_InitTypeDef  Init;       /*!< WWDG required parameters */
+  WWDG_InitTypeDef  Init;
 
 #if (USE_HAL_WWDG_REGISTER_CALLBACKS == 1)
-  void (* EwiCallback)(struct __WWDG_HandleTypeDef *hwwdg);                  /*!< WWDG Early WakeUp Interrupt callback */
+  void (* EwiCallback)(struct __WWDG_HandleTypeDef *hwwdg);
 
-  void (* MspInitCallback)(struct __WWDG_HandleTypeDef *hwwdg);              /*!< WWDG Msp Init callback */
+  void (* MspInitCallback)(struct __WWDG_HandleTypeDef *hwwdg);
 #endif /* USE_HAL_WWDG_REGISTER_CALLBACKS */
 } WWDG_HandleTypeDef;
 
@@ -86,14 +86,14 @@ typedef struct
   */
 typedef enum
 {
-  HAL_WWDG_EWI_CB_ID          = 0x00U,    /*!< WWDG EWI callback ID */
-  HAL_WWDG_MSPINIT_CB_ID      = 0x01U,    /*!< WWDG MspInit callback ID */
+  HAL_WWDG_EWI_CB_ID          = 0x00U,
+  HAL_WWDG_MSPINIT_CB_ID      = 0x01U,
 } HAL_WWDG_CallbackIDTypeDef;
 
 /**
   * @brief  HAL WWDG Callback pointer definition
   */
-typedef void (*pWWDG_CallbackTypeDef)(WWDG_HandleTypeDef *hppp);  /*!< pointer to a WWDG common callback functions */
+typedef void (*pWWDG_CallbackTypeDef)(WWDG_HandleTypeDef *hppp);
 
 #endif /* USE_HAL_WWDG_REGISTER_CALLBACKS */
 /**
@@ -109,7 +109,7 @@ typedef void (*pWWDG_CallbackTypeDef)(WWDG_HandleTypeDef *hppp);  /*!< pointer t
 /** @defgroup WWDG_Interrupt_definition WWDG Interrupt definition
   * @{
   */
-#define WWDG_IT_EWI                         WWDG_CFR_EWI  /*!< Early wakeup interrupt */
+#define WWDG_IT_EWI                         WWDG_CFR_EWI
 /**
   * @}
   */
@@ -118,7 +118,7 @@ typedef void (*pWWDG_CallbackTypeDef)(WWDG_HandleTypeDef *hppp);  /*!< pointer t
   * @brief WWDG Flag definition
   * @{
   */
-#define WWDG_FLAG_EWIF                      WWDG_SR_EWIF  /*!< Early wakeup interrupt flag */
+#define WWDG_FLAG_EWIF                      WWDG_SR_EWIF
 /**
   * @}
   */
@@ -126,14 +126,14 @@ typedef void (*pWWDG_CallbackTypeDef)(WWDG_HandleTypeDef *hppp);  /*!< pointer t
 /** @defgroup WWDG_Prescaler WWDG Prescaler
   * @{
   */
-#define WWDG_PRESCALER_1                    0x00000000u                              /*!< WWDG counter clock = (PCLK1/4096)/1 */
-#define WWDG_PRESCALER_2                    WWDG_CFR_WDGTB_0                         /*!< WWDG counter clock = (PCLK1/4096)/2 */
-#define WWDG_PRESCALER_4                    WWDG_CFR_WDGTB_1                         /*!< WWDG counter clock = (PCLK1/4096)/4 */
-#define WWDG_PRESCALER_8                    (WWDG_CFR_WDGTB_1 | WWDG_CFR_WDGTB_0)    /*!< WWDG counter clock = (PCLK1/4096)/8 */
-#define WWDG_PRESCALER_16                   WWDG_CFR_WDGTB_2                         /*!< WWDG counter clock = (PCLK1/4096)/16 */
-#define WWDG_PRESCALER_32                   (WWDG_CFR_WDGTB_2 | WWDG_CFR_WDGTB_0)    /*!< WWDG counter clock = (PCLK1/4096)/32 */
-#define WWDG_PRESCALER_64                   (WWDG_CFR_WDGTB_2 | WWDG_CFR_WDGTB_1)    /*!< WWDG counter clock = (PCLK1/4096)/64 */
-#define WWDG_PRESCALER_128                  WWDG_CFR_WDGTB                           /*!< WWDG counter clock = (PCLK1/4096)/128 */
+#define WWDG_PRESCALER_1                    0x00000000u
+#define WWDG_PRESCALER_2                    WWDG_CFR_WDGTB_0
+#define WWDG_PRESCALER_4                    WWDG_CFR_WDGTB_1
+#define WWDG_PRESCALER_8                    (WWDG_CFR_WDGTB_1 | WWDG_CFR_WDGTB_0)
+#define WWDG_PRESCALER_16                   WWDG_CFR_WDGTB_2
+#define WWDG_PRESCALER_32                   (WWDG_CFR_WDGTB_2 | WWDG_CFR_WDGTB_0)
+#define WWDG_PRESCALER_64                   (WWDG_CFR_WDGTB_2 | WWDG_CFR_WDGTB_1)
+#define WWDG_PRESCALER_128                  WWDG_CFR_WDGTB
 /**
   * @}
   */
@@ -141,8 +141,8 @@ typedef void (*pWWDG_CallbackTypeDef)(WWDG_HandleTypeDef *hppp);  /*!< pointer t
 /** @defgroup WWDG_EWI_Mode WWDG Early Wakeup Interrupt Mode
   * @{
   */
-#define WWDG_EWI_DISABLE                    0x00000000u       /*!< EWI Disable */
-#define WWDG_EWI_ENABLE                     WWDG_CFR_EWI      /*!< EWI Enable */
+#define WWDG_EWI_DISABLE                    0x00000000u
+#define WWDG_EWI_ENABLE                     WWDG_CFR_EWI
 /**
   * @}
   */

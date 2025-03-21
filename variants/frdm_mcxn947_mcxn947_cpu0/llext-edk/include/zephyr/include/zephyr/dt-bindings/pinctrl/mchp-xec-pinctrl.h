@@ -36,10 +36,10 @@
 #define MCHP_XEC_SLEW_RATE_FAST0	0x2
 #define MCHP_XEC_DRV_STR_POS		24
 #define MCHP_XEC_DRV_STR_MSK0		0x7
-#define MCHP_XEC_DRV_STR0_1X		0x1 /* 2 or 4(PIO-24) mA */
-#define MCHP_XEC_DRV_STR0_2X		0x2 /* 4 or 8(PIO-24) mA */
-#define MCHP_XEC_DRV_STR0_4X		0x3 /* 8 or 16(PIO-24) mA */
-#define MCHP_XEC_DRV_STR0_6X		0x4 /* 12 or 24(PIO-24) mA */
+#define MCHP_XEC_DRV_STR0_1X		0x1
+#define MCHP_XEC_DRV_STR0_2X		0x2
+#define MCHP_XEC_DRV_STR0_4X		0x3
+#define MCHP_XEC_DRV_STR0_6X		0x4
 #define MCHP_XEC_PIN_LOW_POWER_POS	27
 #define MCHP_XEC_FUNC_INV_POS		29
 

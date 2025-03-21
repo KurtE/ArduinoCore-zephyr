@@ -45,11 +45,11 @@ extern "C" {
   */
 typedef enum
 {
-  HAL_CRC_STATE_RESET     = 0x00U,  /*!< CRC not yet initialized or disabled */
-  HAL_CRC_STATE_READY     = 0x01U,  /*!< CRC initialized and ready for use   */
-  HAL_CRC_STATE_BUSY      = 0x02U,  /*!< CRC internal process is ongoing     */
-  HAL_CRC_STATE_TIMEOUT   = 0x03U,  /*!< CRC timeout state                   */
-  HAL_CRC_STATE_ERROR     = 0x04U   /*!< CRC error state                     */
+  HAL_CRC_STATE_RESET     = 0x00U,
+  HAL_CRC_STATE_READY     = 0x01U,
+  HAL_CRC_STATE_BUSY      = 0x02U,
+  HAL_CRC_STATE_TIMEOUT   = 0x03U,
+  HAL_CRC_STATE_ERROR     = 0x04U
 } HAL_CRC_StateTypeDef;
 
 /**
@@ -108,13 +108,13 @@ typedef struct
   */
 typedef struct
 {
-  CRC_TypeDef                 *Instance;   /*!< Register base address        */
+  CRC_TypeDef                 *Instance;
 
-  CRC_InitTypeDef             Init;        /*!< CRC configuration parameters */
+  CRC_InitTypeDef             Init;
 
-  HAL_LockTypeDef             Lock;        /*!< CRC Locking object           */
+  HAL_LockTypeDef             Lock;
 
-  __IO HAL_CRC_StateTypeDef   State;       /*!< CRC communication state      */
+  __IO HAL_CRC_StateTypeDef   State;
 
   uint32_t InputDataFormat;                /*!< This parameter is a value of @ref CRC_Input_Buffer_Format and specifies input data format.
                                             Can be either
@@ -141,7 +141,7 @@ typedef struct
 /** @defgroup CRC_Default_Polynomial_Value    Default CRC generating polynomial
   * @{
   */
-#define DEFAULT_CRC32_POLY      0x04C11DB7U  /*!<  X^32 + X^26 + X^23 + X^22 + X^16 + X^12 + X^11 + X^10 +X^8 + X^7 + X^5 + X^4 + X^2+ X +1 */
+#define DEFAULT_CRC32_POLY      0x04C11DB7U
 /**
   * @}
   */
@@ -149,7 +149,7 @@ typedef struct
 /** @defgroup CRC_Default_InitValue    Default CRC computation initialization value
   * @{
   */
-#define DEFAULT_CRC_INITVALUE   0xFFFFFFFFU  /*!< Initial CRC default value */
+#define DEFAULT_CRC_INITVALUE   0xFFFFFFFFU
 /**
   * @}
   */
@@ -157,8 +157,8 @@ typedef struct
 /** @defgroup CRC_Default_Polynomial    Indicates whether or not default polynomial is used
   * @{
   */
-#define DEFAULT_POLYNOMIAL_ENABLE       ((uint8_t)0x00U)  /*!< Enable default generating polynomial 0x04C11DB7  */
-#define DEFAULT_POLYNOMIAL_DISABLE      ((uint8_t)0x01U)  /*!< Disable default generating polynomial 0x04C11DB7 */
+#define DEFAULT_POLYNOMIAL_ENABLE       ((uint8_t)0x00U)
+#define DEFAULT_POLYNOMIAL_DISABLE      ((uint8_t)0x01U)
 /**
   * @}
   */
@@ -166,8 +166,8 @@ typedef struct
 /** @defgroup CRC_Default_InitValue_Use    Indicates whether or not default init value is used
   * @{
   */
-#define DEFAULT_INIT_VALUE_ENABLE      ((uint8_t)0x00U) /*!< Enable initial CRC default value  */
-#define DEFAULT_INIT_VALUE_DISABLE     ((uint8_t)0x01U) /*!< Disable initial CRC default value */
+#define DEFAULT_INIT_VALUE_ENABLE      ((uint8_t)0x00U)
+#define DEFAULT_INIT_VALUE_DISABLE     ((uint8_t)0x01U)
 /**
   * @}
   */
@@ -175,10 +175,10 @@ typedef struct
 /** @defgroup CRC_Polynomial_Sizes Polynomial sizes to configure the peripheral
   * @{
   */
-#define CRC_POLYLENGTH_32B                  0x00000000U        /*!< Resort to a 32-bit long generating polynomial */
-#define CRC_POLYLENGTH_16B                  CRC_CR_POLYSIZE_0  /*!< Resort to a 16-bit long generating polynomial */
-#define CRC_POLYLENGTH_8B                   CRC_CR_POLYSIZE_1  /*!< Resort to a 8-bit long generating polynomial  */
-#define CRC_POLYLENGTH_7B                   CRC_CR_POLYSIZE    /*!< Resort to a 7-bit long generating polynomial  */
+#define CRC_POLYLENGTH_32B                  0x00000000U
+#define CRC_POLYLENGTH_16B                  CRC_CR_POLYSIZE_0
+#define CRC_POLYLENGTH_8B                   CRC_CR_POLYSIZE_1
+#define CRC_POLYLENGTH_7B                   CRC_CR_POLYSIZE
 /**
   * @}
   */
@@ -186,10 +186,10 @@ typedef struct
 /** @defgroup CRC_Polynomial_Size_Definitions CRC polynomial possible sizes actual definitions
   * @{
   */
-#define HAL_CRC_LENGTH_32B     32U          /*!< 32-bit long CRC */
-#define HAL_CRC_LENGTH_16B     16U          /*!< 16-bit long CRC */
-#define HAL_CRC_LENGTH_8B       8U          /*!< 8-bit long CRC  */
-#define HAL_CRC_LENGTH_7B       7U          /*!< 7-bit long CRC  */
+#define HAL_CRC_LENGTH_32B     32U
+#define HAL_CRC_LENGTH_16B     16U
+#define HAL_CRC_LENGTH_8B       8U
+#define HAL_CRC_LENGTH_7B       7U
 /**
   * @}
   */
@@ -201,10 +201,10 @@ typedef struct
  * an error is triggered in HAL_CRC_Init() if InputDataFormat field is set
  * to CRC_INPUT_FORMAT_UNDEFINED: the format MUST be defined by the user for
  * the CRC APIs to provide a correct result */
-#define CRC_INPUTDATA_FORMAT_UNDEFINED             0x00000000U  /*!< Undefined input data format    */
-#define CRC_INPUTDATA_FORMAT_BYTES                 0x00000001U  /*!< Input data in byte format      */
-#define CRC_INPUTDATA_FORMAT_HALFWORDS             0x00000002U  /*!< Input data in half-word format */
-#define CRC_INPUTDATA_FORMAT_WORDS                 0x00000003U  /*!< Input data in word format      */
+#define CRC_INPUTDATA_FORMAT_UNDEFINED             0x00000000U
+#define CRC_INPUTDATA_FORMAT_BYTES                 0x00000001U
+#define CRC_INPUTDATA_FORMAT_HALFWORDS             0x00000002U
+#define CRC_INPUTDATA_FORMAT_WORDS                 0x00000003U
 /**
   * @}
   */

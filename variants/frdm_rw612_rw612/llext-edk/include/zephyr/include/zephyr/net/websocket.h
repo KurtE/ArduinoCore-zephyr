@@ -33,21 +33,21 @@ extern "C" {
  */
 
 /** Message type values. Returned in websocket_recv_msg() */
-#define WEBSOCKET_FLAG_FINAL  0x00000001 /**< Final frame        */
-#define WEBSOCKET_FLAG_TEXT   0x00000002 /**< Textual data       */
-#define WEBSOCKET_FLAG_BINARY 0x00000004 /**< Binary data        */
-#define WEBSOCKET_FLAG_CLOSE  0x00000008 /**< Closing connection */
-#define WEBSOCKET_FLAG_PING   0x00000010 /**< Ping message       */
-#define WEBSOCKET_FLAG_PONG   0x00000020 /**< Pong message       */
+#define WEBSOCKET_FLAG_FINAL  0x00000001
+#define WEBSOCKET_FLAG_TEXT   0x00000002
+#define WEBSOCKET_FLAG_BINARY 0x00000004
+#define WEBSOCKET_FLAG_CLOSE  0x00000008
+#define WEBSOCKET_FLAG_PING   0x00000010
+#define WEBSOCKET_FLAG_PONG   0x00000020
 
 /** @brief Websocket option codes */
 enum websocket_opcode  {
-	WEBSOCKET_OPCODE_CONTINUE     = 0x00, /**< Message continues */
-	WEBSOCKET_OPCODE_DATA_TEXT    = 0x01, /**< Textual data */
-	WEBSOCKET_OPCODE_DATA_BINARY  = 0x02, /**< Binary data */
-	WEBSOCKET_OPCODE_CLOSE        = 0x08, /**< Closing connection */
-	WEBSOCKET_OPCODE_PING         = 0x09, /**< Ping message */
-	WEBSOCKET_OPCODE_PONG         = 0x0A, /**< Pong message */
+	WEBSOCKET_OPCODE_CONTINUE     = 0x00,
+	WEBSOCKET_OPCODE_DATA_TEXT    = 0x01,
+	WEBSOCKET_OPCODE_DATA_BINARY  = 0x02,
+	WEBSOCKET_OPCODE_CLOSE        = 0x08,
+	WEBSOCKET_OPCODE_PING         = 0x09,
+	WEBSOCKET_OPCODE_PONG         = 0x0A,
 };
 
 /**

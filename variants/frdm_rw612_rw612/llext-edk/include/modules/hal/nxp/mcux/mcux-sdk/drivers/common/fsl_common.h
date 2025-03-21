@@ -64,150 +64,150 @@
 
 /*! @name Debug console type definition. */
 /*! @{ */
-#define DEBUG_CONSOLE_DEVICE_TYPE_NONE       0U  /*!< No debug console.             */
-#define DEBUG_CONSOLE_DEVICE_TYPE_UART       1U  /*!< Debug console based on UART.   */
-#define DEBUG_CONSOLE_DEVICE_TYPE_LPUART     2U  /*!< Debug console based on LPUART. */
-#define DEBUG_CONSOLE_DEVICE_TYPE_LPSCI      3U  /*!< Debug console based on LPSCI.  */
-#define DEBUG_CONSOLE_DEVICE_TYPE_USBCDC     4U  /*!< Debug console based on USBCDC. */
-#define DEBUG_CONSOLE_DEVICE_TYPE_FLEXCOMM   5U  /*!< Debug console based on FLEXCOMM. */
-#define DEBUG_CONSOLE_DEVICE_TYPE_IUART      6U  /*!< Debug console based on i.MX UART. */
-#define DEBUG_CONSOLE_DEVICE_TYPE_VUSART     7U  /*!< Debug console based on LPC_VUSART. */
-#define DEBUG_CONSOLE_DEVICE_TYPE_MINI_USART 8U  /*!< Debug console based on LPC_USART. */
-#define DEBUG_CONSOLE_DEVICE_TYPE_SWO        9U  /*!< Debug console based on SWO. */
-#define DEBUG_CONSOLE_DEVICE_TYPE_QSCI       10U /*!< Debug console based on QSCI. */
+#define DEBUG_CONSOLE_DEVICE_TYPE_NONE       0U
+#define DEBUG_CONSOLE_DEVICE_TYPE_UART       1U
+#define DEBUG_CONSOLE_DEVICE_TYPE_LPUART     2U
+#define DEBUG_CONSOLE_DEVICE_TYPE_LPSCI      3U
+#define DEBUG_CONSOLE_DEVICE_TYPE_USBCDC     4U
+#define DEBUG_CONSOLE_DEVICE_TYPE_FLEXCOMM   5U
+#define DEBUG_CONSOLE_DEVICE_TYPE_IUART      6U
+#define DEBUG_CONSOLE_DEVICE_TYPE_VUSART     7U
+#define DEBUG_CONSOLE_DEVICE_TYPE_MINI_USART 8U
+#define DEBUG_CONSOLE_DEVICE_TYPE_SWO        9U
+#define DEBUG_CONSOLE_DEVICE_TYPE_QSCI       10U
 /*! @} */
 
 /*! @brief Status group numbers. */
 enum _status_groups
 {
-    kStatusGroup_Generic               = 0,   /*!< Group number for generic status codes. */
-    kStatusGroup_FLASH                 = 1,   /*!< Group number for FLASH status codes. */
-    kStatusGroup_LPSPI                 = 4,   /*!< Group number for LPSPI status codes. */
-    kStatusGroup_FLEXIO_SPI            = 5,   /*!< Group number for FLEXIO SPI status codes. */
-    kStatusGroup_DSPI                  = 6,   /*!< Group number for DSPI status codes. */
-    kStatusGroup_FLEXIO_UART           = 7,   /*!< Group number for FLEXIO UART status codes. */
-    kStatusGroup_FLEXIO_I2C            = 8,   /*!< Group number for FLEXIO I2C status codes. */
-    kStatusGroup_LPI2C                 = 9,   /*!< Group number for LPI2C status codes. */
-    kStatusGroup_UART                  = 10,  /*!< Group number for UART status codes. */
-    kStatusGroup_I2C                   = 11,  /*!< Group number for UART status codes. */
-    kStatusGroup_LPSCI                 = 12,  /*!< Group number for LPSCI status codes. */
-    kStatusGroup_LPUART                = 13,  /*!< Group number for LPUART status codes. */
-    kStatusGroup_SPI                   = 14,  /*!< Group number for SPI status code.*/
-    kStatusGroup_XRDC                  = 15,  /*!< Group number for XRDC status code.*/
-    kStatusGroup_SEMA42                = 16,  /*!< Group number for SEMA42 status code.*/
-    kStatusGroup_SDHC                  = 17,  /*!< Group number for SDHC status code */
-    kStatusGroup_SDMMC                 = 18,  /*!< Group number for SDMMC status code */
-    kStatusGroup_SAI                   = 19,  /*!< Group number for SAI status code */
-    kStatusGroup_MCG                   = 20,  /*!< Group number for MCG status codes. */
-    kStatusGroup_SCG                   = 21,  /*!< Group number for SCG status codes. */
-    kStatusGroup_SDSPI                 = 22,  /*!< Group number for SDSPI status codes. */
-    kStatusGroup_FLEXIO_I2S            = 23,  /*!< Group number for FLEXIO I2S status codes */
-    kStatusGroup_FLEXIO_MCULCD         = 24,  /*!< Group number for FLEXIO LCD status codes */
-    kStatusGroup_FLASHIAP              = 25,  /*!< Group number for FLASHIAP status codes */
-    kStatusGroup_FLEXCOMM_I2C          = 26,  /*!< Group number for FLEXCOMM I2C status codes */
-    kStatusGroup_I2S                   = 27,  /*!< Group number for I2S status codes */
-    kStatusGroup_IUART                 = 28,  /*!< Group number for IUART status codes */
-    kStatusGroup_CSI                   = 29,  /*!< Group number for CSI status codes */
-    kStatusGroup_MIPI_DSI              = 30,  /*!< Group number for MIPI DSI status codes */
-    kStatusGroup_SDRAMC                = 35,  /*!< Group number for SDRAMC status codes. */
-    kStatusGroup_POWER                 = 39,  /*!< Group number for POWER status codes. */
-    kStatusGroup_ENET                  = 40,  /*!< Group number for ENET status codes. */
-    kStatusGroup_PHY                   = 41,  /*!< Group number for PHY status codes. */
-    kStatusGroup_TRGMUX                = 42,  /*!< Group number for TRGMUX status codes. */
-    kStatusGroup_SMARTCARD             = 43,  /*!< Group number for SMARTCARD status codes. */
-    kStatusGroup_LMEM                  = 44,  /*!< Group number for LMEM status codes. */
-    kStatusGroup_QSPI                  = 45,  /*!< Group number for QSPI status codes. */
-    kStatusGroup_DMA                   = 50,  /*!< Group number for DMA status codes. */
-    kStatusGroup_EDMA                  = 51,  /*!< Group number for EDMA status codes. */
-    kStatusGroup_DMAMGR                = 52,  /*!< Group number for DMAMGR status codes. */
-    kStatusGroup_FLEXCAN               = 53,  /*!< Group number for FlexCAN status codes. */
-    kStatusGroup_LTC                   = 54,  /*!< Group number for LTC status codes. */
-    kStatusGroup_FLEXIO_CAMERA         = 55,  /*!< Group number for FLEXIO CAMERA status codes. */
-    kStatusGroup_LPC_SPI               = 56,  /*!< Group number for LPC_SPI status codes. */
-    kStatusGroup_LPC_USART             = 57,  /*!< Group number for LPC_USART status codes. */
-    kStatusGroup_DMIC                  = 58,  /*!< Group number for DMIC status codes. */
-    kStatusGroup_SDIF                  = 59,  /*!< Group number for SDIF status codes.*/
-    kStatusGroup_SPIFI                 = 60,  /*!< Group number for SPIFI status codes. */
-    kStatusGroup_OTP                   = 61,  /*!< Group number for OTP status codes. */
-    kStatusGroup_MCAN                  = 62,  /*!< Group number for MCAN status codes. */
-    kStatusGroup_CAAM                  = 63,  /*!< Group number for CAAM status codes. */
-    kStatusGroup_ECSPI                 = 64,  /*!< Group number for ECSPI status codes. */
-    kStatusGroup_USDHC                 = 65,  /*!< Group number for USDHC status codes.*/
-    kStatusGroup_LPC_I2C               = 66,  /*!< Group number for LPC_I2C status codes.*/
-    kStatusGroup_DCP                   = 67,  /*!< Group number for DCP status codes.*/
-    kStatusGroup_MSCAN                 = 68,  /*!< Group number for MSCAN status codes.*/
-    kStatusGroup_ESAI                  = 69,  /*!< Group number for ESAI status codes. */
-    kStatusGroup_FLEXSPI               = 70,  /*!< Group number for FLEXSPI status codes. */
-    kStatusGroup_MMDC                  = 71,  /*!< Group number for MMDC status codes. */
-    kStatusGroup_PDM                   = 72,  /*!< Group number for MIC status codes. */
-    kStatusGroup_SDMA                  = 73,  /*!< Group number for SDMA status codes. */
-    kStatusGroup_ICS                   = 74,  /*!< Group number for ICS status codes. */
-    kStatusGroup_SPDIF                 = 75,  /*!< Group number for SPDIF status codes. */
-    kStatusGroup_LPC_MINISPI           = 76,  /*!< Group number for LPC_MINISPI status codes. */
-    kStatusGroup_HASHCRYPT             = 77,  /*!< Group number for Hashcrypt status codes */
-    kStatusGroup_LPC_SPI_SSP           = 78,  /*!< Group number for LPC_SPI_SSP status codes. */
-    kStatusGroup_I3C                   = 79,  /*!< Group number for I3C status codes */
-    kStatusGroup_LPC_I2C_1             = 97,  /*!< Group number for LPC_I2C_1 status codes. */
-    kStatusGroup_NOTIFIER              = 98,  /*!< Group number for NOTIFIER status codes. */
-    kStatusGroup_DebugConsole          = 99,  /*!< Group number for debug console status codes. */
-    kStatusGroup_SEMC                  = 100, /*!< Group number for SEMC status codes. */
-    kStatusGroup_ApplicationRangeStart = 101, /*!< Starting number for application groups. */
-    kStatusGroup_IAP                   = 102, /*!< Group number for IAP status codes */
-    kStatusGroup_SFA                   = 103, /*!< Group number for SFA status codes*/
-    kStatusGroup_SPC                   = 104, /*!< Group number for SPC status codes. */
-    kStatusGroup_PUF                   = 105, /*!< Group number for PUF status codes. */
-    kStatusGroup_TOUCH_PANEL           = 106, /*!< Group number for touch panel status codes */
-    kStatusGroup_VBAT                  = 107, /*!< Group number for VBAT status codes */
-    kStatusGroup_XSPI                  = 108, /*!< Group number for XSPI status codes */
-    kStatusGroup_PNGDEC                = 109, /*!< Group number for PNGDEC status codes */
-    kStatusGroup_JPEGDEC               = 110, /*!< Group number for JPEGDEC status codes */
+    kStatusGroup_Generic               = 0,
+    kStatusGroup_FLASH                 = 1,
+    kStatusGroup_LPSPI                 = 4,
+    kStatusGroup_FLEXIO_SPI            = 5,
+    kStatusGroup_DSPI                  = 6,
+    kStatusGroup_FLEXIO_UART           = 7,
+    kStatusGroup_FLEXIO_I2C            = 8,
+    kStatusGroup_LPI2C                 = 9,
+    kStatusGroup_UART                  = 10,
+    kStatusGroup_I2C                   = 11,
+    kStatusGroup_LPSCI                 = 12,
+    kStatusGroup_LPUART                = 13,
+    kStatusGroup_SPI                   = 14,
+    kStatusGroup_XRDC                  = 15,
+    kStatusGroup_SEMA42                = 16,
+    kStatusGroup_SDHC                  = 17,
+    kStatusGroup_SDMMC                 = 18,
+    kStatusGroup_SAI                   = 19,
+    kStatusGroup_MCG                   = 20,
+    kStatusGroup_SCG                   = 21,
+    kStatusGroup_SDSPI                 = 22,
+    kStatusGroup_FLEXIO_I2S            = 23,
+    kStatusGroup_FLEXIO_MCULCD         = 24,
+    kStatusGroup_FLASHIAP              = 25,
+    kStatusGroup_FLEXCOMM_I2C          = 26,
+    kStatusGroup_I2S                   = 27,
+    kStatusGroup_IUART                 = 28,
+    kStatusGroup_CSI                   = 29,
+    kStatusGroup_MIPI_DSI              = 30,
+    kStatusGroup_SDRAMC                = 35,
+    kStatusGroup_POWER                 = 39,
+    kStatusGroup_ENET                  = 40,
+    kStatusGroup_PHY                   = 41,
+    kStatusGroup_TRGMUX                = 42,
+    kStatusGroup_SMARTCARD             = 43,
+    kStatusGroup_LMEM                  = 44,
+    kStatusGroup_QSPI                  = 45,
+    kStatusGroup_DMA                   = 50,
+    kStatusGroup_EDMA                  = 51,
+    kStatusGroup_DMAMGR                = 52,
+    kStatusGroup_FLEXCAN               = 53,
+    kStatusGroup_LTC                   = 54,
+    kStatusGroup_FLEXIO_CAMERA         = 55,
+    kStatusGroup_LPC_SPI               = 56,
+    kStatusGroup_LPC_USART             = 57,
+    kStatusGroup_DMIC                  = 58,
+    kStatusGroup_SDIF                  = 59,
+    kStatusGroup_SPIFI                 = 60,
+    kStatusGroup_OTP                   = 61,
+    kStatusGroup_MCAN                  = 62,
+    kStatusGroup_CAAM                  = 63,
+    kStatusGroup_ECSPI                 = 64,
+    kStatusGroup_USDHC                 = 65,
+    kStatusGroup_LPC_I2C               = 66,
+    kStatusGroup_DCP                   = 67,
+    kStatusGroup_MSCAN                 = 68,
+    kStatusGroup_ESAI                  = 69,
+    kStatusGroup_FLEXSPI               = 70,
+    kStatusGroup_MMDC                  = 71,
+    kStatusGroup_PDM                   = 72,
+    kStatusGroup_SDMA                  = 73,
+    kStatusGroup_ICS                   = 74,
+    kStatusGroup_SPDIF                 = 75,
+    kStatusGroup_LPC_MINISPI           = 76,
+    kStatusGroup_HASHCRYPT             = 77,
+    kStatusGroup_LPC_SPI_SSP           = 78,
+    kStatusGroup_I3C                   = 79,
+    kStatusGroup_LPC_I2C_1             = 97,
+    kStatusGroup_NOTIFIER              = 98,
+    kStatusGroup_DebugConsole          = 99,
+    kStatusGroup_SEMC                  = 100,
+    kStatusGroup_ApplicationRangeStart = 101,
+    kStatusGroup_IAP                   = 102,
+    kStatusGroup_SFA                   = 103,
+    kStatusGroup_SPC                   = 104,
+    kStatusGroup_PUF                   = 105,
+    kStatusGroup_TOUCH_PANEL           = 106,
+    kStatusGroup_VBAT                  = 107,
+    kStatusGroup_XSPI                  = 108,
+    kStatusGroup_PNGDEC                = 109,
+    kStatusGroup_JPEGDEC               = 110,
 
-    kStatusGroup_HAL_GPIO       = 121, /*!< Group number for HAL GPIO status codes. */
-    kStatusGroup_HAL_UART       = 122, /*!< Group number for HAL UART status codes. */
-    kStatusGroup_HAL_TIMER      = 123, /*!< Group number for HAL TIMER status codes. */
-    kStatusGroup_HAL_SPI        = 124, /*!< Group number for HAL SPI status codes. */
-    kStatusGroup_HAL_I2C        = 125, /*!< Group number for HAL I2C status codes. */
-    kStatusGroup_HAL_FLASH      = 126, /*!< Group number for HAL FLASH status codes. */
-    kStatusGroup_HAL_PWM        = 127, /*!< Group number for HAL PWM status codes. */
-    kStatusGroup_HAL_RNG        = 128, /*!< Group number for HAL RNG status codes. */
-    kStatusGroup_HAL_I2S        = 129, /*!< Group number for HAL I2S status codes. */
-    kStatusGroup_HAL_ADC_SENSOR = 130, /*!< Group number for HAL ADC SENSOR status codes. */
-    kStatusGroup_TIMERMANAGER   = 135, /*!< Group number for TiMER MANAGER status codes. */
-    kStatusGroup_SERIALMANAGER  = 136, /*!< Group number for SERIAL MANAGER status codes. */
-    kStatusGroup_LED            = 137, /*!< Group number for LED status codes. */
-    kStatusGroup_BUTTON         = 138, /*!< Group number for BUTTON status codes. */
-    kStatusGroup_EXTERN_EEPROM  = 139, /*!< Group number for EXTERN EEPROM status codes. */
-    kStatusGroup_SHELL          = 140, /*!< Group number for SHELL status codes. */
-    kStatusGroup_MEM_MANAGER    = 141, /*!< Group number for MEM MANAGER status codes. */
-    kStatusGroup_LIST           = 142, /*!< Group number for List status codes. */
-    kStatusGroup_OSA            = 143, /*!< Group number for OSA status codes. */
-    kStatusGroup_COMMON_TASK    = 144, /*!< Group number for Common task status codes. */
-    kStatusGroup_MSG            = 145, /*!< Group number for messaging status codes. */
-    kStatusGroup_SDK_OCOTP      = 146, /*!< Group number for OCOTP status codes. */
-    kStatusGroup_SDK_FLEXSPINOR = 147, /*!< Group number for FLEXSPINOR status codes.*/
-    kStatusGroup_CODEC          = 148, /*!< Group number for codec status codes. */
-    kStatusGroup_ASRC           = 149, /*!< Group number for codec status ASRC. */
-    kStatusGroup_OTFAD          = 150, /*!< Group number for codec status codes. */
-    kStatusGroup_SDIOSLV        = 151, /*!< Group number for SDIOSLV status codes. */
-    kStatusGroup_MECC           = 152, /*!< Group number for MECC status codes. */
-    kStatusGroup_ENET_QOS       = 153, /*!< Group number for ENET_QOS status codes. */
-    kStatusGroup_LOG            = 154, /*!< Group number for LOG status codes. */
-    kStatusGroup_I3CBUS         = 155, /*!< Group number for I3CBUS status codes. */
-    kStatusGroup_QSCI           = 156, /*!< Group number for QSCI status codes. */
-    kStatusGroup_ELEMU          = 157, /*!< Group number for ELEMU status codes. */
-    kStatusGroup_QUEUEDSPI      = 158, /*!< Group number for QSPI status codes. */
-    kStatusGroup_POWER_MANAGER  = 159, /*!< Group number for POWER_MANAGER status codes. */
-    kStatusGroup_IPED           = 160, /*!< Group number for IPED status codes. */
-    kStatusGroup_ELS_PKC        = 161, /*!< Group number for ELS PKC status codes. */
-    kStatusGroup_CSS_PKC        = 162, /*!< Group number for CSS PKC status codes. */
-    kStatusGroup_HOSTIF         = 163, /*!< Group number for HOSTIF status codes. */
-    kStatusGroup_CLIF           = 164, /*!< Group number for CLIF status codes. */
-    kStatusGroup_BMA            = 165, /*!< Group number for BMA status codes. */
-    kStatusGroup_NETC           = 166, /*!< Group number for NETC status codes. */
-    kStatusGroup_ELE            = 167, /*!< Group number for ELE status codes. */
-    kStatusGroup_GLIKEY         = 168, /*!< Group number for GLIKEY status codes. */
-    kStatusGroup_AON_POWER      = 169, /*!< Group number for AON_POWER status codes. */
-    kStatusGroup_AON_COMMON     = 170, /*!< Group number for AON_COMMON status codes. */
+    kStatusGroup_HAL_GPIO       = 121,
+    kStatusGroup_HAL_UART       = 122,
+    kStatusGroup_HAL_TIMER      = 123,
+    kStatusGroup_HAL_SPI        = 124,
+    kStatusGroup_HAL_I2C        = 125,
+    kStatusGroup_HAL_FLASH      = 126,
+    kStatusGroup_HAL_PWM        = 127,
+    kStatusGroup_HAL_RNG        = 128,
+    kStatusGroup_HAL_I2S        = 129,
+    kStatusGroup_HAL_ADC_SENSOR = 130,
+    kStatusGroup_TIMERMANAGER   = 135,
+    kStatusGroup_SERIALMANAGER  = 136,
+    kStatusGroup_LED            = 137,
+    kStatusGroup_BUTTON         = 138,
+    kStatusGroup_EXTERN_EEPROM  = 139,
+    kStatusGroup_SHELL          = 140,
+    kStatusGroup_MEM_MANAGER    = 141,
+    kStatusGroup_LIST           = 142,
+    kStatusGroup_OSA            = 143,
+    kStatusGroup_COMMON_TASK    = 144,
+    kStatusGroup_MSG            = 145,
+    kStatusGroup_SDK_OCOTP      = 146,
+    kStatusGroup_SDK_FLEXSPINOR = 147,
+    kStatusGroup_CODEC          = 148,
+    kStatusGroup_ASRC           = 149,
+    kStatusGroup_OTFAD          = 150,
+    kStatusGroup_SDIOSLV        = 151,
+    kStatusGroup_MECC           = 152,
+    kStatusGroup_ENET_QOS       = 153,
+    kStatusGroup_LOG            = 154,
+    kStatusGroup_I3CBUS         = 155,
+    kStatusGroup_QSCI           = 156,
+    kStatusGroup_ELEMU          = 157,
+    kStatusGroup_QUEUEDSPI      = 158,
+    kStatusGroup_POWER_MANAGER  = 159,
+    kStatusGroup_IPED           = 160,
+    kStatusGroup_ELS_PKC        = 161,
+    kStatusGroup_CSS_PKC        = 162,
+    kStatusGroup_HOSTIF         = 163,
+    kStatusGroup_CLIF           = 164,
+    kStatusGroup_BMA            = 165,
+    kStatusGroup_NETC           = 166,
+    kStatusGroup_ELE            = 167,
+    kStatusGroup_GLIKEY         = 168,
+    kStatusGroup_AON_POWER      = 169,
+    kStatusGroup_AON_COMMON     = 170,
 };
 
 /*! \public
@@ -215,17 +215,17 @@ enum _status_groups
  */
 enum
 {
-    kStatus_Success         = MAKE_STATUS(kStatusGroup_Generic, 0), /*!< Generic status for Success. */
-    kStatus_Fail            = MAKE_STATUS(kStatusGroup_Generic, 1), /*!< Generic status for Fail. */
-    kStatus_ReadOnly        = MAKE_STATUS(kStatusGroup_Generic, 2), /*!< Generic status for read only failure. */
-    kStatus_OutOfRange      = MAKE_STATUS(kStatusGroup_Generic, 3), /*!< Generic status for out of range access. */
-    kStatus_InvalidArgument = MAKE_STATUS(kStatusGroup_Generic, 4), /*!< Generic status for invalid argument check. */
-    kStatus_Timeout         = MAKE_STATUS(kStatusGroup_Generic, 5), /*!< Generic status for timeout. */
+    kStatus_Success         = MAKE_STATUS(kStatusGroup_Generic, 0),
+    kStatus_Fail            = MAKE_STATUS(kStatusGroup_Generic, 1),
+    kStatus_ReadOnly        = MAKE_STATUS(kStatusGroup_Generic, 2),
+    kStatus_OutOfRange      = MAKE_STATUS(kStatusGroup_Generic, 3),
+    kStatus_InvalidArgument = MAKE_STATUS(kStatusGroup_Generic, 4),
+    kStatus_Timeout         = MAKE_STATUS(kStatusGroup_Generic, 5),
     kStatus_NoTransferInProgress =
-        MAKE_STATUS(kStatusGroup_Generic, 6),            /*!< Generic status for no transfer in progress. */
-    kStatus_Busy = MAKE_STATUS(kStatusGroup_Generic, 7), /*!< Generic status for module is busy. */
+        MAKE_STATUS(kStatusGroup_Generic, 6),
+    kStatus_Busy = MAKE_STATUS(kStatusGroup_Generic, 7),
     kStatus_NoData =
-        MAKE_STATUS(kStatusGroup_Generic, 8), /*!< Generic status for no data is found for the operation. */
+        MAKE_STATUS(kStatusGroup_Generic, 8),
 };
 
 /*! @brief Type used for all status and error return values. */
@@ -272,9 +272,9 @@ typedef int32_t status_t;
 /* @{ */
 #if !defined(UINTPTR_SIZE)
 #if UINTPTR_MAX > UINT32_MAX
-  #define UINTPTR_SIZE 8 /* 64-bit processor */
+  #define UINTPTR_SIZE 8
 #elif UINTPTR_MAX > UINT16_MAX
-  #define UINTPTR_SIZE 4 /* 32-bit processor */
+  #define UINTPTR_SIZE 4
 #else
   #error "UINTPTR_SIZE is unknown!"
 #endif

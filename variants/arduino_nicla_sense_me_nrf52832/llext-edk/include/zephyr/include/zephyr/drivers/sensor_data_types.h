@@ -75,6 +75,38 @@ struct sensor_three_axis_data {
 		PRIq_arg((data_).readings[(readings_offset_)].z, 6, (data_).shift)
 
 /**
+ * Data for a sensor channel which reports game rotation vector data. This is used by:
+ * - :c:enum:`SENSOR_CHAN_GAME_ROTATION_VECTOR`
+ */
+struct sensor_game_rotation_vector_data {
+	struct sensor_data_header header;
+	int8_t shift;
+	struct sensor_game_rotation_vector_sample_data {
+		uint32_t timestamp_delta;
+		union {
+			q31_t values[4];
+			q31_t v[4];
+			struct {
+				q31_t x;
+				q31_t y;
+				q31_t z;
+				q31_t w;
+			};
+		};
+	} readings[1];
+};
+
+#define PRIsensor_game_rotation_vector_data PRIu64                                                 \
+	"ns, (%" PRIq(6) ", %" PRIq(6) ", %" PRIq(6)  ", %" PRIq(6) ")"
+
+#define PRIsensor_game_rotation_vector_data_arg(data_, readings_offset_)                           \
+	(data_).header.base_timestamp_ns + (data_).readings[(readings_offset_)].timestamp_delta,   \
+		PRIq_arg((data_).readings[(readings_offset_)].x, 6, (data_).shift),                \
+		PRIq_arg((data_).readings[(readings_offset_)].y, 6, (data_).shift),                \
+		PRIq_arg((data_).readings[(readings_offset_)].z, 6, (data_).shift),                \
+		PRIq_arg((data_).readings[(readings_offset_)].w, 6, (data_).shift)
+
+/**
  * Data from a sensor where we only care about an event occurring. This is used to report triggers.
  */
 struct sensor_occurrence_data {
@@ -96,21 +128,21 @@ struct sensor_q31_data {
 		uint32_t timestamp_delta;
 		union {
 			q31_t value;
-			q31_t light;           /**< Unit: lux */
-			q31_t pressure;        /**< Unit: kilopascal */
-			q31_t temperature;     /**< Unit: degrees Celsius */
-			q31_t percent;         /**< Unit: percent */
-			q31_t distance;        /**< Unit: meters */
-			q31_t density;         /**< Unit: ug/m^3 */
-			q31_t density_ppm;     /**< Unit: parts per million */
-			q31_t density_ppb;     /**< Unit: parts per billion */
-			q31_t resistance;      /**< Unit: ohms */
-			q31_t voltage;         /**< Unit: volts */
-			q31_t current;         /**< Unit: amps */
-			q31_t power;           /**< Unit: watts */
-			q31_t angle;           /**< Unit: degrees */
-			q31_t electric_charge; /**< Unit: mAh */
-			q31_t humidity;        /**< Unit: RH */
+			q31_t light;
+			q31_t pressure;
+			q31_t temperature;
+			q31_t percent;
+			q31_t distance;
+			q31_t density;
+			q31_t density_ppm;
+			q31_t density_ppb;
+			q31_t resistance;
+			q31_t voltage;
+			q31_t current;
+			q31_t power;
+			q31_t angle;
+			q31_t electric_charge;
+			q31_t humidity;
 		};
 	} readings[1];
 };

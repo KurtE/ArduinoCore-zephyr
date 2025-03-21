@@ -39,7 +39,7 @@
 #define DNS_TTL_LEN		4
 #define DNS_RDLENGTH_LEN	2
 
-#define NS_CMPRSFLGS    0xc0   /* DNS name compression */
+#define NS_CMPRSFLGS    0xc0
 
 /* RFC 1035 '4.1.1. Header section format' defines the following flags:
  * QR, Opcode, AA, TC, RD, RA, Z and RCODE.
@@ -50,8 +50,8 @@
 /* These two defines represent the 3rd and 4th bytes of the DNS msg header.
  * See RFC 1035, 4.1.1. Header section format.
  */
-#define DNS_FLAGS1		DNS_RECURSION	/* QR, Opcode, AA, and TC = 0 */
-#define DNS_FLAGS2		0		/* RA, Z and RCODE = 0 */
+#define DNS_FLAGS1		DNS_RECURSION
+#define DNS_FLAGS2		0
 
 /**
  * DNS message structure for DNS responses
@@ -87,13 +87,13 @@ struct dns_msg_t {
 
 enum dns_rr_type {
 	DNS_RR_TYPE_INVALID = 0,
-	DNS_RR_TYPE_A	= 1,		/* IPv4  */
-	DNS_RR_TYPE_CNAME = 5,		/* CNAME */
-	DNS_RR_TYPE_PTR = 12,		/* PTR   */
-	DNS_RR_TYPE_TXT = 16,		/* TXT   */
-	DNS_RR_TYPE_AAAA = 28,		/* IPv6  */
-	DNS_RR_TYPE_SRV = 33,		/* SRV   */
-	DNS_RR_TYPE_ANY = 0xff,		/* ANY (all records)   */
+	DNS_RR_TYPE_A	= 1,
+	DNS_RR_TYPE_CNAME = 5,
+	DNS_RR_TYPE_PTR = 12,
+	DNS_RR_TYPE_TXT = 16,
+	DNS_RR_TYPE_AAAA = 28,
+	DNS_RR_TYPE_SRV = 33,
+	DNS_RR_TYPE_ANY = 0xff,
 };
 
 enum dns_response_type {

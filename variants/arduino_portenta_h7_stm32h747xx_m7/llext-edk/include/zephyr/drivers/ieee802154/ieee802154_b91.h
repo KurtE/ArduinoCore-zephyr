@@ -46,46 +46,46 @@
 #define B91_TX_POWER_MIN                    (-30)
 #define B91_TX_POWER_MAX                    (9)
 static const uint8_t b91_tx_pwr_lt[] = {
-	RF_POWER_N30dBm,        /* -30.0 dBm: -30 */
-	RF_POWER_N30dBm,        /* -30.0 dBm: -29 */
-	RF_POWER_N30dBm,        /* -30.0 dBm: -28 */
-	RF_POWER_N30dBm,        /* -30.0 dBm: -27 */
-	RF_POWER_N30dBm,        /* -30.0 dBm: -26 */
-	RF_POWER_N23p54dBm,     /* -23.5 dBm: -25 */
-	RF_POWER_N23p54dBm,     /* -23.5 dBm: -24 */
-	RF_POWER_N23p54dBm,     /* -23.5 dBm: -23 */
-	RF_POWER_N23p54dBm,     /* -23.5 dBm: -22 */
-	RF_POWER_N23p54dBm,     /* -23.5 dBm: -21 */
-	RF_POWER_N17p83dBm,     /* -17.8 dBm: -20 */
-	RF_POWER_N17p83dBm,     /* -17.8 dBm: -19 */
-	RF_POWER_N17p83dBm,     /* -17.8 dBm: -18 */
-	RF_POWER_N17p83dBm,     /* -17.8 dBm: -17 */
-	RF_POWER_N17p83dBm,     /* -17.8 dBm: -16 */
-	RF_POWER_N12p06dBm,     /* -12.0 dBm: -15 */
-	RF_POWER_N12p06dBm,     /* -12.0 dBm: -14 */
-	RF_POWER_N12p06dBm,     /* -12.0 dBm: -13 */
-	RF_POWER_N12p06dBm,     /* -12.0 dBm: -12 */
-	RF_POWER_N12p06dBm,     /* -12.0 dBm: -11 */
-	RF_POWER_N8p78dBm,      /*  -8.7 dBm: -10 */
-	RF_POWER_N8p78dBm,      /*  -8.7 dBm:  -9 */
-	RF_POWER_N8p78dBm,      /*  -8.7 dBm:  -8 */
-	RF_POWER_N6p54dBm,      /*  -6.5 dBm:  -7 */
-	RF_POWER_N6p54dBm,      /*  -6.5 dBm:  -6 */
-	RF_POWER_N4p77dBm,      /*  -4.7 dBm:  -5 */
-	RF_POWER_N4p77dBm,      /*  -4.7 dBm:  -4 */
-	RF_POWER_N3p37dBm,      /*  -3.3 dBm:  -3 */
-	RF_POWER_N2p01dBm,      /*  -2.0 dBm:  -2 */
-	RF_POWER_N1p37dBm,      /*  -1.3 dBm:  -1 */
-	RF_POWER_P0p01dBm,      /*   0.0 dBm:   0 */
-	RF_POWER_P0p80dBm,      /*   0.8 dBm:   1 */
-	RF_POWER_P2p32dBm,      /*   2.3 dBm:   2 */
-	RF_POWER_P3p25dBm,      /*   3.2 dBm:   3 */
-	RF_POWER_P4p35dBm,      /*   4.3 dBm:   4 */
-	RF_POWER_P5p68dBm,      /*   5.6 dBm:   5 */
-	RF_POWER_P5p68dBm,      /*   5.6 dBm:   6 */
-	RF_POWER_P6p98dBm,      /*   6.9 dBm:   7 */
-	RF_POWER_P8p05dBm,      /*   8.0 dBm:   8 */
-	RF_POWER_P9p11dBm,      /*   9.1 dBm:   9 */
+	RF_POWER_N30dBm,
+	RF_POWER_N30dBm,
+	RF_POWER_N30dBm,
+	RF_POWER_N30dBm,
+	RF_POWER_N30dBm,
+	RF_POWER_N23p54dBm,
+	RF_POWER_N23p54dBm,
+	RF_POWER_N23p54dBm,
+	RF_POWER_N23p54dBm,
+	RF_POWER_N23p54dBm,
+	RF_POWER_N17p83dBm,
+	RF_POWER_N17p83dBm,
+	RF_POWER_N17p83dBm,
+	RF_POWER_N17p83dBm,
+	RF_POWER_N17p83dBm,
+	RF_POWER_N12p06dBm,
+	RF_POWER_N12p06dBm,
+	RF_POWER_N12p06dBm,
+	RF_POWER_N12p06dBm,
+	RF_POWER_N12p06dBm,
+	RF_POWER_N8p78dBm,
+	RF_POWER_N8p78dBm,
+	RF_POWER_N8p78dBm,
+	RF_POWER_N6p54dBm,
+	RF_POWER_N6p54dBm,
+	RF_POWER_N4p77dBm,
+	RF_POWER_N4p77dBm,
+	RF_POWER_N3p37dBm,
+	RF_POWER_N2p01dBm,
+	RF_POWER_N1p37dBm,
+	RF_POWER_P0p01dBm,
+	RF_POWER_P0p80dBm,
+	RF_POWER_P2p32dBm,
+	RF_POWER_P3p25dBm,
+	RF_POWER_P4p35dBm,
+	RF_POWER_P5p68dBm,
+	RF_POWER_P5p68dBm,
+	RF_POWER_P6p98dBm,
+	RF_POWER_P8p05dBm,
+	RF_POWER_P9p11dBm,
 };
 
 /* data structure */

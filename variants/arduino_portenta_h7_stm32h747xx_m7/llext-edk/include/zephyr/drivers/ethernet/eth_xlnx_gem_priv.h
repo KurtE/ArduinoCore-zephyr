@@ -19,7 +19,7 @@
 
 #include "phy_xlnx_gem.h"
 
-#define ETH_XLNX_BUFFER_ALIGNMENT			4 /* RX/TX buffer alignment (in bytes) */
+#define ETH_XLNX_BUFFER_ALIGNMENT			4
 
 /* Buffer descriptor (BD) related defines */
 

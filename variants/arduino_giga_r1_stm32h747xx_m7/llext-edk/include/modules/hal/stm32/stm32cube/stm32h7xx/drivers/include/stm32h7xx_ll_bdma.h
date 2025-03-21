@@ -164,34 +164,34 @@ typedef struct
   * @brief    Flags defines which can be used with LL_BDMA_WriteReg function
   * @{
   */
-#define LL_BDMA_IFCR_CGIF1                 BDMA_IFCR_CGIF1        /*!< Channel 1 global flag            */
-#define LL_BDMA_IFCR_CTCIF1                BDMA_IFCR_CTCIF1       /*!< Channel 1 transfer complete flag */
-#define LL_BDMA_IFCR_CHTIF1                BDMA_IFCR_CHTIF1       /*!< Channel 1 half transfer flag     */
-#define LL_BDMA_IFCR_CTEIF1                BDMA_IFCR_CTEIF1       /*!< Channel 1 transfer error flag    */
-#define LL_BDMA_IFCR_CGIF2                 BDMA_IFCR_CGIF2        /*!< Channel 2 global flag            */
-#define LL_BDMA_IFCR_CTCIF2                BDMA_IFCR_CTCIF2       /*!< Channel 2 transfer complete flag */
-#define LL_BDMA_IFCR_CHTIF2                BDMA_IFCR_CHTIF2       /*!< Channel 2 half transfer flag     */
-#define LL_BDMA_IFCR_CTEIF2                BDMA_IFCR_CTEIF2       /*!< Channel 2 transfer error flag    */
-#define LL_BDMA_IFCR_CGIF3                 BDMA_IFCR_CGIF3        /*!< Channel 3 global flag            */
-#define LL_BDMA_IFCR_CTCIF3                BDMA_IFCR_CTCIF3       /*!< Channel 3 transfer complete flag */
-#define LL_BDMA_IFCR_CHTIF3                BDMA_IFCR_CHTIF3       /*!< Channel 3 half transfer flag     */
-#define LL_BDMA_IFCR_CTEIF3                BDMA_IFCR_CTEIF3       /*!< Channel 3 transfer error flag    */
-#define LL_BDMA_IFCR_CGIF4                 BDMA_IFCR_CGIF4        /*!< Channel 4 global flag            */
-#define LL_BDMA_IFCR_CTCIF4                BDMA_IFCR_CTCIF4       /*!< Channel 4 transfer complete flag */
-#define LL_BDMA_IFCR_CHTIF4                BDMA_IFCR_CHTIF4       /*!< Channel 4 half transfer flag     */
-#define LL_BDMA_IFCR_CTEIF4                BDMA_IFCR_CTEIF4       /*!< Channel 4 transfer error flag    */
-#define LL_BDMA_IFCR_CGIF5                 BDMA_IFCR_CGIF5        /*!< Channel 5 global flag            */
-#define LL_BDMA_IFCR_CTCIF5                BDMA_IFCR_CTCIF5       /*!< Channel 5 transfer complete flag */
-#define LL_BDMA_IFCR_CHTIF5                BDMA_IFCR_CHTIF5       /*!< Channel 5 half transfer flag     */
-#define LL_BDMA_IFCR_CTEIF5                BDMA_IFCR_CTEIF5       /*!< Channel 5 transfer error flag    */
-#define LL_BDMA_IFCR_CGIF6                 BDMA_IFCR_CGIF6        /*!< Channel 6 global flag            */
-#define LL_BDMA_IFCR_CTCIF6                BDMA_IFCR_CTCIF6       /*!< Channel 6 transfer complete flag */
-#define LL_BDMA_IFCR_CHTIF6                BDMA_IFCR_CHTIF6       /*!< Channel 6 half transfer flag     */
-#define LL_BDMA_IFCR_CTEIF6                BDMA_IFCR_CTEIF6       /*!< Channel 6 transfer error flag    */
-#define LL_BDMA_IFCR_CGIF7                 BDMA_IFCR_CGIF7        /*!< Channel 7 global flag            */
-#define LL_BDMA_IFCR_CTCIF7                BDMA_IFCR_CTCIF7       /*!< Channel 7 transfer complete flag */
-#define LL_BDMA_IFCR_CHTIF7                BDMA_IFCR_CHTIF7       /*!< Channel 7 half transfer flag     */
-#define LL_BDMA_IFCR_CTEIF7                BDMA_IFCR_CTEIF7       /*!< Channel 7 transfer error flag    */
+#define LL_BDMA_IFCR_CGIF1                 BDMA_IFCR_CGIF1
+#define LL_BDMA_IFCR_CTCIF1                BDMA_IFCR_CTCIF1
+#define LL_BDMA_IFCR_CHTIF1                BDMA_IFCR_CHTIF1
+#define LL_BDMA_IFCR_CTEIF1                BDMA_IFCR_CTEIF1
+#define LL_BDMA_IFCR_CGIF2                 BDMA_IFCR_CGIF2
+#define LL_BDMA_IFCR_CTCIF2                BDMA_IFCR_CTCIF2
+#define LL_BDMA_IFCR_CHTIF2                BDMA_IFCR_CHTIF2
+#define LL_BDMA_IFCR_CTEIF2                BDMA_IFCR_CTEIF2
+#define LL_BDMA_IFCR_CGIF3                 BDMA_IFCR_CGIF3
+#define LL_BDMA_IFCR_CTCIF3                BDMA_IFCR_CTCIF3
+#define LL_BDMA_IFCR_CHTIF3                BDMA_IFCR_CHTIF3
+#define LL_BDMA_IFCR_CTEIF3                BDMA_IFCR_CTEIF3
+#define LL_BDMA_IFCR_CGIF4                 BDMA_IFCR_CGIF4
+#define LL_BDMA_IFCR_CTCIF4                BDMA_IFCR_CTCIF4
+#define LL_BDMA_IFCR_CHTIF4                BDMA_IFCR_CHTIF4
+#define LL_BDMA_IFCR_CTEIF4                BDMA_IFCR_CTEIF4
+#define LL_BDMA_IFCR_CGIF5                 BDMA_IFCR_CGIF5
+#define LL_BDMA_IFCR_CTCIF5                BDMA_IFCR_CTCIF5
+#define LL_BDMA_IFCR_CHTIF5                BDMA_IFCR_CHTIF5
+#define LL_BDMA_IFCR_CTEIF5                BDMA_IFCR_CTEIF5
+#define LL_BDMA_IFCR_CGIF6                 BDMA_IFCR_CGIF6
+#define LL_BDMA_IFCR_CTCIF6                BDMA_IFCR_CTCIF6
+#define LL_BDMA_IFCR_CHTIF6                BDMA_IFCR_CHTIF6
+#define LL_BDMA_IFCR_CTEIF6                BDMA_IFCR_CTEIF6
+#define LL_BDMA_IFCR_CGIF7                 BDMA_IFCR_CGIF7
+#define LL_BDMA_IFCR_CTCIF7                BDMA_IFCR_CTCIF7
+#define LL_BDMA_IFCR_CHTIF7                BDMA_IFCR_CHTIF7
+#define LL_BDMA_IFCR_CTEIF7                BDMA_IFCR_CTEIF7
 /**
   * @}
   */
@@ -200,38 +200,38 @@ typedef struct
   * @brief    Flags defines which can be used with LL_BDMA_ReadReg function
   * @{
   */
-#define LL_BDMA_ISR_GIF0                   BDMA_ISR_GIF0          /*!< Channel 1 global flag            */
-#define LL_BDMA_ISR_TCIF0                  BDMA_ISR_TCIF0         /*!< Channel 1 transfer complete flag */
-#define LL_BDMA_ISR_HTIF0                  BDMA_ISR_HTIF0         /*!< Channel 1 half transfer flag     */
-#define LL_BDMA_ISR_TEIF0                  BDMA_ISR_TEIF0         /*!< Channel 1 transfer error flag    */
-#define LL_BDMA_ISR_GIF1                   BDMA_ISR_GIF1          /*!< Channel 1 global flag            */
-#define LL_BDMA_ISR_TCIF1                  BDMA_ISR_TCIF1         /*!< Channel 1 transfer complete flag */
-#define LL_BDMA_ISR_HTIF1                  BDMA_ISR_HTIF1         /*!< Channel 1 half transfer flag     */
-#define LL_BDMA_ISR_TEIF1                  BDMA_ISR_TEIF1         /*!< Channel 1 transfer error flag    */
-#define LL_BDMA_ISR_GIF2                   BDMA_ISR_GIF2          /*!< Channel 2 global flag            */
-#define LL_BDMA_ISR_TCIF2                  BDMA_ISR_TCIF2         /*!< Channel 2 transfer complete flag */
-#define LL_BDMA_ISR_HTIF2                  BDMA_ISR_HTIF2         /*!< Channel 2 half transfer flag     */
-#define LL_BDMA_ISR_TEIF2                  BDMA_ISR_TEIF2         /*!< Channel 2 transfer error flag    */
-#define LL_BDMA_ISR_GIF3                   BDMA_ISR_GIF3          /*!< Channel 3 global flag            */
-#define LL_BDMA_ISR_TCIF3                  BDMA_ISR_TCIF3         /*!< Channel 3 transfer complete flag */
-#define LL_BDMA_ISR_HTIF3                  BDMA_ISR_HTIF3         /*!< Channel 3 half transfer flag     */
-#define LL_BDMA_ISR_TEIF3                  BDMA_ISR_TEIF3         /*!< Channel 3 transfer error flag    */
-#define LL_BDMA_ISR_GIF4                   BDMA_ISR_GIF4          /*!< Channel 4 global flag            */
-#define LL_BDMA_ISR_TCIF4                  BDMA_ISR_TCIF4         /*!< Channel 4 transfer complete flag */
-#define LL_BDMA_ISR_HTIF4                  BDMA_ISR_HTIF4         /*!< Channel 4 half transfer flag     */
-#define LL_BDMA_ISR_TEIF4                  BDMA_ISR_TEIF4         /*!< Channel 4 transfer error flag    */
-#define LL_BDMA_ISR_GIF5                   BDMA_ISR_GIF5          /*!< Channel 5 global flag            */
-#define LL_BDMA_ISR_TCIF5                  BDMA_ISR_TCIF5         /*!< Channel 5 transfer complete flag */
-#define LL_BDMA_ISR_HTIF5                  BDMA_ISR_HTIF5         /*!< Channel 5 half transfer flag     */
-#define LL_BDMA_ISR_TEIF5                  BDMA_ISR_TEIF5         /*!< Channel 5 transfer error flag    */
-#define LL_BDMA_ISR_GIF6                   BDMA_ISR_GIF6          /*!< Channel 6 global flag            */
-#define LL_BDMA_ISR_TCIF6                  BDMA_ISR_TCIF6         /*!< Channel 6 transfer complete flag */
-#define LL_BDMA_ISR_HTIF6                  BDMA_ISR_HTIF6         /*!< Channel 6 half transfer flag     */
-#define LL_BDMA_ISR_TEIF6                  BDMA_ISR_TEIF6         /*!< Channel 6 transfer error flag    */
-#define LL_BDMA_ISR_GIF7                   BDMA_ISR_GIF7          /*!< Channel 7 global flag            */
-#define LL_BDMA_ISR_TCIF7                  BDMA_ISR_TCIF7         /*!< Channel 7 transfer complete flag */
-#define LL_BDMA_ISR_HTIF7                  BDMA_ISR_HTIF7         /*!< Channel 7 half transfer flag     */
-#define LL_BDMA_ISR_TEIF7                  BDMA_ISR_TEIF7         /*!< Channel 7 transfer error flag    */
+#define LL_BDMA_ISR_GIF0                   BDMA_ISR_GIF0
+#define LL_BDMA_ISR_TCIF0                  BDMA_ISR_TCIF0
+#define LL_BDMA_ISR_HTIF0                  BDMA_ISR_HTIF0
+#define LL_BDMA_ISR_TEIF0                  BDMA_ISR_TEIF0
+#define LL_BDMA_ISR_GIF1                   BDMA_ISR_GIF1
+#define LL_BDMA_ISR_TCIF1                  BDMA_ISR_TCIF1
+#define LL_BDMA_ISR_HTIF1                  BDMA_ISR_HTIF1
+#define LL_BDMA_ISR_TEIF1                  BDMA_ISR_TEIF1
+#define LL_BDMA_ISR_GIF2                   BDMA_ISR_GIF2
+#define LL_BDMA_ISR_TCIF2                  BDMA_ISR_TCIF2
+#define LL_BDMA_ISR_HTIF2                  BDMA_ISR_HTIF2
+#define LL_BDMA_ISR_TEIF2                  BDMA_ISR_TEIF2
+#define LL_BDMA_ISR_GIF3                   BDMA_ISR_GIF3
+#define LL_BDMA_ISR_TCIF3                  BDMA_ISR_TCIF3
+#define LL_BDMA_ISR_HTIF3                  BDMA_ISR_HTIF3
+#define LL_BDMA_ISR_TEIF3                  BDMA_ISR_TEIF3
+#define LL_BDMA_ISR_GIF4                   BDMA_ISR_GIF4
+#define LL_BDMA_ISR_TCIF4                  BDMA_ISR_TCIF4
+#define LL_BDMA_ISR_HTIF4                  BDMA_ISR_HTIF4
+#define LL_BDMA_ISR_TEIF4                  BDMA_ISR_TEIF4
+#define LL_BDMA_ISR_GIF5                   BDMA_ISR_GIF5
+#define LL_BDMA_ISR_TCIF5                  BDMA_ISR_TCIF5
+#define LL_BDMA_ISR_HTIF5                  BDMA_ISR_HTIF5
+#define LL_BDMA_ISR_TEIF5                  BDMA_ISR_TEIF5
+#define LL_BDMA_ISR_GIF6                   BDMA_ISR_GIF6
+#define LL_BDMA_ISR_TCIF6                  BDMA_ISR_TCIF6
+#define LL_BDMA_ISR_HTIF6                  BDMA_ISR_HTIF6
+#define LL_BDMA_ISR_TEIF6                  BDMA_ISR_TEIF6
+#define LL_BDMA_ISR_GIF7                   BDMA_ISR_GIF7
+#define LL_BDMA_ISR_TCIF7                  BDMA_ISR_TCIF7
+#define LL_BDMA_ISR_HTIF7                  BDMA_ISR_HTIF7
+#define LL_BDMA_ISR_TEIF7                  BDMA_ISR_TEIF7
 /**
   * @}
   */
@@ -240,9 +240,9 @@ typedef struct
   * @brief    IT defines which can be used with LL_BDMA_ReadReg and  LL_BDMA_WriteReg functions
   * @{
   */
-#define LL_BDMA_CCR_TCIE                   BDMA_CCR_TCIE          /*!< Transfer complete interrupt */
-#define LL_BDMA_CCR_HTIE                   BDMA_CCR_HTIE          /*!< Half Transfer interrupt     */
-#define LL_BDMA_CCR_TEIE                   BDMA_CCR_TEIE          /*!< Transfer error interrupt    */
+#define LL_BDMA_CCR_TCIE                   BDMA_CCR_TCIE
+#define LL_BDMA_CCR_HTIE                   BDMA_CCR_HTIE
+#define LL_BDMA_CCR_TEIE                   BDMA_CCR_TEIE
 /**
   * @}
   */
@@ -250,16 +250,16 @@ typedef struct
 /** @defgroup BDMA_LL_EC_CHANNEL CHANNEL
   * @{
   */
-#define LL_BDMA_CHANNEL_0                  0x00000000U /*!< DMA Channel 0  */
-#define LL_BDMA_CHANNEL_1                  0x00000001U /*!< BDMA Channel 1 */
-#define LL_BDMA_CHANNEL_2                  0x00000002U /*!< BDMA Channel 2 */
-#define LL_BDMA_CHANNEL_3                  0x00000003U /*!< BDMA Channel 3 */
-#define LL_BDMA_CHANNEL_4                  0x00000004U /*!< BDMA Channel 4 */
-#define LL_BDMA_CHANNEL_5                  0x00000005U /*!< BDMA Channel 5 */
-#define LL_BDMA_CHANNEL_6                  0x00000006U /*!< BDMA Channel 6 */
-#define LL_BDMA_CHANNEL_7                  0x00000007U /*!< BDMA Channel 7 */
+#define LL_BDMA_CHANNEL_0                  0x00000000U
+#define LL_BDMA_CHANNEL_1                  0x00000001U
+#define LL_BDMA_CHANNEL_2                  0x00000002U
+#define LL_BDMA_CHANNEL_3                  0x00000003U
+#define LL_BDMA_CHANNEL_4                  0x00000004U
+#define LL_BDMA_CHANNEL_5                  0x00000005U
+#define LL_BDMA_CHANNEL_6                  0x00000006U
+#define LL_BDMA_CHANNEL_7                  0x00000007U
 #if defined(USE_FULL_LL_DRIVER)
-#define LL_BDMA_CHANNEL_ALL                0xFFFF0000U /*!< BDMA Channel all (used only for function @ref LL_BDMA_DeInit(). */
+#define LL_BDMA_CHANNEL_ALL                0xFFFF0000U
 #endif /*USE_FULL_LL_DRIVER*/
 /**
   * @}
@@ -268,9 +268,9 @@ typedef struct
 /** @defgroup BDMA_LL_EC_DIRECTION Transfer Direction
   * @{
   */
-#define LL_BDMA_DIRECTION_PERIPH_TO_MEMORY 0x00000000U              /*!< Peripheral to memory direction       */
-#define LL_BDMA_DIRECTION_MEMORY_TO_PERIPH BDMA_CCR_DIR             /*!< Memory to peripheral direction       */
-#define LL_BDMA_DIRECTION_MEMORY_TO_MEMORY BDMA_CCR_MEM2MEM         /*!< Memory to memory direction           */
+#define LL_BDMA_DIRECTION_PERIPH_TO_MEMORY 0x00000000U
+#define LL_BDMA_DIRECTION_MEMORY_TO_PERIPH BDMA_CCR_DIR
+#define LL_BDMA_DIRECTION_MEMORY_TO_MEMORY BDMA_CCR_MEM2MEM
 /**
   * @}
   */
@@ -278,8 +278,8 @@ typedef struct
 /** @defgroup BDMA_LL_EC_MODE Transfer mode
   * @{
   */
-#define LL_BDMA_MODE_NORMAL                0x00000000U              /*!< Normal Mode                          */
-#define LL_BDMA_MODE_CIRCULAR              BDMA_CCR_CIRC            /*!< Circular Mode                        */
+#define LL_BDMA_MODE_NORMAL                0x00000000U
+#define LL_BDMA_MODE_CIRCULAR              BDMA_CCR_CIRC
 /**
   * @}
   */
@@ -287,8 +287,8 @@ typedef struct
 /** @defgroup BDMA_LL_EC_DOUBLEBUFFER_MODE DOUBLE BUFFER MODE
   * @{
   */
-#define LL_BDMA_DOUBLEBUFFER_MODE_DISABLE  0x00000000U              /*!< Disable double buffering mode        */
-#define LL_BDMA_DOUBLEBUFFER_MODE_ENABLE   BDMA_CCR_DBM             /*!< Enable double buffering mode         */
+#define LL_BDMA_DOUBLEBUFFER_MODE_DISABLE  0x00000000U
+#define LL_BDMA_DOUBLEBUFFER_MODE_ENABLE   BDMA_CCR_DBM
 /**
   * @}
   */
@@ -296,8 +296,8 @@ typedef struct
 /** @defgroup BDMA_LL_EC_CURRENTTARGETMEM CURRENTTARGETMEM
   * @{
   */
-#define LL_BDMA_CURRENTTARGETMEM0          0x00000000U              /*!< Set CurrentTarget Memory to Memory 0 */
-#define LL_BDMA_CURRENTTARGETMEM1          BDMA_CCR_CT              /*!< Set CurrentTarget Memory to Memory 1 */
+#define LL_BDMA_CURRENTTARGETMEM0          0x00000000U
+#define LL_BDMA_CURRENTTARGETMEM1          BDMA_CCR_CT
 /**
   * @}
   */
@@ -305,8 +305,8 @@ typedef struct
 /** @defgroup BDMA_LL_EC_PERIPH Peripheral increment mode
   * @{
   */
-#define LL_BDMA_PERIPH_INCREMENT           BDMA_CCR_PINC            /*!< Peripheral increment mode Enable     */
-#define LL_BDMA_PERIPH_NOINCREMENT         0x00000000U              /*!< Peripheral increment mode Disable    */
+#define LL_BDMA_PERIPH_INCREMENT           BDMA_CCR_PINC
+#define LL_BDMA_PERIPH_NOINCREMENT         0x00000000U
 /**
   * @}
   */
@@ -314,8 +314,8 @@ typedef struct
 /** @defgroup BDMA_LL_EC_MEMORY Memory increment mode
   * @{
   */
-#define LL_BDMA_MEMORY_INCREMENT           BDMA_CCR_MINC            /*!< Memory increment mode Enable         */
-#define LL_BDMA_MEMORY_NOINCREMENT         0x00000000U              /*!< Memory increment mode Disable        */
+#define LL_BDMA_MEMORY_INCREMENT           BDMA_CCR_MINC
+#define LL_BDMA_MEMORY_NOINCREMENT         0x00000000U
 /**
   * @}
   */
@@ -323,9 +323,9 @@ typedef struct
 /** @defgroup BDMA_LL_EC_PDATAALIGN Peripheral data alignment
   * @{
   */
-#define LL_BDMA_PDATAALIGN_BYTE            0x00000000U              /*!< Peripheral data alignment : Byte     */
-#define LL_BDMA_PDATAALIGN_HALFWORD        BDMA_CCR_PSIZE_0         /*!< Peripheral data alignment : HalfWord */
-#define LL_BDMA_PDATAALIGN_WORD            BDMA_CCR_PSIZE_1         /*!< Peripheral data alignment : Word     */
+#define LL_BDMA_PDATAALIGN_BYTE            0x00000000U
+#define LL_BDMA_PDATAALIGN_HALFWORD        BDMA_CCR_PSIZE_0
+#define LL_BDMA_PDATAALIGN_WORD            BDMA_CCR_PSIZE_1
 /**
   * @}
   */
@@ -333,9 +333,9 @@ typedef struct
 /** @defgroup BDMA_LL_EC_MDATAALIGN Memory data alignment
   * @{
   */
-#define LL_BDMA_MDATAALIGN_BYTE            0x00000000U              /*!< Memory data alignment : Byte         */
-#define LL_BDMA_MDATAALIGN_HALFWORD        BDMA_CCR_MSIZE_0         /*!< Memory data alignment : HalfWord     */
-#define LL_BDMA_MDATAALIGN_WORD            BDMA_CCR_MSIZE_1         /*!< Memory data alignment : Word         */
+#define LL_BDMA_MDATAALIGN_BYTE            0x00000000U
+#define LL_BDMA_MDATAALIGN_HALFWORD        BDMA_CCR_MSIZE_0
+#define LL_BDMA_MDATAALIGN_WORD            BDMA_CCR_MSIZE_1
 /**
   * @}
   */
@@ -343,10 +343,10 @@ typedef struct
 /** @defgroup BDMA_LL_EC_PRIORITY Transfer Priority level
   * @{
   */
-#define LL_BDMA_PRIORITY_LOW               0x00000000U              /*!< Priority level : Low                 */
-#define LL_BDMA_PRIORITY_MEDIUM            BDMA_CCR_PL_0            /*!< Priority level : Medium              */
-#define LL_BDMA_PRIORITY_HIGH              BDMA_CCR_PL_1            /*!< Priority level : High                */
-#define LL_BDMA_PRIORITY_VERYHIGH          BDMA_CCR_PL              /*!< Priority level : Very_High           */
+#define LL_BDMA_PRIORITY_LOW               0x00000000U
+#define LL_BDMA_PRIORITY_MEDIUM            BDMA_CCR_PL_0
+#define LL_BDMA_PRIORITY_HIGH              BDMA_CCR_PL_1
+#define LL_BDMA_PRIORITY_VERYHIGH          BDMA_CCR_PL
 /**
   * @}
   */

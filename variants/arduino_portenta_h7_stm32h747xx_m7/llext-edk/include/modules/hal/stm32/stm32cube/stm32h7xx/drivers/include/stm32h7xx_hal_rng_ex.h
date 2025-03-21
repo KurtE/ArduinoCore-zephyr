@@ -51,9 +51,9 @@ extern "C" {
 
 typedef struct
 {
-  uint32_t        Config1;           /*!< Config1 must be a value between 0 and 0x3F */
-  uint32_t        Config2;           /*!< Config2 must be a value between 0 and 0x7 */
-  uint32_t        Config3;           /*!< Config3 must be a value between 0 and 0xF */
+  uint32_t        Config1;
+  uint32_t        Config2;
+  uint32_t        Config3;
   uint32_t        ClockDivider;      /*!< Clock Divider factor.This parameter can
                                           be a value of @ref RNGEx_Clock_Divider_Factor   */
   uint32_t        NistCompliance;    /*!< NIST compliance.This parameter can be a
@@ -73,7 +73,7 @@ typedef struct
   *            programmable divider acting on the incoming RNG clock
   * @{
   */
-#define RNG_CLKDIV_BY_1       (0x00000000UL)      /*!< No clock division  */
+#define RNG_CLKDIV_BY_1       (0x00000000UL)
 #define RNG_CLKDIV_BY_2       (RNG_CR_CLKDIV_0)
 /*!< 2 RNG clock cycles per internal RNG clock    */
 #define RNG_CLKDIV_BY_4       (RNG_CR_CLKDIV_1)
@@ -111,8 +111,8 @@ typedef struct
 /** @defgroup RNGEx_NIST_Compliance  NIST Compliance configuration
   * @{
   */
-#define RNG_NIST_COMPLIANT     (0x00000000UL) /*!< NIST compliant configuration*/
-#define RNG_CUSTOM_NIST        (RNG_CR_NISTC) /*!< Custom NIST configuration */
+#define RNG_NIST_COMPLIANT     (0x00000000UL)
+#define RNG_CUSTOM_NIST        (RNG_CR_NISTC)
 
 /**
   * @}

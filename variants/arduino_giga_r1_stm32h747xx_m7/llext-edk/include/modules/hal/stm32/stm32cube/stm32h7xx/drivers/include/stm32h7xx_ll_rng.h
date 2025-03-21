@@ -43,7 +43,7 @@ extern "C" {
   * @{
   */
 /*  Health test control register information to use in CCM algorithm */
-#define LL_RNG_HTCFG   0x17590ABCU /*!< Magic number */
+#define LL_RNG_HTCFG   0x17590ABCU
 /**
   * @}
   */
@@ -81,8 +81,8 @@ typedef struct
 /** @defgroup RNG_LL_CED Clock Error Detection
   * @{
   */
-#define LL_RNG_CED_ENABLE         0x00000000U              /*!< Clock error detection enabled  */
-#define LL_RNG_CED_DISABLE        RNG_CR_CED               /*!< Clock error detection disabled */
+#define LL_RNG_CED_ENABLE         0x00000000U
+#define LL_RNG_CED_DISABLE        RNG_CR_CED
 /**
   * @}
   */
@@ -92,22 +92,22 @@ typedef struct
   *            programmable divider acting on the incoming RNG clock
   * @{
   */
-#define LL_RNG_CLKDIV_BY_1       (0x00000000UL)                                                           /*!< No clock division                             */
-#define LL_RNG_CLKDIV_BY_2       (RNG_CR_CLKDIV_0)                                                        /*!< 2 RNG clock cycles per internal RNG clock     */
-#define LL_RNG_CLKDIV_BY_4       (RNG_CR_CLKDIV_1)                                                        /*!< 4 RNG clock cycles per internal RNG clock     */
-#define LL_RNG_CLKDIV_BY_8       (RNG_CR_CLKDIV_1 | RNG_CR_CLKDIV_0)                                      /*!< 8 RNG clock cycles per internal RNG clock     */
-#define LL_RNG_CLKDIV_BY_16      (RNG_CR_CLKDIV_2)                                                        /*!< 16 RNG clock cycles per internal RNG clock    */
-#define LL_RNG_CLKDIV_BY_32      (RNG_CR_CLKDIV_2 | RNG_CR_CLKDIV_0)                                      /*!< 32 RNG clock cycles per internal RNG clock    */
-#define LL_RNG_CLKDIV_BY_64      (RNG_CR_CLKDIV_2 | RNG_CR_CLKDIV_1)                                      /*!< 64 RNG clock cycles per internal RNG clock    */
-#define LL_RNG_CLKDIV_BY_128     (RNG_CR_CLKDIV_2 | RNG_CR_CLKDIV_1 | RNG_CR_CLKDIV_0)                    /*!< 128 RNG clock cycles per internal RNG clock   */
-#define LL_RNG_CLKDIV_BY_256     (RNG_CR_CLKDIV_3)                                                        /*!< 256 RNG clock cycles per internal RNG clock   */
-#define LL_RNG_CLKDIV_BY_512     (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_0)                                      /*!< 512 RNG clock cycles per internal RNG clock   */
-#define LL_RNG_CLKDIV_BY_1024    (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_1)                                      /*!< 1024 RNG clock cycles per internal RNG clock  */
-#define LL_RNG_CLKDIV_BY_2048    (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_1 | RNG_CR_CLKDIV_0)                    /*!< 2048 RNG clock cycles per internal RNG clock  */
-#define LL_RNG_CLKDIV_BY_4096    (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_2)                                      /*!< 4096 RNG clock cycles per internal RNG clock  */
-#define LL_RNG_CLKDIV_BY_8192    (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_2 | RNG_CR_CLKDIV_0)                    /*!< 8192 RNG clock cycles per internal RNG clock  */
-#define LL_RNG_CLKDIV_BY_16384   (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_2 | RNG_CR_CLKDIV_1)                    /*!< 16384 RNG clock cycles per internal RNG clock */
-#define LL_RNG_CLKDIV_BY_32768   (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_2 | RNG_CR_CLKDIV_1 | RNG_CR_CLKDIV_0)  /*!< 32768 RNG clock cycles per internal RNG clock */
+#define LL_RNG_CLKDIV_BY_1       (0x00000000UL)
+#define LL_RNG_CLKDIV_BY_2       (RNG_CR_CLKDIV_0)
+#define LL_RNG_CLKDIV_BY_4       (RNG_CR_CLKDIV_1)
+#define LL_RNG_CLKDIV_BY_8       (RNG_CR_CLKDIV_1 | RNG_CR_CLKDIV_0)
+#define LL_RNG_CLKDIV_BY_16      (RNG_CR_CLKDIV_2)
+#define LL_RNG_CLKDIV_BY_32      (RNG_CR_CLKDIV_2 | RNG_CR_CLKDIV_0)
+#define LL_RNG_CLKDIV_BY_64      (RNG_CR_CLKDIV_2 | RNG_CR_CLKDIV_1)
+#define LL_RNG_CLKDIV_BY_128     (RNG_CR_CLKDIV_2 | RNG_CR_CLKDIV_1 | RNG_CR_CLKDIV_0)
+#define LL_RNG_CLKDIV_BY_256     (RNG_CR_CLKDIV_3)
+#define LL_RNG_CLKDIV_BY_512     (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_0)
+#define LL_RNG_CLKDIV_BY_1024    (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_1)
+#define LL_RNG_CLKDIV_BY_2048    (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_1 | RNG_CR_CLKDIV_0)
+#define LL_RNG_CLKDIV_BY_4096    (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_2)
+#define LL_RNG_CLKDIV_BY_8192    (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_2 | RNG_CR_CLKDIV_0)
+#define LL_RNG_CLKDIV_BY_16384   (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_2 | RNG_CR_CLKDIV_1)
+#define LL_RNG_CLKDIV_BY_32768   (RNG_CR_CLKDIV_3 | RNG_CR_CLKDIV_2 | RNG_CR_CLKDIV_1 | RNG_CR_CLKDIV_0)
 /**
   * @}
   */
@@ -115,8 +115,8 @@ typedef struct
 /** @defgroup RNG_LL_NIST_Compliance  NIST Compliance configuration
   * @{
   */
-#define LL_RNG_NIST_COMPLIANT     (0x00000000UL) /*!< Default NIST compliant configuration*/
-#define LL_RNG_CUSTOM_NIST        (RNG_CR_NISTC) /*!< Custom NIST configuration */
+#define LL_RNG_NIST_COMPLIANT     (0x00000000UL)
+#define LL_RNG_CUSTOM_NIST        (RNG_CR_NISTC)
 
 /**
   * @}
@@ -127,11 +127,11 @@ typedef struct
   * @brief    Flags defines which can be used with LL_RNG_ReadReg function
   * @{
   */
-#define LL_RNG_SR_DRDY RNG_SR_DRDY    /*!< Register contains valid random data */
-#define LL_RNG_SR_CECS RNG_SR_CECS    /*!< Clock error current status */
-#define LL_RNG_SR_SECS RNG_SR_SECS    /*!< Seed error current status */
-#define LL_RNG_SR_CEIS RNG_SR_CEIS    /*!< Clock error interrupt status */
-#define LL_RNG_SR_SEIS RNG_SR_SEIS    /*!< Seed error interrupt status */
+#define LL_RNG_SR_DRDY RNG_SR_DRDY
+#define LL_RNG_SR_CECS RNG_SR_CECS
+#define LL_RNG_SR_SECS RNG_SR_SECS
+#define LL_RNG_SR_CEIS RNG_SR_CEIS
+#define LL_RNG_SR_SEIS RNG_SR_SEIS
 /**
   * @}
   */
@@ -140,7 +140,7 @@ typedef struct
   * @brief    IT defines which can be used with LL_RNG_ReadReg and  LL_RNG_WriteReg macros
   * @{
   */
-#define LL_RNG_CR_IE   RNG_CR_IE      /*!< RNG Interrupt enable */
+#define LL_RNG_CR_IE   RNG_CR_IE
 /**
   * @}
   */

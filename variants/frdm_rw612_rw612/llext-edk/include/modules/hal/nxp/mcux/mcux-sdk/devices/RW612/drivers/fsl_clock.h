@@ -246,9 +246,9 @@
 /*! @brief Clock name used to get clock frequency. */
 typedef enum _clock_name
 {
-    kCLOCK_CoreSysClk,       /*!< Core clock  (aka HCLK)                                 */
-    kCLOCK_BusClk,           /*!< Bus clock (AHB/APB clock, aka HCLK)                    */
-    kCLOCK_MclkClk,          /*!< MCLK, to MCLK pin                                      */
+    kCLOCK_CoreSysClk,
+    kCLOCK_BusClk,
+    kCLOCK_MclkClk,
 } clock_name_t;
 
 /*!
@@ -543,65 +543,65 @@ typedef enum _clock_div_name
 /*! @brief PLL configuration for FRG */
 typedef struct _clock_frg_clk_config
 {
-    uint8_t num; /*!< FRG clock */
+    uint8_t num;
     enum
     {
-        kCLOCK_FrgMainClk = 0, /*!< Main System clock */
-        kCLOCK_FrgPllDiv,      /*!< Main pll clock divider*/
-        kCLOCK_FrgSFro,        /*!< 16MHz FRO */
-        kCLOCK_FrgFFro,        /*!< FRO48/60 */
+        kCLOCK_FrgMainClk = 0,
+        kCLOCK_FrgPllDiv,
+        kCLOCK_FrgSFro,
+        kCLOCK_FrgFFro,
     } sfg_clock_src;
-    uint8_t divider; /*!< Denominator of the fractional divider. */
-    uint8_t mult;    /*!< Numerator of the fractional divider. */
+    uint8_t divider;
+    uint8_t mult;
 } clock_frg_clk_config_t;
 
 /*! @brief TCPU PLL divider for tcpu_mci_flexspi_clk */
 typedef enum
 {
-    kCLOCK_TcpuFlexspiDiv12 = 0, /*!< Divided by 12 */
-    kCLOCK_TcpuFlexspiDiv11,     /*!< Divided by 11 */
-    kCLOCK_TcpuFlexspiDiv10,     /*!< Divided by 10 */
-    kCLOCK_TcpuFlexspiDiv9,      /*!< Divided by 9  */
+    kCLOCK_TcpuFlexspiDiv12 = 0,
+    kCLOCK_TcpuFlexspiDiv11,
+    kCLOCK_TcpuFlexspiDiv10,
+    kCLOCK_TcpuFlexspiDiv9,
 } clock_tcpu_flexspi_div_t;
 
 /*! @brief TDDR PLL divider for tddr_mci_flexspi_clk */
 typedef enum
 {
-    kCLOCK_TddrFlexspiDiv11 = 0, /*!< Divided by 11 */
-    kCLOCK_TddrFlexspiDiv10,     /*!< Divided by 10 */
-    kCLOCK_TddrFlexspiDiv9,      /*!< Divided by 9 */
-    kCLOCK_TddrFlexspiDiv8,      /*!< Divided by 8  */
+    kCLOCK_TddrFlexspiDiv11 = 0,
+    kCLOCK_TddrFlexspiDiv10,
+    kCLOCK_TddrFlexspiDiv9,
+    kCLOCK_TddrFlexspiDiv8,
 } clock_tddr_flexspi_div_t;
 
 /*! @brief T3 PLL IRC configuration */
 typedef enum
 {
-    kCLOCK_T3MciIrc60m = 0, /*!< T3 MCI IRC 59.53MHz */
-    kCLOCK_T3MciIrc48m,     /*!< T3 MCI IRC 48.30MHz */
+    kCLOCK_T3MciIrc60m = 0,
+    kCLOCK_T3MciIrc48m,
 } clock_t3_mci_irc_config_t;
 
 /*! @brief AVPLL channel1 frequency configuration */
 typedef enum
 {
-    kCLOCK_AvPllChUnchanged = 0, /*!< AVPLL channel frequency unchanged. */
-    kCLOCK_AvPllChFreq2p048m,    /*!< AVPLL channel frequency 2.048MHz */
-    kCLOCK_AvPllChFreq4p096m,    /*!< AVPLL channel frequency 4.096MHz */
-    kCLOCK_AvPllChFreq6p144m,    /*!< AVPLL channel frequency 6.144MHz */
-    kCLOCK_AvPllChFreq8p192m,    /*!< AVPLL channel frequency 8.192MHz */
-    kCLOCK_AvPllChFreq11p2896m,  /*!< AVPLL channel frequency 11.2896MHz */
-    kCLOCK_AvPllChFreq12m,       /*!< AVPLL channel frequency 12MHz */
-    kCLOCK_AvPllChFreq12p288m,   /*!< AVPLL channel frequency 12.288MHz */
-    kCLOCK_AvPllChFreq24p576m,   /*!< AVPLL channel frequency 24.576MHz */
-    kCLOCK_AvPllChFreq64m,       /*!< AVPLL channel frequency 64MHz */
-    kCLOCK_AvPllChFreq98p304m,   /*!< AVPLL channel frequency 98.304MHz */
+    kCLOCK_AvPllChUnchanged = 0,
+    kCLOCK_AvPllChFreq2p048m,
+    kCLOCK_AvPllChFreq4p096m,
+    kCLOCK_AvPllChFreq6p144m,
+    kCLOCK_AvPllChFreq8p192m,
+    kCLOCK_AvPllChFreq11p2896m,
+    kCLOCK_AvPllChFreq12m,
+    kCLOCK_AvPllChFreq12p288m,
+    kCLOCK_AvPllChFreq24p576m,
+    kCLOCK_AvPllChFreq64m,
+    kCLOCK_AvPllChFreq98p304m,
 } clock_avpll_ch_freq_t;
 
 /*! @brief AVPLL configuration */
 typedef struct
 {
-    clock_avpll_ch_freq_t ch1Freq; /*!< AVPLL channel 1 frequency configuration */
-    clock_avpll_ch_freq_t ch2Freq; /*!< AVPLL channel 2 frequency configuration */
-    bool enableCali;               /*!< Enable calibration */
+    clock_avpll_ch_freq_t ch1Freq;
+    clock_avpll_ch_freq_t ch2Freq;
+    bool enableCali;
 } clock_avpll_config_t;
 
 /*******************************************************************************

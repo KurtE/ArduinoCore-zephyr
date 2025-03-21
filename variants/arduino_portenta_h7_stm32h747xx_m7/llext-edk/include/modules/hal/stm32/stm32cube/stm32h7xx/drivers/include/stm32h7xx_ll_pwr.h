@@ -68,20 +68,20 @@ extern "C" {
   * @brief    Flags defines which can be used with LL_PWR_WriteReg function
   * @{
   */
-#define LL_PWR_FLAG_CPU_CSSF          PWR_CPUCR_CSSF      /*!< Clear flags for CPU  */
+#define LL_PWR_FLAG_CPU_CSSF          PWR_CPUCR_CSSF
 #if defined (DUAL_CORE)
-#define LL_PWR_FLAG_CPU2_CSSF         PWR_CPU2CR_CSSF     /*!< Clear flags for CPU2 */
+#define LL_PWR_FLAG_CPU2_CSSF         PWR_CPU2CR_CSSF
 #endif /* DUAL_CORE */
-#define LL_PWR_FLAG_WKUPCR_WKUPC6     PWR_WKUPCR_WKUPC6   /*!< Clear PC1 WKUP flag  */
+#define LL_PWR_FLAG_WKUPCR_WKUPC6     PWR_WKUPCR_WKUPC6
 #if defined (PWR_WKUPCR_WKUPC5)
-#define LL_PWR_FLAG_WKUPCR_WKUPC5     PWR_WKUPCR_WKUPC5   /*!< Clear PI11 WKUP flag */
+#define LL_PWR_FLAG_WKUPCR_WKUPC5     PWR_WKUPCR_WKUPC5
 #endif /* defined (PWR_WKUPCR_WKUPC5) */
-#define LL_PWR_FLAG_WKUPCR_WKUPC4     PWR_WKUPCR_WKUPC4   /*!< Clear PC13 WKUP flag */
+#define LL_PWR_FLAG_WKUPCR_WKUPC4     PWR_WKUPCR_WKUPC4
 #if defined (PWR_WKUPCR_WKUPC3)
-#define LL_PWR_FLAG_WKUPCR_WKUPC3     PWR_WKUPCR_WKUPC3   /*!< Clear PI8 WKUP flag  */
+#define LL_PWR_FLAG_WKUPCR_WKUPC3     PWR_WKUPCR_WKUPC3
 #endif /* defined (PWR_WKUPCR_WKUPC3) */
-#define LL_PWR_FLAG_WKUPCR_WKUPC2     PWR_WKUPCR_WKUPC2   /*!< Clear PA2 WKUP flag  */
-#define LL_PWR_FLAG_WKUPCR_WKUPC1     PWR_WKUPCR_WKUPC1   /*!< Clear PA0 WKUP flag  */
+#define LL_PWR_FLAG_WKUPCR_WKUPC2     PWR_WKUPCR_WKUPC2
+#define LL_PWR_FLAG_WKUPCR_WKUPC1     PWR_WKUPCR_WKUPC1
 /**
   * @}
   */
@@ -90,59 +90,59 @@ extern "C" {
   * @brief    Flags defines which can be used with LL_PWR_ReadReg function
   * @{
   */
-#define LL_PWR_FLAG_AVDO              PWR_CSR1_AVDO       /*!< Analog voltage detector output on VDDA flag                          */
-#define LL_PWR_FLAG_PVDO              PWR_CSR1_PVDO       /*!< Programmable voltage detect output flag                              */
-#define LL_PWR_FLAG_ACTVOS            PWR_CSR1_ACTVOS     /*!< Current VOS applied for VCORE voltage scaling flag                   */
-#define LL_PWR_FLAG_ACTVOSRDY         PWR_CSR1_ACTVOSRDY  /*!< Ready bit for current actual used VOS for VCORE voltage scaling flag */
+#define LL_PWR_FLAG_AVDO              PWR_CSR1_AVDO
+#define LL_PWR_FLAG_PVDO              PWR_CSR1_PVDO
+#define LL_PWR_FLAG_ACTVOS            PWR_CSR1_ACTVOS
+#define LL_PWR_FLAG_ACTVOSRDY         PWR_CSR1_ACTVOSRDY
 #if defined (PWR_CSR1_MMCVDO)
-#define LL_PWR_FLAG_MMCVDO            PWR_CSR1_MMCVDO     /*!< Voltage detector output on VDDMMC flag                               */
+#define LL_PWR_FLAG_MMCVDO            PWR_CSR1_MMCVDO
 #endif /* PWR_CSR1_MMCVDO */
 
-#define LL_PWR_FLAG_TEMPH             PWR_CR2_TEMPH       /*!< Temperature high threshold flag */
-#define LL_PWR_FLAG_TEMPL             PWR_CR2_TEMPL       /*!< Temperature low threshold flag  */
-#define LL_PWR_FLAG_VBATH             PWR_CR2_VBATH       /*!< VBAT high threshold flag        */
-#define LL_PWR_FLAG_VBATL             PWR_CR2_VBATL       /*!< VBAT low threshold flag         */
-#define LL_PWR_FLAG_BRRDY             PWR_CR2_BRRDY       /*!< Backup Regulator ready flag     */
+#define LL_PWR_FLAG_TEMPH             PWR_CR2_TEMPH
+#define LL_PWR_FLAG_TEMPL             PWR_CR2_TEMPL
+#define LL_PWR_FLAG_VBATH             PWR_CR2_VBATH
+#define LL_PWR_FLAG_VBATL             PWR_CR2_VBATL
+#define LL_PWR_FLAG_BRRDY             PWR_CR2_BRRDY
 
-#define LL_PWR_FLAG_USBRDY            PWR_CR3_USB33RDY    /*!< USB supply ready flag           */
-#define LL_PWR_FLAG_SMPSEXTRDY        PWR_CR3_SMPSEXTRDY  /*!< SMPS External supply ready flag */
+#define LL_PWR_FLAG_USBRDY            PWR_CR3_USB33RDY
+#define LL_PWR_FLAG_SMPSEXTRDY        PWR_CR3_SMPSEXTRDY
 
 #if defined (PWR_CPUCR_SBF_D2)
-#define LL_PWR_FLAG_CPU_SBF_D2        PWR_CPUCR_SBF_D2    /*!< D2 domain DSTANDBY Flag  */
+#define LL_PWR_FLAG_CPU_SBF_D2        PWR_CPUCR_SBF_D2
 #endif /* PWR_CPUCR_SBF_D2 */
 #if defined (PWR_CPUCR_SBF_D1)
-#define LL_PWR_FLAG_CPU_SBF_D1        PWR_CPUCR_SBF_D1    /*!< D1 domain DSTANDBY Flag  */
+#define LL_PWR_FLAG_CPU_SBF_D1        PWR_CPUCR_SBF_D1
 #endif /* PWR_CPUCR_SBF_D1 */
-#define LL_PWR_FLAG_CPU_SBF           PWR_CPUCR_SBF       /*!< System STANDBY Flag      */
-#define LL_PWR_FLAG_CPU_STOPF         PWR_CPUCR_STOPF     /*!< STOP Flag                */
+#define LL_PWR_FLAG_CPU_SBF           PWR_CPUCR_SBF
+#define LL_PWR_FLAG_CPU_STOPF         PWR_CPUCR_STOPF
 #if defined (DUAL_CORE)
-#define LL_PWR_FLAG_CPU_HOLD2F        PWR_CPUCR_HOLD2F    /*!< CPU2 in hold wakeup flag */
+#define LL_PWR_FLAG_CPU_HOLD2F        PWR_CPUCR_HOLD2F
 #endif /* DUAL_CORE */
 
 #if defined (DUAL_CORE)
-#define LL_PWR_FLAG_CPU2_SBF_D2       PWR_CPU2CR_SBF_D2   /*!< D2 domain DSTANDBY Flag  */
-#define LL_PWR_FLAG_CPU2_SBF_D1       PWR_CPU2CR_SBF_D1   /*!< D1 domain DSTANDBY Flag  */
-#define LL_PWR_FLAG_CPU2_SBF          PWR_CPU2CR_SBF      /*!< System STANDBY Flag      */
-#define LL_PWR_FLAG_CPU2_STOPF        PWR_CPU2CR_STOPF    /*!< STOP Flag                */
-#define LL_PWR_FLAG_CPU2_HOLD1F       PWR_CPU2CR_HOLD1F   /*!< CPU1 in hold wakeup flag */
+#define LL_PWR_FLAG_CPU2_SBF_D2       PWR_CPU2CR_SBF_D2
+#define LL_PWR_FLAG_CPU2_SBF_D1       PWR_CPU2CR_SBF_D1
+#define LL_PWR_FLAG_CPU2_SBF          PWR_CPU2CR_SBF
+#define LL_PWR_FLAG_CPU2_STOPF        PWR_CPU2CR_STOPF
+#define LL_PWR_FLAG_CPU2_HOLD1F       PWR_CPU2CR_HOLD1F
 #endif /* DUAL_CORE */
 
 #if defined (PWR_CPUCR_PDDS_D2)
-#define LL_PWR_D3CR_VOSRDY            PWR_D3CR_VOSRDY     /*!< Voltage scaling ready flag */
+#define LL_PWR_D3CR_VOSRDY            PWR_D3CR_VOSRDY
 #else
-#define LL_PWR_SRDCR_VOSRDY           PWR_SRDCR_VOSRDY    /*!< Voltage scaling ready flag */
+#define LL_PWR_SRDCR_VOSRDY           PWR_SRDCR_VOSRDY
 #endif /* PWR_CPUCR_PDDS_D2 */
 
-#define LL_PWR_WKUPFR_WKUPF6          PWR_WKUPFR_WKUPF6   /*!< Wakeup flag on PC1  */
+#define LL_PWR_WKUPFR_WKUPF6          PWR_WKUPFR_WKUPF6
 #if defined (PWR_WKUPFR_WKUPF5)
-#define LL_PWR_WKUPFR_WKUPF5          PWR_WKUPFR_WKUPF5   /*!< Wakeup flag on PI11 */
+#define LL_PWR_WKUPFR_WKUPF5          PWR_WKUPFR_WKUPF5
 #endif /* defined (PWR_WKUPFR_WKUPF5) */
-#define LL_PWR_WKUPFR_WKUPF4          PWR_WKUPFR_WKUPF4   /*!< Wakeup flag on PC13 */
+#define LL_PWR_WKUPFR_WKUPF4          PWR_WKUPFR_WKUPF4
 #if defined (PWR_WKUPFR_WKUPF3)
-#define LL_PWR_WKUPFR_WKUPF3          PWR_WKUPFR_WKUPF3   /*!< Wakeup flag on PI8  */
+#define LL_PWR_WKUPFR_WKUPF3          PWR_WKUPFR_WKUPF3
 #endif /* defined (PWR_WKUPFR_WKUPF3) */
-#define LL_PWR_WKUPFR_WKUPF2          PWR_WKUPFR_WKUPF2   /*!< Wakeup flag on PA2  */
-#define LL_PWR_WKUPFR_WKUPF1          PWR_WKUPFR_WKUPF1   /*!< Wakeup flag on PA0  */
+#define LL_PWR_WKUPFR_WKUPF2          PWR_WKUPFR_WKUPF2
+#define LL_PWR_WKUPFR_WKUPF1          PWR_WKUPFR_WKUPF1
 /**
   * @}
   */
@@ -151,36 +151,36 @@ extern "C" {
   * @{
   */
 #if defined (PWR_CPUCR_PDDS_D2)
-#define LL_PWR_CPU_MODE_D1STOP        0x00000000U           /*!< Enter D1 domain to Stop mode when the CPU enters deepsleep       */
-#define LL_PWR_CPU_MODE_D1STANDBY     PWR_CPUCR_PDDS_D1     /*!< Enter D1 domain to Standby mode when the CPU enters deepsleep    */
+#define LL_PWR_CPU_MODE_D1STOP        0x00000000U
+#define LL_PWR_CPU_MODE_D1STANDBY     PWR_CPUCR_PDDS_D1
 #else
-#define LL_PWR_CPU_MODE_CDSTOP        0x00000000U           /*!< Enter CD domain to Stop mode when the CPU enters deepsleep       */
-#define LL_PWR_CPU_MODE_CDSTOP2       PWR_CPUCR_RETDS_CD    /*!< Enter CD domain to Stop2 mode when the CPU enters deepsleep      */
+#define LL_PWR_CPU_MODE_CDSTOP        0x00000000U
+#define LL_PWR_CPU_MODE_CDSTOP2       PWR_CPUCR_RETDS_CD
 #endif /* PWR_CPUCR_PDDS_D2 */
 
 #if defined (PWR_CPUCR_PDDS_D2)
-#define LL_PWR_CPU_MODE_D2STOP        0x00000000U           /*!< Enter D2 domain to Stop mode when the CPU enters deepsleep       */
-#define LL_PWR_CPU_MODE_D2STANDBY     PWR_CPUCR_PDDS_D2     /*!< Enter D2 domain to Standby mode when the CPU enters deepsleep    */
+#define LL_PWR_CPU_MODE_D2STOP        0x00000000U
+#define LL_PWR_CPU_MODE_D2STANDBY     PWR_CPUCR_PDDS_D2
 #endif /* PWR_CPUCR_PDDS_D2 */
 
 #if defined (PWR_CPUCR_PDDS_D2)
-#define LL_PWR_CPU_MODE_D3RUN         PWR_CPUCR_RUN_D3      /*!< Keep system D3 domain in Run mode when the CPU enter deepsleep   */
-#define LL_PWR_CPU_MODE_D3STOP        0x00000000U           /*!< Enter D3 domain to Stop mode when the CPU enters deepsleep       */
-#define LL_PWR_CPU_MODE_D3STANDBY     PWR_CPUCR_PDDS_D3     /*!< Enter D3 domain to Standby mode when the CPU enters deepsleep    */
+#define LL_PWR_CPU_MODE_D3RUN         PWR_CPUCR_RUN_D3
+#define LL_PWR_CPU_MODE_D3STOP        0x00000000U
+#define LL_PWR_CPU_MODE_D3STANDBY     PWR_CPUCR_PDDS_D3
 #else
-#define LL_PWR_CPU_MODE_SRDRUN        PWR_CPUCR_RUN_SRD     /*!< Keep system SRD domain in Run mode when the CPU enter deepsleep  */
-#define LL_PWR_CPU_MODE_SRDSTOP       0x00000000U           /*!< Enter SRD domain to Stop mode when the CPU enters deepsleep      */
-#define LL_PWR_CPU_MODE_SRDSTANDBY    PWR_CPUCR_PDDS_SRD    /*!< Enter SRD domain to Standby mode when the CPU enters deepsleep   */
+#define LL_PWR_CPU_MODE_SRDRUN        PWR_CPUCR_RUN_SRD
+#define LL_PWR_CPU_MODE_SRDSTOP       0x00000000U
+#define LL_PWR_CPU_MODE_SRDSTANDBY    PWR_CPUCR_PDDS_SRD
 #endif /* PWR_CPUCR_PDDS_D2 */
 
 #if defined (DUAL_CORE)
-#define LL_PWR_CPU2_MODE_D1STOP       0x00000000U           /*!< Enter D1 domain to Stop mode when the CPU2 enters deepsleep      */
-#define LL_PWR_CPU2_MODE_D1STANDBY    PWR_CPU2CR_PDDS_D1    /*!< Enter D1 domain to Standby mode when the CPU2 enters deepsleep   */
-#define LL_PWR_CPU2_MODE_D2STOP       0x00000000U           /*!< Enter D2 domain to Stop mode when the CPU2 enters deepsleep      */
-#define LL_PWR_CPU2_MODE_D2STANDBY    PWR_CPU2CR_PDDS_D2    /*!< Enter D2 domain to Standby mode when the CPU2 enters deepsleep   */
-#define LL_PWR_CPU2_MODE_D3RUN        PWR_CPU2CR_RUN_D3     /*!< Keep system D3 domain in RUN mode when the CPU2 enter deepsleep  */
-#define LL_PWR_CPU2_MODE_D3STOP       0x00000000U           /*!< Enter D3 domain to Stop mode when the CPU2 enters deepsleep      */
-#define LL_PWR_CPU2_MODE_D3STANDBY    PWR_CPU2CR_PDDS_D3    /*!< Enter D3 domain to Standby mode when the CPU2 enter deepsleep    */
+#define LL_PWR_CPU2_MODE_D1STOP       0x00000000U
+#define LL_PWR_CPU2_MODE_D1STANDBY    PWR_CPU2CR_PDDS_D1
+#define LL_PWR_CPU2_MODE_D2STOP       0x00000000U
+#define LL_PWR_CPU2_MODE_D2STANDBY    PWR_CPU2CR_PDDS_D2
+#define LL_PWR_CPU2_MODE_D3RUN        PWR_CPU2CR_RUN_D3
+#define LL_PWR_CPU2_MODE_D3STOP       0x00000000U
+#define LL_PWR_CPU2_MODE_D3STANDBY    PWR_CPU2CR_PDDS_D3
 #endif /* DUAL_CORE */
 /**
   * @}
@@ -190,19 +190,19 @@ extern "C" {
   * @{
   */
 #if defined (PWR_CPUCR_PDDS_D2)
-#define LL_PWR_REGU_VOLTAGE_SCALE3      PWR_D3CR_VOS_0                    /*!< Select voltage scale 3 */
-#define LL_PWR_REGU_VOLTAGE_SCALE2      PWR_D3CR_VOS_1                    /*!< Select voltage scale 2 */
-#define LL_PWR_REGU_VOLTAGE_SCALE1      (PWR_D3CR_VOS_0 | PWR_D3CR_VOS_1) /*!< Select voltage scale 1 */
+#define LL_PWR_REGU_VOLTAGE_SCALE3      PWR_D3CR_VOS_0
+#define LL_PWR_REGU_VOLTAGE_SCALE2      PWR_D3CR_VOS_1
+#define LL_PWR_REGU_VOLTAGE_SCALE1      (PWR_D3CR_VOS_0 | PWR_D3CR_VOS_1)
 #if defined (SYSCFG_PWRCR_ODEN) /* STM32H74xxx and STM32H75xxx lines */
-#define LL_PWR_REGU_VOLTAGE_SCALE0      (PWR_D3CR_VOS_0 | PWR_D3CR_VOS_1) /*!< Select voltage scale 0 */
+#define LL_PWR_REGU_VOLTAGE_SCALE0      (PWR_D3CR_VOS_0 | PWR_D3CR_VOS_1)
 #else
-#define LL_PWR_REGU_VOLTAGE_SCALE0      0x00000000U                       /*!< Select voltage scale 0 */
+#define LL_PWR_REGU_VOLTAGE_SCALE0      0x00000000U
 #endif /* defined (SYSCFG_PWRCR_ODEN) */
 #else
-#define LL_PWR_REGU_VOLTAGE_SCALE3      0x00000000U                       /*!< Select voltage scale 3 */
-#define LL_PWR_REGU_VOLTAGE_SCALE2      PWR_D3CR_VOS_0                    /*!< Select voltage scale 2 */
-#define LL_PWR_REGU_VOLTAGE_SCALE1      PWR_D3CR_VOS_1                    /*!< Select voltage scale 1 */
-#define LL_PWR_REGU_VOLTAGE_SCALE0      (PWR_D3CR_VOS_0 | PWR_D3CR_VOS_1) /*!< Select voltage scale 0 */
+#define LL_PWR_REGU_VOLTAGE_SCALE3      0x00000000U
+#define LL_PWR_REGU_VOLTAGE_SCALE2      PWR_D3CR_VOS_0
+#define LL_PWR_REGU_VOLTAGE_SCALE1      PWR_D3CR_VOS_1
+#define LL_PWR_REGU_VOLTAGE_SCALE0      (PWR_D3CR_VOS_0 | PWR_D3CR_VOS_1)
 #endif /* PWR_CPUCR_PDDS_D2 */
 /**
   * @}
@@ -211,9 +211,9 @@ extern "C" {
 /** @defgroup PWR_LL_EC_STOP_MODE_REGU_VOLTAGE Stop mode Regulator Voltage Scaling
   * @{
   */
-#define LL_PWR_REGU_VOLTAGE_SVOS_SCALE5   PWR_CR1_SVOS_0                    /*!< Select voltage scale 5 when system enters STOP mode */
-#define LL_PWR_REGU_VOLTAGE_SVOS_SCALE4   PWR_CR1_SVOS_1                    /*!< Select voltage scale 4 when system enters STOP mode */
-#define LL_PWR_REGU_VOLTAGE_SVOS_SCALE3   (PWR_CR1_SVOS_0 | PWR_CR1_SVOS_1) /*!< Select voltage scale 3 when system enters STOP mode */
+#define LL_PWR_REGU_VOLTAGE_SVOS_SCALE5   PWR_CR1_SVOS_0
+#define LL_PWR_REGU_VOLTAGE_SVOS_SCALE4   PWR_CR1_SVOS_1
+#define LL_PWR_REGU_VOLTAGE_SVOS_SCALE3   (PWR_CR1_SVOS_0 | PWR_CR1_SVOS_1)
 /**
   * @}
   */
@@ -221,8 +221,8 @@ extern "C" {
 /** @defgroup PWR_LL_EC_REGU_MODE_DS_MODE  Regulator Mode In Deep Sleep Mode
   * @{
   */
-#define LL_PWR_REGU_DSMODE_MAIN           0x00000000U   /*!< Voltage Regulator in main mode during deepsleep mode      */
-#define LL_PWR_REGU_DSMODE_LOW_POWER      PWR_CR1_LPDS  /*!< Voltage Regulator in low-power mode during deepsleep mode */
+#define LL_PWR_REGU_DSMODE_MAIN           0x00000000U
+#define LL_PWR_REGU_DSMODE_LOW_POWER      PWR_CR1_LPDS
 /**
   * @}
   */
@@ -230,14 +230,14 @@ extern "C" {
 /** @defgroup PWR_LL_EC_PVDLEVEL Power Digital Voltage Level Detector
   * @{
   */
-#define LL_PWR_PVDLEVEL_0   PWR_CR1_PLS_LEV0  /*!< Voltage threshold detected by PVD 1.95 V */
-#define LL_PWR_PVDLEVEL_1   PWR_CR1_PLS_LEV1  /*!< Voltage threshold detected by PVD 2.1 V  */
-#define LL_PWR_PVDLEVEL_2   PWR_CR1_PLS_LEV2  /*!< Voltage threshold detected by PVD 2.25 V */
-#define LL_PWR_PVDLEVEL_3   PWR_CR1_PLS_LEV3  /*!< Voltage threshold detected by PVD 2.4 V  */
-#define LL_PWR_PVDLEVEL_4   PWR_CR1_PLS_LEV4  /*!< Voltage threshold detected by PVD 2.55 V */
-#define LL_PWR_PVDLEVEL_5   PWR_CR1_PLS_LEV5  /*!< Voltage threshold detected by PVD 2.7 V  */
-#define LL_PWR_PVDLEVEL_6   PWR_CR1_PLS_LEV6  /*!< Voltage threshold detected by PVD 2.85 V */
-#define LL_PWR_PVDLEVEL_7   PWR_CR1_PLS_LEV7  /*!< External voltage level on PVD_IN pin, compared to internal VREFINT level. */
+#define LL_PWR_PVDLEVEL_0   PWR_CR1_PLS_LEV0
+#define LL_PWR_PVDLEVEL_1   PWR_CR1_PLS_LEV1
+#define LL_PWR_PVDLEVEL_2   PWR_CR1_PLS_LEV2
+#define LL_PWR_PVDLEVEL_3   PWR_CR1_PLS_LEV3
+#define LL_PWR_PVDLEVEL_4   PWR_CR1_PLS_LEV4
+#define LL_PWR_PVDLEVEL_5   PWR_CR1_PLS_LEV5
+#define LL_PWR_PVDLEVEL_6   PWR_CR1_PLS_LEV6
+#define LL_PWR_PVDLEVEL_7   PWR_CR1_PLS_LEV7
 /**
   * @}
   */
@@ -245,10 +245,10 @@ extern "C" {
 /** @defgroup PWR_LL_EC_AVDLEVEL Power Analog Voltage Level Detector
   * @{
   */
-#define LL_PWR_AVDLEVEL_0   PWR_CR1_ALS_LEV0  /*!< Analog Voltage threshold detected by AVD 1.7 V */
-#define LL_PWR_AVDLEVEL_1   PWR_CR1_ALS_LEV1  /*!< Analog Voltage threshold detected by AVD 2.1 V */
-#define LL_PWR_AVDLEVEL_2   PWR_CR1_ALS_LEV2  /*!< Analog Voltage threshold detected by AVD 2.5 V */
-#define LL_PWR_AVDLEVEL_3   PWR_CR1_ALS_LEV3  /*!< Analog Voltage threshold detected by AVD 2.8 V */
+#define LL_PWR_AVDLEVEL_0   PWR_CR1_ALS_LEV0
+#define LL_PWR_AVDLEVEL_1   PWR_CR1_ALS_LEV1
+#define LL_PWR_AVDLEVEL_2   PWR_CR1_ALS_LEV2
+#define LL_PWR_AVDLEVEL_3   PWR_CR1_ALS_LEV3
 
 /**
   * @}
@@ -257,8 +257,8 @@ extern "C" {
 /** @defgroup PWR_LL_EC_BATT_CHARG_RESISTOR Battery Charge Resistor
   * @{
   */
-#define LL_PWR_BATT_CHARG_RESISTOR_5K     0x00000000U   /*!< Charge the Battery through a 5 kO resistor    */
-#define LL_PWR_BATT_CHARGRESISTOR_1_5K    PWR_CR3_VBRS  /*!< Charge the Battery through a 1.5 kO resistor  */
+#define LL_PWR_BATT_CHARG_RESISTOR_5K     0x00000000U
+#define LL_PWR_BATT_CHARGRESISTOR_1_5K    PWR_CR3_VBRS
 /**
   * @}
   */
@@ -266,16 +266,16 @@ extern "C" {
 /** @defgroup PWR_LL_EC_WAKEUP_PIN  Wakeup Pins
   * @{
   */
-#define LL_PWR_WAKEUP_PIN1    PWR_WKUPEPR_WKUPEN1  /*!< Wake-Up pin 1 : PA0  */
-#define LL_PWR_WAKEUP_PIN2    PWR_WKUPEPR_WKUPEN2  /*!< Wake-Up pin 2 : PA2  */
+#define LL_PWR_WAKEUP_PIN1    PWR_WKUPEPR_WKUPEN1
+#define LL_PWR_WAKEUP_PIN2    PWR_WKUPEPR_WKUPEN2
 #if defined (PWR_WKUPEPR_WKUPEN3)
-#define LL_PWR_WAKEUP_PIN3    PWR_WKUPEPR_WKUPEN3  /*!< Wake-Up pin 3 : PI8  */
+#define LL_PWR_WAKEUP_PIN3    PWR_WKUPEPR_WKUPEN3
 #endif /* defined (PWR_WKUPEPR_WKUPEN3) */
-#define LL_PWR_WAKEUP_PIN4    PWR_WKUPEPR_WKUPEN4  /*!< Wake-Up pin 4 : PC13 */
+#define LL_PWR_WAKEUP_PIN4    PWR_WKUPEPR_WKUPEN4
 #if defined (PWR_WKUPEPR_WKUPEN5)
-#define LL_PWR_WAKEUP_PIN5    PWR_WKUPEPR_WKUPEN5  /*!< Wake-Up pin 5 : PI11 */
+#define LL_PWR_WAKEUP_PIN5    PWR_WKUPEPR_WKUPEN5
 #endif /* defined (PWR_WKUPEPR_WKUPEN5) */
-#define LL_PWR_WAKEUP_PIN6    PWR_WKUPEPR_WKUPEN6  /*!< Wake-Up pin 6 : PC1  */
+#define LL_PWR_WAKEUP_PIN6    PWR_WKUPEPR_WKUPEN6
 /**
   * @}
   */
@@ -283,9 +283,9 @@ extern "C" {
 /** @defgroup PWR_LL_EC_WAKEUP_PIN_PULL  Wakeup Pins pull configuration
   * @{
   */
-#define LL_PWR_WAKEUP_PIN_NOPULL      0x00000000UL   /*!< Configure Wake-Up pin in no pull   */
-#define LL_PWR_WAKEUP_PIN_PULLUP      0x00000001UL   /*!< Configure Wake-Up pin in pull Up   */
-#define LL_PWR_WAKEUP_PIN_PULLDOWN    0x00000002UL   /*!< Configure Wake-Up pin in pull Down */
+#define LL_PWR_WAKEUP_PIN_NOPULL      0x00000000UL
+#define LL_PWR_WAKEUP_PIN_PULLUP      0x00000001UL
+#define LL_PWR_WAKEUP_PIN_PULLDOWN    0x00000002UL
 /**
   * @}
   */
@@ -293,17 +293,17 @@ extern "C" {
 /** @defgroup PWR_LL_EC_SUPPLY_PWR Power supply source configuration
   * @{
   */
-#define LL_PWR_LDO_SUPPLY                     PWR_CR3_LDOEN                                                               /*!< Core domains are supplied from the LDO                                                                     */
+#define LL_PWR_LDO_SUPPLY                     PWR_CR3_LDOEN
 #if defined (SMPS)
-#define LL_PWR_DIRECT_SMPS_SUPPLY             PWR_CR3_SMPSEN                                                              /*!< Core domains are supplied from the SMPS                                                                    */
-#define LL_PWR_SMPS_1V8_SUPPLIES_LDO          (PWR_CR3_SMPSLEVEL_0 | PWR_CR3_SMPSEN | PWR_CR3_LDOEN)                      /*!< The SMPS 1.8V output supplies the LDO which supplies the Core domains                                       */
-#define LL_PWR_SMPS_2V5_SUPPLIES_LDO          (PWR_CR3_SMPSLEVEL_1 | PWR_CR3_SMPSEN | PWR_CR3_LDOEN)                      /*!< The SMPS 2.5V output supplies the LDO which supplies the Core domains                                       */
-#define LL_PWR_SMPS_1V8_SUPPLIES_EXT_AND_LDO  (PWR_CR3_SMPSLEVEL_0 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_LDOEN)  /*!< The SMPS 1.8V output supplies an external circuits and the LDO. The Core domains are supplied from the LDO */
-#define LL_PWR_SMPS_2V5_SUPPLIES_EXT_AND_LDO  (PWR_CR3_SMPSLEVEL_1 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_LDOEN)  /*!< The SMPS 2.5V output supplies an external circuits and the LDO. The Core domains are supplied from the LDO */
-#define LL_PWR_SMPS_1V8_SUPPLIES_EXT          (PWR_CR3_SMPSLEVEL_0 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_BYPASS) /*!< The SMPS 1.8V output supplies an external source which supplies the Core domains                            */
-#define LL_PWR_SMPS_2V5_SUPPLIES_EXT          (PWR_CR3_SMPSLEVEL_1 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_BYPASS) /*!< The SMPS 2.5V output supplies an external source which supplies the Core domains                            */
+#define LL_PWR_DIRECT_SMPS_SUPPLY             PWR_CR3_SMPSEN
+#define LL_PWR_SMPS_1V8_SUPPLIES_LDO          (PWR_CR3_SMPSLEVEL_0 | PWR_CR3_SMPSEN | PWR_CR3_LDOEN)
+#define LL_PWR_SMPS_2V5_SUPPLIES_LDO          (PWR_CR3_SMPSLEVEL_1 | PWR_CR3_SMPSEN | PWR_CR3_LDOEN)
+#define LL_PWR_SMPS_1V8_SUPPLIES_EXT_AND_LDO  (PWR_CR3_SMPSLEVEL_0 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_LDOEN)
+#define LL_PWR_SMPS_2V5_SUPPLIES_EXT_AND_LDO  (PWR_CR3_SMPSLEVEL_1 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_LDOEN)
+#define LL_PWR_SMPS_1V8_SUPPLIES_EXT          (PWR_CR3_SMPSLEVEL_0 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_BYPASS)
+#define LL_PWR_SMPS_2V5_SUPPLIES_EXT          (PWR_CR3_SMPSLEVEL_1 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_BYPASS)
 #endif /* SMPS */
-#define LL_PWR_EXTERNAL_SOURCE_SUPPLY         PWR_CR3_BYPASS                                                              /*!< The SMPS and the LDO are Bypassed. The Core domains are supplied from an external source                    */
+#define LL_PWR_EXTERNAL_SOURCE_SUPPLY         PWR_CR3_BYPASS
 /**
   * @}
   */

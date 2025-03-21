@@ -25,62 +25,62 @@
 /*! @brief Available notify types for device notification */
 typedef enum _usb_device_notification
 {
-    kUSB_DeviceNotifyBusReset = 0x10U, /*!< Reset signal detected */
-    kUSB_DeviceNotifySuspend,          /*!< Suspend signal detected */
-    kUSB_DeviceNotifyResume,           /*!< Resume signal detected */
-    kUSB_DeviceNotifyLPMSleep,         /*!< LPM signal detected */
-    kUSB_DeviceNotifyLPMResume,        /*!< Resume signal detected */
-    kUSB_DeviceNotifyError,            /*!< Errors happened in bus */
-    kUSB_DeviceNotifyDetach,           /*!< Device disconnected from a host */
-    kUSB_DeviceNotifyAttach,           /*!< Device connected to a host */
+    kUSB_DeviceNotifyBusReset = 0x10U,
+    kUSB_DeviceNotifySuspend,
+    kUSB_DeviceNotifyResume,
+    kUSB_DeviceNotifyLPMSleep,
+    kUSB_DeviceNotifyLPMResume,
+    kUSB_DeviceNotifyError,
+    kUSB_DeviceNotifyDetach,
+    kUSB_DeviceNotifyAttach,
 #if (defined(USB_DEVICE_CONFIG_SOF_NOTIFICATIONS) && (USB_DEVICE_CONFIG_SOF_NOTIFICATIONS > 0U))
-    kUSB_DeviceNotifySOF,              /*!< Start of Frame received */
+    kUSB_DeviceNotifySOF,
 #endif
 #if (defined(USB_DEVICE_CONFIG_CHARGER_DETECT) && (USB_DEVICE_CONFIG_CHARGER_DETECT > 0U))
-    kUSB_DeviceNotifyDcdDetectFinished, /*!< Device charger detection finished */
+    kUSB_DeviceNotifyDcdDetectFinished,
 #endif
 } usb_device_notification_t;
 
 /*! @brief Device notification message structure */
 typedef struct _usb_device_callback_message_struct
 {
-    uint8_t *buffer; /*!< Transferred buffer */
-    uint32_t length; /*!< Transferred data length */
-    uint8_t code;    /*!< Notification code */
-    uint8_t isSetup; /*!< Is in a setup phase */
+    uint8_t *buffer;
+    uint32_t length;
+    uint8_t code;
+    uint8_t isSetup;
 } usb_device_callback_message_struct_t;
 
 /*! @brief Control type for controller */
 typedef enum _usb_device_control_type
 {
-    kUSB_DeviceControlRun = 0U,          /*!< Enable the device functionality */
-    kUSB_DeviceControlStop,              /*!< Disable the device functionality */
-    kUSB_DeviceControlEndpointInit,      /*!< Initialize a specified endpoint */
-    kUSB_DeviceControlEndpointDeinit,    /*!< De-initialize a specified endpoint */
-    kUSB_DeviceControlEndpointStall,     /*!< Stall a specified endpoint */
-    kUSB_DeviceControlEndpointUnstall,   /*!< Un-stall a specified endpoint */
-    kUSB_DeviceControlGetDeviceStatus,   /*!< Get device status */
-    kUSB_DeviceControlGetEndpointStatus, /*!< Get endpoint status */
-    kUSB_DeviceControlSetDeviceAddress,  /*!< Set device address */
-    kUSB_DeviceControlGetSynchFrame,     /*!< Get current frame */
-    kUSB_DeviceControlResume,            /*!< Drive controller to generate a resume signal in USB bus */
-    kUSB_DeviceControlSleepResume,       /*!< Drive controller to generate a LPM resume signal in USB bus */
-    kUSB_DeviceControlSuspend,           /*!< Drive controller to enter into suspend mode */
-    kUSB_DeviceControlSleep,             /*!< Drive controller to enter into sleep mode */
-    kUSB_DeviceControlSetDefaultStatus,  /*!< Set controller to default status */
-    kUSB_DeviceControlGetSpeed,          /*!< Get current speed */
-    kUSB_DeviceControlGetOtgStatus,      /*!< Get OTG status */
-    kUSB_DeviceControlSetOtgStatus,      /*!< Set OTG status */
-    kUSB_DeviceControlSetTestMode,       /*!< Drive xCHI into test mode */
-    kUSB_DeviceControlGetRemoteWakeUp,   /*!< Get flag of LPM Remote Wake-up Enabled by USB host. */
+    kUSB_DeviceControlRun = 0U,
+    kUSB_DeviceControlStop,
+    kUSB_DeviceControlEndpointInit,
+    kUSB_DeviceControlEndpointDeinit,
+    kUSB_DeviceControlEndpointStall,
+    kUSB_DeviceControlEndpointUnstall,
+    kUSB_DeviceControlGetDeviceStatus,
+    kUSB_DeviceControlGetEndpointStatus,
+    kUSB_DeviceControlSetDeviceAddress,
+    kUSB_DeviceControlGetSynchFrame,
+    kUSB_DeviceControlResume,
+    kUSB_DeviceControlSleepResume,
+    kUSB_DeviceControlSuspend,
+    kUSB_DeviceControlSleep,
+    kUSB_DeviceControlSetDefaultStatus,
+    kUSB_DeviceControlGetSpeed,
+    kUSB_DeviceControlGetOtgStatus,
+    kUSB_DeviceControlSetOtgStatus,
+    kUSB_DeviceControlSetTestMode,
+    kUSB_DeviceControlGetRemoteWakeUp,
 #if (defined(USB_DEVICE_CONFIG_CHARGER_DETECT) && (USB_DEVICE_CONFIG_CHARGER_DETECT > 0U))
-    kUSB_DeviceControlDcdDisable, /*!< disable dcd module function. */
-    kUSB_DeviceControlDcdEnable,  /*!< enable dcd module function. */
+    kUSB_DeviceControlDcdDisable,
+    kUSB_DeviceControlDcdEnable,
 #endif
-    kUSB_DeviceControlPreSetDeviceAddress, /*!< Pre set device address */
-    kUSB_DeviceControlUpdateHwTick,        /*!< update hardware tick */
+    kUSB_DeviceControlPreSetDeviceAddress,
+    kUSB_DeviceControlUpdateHwTick,
 #if defined(USB_DEVICE_CONFIG_GET_SOF_COUNT) && (USB_DEVICE_CONFIG_GET_SOF_COUNT > 0U)
-    kUSB_DeviceControlGetCurrentFrameCount, /*!< Get current frame count */
+    kUSB_DeviceControlGetCurrentFrameCount,
 #endif
 } usb_device_control_type_t;
 
@@ -116,12 +116,12 @@ typedef usb_status_t (*usb_device_controller_control_t)(usb_device_controller_ha
 /*! @brief USB device controller interface structure */
 typedef struct _usb_device_controller_interface_struct
 {
-    usb_device_controller_init_t deviceInit;       /*!< Controller initialization */
-    usb_device_controller_deinit_t deviceDeinit;   /*!< Controller de-initialization */
-    usb_device_controller_send_t deviceSend;       /*!< Controller send data */
-    usb_device_controller_recv_t deviceRecv;       /*!< Controller receive data */
-    usb_device_controller_cancel_t deviceCancel;   /*!< Controller cancel transfer */
-    usb_device_controller_control_t deviceControl; /*!< Controller control */
+    usb_device_controller_init_t deviceInit;
+    usb_device_controller_deinit_t deviceDeinit;
+    usb_device_controller_send_t deviceSend;
+    usb_device_controller_recv_t deviceRecv;
+    usb_device_controller_cancel_t deviceCancel;
+    usb_device_controller_control_t deviceControl;
 } usb_device_controller_interface_struct_t;
 
 /*! @brief USB device status structure */
@@ -129,28 +129,28 @@ typedef struct _usb_device_struct
 {
 #if ((defined(USB_DEVICE_CONFIG_REMOTE_WAKEUP)) && (USB_DEVICE_CONFIG_REMOTE_WAKEUP > 0U)) || \
     (defined(FSL_FEATURE_SOC_USB_ANALOG_COUNT) && (FSL_FEATURE_SOC_USB_ANALOG_COUNT > 0U))
-    volatile uint64_t hwTick; /*!< Current hw tick(ms)*/
+    volatile uint64_t hwTick;
 #endif
-    usb_device_controller_handle controllerHandle;                       /*!< Controller handle */
-    const usb_device_controller_interface_struct_t *controllerInterface; /*!< Controller interface handle */
+    usb_device_controller_handle controllerHandle;
+    const usb_device_controller_interface_struct_t *controllerInterface;
 #if USB_DEVICE_CONFIG_USE_TASK
     OSA_MSGQ_HANDLE_DEFINE(notificationQueueBuffer,
                            USB_DEVICE_CONFIG_MAX_MESSAGES,
-                           USB_DEVICE_MESSAGES_SIZE); /*!< Message queue buffer*/
-    osa_msgq_handle_t notificationQueue;              /*!< Message queue*/
+                           USB_DEVICE_MESSAGES_SIZE);
+    osa_msgq_handle_t notificationQueue;
 #endif
-    usb_device_callback_t deviceCallback; /*!< Device callback function pointer */
+    usb_device_callback_t deviceCallback;
     usb_device_endpoint_callback_struct_t
-        epCallback[USB_DEVICE_CONFIG_ENDPOINTS << 1U]; /*!< Endpoint callback function structure */
-    uint8_t deviceAddress;                             /*!< Current device address */
-    uint8_t controllerId;                              /*!< Controller ID */
-    uint8_t state;                                     /*!< Current device state */
+        epCallback[USB_DEVICE_CONFIG_ENDPOINTS << 1U];
+    uint8_t deviceAddress;
+    uint8_t controllerId;
+    uint8_t state;
 #if ((defined(USB_DEVICE_CONFIG_REMOTE_WAKEUP)) && (USB_DEVICE_CONFIG_REMOTE_WAKEUP > 0U))
-    uint8_t remotewakeup; /*!< Remote wakeup is enabled or not */
+    uint8_t remotewakeup;
 #endif
-    uint8_t isResetting; /*!< Is doing device reset or not */
+    uint8_t isResetting;
 #if (defined(USB_DEVICE_CONFIG_USE_TASK) && (USB_DEVICE_CONFIG_USE_TASK > 0U))
-    uint8_t epCallbackDirectly; /*!< Whether call ep callback directly when the task is enabled */
+    uint8_t epCallbackDirectly;
 #endif
 } usb_device_struct_t;
 

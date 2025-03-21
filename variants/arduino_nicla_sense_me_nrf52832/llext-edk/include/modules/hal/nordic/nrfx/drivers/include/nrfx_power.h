@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2017 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -102,7 +102,7 @@ typedef enum
                                  * Keep in mind that if this interrupt is enabled,
                                  * it means that CPU was waken up just after WFI by this interrupt.
                                  */
-    NRFX_POWER_SLEEP_EVT_EXIT   /**< CPU exited WFI/WFE sleep */
+    NRFX_POWER_SLEEP_EVT_EXIT
 }nrfx_power_sleep_evt_t;
 #endif /* NRF_POWER_HAS_SLEEPEVT */
 
@@ -112,9 +112,9 @@ typedef enum
  */
 typedef enum
 {
-    NRFX_POWER_USB_EVT_DETECTED, /**< USB power detected on the connector (plugged in). */
-    NRFX_POWER_USB_EVT_REMOVED,  /**< USB power removed from the connector. */
-    NRFX_POWER_USB_EVT_READY     /**< USB power regulator ready. */
+    NRFX_POWER_USB_EVT_DETECTED,
+    NRFX_POWER_USB_EVT_REMOVED,
+    NRFX_POWER_USB_EVT_READY
 }nrfx_power_usb_evt_t;
 
 /**
@@ -127,9 +127,9 @@ typedef enum
  */
 typedef enum
 {
-    NRFX_POWER_USB_STATE_DISCONNECTED, /**< No power on USB lines detected. */
-    NRFX_POWER_USB_STATE_CONNECTED,    /**< The USB power is detected, but USB power regulator is not ready. */
-    NRFX_POWER_USB_STATE_READY         /**< From the power viewpoint, USB is ready for working. */
+    NRFX_POWER_USB_STATE_DISCONNECTED,
+    NRFX_POWER_USB_STATE_CONNECTED,
+    NRFX_POWER_USB_STATE_READY
 }nrfx_power_usb_state_t;
 #endif // NRF_POWER_HAS_USBREG || defined(__NRFX_DOXYGEN__)
 

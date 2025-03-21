@@ -26,10 +26,10 @@ struct cavs_ictl_runtime {
 };
 
 struct cavs_registers {
-	uint32_t disable_il;	/* il_msd - offset 0x00 */
-	uint32_t enable_il;	/* il_mcd - offset 0x04 */
-	uint32_t disable_state_il;	/* il_md  - offset 0x08 */
-	uint32_t status_il;	/* il_sd  - offset 0x0C */
+	uint32_t disable_il;
+	uint32_t enable_il;
+	uint32_t disable_state_il;
+	uint32_t status_il;
 };
 
 #ifdef __cplusplus

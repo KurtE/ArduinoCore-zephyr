@@ -30,7 +30,7 @@ extern "C" {
 #define MDAC_DIV_MASK		BIT_MASK(7)
 #define MDAC_DIV(val)		((val) & MDAC_DIV_MASK)
 
-#define DAC_PROC_CLK_FREQ_MAX	49152000	/* 49.152 MHz */
+#define DAC_PROC_CLK_FREQ_MAX	49152000
 
 #define OSR_MSB_ADDR		(struct reg_addr){0, 13}
 #define OSR_MSB_MASK		BIT_MASK(2)
@@ -38,8 +38,8 @@ extern "C" {
 #define OSR_LSB_ADDR		(struct reg_addr){0, 14}
 #define OSR_LSB_MASK		BIT_MASK(8)
 
-#define DAC_MOD_CLK_FREQ_MIN	2800000	/* 2.8 MHz */
-#define DAC_MOD_CLK_FREQ_MAX	6200000 /* 6.2 MHz */
+#define DAC_MOD_CLK_FREQ_MIN	2800000
+#define DAC_MOD_CLK_FREQ_MAX	6200000
 
 #define IF_CTRL1_ADDR		(struct reg_addr){0, 27}
 #define IF_CTRL_IFTYPE_MASK	BIT_MASK(2)
@@ -127,8 +127,8 @@ extern "C" {
 #define TIMER_MCLK_DIV_VAL(val)	((val) & TIMER_MCLK_DIV_MASK)
 
 struct reg_addr {
-	uint8_t page; 		/* page number */
-	uint8_t reg_addr; 		/* register address */
+	uint8_t page;
+	uint8_t reg_addr;
 };
 
 enum proc_block {

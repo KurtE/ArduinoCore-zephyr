@@ -318,7 +318,7 @@ struct vcnl36825t_config {
 struct vcnl36825t_data {
 	uint16_t proximity;
 
-	unsigned int meas_timeout_us; /** wait time for finished measurement in "forced"-mode  */
+	unsigned int meas_timeout_us;
 
 #ifdef CONFIG_PM_DEVICE
 	unsigned int meas_timeout_running_us;

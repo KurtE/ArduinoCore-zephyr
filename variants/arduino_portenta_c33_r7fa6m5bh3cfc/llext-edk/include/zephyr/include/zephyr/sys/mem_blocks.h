@@ -83,11 +83,11 @@ typedef sys_mem_blocks_t *(*sys_multi_mem_blocks_choice_fn_t)
  */
 
 struct sys_mem_blocks_info {
-	uint32_t num_blocks;       /* Total number of blocks */
-	uint8_t  blk_sz_shift;     /* Bit shift for block size */
+	uint32_t num_blocks;
+	uint8_t  blk_sz_shift;
 #ifdef CONFIG_SYS_MEM_BLOCKS_RUNTIME_STATS
-	uint32_t used_blocks;      /* Current number of blocks in use */
-	uint32_t max_used_blocks;  /* Maximum number of blocks in use */
+	uint32_t used_blocks;
+	uint32_t max_used_blocks;
 #endif
 };
 

@@ -44,8 +44,8 @@ extern "C" {
 
 /** Is there more data to come */
 enum http_final_call {
-	HTTP_DATA_MORE = 0,  /**< More data will come */
-	HTTP_DATA_FINAL = 1, /**< End of data */
+	HTTP_DATA_MORE = 0,
+	HTTP_DATA_FINAL = 1,
 };
 
 struct http_request;
@@ -203,10 +203,10 @@ struct http_response {
 	 */
 	struct http_content_range content_range;
 
-	uint8_t cl_present : 1;       /**< Is Content-Length field present */
-	uint8_t body_found : 1;       /**< Is message body found */
-	uint8_t message_complete : 1; /**< Is HTTP message parsing complete */
-	uint8_t cr_present : 1;       /**< Is Content-Range field present */
+	uint8_t cl_present : 1;
+	uint8_t body_found : 1;
+	uint8_t message_complete : 1;
+	uint8_t cr_present : 1;
 };
 
 /** HTTP client internal data that the application should not touch

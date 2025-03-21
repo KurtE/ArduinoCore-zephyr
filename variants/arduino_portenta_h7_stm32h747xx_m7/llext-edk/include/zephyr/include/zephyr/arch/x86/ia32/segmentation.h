@@ -88,7 +88,7 @@ struct __packed task_state_segment {
 	uint16_t reserved_10;
 	uint16_t ldt_ss;
 	uint16_t reserved_11;
-	uint8_t t:1;		/* Trap bit */
+	uint8_t t:1;
 	uint16_t reserved_12:15;
 	uint16_t iomap;
 };
@@ -124,13 +124,13 @@ struct __packed segment_descriptor {
 		uint16_t segment_selector;
 
 		/* TSS/LDT/Segments */
-		uint16_t base_low;	/* Bits 0-15 */
+		uint16_t base_low;
 	};
 
 	/* Second DWORD: 0-7 */
 	union {
 		/* TSS/LDT/Segments */
-		uint8_t base_mid;	/* Bits 16-23 */
+		uint8_t base_mid;
 
 		/* Task gates */
 		uint8_t reserved_task_gate_1;
@@ -194,15 +194,15 @@ struct __packed segment_descriptor {
 			uint8_t limit_hi:4;
 
 			/* flags */
-			uint8_t avl:1;		/* CPU ignores this */
+			uint8_t avl:1;
 
 			/* 1=Indicates 64-bit code segment in IA-32e mode */
-			uint8_t flags_l:1; /* L field */
+			uint8_t flags_l:1;
 
-			uint8_t db:1; /* D/B field 1=32-bit 0=16-bit*/
+			uint8_t db:1;
 			uint8_t granularity:1;
 
-			uint8_t base_hi;	/* Bits 24-31 */
+			uint8_t base_hi;
 		};
 	};
 

@@ -9,6 +9,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <stddef.h>
 
 #include <zephyr/autoconf.h>
 #include <zephyr/bluetooth/audio/audio.h>
@@ -168,18 +169,20 @@ struct bt_bap_broadcast_sink_bis {
 
 #if defined(CONFIG_BT_BAP_BROADCAST_SINK)
 struct bt_bap_broadcast_sink {
-	uint8_t index; /* index of broadcast_snks array */
+	uint8_t index;
 	uint8_t stream_count;
 	uint8_t bass_src_id;
 	uint8_t subgroup_count;
 	uint16_t iso_interval;
 	uint16_t biginfo_num_bis;
-	uint32_t broadcast_id; /* 24 bit */
+	uint32_t broadcast_id;
 	uint32_t indexes_bitfield;
-	uint32_t valid_indexes_bitfield; /* based on codec support */
+	uint32_t valid_indexes_bitfield;
 	struct bt_bap_qos_cfg qos_cfg;
 	struct bt_le_per_adv_sync *pa_sync;
 	struct bt_iso_big *big;
+	uint8_t base_size;
+	uint8_t base[BT_BASE_MAX_SIZE];
 	struct bt_bap_broadcast_sink_bis bis[CONFIG_BT_BAP_BROADCAST_SNK_STREAM_COUNT];
 	struct bt_bap_broadcast_sink_subgroup subgroups[CONFIG_BT_BAP_BROADCAST_SNK_SUBGROUP_COUNT];
 	const struct bt_bap_scan_delegator_recv_state *recv_state;

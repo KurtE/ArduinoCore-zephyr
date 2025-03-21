@@ -216,9 +216,9 @@ typedef struct
 /** @defgroup DMA_LL_EC_DIRECTION DIRECTION
   * @{
   */
-#define LL_DMA_DIRECTION_PERIPH_TO_MEMORY 0x00000000U               /*!< Peripheral to memory direction */
-#define LL_DMA_DIRECTION_MEMORY_TO_PERIPH DMA_SxCR_DIR_0            /*!< Memory to peripheral direction */
-#define LL_DMA_DIRECTION_MEMORY_TO_MEMORY DMA_SxCR_DIR_1            /*!< Memory to memory direction     */
+#define LL_DMA_DIRECTION_PERIPH_TO_MEMORY 0x00000000U
+#define LL_DMA_DIRECTION_MEMORY_TO_PERIPH DMA_SxCR_DIR_0
+#define LL_DMA_DIRECTION_MEMORY_TO_MEMORY DMA_SxCR_DIR_1
 /**
   * @}
   */
@@ -226,9 +226,9 @@ typedef struct
 /** @defgroup DMA_LL_EC_MODE MODE
   * @{
   */
-#define LL_DMA_MODE_NORMAL                0x00000000U               /*!< Normal Mode                  */
-#define LL_DMA_MODE_CIRCULAR              DMA_SxCR_CIRC             /*!< Circular Mode                */
-#define LL_DMA_MODE_PFCTRL                DMA_SxCR_PFCTRL           /*!< Peripheral flow control mode */
+#define LL_DMA_MODE_NORMAL                0x00000000U
+#define LL_DMA_MODE_CIRCULAR              DMA_SxCR_CIRC
+#define LL_DMA_MODE_PFCTRL                DMA_SxCR_PFCTRL
 /**
   * @}
   */
@@ -236,8 +236,8 @@ typedef struct
 /** @defgroup DMA_LL_EC_DOUBLEBUFFER_MODE DOUBLE BUFFER MODE
   * @{
   */
-#define LL_DMA_DOUBLEBUFFER_MODE_DISABLE  0x00000000U               /*!< Disable double buffering mode */
-#define LL_DMA_DOUBLEBUFFER_MODE_ENABLE   DMA_SxCR_DBM              /*!< Enable double buffering mode  */
+#define LL_DMA_DOUBLEBUFFER_MODE_DISABLE  0x00000000U
+#define LL_DMA_DOUBLEBUFFER_MODE_ENABLE   DMA_SxCR_DBM
 /**
   * @}
   */
@@ -245,8 +245,8 @@ typedef struct
 /** @defgroup DMA_LL_EC_CURRENTTARGETMEM CURRENTTARGETMEM
   * @{
   */
-#define LL_DMA_CURRENTTARGETMEM0          0x00000000U                             /*!< Set CurrentTarget Memory to Memory 0  */
-#define LL_DMA_CURRENTTARGETMEM1          DMA_SxCR_CT                             /*!< Set CurrentTarget Memory to Memory 1  */
+#define LL_DMA_CURRENTTARGETMEM0          0x00000000U
+#define LL_DMA_CURRENTTARGETMEM1          DMA_SxCR_CT
 /**
   * @}
   */
@@ -254,8 +254,8 @@ typedef struct
 /** @defgroup DMA_LL_EC_PERIPH PERIPH
   * @{
   */
-#define LL_DMA_PERIPH_NOINCREMENT         0x00000000U               /*!< Peripheral increment mode Disable */
-#define LL_DMA_PERIPH_INCREMENT           DMA_SxCR_PINC             /*!< Peripheral increment mode Enable  */
+#define LL_DMA_PERIPH_NOINCREMENT         0x00000000U
+#define LL_DMA_PERIPH_INCREMENT           DMA_SxCR_PINC
 /**
   * @}
   */
@@ -263,8 +263,8 @@ typedef struct
 /** @defgroup DMA_LL_EC_MEMORY MEMORY
   * @{
   */
-#define LL_DMA_MEMORY_NOINCREMENT         0x00000000U               /*!< Memory increment mode Disable */
-#define LL_DMA_MEMORY_INCREMENT           DMA_SxCR_MINC             /*!< Memory increment mode Enable  */
+#define LL_DMA_MEMORY_NOINCREMENT         0x00000000U
+#define LL_DMA_MEMORY_INCREMENT           DMA_SxCR_MINC
 /**
   * @}
   */
@@ -272,9 +272,9 @@ typedef struct
 /** @defgroup DMA_LL_EC_PDATAALIGN PDATAALIGN
   * @{
   */
-#define LL_DMA_PDATAALIGN_BYTE            0x00000000U               /*!< Peripheral data alignment : Byte     */
-#define LL_DMA_PDATAALIGN_HALFWORD        DMA_SxCR_PSIZE_0          /*!< Peripheral data alignment : HalfWord */
-#define LL_DMA_PDATAALIGN_WORD            DMA_SxCR_PSIZE_1          /*!< Peripheral data alignment : Word     */
+#define LL_DMA_PDATAALIGN_BYTE            0x00000000U
+#define LL_DMA_PDATAALIGN_HALFWORD        DMA_SxCR_PSIZE_0
+#define LL_DMA_PDATAALIGN_WORD            DMA_SxCR_PSIZE_1
 /**
   * @}
   */
@@ -282,9 +282,9 @@ typedef struct
 /** @defgroup DMA_LL_EC_MDATAALIGN MDATAALIGN
   * @{
   */
-#define LL_DMA_MDATAALIGN_BYTE            0x00000000U               /*!< Memory data alignment : Byte     */
-#define LL_DMA_MDATAALIGN_HALFWORD        DMA_SxCR_MSIZE_0          /*!< Memory data alignment : HalfWord */
-#define LL_DMA_MDATAALIGN_WORD            DMA_SxCR_MSIZE_1          /*!< Memory data alignment : Word     */
+#define LL_DMA_MDATAALIGN_BYTE            0x00000000U
+#define LL_DMA_MDATAALIGN_HALFWORD        DMA_SxCR_MSIZE_0
+#define LL_DMA_MDATAALIGN_WORD            DMA_SxCR_MSIZE_1
 /**
   * @}
   */
@@ -292,8 +292,8 @@ typedef struct
 /** @defgroup DMA_LL_EC_OFFSETSIZE OFFSETSIZE
   * @{
   */
-#define LL_DMA_OFFSETSIZE_PSIZE           0x00000000U               /*!< Peripheral increment offset size is linked to the PSIZE           */
-#define LL_DMA_OFFSETSIZE_FIXEDTO4        DMA_SxCR_PINCOS           /*!< Peripheral increment offset size is fixed to 4 (32-bit alignment) */
+#define LL_DMA_OFFSETSIZE_PSIZE           0x00000000U
+#define LL_DMA_OFFSETSIZE_FIXEDTO4        DMA_SxCR_PINCOS
 /**
   * @}
   */
@@ -301,10 +301,10 @@ typedef struct
 /** @defgroup DMA_LL_EC_PRIORITY PRIORITY
   * @{
   */
-#define LL_DMA_PRIORITY_LOW               0x00000000U               /*!< Priority level : Low       */
-#define LL_DMA_PRIORITY_MEDIUM            DMA_SxCR_PL_0             /*!< Priority level : Medium    */
-#define LL_DMA_PRIORITY_HIGH              DMA_SxCR_PL_1             /*!< Priority level : High      */
-#define LL_DMA_PRIORITY_VERYHIGH          DMA_SxCR_PL               /*!< Priority level : Very_High */
+#define LL_DMA_PRIORITY_LOW               0x00000000U
+#define LL_DMA_PRIORITY_MEDIUM            DMA_SxCR_PL_0
+#define LL_DMA_PRIORITY_HIGH              DMA_SxCR_PL_1
+#define LL_DMA_PRIORITY_VERYHIGH          DMA_SxCR_PL
 /**
   * @}
   */
@@ -313,10 +313,10 @@ typedef struct
 /** @defgroup DMA_LL_EC_MBURST MBURST
   * @{
   */
-#define LL_DMA_MBURST_SINGLE              0x00000000U                             /*!< Memory burst single transfer configuration      */
-#define LL_DMA_MBURST_INC4                DMA_SxCR_MBURST_0                       /*!< Memory burst of 4 beats transfer configuration  */
-#define LL_DMA_MBURST_INC8                DMA_SxCR_MBURST_1                       /*!< Memory burst of 8 beats transfer configuration  */
-#define LL_DMA_MBURST_INC16               (DMA_SxCR_MBURST_0 | DMA_SxCR_MBURST_1) /*!< Memory burst of 16 beats transfer configuration */
+#define LL_DMA_MBURST_SINGLE              0x00000000U
+#define LL_DMA_MBURST_INC4                DMA_SxCR_MBURST_0
+#define LL_DMA_MBURST_INC8                DMA_SxCR_MBURST_1
+#define LL_DMA_MBURST_INC16               (DMA_SxCR_MBURST_0 | DMA_SxCR_MBURST_1)
 /**
   * @}
   */
@@ -324,10 +324,10 @@ typedef struct
 /** @defgroup DMA_LL_EC_PBURST PBURST
   * @{
   */
-#define LL_DMA_PBURST_SINGLE              0x00000000U                             /*!< Peripheral burst single transfer configuration      */
-#define LL_DMA_PBURST_INC4                DMA_SxCR_PBURST_0                       /*!< Peripheral burst of 4 beats transfer configuration  */
-#define LL_DMA_PBURST_INC8                DMA_SxCR_PBURST_1                       /*!< Peripheral burst of 8 beats transfer configuration  */
-#define LL_DMA_PBURST_INC16               (DMA_SxCR_PBURST_0 | DMA_SxCR_PBURST_1) /*!< Peripheral burst of 16 beats transfer configuration */
+#define LL_DMA_PBURST_SINGLE              0x00000000U
+#define LL_DMA_PBURST_INC4                DMA_SxCR_PBURST_0
+#define LL_DMA_PBURST_INC8                DMA_SxCR_PBURST_1
+#define LL_DMA_PBURST_INC16               (DMA_SxCR_PBURST_0 | DMA_SxCR_PBURST_1)
 /**
   * @}
   */
@@ -335,8 +335,8 @@ typedef struct
 /** @defgroup DMA_LL_FIFOMODE DMA_LL_FIFOMODE
   * @{
   */
-#define LL_DMA_FIFOMODE_DISABLE           0x00000000U                             /*!< FIFO mode disable (direct mode is enabled) */
-#define LL_DMA_FIFOMODE_ENABLE            DMA_SxFCR_DMDIS                         /*!< FIFO mode enable                           */
+#define LL_DMA_FIFOMODE_DISABLE           0x00000000U
+#define LL_DMA_FIFOMODE_ENABLE            DMA_SxFCR_DMDIS
 /**
   * @}
   */
@@ -344,12 +344,12 @@ typedef struct
 /** @defgroup DMA_LL_EC_FIFOSTATUS_0 FIFOSTATUS 0
   * @{
   */
-#define LL_DMA_FIFOSTATUS_0_25            0x00000000U                             /*!< 0 < fifo_level < 1/4    */
-#define LL_DMA_FIFOSTATUS_25_50           DMA_SxFCR_FS_0                          /*!< 1/4 < fifo_level < 1/2  */
-#define LL_DMA_FIFOSTATUS_50_75           DMA_SxFCR_FS_1                          /*!< 1/2 < fifo_level < 3/4  */
-#define LL_DMA_FIFOSTATUS_75_100          (DMA_SxFCR_FS_1 | DMA_SxFCR_FS_0)       /*!< 3/4 < fifo_level < full */
-#define LL_DMA_FIFOSTATUS_EMPTY           DMA_SxFCR_FS_2                          /*!< FIFO is empty           */
-#define LL_DMA_FIFOSTATUS_FULL            (DMA_SxFCR_FS_2 | DMA_SxFCR_FS_0)       /*!< FIFO is full            */
+#define LL_DMA_FIFOSTATUS_0_25            0x00000000U
+#define LL_DMA_FIFOSTATUS_25_50           DMA_SxFCR_FS_0
+#define LL_DMA_FIFOSTATUS_50_75           DMA_SxFCR_FS_1
+#define LL_DMA_FIFOSTATUS_75_100          (DMA_SxFCR_FS_1 | DMA_SxFCR_FS_0)
+#define LL_DMA_FIFOSTATUS_EMPTY           DMA_SxFCR_FS_2
+#define LL_DMA_FIFOSTATUS_FULL            (DMA_SxFCR_FS_2 | DMA_SxFCR_FS_0)
 /**
   * @}
   */
@@ -357,10 +357,10 @@ typedef struct
 /** @defgroup DMA_LL_EC_FIFOTHRESHOLD FIFOTHRESHOLD
   * @{
   */
-#define LL_DMA_FIFOTHRESHOLD_1_4          0x00000000U                             /*!< FIFO threshold 1 quart full configuration  */
-#define LL_DMA_FIFOTHRESHOLD_1_2          DMA_SxFCR_FTH_0                         /*!< FIFO threshold half full configuration     */
-#define LL_DMA_FIFOTHRESHOLD_3_4          DMA_SxFCR_FTH_1                         /*!< FIFO threshold 3 quarts full configuration */
-#define LL_DMA_FIFOTHRESHOLD_FULL         DMA_SxFCR_FTH                           /*!< FIFO threshold full configuration          */
+#define LL_DMA_FIFOTHRESHOLD_1_4          0x00000000U
+#define LL_DMA_FIFOTHRESHOLD_1_2          DMA_SxFCR_FTH_0
+#define LL_DMA_FIFOTHRESHOLD_3_4          DMA_SxFCR_FTH_1
+#define LL_DMA_FIFOTHRESHOLD_FULL         DMA_SxFCR_FTH
 /**
   * @}
   */

@@ -81,9 +81,9 @@ struct mpl_cmd_ntf {
  * @brief Search control item
  */
 struct mpl_sci {
-	uint8_t len;                     /**< Length of type and parameter */
-	uint8_t type;                    /**< MEDIA_PROXY_SEARCH_TYPE_<...> */
-	char    param[SEARCH_PARAM_MAX]; /**< Search parameter */
+	uint8_t len;
+	uint8_t type;
+	char    param[SEARCH_PARAM_MAX];
 };
 
 /**

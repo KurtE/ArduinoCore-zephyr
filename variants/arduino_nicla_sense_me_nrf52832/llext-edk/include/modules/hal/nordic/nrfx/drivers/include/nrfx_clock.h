@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2016 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -52,13 +52,28 @@ extern "C" {
 /** @brief Clock events. */
 typedef enum
 {
-    NRFX_CLOCK_EVT_HFCLK_STARTED,      ///< HFCLK has been started.
-    NRFX_CLOCK_EVT_LFCLK_STARTED,      ///< LFCLK has been started.
-    NRFX_CLOCK_EVT_PLL_STARTED,        ///< PLL has been started.
-    NRFX_CLOCK_EVT_CTTO,               ///< Calibration timeout.
-    NRFX_CLOCK_EVT_CAL_DONE,           ///< Calibration has been done.
-    NRFX_CLOCK_EVT_HFCLKAUDIO_STARTED, ///< HFCLKAUDIO has been started.
-    NRFX_CLOCK_EVT_HFCLK192M_STARTED,  ///< HFCLK192M has been started.
+    NRFX_CLOCK_EVT_HFCLK_STARTED      = NRFX_BITMASK_TO_BITPOS(NRF_CLOCK_INT_HF_STARTED_MASK),      ///< HFCLK has been started.
+#if NRF_CLOCK_HAS_PLL
+    NRFX_CLOCK_EVT_PLL_STARTED        = NRFX_BITMASK_TO_BITPOS(NRF_CLOCK_INT_PLL_STARTED_MASK),     ///< PLL has been started.
+#endif
+    NRFX_CLOCK_EVT_LFCLK_STARTED      = NRFX_BITMASK_TO_BITPOS(NRF_CLOCK_INT_LF_STARTED_MASK),      ///< LFCLK has been started.
+#if NRF_CLOCK_HAS_CALIBRATION_TIMER
+    NRFX_CLOCK_EVT_CTTO               = NRFX_BITMASK_TO_BITPOS(NRF_CLOCK_INT_CTTO_MASK),            ///< Calibration timeout.
+#endif
+#if NRF_CLOCK_HAS_CALIBRATION
+    NRFX_CLOCK_EVT_CAL_DONE           = NRFX_BITMASK_TO_BITPOS(NRF_CLOCK_INT_DONE_MASK),            ///< Calibration has been done.
+#endif
+#if NRF_CLOCK_HAS_HFCLKAUDIO
+    NRFX_CLOCK_EVT_HFCLKAUDIO_STARTED = NRFX_BITMASK_TO_BITPOS(NRF_CLOCK_INT_HFAUDIO_STARTED_MASK), ///< HFCLKAUDIO has been started.
+#endif
+#if NRF_CLOCK_HAS_HFCLK192M
+    NRFX_CLOCK_EVT_HFCLK192M_STARTED  = NRFX_BITMASK_TO_BITPOS(NRF_CLOCK_INT_HF192M_STARTED_MASK),  ///< HFCLK192M has been started.
+#endif
+#if NRF_CLOCK_HAS_XO_TUNE
+    NRFX_CLOCK_EVT_XO_TUNED           = NRFX_BITMASK_TO_BITPOS(NRF_CLOCK_INT_XOTUNED_MASK),         ///< XO tune has been done.
+    NRFX_CLOCK_EVT_XO_TUNE_ERROR      = NRFX_BITMASK_TO_BITPOS(NRF_CLOCK_INT_XOTUNEERROR_MASK),     ///< XO is not tuned.
+    NRFX_CLOCK_EVT_XO_TUNE_FAILED     = NRFX_BITMASK_TO_BITPOS(NRF_CLOCK_INT_XOTUNEFAILED_MASK),    ///< XO tune operation failed.
+#endif
 } nrfx_clock_evt_type_t;
 
 /**
@@ -228,6 +243,41 @@ NRFX_STATIC_INLINE void nrfx_clock_hfclkaudio_config_set(uint16_t freq_value);
  * @return Current value of FREQ_VALUE for HFCLKAUDIO.
  */
 NRFX_STATIC_INLINE uint16_t nrfx_clock_hfclkaudio_config_get(void);
+#endif
+
+#if NRF_CLOCK_HAS_XO_TUNE
+
+/**
+ * @brief Function for starting tune of crystal HFCLK.
+ *
+ * This function starts tuning process of the HFCLK.
+ *
+ * @retval NRFX_SUCCESS             The procedure is successful.
+ * @retval NRFX_ERROR_INVALID_STATE The high-frequency XO clock is off or operation is in progress.
+ * @retval NRFX_ERROR_INTERNAL      XO tune operation failed.
+ */
+nrfx_err_t nrfx_clock_xo_tune_start(void);
+
+/**
+ * @brief Function for aborting tune of crystal HFCLK.
+ *
+ * This function aborts tuning process.
+ *
+ * @retval NRFX_SUCCESS             The procedure is successful.
+ * @retval NRFX_ERROR_INVALID_STATE The high-frequency XO clock is off or operation is not in progress.
+ */
+nrfx_err_t nrfx_clock_xo_tune_abort(void);
+
+/**
+ * @brief Function for checking if XO tune error occurred.
+ *
+ * @note Must be used only if @p event_handler was not provided during driver initialization.
+ *
+ * @retval true  XO tune procedure failed.
+ * @retval false No error.
+ */
+bool nrfx_clock_xo_tune_error_check(void);
+
 #endif
 
 #if (NRF_CLOCK_HAS_CALIBRATION && NRFX_CHECK(NRFX_CLOCK_CONFIG_LF_CAL_ENABLED)) || \

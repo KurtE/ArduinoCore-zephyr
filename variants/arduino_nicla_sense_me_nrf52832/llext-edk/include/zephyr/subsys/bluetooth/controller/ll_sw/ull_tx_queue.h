@@ -5,10 +5,10 @@
  */
 
 struct ull_tx_q {
-	uint8_t pause_data; /* Data pause state of the tx queue */
+	uint8_t pause_data;
 
-	sys_slist_t tx_list; /* Data and control node_tx list */
-	sys_slist_t data_list; /* Data node_tx wait list */
+	sys_slist_t tx_list;
+	sys_slist_t data_list;
 };
 
 /* Forward declaration of node_tx */

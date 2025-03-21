@@ -308,7 +308,7 @@ int log_mem_get_max_usage(uint32_t *max);
 #else
 #define LOG_CORE_INIT() do { } while (false)
 #define LOG_INIT() 0
-#define LOG_PANIC() /* Empty */
+#define LOG_PANIC()
 #define LOG_PROCESS() false
 #endif
 

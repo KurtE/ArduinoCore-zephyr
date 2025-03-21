@@ -12,32 +12,32 @@
 #include <zephyr/dt-bindings/sensor/bq274xx.h>
 
 /*** General Constant ***/
-#define BQ274XX_UNSEAL_KEY_A 0x8000 /* Unseal code one on BQ27441-G1A and similar */
-#define BQ274XX_UNSEAL_KEY_B 0x8000 /* Unseal code two on BQ27441-G1A and similar */
+#define BQ274XX_UNSEAL_KEY_A 0x8000
+#define BQ274XX_UNSEAL_KEY_B 0x8000
 #define BQ27421_DEVICE_ID  0x0421
 #define BQ27427_DEVICE_ID  0x0427
 
 /*** Standard Commands ***/
-#define BQ274XX_CMD_CONTROL        0x00 /* Control() register */
-#define BQ274XX_CMD_TEMP           0x02 /* Temperature() */
-#define BQ274XX_CMD_VOLTAGE        0x04 /* Voltage() */
-#define BQ274XX_CMD_FLAGS          0x06 /* Flags() */
-#define BQ274XX_CMD_NOM_CAPACITY   0x08 /* NominalAvailableCapacity() */
-#define BQ274XX_CMD_AVAIL_CAPACITY 0x0A /* FullAvailableCapacity() */
-#define BQ274XX_CMD_REM_CAPACITY   0x0C /* RemainingCapacity() */
-#define BQ274XX_CMD_FULL_CAPACITY  0x0E /* FullChargeCapacity() */
-#define BQ274XX_CMD_AVG_CURRENT    0x10 /* AverageCurrent() */
-#define BQ274XX_CMD_STDBY_CURRENT  0x12 /* StandbyCurrent() */
-#define BQ274XX_CMD_MAX_CURRENT    0x14 /* MaxLoadCurrent() */
-#define BQ274XX_CMD_AVG_POWER      0x18 /* AveragePower() */
-#define BQ274XX_CMD_SOC            0x1C /* StateOfCharge() */
-#define BQ274XX_CMD_INT_TEMP       0x1E /* InternalTemperature() */
-#define BQ274XX_CMD_SOH            0x20 /* StateOfHealth() */
-#define BQ274XX_CMD_REM_CAP_UNFL   0x28 /* RemainingCapacityUnfiltered() */
-#define BQ274XX_CMD_REM_CAP_FIL    0x2A /* RemainingCapacityFiltered() */
-#define BQ274XX_CMD_FULL_CAP_UNFL  0x2C /* FullChargeCapacityUnfiltered() */
-#define BQ274XX_CMD_FULL_CAP_FIL   0x2E /* FullChargeCapacityFiltered() */
-#define BQ274XX_CMD_SOC_UNFL       0x30 /* StateOfChargeUnfiltered() */
+#define BQ274XX_CMD_CONTROL        0x00
+#define BQ274XX_CMD_TEMP           0x02
+#define BQ274XX_CMD_VOLTAGE        0x04
+#define BQ274XX_CMD_FLAGS          0x06
+#define BQ274XX_CMD_NOM_CAPACITY   0x08
+#define BQ274XX_CMD_AVAIL_CAPACITY 0x0A
+#define BQ274XX_CMD_REM_CAPACITY   0x0C
+#define BQ274XX_CMD_FULL_CAPACITY  0x0E
+#define BQ274XX_CMD_AVG_CURRENT    0x10
+#define BQ274XX_CMD_STDBY_CURRENT  0x12
+#define BQ274XX_CMD_MAX_CURRENT    0x14
+#define BQ274XX_CMD_AVG_POWER      0x18
+#define BQ274XX_CMD_SOC            0x1C
+#define BQ274XX_CMD_INT_TEMP       0x1E
+#define BQ274XX_CMD_SOH            0x20
+#define BQ274XX_CMD_REM_CAP_UNFL   0x28
+#define BQ274XX_CMD_REM_CAP_FIL    0x2A
+#define BQ274XX_CMD_FULL_CAP_UNFL  0x2C
+#define BQ274XX_CMD_FULL_CAP_FIL   0x2E
+#define BQ274XX_CMD_SOC_UNFL       0x30
 
 /*** Control Sub-Commands ***/
 #define BQ274XX_CTRL_STATUS          0x0000
@@ -66,14 +66,14 @@
 #define BQ27427_CTRL_CHEM_C 0x0032
 
 /*** Extended Data Commands ***/
-#define BQ274XX_EXT_OPCONFIG                   0x3A /* OpConfig() */
-#define BQ274XX_EXT_CAPACITY                   0x3C /* DesignCapacity() */
-#define BQ274XX_EXT_DATA_CLASS                 0x3E /* DataClass() */
-#define BQ274XX_EXT_DATA_BLOCK                 0x3F /* DataBlock() */
-#define BQ274XX_EXT_BLKDAT_START               0x40 /* BlockData_start() */
-#define BQ274XX_EXT_BLKDAT_END                 0x5F /* BlockData_end() */
-#define BQ274XX_EXT_CHECKSUM                   0x60 /* BlockDataCheckSum() */
-#define BQ274XX_EXT_DATA_CONTROL               0x61 /* BlockDataControl() */
+#define BQ274XX_EXT_OPCONFIG                   0x3A
+#define BQ274XX_EXT_CAPACITY                   0x3C
+#define BQ274XX_EXT_DATA_CLASS                 0x3E
+#define BQ274XX_EXT_DATA_BLOCK                 0x3F
+#define BQ274XX_EXT_BLKDAT_START               0x40
+#define BQ274XX_EXT_BLKDAT_END                 0x5F
+#define BQ274XX_EXT_CHECKSUM                   0x60
+#define BQ274XX_EXT_DATA_CONTROL               0x61
 #define BQ274XX_EXT_BLKDAT(off)                (BQ274XX_EXT_BLKDAT_START + off)
 
 /* Hold the register offset for a device variant. */

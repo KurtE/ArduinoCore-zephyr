@@ -62,30 +62,30 @@ extern "C" {
 /** @brief RADIO tasks. */
 typedef enum
 {
-    NRF_RADIO_TASK_TXEN      = offsetof(NRF_RADIO_Type, TASKS_TXEN),      /**< Enable RADIO in TX mode. */
-    NRF_RADIO_TASK_RXEN      = offsetof(NRF_RADIO_Type, TASKS_RXEN),      /**< Enable RADIO in RX mode. */
-    NRF_RADIO_TASK_START     = offsetof(NRF_RADIO_Type, TASKS_START),     /**< Start RADIO. */
-    NRF_RADIO_TASK_STOP      = offsetof(NRF_RADIO_Type, TASKS_STOP),      /**< Stop RADIO. */
-    NRF_RADIO_TASK_DISABLE   = offsetof(NRF_RADIO_Type, TASKS_DISABLE),   /**< Disable RADIO. */
-    NRF_RADIO_TASK_RSSISTART = offsetof(NRF_RADIO_Type, TASKS_RSSISTART), /**< Start the RSSI and take one single sample of the receive signal strength. */
+    NRF_RADIO_TASK_TXEN      = offsetof(NRF_RADIO_Type, TASKS_TXEN),
+    NRF_RADIO_TASK_RXEN      = offsetof(NRF_RADIO_Type, TASKS_RXEN),
+    NRF_RADIO_TASK_START     = offsetof(NRF_RADIO_Type, TASKS_START),
+    NRF_RADIO_TASK_STOP      = offsetof(NRF_RADIO_Type, TASKS_STOP),
+    NRF_RADIO_TASK_DISABLE   = offsetof(NRF_RADIO_Type, TASKS_DISABLE),
+    NRF_RADIO_TASK_RSSISTART = offsetof(NRF_RADIO_Type, TASKS_RSSISTART),
 #if defined(RADIO_TASKS_RSSISTOP_TASKS_RSSISTOP_Msk) || \
     defined(RADIO_SHORTS_DISABLED_RSSISTOP_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TASK_RSSISTOP  = offsetof(NRF_RADIO_Type, TASKS_RSSISTOP),  /**< Stop the RSSI measurement. */
+    NRF_RADIO_TASK_RSSISTOP  = offsetof(NRF_RADIO_Type, TASKS_RSSISTOP),
 #endif
-    NRF_RADIO_TASK_BCSTART   = offsetof(NRF_RADIO_Type, TASKS_BCSTART),   /**< Start the bit counter. */
-    NRF_RADIO_TASK_BCSTOP    = offsetof(NRF_RADIO_Type, TASKS_BCSTOP),    /**< Stop the bit counter. */
+    NRF_RADIO_TASK_BCSTART   = offsetof(NRF_RADIO_Type, TASKS_BCSTART),
+    NRF_RADIO_TASK_BCSTOP    = offsetof(NRF_RADIO_Type, TASKS_BCSTOP),
 #if defined(RADIO_TASKS_EDSTART_TASKS_EDSTART_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TASK_EDSTART   = offsetof(NRF_RADIO_Type, TASKS_EDSTART),   /**< Start the Energy Detect measurement used in IEEE 802.15.4 mode. */
+    NRF_RADIO_TASK_EDSTART   = offsetof(NRF_RADIO_Type, TASKS_EDSTART),
 #endif
 #if defined(RADIO_TASKS_EDSTOP_TASKS_EDSTOP_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TASK_EDSTOP    = offsetof(NRF_RADIO_Type, TASKS_EDSTOP),    /**< Stop the Energy Detect measurement. */
+    NRF_RADIO_TASK_EDSTOP    = offsetof(NRF_RADIO_Type, TASKS_EDSTOP),
 #endif
 #if defined(RADIO_TASKS_CCASTART_TASKS_CCASTART_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TASK_CCASTART  = offsetof(NRF_RADIO_Type, TASKS_CCASTART),  /**< Start the Clear Channel Assessment used in IEEE 802.15.4 mode. */
+    NRF_RADIO_TASK_CCASTART  = offsetof(NRF_RADIO_Type, TASKS_CCASTART),
 #endif
 #if defined(RADIO_TASKS_CCASTOP_TASKS_CCASTOP_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TASK_CCASTOP   = offsetof(NRF_RADIO_Type, TASKS_CCASTOP),   /**< Stop the Clear Channel Assessment. */
+    NRF_RADIO_TASK_CCASTOP   = offsetof(NRF_RADIO_Type, TASKS_CCASTOP),
 #endif
 #if defined(RADIO_TASKS_SOFTRESET_TASKS_SOFTRESET_Msk) || defined(__NRFX_DOXYGEN__)
     NRF_RADIO_TASK_SOFTRESET = offsetof(NRF_RADIO_Type, TASKS_SOFTRESET), /**< Reset all public registers, but with these exceptions:
@@ -97,78 +97,78 @@ typedef enum
 /** @brief RADIO events. */
 typedef enum
 {
-    NRF_RADIO_EVENT_READY      = offsetof(NRF_RADIO_Type, EVENTS_READY),      /**< Radio has ramped up and is ready to be started. */
-    NRF_RADIO_EVENT_ADDRESS    = offsetof(NRF_RADIO_Type, EVENTS_ADDRESS),    /**< Address sent or received. */
-    NRF_RADIO_EVENT_PAYLOAD    = offsetof(NRF_RADIO_Type, EVENTS_PAYLOAD),    /**< Packet payload sent or received. */
-    NRF_RADIO_EVENT_END        = offsetof(NRF_RADIO_Type, EVENTS_END),        /**< Packet transmitted or received. */
-    NRF_RADIO_EVENT_DISABLED   = offsetof(NRF_RADIO_Type, EVENTS_DISABLED),   /**< RADIO has been disabled. */
-    NRF_RADIO_EVENT_DEVMATCH   = offsetof(NRF_RADIO_Type, EVENTS_DEVMATCH),   /**< A device address match occurred on the last received packet. */
-    NRF_RADIO_EVENT_DEVMISS    = offsetof(NRF_RADIO_Type, EVENTS_DEVMISS),    /**< No device address match occurred on the last received packet. */
+    NRF_RADIO_EVENT_READY      = offsetof(NRF_RADIO_Type, EVENTS_READY),
+    NRF_RADIO_EVENT_ADDRESS    = offsetof(NRF_RADIO_Type, EVENTS_ADDRESS),
+    NRF_RADIO_EVENT_PAYLOAD    = offsetof(NRF_RADIO_Type, EVENTS_PAYLOAD),
+    NRF_RADIO_EVENT_END        = offsetof(NRF_RADIO_Type, EVENTS_END),
+    NRF_RADIO_EVENT_DISABLED   = offsetof(NRF_RADIO_Type, EVENTS_DISABLED),
+    NRF_RADIO_EVENT_DEVMATCH   = offsetof(NRF_RADIO_Type, EVENTS_DEVMATCH),
+    NRF_RADIO_EVENT_DEVMISS    = offsetof(NRF_RADIO_Type, EVENTS_DEVMISS),
 #if defined(RADIO_INTENSET_RSSIEND_Msk) ||   \
     defined(RADIO_INTENSET00_RSSIEND_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_RSSIEND    = offsetof(NRF_RADIO_Type, EVENTS_RSSIEND),    /**< Sampling of receive signal strength complete. */
+    NRF_RADIO_EVENT_RSSIEND    = offsetof(NRF_RADIO_Type, EVENTS_RSSIEND),
 #endif
-    NRF_RADIO_EVENT_BCMATCH    = offsetof(NRF_RADIO_Type, EVENTS_BCMATCH),    /**< Bit counter reached bit count value. */
+    NRF_RADIO_EVENT_BCMATCH    = offsetof(NRF_RADIO_Type, EVENTS_BCMATCH),
 #if defined(RADIO_INTENSET_CRCOK_Msk) ||   \
     defined(RADIO_INTENSET00_CRCOK_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_CRCOK      = offsetof(NRF_RADIO_Type, EVENTS_CRCOK),      /**< Packet received with correct CRC. */
+    NRF_RADIO_EVENT_CRCOK      = offsetof(NRF_RADIO_Type, EVENTS_CRCOK),
 #endif
 #if defined(RADIO_INTENSET_CRCERROR_Msk) ||   \
     defined(RADIO_INTENSET00_CRCERROR_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_CRCERROR   = offsetof(NRF_RADIO_Type, EVENTS_CRCERROR),   /**< Packet received with incorrect CRC. */
+    NRF_RADIO_EVENT_CRCERROR   = offsetof(NRF_RADIO_Type, EVENTS_CRCERROR),
 #endif
 #if defined(RADIO_INTENSET_FRAMESTART_Msk) ||   \
     defined(RADIO_INTENSET00_FRAMESTART_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_FRAMESTART = offsetof(NRF_RADIO_Type, EVENTS_FRAMESTART), /**< IEEE 802.15.4 length field received. */
+    NRF_RADIO_EVENT_FRAMESTART = offsetof(NRF_RADIO_Type, EVENTS_FRAMESTART),
 #endif
 #if defined(RADIO_INTENSET_EDEND_Msk) ||   \
     defined(RADIO_INTENSET00_EDEND_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_EDEND      = offsetof(NRF_RADIO_Type, EVENTS_EDEND),      /**< Energy Detection procedure ended. */
+    NRF_RADIO_EVENT_EDEND      = offsetof(NRF_RADIO_Type, EVENTS_EDEND),
 #endif
 #if defined(RADIO_INTENSET_EDSTOPPED_Msk) ||   \
     defined(RADIO_INTENSET00_EDSTOPPED_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_EDSTOPPED  = offsetof(NRF_RADIO_Type, EVENTS_EDSTOPPED),  /**< The sampling of Energy Detection has stopped. */
+    NRF_RADIO_EVENT_EDSTOPPED  = offsetof(NRF_RADIO_Type, EVENTS_EDSTOPPED),
 #endif
 #if defined(RADIO_INTENSET_CCAIDLE_Msk) ||   \
     defined(RADIO_INTENSET00_CCAIDLE_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_CCAIDLE    = offsetof(NRF_RADIO_Type, EVENTS_CCAIDLE),    /**< Wireless medium in idle - clear to send. */
+    NRF_RADIO_EVENT_CCAIDLE    = offsetof(NRF_RADIO_Type, EVENTS_CCAIDLE),
 #endif
 #if defined(RADIO_INTENSET_CCABUSY_Msk) ||   \
     defined(RADIO_INTENSET00_CCABUSY_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_CCABUSY    = offsetof(NRF_RADIO_Type, EVENTS_CCABUSY),    /**< Wireless medium busy - do not send. */
+    NRF_RADIO_EVENT_CCABUSY    = offsetof(NRF_RADIO_Type, EVENTS_CCABUSY),
 #endif
 #if defined(RADIO_INTENSET_CCASTOPPED_Msk) ||   \
     defined(RADIO_INTENSET00_CCASTOPPED_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_CCASTOPPED = offsetof(NRF_RADIO_Type, EVENTS_CCASTOPPED), /**< The CCA has stopped. */
+    NRF_RADIO_EVENT_CCASTOPPED = offsetof(NRF_RADIO_Type, EVENTS_CCASTOPPED),
 #endif
 #if defined(RADIO_INTENSET_RATEBOOST_Msk) ||   \
     defined(RADIO_INTENSET00_RATEBOOST_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_RATEBOOST  = offsetof(NRF_RADIO_Type, EVENTS_RATEBOOST),  /**< Ble_LR CI field received, receive mode is changed from Ble_LR125Kbit to Ble_LR500Kbit. */
+    NRF_RADIO_EVENT_RATEBOOST  = offsetof(NRF_RADIO_Type, EVENTS_RATEBOOST),
 #endif
 #if defined(RADIO_INTENSET_TXREADY_Msk) ||   \
     defined(RADIO_INTENSET00_TXREADY_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_TXREADY    = offsetof(NRF_RADIO_Type, EVENTS_TXREADY),    /**< RADIO has ramped up and is ready to be started TX path. */
+    NRF_RADIO_EVENT_TXREADY    = offsetof(NRF_RADIO_Type, EVENTS_TXREADY),
 #endif
 #if defined(RADIO_INTENSET_RXREADY_Msk) ||   \
     defined(RADIO_INTENSET00_RXREADY_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_RXREADY    = offsetof(NRF_RADIO_Type, EVENTS_RXREADY),    /**< RADIO has ramped up and is ready to be started RX path. */
+    NRF_RADIO_EVENT_RXREADY    = offsetof(NRF_RADIO_Type, EVENTS_RXREADY),
 #endif
 #if defined(RADIO_INTENSET_MHRMATCH_Msk) ||   \
     defined(RADIO_INTENSET00_MHRMATCH_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_MHRMATCH   = offsetof(NRF_RADIO_Type, EVENTS_MHRMATCH),   /**< MAC Header match found. */
+    NRF_RADIO_EVENT_MHRMATCH   = offsetof(NRF_RADIO_Type, EVENTS_MHRMATCH),
 #endif
 #if defined(RADIO_INTENSET_PHYEND_Msk) ||   \
     defined(RADIO_INTENSET00_PHYEND_Msk) || \
@@ -187,7 +187,7 @@ typedef enum
 #if defined(RADIO_INTENSET_CTEPRESENT_Msk) ||   \
     defined(RADIO_INTENSET00_CTEPRESENT_Msk) || \
     defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_EVENT_CTEPRESENT = offsetof(NRF_RADIO_Type, EVENTS_CTEPRESENT)  /**< CTE is present. */
+    NRF_RADIO_EVENT_CTEPRESENT = offsetof(NRF_RADIO_Type, EVENTS_CTEPRESENT)
 #endif
 } nrf_radio_event_t;
 
@@ -195,174 +195,174 @@ typedef enum
 typedef enum
 {
 #if defined(RADIO_INTENSET_READY_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_READY_MASK      = RADIO_INTENSET_READY_Msk,        /**< Interrupt on READY event.  */
+    NRF_RADIO_INT_READY_MASK      = RADIO_INTENSET_READY_Msk,
 #elif defined(RADIO_INTENSET00_READY_Msk)
-    NRF_RADIO_INT_READY_MASK      = RADIO_INTENSET00_READY_Msk,      /**< Interrupt on READY event.  */
+    NRF_RADIO_INT_READY_MASK      = RADIO_INTENSET00_READY_Msk,
 #endif
 #if defined(RADIO_INTENSET_ADDRESS_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_ADDRESS_MASK    = RADIO_INTENSET_ADDRESS_Msk,      /**< Interrupt on ADDRESS event. */
+    NRF_RADIO_INT_ADDRESS_MASK    = RADIO_INTENSET_ADDRESS_Msk,
 #elif defined(RADIO_INTENSET00_ADDRESS_Msk)
-    NRF_RADIO_INT_ADDRESS_MASK    = RADIO_INTENSET00_ADDRESS_Msk,    /**< Interrupt on ADDRESS event. */
+    NRF_RADIO_INT_ADDRESS_MASK    = RADIO_INTENSET00_ADDRESS_Msk,
 #endif
 #if defined(RADIO_INTENSET_PAYLOAD_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_PAYLOAD_MASK    = RADIO_INTENSET_PAYLOAD_Msk,      /**< Interrupt on PAYLOAD event. */
+    NRF_RADIO_INT_PAYLOAD_MASK    = RADIO_INTENSET_PAYLOAD_Msk,
 #elif defined(RADIO_INTENSET00_PAYLOAD_Msk)
-    NRF_RADIO_INT_PAYLOAD_MASK    = RADIO_INTENSET00_PAYLOAD_Msk,    /**< Interrupt on PAYLOAD event. */
+    NRF_RADIO_INT_PAYLOAD_MASK    = RADIO_INTENSET00_PAYLOAD_Msk,
 #endif
 #if defined(RADIO_INTENSET_END_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_END_MASK        = RADIO_INTENSET_END_Msk,          /**< Interrupt on END event. */
+    NRF_RADIO_INT_END_MASK        = RADIO_INTENSET_END_Msk,
 #elif defined(RADIO_INTENSET00_END_Msk)
-    NRF_RADIO_INT_END_MASK        = RADIO_INTENSET00_END_Msk,        /**< Interrupt on END event. */
+    NRF_RADIO_INT_END_MASK        = RADIO_INTENSET00_END_Msk,
 #endif
 #if defined(RADIO_INTENSET_DISABLED_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_DISABLED_MASK   = RADIO_INTENSET_DISABLED_Msk,     /**< Interrupt on DISABLED event. */
+    NRF_RADIO_INT_DISABLED_MASK   = RADIO_INTENSET_DISABLED_Msk,
 #elif defined(RADIO_INTENSET00_DISABLED_Msk)
-    NRF_RADIO_INT_DISABLED_MASK   = RADIO_INTENSET00_DISABLED_Msk,   /**< Interrupt on DISABLED event. */
+    NRF_RADIO_INT_DISABLED_MASK   = RADIO_INTENSET00_DISABLED_Msk,
 #endif
 #if defined(RADIO_INTENSET_DEVMATCH_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_DEVMATCH_MASK   = RADIO_INTENSET_DEVMATCH_Msk,     /**< Interrupt on DEVMATCH event. */
+    NRF_RADIO_INT_DEVMATCH_MASK   = RADIO_INTENSET_DEVMATCH_Msk,
 #elif defined(RADIO_INTENSET00_DEVMATCH_Msk)
-    NRF_RADIO_INT_DEVMATCH_MASK   = RADIO_INTENSET00_DEVMATCH_Msk,   /**< Interrupt on DEVMATCH event. */
+    NRF_RADIO_INT_DEVMATCH_MASK   = RADIO_INTENSET00_DEVMATCH_Msk,
 #endif
 #if defined(RADIO_INTENSET_DEVMISS_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_DEVMISS_MASK    = RADIO_INTENSET_DEVMISS_Msk,      /**< Interrupt on DEVMISS event. */
+    NRF_RADIO_INT_DEVMISS_MASK    = RADIO_INTENSET_DEVMISS_Msk,
 #elif defined(RADIO_INTENSET00_DEVMISS_Msk)
-    NRF_RADIO_INT_DEVMISS_MASK    = RADIO_INTENSET00_DEVMISS_Msk,    /**< Interrupt on DEVMISS event. */
+    NRF_RADIO_INT_DEVMISS_MASK    = RADIO_INTENSET00_DEVMISS_Msk,
 #endif
 #if defined(RADIO_INTENSET_RSSIEND_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_RSSIEND_MASK    = RADIO_INTENSET_RSSIEND_Msk,      /**< Interrupt on RSSIEND event. */
+    NRF_RADIO_INT_RSSIEND_MASK    = RADIO_INTENSET_RSSIEND_Msk,
 #elif defined(RADIO_INTENSET00_RSSIEND_Msk)
-    NRF_RADIO_INT_RSSIEND_MASK    = RADIO_INTENSET00_RSSIEND_Msk,    /**< Interrupt on RSSIEND event. */
+    NRF_RADIO_INT_RSSIEND_MASK    = RADIO_INTENSET00_RSSIEND_Msk,
 #endif
 #if defined(RADIO_INTENSET_BCMATCH_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_BCMATCH_MASK    = RADIO_INTENSET_BCMATCH_Msk,      /**< Interrupt on BCMATCH event. */
+    NRF_RADIO_INT_BCMATCH_MASK    = RADIO_INTENSET_BCMATCH_Msk,
 #elif defined(RADIO_INTENSET00_BCMATCH_Msk)
-    NRF_RADIO_INT_BCMATCH_MASK    = RADIO_INTENSET00_BCMATCH_Msk,    /**< Interrupt on BCMATCH event. */
+    NRF_RADIO_INT_BCMATCH_MASK    = RADIO_INTENSET00_BCMATCH_Msk,
 #endif
 #if defined(RADIO_INTENSET_CRCOK_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_CRCOK_MASK      = RADIO_INTENSET_CRCOK_Msk,        /**< Interrupt on CRCOK event. */
+    NRF_RADIO_INT_CRCOK_MASK      = RADIO_INTENSET_CRCOK_Msk,
 #elif defined(RADIO_INTENSET00_CRCOK_Msk)
-    NRF_RADIO_INT_CRCOK_MASK      = RADIO_INTENSET00_CRCOK_Msk,      /**< Interrupt on CRCOK event. */
+    NRF_RADIO_INT_CRCOK_MASK      = RADIO_INTENSET00_CRCOK_Msk,
 #endif
 #if defined(RADIO_INTENSET_CRCERROR_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_CRCERROR_MASK   = RADIO_INTENSET_CRCERROR_Msk,     /**< Interrupt on CRCERROR event. */
+    NRF_RADIO_INT_CRCERROR_MASK   = RADIO_INTENSET_CRCERROR_Msk,
 #elif defined(RADIO_INTENSET00_CRCERROR_Msk)
-    NRF_RADIO_INT_CRCERROR_MASK   = RADIO_INTENSET00_CRCERROR_Msk,   /**< Interrupt on CRCERROR event. */
+    NRF_RADIO_INT_CRCERROR_MASK   = RADIO_INTENSET00_CRCERROR_Msk,
 #endif
 #if defined(RADIO_INTENSET_FRAMESTART_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_FRAMESTART_MASK = RADIO_INTENSET_FRAMESTART_Msk,   /**< Interrupt on FRAMESTART event. */
+    NRF_RADIO_INT_FRAMESTART_MASK = RADIO_INTENSET_FRAMESTART_Msk,
 #elif defined(RADIO_INTENSET00_FRAMESTART_Msk)
-    NRF_RADIO_INT_FRAMESTART_MASK = RADIO_INTENSET00_FRAMESTART_Msk, /**< Interrupt on FRAMESTART event. */
+    NRF_RADIO_INT_FRAMESTART_MASK = RADIO_INTENSET00_FRAMESTART_Msk,
 #endif
 #if defined(RADIO_INTENSET_EDEND_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_EDEND_MASK      = RADIO_INTENSET_EDEND_Msk,        /**< Interrupt on EDEND event. */
+    NRF_RADIO_INT_EDEND_MASK      = RADIO_INTENSET_EDEND_Msk,
 #elif defined(RADIO_INTENSET00_EDEND_Msk)
-    NRF_RADIO_INT_EDEND_MASK      = RADIO_INTENSET00_EDEND_Msk,      /**< Interrupt on EDEND event. */
+    NRF_RADIO_INT_EDEND_MASK      = RADIO_INTENSET00_EDEND_Msk,
 #endif
 #if defined(RADIO_INTENSET_EDSTOPPED_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_EDSTOPPED_MASK  = RADIO_INTENSET_EDSTOPPED_Msk,    /**< Interrupt on EDSTOPPED event. */
+    NRF_RADIO_INT_EDSTOPPED_MASK  = RADIO_INTENSET_EDSTOPPED_Msk,
 #elif defined(RADIO_INTENSET00_EDSTOPPED_Msk)
-    NRF_RADIO_INT_EDSTOPPED_MASK  = RADIO_INTENSET00_EDSTOPPED_Msk,  /**< Interrupt on EDSTOPPED event. */
+    NRF_RADIO_INT_EDSTOPPED_MASK  = RADIO_INTENSET00_EDSTOPPED_Msk,
 #endif
 #if defined(RADIO_INTENSET_CCAIDLE_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_CCAIDLE_MASK    = RADIO_INTENSET_CCAIDLE_Msk,      /**< Interrupt on CCAIDLE event. */
+    NRF_RADIO_INT_CCAIDLE_MASK    = RADIO_INTENSET_CCAIDLE_Msk,
 #elif defined(RADIO_INTENSET00_CCAIDLE_Msk)
-    NRF_RADIO_INT_CCAIDLE_MASK    = RADIO_INTENSET00_CCAIDLE_Msk,    /**< Interrupt on CCAIDLE event. */
+    NRF_RADIO_INT_CCAIDLE_MASK    = RADIO_INTENSET00_CCAIDLE_Msk,
 #endif
 #if defined(RADIO_INTENSET_CCABUSY_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_CCABUSY_MASK    = RADIO_INTENSET_CCABUSY_Msk,      /**< Interrupt on CCABUSY event. */
+    NRF_RADIO_INT_CCABUSY_MASK    = RADIO_INTENSET_CCABUSY_Msk,
 #elif defined(RADIO_INTENSET00_CCABUSY_Msk)
-    NRF_RADIO_INT_CCABUSY_MASK    = RADIO_INTENSET00_CCABUSY_Msk,    /**< Interrupt on CCABUSY event. */
+    NRF_RADIO_INT_CCABUSY_MASK    = RADIO_INTENSET00_CCABUSY_Msk,
 #endif
 #if defined(RADIO_INTENSET_CCASTOPPED_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_CCASTOPPED_MASK = RADIO_INTENSET_CCASTOPPED_Msk,   /**< Interrupt on CCASTOPPED event. */
+    NRF_RADIO_INT_CCASTOPPED_MASK = RADIO_INTENSET_CCASTOPPED_Msk,
 #elif defined(RADIO_INTENSET00_CCASTOPPED_Msk)
-    NRF_RADIO_INT_CCASTOPPED_MASK = RADIO_INTENSET00_CCASTOPPED_Msk, /**< Interrupt on CCASTOPPED event. */
+    NRF_RADIO_INT_CCASTOPPED_MASK = RADIO_INTENSET00_CCASTOPPED_Msk,
 #endif
 #if defined(RADIO_INTENSET_RATEBOOST_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_RATEBOOST_MASK  = RADIO_INTENSET_RATEBOOST_Msk,    /**< Interrupt on RATEBOOST event. */
+    NRF_RADIO_INT_RATEBOOST_MASK  = RADIO_INTENSET_RATEBOOST_Msk,
 #elif defined(RADIO_INTENSET00_RATEBOOST_Msk)
-    NRF_RADIO_INT_RATEBOOST_MASK  = RADIO_INTENSET00_RATEBOOST_Msk,  /**< Interrupt on RATEBOOST event. */
+    NRF_RADIO_INT_RATEBOOST_MASK  = RADIO_INTENSET00_RATEBOOST_Msk,
 #endif
 #if defined(RADIO_INTENSET_TXREADY_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_TXREADY_MASK    = RADIO_INTENSET_TXREADY_Msk,      /**< Interrupt on TXREADY event. */
+    NRF_RADIO_INT_TXREADY_MASK    = RADIO_INTENSET_TXREADY_Msk,
 #elif defined(RADIO_INTENSET00_TXREADY_Msk)
-    NRF_RADIO_INT_TXREADY_MASK    = RADIO_INTENSET00_TXREADY_Msk,    /**< Interrupt on TXREADY event. */
+    NRF_RADIO_INT_TXREADY_MASK    = RADIO_INTENSET00_TXREADY_Msk,
 #endif
 #if defined(RADIO_INTENSET_RXREADY_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_RXREADY_MASK    = RADIO_INTENSET_RXREADY_Msk,      /**< Interrupt on RXREADY event. */
+    NRF_RADIO_INT_RXREADY_MASK    = RADIO_INTENSET_RXREADY_Msk,
 #elif defined(RADIO_INTENSET00_RXREADY_Msk)
-    NRF_RADIO_INT_RXREADY_MASK    = RADIO_INTENSET00_RXREADY_Msk,    /**< Interrupt on RXREADY event. */
+    NRF_RADIO_INT_RXREADY_MASK    = RADIO_INTENSET00_RXREADY_Msk,
 #endif
 #if defined(RADIO_INTENSET_MHRMATCH_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_MHRMATCH_MASK   = RADIO_INTENSET_MHRMATCH_Msk,     /**< Interrupt on MHRMATCH event. */
+    NRF_RADIO_INT_MHRMATCH_MASK   = RADIO_INTENSET_MHRMATCH_Msk,
 #elif defined(RADIO_INTENSET00_MHRMATCH_Msk)
-    NRF_RADIO_INT_MHRMATCH_MASK   = RADIO_INTENSET00_MHRMATCH_Msk,   /**< Interrupt on MHRMATCH event. */
+    NRF_RADIO_INT_MHRMATCH_MASK   = RADIO_INTENSET00_MHRMATCH_Msk,
 #endif
 #if defined(RADIO_INTENSET_PHYEND_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_PHYEND_MASK     = RADIO_INTENSET_PHYEND_Msk,       /**< Interrupt on PHYEND event. */
+    NRF_RADIO_INT_PHYEND_MASK     = RADIO_INTENSET_PHYEND_Msk,
 #elif defined(RADIO_INTENSET00_PHYEND_Msk)
-    NRF_RADIO_INT_PHYEND_MASK     = RADIO_INTENSET00_PHYEND_Msk,     /**< Interrupt on PHYEND event. */
+    NRF_RADIO_INT_PHYEND_MASK     = RADIO_INTENSET00_PHYEND_Msk,
 #endif
 #if defined(RADIO_INTENSET_SYNC_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_SYNC_MASK       = RADIO_INTENSET_SYNC_Msk,         /**< Interrupt on SYNC event. */
+    NRF_RADIO_INT_SYNC_MASK       = RADIO_INTENSET_SYNC_Msk,
 #elif defined(RADIO_INTENSET00_SYNC_Msk)
-    NRF_RADIO_INT_SYNC_MASK       = RADIO_INTENSET00_SYNC_Msk,       /**< Interrupt on SYNC event. */
+    NRF_RADIO_INT_SYNC_MASK       = RADIO_INTENSET00_SYNC_Msk,
 #endif
 #if defined(RADIO_INTENSET_CTEPRESENT_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_INT_CTEPRESENT_MASK = RADIO_INTENSET_CTEPRESENT_Msk    /**< Interrupt on CTEPRESENT event. */
+    NRF_RADIO_INT_CTEPRESENT_MASK = RADIO_INTENSET_CTEPRESENT_Msk
 #elif defined(RADIO_INTENSET00_CTEPRESENT_Msk)
-    NRF_RADIO_INT_CTEPRESENT_MASK = RADIO_INTENSET00_CTEPRESENT_Msk  /**< Interrupt on CTEPRESENT event. */
+    NRF_RADIO_INT_CTEPRESENT_MASK = RADIO_INTENSET00_CTEPRESENT_Msk
 #endif
 } nrf_radio_int_mask_t;
 
 /** @brief RADIO shortcuts. */
 typedef enum
 {
-    NRF_RADIO_SHORT_READY_START_MASK        = RADIO_SHORTS_READY_START_Msk,        /**< Shortcut between READY event and START task. */
+    NRF_RADIO_SHORT_READY_START_MASK        = RADIO_SHORTS_READY_START_Msk,
 #if defined(RADIO_SHORTS_END_DISABLE_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_SHORT_END_DISABLE_MASK        = RADIO_SHORTS_END_DISABLE_Msk,        /**< Shortcut between END event and DISABLE task. */
+    NRF_RADIO_SHORT_END_DISABLE_MASK        = RADIO_SHORTS_END_DISABLE_Msk,
 #endif
-    NRF_RADIO_SHORT_DISABLED_TXEN_MASK      = RADIO_SHORTS_DISABLED_TXEN_Msk,      /**< Shortcut between DISABLED event and TXEN task. */
-    NRF_RADIO_SHORT_DISABLED_RXEN_MASK      = RADIO_SHORTS_DISABLED_RXEN_Msk,      /**< Shortcut between DISABLED event and RXEN task. */
-    NRF_RADIO_SHORT_ADDRESS_RSSISTART_MASK  = RADIO_SHORTS_ADDRESS_RSSISTART_Msk,  /**< Shortcut between ADDRESS event and RSSISTART task. */
-    NRF_RADIO_SHORT_END_START_MASK          = RADIO_SHORTS_END_START_Msk,          /**< Shortcut between END event and START task. */
-    NRF_RADIO_SHORT_ADDRESS_BCSTART_MASK    = RADIO_SHORTS_ADDRESS_BCSTART_Msk,    /**< Shortcut between ADDRESS event and BCSTART task. */
+    NRF_RADIO_SHORT_DISABLED_TXEN_MASK      = RADIO_SHORTS_DISABLED_TXEN_Msk,
+    NRF_RADIO_SHORT_DISABLED_RXEN_MASK      = RADIO_SHORTS_DISABLED_RXEN_Msk,
+    NRF_RADIO_SHORT_ADDRESS_RSSISTART_MASK  = RADIO_SHORTS_ADDRESS_RSSISTART_Msk,
+    NRF_RADIO_SHORT_END_START_MASK          = RADIO_SHORTS_END_START_Msk,
+    NRF_RADIO_SHORT_ADDRESS_BCSTART_MASK    = RADIO_SHORTS_ADDRESS_BCSTART_Msk,
 #if defined(RADIO_SHORTS_DISABLED_RSSISTOP_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_SHORT_DISABLED_RSSISTOP_MASK  = RADIO_SHORTS_DISABLED_RSSISTOP_Msk,  /**< Shortcut between DISABLED event and RSSISTOP task. */
+    NRF_RADIO_SHORT_DISABLED_RSSISTOP_MASK  = RADIO_SHORTS_DISABLED_RSSISTOP_Msk,
 #endif
 #if defined(RADIO_SHORTS_RXREADY_CCASTART_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_SHORT_RXREADY_CCASTART_MASK   = RADIO_SHORTS_RXREADY_CCASTART_Msk,   /**< Shortcut between RXREADY event and CCASTART task. */
+    NRF_RADIO_SHORT_RXREADY_CCASTART_MASK   = RADIO_SHORTS_RXREADY_CCASTART_Msk,
 #endif
 #if defined(RADIO_SHORTS_CCAIDLE_TXEN_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_SHORT_CCAIDLE_TXEN_MASK       = RADIO_SHORTS_CCAIDLE_TXEN_Msk,       /**< Shortcut between CCAIDLE event and TXEN task. */
+    NRF_RADIO_SHORT_CCAIDLE_TXEN_MASK       = RADIO_SHORTS_CCAIDLE_TXEN_Msk,
 #endif
 #if defined(RADIO_SHORTS_CCABUSY_DISABLE_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_SHORT_CCABUSY_DISABLE_MASK    = RADIO_SHORTS_CCABUSY_DISABLE_Msk,    /**< Shortcut between CCABUSY event and DISABLE task. */
+    NRF_RADIO_SHORT_CCABUSY_DISABLE_MASK    = RADIO_SHORTS_CCABUSY_DISABLE_Msk,
 #endif
 #if defined(RADIO_SHORTS_FRAMESTART_BCSTART_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_SHORT_FRAMESTART_BCSTART_MASK = RADIO_SHORTS_FRAMESTART_BCSTART_Msk, /**< Shortcut between FRAMESTART event and BCSTART task. */
+    NRF_RADIO_SHORT_FRAMESTART_BCSTART_MASK = RADIO_SHORTS_FRAMESTART_BCSTART_Msk,
 #endif
 #if defined(RADIO_SHORTS_READY_EDSTART_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_SHORT_READY_EDSTART_MASK      = RADIO_SHORTS_READY_EDSTART_Msk,      /**< Shortcut between READY event and EDSTART task. */
+    NRF_RADIO_SHORT_READY_EDSTART_MASK      = RADIO_SHORTS_READY_EDSTART_Msk,
 #endif
 #if defined(RADIO_SHORTS_EDEND_DISABLE_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_SHORT_EDEND_DISABLE_MASK      = RADIO_SHORTS_EDEND_DISABLE_Msk,      /**< Shortcut between EDEND event and DISABLE task. */
+    NRF_RADIO_SHORT_EDEND_DISABLE_MASK      = RADIO_SHORTS_EDEND_DISABLE_Msk,
 #endif
 #if defined(RADIO_SHORTS_CCAIDLE_STOP_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_SHORT_CCAIDLE_STOP_MASK       = RADIO_SHORTS_CCAIDLE_STOP_Msk,       /**< Shortcut between CCAIDLE event and STOP task. */
+    NRF_RADIO_SHORT_CCAIDLE_STOP_MASK       = RADIO_SHORTS_CCAIDLE_STOP_Msk,
 #endif
 #if defined(RADIO_SHORTS_TXREADY_START_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_SHORT_TXREADY_START_MASK      = RADIO_SHORTS_TXREADY_START_Msk,      /**< Shortcut between TXREADY event and START task. */
+    NRF_RADIO_SHORT_TXREADY_START_MASK      = RADIO_SHORTS_TXREADY_START_Msk,
 #endif
 #if defined(RADIO_SHORTS_RXREADY_START_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_SHORT_RXREADY_START_MASK      = RADIO_SHORTS_RXREADY_START_Msk,      /**< Shortcut between RXREADY event and START task. */
+    NRF_RADIO_SHORT_RXREADY_START_MASK      = RADIO_SHORTS_RXREADY_START_Msk,
 #endif
 #if defined(RADIO_SHORTS_PHYEND_DISABLE_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_SHORT_PHYEND_DISABLE_MASK     = RADIO_SHORTS_PHYEND_DISABLE_Msk,     /**< Shortcut between PHYEND event and DISABLE task. */
+    NRF_RADIO_SHORT_PHYEND_DISABLE_MASK     = RADIO_SHORTS_PHYEND_DISABLE_Msk,
 #endif
 #if defined(RADIO_SHORTS_PHYEND_START_Msk) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_SHORT_PHYEND_START_MASK       = RADIO_SHORTS_PHYEND_START_Msk,       /**< Shortcut between PHYEND event and START task. */
+    NRF_RADIO_SHORT_PHYEND_START_MASK       = RADIO_SHORTS_PHYEND_START_Msk,
 #endif
 } nrf_radio_short_mask_t;
 
@@ -370,152 +370,152 @@ typedef enum
 /** @brief RADIO Clear Channel Assessment modes. */
 typedef enum
 {
-    NRF_RADIO_CCA_MODE_ED             = RADIO_CCACTRL_CCAMODE_EdMode,           /**< Energy Above Threshold. Will report busy whenever energy is detected above set threshold. */
-    NRF_RADIO_CCA_MODE_CARRIER        = RADIO_CCACTRL_CCAMODE_CarrierMode,      /**< Carrier Seen. Will report busy whenever compliant IEEE 802.15.4 signal is seen. */
-    NRF_RADIO_CCA_MODE_CARRIER_AND_ED = RADIO_CCACTRL_CCAMODE_CarrierAndEdMode, /**< Energy Above Threshold AND Carrier Seen. */
-    NRF_RADIO_CCA_MODE_CARRIER_OR_ED  = RADIO_CCACTRL_CCAMODE_CarrierOrEdMode,  /**< Energy Above Threshold OR Carrier Seen. */
-    NRF_RADIO_CCA_MODE_ED_TEST1       = RADIO_CCACTRL_CCAMODE_EdModeTest1,      /**< Energy Above Threshold test mode that will abort when first ED measurement over threshold is seen. No averaging. */
+    NRF_RADIO_CCA_MODE_ED             = RADIO_CCACTRL_CCAMODE_EdMode,
+    NRF_RADIO_CCA_MODE_CARRIER        = RADIO_CCACTRL_CCAMODE_CarrierMode,
+    NRF_RADIO_CCA_MODE_CARRIER_AND_ED = RADIO_CCACTRL_CCAMODE_CarrierAndEdMode,
+    NRF_RADIO_CCA_MODE_CARRIER_OR_ED  = RADIO_CCACTRL_CCAMODE_CarrierOrEdMode,
+    NRF_RADIO_CCA_MODE_ED_TEST1       = RADIO_CCACTRL_CCAMODE_EdModeTest1,
 } nrf_radio_cca_mode_t;
 #endif // defined(RADIO_CCACTRL_CCAMODE_Msk) || defined(__NRFX_DOXYGEN__)
 
 /** @brief Types of RADIO states. */
 typedef enum
 {
-    NRF_RADIO_STATE_DISABLED  = RADIO_STATE_STATE_Disabled,  /**< No operations are going on inside the radio and the power consumption is at a minimum. */
-    NRF_RADIO_STATE_RXRU      = RADIO_STATE_STATE_RxRu,      /**< The radio is ramping up and preparing for reception. */
-    NRF_RADIO_STATE_RXIDLE    = RADIO_STATE_STATE_RxIdle,    /**< The radio is ready for reception to start. */
-    NRF_RADIO_STATE_RX        = RADIO_STATE_STATE_Rx,        /**< Reception has been started. */
-    NRF_RADIO_STATE_RXDISABLE = RADIO_STATE_STATE_RxDisable, /**< The radio is disabling the receiver. */
-    NRF_RADIO_STATE_TXRU      = RADIO_STATE_STATE_TxRu,      /**< The radio is ramping up and preparing for transmission. */
-    NRF_RADIO_STATE_TXIDLE    = RADIO_STATE_STATE_TxIdle,    /**< The radio is ready for transmission to start. */
-    NRF_RADIO_STATE_TX        = RADIO_STATE_STATE_Tx,        /**< The radio is transmitting a packet. */
-    NRF_RADIO_STATE_TXDISABLE = RADIO_STATE_STATE_TxDisable, /**< The radio is disabling the transmitter. */
+    NRF_RADIO_STATE_DISABLED  = RADIO_STATE_STATE_Disabled,
+    NRF_RADIO_STATE_RXRU      = RADIO_STATE_STATE_RxRu,
+    NRF_RADIO_STATE_RXIDLE    = RADIO_STATE_STATE_RxIdle,
+    NRF_RADIO_STATE_RX        = RADIO_STATE_STATE_Rx,
+    NRF_RADIO_STATE_RXDISABLE = RADIO_STATE_STATE_RxDisable,
+    NRF_RADIO_STATE_TXRU      = RADIO_STATE_STATE_TxRu,
+    NRF_RADIO_STATE_TXIDLE    = RADIO_STATE_STATE_TxIdle,
+    NRF_RADIO_STATE_TX        = RADIO_STATE_STATE_Tx,
+    NRF_RADIO_STATE_TXDISABLE = RADIO_STATE_STATE_TxDisable,
 } nrf_radio_state_t;
 
 /** @brief Types of RADIO TX power. */
 typedef enum
 {
 #if defined(RADIO_TXPOWER_TXPOWER_Pos10dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_POS10DBM  = RADIO_TXPOWER_TXPOWER_Pos10dBm,  /**< 10 dBm. */
+    NRF_RADIO_TXPOWER_POS10DBM  = RADIO_TXPOWER_TXPOWER_Pos10dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Pos9dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_POS9DBM   = RADIO_TXPOWER_TXPOWER_Pos9dBm,   /**< 9 dBm. */
+    NRF_RADIO_TXPOWER_POS9DBM   = RADIO_TXPOWER_TXPOWER_Pos9dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Pos8dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_POS8DBM   = RADIO_TXPOWER_TXPOWER_Pos8dBm,   /**< 8 dBm. */
+    NRF_RADIO_TXPOWER_POS8DBM   = RADIO_TXPOWER_TXPOWER_Pos8dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Pos7dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_POS7DBM   = RADIO_TXPOWER_TXPOWER_Pos7dBm,   /**< 7 dBm. */
+    NRF_RADIO_TXPOWER_POS7DBM   = RADIO_TXPOWER_TXPOWER_Pos7dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Pos6dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_POS6DBM   = RADIO_TXPOWER_TXPOWER_Pos6dBm,   /**< 6 dBm. */
+    NRF_RADIO_TXPOWER_POS6DBM   = RADIO_TXPOWER_TXPOWER_Pos6dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Pos5dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_POS5DBM   = RADIO_TXPOWER_TXPOWER_Pos5dBm,   /**< 5 dBm. */
+    NRF_RADIO_TXPOWER_POS5DBM   = RADIO_TXPOWER_TXPOWER_Pos5dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Pos4dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_POS4DBM   = RADIO_TXPOWER_TXPOWER_Pos4dBm,   /**< 4 dBm. */
+    NRF_RADIO_TXPOWER_POS4DBM   = RADIO_TXPOWER_TXPOWER_Pos4dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Pos3dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_POS3DBM   = RADIO_TXPOWER_TXPOWER_Pos3dBm,   /**< 3 dBm. */
+    NRF_RADIO_TXPOWER_POS3DBM   = RADIO_TXPOWER_TXPOWER_Pos3dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Pos2dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_POS2DBM    = RADIO_TXPOWER_TXPOWER_Pos2dBm,  /**< 2 dBm. */
+    NRF_RADIO_TXPOWER_POS2DBM    = RADIO_TXPOWER_TXPOWER_Pos2dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Pos1dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_POS1DBM   = RADIO_TXPOWER_TXPOWER_Pos1dBm,   /**< 1 dBm. */
+    NRF_RADIO_TXPOWER_POS1DBM   = RADIO_TXPOWER_TXPOWER_Pos1dBm,
 #endif
-    NRF_RADIO_TXPOWER_0DBM      = RADIO_TXPOWER_TXPOWER_0dBm,      /**< 0 dBm. */
+    NRF_RADIO_TXPOWER_0DBM      = RADIO_TXPOWER_TXPOWER_0dBm,
 #if defined(RADIO_TXPOWER_TXPOWER_Neg1dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG1DBM   = RADIO_TXPOWER_TXPOWER_Neg1dBm,   /**< -1 dBm. */
+    NRF_RADIO_TXPOWER_NEG1DBM   = RADIO_TXPOWER_TXPOWER_Neg1dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Neg2dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG2DBM   = RADIO_TXPOWER_TXPOWER_Neg2dBm,   /**< -2 dBm. */
+    NRF_RADIO_TXPOWER_NEG2DBM   = RADIO_TXPOWER_TXPOWER_Neg2dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Neg3dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG3DBM   = RADIO_TXPOWER_TXPOWER_Neg3dBm,   /**< -3 dBm. */
+    NRF_RADIO_TXPOWER_NEG3DBM   = RADIO_TXPOWER_TXPOWER_Neg3dBm,
 #endif
-    NRF_RADIO_TXPOWER_NEG4DBM   = RADIO_TXPOWER_TXPOWER_Neg4dBm,   /**< -4 dBm. */
+    NRF_RADIO_TXPOWER_NEG4DBM   = RADIO_TXPOWER_TXPOWER_Neg4dBm,
 #if defined(RADIO_TXPOWER_TXPOWER_Neg5dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG5DBM   = RADIO_TXPOWER_TXPOWER_Neg5dBm,   /**< -5 dBm. */
+    NRF_RADIO_TXPOWER_NEG5DBM   = RADIO_TXPOWER_TXPOWER_Neg5dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Neg6dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG6DBM   = RADIO_TXPOWER_TXPOWER_Neg6dBm,   /**< -6 dBm. */
+    NRF_RADIO_TXPOWER_NEG6DBM   = RADIO_TXPOWER_TXPOWER_Neg6dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Neg7dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG7DBM   = RADIO_TXPOWER_TXPOWER_Neg7dBm,   /**< -7 dBm. */
+    NRF_RADIO_TXPOWER_NEG7DBM   = RADIO_TXPOWER_TXPOWER_Neg7dBm,
 #endif
-    NRF_RADIO_TXPOWER_NEG8DBM   = RADIO_TXPOWER_TXPOWER_Neg8dBm,   /**< -8 dBm. */
+    NRF_RADIO_TXPOWER_NEG8DBM   = RADIO_TXPOWER_TXPOWER_Neg8dBm,
 #if defined(RADIO_TXPOWER_TXPOWER_Neg9dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG9DBM   = RADIO_TXPOWER_TXPOWER_Neg9dBm,   /**< -9 dBm. */
+    NRF_RADIO_TXPOWER_NEG9DBM   = RADIO_TXPOWER_TXPOWER_Neg9dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Neg10dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG10DBM  = RADIO_TXPOWER_TXPOWER_Neg10dBm,  /**< -10 dBm. */
+    NRF_RADIO_TXPOWER_NEG10DBM  = RADIO_TXPOWER_TXPOWER_Neg10dBm,
 #endif
-    NRF_RADIO_TXPOWER_NEG12DBM  = RADIO_TXPOWER_TXPOWER_Neg12dBm,  /**< -12 dBm. */
+    NRF_RADIO_TXPOWER_NEG12DBM  = RADIO_TXPOWER_TXPOWER_Neg12dBm,
 #if defined(RADIO_TXPOWER_TXPOWER_Neg14dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG14DBM  = RADIO_TXPOWER_TXPOWER_Neg14dBm,  /**< -14 dBm. */
+    NRF_RADIO_TXPOWER_NEG14DBM  = RADIO_TXPOWER_TXPOWER_Neg14dBm,
 #endif
-    NRF_RADIO_TXPOWER_NEG16DBM  = RADIO_TXPOWER_TXPOWER_Neg16dBm,  /**< -16 dBm. */
+    NRF_RADIO_TXPOWER_NEG16DBM  = RADIO_TXPOWER_TXPOWER_Neg16dBm,
 #if defined(RADIO_TXPOWER_TXPOWER_Neg18dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG18DBM  = RADIO_TXPOWER_TXPOWER_Neg18dBm,  /**< -18 dBm. */
+    NRF_RADIO_TXPOWER_NEG18DBM  = RADIO_TXPOWER_TXPOWER_Neg18dBm,
 #endif
-    NRF_RADIO_TXPOWER_NEG20DBM  = RADIO_TXPOWER_TXPOWER_Neg20dBm,  /**< -20 dBm. */
+    NRF_RADIO_TXPOWER_NEG20DBM  = RADIO_TXPOWER_TXPOWER_Neg20dBm,
 #if defined(RADIO_TXPOWER_TXPOWER_Neg22dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG22DBM  = RADIO_TXPOWER_TXPOWER_Neg22dBm,  /**< -22 dBm. */
+    NRF_RADIO_TXPOWER_NEG22DBM  = RADIO_TXPOWER_TXPOWER_Neg22dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Neg28dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG28DBM  = RADIO_TXPOWER_TXPOWER_Neg28dBm,  /**< -28 dBm. */
+    NRF_RADIO_TXPOWER_NEG28DBM  = RADIO_TXPOWER_TXPOWER_Neg28dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Neg30dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG30DBM  = RADIO_TXPOWER_TXPOWER_Neg30dBm,  /**< -30 dBm. */
+    NRF_RADIO_TXPOWER_NEG30DBM  = RADIO_TXPOWER_TXPOWER_Neg30dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Neg40dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG40DBM  = RADIO_TXPOWER_TXPOWER_Neg40dBm,  /**< -40 dBm. */
+    NRF_RADIO_TXPOWER_NEG40DBM  = RADIO_TXPOWER_TXPOWER_Neg40dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Neg46dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG46DBM  = RADIO_TXPOWER_TXPOWER_Neg46dBm,  /**< -46 dBm. */
+    NRF_RADIO_TXPOWER_NEG46DBM  = RADIO_TXPOWER_TXPOWER_Neg46dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Neg70dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG70DBM  = RADIO_TXPOWER_TXPOWER_Neg70dBm,  /**< -70 dBm. */
+    NRF_RADIO_TXPOWER_NEG70DBM  = RADIO_TXPOWER_TXPOWER_Neg70dBm,
 #endif
 #if defined(RADIO_TXPOWER_TXPOWER_Neg100dBm) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_TXPOWER_NEG100DBM = RADIO_TXPOWER_TXPOWER_Neg100dBm, /**< -100 dBm. */
+    NRF_RADIO_TXPOWER_NEG100DBM = RADIO_TXPOWER_TXPOWER_Neg100dBm,
 #endif
 } nrf_radio_txpower_t;
 
 /** @brief Types of RADIO modes (data rate and modulation). */
 typedef enum
 {
-    NRF_RADIO_MODE_NRF_1MBIT          = RADIO_MODE_MODE_Nrf_1Mbit,          /**< 1Mbit/s Nordic proprietary radio mode. */
-    NRF_RADIO_MODE_NRF_2MBIT          = RADIO_MODE_MODE_Nrf_2Mbit,          /**< 2Mbit/s Nordic proprietary radio mode. */
+    NRF_RADIO_MODE_NRF_1MBIT          = RADIO_MODE_MODE_Nrf_1Mbit,
+    NRF_RADIO_MODE_NRF_2MBIT          = RADIO_MODE_MODE_Nrf_2Mbit,
 #if defined(RADIO_MODE_MODE_Nrf_250Kbit) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_MODE_NRF_250KBIT        = RADIO_MODE_MODE_Nrf_250Kbit,        /**< 250Kbit/s Nordic proprietary radio mode. */
+    NRF_RADIO_MODE_NRF_250KBIT        = RADIO_MODE_MODE_Nrf_250Kbit,
 #endif
 #if defined(RADIO_MODE_MODE_Nrf_4Mbit0_5) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_MODE_NRF_4MBIT_H_0_5    = RADIO_MODE_MODE_Nrf_4Mbit0_5,       /*!< 4Mbit/s Nordic proprietary radio mode (BT=0.5/h=0.5). */
+    NRF_RADIO_MODE_NRF_4MBIT_H_0_5    = RADIO_MODE_MODE_Nrf_4Mbit0_5,
 #endif
 #if defined(RADIO_MODE_MODE_Nrf_4Mbit0_25) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_MODE_NRF_4MBIT_H_0_25   = RADIO_MODE_MODE_Nrf_4Mbit0_25,      /*!< 4Mbit/s Nordic proprietary radio mode (BT=0.5/h=0.25). */
+    NRF_RADIO_MODE_NRF_4MBIT_H_0_25   = RADIO_MODE_MODE_Nrf_4Mbit0_25,
 #endif
 #if defined(RADIO_MODE_MODE_Nrf_4Mbit_0BT6) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_MODE_NRF_4MBIT_BT_0_6   = RADIO_MODE_MODE_Nrf_4Mbit_0BT6,     /*!< 4Mbit/s Nordic proprietary radio mode (BT=0.6/h=0.5). */
+    NRF_RADIO_MODE_NRF_4MBIT_BT_0_6   = RADIO_MODE_MODE_Nrf_4Mbit_0BT6,
 #endif
 #if defined(RADIO_MODE_MODE_Nrf_4Mbit_0BT4) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_MODE_NRF_4MBIT_BT_0_4   = RADIO_MODE_MODE_Nrf_4Mbit_0BT4,     /*!< 4Mbit/s Nordic proprietary radio mode (BT=0.4/h=0.5). */
+    NRF_RADIO_MODE_NRF_4MBIT_BT_0_4   = RADIO_MODE_MODE_Nrf_4Mbit_0BT4,
 #endif
-    NRF_RADIO_MODE_BLE_1MBIT          = RADIO_MODE_MODE_Ble_1Mbit,          /**< 1 Mbit/s Bluetooth Low Energy. */
+    NRF_RADIO_MODE_BLE_1MBIT          = RADIO_MODE_MODE_Ble_1Mbit,
 #if defined(RADIO_MODE_MODE_Ble_2Mbit) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_MODE_BLE_2MBIT          = RADIO_MODE_MODE_Ble_2Mbit,          /**< 2 Mbit/s Bluetooth Low Energy. */
+    NRF_RADIO_MODE_BLE_2MBIT          = RADIO_MODE_MODE_Ble_2Mbit,
 #endif
 #if defined(RADIO_MODE_MODE_Ble_LR125Kbit) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_MODE_BLE_LR125KBIT      = RADIO_MODE_MODE_Ble_LR125Kbit,      /*!< Bluetooth Low Energy Long range 125 kbit/s TX, 125 kbit/s and 500 kbit/s RX */
+    NRF_RADIO_MODE_BLE_LR125KBIT      = RADIO_MODE_MODE_Ble_LR125Kbit,
 #endif
 #if defined(RADIO_MODE_MODE_Ble_LR500Kbit) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_MODE_BLE_LR500KBIT      = RADIO_MODE_MODE_Ble_LR500Kbit,      /*!< Bluetooth Low Energy Long range 500 kbit/s TX, 125 kbit/s and 500 kbit/s RX */
+    NRF_RADIO_MODE_BLE_LR500KBIT      = RADIO_MODE_MODE_Ble_LR500Kbit,
 #endif
 #if defined(RADIO_MODE_MODE_Ieee802154_250Kbit) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_MODE_IEEE802154_250KBIT = RADIO_MODE_MODE_Ieee802154_250Kbit, /**< IEEE 802.15.4-2006 250 kbit/s. */
+    NRF_RADIO_MODE_IEEE802154_250KBIT = RADIO_MODE_MODE_Ieee802154_250Kbit,
 #endif
 } nrf_radio_mode_t;
 
@@ -523,13 +523,13 @@ typedef enum
 /** @brief Types of preamble length. */
 typedef enum
 {
-    NRF_RADIO_PREAMBLE_LENGTH_8BIT       = RADIO_PCNF0_PLEN_8bit,      /**< 8-bit preamble. */
-    NRF_RADIO_PREAMBLE_LENGTH_16BIT      = RADIO_PCNF0_PLEN_16bit,     /**< 16-bit preamble. */
+    NRF_RADIO_PREAMBLE_LENGTH_8BIT       = RADIO_PCNF0_PLEN_8bit,
+    NRF_RADIO_PREAMBLE_LENGTH_16BIT      = RADIO_PCNF0_PLEN_16bit,
 #if defined(RADIO_PCNF0_PLEN_32bitZero) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_PREAMBLE_LENGTH_32BIT_ZERO = RADIO_PCNF0_PLEN_32bitZero, /**< 32-bit zero preamble used for IEEE 802.15.4. */
+    NRF_RADIO_PREAMBLE_LENGTH_32BIT_ZERO = RADIO_PCNF0_PLEN_32bitZero,
 #endif
 #if defined(RADIO_PCNF0_PLEN_LongRange) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_PREAMBLE_LENGTH_LONG_RANGE = RADIO_PCNF0_PLEN_LongRange, /**< Preamble - used for BTLE Long Range. */
+    NRF_RADIO_PREAMBLE_LENGTH_LONG_RANGE = RADIO_PCNF0_PLEN_LongRange,
 #endif
 } nrf_radio_preamble_length_t;
 #endif // defined(RADIO_PCNF0_PLEN_Msk) || defined(__NRFX_DOXYGEN__)
@@ -538,62 +538,62 @@ typedef enum
 typedef enum
 {
 #if defined(RADIO_CRCCNF_SKIPADDR_Include) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_CRC_ADDR_INCLUDE    = RADIO_CRCCNF_SKIPADDR_Include,    /**< CRC calculation includes address field. */
+    NRF_RADIO_CRC_ADDR_INCLUDE    = RADIO_CRCCNF_SKIPADDR_Include,
 #else
-    NRF_RADIO_CRC_ADDR_INCLUDE    = RADIO_CRCCNF_OFFSET_Include,      /**< CRC calculation includes address field. */
+    NRF_RADIO_CRC_ADDR_INCLUDE    = RADIO_CRCCNF_OFFSET_Include,
 #endif
 #if defined(RADIO_CRCCNF_SKIPADDR_Skip) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_CRC_ADDR_SKIP       = RADIO_CRCCNF_SKIPADDR_Skip,       /**< CRC calculation does not include address field. */
+    NRF_RADIO_CRC_ADDR_SKIP       = RADIO_CRCCNF_SKIPADDR_Skip,
 #else
-    NRF_RADIO_CRC_ADDR_SKIP       = RADIO_CRCCNF_OFFSET_Skip,         /**< CRC calculation does not include address field. */
+    NRF_RADIO_CRC_ADDR_SKIP       = RADIO_CRCCNF_OFFSET_Skip,
 #endif
 #if defined(RADIO_CRCCNF_SKIPADDR_Ieee802154) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_CRC_ADDR_IEEE802154 = RADIO_CRCCNF_SKIPADDR_Ieee802154, /**< CRC calculation as per 802.15.4 standard. */
+    NRF_RADIO_CRC_ADDR_IEEE802154 = RADIO_CRCCNF_SKIPADDR_Ieee802154,
 #elif defined(RADIO_CRCCNF_OFFSET_LENGTH)
-    NRF_RADIO_CRC_ADDR_IEEE802154 = RADIO_CRCCNF_OFFSET_LENGTH,       /**< CRC calculation as per 802.15.4 standard. */
+    NRF_RADIO_CRC_ADDR_IEEE802154 = RADIO_CRCCNF_OFFSET_LENGTH,
 #endif
 #if defined(RADIO_CRCCNF_OFFSET_SO) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_CRC_ADDR_S0        = RADIO_CRCCNF_OFFSET_SO,            /**< CRC calculation starting at first byte after S0 field. */
+    NRF_RADIO_CRC_ADDR_S0        = RADIO_CRCCNF_OFFSET_SO,
 #endif
 #if defined(RADIO_CRCCNF_OFFSET_S1) || defined(__NRFX_DOXYGEN__)
-    NRF_RADIO_CRC_ADDR_S1        = RADIO_CRCCNF_OFFSET_S1,            /**< CRC calculation starting at first byte after S1 field. */
+    NRF_RADIO_CRC_ADDR_S1        = RADIO_CRCCNF_OFFSET_S1,
 #endif
 } nrf_radio_crc_addr_t;
 
 /** @brief Packet configuration. */
 typedef struct
 {
-    uint8_t lflen;                    /**< Length on air of LENGTH field in number of bits. */
-    uint8_t s0len;                    /**< Length on air of S0 field in number of bytes. */
-    uint8_t s1len;                    /**< Length on air of S1 field in number of bits. */
+    uint8_t lflen;
+    uint8_t s0len;
+    uint8_t s1len;
 #if defined(RADIO_PCNF0_S1INCL_Msk) || defined(__NRFX_DOXYGEN__)
-    bool s1incl;                      /**< Include or exclude S1 field in RAM. */
+    bool s1incl;
 #endif
 #if defined(RADIO_PCNF0_CILEN_Msk) || defined(__NRFX_DOXYGEN__)
-    uint8_t cilen;                    /**< Length of code indicator - long range. */
+    uint8_t cilen;
 #endif
 #if defined(RADIO_PCNF0_PLEN_Msk) || defined(__NRFX_DOXYGEN__)
-    nrf_radio_preamble_length_t plen; /**< Length of preamble on air. Decision point: TASKS_START task. */
+    nrf_radio_preamble_length_t plen;
 #endif
 #if defined(RADIO_PCNF0_CRCINC_Msk) || defined(__NRFX_DOXYGEN__)
-    bool crcinc;                      /**< Indicates if LENGTH field contains CRC or not. */
+    bool crcinc;
 #endif
 #if defined(RADIO_PCNF0_TERMLEN_Msk) || defined(__NRFX_DOXYGEN__)
-    uint8_t termlen;                  /**< Length of TERM field in Long Range operation. */
+    uint8_t termlen;
 #endif
-    uint8_t maxlen;                   /**< Maximum length of packet payload. */
-    uint8_t statlen;                  /**< Static length in number of bytes. */
-    uint8_t balen;                    /**< Base address length in number of bytes. */
-    bool big_endian;                  /**< On air endianness of packet. */
-    bool whiteen;                     /**< Enable or disable packet whitening. */
+    uint8_t maxlen;
+    uint8_t statlen;
+    uint8_t balen;
+    bool big_endian;
+    bool whiteen;
 } nrf_radio_packet_conf_t;
 
 #if defined(RADIO_DFEMODE_DFEOPMODE_Msk) || defined(__NRFX_DOXYGEN__)
 /** @brief Direction Finding operation modes. */
 typedef enum
 {
-    NRF_RADIO_DFE_OP_MODE_AOD = RADIO_DFEMODE_DFEOPMODE_AoD, /**< Angle-of-Departure mode. */
-    NRF_RADIO_DFE_OP_MODE_AOA = RADIO_DFEMODE_DFEOPMODE_AoA, /**< Angle-of-Arrival mode. */
+    NRF_RADIO_DFE_OP_MODE_AOD = RADIO_DFEMODE_DFEOPMODE_AoD,
+    NRF_RADIO_DFE_OP_MODE_AOA = RADIO_DFEMODE_DFEOPMODE_AoA,
 } nrf_radio_dfe_op_mode_t;
 #endif
 
@@ -601,19 +601,19 @@ typedef enum
 /** @brief States of Direction Finding switching state machine. */
 typedef enum
 {
-    NRF_RADIO_DFE_SWITCH_STATE_IDLE      = RADIO_DFESTATUS_SWITCHINGSTATE_Idle,      /**< Switching state Idle. */
-    NRF_RADIO_DFE_SWITCH_STATE_OFFSET    = RADIO_DFESTATUS_SWITCHINGSTATE_Offset,    /**< Switching state Offset. */
-    NRF_RADIO_DFE_SWITCH_STATE_GUARD     = RADIO_DFESTATUS_SWITCHINGSTATE_Guard,     /**< Switching state Guard. */
-    NRF_RADIO_DFE_SWITCH_STATE_REF       = RADIO_DFESTATUS_SWITCHINGSTATE_Ref,       /**< Switching state Ref. */
-    NRF_RADIO_DFE_SWITCH_STATE_SWITCHING = RADIO_DFESTATUS_SWITCHINGSTATE_Switching, /**< Switching state Switching. */
-    NRF_RADIO_DFE_SWITCH_STATE_ENDING    = RADIO_DFESTATUS_SWITCHINGSTATE_Ending,    /**< Switching state Ending. */
+    NRF_RADIO_DFE_SWITCH_STATE_IDLE      = RADIO_DFESTATUS_SWITCHINGSTATE_Idle,
+    NRF_RADIO_DFE_SWITCH_STATE_OFFSET    = RADIO_DFESTATUS_SWITCHINGSTATE_Offset,
+    NRF_RADIO_DFE_SWITCH_STATE_GUARD     = RADIO_DFESTATUS_SWITCHINGSTATE_Guard,
+    NRF_RADIO_DFE_SWITCH_STATE_REF       = RADIO_DFESTATUS_SWITCHINGSTATE_Ref,
+    NRF_RADIO_DFE_SWITCH_STATE_SWITCHING = RADIO_DFESTATUS_SWITCHINGSTATE_Switching,
+    NRF_RADIO_DFE_SWITCH_STATE_ENDING    = RADIO_DFESTATUS_SWITCHINGSTATE_Ending,
 } nrf_radio_dfe_switch_state_t;
 
 /** @brief States of Direction Finding sampling state machine. */
 typedef enum
 {
-    NRF_RADIO_DFE_SAMPLE_STATE_IDLE     = RADIO_DFESTATUS_SAMPLINGSTATE_Idle,     /**< Sampling state Idle. */
-    NRF_RADIO_DFE_SAMPLE_STATE_SAMPLING = RADIO_DFESTATUS_SAMPLINGSTATE_Sampling, /**< Sampling state Sampling. */
+    NRF_RADIO_DFE_SAMPLE_STATE_IDLE     = RADIO_DFESTATUS_SAMPLINGSTATE_Idle,
+    NRF_RADIO_DFE_SAMPLE_STATE_SAMPLING = RADIO_DFESTATUS_SAMPLINGSTATE_Sampling,
 } nrf_radio_dfe_sample_state_t;
 #endif
 
@@ -621,33 +621,33 @@ typedef enum
 /** @brief Valid ranges of CTE time, expressed in 8 us units. */
 typedef enum
 {
-    NRF_RADIO_CTEINLINE_TIME_RANGE_20 = RADIO_CTEINLINECONF_CTETIMEVALIDRANGE_20, /**< 20 units time range. */
-    NRF_RADIO_CTEINLINE_TIME_RANGE_31 = RADIO_CTEINLINECONF_CTETIMEVALIDRANGE_31, /**< 31 units time range. */
-    NRF_RADIO_CTEINLINE_TIME_RANGE_63 = RADIO_CTEINLINECONF_CTETIMEVALIDRANGE_63, /**< 63 units time range. */
+    NRF_RADIO_CTEINLINE_TIME_RANGE_20 = RADIO_CTEINLINECONF_CTETIMEVALIDRANGE_20,
+    NRF_RADIO_CTEINLINE_TIME_RANGE_31 = RADIO_CTEINLINECONF_CTETIMEVALIDRANGE_31,
+    NRF_RADIO_CTEINLINE_TIME_RANGE_63 = RADIO_CTEINLINECONF_CTETIMEVALIDRANGE_63,
 } nrf_radio_cteinline_time_range_t;
 
 /** @brief Spacing between samples for the samples in the switching period. */
 typedef enum
 {
-    NRF_RADIO_CTEINLINE_RX_MODE_125NS = RADIO_CTEINLINECONF_CTEINLINERXMODE1US_125ns, /**< 125 ns spacing. */
-    NRF_RADIO_CTEINLINE_RX_MODE_250NS = RADIO_CTEINLINECONF_CTEINLINERXMODE1US_250ns, /**< 250 ns spacing. */
-    NRF_RADIO_CTEINLINE_RX_MODE_500NS = RADIO_CTEINLINECONF_CTEINLINERXMODE1US_500ns, /**< 500 ns spacing. */
-    NRF_RADIO_CTEINLINE_RX_MODE_1US   = RADIO_CTEINLINECONF_CTEINLINERXMODE1US_1us,   /**< 1 us spacing. */
-    NRF_RADIO_CTEINLINE_RX_MODE_2US   = RADIO_CTEINLINECONF_CTEINLINERXMODE1US_2us,   /**< 2 us spacing. */
-    NRF_RADIO_CTEINLINE_RX_MODE_4US   = RADIO_CTEINLINECONF_CTEINLINERXMODE1US_4us,   /**< 4 us spacing. */
+    NRF_RADIO_CTEINLINE_RX_MODE_125NS = RADIO_CTEINLINECONF_CTEINLINERXMODE1US_125ns,
+    NRF_RADIO_CTEINLINE_RX_MODE_250NS = RADIO_CTEINLINECONF_CTEINLINERXMODE1US_250ns,
+    NRF_RADIO_CTEINLINE_RX_MODE_500NS = RADIO_CTEINLINECONF_CTEINLINERXMODE1US_500ns,
+    NRF_RADIO_CTEINLINE_RX_MODE_1US   = RADIO_CTEINLINECONF_CTEINLINERXMODE1US_1us,
+    NRF_RADIO_CTEINLINE_RX_MODE_2US   = RADIO_CTEINLINECONF_CTEINLINERXMODE1US_2us,
+    NRF_RADIO_CTEINLINE_RX_MODE_4US   = RADIO_CTEINLINECONF_CTEINLINERXMODE1US_4us,
 } nrf_radio_cteinline_rx_mode_t;
 
 /** @brief Configuration for CTE inline mode */
 typedef struct
 {
-    bool                             enable;       /**< Enable or disable parsing of CTEInfo from received packet. */
-    bool                             info_in_s1;   /**< Indicates whether CTEInfo is in S1 byte or not. */
-    bool                             err_handling; /**< Enable or disable switching and sampling when CRC is not OK. */
-    nrf_radio_cteinline_time_range_t time_range;   /**< Maximum range of CTE time. */
-    nrf_radio_cteinline_rx_mode_t    rx1us;        /**< Spacing between samples during switching period for AoD 1 us. */
-    nrf_radio_cteinline_rx_mode_t    rx2us;        /**< Spacing between samples during switching period for AoD 2 us or AoA 4 us. */
-    uint8_t                          s0_pattern;   /**< S0 bit pattern to match. */
-    uint8_t                          s0_mask;      /**< S0 bit mask to set which bit to match. */
+    bool                             enable;
+    bool                             info_in_s1;
+    bool                             err_handling;
+    nrf_radio_cteinline_time_range_t time_range;
+    nrf_radio_cteinline_rx_mode_t    rx1us;
+    nrf_radio_cteinline_rx_mode_t    rx2us;
+    uint8_t                          s0_pattern;
+    uint8_t                          s0_mask;
 } nrf_radio_cteinline_conf_t;
 #endif // defined(RADIO_CTEINLINECONF_S0CONF_Msk) || defined(__NRFX_DOXYGEN__)
 
@@ -655,50 +655,50 @@ typedef struct
 /** @brief State when CTE extension is added and antenna switching/sampling is done. */
 typedef enum
 {
-    NRF_RADIO_DFECTRL_EXTENSION_CRC     = RADIO_DFECTRL1_DFEINEXTENSION_CRC,     /**< AoA/AoD procedure triggered at end of CRC. */
-    NRF_RADIO_DFECTRL_EXTENSION_PAYLOAD = RADIO_DFECTRL1_DFEINEXTENSION_Payload, /**< Antenna switching/sampling done in the packet payload. */
+    NRF_RADIO_DFECTRL_EXTENSION_CRC     = RADIO_DFECTRL1_DFEINEXTENSION_CRC,
+    NRF_RADIO_DFECTRL_EXTENSION_PAYLOAD = RADIO_DFECTRL1_DFEINEXTENSION_Payload,
 } nrf_radio_dfectrl_extension_t;
 
 /** @brief Interval between antenna changes in the switching state. */
 typedef enum
 {
-    NRF_RADIO_DFECTRL_SWITCH_SPACING_1US = RADIO_DFECTRL1_TSWITCHSPACING_1us, /**< 1 us interval between antenna change. */
-    NRF_RADIO_DFECTRL_SWITCH_SPACING_2US = RADIO_DFECTRL1_TSWITCHSPACING_2us, /**< 2 us interval between antenna change. */
-    NRF_RADIO_DFECTRL_SWITCH_SPACING_4US = RADIO_DFECTRL1_TSWITCHSPACING_4us, /**< 4 us interval between antenna change. */
+    NRF_RADIO_DFECTRL_SWITCH_SPACING_1US = RADIO_DFECTRL1_TSWITCHSPACING_1us,
+    NRF_RADIO_DFECTRL_SWITCH_SPACING_2US = RADIO_DFECTRL1_TSWITCHSPACING_2us,
+    NRF_RADIO_DFECTRL_SWITCH_SPACING_4US = RADIO_DFECTRL1_TSWITCHSPACING_4us,
 } nrf_radio_dfectrl_switch_spacing_t;
 
 /** @brief Interval between samples. */
 typedef enum
 {
-    NRF_RADIO_DFECTRL_SAMPLE_SPACING_125NS = RADIO_DFECTRL1_TSAMPLESPACING_125ns, /**< 125 ns interval between samples. */
-    NRF_RADIO_DFECTRL_SAMPLE_SPACING_250NS = RADIO_DFECTRL1_TSAMPLESPACING_250ns, /**< 250 ns interval between samples. */
-    NRF_RADIO_DFECTRL_SAMPLE_SPACING_500NS = RADIO_DFECTRL1_TSAMPLESPACING_500ns, /**< 500 ns interval between samples. */
-    NRF_RADIO_DFECTRL_SAMPLE_SPACING_1US   = RADIO_DFECTRL1_TSAMPLESPACING_1us,   /**< 1 us interval between samples. */
-    NRF_RADIO_DFECTRL_SAMPLE_SPACING_2US   = RADIO_DFECTRL1_TSAMPLESPACING_2us,   /**< 2 us interval between samples. */
-    NRF_RADIO_DFECTRL_SAMPLE_SPACING_4US   = RADIO_DFECTRL1_TSAMPLESPACING_4us,   /**< 4 us interval between samples. */
+    NRF_RADIO_DFECTRL_SAMPLE_SPACING_125NS = RADIO_DFECTRL1_TSAMPLESPACING_125ns,
+    NRF_RADIO_DFECTRL_SAMPLE_SPACING_250NS = RADIO_DFECTRL1_TSAMPLESPACING_250ns,
+    NRF_RADIO_DFECTRL_SAMPLE_SPACING_500NS = RADIO_DFECTRL1_TSAMPLESPACING_500ns,
+    NRF_RADIO_DFECTRL_SAMPLE_SPACING_1US   = RADIO_DFECTRL1_TSAMPLESPACING_1us,
+    NRF_RADIO_DFECTRL_SAMPLE_SPACING_2US   = RADIO_DFECTRL1_TSAMPLESPACING_2us,
+    NRF_RADIO_DFECTRL_SAMPLE_SPACING_4US   = RADIO_DFECTRL1_TSAMPLESPACING_4us,
 } nrf_radio_dfectrl_sample_spacing_t;
 
 /** @brief Direction finding sample type. */
 typedef enum
 {
-    NRF_RADIO_DFECTRL_SAMPLE_TYPE_IQ       = RADIO_DFECTRL1_SAMPLETYPE_IQ,       /**< Complex samples in I and Q. */
-    NRF_RADIO_DFECTRL_SAMPLE_TYPE_MAGPHASE = RADIO_DFECTRL1_SAMPLETYPE_MagPhase, /**< Complex samples as magnitude and phase. */
+    NRF_RADIO_DFECTRL_SAMPLE_TYPE_IQ       = RADIO_DFECTRL1_SAMPLETYPE_IQ,
+    NRF_RADIO_DFECTRL_SAMPLE_TYPE_MAGPHASE = RADIO_DFECTRL1_SAMPLETYPE_MagPhase,
 } nrf_radio_dfectrl_sample_type_t;
 
 /** @brief Direction finding configuration. */
 typedef struct
 {
-    uint8_t                            dfe_len;        /**< Length of the AoA/AoD procedure in number of 8 µs units. */
-    nrf_radio_dfectrl_extension_t      extension;      /**< State in which CTE extension is added and antenna switching/sampling is done. */
-    nrf_radio_dfectrl_switch_spacing_t switch_spacing; /**< Interval between antenna changes in the switching state. */
-    nrf_radio_dfectrl_sample_spacing_t spacing_ref;    /**< Interval between samples in the reference period. */
-    nrf_radio_dfectrl_sample_type_t    sample_type;    /**< Indicates whether to sample I/Q or magnitude/phase. */
-    nrf_radio_dfectrl_sample_spacing_t sample_spacing; /**< Interval between samples in the switching period. */
+    uint8_t                            dfe_len;
+    nrf_radio_dfectrl_extension_t      extension;
+    nrf_radio_dfectrl_switch_spacing_t switch_spacing;
+    nrf_radio_dfectrl_sample_spacing_t spacing_ref;
+    nrf_radio_dfectrl_sample_type_t    sample_type;
+    nrf_radio_dfectrl_sample_spacing_t sample_spacing;
 #if defined(RADIO_DFECTRL1_REPEATPATTERN_Msk)
-    uint8_t                            repeat_pattern; /**< Number of times antenna pattern should be repeated. */
+    uint8_t                            repeat_pattern;
 #endif
-    uint8_t                            gain_steps;     /**< Number of gain steps lowering the total gain at the start of CTE . */
-    int16_t                            switch_offset;  /**< Signed value offset after the end of the CRC before starting switching expressed in 16 Mhz cycles. */
+    uint8_t                            gain_steps;
+    int16_t                            switch_offset;
     int16_t                            sample_offset;  /**< Signed value offset before starting sampling expressed in 16 Mhz cycles
                                                         *   relative to the beginning of the reference state. */
 } nrf_radio_dfectrl_conf_t;

@@ -32,9 +32,9 @@
 #define INA219_OVF_STATUS(x)	x & 0x1
 
 /* Mode fields */
-#define INA219_MODE_NORMAL	0x3 /* shunt and bus, triggered */
-#define INA219_MODE_SLEEP	0x4 /* ADC off */
-#define INA219_MODE_OFF		0x0 /* Power off */
+#define INA219_MODE_NORMAL	0x3
+#define INA219_MODE_SLEEP	0x4
+#define INA219_MODE_OFF		0x0
 
 /* Others */
 #define INA219_SIGN_BIT(x)	((x) >> 15) & 0x1

@@ -65,8 +65,8 @@ struct npcx_ex_ops_qspi_oper_out {
 };
 
 /* Specific NPCX QSPI devices control bits */
-#define NPCX_EX_OP_LOCK_UMA	BIT(0) /* Lock/Unlock UMA mode */
-#define NPCX_EX_OP_INT_FLASH_WP BIT(1) /* Issue write protection of internal flash */
+#define NPCX_EX_OP_LOCK_UMA	BIT(0)
+#define NPCX_EX_OP_INT_FLASH_WP BIT(1)
 
 #ifdef __cplusplus
 }

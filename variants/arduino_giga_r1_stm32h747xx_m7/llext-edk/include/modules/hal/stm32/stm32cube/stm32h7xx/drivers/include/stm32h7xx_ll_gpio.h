@@ -104,28 +104,28 @@ typedef struct
 /** @defgroup GPIO_LL_EC_PIN PIN
   * @{
   */
-#define LL_GPIO_PIN_0                      GPIO_BSRR_BS0 /*!< Select pin 0 */
-#define LL_GPIO_PIN_1                      GPIO_BSRR_BS1 /*!< Select pin 1 */
-#define LL_GPIO_PIN_2                      GPIO_BSRR_BS2 /*!< Select pin 2 */
-#define LL_GPIO_PIN_3                      GPIO_BSRR_BS3 /*!< Select pin 3 */
-#define LL_GPIO_PIN_4                      GPIO_BSRR_BS4 /*!< Select pin 4 */
-#define LL_GPIO_PIN_5                      GPIO_BSRR_BS5 /*!< Select pin 5 */
-#define LL_GPIO_PIN_6                      GPIO_BSRR_BS6 /*!< Select pin 6 */
-#define LL_GPIO_PIN_7                      GPIO_BSRR_BS7 /*!< Select pin 7 */
-#define LL_GPIO_PIN_8                      GPIO_BSRR_BS8 /*!< Select pin 8 */
-#define LL_GPIO_PIN_9                      GPIO_BSRR_BS9 /*!< Select pin 9 */
-#define LL_GPIO_PIN_10                     GPIO_BSRR_BS10 /*!< Select pin 10 */
-#define LL_GPIO_PIN_11                     GPIO_BSRR_BS11 /*!< Select pin 11 */
-#define LL_GPIO_PIN_12                     GPIO_BSRR_BS12 /*!< Select pin 12 */
-#define LL_GPIO_PIN_13                     GPIO_BSRR_BS13 /*!< Select pin 13 */
-#define LL_GPIO_PIN_14                     GPIO_BSRR_BS14 /*!< Select pin 14 */
-#define LL_GPIO_PIN_15                     GPIO_BSRR_BS15 /*!< Select pin 15 */
+#define LL_GPIO_PIN_0                      GPIO_BSRR_BS0
+#define LL_GPIO_PIN_1                      GPIO_BSRR_BS1
+#define LL_GPIO_PIN_2                      GPIO_BSRR_BS2
+#define LL_GPIO_PIN_3                      GPIO_BSRR_BS3
+#define LL_GPIO_PIN_4                      GPIO_BSRR_BS4
+#define LL_GPIO_PIN_5                      GPIO_BSRR_BS5
+#define LL_GPIO_PIN_6                      GPIO_BSRR_BS6
+#define LL_GPIO_PIN_7                      GPIO_BSRR_BS7
+#define LL_GPIO_PIN_8                      GPIO_BSRR_BS8
+#define LL_GPIO_PIN_9                      GPIO_BSRR_BS9
+#define LL_GPIO_PIN_10                     GPIO_BSRR_BS10
+#define LL_GPIO_PIN_11                     GPIO_BSRR_BS11
+#define LL_GPIO_PIN_12                     GPIO_BSRR_BS12
+#define LL_GPIO_PIN_13                     GPIO_BSRR_BS13
+#define LL_GPIO_PIN_14                     GPIO_BSRR_BS14
+#define LL_GPIO_PIN_15                     GPIO_BSRR_BS15
 #define LL_GPIO_PIN_ALL                    (GPIO_BSRR_BS0 | GPIO_BSRR_BS1  | GPIO_BSRR_BS2  | \
                                            GPIO_BSRR_BS3  | GPIO_BSRR_BS4  | GPIO_BSRR_BS5  | \
                                            GPIO_BSRR_BS6  | GPIO_BSRR_BS7  | GPIO_BSRR_BS8  | \
                                            GPIO_BSRR_BS9  | GPIO_BSRR_BS10 | GPIO_BSRR_BS11 | \
                                            GPIO_BSRR_BS12 | GPIO_BSRR_BS13 | GPIO_BSRR_BS14 | \
-                                           GPIO_BSRR_BS15) /*!< Select all pins */
+                                           GPIO_BSRR_BS15)
 /**
   * @}
   */
@@ -133,10 +133,10 @@ typedef struct
 /** @defgroup GPIO_LL_EC_MODE Mode
   * @{
   */
-#define LL_GPIO_MODE_INPUT                 (0x00000000U) /*!< Select input mode */
-#define LL_GPIO_MODE_OUTPUT                GPIO_MODER_MODE0_0  /*!< Select output mode */
-#define LL_GPIO_MODE_ALTERNATE             GPIO_MODER_MODE0_1  /*!< Select alternate function mode */
-#define LL_GPIO_MODE_ANALOG                GPIO_MODER_MODE0    /*!< Select analog mode */
+#define LL_GPIO_MODE_INPUT                 (0x00000000U)
+#define LL_GPIO_MODE_OUTPUT                GPIO_MODER_MODE0_0
+#define LL_GPIO_MODE_ALTERNATE             GPIO_MODER_MODE0_1
+#define LL_GPIO_MODE_ANALOG                GPIO_MODER_MODE0
 /**
   * @}
   */
@@ -144,8 +144,8 @@ typedef struct
 /** @defgroup GPIO_LL_EC_OUTPUT Output Type
   * @{
   */
-#define LL_GPIO_OUTPUT_PUSHPULL            (0x00000000U) /*!< Select push-pull as output type */
-#define LL_GPIO_OUTPUT_OPENDRAIN           GPIO_OTYPER_OT0 /*!< Select open-drain as output type */
+#define LL_GPIO_OUTPUT_PUSHPULL            (0x00000000U)
+#define LL_GPIO_OUTPUT_OPENDRAIN           GPIO_OTYPER_OT0
 /**
   * @}
   */
@@ -153,10 +153,10 @@ typedef struct
 /** @defgroup GPIO_LL_EC_SPEED Output Speed
   * @{
   */
-#define LL_GPIO_SPEED_FREQ_LOW             (0x00000000U) /*!< Select I/O low output speed    */
-#define LL_GPIO_SPEED_FREQ_MEDIUM          GPIO_OSPEEDR_OSPEED0_0 /*!< Select I/O medium output speed */
-#define LL_GPIO_SPEED_FREQ_HIGH            GPIO_OSPEEDR_OSPEED0_1 /*!< Select I/O fast output speed   */
-#define LL_GPIO_SPEED_FREQ_VERY_HIGH       GPIO_OSPEEDR_OSPEED0   /*!< Select I/O high output speed   */
+#define LL_GPIO_SPEED_FREQ_LOW             (0x00000000U)
+#define LL_GPIO_SPEED_FREQ_MEDIUM          GPIO_OSPEEDR_OSPEED0_0
+#define LL_GPIO_SPEED_FREQ_HIGH            GPIO_OSPEEDR_OSPEED0_1
+#define LL_GPIO_SPEED_FREQ_VERY_HIGH       GPIO_OSPEEDR_OSPEED0
 /**
   * @}
   */
@@ -169,9 +169,9 @@ typedef struct
 /** @defgroup GPIO_LL_EC_PULL Pull Up Pull Down
   * @{
   */
-#define LL_GPIO_PULL_NO                    (0x00000000U) /*!< Select I/O no pull */
-#define LL_GPIO_PULL_UP                    GPIO_PUPDR_PUPD0_0 /*!< Select I/O pull up */
-#define LL_GPIO_PULL_DOWN                  GPIO_PUPDR_PUPD0_1 /*!< Select I/O pull down */
+#define LL_GPIO_PULL_NO                    (0x00000000U)
+#define LL_GPIO_PULL_UP                    GPIO_PUPDR_PUPD0_0
+#define LL_GPIO_PULL_DOWN                  GPIO_PUPDR_PUPD0_1
 /**
   * @}
   */
@@ -179,22 +179,22 @@ typedef struct
 /** @defgroup GPIO_LL_EC_AF Alternate Function
   * @{
   */
-#define LL_GPIO_AF_0                       (0x0000000U) /*!< Select alternate function 0 */
-#define LL_GPIO_AF_1                       (0x0000001U) /*!< Select alternate function 1 */
-#define LL_GPIO_AF_2                       (0x0000002U) /*!< Select alternate function 2 */
-#define LL_GPIO_AF_3                       (0x0000003U) /*!< Select alternate function 3 */
-#define LL_GPIO_AF_4                       (0x0000004U) /*!< Select alternate function 4 */
-#define LL_GPIO_AF_5                       (0x0000005U) /*!< Select alternate function 5 */
-#define LL_GPIO_AF_6                       (0x0000006U) /*!< Select alternate function 6 */
-#define LL_GPIO_AF_7                       (0x0000007U) /*!< Select alternate function 7 */
-#define LL_GPIO_AF_8                       (0x0000008U) /*!< Select alternate function 8 */
-#define LL_GPIO_AF_9                       (0x0000009U) /*!< Select alternate function 9 */
-#define LL_GPIO_AF_10                      (0x000000AU) /*!< Select alternate function 10 */
-#define LL_GPIO_AF_11                      (0x000000BU) /*!< Select alternate function 11 */
-#define LL_GPIO_AF_12                      (0x000000CU) /*!< Select alternate function 12 */
-#define LL_GPIO_AF_13                      (0x000000DU) /*!< Select alternate function 13 */
-#define LL_GPIO_AF_14                      (0x000000EU) /*!< Select alternate function 14 */
-#define LL_GPIO_AF_15                      (0x000000FU) /*!< Select alternate function 15 */
+#define LL_GPIO_AF_0                       (0x0000000U)
+#define LL_GPIO_AF_1                       (0x0000001U)
+#define LL_GPIO_AF_2                       (0x0000002U)
+#define LL_GPIO_AF_3                       (0x0000003U)
+#define LL_GPIO_AF_4                       (0x0000004U)
+#define LL_GPIO_AF_5                       (0x0000005U)
+#define LL_GPIO_AF_6                       (0x0000006U)
+#define LL_GPIO_AF_7                       (0x0000007U)
+#define LL_GPIO_AF_8                       (0x0000008U)
+#define LL_GPIO_AF_9                       (0x0000009U)
+#define LL_GPIO_AF_10                      (0x000000AU)
+#define LL_GPIO_AF_11                      (0x000000BU)
+#define LL_GPIO_AF_12                      (0x000000CU)
+#define LL_GPIO_AF_13                      (0x000000DU)
+#define LL_GPIO_AF_14                      (0x000000EU)
+#define LL_GPIO_AF_15                      (0x000000FU)
 /**
   * @}
   */

@@ -243,10 +243,10 @@
 	} while (0)
 
 /* Advertiser's Sleep Clock Accuracy Value */
-#define SCA_500_PPM       500 /* 51 ppm to 500 ppm */
-#define SCA_50_PPM        50  /* 0 ppm to 50 ppm */
-#define SCA_VALUE_500_PPM 0   /* 51 ppm to 500 ppm */
-#define SCA_VALUE_50_PPM  1   /* 0 ppm to 50 ppm */
+#define SCA_500_PPM       500
+#define SCA_50_PPM        50
+#define SCA_VALUE_500_PPM 0
+#define SCA_VALUE_50_PPM  1
 
 /* Sleep Clock Accuracy, calculate drift in microseconds */
 #define SCA_DRIFT_50_PPM_US(t)  (((t) * 50UL) / 1000000UL)
@@ -1189,11 +1189,11 @@ struct pdu_big_info {
 
 	uint16_t base_crc_init;
 
-	uint8_t chm_phy[PDU_CHANNEL_MAP_SIZE]; /* 37 bit chm; 3 bit phy */
-	uint8_t payload_count_framing[5]; /* 39 bit count; 1 bit framing */
+	uint8_t chm_phy[PDU_CHANNEL_MAP_SIZE];
+	uint8_t payload_count_framing[5];
 
-	uint8_t giv[8]; /* encryption required */
-	uint8_t gskd[16]; /* encryption required */
+	uint8_t giv[8];
+	uint8_t gskd[16];
 } __packed;
 #define PDU_BIG_INFO_CLEARTEXT_SIZE offsetof(struct pdu_big_info, giv)
 #define PDU_BIG_INFO_ENCRYPTED_SIZE sizeof(struct pdu_big_info)

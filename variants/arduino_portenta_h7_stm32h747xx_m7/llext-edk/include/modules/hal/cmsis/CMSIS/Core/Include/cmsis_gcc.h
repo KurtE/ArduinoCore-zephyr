@@ -379,16 +379,16 @@ __STATIC_FORCEINLINE uint32_t __RBIT(uint32_t value)
      (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    )
    __ASM ("rbit %0, %1" : "=r" (result) : "r" (value) );
 #else
-  uint32_t s = (4U /*sizeof(v)*/ * 8U) - 1U; /* extra shift needed at end */
+  uint32_t s = (4U * 8U) - 1U;
 
-  result = value;                      /* r will be reversed bits of v; first get LSB of v */
+  result = value;
   for (value >>= 1U; value != 0U; value >>= 1U)
   {
     result <<= 1U;
     result |= value & 1U;
     s--;
   }
-  result <<= s;                        /* shift when v's highest bits are zero */
+  result <<= s;
 #endif
   return result;
 }
@@ -441,7 +441,7 @@ __STATIC_FORCEINLINE uint8_t __LDREXB(volatile uint8_t *addr)
     */
    __ASM volatile ("ldrexb %0, [%1]" : "=r" (result) : "r" (addr) : "memory" );
 #endif
-   return ((uint8_t) result);    /* Add explicit type cast here */
+   return ((uint8_t) result);
 }
 
 
@@ -463,7 +463,7 @@ __STATIC_FORCEINLINE uint16_t __LDREXH(volatile uint16_t *addr)
     */
    __ASM volatile ("ldrexh %0, [%1]" : "=r" (result) : "r" (addr) : "memory" );
 #endif
-   return ((uint16_t) result);    /* Add explicit type cast here */
+   return ((uint16_t) result);
 }
 
 
@@ -617,7 +617,7 @@ __STATIC_FORCEINLINE uint8_t __LDRBT(volatile uint8_t *ptr)
     */
    __ASM volatile ("ldrbt %0, [%1]" : "=r" (result) : "r" (ptr) : "memory" );
 #endif
-   return ((uint8_t) result);    /* Add explicit type cast here */
+   return ((uint8_t) result);
 }
 
 
@@ -639,7 +639,7 @@ __STATIC_FORCEINLINE uint16_t __LDRHT(volatile uint16_t *ptr)
     */
    __ASM volatile ("ldrht %0, [%1]" : "=r" (result) : "r" (ptr) : "memory" );
 #endif
-   return ((uint16_t) result);    /* Add explicit type cast here */
+   return ((uint16_t) result);
 }
 
 

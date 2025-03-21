@@ -84,8 +84,8 @@
 
 /* Register controlling reporting error SERR, offset 0xc8, 16 bit */
 #define ERRSTS_REG		0x32
-#define ERRSTS_IBECC_COR	BIT(6) /* Correctable error */
-#define ERRSTS_IBECC_UC		BIT(7) /* Uncorrectable error */
+#define ERRSTS_IBECC_COR	BIT(6)
+#define ERRSTS_IBECC_UC		BIT(7)
 
 /* Register controlling Host Bridge responses to system errors,
  * offset 0xca, 16 bit
@@ -94,8 +94,8 @@
  * ERRSTS_REG with 32 bit access and get this 16 bits
  */
 #define ERRCMD_REG		0x32
-#define ERRCMD_IBECC_COR	BIT(6)	/* Correctable error */
-#define ERRCMD_IBECC_UC		BIT(7)	/* Uncorrectable error */
+#define ERRCMD_IBECC_COR	BIT(6)
+#define ERRCMD_IBECC_UC		BIT(7)
 
 /**
  * Host Memory Mapped Configuration Space (MCHBAR) registers area

@@ -58,7 +58,7 @@ typedef struct
   uint8_t Red;                     /*!< Configures the red value.
                                         This parameter must be a number between Min_Data = 0x00 and Max_Data = 0xFF. */
 
-  uint8_t Reserved;                /*!< Reserved 0xFF */
+  uint8_t Reserved;
 } LTDC_ColorTypeDef;
 
 /**
@@ -110,7 +110,7 @@ typedef struct
                                                       This parameter must be a number between
                                                       Min_Data = LTDC_AccumulatedActiveH and Max_Data = 0x7FF. */
 
-  LTDC_ColorTypeDef   Backcolor;                 /*!< Configures the background color. */
+  LTDC_ColorTypeDef   Backcolor;
 } LTDC_InitTypeDef;
 
 /**
@@ -151,7 +151,7 @@ typedef struct
   uint32_t BlendingFactor2;            /*!< Select the blending factor 2.
                                             This parameter can be one of value of @ref LTDC_BlendingFactor2 */
 
-  uint32_t FBStartAdress;              /*!< Configures the color frame buffer address */
+  uint32_t FBStartAdress;
 
   uint32_t ImageWidth;                 /*!< Configures the color frame buffer line length.
                                             This parameter must be a number between
@@ -161,7 +161,7 @@ typedef struct
                                             This parameter must be a number between
                                             Min_Data = 0x000 and Max_Data = 0x7FF. */
 
-  LTDC_ColorTypeDef   Backcolor;       /*!< Configures the layer background color. */
+  LTDC_ColorTypeDef   Backcolor;
 } LTDC_LayerCfgTypeDef;
 
 /**
@@ -169,11 +169,11 @@ typedef struct
   */
 typedef enum
 {
-  HAL_LTDC_STATE_RESET             = 0x00U,    /*!< LTDC not yet initialized or disabled */
-  HAL_LTDC_STATE_READY             = 0x01U,    /*!< LTDC initialized and ready for use   */
-  HAL_LTDC_STATE_BUSY              = 0x02U,    /*!< LTDC internal process is ongoing     */
-  HAL_LTDC_STATE_TIMEOUT           = 0x03U,    /*!< LTDC Timeout state                   */
-  HAL_LTDC_STATE_ERROR             = 0x04U     /*!< LTDC state error                     */
+  HAL_LTDC_STATE_RESET             = 0x00U,
+  HAL_LTDC_STATE_READY             = 0x01U,
+  HAL_LTDC_STATE_BUSY              = 0x02U,
+  HAL_LTDC_STATE_TIMEOUT           = 0x03U,
+  HAL_LTDC_STATE_ERROR             = 0x04U
 } HAL_LTDC_StateTypeDef;
 
 /**
@@ -185,25 +185,25 @@ typedef struct __LTDC_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_LTDC_REGISTER_CALLBACKS */
 {
-  LTDC_TypeDef                *Instance;                /*!< LTDC Register base address                */
+  LTDC_TypeDef                *Instance;
 
-  LTDC_InitTypeDef            Init;                     /*!< LTDC parameters                           */
+  LTDC_InitTypeDef            Init;
 
-  LTDC_LayerCfgTypeDef        LayerCfg[MAX_LAYER];      /*!< LTDC Layers parameters                    */
+  LTDC_LayerCfgTypeDef        LayerCfg[MAX_LAYER];
 
-  HAL_LockTypeDef             Lock;                     /*!< LTDC Lock                                 */
+  HAL_LockTypeDef             Lock;
 
-  __IO HAL_LTDC_StateTypeDef  State;                    /*!< LTDC state                                */
+  __IO HAL_LTDC_StateTypeDef  State;
 
-  __IO uint32_t               ErrorCode;                /*!< LTDC Error code                           */
+  __IO uint32_t               ErrorCode;
 
 #if (USE_HAL_LTDC_REGISTER_CALLBACKS == 1)
-  void (* LineEventCallback)(struct __LTDC_HandleTypeDef *hltdc);     /*!< LTDC Line Event Callback    */
-  void (* ReloadEventCallback)(struct __LTDC_HandleTypeDef *hltdc);   /*!< LTDC Reload Event Callback  */
-  void (* ErrorCallback)(struct __LTDC_HandleTypeDef *hltdc);         /*!< LTDC Error Callback         */
+  void (* LineEventCallback)(struct __LTDC_HandleTypeDef *hltdc);
+  void (* ReloadEventCallback)(struct __LTDC_HandleTypeDef *hltdc);
+  void (* ErrorCallback)(struct __LTDC_HandleTypeDef *hltdc);
 
-  void (* MspInitCallback)(struct __LTDC_HandleTypeDef *hltdc);       /*!< LTDC Msp Init callback      */
-  void (* MspDeInitCallback)(struct __LTDC_HandleTypeDef *hltdc);     /*!< LTDC Msp DeInit callback    */
+  void (* MspInitCallback)(struct __LTDC_HandleTypeDef *hltdc);
+  void (* MspDeInitCallback)(struct __LTDC_HandleTypeDef *hltdc);
 
 #endif /* USE_HAL_LTDC_REGISTER_CALLBACKS */
 
@@ -216,19 +216,19 @@ typedef struct
   */
 typedef enum
 {
-  HAL_LTDC_MSPINIT_CB_ID            = 0x00U,    /*!< LTDC MspInit callback ID       */
-  HAL_LTDC_MSPDEINIT_CB_ID          = 0x01U,    /*!< LTDC MspDeInit callback ID     */
+  HAL_LTDC_MSPINIT_CB_ID            = 0x00U,
+  HAL_LTDC_MSPDEINIT_CB_ID          = 0x01U,
 
-  HAL_LTDC_LINE_EVENT_CB_ID         = 0x02U,    /*!< LTDC Line Event Callback ID    */
-  HAL_LTDC_RELOAD_EVENT_CB_ID       = 0x03U,    /*!< LTDC Reload Callback ID        */
-  HAL_LTDC_ERROR_CB_ID              = 0x04U     /*!< LTDC Error Callback ID         */
+  HAL_LTDC_LINE_EVENT_CB_ID         = 0x02U,
+  HAL_LTDC_RELOAD_EVENT_CB_ID       = 0x03U,
+  HAL_LTDC_ERROR_CB_ID              = 0x04U
 
 } HAL_LTDC_CallbackIDTypeDef;
 
 /**
   * @brief  HAL LTDC Callback pointer definition
   */
-typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer to an LTDC callback function */
+typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);
 
 #endif /* USE_HAL_LTDC_REGISTER_CALLBACKS */
 
@@ -244,12 +244,12 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_Error_Code LTDC Error Code
   * @{
   */
-#define HAL_LTDC_ERROR_NONE               0x00000000U   /*!< LTDC No error             */
-#define HAL_LTDC_ERROR_TE                 0x00000001U   /*!< LTDC Transfer error       */
-#define HAL_LTDC_ERROR_FU                 0x00000002U   /*!< LTDC FIFO Underrun        */
-#define HAL_LTDC_ERROR_TIMEOUT            0x00000020U   /*!< LTDC Timeout error        */
+#define HAL_LTDC_ERROR_NONE               0x00000000U
+#define HAL_LTDC_ERROR_TE                 0x00000001U
+#define HAL_LTDC_ERROR_FU                 0x00000002U
+#define HAL_LTDC_ERROR_TIMEOUT            0x00000020U
 #if (USE_HAL_LTDC_REGISTER_CALLBACKS == 1)
-#define  HAL_LTDC_ERROR_INVALID_CALLBACK  0x00000040U   /*!< LTDC Invalid Callback error  */
+#define  HAL_LTDC_ERROR_INVALID_CALLBACK  0x00000040U
 #endif /* USE_HAL_LTDC_REGISTER_CALLBACKS */
 /**
   * @}
@@ -258,8 +258,8 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_Layer LTDC Layer
   * @{
   */
-#define LTDC_LAYER_1                      0x00000000U   /*!< LTDC Layer 1 */
-#define LTDC_LAYER_2                      0x00000001U   /*!< LTDC Layer 2 */
+#define LTDC_LAYER_1                      0x00000000U
+#define LTDC_LAYER_2                      0x00000001U
 /**
   * @}
   */
@@ -267,8 +267,8 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_HS_POLARITY LTDC HS POLARITY
   * @{
   */
-#define LTDC_HSPOLARITY_AL                0x00000000U   /*!< Horizontal Synchronization is active low. */
-#define LTDC_HSPOLARITY_AH                LTDC_GCR_HSPOL            /*!< Horizontal Synchronization is active high. */
+#define LTDC_HSPOLARITY_AL                0x00000000U
+#define LTDC_HSPOLARITY_AH                LTDC_GCR_HSPOL
 /**
   * @}
   */
@@ -276,8 +276,8 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_VS_POLARITY LTDC VS POLARITY
   * @{
   */
-#define LTDC_VSPOLARITY_AL                0x00000000U   /*!< Vertical Synchronization is active low. */
-#define LTDC_VSPOLARITY_AH                LTDC_GCR_VSPOL            /*!< Vertical Synchronization is active high. */
+#define LTDC_VSPOLARITY_AL                0x00000000U
+#define LTDC_VSPOLARITY_AH                LTDC_GCR_VSPOL
 /**
   * @}
   */
@@ -285,8 +285,8 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_DE_POLARITY LTDC DE POLARITY
   * @{
   */
-#define LTDC_DEPOLARITY_AL                0x00000000U   /*!< Data Enable, is active low. */
-#define LTDC_DEPOLARITY_AH                LTDC_GCR_DEPOL            /*!< Data Enable, is active high. */
+#define LTDC_DEPOLARITY_AL                0x00000000U
+#define LTDC_DEPOLARITY_AH                LTDC_GCR_DEPOL
 /**
   * @}
   */
@@ -294,8 +294,8 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_PC_POLARITY LTDC PC POLARITY
   * @{
   */
-#define LTDC_PCPOLARITY_IPC               0x00000000U   /*!< input pixel clock. */
-#define LTDC_PCPOLARITY_IIPC              LTDC_GCR_PCPOL            /*!< inverted input pixel clock. */
+#define LTDC_PCPOLARITY_IPC               0x00000000U
+#define LTDC_PCPOLARITY_IIPC              LTDC_GCR_PCPOL
 /**
   * @}
   */
@@ -303,8 +303,8 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_SYNC LTDC SYNC
   * @{
   */
-#define LTDC_HORIZONTALSYNC               (LTDC_SSCR_HSW >> 16U)    /*!< Horizontal synchronization width. */
-#define LTDC_VERTICALSYNC                 LTDC_SSCR_VSH             /*!< Vertical synchronization height. */
+#define LTDC_HORIZONTALSYNC               (LTDC_SSCR_HSW >> 16U)
+#define LTDC_VERTICALSYNC                 LTDC_SSCR_VSH
 /**
   * @}
   */
@@ -312,7 +312,7 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_BACK_COLOR LTDC BACK COLOR
   * @{
   */
-#define LTDC_COLOR                        0x000000FFU   /*!< Color mask */
+#define LTDC_COLOR                        0x000000FFU
 /**
   * @}
   */
@@ -320,8 +320,8 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_BlendingFactor1 LTDC Blending Factor1
   * @{
   */
-#define LTDC_BLENDING_FACTOR1_CA          0x00000400U   /*!< Blending factor : Cte Alpha */
-#define LTDC_BLENDING_FACTOR1_PAxCA       0x00000600U   /*!< Blending factor : Cte Alpha x Pixel Alpha*/
+#define LTDC_BLENDING_FACTOR1_CA          0x00000400U
+#define LTDC_BLENDING_FACTOR1_PAxCA       0x00000600U
 /**
   * @}
   */
@@ -329,8 +329,8 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_BlendingFactor2 LTDC Blending Factor2
   * @{
   */
-#define LTDC_BLENDING_FACTOR2_CA          0x00000005U   /*!< Blending factor : Cte Alpha */
-#define LTDC_BLENDING_FACTOR2_PAxCA       0x00000007U   /*!< Blending factor : Cte Alpha x Pixel Alpha*/
+#define LTDC_BLENDING_FACTOR2_CA          0x00000005U
+#define LTDC_BLENDING_FACTOR2_PAxCA       0x00000007U
 /**
   * @}
   */
@@ -338,14 +338,14 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_Pixelformat LTDC Pixel format
   * @{
   */
-#define LTDC_PIXEL_FORMAT_ARGB8888        0x00000000U   /*!< ARGB8888 LTDC pixel format             */
-#define LTDC_PIXEL_FORMAT_RGB888          0x00000001U   /*!< RGB888 LTDC pixel format               */
-#define LTDC_PIXEL_FORMAT_RGB565          0x00000002U   /*!< RGB565 LTDC pixel format               */
-#define LTDC_PIXEL_FORMAT_ARGB1555        0x00000003U   /*!< ARGB1555 LTDC pixel format             */
-#define LTDC_PIXEL_FORMAT_ARGB4444        0x00000004U   /*!< ARGB4444 LTDC pixel format             */
-#define LTDC_PIXEL_FORMAT_L8              0x00000005U   /*!< L8 LTDC pixel format                   */
-#define LTDC_PIXEL_FORMAT_AL44            0x00000006U   /*!< AL44 LTDC pixel format                 */
-#define LTDC_PIXEL_FORMAT_AL88            0x00000007U   /*!< AL88 LTDC pixel format                 */
+#define LTDC_PIXEL_FORMAT_ARGB8888        0x00000000U
+#define LTDC_PIXEL_FORMAT_RGB888          0x00000001U
+#define LTDC_PIXEL_FORMAT_RGB565          0x00000002U
+#define LTDC_PIXEL_FORMAT_ARGB1555        0x00000003U
+#define LTDC_PIXEL_FORMAT_ARGB4444        0x00000004U
+#define LTDC_PIXEL_FORMAT_L8              0x00000005U
+#define LTDC_PIXEL_FORMAT_AL44            0x00000006U
+#define LTDC_PIXEL_FORMAT_AL88            0x00000007U
 /**
   * @}
   */
@@ -353,7 +353,7 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_Alpha LTDC Alpha
   * @{
   */
-#define LTDC_ALPHA                        LTDC_LxCACR_CONSTA        /*!< LTDC Constant Alpha mask */
+#define LTDC_ALPHA                        LTDC_LxCACR_CONSTA
 /**
   * @}
   */
@@ -361,11 +361,11 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_LAYER_Config LTDC LAYER Config
   * @{
   */
-#define LTDC_STOPPOSITION                 (LTDC_LxWHPCR_WHSPPOS >> 16U) /*!< LTDC Layer stop position  */
-#define LTDC_STARTPOSITION                LTDC_LxWHPCR_WHSTPOS          /*!< LTDC Layer start position */
+#define LTDC_STOPPOSITION                 (LTDC_LxWHPCR_WHSPPOS >> 16U)
+#define LTDC_STARTPOSITION                LTDC_LxWHPCR_WHSTPOS
 
-#define LTDC_COLOR_FRAME_BUFFER           LTDC_LxCFBLR_CFBLL            /*!< LTDC Layer Line length    */
-#define LTDC_LINE_NUMBER                  LTDC_LxCFBLNR_CFBLNBR         /*!< LTDC Layer Line number    */
+#define LTDC_COLOR_FRAME_BUFFER           LTDC_LxCFBLR_CFBLL
+#define LTDC_LINE_NUMBER                  LTDC_LxCFBLNR_CFBLNBR
 /**
   * @}
   */
@@ -373,10 +373,10 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_Interrupts LTDC Interrupts
   * @{
   */
-#define LTDC_IT_LI                        LTDC_IER_LIE              /*!< LTDC Line Interrupt            */
-#define LTDC_IT_FU                        LTDC_IER_FUIE             /*!< LTDC FIFO Underrun Interrupt   */
-#define LTDC_IT_TE                        LTDC_IER_TERRIE           /*!< LTDC Transfer Error Interrupt  */
-#define LTDC_IT_RR                        LTDC_IER_RRIE             /*!< LTDC Register Reload Interrupt */
+#define LTDC_IT_LI                        LTDC_IER_LIE
+#define LTDC_IT_FU                        LTDC_IER_FUIE
+#define LTDC_IT_TE                        LTDC_IER_TERRIE
+#define LTDC_IT_RR                        LTDC_IER_RRIE
 /**
   * @}
   */
@@ -384,10 +384,10 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_Flags LTDC Flags
   * @{
   */
-#define LTDC_FLAG_LI                      LTDC_ISR_LIF              /*!< LTDC Line Interrupt Flag            */
-#define LTDC_FLAG_FU                      LTDC_ISR_FUIF             /*!< LTDC FIFO Underrun interrupt Flag   */
-#define LTDC_FLAG_TE                      LTDC_ISR_TERRIF           /*!< LTDC Transfer Error interrupt Flag  */
-#define LTDC_FLAG_RR                      LTDC_ISR_RRIF             /*!< LTDC Register Reload interrupt Flag */
+#define LTDC_FLAG_LI                      LTDC_ISR_LIF
+#define LTDC_FLAG_FU                      LTDC_ISR_FUIF
+#define LTDC_FLAG_TE                      LTDC_ISR_TERRIF
+#define LTDC_FLAG_RR                      LTDC_ISR_RRIF
 /**
   * @}
   */
@@ -395,8 +395,8 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
 /** @defgroup LTDC_Reload_Type LTDC Reload Type
   * @{
   */
-#define LTDC_RELOAD_IMMEDIATE             LTDC_SRCR_IMR             /*!< Immediate Reload */
-#define LTDC_RELOAD_VERTICAL_BLANKING     LTDC_SRCR_VBR             /*!< Vertical Blanking Reload */
+#define LTDC_RELOAD_IMMEDIATE             LTDC_SRCR_IMR
+#define LTDC_RELOAD_VERTICAL_BLANKING     LTDC_SRCR_VBR
 /**
   * @}
   */

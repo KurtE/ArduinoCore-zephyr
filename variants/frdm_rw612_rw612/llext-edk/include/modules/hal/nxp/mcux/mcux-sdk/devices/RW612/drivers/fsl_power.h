@@ -32,8 +32,8 @@
  */
 typedef enum _power_wakeup_edge
 {
-    kPOWER_WakeupEdgeLow  = 0U, /*!< Wakeup on pin low level. */
-    kPOWER_WakeupEdgeHigh = 1U, /*!< Wakeup on pin high level. */
+    kPOWER_WakeupEdgeLow  = 0U,
+    kPOWER_WakeupEdgeHigh = 1U,
 } power_wakeup_edge_t;
 
 /*!
@@ -41,8 +41,8 @@ typedef enum _power_wakeup_edge
  */
 typedef enum _power_wakeup_pin
 {
-    kPOWER_WakeupPin0 = 0U, /*!< Wakeup0 pin. */
-    kPOWER_WakeupPin1 = 1U, /*!< Wakeup1 pin. */
+    kPOWER_WakeupPin0 = 0U,
+    kPOWER_WakeupPin1 = 1U,
 } power_wakeup_pin_t;
 
 /*!
@@ -50,14 +50,14 @@ typedef enum _power_wakeup_pin
  */
 typedef enum _power_reset_cause
 {
-    kPOWER_ResetCauseSysResetReq = 1U << 0U, /*!< CM33 system soft reset request. */
-    kPOWER_ResetCauseLockup      = 1U << 1U, /*!< CM33 locked up. */
-    kPOWER_ResetCauseWdt         = 1U << 2U, /*!< Watchdog timer. */
-    kPOWER_ResetCauseApResetReq  = 1U << 3U, /*!< Debug mailbox reset. */
-    kPOWER_ResetCauseCodeWdt     = 1U << 4U, /*!< Code watchdog timer. */
-    kPOWER_ResetCauseItrc        = 1U << 5U, /*!< ITRC_CHIP reset. */
-    kPOWER_ResetCauseResetB      = 1U << 6U, /*!< sw_resetb_scantest reset. */
-    kPOWER_ResetCauseAll         = 0x7FU,    /*!< All reset causes. Used in POWER_ClearResetCause(). */
+    kPOWER_ResetCauseSysResetReq = 1U << 0U,
+    kPOWER_ResetCauseLockup      = 1U << 1U,
+    kPOWER_ResetCauseWdt         = 1U << 2U,
+    kPOWER_ResetCauseApResetReq  = 1U << 3U,
+    kPOWER_ResetCauseCodeWdt     = 1U << 4U,
+    kPOWER_ResetCauseItrc        = 1U << 5U,
+    kPOWER_ResetCauseResetB      = 1U << 6U,
+    kPOWER_ResetCauseAll         = 0x7FU,
 } power_reset_cause_t;
 
 /*!
@@ -65,13 +65,13 @@ typedef enum _power_reset_cause
  */
 typedef enum _power_reset_source
 {
-    kPOWER_ResetSourceSysResetReq = 1U << 0U, /*!< CM33 system soft reset request. */
-    kPOWER_ResetSourceLockup      = 1U << 1U, /*!< CM33 locked up. */
-    kPOWER_ResetSourceWdt         = 1U << 2U, /*!< Watchdog timer. */
-    kPOWER_ResetSourceApResetReq  = 1U << 3U, /*!< Debug mailbox reset. */
-    kPOWER_ResetSourceCodeWdt     = 1U << 4U, /*!< Code watchdog timer. */
-    kPOWER_ResetSourceItrc        = 1U << 5U, /*!< ITRC_CHIP reset. */
-    kPOWER_ResetSourceAll         = 0x3FU,    /*!< All reset sources. */
+    kPOWER_ResetSourceSysResetReq = 1U << 0U,
+    kPOWER_ResetSourceLockup      = 1U << 1U,
+    kPOWER_ResetSourceWdt         = 1U << 2U,
+    kPOWER_ResetSourceApResetReq  = 1U << 3U,
+    kPOWER_ResetSourceCodeWdt     = 1U << 4U,
+    kPOWER_ResetSourceItrc        = 1U << 5U,
+    kPOWER_ResetSourceAll         = 0x3FU,
 } power_reset_source_t;
 
 /*!
@@ -141,8 +141,8 @@ enum _clk_gate_bits
  */
 enum _clk_pm3_buck_bits
 {
-    kPOWER_Pm3Buck18  = (1UL << 7), /*!< 1: Use normal buck18 level in PM3. 0: Use sleep buck18 level in PM3 */
-    kPOWER_Pm3Buck11  = (1UL << 6), /*!< 1: Use normal buck11 level in PM3. 0: Use sleep buck11 level in PM3 */
+    kPOWER_Pm3Buck18  = (1UL << 7),
+    kPOWER_Pm3Buck11  = (1UL << 6),
     kPOWER_Pm3BuckAll = (0xC0UL),
 };
 
@@ -188,8 +188,8 @@ typedef void (*power_switch_callback_t)(uint32_t mode, void *param);
  */
 typedef struct _power_init_config
 {
-    bool iBuck;         /*!< true: VCORE and AVDD18 supplied from iBuck; false: supplied from external DCDC. */
-    bool gateCauRefClk; /*!< true: CAU_SOC_SLP_REF_GEN_CLK gated; false: CAU_SOC_SLP_REF_GEN_CLK on. */
+    bool iBuck;
+    bool gateCauRefClk;
 } power_init_config_t;
 
 /*!
@@ -198,9 +198,9 @@ typedef struct _power_init_config
 typedef struct _power_sleep_config
 {
     uint32_t
-        pm2MemPuCfg; /*!< Modules to keep powered on in PM2 mode. Logical OR of the enums in @ref _pm2_mem_pu_bits. */
-    uint32_t pm2AnaPuCfg; /*!< Ana to keep powered on in PM2 mode. Logical OR of the enums in @ref _pm2_ana_pu_bits. */
-    uint32_t clkGate;     /*!< Source clock gate control. Logical OR of the enums in @ref _clk_gate_bits. */
+        pm2MemPuCfg;
+    uint32_t pm2AnaPuCfg;
+    uint32_t clkGate;
     uint32_t memPdCfg;    /*!< PMU MEM_CFG: Power Down memory configuration. Bit0-5 for PM3, bit8 for PM4.
                                             bit0: ram0-5 384KB
                                             bit1: ram6 64KB
@@ -209,7 +209,7 @@ typedef struct _power_sleep_config
                                             bit4: ram10-13 256KB
                                             bit5: ram14-18 320KB.
                                             bit8: aon mem higher 8KB */
-    uint32_t pm3BuckCfg;  /*!< PMIP BUCK control in PM3 mode. Logical OR of the enums in @ref _clk_pm3_buck_bits. */
+    uint32_t pm3BuckCfg;
 } power_sleep_config_t;
 
 /*!

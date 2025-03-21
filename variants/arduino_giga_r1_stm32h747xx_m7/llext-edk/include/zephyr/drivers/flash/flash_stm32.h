@@ -48,7 +48,7 @@ struct flash_stm32_priv {
 
 /* Register mapping for the stm32H7RS serie (single bank)*/
 #if defined(CONFIG_SOC_SERIES_STM32H7RSX)
-#define FLASH_NB_32BITWORD_IN_FLASHWORD 4 /* 128 bits */
+#define FLASH_NB_32BITWORD_IN_FLASHWORD 4
 #define CR1 CR
 #define SR1 SR
 /* flash sectore Nb [0-7] */

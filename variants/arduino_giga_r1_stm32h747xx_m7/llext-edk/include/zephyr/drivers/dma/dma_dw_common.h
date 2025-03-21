@@ -93,9 +93,9 @@ extern "C" {
 /* CFG_LO */
 #define DW_CFGL_RELOAD_DST	BIT(31)
 #define DW_CFGL_RELOAD_SRC	BIT(30)
-#define DW_CFGL_DRAIN		BIT(10) /* For Intel GPDMA variant only */
-#define DW_CFGL_SRC_SW_HS       BIT(10) /* For Synopsys variant only */
-#define DW_CFGL_DST_SW_HS       BIT(11) /* For Synopsys variant only */
+#define DW_CFGL_DRAIN		BIT(10)
+#define DW_CFGL_SRC_SW_HS       BIT(10)
+#define DW_CFGL_DST_SW_HS       BIT(11)
 #define DW_CFGL_FIFO_EMPTY	BIT(9)
 #define DW_CFGL_SUSPEND		BIT(8)
 #define DW_CFGL_CTL_HI_UPD_EN	BIT(5)
@@ -224,12 +224,12 @@ enum dw_dma_state {
 struct dw_dma_chan_data {
 	uint32_t direction;
 	enum dw_dma_state state;
-	struct dw_lli *lli; /* allocated array of LLI's */
-	uint32_t lli_count; /* number of lli's in the allocation */
-	struct dw_lli *lli_current; /* current LLI being used */
+	struct dw_lli *lli;
+	uint32_t lli_count;
+	struct dw_lli *lli_current;
 	uint32_t cfg_lo;
 	uint32_t cfg_hi;
-	struct dw_dma_ptr_data ptr_data;	/* pointer data */
+	struct dw_dma_ptr_data ptr_data;
 	dma_callback_t dma_blkcallback;
 	void *blkuser_data;
 	dma_callback_t dma_tfrcallback;

@@ -37,23 +37,23 @@ typedef void (*flexspi_dma_callback_t)(FLEXSPI_Type *base,
 /*! @brief dma transfer configuration */
 typedef enum _flexspi_dma_ntransfer_size
 {
-    kFLEXPSI_DMAnSize1Bytes = 0x1U, /*!< Source/Destination data transfer size is 1 byte every time */
-    kFLEXPSI_DMAnSize2Bytes = 0x2U, /*!< Source/Destination data transfer size is 2 bytes every time */
-    kFLEXPSI_DMAnSize4Bytes = 0x4U, /*!< Source/Destination data transfer size is 4 bytes every time */
+    kFLEXPSI_DMAnSize1Bytes = 0x1U,
+    kFLEXPSI_DMAnSize2Bytes = 0x2U,
+    kFLEXPSI_DMAnSize4Bytes = 0x4U,
 } flexspi_dma_transfer_nsize_t;
 
 /*! @brief FLEXSPI DMA transfer handle, users should not touch the content of the handle.*/
 struct _flexspi_dma_handle
 {
-    dma_handle_t *txDmaHandle;                 /*!< dma handler for FLEXSPI Tx. */
-    dma_handle_t *rxDmaHandle;                 /*!< dma handler for FLEXSPI Rx. */
-    size_t transferSize;                       /*!< Bytes need to transfer. */
-    flexspi_dma_transfer_nsize_t nsize;        /*!< dma SSIZE/DSIZE in each transfer. */
-    uint8_t nbytes;                            /*!< dma minor byte transfer count initially configured. */
-    uint8_t count;                             /*!< The transfer data count in a DMA request. */
-    uint32_t state;                            /*!< Internal state for FLEXSPI dma transfer. */
-    flexspi_dma_callback_t completionCallback; /*!< A callback function called after the dma transfer is finished. */
-    void *userData;                            /*!< User callback parameter */
+    dma_handle_t *txDmaHandle;
+    dma_handle_t *rxDmaHandle;
+    size_t transferSize;
+    flexspi_dma_transfer_nsize_t nsize;
+    uint8_t nbytes;
+    uint8_t count;
+    uint32_t state;
+    flexspi_dma_callback_t completionCallback;
+    void *userData;
 };
 
 /*******************************************************************************

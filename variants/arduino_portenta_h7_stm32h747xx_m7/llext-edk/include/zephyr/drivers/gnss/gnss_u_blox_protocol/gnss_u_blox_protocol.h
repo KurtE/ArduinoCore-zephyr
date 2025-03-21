@@ -53,11 +53,11 @@ struct ubx_cfg_ack_payload {
 
 void ubx_cfg_ack_payload_default(struct ubx_cfg_ack_payload *payload);
 
-#define UBX_CFG_RATE_TIME_REF_UTC	0	/* Align measurements to UTC time. */
-#define UBX_CFG_RATE_TIME_REF_GPS	1	/* Align measurements to GPS time. */
-#define UBX_CFG_RATE_TIME_REF_GLO	2	/* Align measurements to GLONASS time. */
-#define UBX_CFG_RATE_TIME_REF_BDS	3	/* Align measurements to BeiDou time. */
-#define UBX_CFG_RATE_TIME_REF_GAL	4	/* Align measurements to Galileo time. */
+#define UBX_CFG_RATE_TIME_REF_UTC	0
+#define UBX_CFG_RATE_TIME_REF_GPS	1
+#define UBX_CFG_RATE_TIME_REF_GLO	2
+#define UBX_CFG_RATE_TIME_REF_BDS	3
+#define UBX_CFG_RATE_TIME_REF_GAL	4
 
 struct ubx_cfg_rate_payload {
 	uint16_t meas_rate_ms;

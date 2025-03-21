@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2018 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -54,9 +54,9 @@ extern "C" {
 /** @brief ACL permissions. */
 typedef enum
 {
-    NRF_ACL_PERM_READ_NO_WRITE    = ACL_ACL_PERM_WRITE_Msk,                        /**< Read allowed, write disallowed. */
-    NRF_ACL_PERM_NO_READ_WRITE    = ACL_ACL_PERM_READ_Msk,                         /**< Read disallowed, write allowed. */
-    NRF_ACL_PERM_NO_READ_NO_WRITE = ACL_ACL_PERM_READ_Msk | ACL_ACL_PERM_WRITE_Msk /**< Read disallowed, write disallowed. */
+    NRF_ACL_PERM_READ_NO_WRITE    = ACL_ACL_PERM_WRITE_Msk,
+    NRF_ACL_PERM_NO_READ_WRITE    = ACL_ACL_PERM_READ_Msk,
+    NRF_ACL_PERM_NO_READ_NO_WRITE = ACL_ACL_PERM_READ_Msk | ACL_ACL_PERM_WRITE_Msk
 } nrf_acl_perm_t;
 
 /**

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2023 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -59,9 +59,9 @@ NRFX_DPPI_CHANNELS_ENTRY(030);
 #define NRFX_INTERCONNECT_APB_LOCAL_BUSES_PROP                                                     \
 {                                                                                                  \
     NRFX_COND_CODE_1(NRFX_INSTANCE_PRESENT(DPPIC020),                                              \
-                     (NRFX_INTERCONNECT_APB_PROP_ENTRY(020, NRF_PPIB020, 0x10000)), ()) /* APB2 */ \
+                     (NRFX_INTERCONNECT_APB_PROP_ENTRY(020, NRF_PPIB020, 0x10000)), ()) \
     NRFX_COND_CODE_1(NRFX_INSTANCE_PRESENT(DPPIC030),                                              \
-                     (NRFX_INTERCONNECT_APB_PROP_ENTRY(030, NRF_PPIB030, 0x10000)), ()) /* APB3 */ \
+                     (NRFX_INTERCONNECT_APB_PROP_ENTRY(030, NRF_PPIB030, 0x10000)), ()) \
 }
 
 #ifdef __cplusplus

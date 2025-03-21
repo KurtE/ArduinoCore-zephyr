@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2019 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -705,6 +705,15 @@
  */
 #ifndef NRFX_TWIM_CONFIG_LOG_ENABLED
 #define NRFX_TWIM_CONFIG_LOG_ENABLED 0
+#endif
+
+/**
+ * @brief NRFX_TWIM_NRF53_ANOMALY_47_WORKAROUND_ENABLED - Enables nRF53 Anomaly 47 workaround for TWIM.
+ *
+ * Boolean. Accepted values: 0 and 1.
+ */
+#ifndef NRFX_TWIM_NRF53_ANOMALY_47_WORKAROUND_ENABLED
+#define NRFX_TWIM_NRF53_ANOMALY_47_WORKAROUND_ENABLED 0
 #endif
 
 /**

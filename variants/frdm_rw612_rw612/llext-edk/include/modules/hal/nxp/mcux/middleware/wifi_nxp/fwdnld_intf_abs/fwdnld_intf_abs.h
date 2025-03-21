@@ -55,17 +55,17 @@ typedef struct intf_elems
     fwdnld_intf_ret_t (*fwdnld_intf_check_reload)(struct fwdnldintf *intf, uint8_t fw_reload);
 #endif
     /* interface values to be stored */
-    uint8_t *outbuf;     /* For Tx */
+    uint8_t *outbuf;
     uint32_t outbuf_len;
-    uint8_t *inbuf;      /* For Rx */
+    uint8_t *inbuf;
     uint32_t inbuf_len;
-    void *intf_specific; /*Place holder to store interface specific struct */
+    void *intf_specific;
 } intf_t;
 
 typedef struct fwdnldintf
 {
     fwdnld_intf_type_t intf_type;
-    intf_t intf_s; /*returned by interface init */
+    intf_t intf_s;
 } fwdnld_intf_t;
 
 #define GET_INTF_TYPE(x)      ((x)->intf_type)

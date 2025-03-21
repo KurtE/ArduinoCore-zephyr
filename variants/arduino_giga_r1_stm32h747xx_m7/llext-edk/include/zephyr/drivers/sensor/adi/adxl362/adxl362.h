@@ -117,17 +117,17 @@
 #define ADXL362_FILTER_CTL_ODR(x)           (((x) & 0x7) << 0)
 
 /* ADXL362_FILTER_CTL_RANGE(x) options */
-#define ADXL362_RANGE_2G                0       /* +/-2 g */
-#define ADXL362_RANGE_4G                1       /* +/-4 g */
-#define ADXL362_RANGE_8G                2       /* +/-8 g */
+#define ADXL362_RANGE_2G                0
+#define ADXL362_RANGE_4G                1
+#define ADXL362_RANGE_8G                2
 
 /* ADXL362_FILTER_CTL_ODR(x) options */
-#define ADXL362_ODR_12_5_HZ             0       /* 12.5 Hz */
-#define ADXL362_ODR_25_HZ               1       /* 25 Hz */
-#define ADXL362_ODR_50_HZ               2       /* 50 Hz */
-#define ADXL362_ODR_100_HZ              3       /* 100 Hz */
-#define ADXL362_ODR_200_HZ              4       /* 200 Hz */
-#define ADXL362_ODR_400_HZ              5       /* 400 Hz */
+#define ADXL362_ODR_12_5_HZ             0
+#define ADXL362_ODR_25_HZ               1
+#define ADXL362_ODR_50_HZ               2
+#define ADXL362_ODR_100_HZ              3
+#define ADXL362_ODR_200_HZ              4
+#define ADXL362_ODR_400_HZ              5
 
 /* ADXL362_REG_POWER_CTL definitions */
 #define ADXL362_POWER_CTL_RES               (1 << 7)

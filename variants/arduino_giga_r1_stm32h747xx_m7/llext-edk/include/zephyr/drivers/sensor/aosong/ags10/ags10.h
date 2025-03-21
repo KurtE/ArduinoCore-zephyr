@@ -20,10 +20,10 @@ extern "C" {
 #define AGS10_CMD_READ_RESISTANCE        0x20
 #define AGS10_CMD_MODIFY_SLAVE_ADDRESS   0x21
 
-#define AGS10_REG_ZERO_POINT_CALIBRATION_RESET 0xFFFF /* Reset to the factory value */
-#define AGS10_REG_ZERO_POINT_CALIBRATION_SET   0x0000 /* Set sensor resistance to zero-point */
-#define AGS10_REG_STATUS_NRDY_READY            0x00   /* Device is ready */
-#define AGS10_REG_STATUS_CH_PPB                0x00   /* Unit is PPB */
+#define AGS10_REG_ZERO_POINT_CALIBRATION_RESET 0xFFFF
+#define AGS10_REG_ZERO_POINT_CALIBRATION_SET   0x0000
+#define AGS10_REG_STATUS_NRDY_READY            0x00
+#define AGS10_REG_STATUS_CH_PPB                0x00
 
 #define AGS10_MSK_STATUS      0x0F
 #define AGS10_MSK_STATUS_NRDY 0x01

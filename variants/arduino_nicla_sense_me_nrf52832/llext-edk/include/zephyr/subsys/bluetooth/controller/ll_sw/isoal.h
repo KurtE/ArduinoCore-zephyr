@@ -11,14 +11,14 @@
 
 /** Function return error codes */
 typedef uint8_t isoal_status_t;
-#define ISOAL_STATUS_OK                   ((isoal_status_t) 0x00) /* No error */
-#define ISOAL_STATUS_ERR_SINK_ALLOC       ((isoal_status_t) 0x01) /* Sink pool full */
-#define ISOAL_STATUS_ERR_SOURCE_ALLOC     ((isoal_status_t) 0x02) /* Source pool full */
-#define ISOAL_STATUS_ERR_SDU_ALLOC        ((isoal_status_t) 0x04) /* SDU allocation */
-#define ISOAL_STATUS_ERR_SDU_EMIT         ((isoal_status_t) 0x08) /* SDU emission */
-#define ISOAL_STATUS_ERR_PDU_ALLOC        ((isoal_status_t) 0x10) /* PDU allocation */
-#define ISOAL_STATUS_ERR_PDU_EMIT         ((isoal_status_t) 0x20) /* PDU emission */
-#define ISOAL_STATUS_ERR_UNSPECIFIED      ((isoal_status_t) 0x80) /* Unspecified error */
+#define ISOAL_STATUS_OK                   ((isoal_status_t) 0x00)
+#define ISOAL_STATUS_ERR_SINK_ALLOC       ((isoal_status_t) 0x01)
+#define ISOAL_STATUS_ERR_SOURCE_ALLOC     ((isoal_status_t) 0x02)
+#define ISOAL_STATUS_ERR_SDU_ALLOC        ((isoal_status_t) 0x04)
+#define ISOAL_STATUS_ERR_SDU_EMIT         ((isoal_status_t) 0x08)
+#define ISOAL_STATUS_ERR_PDU_ALLOC        ((isoal_status_t) 0x10)
+#define ISOAL_STATUS_ERR_PDU_EMIT         ((isoal_status_t) 0x20)
+#define ISOAL_STATUS_ERR_UNSPECIFIED      ((isoal_status_t) 0x80)
 
 #define ISOAL_ROLE_CENTRAL                (BT_CONN_ROLE_CENTRAL)
 #define ISOAL_ROLE_PERIPHERAL             (BT_CONN_ROLE_PERIPHERAL)

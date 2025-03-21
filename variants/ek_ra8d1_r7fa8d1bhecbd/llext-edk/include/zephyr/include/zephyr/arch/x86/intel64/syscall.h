@@ -56,7 +56,7 @@ static inline uintptr_t arch_syscall_invoke6(uintptr_t arg1, uintptr_t arg2,
 	register uintptr_t rdi __asm__("%rdi") = arg1;
 	register uintptr_t rsi __asm__("%rsi") = arg2;
 	register uintptr_t rdx __asm__("%rdx") = arg3;
-	register uintptr_t r10 __asm__("%r10") = arg4; /* RCX unavailable */
+	register uintptr_t r10 __asm__("%r10") = arg4;
 	register uintptr_t r8 __asm__("%r8") = arg5;
 	register uintptr_t r9 __asm__("%r9") = arg6;
 
@@ -78,7 +78,7 @@ static inline uintptr_t arch_syscall_invoke5(uintptr_t arg1, uintptr_t arg2,
 	register uintptr_t rdi __asm__("%rdi") = arg1;
 	register uintptr_t rsi __asm__("%rsi") = arg2;
 	register uintptr_t rdx __asm__("%rdx") = arg3;
-	register uintptr_t r10 __asm__("%r10") = arg4; /* RCX unavailable */
+	register uintptr_t r10 __asm__("%r10") = arg4;
 	register uintptr_t r8 __asm__("%r8") = arg5;
 
 	__asm__ volatile("syscall\n\t"
@@ -98,7 +98,7 @@ static inline uintptr_t arch_syscall_invoke4(uintptr_t arg1, uintptr_t arg2,
 	register uintptr_t rdi __asm__("%rdi") = arg1;
 	register uintptr_t rsi __asm__("%rsi") = arg2;
 	register uintptr_t rdx __asm__("%rdx") = arg3;
-	register uintptr_t r10 __asm__("%r10") = arg4; /* RCX unavailable */
+	register uintptr_t r10 __asm__("%r10") = arg4;
 
 	__asm__ volatile("syscall\n\t"
 			 : "=r" (rax)

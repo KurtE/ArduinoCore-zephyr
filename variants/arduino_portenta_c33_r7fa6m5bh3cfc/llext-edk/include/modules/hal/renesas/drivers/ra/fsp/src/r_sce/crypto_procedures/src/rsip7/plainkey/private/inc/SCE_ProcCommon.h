@@ -10,7 +10,7 @@
 
 #include  <stdint.h>
 
-#include "bsp_api.h"                   /* For Crypto Error codes */
+#include "bsp_api.h"
 #include "SCE_module.h"
 
 /* ================================================================================ */
@@ -92340,70 +92340,70 @@ typedef struct
 // for bit access
 
 /* --------------------------------  SCE.REG_xxxH  -------------------------------- */
-#define SCE_REG_0_Pos     0                          /*!< SCE REG_xxxH: bit 0 Position       */
-#define SCE_REG_0_Msk     (0x01UL << SCE_REG_0_Pos)  /*!< SCE REG_xxxH: bit 0 Mask           */
-#define SCE_REG_1_Pos     1                          /*!< SCE REG_xxxH: bit 1 Position       */
-#define SCE_REG_1_Msk     (0x01UL << SCE_REG_1_Pos)  /*!< SCE REG_xxxH: bit 1 Mask           */
-#define SCE_REG_2_Pos     2                          /*!< SCE REG_xxxH: bit 2 Position       */
-#define SCE_REG_2_Msk     (0x01UL << SCE_REG_2_Pos)  /*!< SCE REG_xxxH: bit 2 Mask           */
-#define SCE_REG_3_Pos     3                          /*!< SCE REG_xxxH: bit 3 Position       */
-#define SCE_REG_3_Msk     (0x01UL << SCE_REG_3_Pos)  /*!< SCE REG_xxxH: bit 3 Mask           */
-#define SCE_REG_4_Pos     4                          /*!< SCE REG_xxxH: bit 4 Position       */
-#define SCE_REG_4_Msk     (0x01UL << SCE_REG_4_Pos)  /*!< SCE REG_xxxH: bit 4 Mask           */
-#define SCE_REG_5_Pos     5                          /*!< SCE REG_xxxH: bit 5 Position       */
-#define SCE_REG_5_Msk     (0x01UL << SCE_REG_5_Pos)  /*!< SCE REG_xxxH: bit 5 Mask           */
-#define SCE_REG_6_Pos     6                          /*!< SCE REG_xxxH: bit 6 Position       */
-#define SCE_REG_6_Msk     (0x01UL << SCE_REG_6_Pos)  /*!< SCE REG_xxxH: bit 6 Mask           */
-#define SCE_REG_7_Pos     7                          /*!< SCE REG_xxxH: bit 7 Position       */
-#define SCE_REG_7_Msk     (0x01UL << SCE_REG_7_Pos)  /*!< SCE REG_xxxH: bit 7 Mask           */
-#define SCE_REG_8_Pos     8                          /*!< SCE REG_xxxH: bit 8 Position       */
-#define SCE_REG_8_Msk     (0x01UL << SCE_REG_8_Pos)  /*!< SCE REG_xxxH: bit 8 Mask           */
-#define SCE_REG_9_Pos     9                          /*!< SCE REG_xxxH: bit 9 Position       */
-#define SCE_REG_9_Msk     (0x01UL << SCE_REG_9_Pos)  /*!< SCE REG_xxxH: bit 9 Mask           */
-#define SCE_REG_10_Pos    10                         /*!< SCE REG_xxxH: bit 10 Position       */
-#define SCE_REG_10_Msk    (0x01UL << SCE_REG_10_Pos) /*!< SCE REG_xxxH: bit 10 Mask           */
-#define SCE_REG_11_Pos    11                         /*!< SCE REG_xxxH: bit 11 Position       */
-#define SCE_REG_11_Msk    (0x01UL << SCE_REG_11_Pos) /*!< SCE REG_xxxH: bit 11 Mask           */
-#define SCE_REG_12_Pos    12                         /*!< SCE REG_xxxH: bit 12 Position       */
-#define SCE_REG_12_Msk    (0x01UL << SCE_REG_12_Pos) /*!< SCE REG_xxxH: bit 12 Mask           */
-#define SCE_REG_13_Pos    13                         /*!< SCE REG_xxxH: bit 13 Position       */
-#define SCE_REG_13_Msk    (0x01UL << SCE_REG_13_Pos) /*!< SCE REG_xxxH: bit 13 Mask           */
-#define SCE_REG_14_Pos    14                         /*!< SCE REG_xxxH: bit 14 Position       */
-#define SCE_REG_14_Msk    (0x01UL << SCE_REG_14_Pos) /*!< SCE REG_xxxH: bit 14 Mask           */
-#define SCE_REG_15_Pos    15                         /*!< SCE REG_xxxH: bit 15 Position       */
-#define SCE_REG_15_Msk    (0x01UL << SCE_REG_15_Pos) /*!< SCE REG_xxxH: bit 15 Mask           */
-#define SCE_REG_16_Pos    16                         /*!< SCE REG_xxxH: bit 16 Position       */
-#define SCE_REG_16_Msk    (0x01UL << SCE_REG_16_Pos) /*!< SCE REG_xxxH: bit 16 Mask           */
-#define SCE_REG_17_Pos    17                         /*!< SCE REG_xxxH: bit 17 Position       */
-#define SCE_REG_17_Msk    (0x01UL << SCE_REG_17_Pos) /*!< SCE REG_xxxH: bit 17 Mask           */
-#define SCE_REG_18_Pos    18                         /*!< SCE REG_xxxH: bit 18 Position       */
-#define SCE_REG_18_Msk    (0x01UL << SCE_REG_18_Pos) /*!< SCE REG_xxxH: bit 18 Mask           */
-#define SCE_REG_19_Pos    19                         /*!< SCE REG_xxxH: bit 19 Position       */
-#define SCE_REG_19_Msk    (0x01UL << SCE_REG_19_Pos) /*!< SCE REG_xxxH: bit 19 Mask           */
-#define SCE_REG_20_Pos    20                         /*!< SCE REG_xxxH: bit 20 Position       */
-#define SCE_REG_20_Msk    (0x01UL << SCE_REG_20_Pos) /*!< SCE REG_xxxH: bit 20 Mask           */
-#define SCE_REG_21_Pos    21                         /*!< SCE REG_xxxH: bit 21 Position       */
-#define SCE_REG_21_Msk    (0x01UL << SCE_REG_21_Pos) /*!< SCE REG_xxxH: bit 21 Mask           */
-#define SCE_REG_22_Pos    22                         /*!< SCE REG_xxxH: bit 22 Position       */
-#define SCE_REG_22_Msk    (0x01UL << SCE_REG_22_Pos) /*!< SCE REG_xxxH: bit 22 Mask           */
-#define SCE_REG_23_Pos    23                         /*!< SCE REG_xxxH: bit 23 Position       */
-#define SCE_REG_23_Msk    (0x01UL << SCE_REG_23_Pos) /*!< SCE REG_xxxH: bit 23 Mask           */
-#define SCE_REG_24_Pos    24                         /*!< SCE REG_xxxH: bit 24 Position       */
-#define SCE_REG_24_Msk    (0x01UL << SCE_REG_24_Pos) /*!< SCE REG_xxxH: bit 24 Mask           */
-#define SCE_REG_25_Pos    25                         /*!< SCE REG_xxxH: bit 25 Position       */
-#define SCE_REG_25_Msk    (0x01UL << SCE_REG_25_Pos) /*!< SCE REG_xxxH: bit 25 Mask           */
-#define SCE_REG_26_Pos    26                         /*!< SCE REG_xxxH: bit 26 Position       */
-#define SCE_REG_26_Msk    (0x01UL << SCE_REG_26_Pos) /*!< SCE REG_xxxH: bit 26 Mask           */
-#define SCE_REG_27_Pos    27                         /*!< SCE REG_xxxH: bit 27 Position       */
-#define SCE_REG_27_Msk    (0x01UL << SCE_REG_27_Pos) /*!< SCE REG_xxxH: bit 27 Mask           */
-#define SCE_REG_28_Pos    28                         /*!< SCE REG_xxxH: bit 28 Position       */
-#define SCE_REG_28_Msk    (0x01UL << SCE_REG_28_Pos) /*!< SCE REG_xxxH: bit 28 Mask           */
-#define SCE_REG_29_Pos    29                         /*!< SCE REG_xxxH: bit 29 Position       */
-#define SCE_REG_29_Msk    (0x01UL << SCE_REG_29_Pos) /*!< SCE REG_xxxH: bit 29 Mask           */
-#define SCE_REG_30_Pos    30                         /*!< SCE REG_xxxH: bit 30 Position       */
-#define SCE_REG_30_Msk    (0x01UL << SCE_REG_30_Pos) /*!< SCE REG_xxxH: bit 30 Mask           */
-#define SCE_REG_31_Pos    31                         /*!< SCE REG_xxxH: bit 31 Position       */
-#define SCE_REG_31_Msk    (0x01UL << SCE_REG_31_Pos) /*!< SCE REG_xxxH: bit 31 Mask           */
+#define SCE_REG_0_Pos     0
+#define SCE_REG_0_Msk     (0x01UL << SCE_REG_0_Pos)
+#define SCE_REG_1_Pos     1
+#define SCE_REG_1_Msk     (0x01UL << SCE_REG_1_Pos)
+#define SCE_REG_2_Pos     2
+#define SCE_REG_2_Msk     (0x01UL << SCE_REG_2_Pos)
+#define SCE_REG_3_Pos     3
+#define SCE_REG_3_Msk     (0x01UL << SCE_REG_3_Pos)
+#define SCE_REG_4_Pos     4
+#define SCE_REG_4_Msk     (0x01UL << SCE_REG_4_Pos)
+#define SCE_REG_5_Pos     5
+#define SCE_REG_5_Msk     (0x01UL << SCE_REG_5_Pos)
+#define SCE_REG_6_Pos     6
+#define SCE_REG_6_Msk     (0x01UL << SCE_REG_6_Pos)
+#define SCE_REG_7_Pos     7
+#define SCE_REG_7_Msk     (0x01UL << SCE_REG_7_Pos)
+#define SCE_REG_8_Pos     8
+#define SCE_REG_8_Msk     (0x01UL << SCE_REG_8_Pos)
+#define SCE_REG_9_Pos     9
+#define SCE_REG_9_Msk     (0x01UL << SCE_REG_9_Pos)
+#define SCE_REG_10_Pos    10
+#define SCE_REG_10_Msk    (0x01UL << SCE_REG_10_Pos)
+#define SCE_REG_11_Pos    11
+#define SCE_REG_11_Msk    (0x01UL << SCE_REG_11_Pos)
+#define SCE_REG_12_Pos    12
+#define SCE_REG_12_Msk    (0x01UL << SCE_REG_12_Pos)
+#define SCE_REG_13_Pos    13
+#define SCE_REG_13_Msk    (0x01UL << SCE_REG_13_Pos)
+#define SCE_REG_14_Pos    14
+#define SCE_REG_14_Msk    (0x01UL << SCE_REG_14_Pos)
+#define SCE_REG_15_Pos    15
+#define SCE_REG_15_Msk    (0x01UL << SCE_REG_15_Pos)
+#define SCE_REG_16_Pos    16
+#define SCE_REG_16_Msk    (0x01UL << SCE_REG_16_Pos)
+#define SCE_REG_17_Pos    17
+#define SCE_REG_17_Msk    (0x01UL << SCE_REG_17_Pos)
+#define SCE_REG_18_Pos    18
+#define SCE_REG_18_Msk    (0x01UL << SCE_REG_18_Pos)
+#define SCE_REG_19_Pos    19
+#define SCE_REG_19_Msk    (0x01UL << SCE_REG_19_Pos)
+#define SCE_REG_20_Pos    20
+#define SCE_REG_20_Msk    (0x01UL << SCE_REG_20_Pos)
+#define SCE_REG_21_Pos    21
+#define SCE_REG_21_Msk    (0x01UL << SCE_REG_21_Pos)
+#define SCE_REG_22_Pos    22
+#define SCE_REG_22_Msk    (0x01UL << SCE_REG_22_Pos)
+#define SCE_REG_23_Pos    23
+#define SCE_REG_23_Msk    (0x01UL << SCE_REG_23_Pos)
+#define SCE_REG_24_Pos    24
+#define SCE_REG_24_Msk    (0x01UL << SCE_REG_24_Pos)
+#define SCE_REG_25_Pos    25
+#define SCE_REG_25_Msk    (0x01UL << SCE_REG_25_Pos)
+#define SCE_REG_26_Pos    26
+#define SCE_REG_26_Msk    (0x01UL << SCE_REG_26_Pos)
+#define SCE_REG_27_Pos    27
+#define SCE_REG_27_Msk    (0x01UL << SCE_REG_27_Pos)
+#define SCE_REG_28_Pos    28
+#define SCE_REG_28_Msk    (0x01UL << SCE_REG_28_Pos)
+#define SCE_REG_29_Pos    29
+#define SCE_REG_29_Msk    (0x01UL << SCE_REG_29_Pos)
+#define SCE_REG_30_Pos    30
+#define SCE_REG_30_Msk    (0x01UL << SCE_REG_30_Pos)
+#define SCE_REG_31_Pos    31
+#define SCE_REG_31_Msk    (0x01UL << SCE_REG_31_Pos)
 
 /* ================================================================================ */
 /* ================             Peripheral declaration             ================ */

@@ -12,10 +12,10 @@
 #include <zephyr/bluetooth/iso.h>
 
 typedef enum __packed {
-	BT_CONN_DISCONNECTED,         /* Disconnected, conn is completely down */
-	BT_CONN_DISCONNECT_COMPLETE,  /* Received disconn comp event, transition to DISCONNECTED */
+	BT_CONN_DISCONNECTED,
+	BT_CONN_DISCONNECT_COMPLETE,
 
-	BT_CONN_INITIATING,           /* Central connection establishment */
+	BT_CONN_INITIATING,
 	/** Central scans for a device preceding establishing a connection to it.
 	 *
 	 * This can happen when:
@@ -39,10 +39,10 @@ typedef enum __packed {
 	 */
 	BT_CONN_INITIATING_FILTER_LIST,
 
-	BT_CONN_ADV_CONNECTABLE,       /* Peripheral connectable advertising */
-	BT_CONN_ADV_DIR_CONNECTABLE,   /* Peripheral directed advertising */
-	BT_CONN_CONNECTED,            /* Peripheral or Central connected */
-	BT_CONN_DISCONNECTING,        /* Peripheral or Central issued disconnection command */
+	BT_CONN_ADV_CONNECTABLE,
+	BT_CONN_ADV_DIR_CONNECTABLE,
+	BT_CONN_CONNECTED,
+	BT_CONN_DISCONNECTING,
 } bt_conn_state_t;
 
 /* bt_conn flags: the flags defined here represent connection parameters */
@@ -56,33 +56,33 @@ enum {
 	 * accept list.
 	 */
 	BT_CONN_AUTO_CONNECT,
-	BT_CONN_BR_LEGACY_SECURE,             /* 16 digits legacy PIN tracker */
-	BT_CONN_BR_BONDABLE,                  /* BR connection is bondable */
-	BT_CONN_USER,                         /* user I/O when pairing */
-	BT_CONN_BR_PAIRING,                   /* BR connection in pairing context */
-	BT_CONN_BR_PAIRED,                    /* BR connection pairing is done */
-	BT_CONN_BR_NOBOND,                    /* SSP no bond pairing tracker */
-	BT_CONN_BR_GENERAL_BONDING,           /* BR general bonding */
-	BT_CONN_BR_PAIRING_INITIATOR,         /* local host starts authentication */
-	BT_CONN_CLEANUP,                      /* Disconnected, pending cleanup */
-	BT_CONN_AUTO_INIT_PROCEDURES_DONE,    /* Auto-initiated procedures have run */
-	BT_CONN_PERIPHERAL_PARAM_UPDATE,      /* If periph param update timer fired */
-	BT_CONN_PERIPHERAL_PARAM_AUTO_UPDATE, /* If periph param auto update on timer fired */
-	BT_CONN_PERIPHERAL_PARAM_SET,         /* If periph param were set from app */
-	BT_CONN_PERIPHERAL_PARAM_L2CAP,       /* If should force L2CAP for CPUP */
-	BT_CONN_FORCE_PAIR,                   /* Pairing even with existing keys. */
+	BT_CONN_BR_LEGACY_SECURE,
+	BT_CONN_BR_BONDABLE,
+	BT_CONN_USER,
+	BT_CONN_BR_PAIRING,
+	BT_CONN_BR_PAIRED,
+	BT_CONN_BR_NOBOND,
+	BT_CONN_BR_GENERAL_BONDING,
+	BT_CONN_BR_PAIRING_INITIATOR,
+	BT_CONN_CLEANUP,
+	BT_CONN_AUTO_INIT_PROCEDURES_DONE,
+	BT_CONN_PERIPHERAL_PARAM_UPDATE,
+	BT_CONN_PERIPHERAL_PARAM_AUTO_UPDATE,
+	BT_CONN_PERIPHERAL_PARAM_SET,
+	BT_CONN_PERIPHERAL_PARAM_L2CAP,
+	BT_CONN_FORCE_PAIR,
 #if defined(CONFIG_BT_GATT_CLIENT)
-	BT_CONN_ATT_MTU_EXCHANGED,            /* If ATT MTU has been exchanged. */
+	BT_CONN_ATT_MTU_EXCHANGED,
 #endif /* CONFIG_BT_GATT_CLIENT */
 
-	BT_CONN_LE_FEATURES_EXCHANGED,        /* bt_conn.le.features is valid */
-	BT_CONN_AUTO_VERSION_INFO,            /* Auto-initiated LE version done */
+	BT_CONN_LE_FEATURES_EXCHANGED,
+	BT_CONN_AUTO_VERSION_INFO,
 
-	BT_CONN_CTE_RX_ENABLED,               /* CTE receive and sampling is enabled */
-	BT_CONN_CTE_RX_PARAMS_SET,            /* CTE parameters are set */
-	BT_CONN_CTE_TX_PARAMS_SET,            /* CTE transmission parameters are set */
-	BT_CONN_CTE_REQ_ENABLED,              /* CTE request procedure is enabled */
-	BT_CONN_CTE_RSP_ENABLED,              /* CTE response procedure is enabled */
+	BT_CONN_CTE_RX_ENABLED,
+	BT_CONN_CTE_RX_PARAMS_SET,
+	BT_CONN_CTE_TX_PARAMS_SET,
+	BT_CONN_CTE_REQ_ENABLED,
+	BT_CONN_CTE_RSP_ENABLED,
 
 	/* Total number of flags - must be at the end of the enum */
 	BT_CONN_NUM_FLAGS,
@@ -422,9 +422,6 @@ void bt_sco_cleanup(struct bt_conn *sco_conn);
 
 /* Look up an existing sco connection by BT address */
 struct bt_conn *bt_conn_lookup_addr_sco(const bt_addr_t *peer);
-
-/* Look up an existing connection by BT address */
-struct bt_conn *bt_conn_lookup_addr_br(const bt_addr_t *peer);
 
 void bt_conn_disconnect_all(uint8_t id);
 

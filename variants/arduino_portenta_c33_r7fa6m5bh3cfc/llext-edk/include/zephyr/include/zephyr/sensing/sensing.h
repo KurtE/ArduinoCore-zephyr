@@ -38,12 +38,12 @@ extern "C" {
  */
 struct sensing_sensor_version {
 	union {
-		uint32_t value; /**< The version represented as a 32-bit value. */
+		uint32_t value;
 		struct {
-			uint8_t major;  /**< The major version number. */
-			uint8_t minor;  /**< The minor version number. */
-			uint8_t hotfix; /**< The hotfix version number. */
-			uint8_t build;  /**< The build version number. */
+			uint8_t major;
+			uint8_t minor;
+			uint8_t hotfix;
+			uint8_t build;
 		};
 	};
 };
@@ -87,8 +87,8 @@ struct sensing_sensor_version {
  *
  */
 enum sensing_sensor_state {
-	SENSING_SENSOR_STATE_READY = 0,   /**< The sensor is ready. */
-	SENSING_SENSOR_STATE_OFFLINE = 1, /**< The sensor is offline. */
+	SENSING_SENSOR_STATE_READY = 0,
+	SENSING_SENSOR_STATE_OFFLINE = 1,
 };
 
 /**
@@ -155,8 +155,8 @@ struct sensing_sensor_info {
  *
  */
 struct sensing_callback_list {
-	sensing_data_event_t on_data_event; /**< Callback function for a sensor data event. */
-	void *context;                      /**< Associated context with on_data_event */
+	sensing_data_event_t on_data_event;
+	void *context;
 };
 
 /**
@@ -165,10 +165,10 @@ struct sensing_callback_list {
  *
  */
 struct sensing_sensor_config {
-	enum sensing_sensor_attribute attri; /**< Attribute of the sensor configuration. */
+	enum sensing_sensor_attribute attri;
 
 	/** \ref SENSING_SENSITIVITY_INDEX_ALL */
-	int8_t data_field; /**< Data field of the sensor configuration. */
+	int8_t data_field;
 
 	union {
 		/** Interval between two sensor samples in microseconds (us). */

@@ -45,7 +45,7 @@ typedef struct x86_msi_vector arch_msi_vector_t;
 
 static ALWAYS_INLINE void arch_irq_unlock(unsigned int key)
 {
-	if ((key & 0x00000200U) != 0U) { /* 'IF' bit */
+	if ((key & 0x00000200U) != 0U) {
 		__asm__ volatile ("sti" ::: "memory");
 	}
 }
@@ -307,7 +307,7 @@ static inline uint64_t z_tsc_read(void)
 	__asm__ volatile ("lfence");
 #else
 	/* rdtsc & cpuid clobbers eax, ebx, ecx and edx registers */
-	__asm__ volatile (/* serialize */
+	__asm__ volatile (
 		"xorl %%eax,%%eax;"
 		"cpuid"
 		:

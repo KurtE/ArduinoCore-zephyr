@@ -12,7 +12,7 @@
 #include <zephyr/sys/device_mmio.h>
 
 struct hvc_xen_data {
-	DEVICE_MMIO_RAM;	/* should be first */
+	DEVICE_MMIO_RAM;
 	const struct device *dev;
 	struct xencons_interface *intf;
 	uint64_t evtchn;

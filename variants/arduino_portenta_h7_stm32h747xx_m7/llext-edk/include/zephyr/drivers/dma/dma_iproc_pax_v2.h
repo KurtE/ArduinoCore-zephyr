@@ -67,42 +67,42 @@
 
 /* RM header desc field */
 struct rm_header {
-	uint64_t opq : 16; /*pkt_id 15:0*/
-	uint64_t bdf : 16; /*reserved 31:16*/
-	uint64_t res1 : 4; /*res 32:35*/
-	uint64_t bdcount : 5; /*bdcount 36:40*/
-	uint64_t prot : 2; /*prot 41:42*/
-	uint64_t res2 : 1; /*res :43:43*/
-	uint64_t pcie_addr_msb : 8; /*pcie addr :44:51*/
-	uint64_t res3 : 4; /*res :52:55*/
-	uint64_t start : 1; /*S :56*/
-	uint64_t end : 1; /*E:57*/
-	uint64_t res4 : 1; /*res:58*/
-	uint64_t toggle : 1; /*T:59*/
-	uint64_t type : 4; /*type:60:63*/
+	uint64_t opq : 16;
+	uint64_t bdf : 16;
+	uint64_t res1 : 4;
+	uint64_t bdcount : 5;
+	uint64_t prot : 2;
+	uint64_t res2 : 1;
+	uint64_t pcie_addr_msb : 8;
+	uint64_t res3 : 4;
+	uint64_t start : 1;
+	uint64_t end : 1;
+	uint64_t res4 : 1;
+	uint64_t toggle : 1;
+	uint64_t type : 4;
 } __attribute__ ((__packed__));
 
 /* pcie desc field */
 struct pcie_desc {
-	uint64_t pcie_addr_lsb : 56; /* pcie_addr_lsb  0:55*/
-	uint64_t res1: 3; /*reserved 56:58*/
-	uint64_t toggle : 1; /*T:59*/
-	uint64_t type : 4; /*type:60:63*/
+	uint64_t pcie_addr_lsb : 56;
+	uint64_t res1: 3;
+	uint64_t toggle : 1;
+	uint64_t type : 4;
 } __attribute__ ((__packed__));
 
 /* src/dst desc field */
 struct src_dst_desc {
-	uint64_t axi_addr : 44; /*axi_addr[43:0]*/
-	uint64_t length : 15; /*length[44:58]*/
-	uint64_t toggle : 1; /*T:59*/
-	uint64_t type : 4; /*type:60:63*/
+	uint64_t axi_addr : 44;
+	uint64_t length : 15;
+	uint64_t toggle : 1;
+	uint64_t type : 4;
 } __attribute__ ((__packed__));
 
 struct next_ptr_desc {
-	uint64_t addr : 44; /*Address 43:0*/
-	uint64_t res1 : 15;/*Reserved*/
-	uint64_t toggle : 1; /*Toggle Bit:59*/
-	uint64_t type : 4;/*descriptor type 63:60*/
+	uint64_t addr : 44;
+	uint64_t res1 : 15;
+	uint64_t toggle : 1;
+	uint64_t type : 4;
 } __attribute__ ((__packed__));
 
 #endif

@@ -49,7 +49,7 @@ enum bt_vcp_vol_ctlr_flag {
 	BT_VCP_VOL_CTLR_FLAG_BUSY,
 	BT_VCP_VOL_CTLR_FLAG_CP_RETRIED,
 
-	BT_VCP_VOL_CTLR_FLAG_NUM_FLAGS, /* keep as last */
+	BT_VCP_VOL_CTLR_FLAG_NUM_FLAGS,
 };
 
 struct bt_vcp_vol_ctlr {

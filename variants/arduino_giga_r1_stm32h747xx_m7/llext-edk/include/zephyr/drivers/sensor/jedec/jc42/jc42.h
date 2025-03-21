@@ -50,7 +50,7 @@
  * * Bit 14 is set to indicate a temperature above the upper threshold
  * * Bit 15 is set to indicate a temperature above the critical threshold
  */
-#define JC42_TEMP_SCALE_CEL 16 /* signed */
+#define JC42_TEMP_SCALE_CEL 16
 #define JC42_TEMP_SIGN_BIT  BIT(12)
 #define JC42_TEMP_ABS_MASK  ((uint16_t)(JC42_TEMP_SIGN_BIT - 1U))
 #define JC42_TEMP_LWR_BIT   BIT(13)

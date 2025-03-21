@@ -316,14 +316,14 @@ struct ieee802154_req_params {
 	uint32_t duration;
 
 	/** Current channel in use as a result */
-	uint16_t channel; /* in CPU byte order */
+	uint16_t channel;
 	/** Current pan_id in use as a result */
-	uint16_t pan_id; /* in CPU byte order */
+	uint16_t pan_id;
 
 	/** Result address */
 	union {
-		uint16_t short_addr;			  /**< in CPU byte order */
-		uint8_t addr[IEEE802154_MAX_ADDR_LENGTH]; /**< in big endian */
+		uint16_t short_addr;
+		uint8_t addr[IEEE802154_MAX_ADDR_LENGTH];
 	};
 
 	/** length of address */
@@ -346,13 +346,13 @@ struct ieee802154_req_params {
  * see tables 9-9 and 9-10 in section 9.5.
  */
 struct ieee802154_security_params {
-	uint8_t key[16];      /**< secKeyDescriptor.secKey */
-	uint8_t key_len;      /**< Key length of 16 bytes is mandatory for standards conformance */
-	uint8_t key_mode : 2; /**< secKeyIdMode */
+	uint8_t key[16];
+	uint8_t key_len;
+	uint8_t key_mode : 2;
 	uint8_t level : 3;    /**< Used instead of a frame-specific SecurityLevel parameter when
 			       * constructing the auxiliary security header
 			       */
-	uint8_t _unused : 3;  /**< unused value (ignore) */
+	uint8_t _unused : 3;
 };
 
 #ifdef __cplusplus

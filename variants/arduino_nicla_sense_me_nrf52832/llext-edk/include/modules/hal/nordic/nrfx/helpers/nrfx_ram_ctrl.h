@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2023 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -94,6 +94,7 @@ __STATIC_INLINE void nrfx_ram_ctrl_section_power_mask_enable_set(uint8_t  block_
     nrf_memconf_ramblock_control_mask_enable_set(NRF_MEMCONF, block_idx, section_mask, enable);
 
 #elif defined(NRF_VMC)
+    section_mask <<= NRF_VMC_POWER_S0_POS;
     if (enable)
     {
         nrf_vmc_ram_block_power_set(NRF_VMC, block_idx, (nrf_vmc_power_t)section_mask);
@@ -104,7 +105,7 @@ __STATIC_INLINE void nrfx_ram_ctrl_section_power_mask_enable_set(uint8_t  block_
     }
 
 #elif defined(POWER_PRESENT)
-    section_mask <<= POWER_RAM_POWER_S0POWER_Pos;
+    section_mask <<= NRF_POWER_RAMPOWER_S0POWER_POS;
     if (enable)
     {
         nrf_power_rampower_mask_on(NRF_POWER, block_idx, section_mask);
@@ -137,6 +138,7 @@ __STATIC_INLINE void nrfx_ram_ctrl_section_retention_mask_enable_set(uint8_t  bl
 #endif
 
 #elif defined(NRF_VMC)
+    section_mask <<= NRF_VMC_RETENTION_S0_POS;
     if (enable)
     {
         nrf_vmc_ram_block_retention_set(NRF_VMC, block_idx, (nrf_vmc_retention_t)section_mask);
@@ -147,7 +149,7 @@ __STATIC_INLINE void nrfx_ram_ctrl_section_retention_mask_enable_set(uint8_t  bl
     }
 
 #elif defined(POWER_PRESENT)
-    section_mask <<= POWER_RAM_POWER_S0RETENTION_Pos;
+    section_mask <<= NRF_POWER_RAMPOWER_S0RETENTION_POS;
     if (enable)
     {
         nrf_power_rampower_mask_on(NRF_POWER, block_idx, section_mask);

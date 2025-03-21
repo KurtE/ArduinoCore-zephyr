@@ -107,17 +107,17 @@ typedef struct
   */
 typedef enum
 {
-  HAL_I2C_STATE_RESET             = 0x00U,   /*!< Peripheral is not yet Initialized         */
-  HAL_I2C_STATE_READY             = 0x20U,   /*!< Peripheral Initialized and ready for use  */
-  HAL_I2C_STATE_BUSY              = 0x24U,   /*!< An internal process is ongoing            */
-  HAL_I2C_STATE_BUSY_TX           = 0x21U,   /*!< Data Transmission process is ongoing      */
-  HAL_I2C_STATE_BUSY_RX           = 0x22U,   /*!< Data Reception process is ongoing         */
-  HAL_I2C_STATE_LISTEN            = 0x28U,   /*!< Address Listen Mode is ongoing            */
+  HAL_I2C_STATE_RESET             = 0x00U,
+  HAL_I2C_STATE_READY             = 0x20U,
+  HAL_I2C_STATE_BUSY              = 0x24U,
+  HAL_I2C_STATE_BUSY_TX           = 0x21U,
+  HAL_I2C_STATE_BUSY_RX           = 0x22U,
+  HAL_I2C_STATE_LISTEN            = 0x28U,
   HAL_I2C_STATE_BUSY_TX_LISTEN    = 0x29U,   /*!< Address Listen Mode and Data Transmission
                                                  process is ongoing                         */
   HAL_I2C_STATE_BUSY_RX_LISTEN    = 0x2AU,   /*!< Address Listen Mode and Data Reception
                                                  process is ongoing                         */
-  HAL_I2C_STATE_ABORT             = 0x60U,   /*!< Abort user request ongoing                */
+  HAL_I2C_STATE_ABORT             = 0x60U,
 
 } HAL_I2C_StateTypeDef;
 
@@ -145,10 +145,10 @@ typedef enum
   */
 typedef enum
 {
-  HAL_I2C_MODE_NONE               = 0x00U,   /*!< No I2C communication on going             */
-  HAL_I2C_MODE_MASTER             = 0x10U,   /*!< I2C communication is in Master Mode       */
-  HAL_I2C_MODE_SLAVE              = 0x20U,   /*!< I2C communication is in Slave Mode        */
-  HAL_I2C_MODE_MEM                = 0x40U    /*!< I2C communication is in Memory Mode       */
+  HAL_I2C_MODE_NONE               = 0x00U,
+  HAL_I2C_MODE_MASTER             = 0x10U,
+  HAL_I2C_MODE_SLAVE              = 0x20U,
+  HAL_I2C_MODE_MEM                = 0x40U
 
 } HAL_I2C_ModeTypeDef;
 
@@ -160,19 +160,19 @@ typedef enum
   * @brief  I2C Error Code definition
   * @{
   */
-#define HAL_I2C_ERROR_NONE      (0x00000000U)    /*!< No error              */
-#define HAL_I2C_ERROR_BERR      (0x00000001U)    /*!< BERR error            */
-#define HAL_I2C_ERROR_ARLO      (0x00000002U)    /*!< ARLO error            */
-#define HAL_I2C_ERROR_AF        (0x00000004U)    /*!< ACKF error            */
-#define HAL_I2C_ERROR_OVR       (0x00000008U)    /*!< OVR error             */
-#define HAL_I2C_ERROR_DMA       (0x00000010U)    /*!< DMA transfer error    */
-#define HAL_I2C_ERROR_TIMEOUT   (0x00000020U)    /*!< Timeout error         */
-#define HAL_I2C_ERROR_SIZE      (0x00000040U)    /*!< Size Management error */
-#define HAL_I2C_ERROR_DMA_PARAM (0x00000080U)    /*!< DMA Parameter Error   */
+#define HAL_I2C_ERROR_NONE      (0x00000000U)
+#define HAL_I2C_ERROR_BERR      (0x00000001U)
+#define HAL_I2C_ERROR_ARLO      (0x00000002U)
+#define HAL_I2C_ERROR_AF        (0x00000004U)
+#define HAL_I2C_ERROR_OVR       (0x00000008U)
+#define HAL_I2C_ERROR_DMA       (0x00000010U)
+#define HAL_I2C_ERROR_TIMEOUT   (0x00000020U)
+#define HAL_I2C_ERROR_SIZE      (0x00000040U)
+#define HAL_I2C_ERROR_DMA_PARAM (0x00000080U)
 #if (USE_HAL_I2C_REGISTER_CALLBACKS == 1)
-#define HAL_I2C_ERROR_INVALID_CALLBACK  (0x00000100U)    /*!< Invalid Callback error */
+#define HAL_I2C_ERROR_INVALID_CALLBACK  (0x00000100U)
 #endif /* USE_HAL_I2C_REGISTER_CALLBACKS */
-#define HAL_I2C_ERROR_INVALID_PARAM     (0x00000200U)    /*!< Invalid Parameters error  */
+#define HAL_I2C_ERROR_INVALID_PARAM     (0x00000200U)
 /**
   * @}
   */
@@ -183,42 +183,42 @@ typedef enum
   */
 typedef struct __I2C_HandleTypeDef
 {
-  I2C_TypeDef                *Instance;      /*!< I2C registers base address                */
+  I2C_TypeDef                *Instance;
 
-  I2C_InitTypeDef            Init;           /*!< I2C communication parameters              */
+  I2C_InitTypeDef            Init;
 
-  uint8_t                    *pBuffPtr;      /*!< Pointer to I2C transfer buffer            */
+  uint8_t                    *pBuffPtr;
 
-  uint16_t                   XferSize;       /*!< I2C transfer size                         */
+  uint16_t                   XferSize;
 
-  __IO uint16_t              XferCount;      /*!< I2C transfer counter                      */
+  __IO uint16_t              XferCount;
 
   __IO uint32_t              XferOptions;    /*!< I2C sequantial transfer options, this parameter can
                                                   be a value of @ref I2C_XFEROPTIONS */
 
-  __IO uint32_t              PreviousState;  /*!< I2C communication Previous state          */
+  __IO uint32_t              PreviousState;
 
   HAL_StatusTypeDef(*XferISR)(struct __I2C_HandleTypeDef *hi2c, uint32_t ITFlags, uint32_t ITSources);
   /*!< I2C transfer IRQ handler function pointer */
 
-  DMA_HandleTypeDef          *hdmatx;        /*!< I2C Tx DMA handle parameters              */
+  DMA_HandleTypeDef          *hdmatx;
 
-  DMA_HandleTypeDef          *hdmarx;        /*!< I2C Rx DMA handle parameters              */
+  DMA_HandleTypeDef          *hdmarx;
 
 
-  HAL_LockTypeDef            Lock;           /*!< I2C locking object                        */
+  HAL_LockTypeDef            Lock;
 
-  __IO HAL_I2C_StateTypeDef  State;          /*!< I2C communication state                   */
+  __IO HAL_I2C_StateTypeDef  State;
 
-  __IO HAL_I2C_ModeTypeDef   Mode;           /*!< I2C communication mode                    */
+  __IO HAL_I2C_ModeTypeDef   Mode;
 
-  __IO uint32_t              ErrorCode;      /*!< I2C Error code                            */
+  __IO uint32_t              ErrorCode;
 
-  __IO uint32_t              AddrEventCount; /*!< I2C Address Event counter                 */
+  __IO uint32_t              AddrEventCount;
 
-  __IO uint32_t              Devaddress;     /*!< I2C Target device address                 */
+  __IO uint32_t              Devaddress;
 
-  __IO uint32_t              Memaddress;     /*!< I2C Target memory address                 */
+  __IO uint32_t              Memaddress;
 
 #if (USE_HAL_I2C_REGISTER_CALLBACKS == 1)
   void (* MasterTxCpltCallback)(struct __I2C_HandleTypeDef *hi2c);
@@ -257,18 +257,18 @@ typedef struct __I2C_HandleTypeDef
   */
 typedef enum
 {
-  HAL_I2C_MASTER_TX_COMPLETE_CB_ID      = 0x00U,    /*!< I2C Master Tx Transfer completed callback ID  */
-  HAL_I2C_MASTER_RX_COMPLETE_CB_ID      = 0x01U,    /*!< I2C Master Rx Transfer completed callback ID  */
-  HAL_I2C_SLAVE_TX_COMPLETE_CB_ID       = 0x02U,    /*!< I2C Slave Tx Transfer completed callback ID   */
-  HAL_I2C_SLAVE_RX_COMPLETE_CB_ID       = 0x03U,    /*!< I2C Slave Rx Transfer completed callback ID   */
-  HAL_I2C_LISTEN_COMPLETE_CB_ID         = 0x04U,    /*!< I2C Listen Complete callback ID               */
-  HAL_I2C_MEM_TX_COMPLETE_CB_ID         = 0x05U,    /*!< I2C Memory Tx Transfer callback ID            */
-  HAL_I2C_MEM_RX_COMPLETE_CB_ID         = 0x06U,    /*!< I2C Memory Rx Transfer completed callback ID  */
-  HAL_I2C_ERROR_CB_ID                   = 0x07U,    /*!< I2C Error callback ID                         */
-  HAL_I2C_ABORT_CB_ID                   = 0x08U,    /*!< I2C Abort callback ID                         */
+  HAL_I2C_MASTER_TX_COMPLETE_CB_ID      = 0x00U,
+  HAL_I2C_MASTER_RX_COMPLETE_CB_ID      = 0x01U,
+  HAL_I2C_SLAVE_TX_COMPLETE_CB_ID       = 0x02U,
+  HAL_I2C_SLAVE_RX_COMPLETE_CB_ID       = 0x03U,
+  HAL_I2C_LISTEN_COMPLETE_CB_ID         = 0x04U,
+  HAL_I2C_MEM_TX_COMPLETE_CB_ID         = 0x05U,
+  HAL_I2C_MEM_RX_COMPLETE_CB_ID         = 0x06U,
+  HAL_I2C_ERROR_CB_ID                   = 0x07U,
+  HAL_I2C_ABORT_CB_ID                   = 0x08U,
 
-  HAL_I2C_MSPINIT_CB_ID                 = 0x09U,    /*!< I2C Msp Init callback ID                      */
-  HAL_I2C_MSPDEINIT_CB_ID               = 0x0AU     /*!< I2C Msp DeInit callback ID                    */
+  HAL_I2C_MSPINIT_CB_ID                 = 0x09U,
+  HAL_I2C_MSPDEINIT_CB_ID               = 0x0AU
 
 } HAL_I2C_CallbackIDTypeDef;
 

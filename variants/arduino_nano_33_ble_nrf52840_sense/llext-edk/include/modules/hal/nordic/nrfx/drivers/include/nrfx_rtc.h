@@ -54,20 +54,20 @@ extern "C" {
 /** @brief RTC driver interrupt types. */
 typedef enum
 {
-    NRFX_RTC_INT_COMPARE0 = 0, /**< Interrupt from COMPARE0 event. */
-    NRFX_RTC_INT_COMPARE1 = 1, /**< Interrupt from COMPARE1 event. */
-    NRFX_RTC_INT_COMPARE2 = 2, /**< Interrupt from COMPARE2 event. */
-    NRFX_RTC_INT_COMPARE3 = 3, /**< Interrupt from COMPARE3 event. */
-    NRFX_RTC_INT_TICK     = 4, /**< Interrupt from TICK event. */
-    NRFX_RTC_INT_OVERFLOW = 5  /**< Interrupt from OVERFLOW event. */
+    NRFX_RTC_INT_COMPARE0 = 0,
+    NRFX_RTC_INT_COMPARE1 = 1,
+    NRFX_RTC_INT_COMPARE2 = 2,
+    NRFX_RTC_INT_COMPARE3 = 3,
+    NRFX_RTC_INT_TICK     = 4,
+    NRFX_RTC_INT_OVERFLOW = 5
 } nrfx_rtc_int_type_t;
 
 /** @brief RTC driver instance structure. */
 typedef struct
 {
-    NRF_RTC_Type  * p_reg;            /**< Pointer to instance register set. */
-    uint8_t         instance_id;      /**< Index of the driver instance. For internal use only. */
-    uint8_t         cc_channel_count; /**< Number of capture/compare channels. */
+    NRF_RTC_Type  * p_reg;
+    uint8_t         instance_id;
+    uint8_t         cc_channel_count;
 } nrfx_rtc_t;
 
 /** @brief Macro for creating an RTC driver instance. */
@@ -89,10 +89,10 @@ enum {
 /** @brief RTC driver instance configuration structure. */
 typedef struct
 {
-    uint16_t prescaler;          /**< Prescaler. */
-    uint8_t  interrupt_priority; /**< Interrupt priority. */
-    uint8_t  tick_latency;       /**< Maximum length of the interrupt handler in ticks (maximum 7.7 ms). */
-    bool     reliable;           /**< Reliable mode flag. */
+    uint16_t prescaler;
+    uint8_t  interrupt_priority;
+    uint8_t  tick_latency;
+    bool     reliable;
 } nrfx_rtc_config_t;
 
 /**

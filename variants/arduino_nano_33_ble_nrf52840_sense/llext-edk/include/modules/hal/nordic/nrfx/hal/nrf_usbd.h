@@ -51,99 +51,99 @@ extern "C" {
 /** @brief USBD tasks. */
 typedef enum
 {
-    NRF_USBD_TASK_STARTEPIN0    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[0] ), /**< Captures the EPIN[0].PTR, EPIN[0].MAXCNT, and EPIN[0].CONFIG registers values, and enables control endpoint IN 0 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPIN1    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[1] ), /**< Captures the EPIN[1].PTR, EPIN[1].MAXCNT, and EPIN[1].CONFIG registers values, and enables data endpoint IN 1 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPIN2    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[2] ), /**< Captures the EPIN[2].PTR, EPIN[2].MAXCNT, and EPIN[2].CONFIG registers values, and enables data endpoint IN 2 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPIN3    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[3] ), /**< Captures the EPIN[3].PTR, EPIN[3].MAXCNT, and EPIN[3].CONFIG registers values, and enables data endpoint IN 3 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPIN4    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[4] ), /**< Captures the EPIN[4].PTR, EPIN[4].MAXCNT, and EPIN[4].CONFIG registers values, and enables data endpoint IN 4 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPIN5    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[5] ), /**< Captures the EPIN[5].PTR, EPIN[5].MAXCNT, and EPIN[5].CONFIG registers values, and enables data endpoint IN 5 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPIN6    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[6] ), /**< Captures the EPIN[6].PTR, EPIN[6].MAXCNT, and EPIN[6].CONFIG registers values, and enables data endpoint IN 6 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPIN7    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[7] ), /**< Captures the EPIN[7].PTR, EPIN[7].MAXCNT, and EPIN[7].CONFIG registers values, and enables data endpoint IN 7 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTISOIN    = offsetof(NRF_USBD_Type, TASKS_STARTISOIN   ), /**< Captures the ISOIN.PTR, ISOIN.MAXCNT, and ISOIN.CONFIG registers values, and enables sending data on ISO endpoint 8. */
-    NRF_USBD_TASK_STARTEPOUT0   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[0]), /**< Captures the EPOUT[0].PTR, EPOUT[0].MAXCNT, and EPOUT[0].CONFIG registers values, and enables control endpoint 0 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPOUT1   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[1]), /**< Captures the EPOUT[1].PTR, EPOUT[1].MAXCNT, and EPOUT[1].CONFIG registers values, and enables data endpoint 1 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPOUT2   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[2]), /**< Captures the EPOUT[2].PTR, EPOUT[2].MAXCNT, and EPOUT[2].CONFIG registers values, and enables data endpoint 2 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPOUT3   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[3]), /**< Captures the EPOUT[3].PTR, EPOUT[3].MAXCNT, and EPOUT[3].CONFIG registers values, and enables data endpoint 3 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPOUT4   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[4]), /**< Captures the EPOUT[4].PTR, EPOUT[4].MAXCNT, and EPOUT[4].CONFIG registers values, and enables data endpoint 4 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPOUT5   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[5]), /**< Captures the EPOUT[5].PTR, EPOUT[5].MAXCNT, and EPOUT[5].CONFIG registers values, and enables data endpoint 5 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPOUT6   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[6]), /**< Captures the EPOUT[6].PTR, EPOUT[6].MAXCNT, and EPOUT[6].CONFIG registers values, and enables data endpoint 6 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTEPOUT7   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[7]), /**< Captures the EPOUT[7].PTR, EPOUT[7].MAXCNT, and EPOUT[7].CONFIG registers values, and enables data endpoint 7 to respond to traffic from host. */
-    NRF_USBD_TASK_STARTISOOUT   = offsetof(NRF_USBD_Type, TASKS_STARTISOOUT  ), /**< Captures the ISOOUT.PTR, ISOOUT.MAXCNT, and ISOOUT.CONFIG registers values, and enables receiving of data on ISO endpoint 8. */
-    NRF_USBD_TASK_EP0RCVOUT     = offsetof(NRF_USBD_Type, TASKS_EP0RCVOUT    ), /**< Allows OUT data stage on the control endpoint 0. */
-    NRF_USBD_TASK_EP0STATUS     = offsetof(NRF_USBD_Type, TASKS_EP0STATUS    ), /**< Allows status stage on the control endpoint 0. */
-    NRF_USBD_TASK_EP0STALL      = offsetof(NRF_USBD_Type, TASKS_EP0STALL     ), /**< STALLs data and status stage on the control endpoint 0. */
-    NRF_USBD_TASK_DRIVEDPDM     = offsetof(NRF_USBD_Type, TASKS_DPDMDRIVE    ), /**< Forces D+ and D-lines to the state defined in the DPDMVALUE register. */
-    NRF_USBD_TASK_NODRIVEDPDM   = offsetof(NRF_USBD_Type, TASKS_DPDMNODRIVE  ), /**< Stops forcing D+ and D- lines to any state (USB engine takes control). */
+    NRF_USBD_TASK_STARTEPIN0    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[0] ),
+    NRF_USBD_TASK_STARTEPIN1    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[1] ),
+    NRF_USBD_TASK_STARTEPIN2    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[2] ),
+    NRF_USBD_TASK_STARTEPIN3    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[3] ),
+    NRF_USBD_TASK_STARTEPIN4    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[4] ),
+    NRF_USBD_TASK_STARTEPIN5    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[5] ),
+    NRF_USBD_TASK_STARTEPIN6    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[6] ),
+    NRF_USBD_TASK_STARTEPIN7    = offsetof(NRF_USBD_Type, TASKS_STARTEPIN[7] ),
+    NRF_USBD_TASK_STARTISOIN    = offsetof(NRF_USBD_Type, TASKS_STARTISOIN   ),
+    NRF_USBD_TASK_STARTEPOUT0   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[0]),
+    NRF_USBD_TASK_STARTEPOUT1   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[1]),
+    NRF_USBD_TASK_STARTEPOUT2   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[2]),
+    NRF_USBD_TASK_STARTEPOUT3   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[3]),
+    NRF_USBD_TASK_STARTEPOUT4   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[4]),
+    NRF_USBD_TASK_STARTEPOUT5   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[5]),
+    NRF_USBD_TASK_STARTEPOUT6   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[6]),
+    NRF_USBD_TASK_STARTEPOUT7   = offsetof(NRF_USBD_Type, TASKS_STARTEPOUT[7]),
+    NRF_USBD_TASK_STARTISOOUT   = offsetof(NRF_USBD_Type, TASKS_STARTISOOUT  ),
+    NRF_USBD_TASK_EP0RCVOUT     = offsetof(NRF_USBD_Type, TASKS_EP0RCVOUT    ),
+    NRF_USBD_TASK_EP0STATUS     = offsetof(NRF_USBD_Type, TASKS_EP0STATUS    ),
+    NRF_USBD_TASK_EP0STALL      = offsetof(NRF_USBD_Type, TASKS_EP0STALL     ),
+    NRF_USBD_TASK_DRIVEDPDM     = offsetof(NRF_USBD_Type, TASKS_DPDMDRIVE    ),
+    NRF_USBD_TASK_NODRIVEDPDM   = offsetof(NRF_USBD_Type, TASKS_DPDMNODRIVE  ),
 }nrf_usbd_task_t;
 
 /** @brief USBD events. */
 typedef enum
 {
-    NRF_USBD_EVENT_USBRESET      = offsetof(NRF_USBD_Type, EVENTS_USBRESET   ), /**< Signals that a USB reset condition is detected on the USB lines. */
-    NRF_USBD_EVENT_STARTED       = offsetof(NRF_USBD_Type, EVENTS_STARTED    ), /**< Confirms that the EPIN[n].PTR, EPIN[n].MAXCNT, EPIN[n].CONFIG, or EPOUT[n].PTR, EPOUT[n].MAXCNT, and EPOUT[n].CONFIG registers have been captured on all endpoints reported in the EPSTATUS register. */
-    NRF_USBD_EVENT_ENDEPIN0      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[0] ), /**< The whole EPIN[0] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPIN1      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[1] ), /**< The whole EPIN[1] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPIN2      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[2] ), /**< The whole EPIN[2] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPIN3      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[3] ), /**< The whole EPIN[3] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPIN4      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[4] ), /**< The whole EPIN[4] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPIN5      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[5] ), /**< The whole EPIN[5] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPIN6      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[6] ), /**< The whole EPIN[6] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPIN7      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[7] ), /**< The whole EPIN[7] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_EP0DATADONE   = offsetof(NRF_USBD_Type, EVENTS_EP0DATADONE), /**< An acknowledged data transfer has taken place on the control endpoint. */
-    NRF_USBD_EVENT_ENDISOIN0     = offsetof(NRF_USBD_Type, EVENTS_ENDISOIN   ), /**< The whole ISOIN buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPOUT0     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[0]), /**< The whole EPOUT[0] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPOUT1     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[1]), /**< The whole EPOUT[1] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPOUT2     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[2]), /**< The whole EPOUT[2] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPOUT3     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[3]), /**< The whole EPOUT[3] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPOUT4     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[4]), /**< The whole EPOUT[4] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPOUT5     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[5]), /**< The whole EPOUT[5] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPOUT6     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[6]), /**< The whole EPOUT[6] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDEPOUT7     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[7]), /**< The whole EPOUT[7] buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_ENDISOOUT0    = offsetof(NRF_USBD_Type, EVENTS_ENDISOOUT  ), /**< The whole ISOOUT buffer has been consumed. The RAM buffer can be accessed safely by software. */
-    NRF_USBD_EVENT_SOF           = offsetof(NRF_USBD_Type, EVENTS_SOF        ), /**< Signals that a SOF (start of frame) condition has been detected on the USB lines. */
-    NRF_USBD_EVENT_USBEVENT      = offsetof(NRF_USBD_Type, EVENTS_USBEVENT   ), /**< An event or an error not covered by the specified events has occurred, check EVENTCAUSE register to find the cause. */
-    NRF_USBD_EVENT_EP0SETUP      = offsetof(NRF_USBD_Type, EVENTS_EP0SETUP   ), /**< A valid SETUP token has been received (and acknowledged) on the control endpoint. */
-    NRF_USBD_EVENT_DATAEP        = offsetof(NRF_USBD_Type, EVENTS_EPDATA     ), /**< A data transfer has occurred on a data endpoint, indicated by the EPDATASTATUS register. */
+    NRF_USBD_EVENT_USBRESET      = offsetof(NRF_USBD_Type, EVENTS_USBRESET   ),
+    NRF_USBD_EVENT_STARTED       = offsetof(NRF_USBD_Type, EVENTS_STARTED    ),
+    NRF_USBD_EVENT_ENDEPIN0      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[0] ),
+    NRF_USBD_EVENT_ENDEPIN1      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[1] ),
+    NRF_USBD_EVENT_ENDEPIN2      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[2] ),
+    NRF_USBD_EVENT_ENDEPIN3      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[3] ),
+    NRF_USBD_EVENT_ENDEPIN4      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[4] ),
+    NRF_USBD_EVENT_ENDEPIN5      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[5] ),
+    NRF_USBD_EVENT_ENDEPIN6      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[6] ),
+    NRF_USBD_EVENT_ENDEPIN7      = offsetof(NRF_USBD_Type, EVENTS_ENDEPIN[7] ),
+    NRF_USBD_EVENT_EP0DATADONE   = offsetof(NRF_USBD_Type, EVENTS_EP0DATADONE),
+    NRF_USBD_EVENT_ENDISOIN0     = offsetof(NRF_USBD_Type, EVENTS_ENDISOIN   ),
+    NRF_USBD_EVENT_ENDEPOUT0     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[0]),
+    NRF_USBD_EVENT_ENDEPOUT1     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[1]),
+    NRF_USBD_EVENT_ENDEPOUT2     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[2]),
+    NRF_USBD_EVENT_ENDEPOUT3     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[3]),
+    NRF_USBD_EVENT_ENDEPOUT4     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[4]),
+    NRF_USBD_EVENT_ENDEPOUT5     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[5]),
+    NRF_USBD_EVENT_ENDEPOUT6     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[6]),
+    NRF_USBD_EVENT_ENDEPOUT7     = offsetof(NRF_USBD_Type, EVENTS_ENDEPOUT[7]),
+    NRF_USBD_EVENT_ENDISOOUT0    = offsetof(NRF_USBD_Type, EVENTS_ENDISOOUT  ),
+    NRF_USBD_EVENT_SOF           = offsetof(NRF_USBD_Type, EVENTS_SOF        ),
+    NRF_USBD_EVENT_USBEVENT      = offsetof(NRF_USBD_Type, EVENTS_USBEVENT   ),
+    NRF_USBD_EVENT_EP0SETUP      = offsetof(NRF_USBD_Type, EVENTS_EP0SETUP   ),
+    NRF_USBD_EVENT_DATAEP        = offsetof(NRF_USBD_Type, EVENTS_EPDATA     ),
 }nrf_usbd_event_t;
 
 /** @brief USBD shorts. */
 typedef enum
 {
-    NRF_USBD_SHORT_EP0DATADONE_STARTEPIN0_MASK  = USBD_SHORTS_EP0DATADONE_STARTEPIN0_Msk , /**< Shortcut between EP0DATADONE event and STARTEPIN0 task. */
-    NRF_USBD_SHORT_EP0DATADONE_STARTEPOUT0_MASK = USBD_SHORTS_EP0DATADONE_STARTEPOUT0_Msk, /**< Shortcut between EP0DATADONE event and STARTEPOUT0 task. */
-    NRF_USBD_SHORT_EP0DATADONE_EP0STATUS_MASK   = USBD_SHORTS_EP0DATADONE_EP0STATUS_Msk  , /**< Shortcut between EP0DATADONE event and EP0STATUS task. */
-    NRF_USBD_SHORT_ENDEPOUT0_EP0STATUS_MASK     = USBD_SHORTS_ENDEPOUT0_EP0STATUS_Msk    , /**< Shortcut between ENDEPOUT[0] event and EP0STATUS task. */
-    NRF_USBD_SHORT_ENDEPOUT0_EP0RCVOUT_MASK     = USBD_SHORTS_ENDEPOUT0_EP0RCVOUT_Msk    , /**< Shortcut between ENDEPOUT[0] event and EP0RCVOUT task. */
+    NRF_USBD_SHORT_EP0DATADONE_STARTEPIN0_MASK  = USBD_SHORTS_EP0DATADONE_STARTEPIN0_Msk ,
+    NRF_USBD_SHORT_EP0DATADONE_STARTEPOUT0_MASK = USBD_SHORTS_EP0DATADONE_STARTEPOUT0_Msk,
+    NRF_USBD_SHORT_EP0DATADONE_EP0STATUS_MASK   = USBD_SHORTS_EP0DATADONE_EP0STATUS_Msk  ,
+    NRF_USBD_SHORT_ENDEPOUT0_EP0STATUS_MASK     = USBD_SHORTS_ENDEPOUT0_EP0STATUS_Msk    ,
+    NRF_USBD_SHORT_ENDEPOUT0_EP0RCVOUT_MASK     = USBD_SHORTS_ENDEPOUT0_EP0RCVOUT_Msk    ,
 }nrf_usbd_short_mask_t;
 
 /** @brief USBD interrupts. */
 typedef enum
 {
-    NRF_USBD_INT_USBRESET_MASK    = USBD_INTEN_USBRESET_Msk   , /**< Enable or disable interrupt for USBRESET event. */
-    NRF_USBD_INT_STARTED_MASK     = USBD_INTEN_STARTED_Msk    , /**< Enable or disable interrupt for STARTED event. */
-    NRF_USBD_INT_ENDEPIN0_MASK    = USBD_INTEN_ENDEPIN0_Msk   , /**< Enable or disable interrupt for ENDEPIN[0] event. */
-    NRF_USBD_INT_ENDEPIN1_MASK    = USBD_INTEN_ENDEPIN1_Msk   , /**< Enable or disable interrupt for ENDEPIN[1] event. */
-    NRF_USBD_INT_ENDEPIN2_MASK    = USBD_INTEN_ENDEPIN2_Msk   , /**< Enable or disable interrupt for ENDEPIN[2] event. */
-    NRF_USBD_INT_ENDEPIN3_MASK    = USBD_INTEN_ENDEPIN3_Msk   , /**< Enable or disable interrupt for ENDEPIN[3] event. */
-    NRF_USBD_INT_ENDEPIN4_MASK    = USBD_INTEN_ENDEPIN4_Msk   , /**< Enable or disable interrupt for ENDEPIN[4] event. */
-    NRF_USBD_INT_ENDEPIN5_MASK    = USBD_INTEN_ENDEPIN5_Msk   , /**< Enable or disable interrupt for ENDEPIN[5] event. */
-    NRF_USBD_INT_ENDEPIN6_MASK    = USBD_INTEN_ENDEPIN6_Msk   , /**< Enable or disable interrupt for ENDEPIN[6] event. */
-    NRF_USBD_INT_ENDEPIN7_MASK    = USBD_INTEN_ENDEPIN7_Msk   , /**< Enable or disable interrupt for ENDEPIN[7] event. */
-    NRF_USBD_INT_EP0DATADONE_MASK = USBD_INTEN_EP0DATADONE_Msk, /**< Enable or disable interrupt for EP0DATADONE event. */
-    NRF_USBD_INT_ENDISOIN0_MASK   = USBD_INTEN_ENDISOIN_Msk   , /**< Enable or disable interrupt for ENDISOIN[0] event. */
-    NRF_USBD_INT_ENDEPOUT0_MASK   = USBD_INTEN_ENDEPOUT0_Msk  , /**< Enable or disable interrupt for ENDEPOUT[0] event. */
-    NRF_USBD_INT_ENDEPOUT1_MASK   = USBD_INTEN_ENDEPOUT1_Msk  , /**< Enable or disable interrupt for ENDEPOUT[1] event. */
-    NRF_USBD_INT_ENDEPOUT2_MASK   = USBD_INTEN_ENDEPOUT2_Msk  , /**< Enable or disable interrupt for ENDEPOUT[2] event. */
-    NRF_USBD_INT_ENDEPOUT3_MASK   = USBD_INTEN_ENDEPOUT3_Msk  , /**< Enable or disable interrupt for ENDEPOUT[3] event. */
-    NRF_USBD_INT_ENDEPOUT4_MASK   = USBD_INTEN_ENDEPOUT4_Msk  , /**< Enable or disable interrupt for ENDEPOUT[4] event. */
-    NRF_USBD_INT_ENDEPOUT5_MASK   = USBD_INTEN_ENDEPOUT5_Msk  , /**< Enable or disable interrupt for ENDEPOUT[5] event. */
-    NRF_USBD_INT_ENDEPOUT6_MASK   = USBD_INTEN_ENDEPOUT6_Msk  , /**< Enable or disable interrupt for ENDEPOUT[6] event. */
-    NRF_USBD_INT_ENDEPOUT7_MASK   = USBD_INTEN_ENDEPOUT7_Msk  , /**< Enable or disable interrupt for ENDEPOUT[7] event. */
-    NRF_USBD_INT_ENDISOOUT0_MASK  = USBD_INTEN_ENDISOOUT_Msk  , /**< Enable or disable interrupt for ENDISOOUT[0] event. */
-    NRF_USBD_INT_SOF_MASK         = USBD_INTEN_SOF_Msk        , /**< Enable or disable interrupt for SOF event. */
-    NRF_USBD_INT_USBEVENT_MASK    = USBD_INTEN_USBEVENT_Msk   , /**< Enable or disable interrupt for USBEVENT event. */
-    NRF_USBD_INT_EP0SETUP_MASK    = USBD_INTEN_EP0SETUP_Msk   , /**< Enable or disable interrupt for EP0SETUP event. */
-    NRF_USBD_INT_DATAEP_MASK      = USBD_INTEN_EPDATA_Msk     , /**< Enable or disable interrupt for EPDATA event. */
+    NRF_USBD_INT_USBRESET_MASK    = USBD_INTEN_USBRESET_Msk   ,
+    NRF_USBD_INT_STARTED_MASK     = USBD_INTEN_STARTED_Msk    ,
+    NRF_USBD_INT_ENDEPIN0_MASK    = USBD_INTEN_ENDEPIN0_Msk   ,
+    NRF_USBD_INT_ENDEPIN1_MASK    = USBD_INTEN_ENDEPIN1_Msk   ,
+    NRF_USBD_INT_ENDEPIN2_MASK    = USBD_INTEN_ENDEPIN2_Msk   ,
+    NRF_USBD_INT_ENDEPIN3_MASK    = USBD_INTEN_ENDEPIN3_Msk   ,
+    NRF_USBD_INT_ENDEPIN4_MASK    = USBD_INTEN_ENDEPIN4_Msk   ,
+    NRF_USBD_INT_ENDEPIN5_MASK    = USBD_INTEN_ENDEPIN5_Msk   ,
+    NRF_USBD_INT_ENDEPIN6_MASK    = USBD_INTEN_ENDEPIN6_Msk   ,
+    NRF_USBD_INT_ENDEPIN7_MASK    = USBD_INTEN_ENDEPIN7_Msk   ,
+    NRF_USBD_INT_EP0DATADONE_MASK = USBD_INTEN_EP0DATADONE_Msk,
+    NRF_USBD_INT_ENDISOIN0_MASK   = USBD_INTEN_ENDISOIN_Msk   ,
+    NRF_USBD_INT_ENDEPOUT0_MASK   = USBD_INTEN_ENDEPOUT0_Msk  ,
+    NRF_USBD_INT_ENDEPOUT1_MASK   = USBD_INTEN_ENDEPOUT1_Msk  ,
+    NRF_USBD_INT_ENDEPOUT2_MASK   = USBD_INTEN_ENDEPOUT2_Msk  ,
+    NRF_USBD_INT_ENDEPOUT3_MASK   = USBD_INTEN_ENDEPOUT3_Msk  ,
+    NRF_USBD_INT_ENDEPOUT4_MASK   = USBD_INTEN_ENDEPOUT4_Msk  ,
+    NRF_USBD_INT_ENDEPOUT5_MASK   = USBD_INTEN_ENDEPOUT5_Msk  ,
+    NRF_USBD_INT_ENDEPOUT6_MASK   = USBD_INTEN_ENDEPOUT6_Msk  ,
+    NRF_USBD_INT_ENDEPOUT7_MASK   = USBD_INTEN_ENDEPOUT7_Msk  ,
+    NRF_USBD_INT_ENDISOOUT0_MASK  = USBD_INTEN_ENDISOOUT_Msk  ,
+    NRF_USBD_INT_SOF_MASK         = USBD_INTEN_SOF_Msk        ,
+    NRF_USBD_INT_USBEVENT_MASK    = USBD_INTEN_USBEVENT_Msk   ,
+    NRF_USBD_INT_EP0SETUP_MASK    = USBD_INTEN_EP0SETUP_Msk   ,
+    NRF_USBD_INT_DATAEP_MASK      = USBD_INTEN_EPDATA_Msk     ,
 }nrf_usbd_int_mask_t;
 
 
@@ -547,11 +547,11 @@ NRF_STATIC_INLINE void nrf_usbd_int_disable(NRF_USBD_Type * p_reg, uint32_t mask
 /** @brief EVENTCAUSE register bit masks. */
 typedef enum
 {
-    NRF_USBD_EVENTCAUSE_ISOOUTCRC_MASK    = USBD_EVENTCAUSE_ISOOUTCRC_Msk,      /**< CRC error was detected on isochronous OUT endpoint 8. */
-    NRF_USBD_EVENTCAUSE_SUSPEND_MASK      = USBD_EVENTCAUSE_SUSPEND_Msk,        /**< Signals that the USB lines have been seen idle long enough for the device to enter suspend. */
-    NRF_USBD_EVENTCAUSE_RESUME_MASK       = USBD_EVENTCAUSE_RESUME_Msk,         /**< Signals that a RESUME condition (K state or activity restart) has been detected on the USB lines. */
-    NRF_USBD_EVENTCAUSE_WUREQ_MASK        = USBD_EVENTCAUSE_USBWUALLOWED_Msk,   /**< The USBD peripheral has exited Low Power mode. */
-    NRF_USBD_EVENTCAUSE_READY_MASK        = USBD_EVENTCAUSE_READY_Msk,          /**< MAC is ready for normal operation, rised few us after USBD enabling. */
+    NRF_USBD_EVENTCAUSE_ISOOUTCRC_MASK    = USBD_EVENTCAUSE_ISOOUTCRC_Msk,
+    NRF_USBD_EVENTCAUSE_SUSPEND_MASK      = USBD_EVENTCAUSE_SUSPEND_Msk,
+    NRF_USBD_EVENTCAUSE_RESUME_MASK       = USBD_EVENTCAUSE_RESUME_Msk,
+    NRF_USBD_EVENTCAUSE_WUREQ_MASK        = USBD_EVENTCAUSE_USBWUALLOWED_Msk,
+    NRF_USBD_EVENTCAUSE_READY_MASK        = USBD_EVENTCAUSE_READY_Msk,
 }nrf_usbd_eventcause_mask_t;
 
 /** @brief DPDMVALUE register. */
@@ -569,9 +569,9 @@ typedef enum
 /** @brief Data toggle value or operation. */
 typedef enum
 {
-    NRF_USBD_DTOGGLE_NOP   = USBD_DTOGGLE_VALUE_Nop,  /**< No operation - do not change the current data toggle on the selected endpoint. */
-    NRF_USBD_DTOGGLE_DATA0 = USBD_DTOGGLE_VALUE_Data0,/**< Data toggle is DATA0 on the selected endpoint. */
-    NRF_USBD_DTOGGLE_DATA1 = USBD_DTOGGLE_VALUE_Data1 /**< Data toggle is DATA1 on the selected endpoint. */
+    NRF_USBD_DTOGGLE_NOP   = USBD_DTOGGLE_VALUE_Nop,
+    NRF_USBD_DTOGGLE_DATA0 = USBD_DTOGGLE_VALUE_Data0,
+    NRF_USBD_DTOGGLE_DATA1 = USBD_DTOGGLE_VALUE_Data1
 }nrf_usbd_dtoggle_t;
 
 /** @brief EPSTATUS bit masks. */
@@ -619,15 +619,15 @@ typedef enum
 /** @brief ISOSPLIT configurations. */
 typedef enum
 {
-    NRF_USBD_ISOSPLIT_ONEDIR = USBD_ISOSPLIT_SPLIT_OneDir, /**< Full buffer dedicated to either ISO IN or OUT. */
-    NRF_USBD_ISOSPLIT_HALF   = USBD_ISOSPLIT_SPLIT_HalfIN, /**< Buffer divided in half. */
+    NRF_USBD_ISOSPLIT_ONEDIR = USBD_ISOSPLIT_SPLIT_OneDir,
+    NRF_USBD_ISOSPLIT_HALF   = USBD_ISOSPLIT_SPLIT_HalfIN,
 }nrf_usbd_isosplit_t;
 
 /** @brief ISOINCONFIG configurations. */
 typedef enum
 {
-    NRF_USBD_ISOINCONFIG_NORESP   = USBD_ISOINCONFIG_RESPONSE_NoResp,   /**< Endpoint does not respond to an ISO IN token when no data is ready. */
-    NRF_USBD_ISOINCONFIG_ZERODATA = USBD_ISOINCONFIG_RESPONSE_ZeroData, /**< Endpoint responds with a zero-length data packet to an ISO IN token when no data is ready. */
+    NRF_USBD_ISOINCONFIG_NORESP   = USBD_ISOINCONFIG_RESPONSE_NoResp,
+    NRF_USBD_ISOINCONFIG_ZERODATA = USBD_ISOINCONFIG_RESPONSE_ZeroData,
 }nrf_usbd_isoinconfig_t;
 
 /**

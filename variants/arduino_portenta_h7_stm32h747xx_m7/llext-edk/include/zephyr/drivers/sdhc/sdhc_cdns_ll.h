@@ -274,10 +274,10 @@
 #define OCR_VDD_MIN_1V7			BIT(7)
 
 #define MMC_RSP_48			BIT(0)
-#define MMC_RSP_136			BIT(1)	/* 136 bit response */
-#define MMC_RSP_CRC			BIT(2)	/* expect valid crc */
-#define MMC_RSP_CMD_IDX			BIT(3)	/* response contains cmd idx */
-#define MMC_RSP_BUSY			BIT(4)	/* device may be busy */
+#define MMC_RSP_136			BIT(1)
+#define MMC_RSP_CRC			BIT(2)
+#define MMC_RSP_CMD_IDX			BIT(3)
+#define MMC_RSP_BUSY			BIT(4)
 
 /* JEDEC 4.51 chapter 6.12 */
 #define MMC_RESPONSE_R1			(MMC_RSP_48 | MMC_RSP_CMD_IDX | MMC_RSP_CRC)

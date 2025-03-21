@@ -27,77 +27,77 @@
 
 /*! @brief Retry times for waiting flag. */
 #ifndef UART_RETRY_TIMES
-#define UART_RETRY_TIMES 0U /* Defining to zero means to keep waiting for the flag until it is assert/deassert. */
+#define UART_RETRY_TIMES 0U
 #endif
 
 /*! @brief Error codes for the LPUART driver. */
 enum
 {
-    kStatus_LPUART_TxBusy                  = MAKE_STATUS(kStatusGroup_LPUART, 0), /*!< TX busy */
-    kStatus_LPUART_RxBusy                  = MAKE_STATUS(kStatusGroup_LPUART, 1), /*!< RX busy */
-    kStatus_LPUART_TxIdle                  = MAKE_STATUS(kStatusGroup_LPUART, 2), /*!< LPUART transmitter is idle. */
-    kStatus_LPUART_RxIdle                  = MAKE_STATUS(kStatusGroup_LPUART, 3), /*!< LPUART receiver is idle. */
-    kStatus_LPUART_TxWatermarkTooLarge     = MAKE_STATUS(kStatusGroup_LPUART, 4), /*!< TX FIFO watermark too large  */
-    kStatus_LPUART_RxWatermarkTooLarge     = MAKE_STATUS(kStatusGroup_LPUART, 5), /*!< RX FIFO watermark too large  */
-    kStatus_LPUART_FlagCannotClearManually = MAKE_STATUS(kStatusGroup_LPUART, 6), /*!< Some flag can't manually clear */
-    kStatus_LPUART_Error                   = MAKE_STATUS(kStatusGroup_LPUART, 7), /*!< Error happens on LPUART. */
+    kStatus_LPUART_TxBusy                  = MAKE_STATUS(kStatusGroup_LPUART, 0),
+    kStatus_LPUART_RxBusy                  = MAKE_STATUS(kStatusGroup_LPUART, 1),
+    kStatus_LPUART_TxIdle                  = MAKE_STATUS(kStatusGroup_LPUART, 2),
+    kStatus_LPUART_RxIdle                  = MAKE_STATUS(kStatusGroup_LPUART, 3),
+    kStatus_LPUART_TxWatermarkTooLarge     = MAKE_STATUS(kStatusGroup_LPUART, 4),
+    kStatus_LPUART_RxWatermarkTooLarge     = MAKE_STATUS(kStatusGroup_LPUART, 5),
+    kStatus_LPUART_FlagCannotClearManually = MAKE_STATUS(kStatusGroup_LPUART, 6),
+    kStatus_LPUART_Error                   = MAKE_STATUS(kStatusGroup_LPUART, 7),
     kStatus_LPUART_RxRingBufferOverrun =
-        MAKE_STATUS(kStatusGroup_LPUART, 8), /*!< LPUART RX software ring buffer overrun. */
-    kStatus_LPUART_RxHardwareOverrun = MAKE_STATUS(kStatusGroup_LPUART, 9),  /*!< LPUART RX receiver overrun. */
-    kStatus_LPUART_NoiseError        = MAKE_STATUS(kStatusGroup_LPUART, 10), /*!< LPUART noise error. */
-    kStatus_LPUART_FramingError      = MAKE_STATUS(kStatusGroup_LPUART, 11), /*!< LPUART framing error. */
-    kStatus_LPUART_ParityError       = MAKE_STATUS(kStatusGroup_LPUART, 12), /*!< LPUART parity error. */
+        MAKE_STATUS(kStatusGroup_LPUART, 8),
+    kStatus_LPUART_RxHardwareOverrun = MAKE_STATUS(kStatusGroup_LPUART, 9),
+    kStatus_LPUART_NoiseError        = MAKE_STATUS(kStatusGroup_LPUART, 10),
+    kStatus_LPUART_FramingError      = MAKE_STATUS(kStatusGroup_LPUART, 11),
+    kStatus_LPUART_ParityError       = MAKE_STATUS(kStatusGroup_LPUART, 12),
     kStatus_LPUART_BaudrateNotSupport =
-        MAKE_STATUS(kStatusGroup_LPUART, 13), /*!< Baudrate is not support in current clock source */
-    kStatus_LPUART_IdleLineDetected = MAKE_STATUS(kStatusGroup_LPUART, 14), /*!< IDLE flag. */
-    kStatus_LPUART_Timeout          = MAKE_STATUS(kStatusGroup_LPUART, 15), /*!< LPUART times out. */
+        MAKE_STATUS(kStatusGroup_LPUART, 13),
+    kStatus_LPUART_IdleLineDetected = MAKE_STATUS(kStatusGroup_LPUART, 14),
+    kStatus_LPUART_Timeout          = MAKE_STATUS(kStatusGroup_LPUART, 15),
 };
 
 /*! @brief LPUART parity mode. */
 typedef enum _lpuart_parity_mode
 {
-    kLPUART_ParityDisabled = 0x0U, /*!< Parity disabled */
-    kLPUART_ParityEven     = 0x2U, /*!< Parity enabled, type even, bit setting: PE|PT = 10 */
-    kLPUART_ParityOdd      = 0x3U, /*!< Parity enabled, type odd,  bit setting: PE|PT = 11 */
+    kLPUART_ParityDisabled = 0x0U,
+    kLPUART_ParityEven     = 0x2U,
+    kLPUART_ParityOdd      = 0x3U,
 } lpuart_parity_mode_t;
 
 /*! @brief LPUART data bits count. */
 typedef enum _lpuart_data_bits
 {
-    kLPUART_EightDataBits = 0x0U, /*!< Eight data bit */
+    kLPUART_EightDataBits = 0x0U,
 #if defined(FSL_FEATURE_LPUART_HAS_7BIT_DATA_SUPPORT) && FSL_FEATURE_LPUART_HAS_7BIT_DATA_SUPPORT
-    kLPUART_SevenDataBits = 0x1U, /*!< Seven data bit */
+    kLPUART_SevenDataBits = 0x1U,
 #endif
 } lpuart_data_bits_t;
 
 /*! @brief LPUART stop bit count. */
 typedef enum _lpuart_stop_bit_count
 {
-    kLPUART_OneStopBit = 0U, /*!< One stop bit */
-    kLPUART_TwoStopBit = 1U, /*!< Two stop bits */
+    kLPUART_OneStopBit = 0U,
+    kLPUART_TwoStopBit = 1U,
 } lpuart_stop_bit_count_t;
 
 #if defined(FSL_FEATURE_LPUART_HAS_MODEM_SUPPORT) && FSL_FEATURE_LPUART_HAS_MODEM_SUPPORT
 /*! @brief LPUART transmit CTS source. */
 typedef enum _lpuart_transmit_cts_source
 {
-    kLPUART_CtsSourcePin         = 0U, /*!< CTS resource is the LPUART_CTS pin. */
-    kLPUART_CtsSourceMatchResult = 1U, /*!< CTS resource is the match result. */
+    kLPUART_CtsSourcePin         = 0U,
+    kLPUART_CtsSourceMatchResult = 1U,
 } lpuart_transmit_cts_source_t;
 
 /*! @brief LPUART transmit CTS configure. */
 typedef enum _lpuart_transmit_cts_config
 {
-    kLPUART_CtsSampleAtStart = 0U, /*!< CTS input is sampled at the start of each character. */
-    kLPUART_CtsSampleAtIdle  = 1U, /*!< CTS input is sampled when the transmitter is idle */
+    kLPUART_CtsSampleAtStart = 0U,
+    kLPUART_CtsSampleAtIdle  = 1U,
 } lpuart_transmit_cts_config_t;
 #endif
 
 /*! @brief LPUART idle flag type defines when the receiver starts counting. */
 typedef enum _lpuart_idle_type_select
 {
-    kLPUART_IdleTypeStartBit = 0U, /*!< Start counting after a valid start bit. */
-    kLPUART_IdleTypeStopBit  = 1U, /*!< Start counting after a stop bit. */
+    kLPUART_IdleTypeStartBit = 0U,
+    kLPUART_IdleTypeStopBit  = 1U,
 } lpuart_idle_type_select_t;
 
 /*! @brief LPUART idle detected configuration.
@@ -106,14 +106,14 @@ typedef enum _lpuart_idle_type_select
  */
 typedef enum _lpuart_idle_config
 {
-    kLPUART_IdleCharacter1   = 0U, /*!< the number of idle characters. */
-    kLPUART_IdleCharacter2   = 1U, /*!< the number of idle characters. */
-    kLPUART_IdleCharacter4   = 2U, /*!< the number of idle characters. */
-    kLPUART_IdleCharacter8   = 3U, /*!< the number of idle characters. */
-    kLPUART_IdleCharacter16  = 4U, /*!< the number of idle characters. */
-    kLPUART_IdleCharacter32  = 5U, /*!< the number of idle characters. */
-    kLPUART_IdleCharacter64  = 6U, /*!< the number of idle characters. */
-    kLPUART_IdleCharacter128 = 7U, /*!< the number of idle characters. */
+    kLPUART_IdleCharacter1   = 0U,
+    kLPUART_IdleCharacter2   = 1U,
+    kLPUART_IdleCharacter4   = 2U,
+    kLPUART_IdleCharacter8   = 3U,
+    kLPUART_IdleCharacter16  = 4U,
+    kLPUART_IdleCharacter32  = 5U,
+    kLPUART_IdleCharacter64  = 6U,
+    kLPUART_IdleCharacter128 = 7U,
 } lpuart_idle_config_t;
 
 /*!
@@ -124,37 +124,37 @@ typedef enum _lpuart_idle_config
 enum _lpuart_interrupt_enable
 {
 #if defined(FSL_FEATURE_LPUART_HAS_MCR) && FSL_FEATURE_LPUART_HAS_MCR
-    kLPUART_CtsStateChangeInterruptEnable = LPUART_MCR_CTS_MASK,            /*!< Change of state on CTS_B pin. bit 0 */
-    kLPUART_DsrStateChangeInterruptEnable = LPUART_MCR_DSR_MASK,            /*!< Change of state on DSR_B pin. bit 1 */
-    kLPUART_RinStateChangeInterruptEnable = LPUART_MCR_RIN_MASK,            /*!< Change of state on RIN_B pin. bit 2 */
-    kLPUART_DcdStateChangeInterruptEnable = LPUART_MCR_DCD_MASK,            /*!< Change of state on DCD_B pin. bit 3 */
+    kLPUART_CtsStateChangeInterruptEnable = LPUART_MCR_CTS_MASK,
+    kLPUART_DsrStateChangeInterruptEnable = LPUART_MCR_DSR_MASK,
+    kLPUART_RinStateChangeInterruptEnable = LPUART_MCR_RIN_MASK,
+    kLPUART_DcdStateChangeInterruptEnable = LPUART_MCR_DCD_MASK,
 #endif
-    kLPUART_RxActiveEdgeInterruptEnable = (LPUART_BAUD_RXEDGIE_MASK >> 8U), /*!< Receive Active Edge. bit 6 */
+    kLPUART_RxActiveEdgeInterruptEnable = (LPUART_BAUD_RXEDGIE_MASK >> 8U),
 #if defined(FSL_FEATURE_LPUART_HAS_LIN_BREAK_DETECT) && FSL_FEATURE_LPUART_HAS_LIN_BREAK_DETECT
-    kLPUART_LinBreakInterruptEnable = (LPUART_BAUD_LBKDIE_MASK >> 8U),      /*!< LIN break detect. bit 7 */
+    kLPUART_LinBreakInterruptEnable = (LPUART_BAUD_LBKDIE_MASK >> 8U),
 #endif
 #if defined(FSL_FEATURE_LPUART_HAS_FIFO) && FSL_FEATURE_LPUART_HAS_FIFO
-    kLPUART_RxFifoUnderflowInterruptEnable = (LPUART_FIFO_RXUFE_MASK), /*!< Receive FIFO Underflow. bit 8 */
-    kLPUART_TxFifoOverflowInterruptEnable  = (LPUART_FIFO_TXOFE_MASK), /*!< Transmit FIFO Overflow. bit 9 */
+    kLPUART_RxFifoUnderflowInterruptEnable = (LPUART_FIFO_RXUFE_MASK),
+    kLPUART_TxFifoOverflowInterruptEnable  = (LPUART_FIFO_TXOFE_MASK),
 #endif
-    kLPUART_RxCounter0TimeoutInterruptEnable = 1UL << 10,              /*!< Receiver counter0 timeout. bit 10 */
-    kLPUART_RxCounter1TimeoutInterruptEnable = 1UL << 11,              /*!< Receiver counter1 timeout. bit 11 */
-    kLPUART_TxCounter0TimeoutInterruptEnable = 1UL << 12,              /*!< Transmitter counter0 timeout. bit 12 */
-    kLPUART_TxCounter1TimeoutInterruptEnable = 1UL << 13,              /*!< Transmitter counter1 timeout. bit 13 */
+    kLPUART_RxCounter0TimeoutInterruptEnable = 1UL << 10,
+    kLPUART_RxCounter1TimeoutInterruptEnable = 1UL << 11,
+    kLPUART_TxCounter0TimeoutInterruptEnable = 1UL << 12,
+    kLPUART_TxCounter1TimeoutInterruptEnable = 1UL << 13,
 #if defined(FSL_FEATURE_LPUART_HAS_ADDRESS_MATCHING) && FSL_FEATURE_LPUART_HAS_ADDRESS_MATCHING
     kLPUART_DataMatch2InterruptEnable =
-        (LPUART_CTRL_MA2IE_MASK), /*!< The next character to be read from LPUART_DATA matches MA2. bit 14 */
+        (LPUART_CTRL_MA2IE_MASK),
     kLPUART_DataMatch1InterruptEnable =
-        (LPUART_CTRL_MA1IE_MASK), /*!< The next character to be read from LPUART_DATA matches MA1. bit 15 */
+        (LPUART_CTRL_MA1IE_MASK),
 #endif
-    kLPUART_IdleLineInterruptEnable             = (LPUART_CTRL_ILIE_MASK), /*!< Idle line. bit 20 */
-    kLPUART_RxDataRegFullInterruptEnable        = (LPUART_CTRL_RIE_MASK),  /*!< Receiver data register full. bit 21 */
-    kLPUART_TransmissionCompleteInterruptEnable = (LPUART_CTRL_TCIE_MASK), /*!< Transmission complete. bit 22 */
-    kLPUART_TxDataRegEmptyInterruptEnable       = (LPUART_CTRL_TIE_MASK),  /*!< Transmit data register empty. bit 23 */
-    kLPUART_ParityErrorInterruptEnable          = (LPUART_CTRL_PEIE_MASK), /*!< Parity error flag. bit 24 */
-    kLPUART_FramingErrorInterruptEnable         = (LPUART_CTRL_FEIE_MASK), /*!< Framing error flag. bit 25 */
-    kLPUART_NoiseErrorInterruptEnable           = (LPUART_CTRL_NEIE_MASK), /*!< Noise error flag. bit 26 */
-    kLPUART_RxOverrunInterruptEnable            = (LPUART_CTRL_ORIE_MASK), /*!< Receiver Overrun. bit 27 */
+    kLPUART_IdleLineInterruptEnable             = (LPUART_CTRL_ILIE_MASK),
+    kLPUART_RxDataRegFullInterruptEnable        = (LPUART_CTRL_RIE_MASK),
+    kLPUART_TransmissionCompleteInterruptEnable = (LPUART_CTRL_TCIE_MASK),
+    kLPUART_TxDataRegEmptyInterruptEnable       = (LPUART_CTRL_TIE_MASK),
+    kLPUART_ParityErrorInterruptEnable          = (LPUART_CTRL_PEIE_MASK),
+    kLPUART_FramingErrorInterruptEnable         = (LPUART_CTRL_FEIE_MASK),
+    kLPUART_NoiseErrorInterruptEnable           = (LPUART_CTRL_NEIE_MASK),
+    kLPUART_RxOverrunInterruptEnable            = (LPUART_CTRL_ORIE_MASK),
     kLPUART_AllInterruptEnable =
 #if defined(FSL_FEATURE_LPUART_HAS_MCR) && FSL_FEATURE_LPUART_HAS_MCR
         kLPUART_CtsStateChangeInterruptEnable | kLPUART_DsrStateChangeInterruptEnable |
@@ -185,47 +185,47 @@ enum _lpuart_flags
 {
 #if defined(FSL_FEATURE_LPUART_HAS_FIFO) && FSL_FEATURE_LPUART_HAS_FIFO
     kLPUART_RxFifoUnderflowFlag =
-        (LPUART_FIFO_RXUF_MASK >> 16),   /*!< RXUF bit, sets if receive buffer underflow occurred. bit 0 */
+        (LPUART_FIFO_RXUF_MASK >> 16),
     kLPUART_TxFifoOverflowFlag =
-        (LPUART_FIFO_TXOF_MASK >> 16),   /*!< TXOF bit, sets if transmit buffer overflow occurred. bit 1 */
+        (LPUART_FIFO_TXOF_MASK >> 16),
     kLPUART_RxFifoEmptyFlag =
-        (LPUART_FIFO_RXEMPT_MASK >> 16), /*!< RXEMPT bit, sets if receive buffer is empty. bit 6 */
+        (LPUART_FIFO_RXEMPT_MASK >> 16),
     kLPUART_TxFifoEmptyFlag =
-        (LPUART_FIFO_TXEMPT_MASK >> 16), /*!< TXEMPT bit, sets if transmit buffer is empty. bit 7 */
+        (LPUART_FIFO_TXEMPT_MASK >> 16),
 #endif
 
 #if defined(FSL_FEATURE_LPUART_HAS_MCR) && FSL_FEATURE_LPUART_HAS_MCR
-    kLPUART_CtsStateChangeFlag = LPUART_MCR_CTS_MASK << 2U, /*!< Change of state on CTS_B pin. bit 2 */
-    kLPUART_DsrStateChangeFlag = LPUART_MCR_DSR_MASK << 2U, /*!< Change of state on DSR_B pin. bit 3 */
-    kLPUART_RinStateChangeFlag = LPUART_MCR_RIN_MASK << 2U, /*!< Change of state on RIN_B pin. bit 4 */
-    kLPUART_DcdStateChangeFlag = LPUART_MCR_DCD_MASK << 2U, /*!< Change of state on DCD_B pin. bit 5 */
+    kLPUART_CtsStateChangeFlag = LPUART_MCR_CTS_MASK << 2U,
+    kLPUART_DsrStateChangeFlag = LPUART_MCR_DSR_MASK << 2U,
+    kLPUART_RinStateChangeFlag = LPUART_MCR_RIN_MASK << 2U,
+    kLPUART_DcdStateChangeFlag = LPUART_MCR_DCD_MASK << 2U,
 #endif
-    kLPUART_RxCounter0TimeoutFlag = 1UL << 10,              /*!< Receiver counter0 timeout. bit 10 */
-    kLPUART_RxCounter1TimeoutFlag = 1UL << 11,              /*!< Receiver counter1 timeout. bit 11 */
-    kLPUART_TxCounter0TimeoutFlag = 1UL << 12,              /*!< Transmitter counter0 timeout. bit 12 */
-    kLPUART_TxCounter1TimeoutFlag = 1UL << 13,              /*!< Transmitter counter1 timeout. bit 13 */
+    kLPUART_RxCounter0TimeoutFlag = 1UL << 10,
+    kLPUART_RxCounter1TimeoutFlag = 1UL << 11,
+    kLPUART_TxCounter0TimeoutFlag = 1UL << 12,
+    kLPUART_TxCounter1TimeoutFlag = 1UL << 13,
 #if defined(FSL_FEATURE_LPUART_HAS_ADDRESS_MATCHING) && FSL_FEATURE_LPUART_HAS_ADDRESS_MATCHING
     kLPUART_DataMatch2Flag =
-        LPUART_STAT_MA2F_MASK, /*!< The next character to be read from LPUART_DATA matches MA2. bit 14 */
+        LPUART_STAT_MA2F_MASK,
     kLPUART_DataMatch1Flag =
-        LPUART_STAT_MA1F_MASK, /*!< The next character to be read from LPUART_DATA matches MA1. bit 15 */
+        LPUART_STAT_MA1F_MASK,
 #endif
-    kLPUART_ParityErrorFlag = (LPUART_STAT_PF_MASK), /*!< If parity enabled, sets upon parity error detection. bit 16 */
+    kLPUART_ParityErrorFlag = (LPUART_STAT_PF_MASK),
     kLPUART_FramingErrorFlag =
-        (LPUART_STAT_FE_MASK), /*!< Frame error flag, sets if logic 0 was detected where stop bit expected. bit 17 */
+        (LPUART_STAT_FE_MASK),
     kLPUART_NoiseErrorFlag = (LPUART_STAT_NF_MASK), /*!< Receive takes 3 samples of each received bit.  If any
                                                        of these samples differ, noise flag sets. bit 18 */
     kLPUART_RxOverrunFlag = (LPUART_STAT_OR_MASK),  /*!< Receive Overrun, sets when new data is received before
                                                        data is  read from receive register. bit 19 */
-    kLPUART_IdleLineFlag = (LPUART_STAT_IDLE_MASK), /*!< Idle line detect flag, sets when idle line detected. bit 20 */
+    kLPUART_IdleLineFlag = (LPUART_STAT_IDLE_MASK),
     kLPUART_RxDataRegFullFlag = (LPUART_STAT_RDRF_MASK), /*!< Receive data register full flag, sets when the
                                                             receive data buffer is full. bit 21 */
     kLPUART_TransmissionCompleteFlag =
-        (LPUART_STAT_TC_MASK),   /*!< Transmission complete flag, sets when transmission activity complete. bit 22 */
+        (LPUART_STAT_TC_MASK),
     kLPUART_TxDataRegEmptyFlag =
-        (LPUART_STAT_TDRE_MASK), /*!< Transmit data register empty flag, sets when transmit buffer is empty. bit 23 */
+        (LPUART_STAT_TDRE_MASK),
     kLPUART_RxActiveFlag =
-        (LPUART_STAT_RAF_MASK),  /*!< Receiver Active Flag (RAF), sets at beginning of valid start. bit 24 */
+        (LPUART_STAT_RAF_MASK),
     kLPUART_RxActiveEdgeFlag = (LPUART_STAT_RXEDGIF_MASK), /*!< Receive pin active edge interrupt flag, sets
                                                               when active edge detected. bit 30 */
 #if defined(FSL_FEATURE_LPUART_HAS_LIN_BREAK_DETECT) && FSL_FEATURE_LPUART_HAS_LIN_BREAK_DETECT
@@ -277,7 +277,7 @@ enum _lpuart_flags
 typedef enum _lpuart_timeout_condition
 {
     kLPUART_TimeoutAfterCharacters =
-        0U, /*!< Timeout occurs when the number of characters specified by timeoutValue are received. */
+        0U,
     kLPUART_TimeoutAfterIdle = 1U, /*!< Timeout occurs when rx/tx remains idle for timeoutValue of bit clocks after idle
                                       condition is detected. */
     kLPUART_TimeoutAfterNext = 2U, /*!< Timeout occurs when rx/tx remains idle for timeoutValue of bit clocks after next
@@ -289,9 +289,9 @@ typedef enum _lpuart_timeout_condition
 /*! @brief LPUART timeout counter configuration structure. */
 typedef struct _lpuart_timeout_counter_config
 {
-    bool enableCounter;                          /*!< Eneble the timeout counter. */
-    lpuart_timeout_condition_t timeoutCondition; /*!< Timeout condition. */
-    uint16_t timeoutValue;                       /*!< Timeout value. */
+    bool enableCounter;
+    lpuart_timeout_condition_t timeoutCondition;
+    uint16_t timeoutValue;
 } lpuart_timeout_counter_config_t;
 
 /*! @brief LPUART timeout configuration structure. */
@@ -301,40 +301,40 @@ typedef struct _lpuart_timeout_config
                   idle condition to be detected. Enable this will disable rxIdleType and rxIdleConfig. Set to 0 to disable. */
     uint16_t txExtendedTimeoutValue;            /*!< The transmitter idle time in number of bits (baud rate) whenever an
                   idle character is queued through the transmit FIFO. */
-    lpuart_timeout_counter_config_t rxCounter0; /*!< Rx counter 0 configuration. */
-    lpuart_timeout_counter_config_t rxCounter1; /*!< Rx counter 1 configuration. */
-    lpuart_timeout_counter_config_t txCounter0; /*!< Tx counter 0 configuration. */
-    lpuart_timeout_counter_config_t txCounter1; /*!< Tx counter 1 configuration. */
+    lpuart_timeout_counter_config_t rxCounter0;
+    lpuart_timeout_counter_config_t rxCounter1;
+    lpuart_timeout_counter_config_t txCounter0;
+    lpuart_timeout_counter_config_t txCounter1;
 } lpuart_timeout_config_t;
 
 /*! @brief LPUART configuration structure. */
 typedef struct _lpuart_config
 {
-    uint32_t baudRate_Bps;                /*!< LPUART baud rate  */
-    lpuart_parity_mode_t parityMode;      /*!< Parity mode, disabled (default), even, odd */
-    lpuart_data_bits_t dataBitsCount;     /*!< Data bits count, eight (default), seven */
-    bool isMsb;                           /*!< Data bits order, LSB (default), MSB */
+    uint32_t baudRate_Bps;
+    lpuart_parity_mode_t parityMode;
+    lpuart_data_bits_t dataBitsCount;
+    bool isMsb;
 #if defined(FSL_FEATURE_LPUART_HAS_STOP_BIT_CONFIG_SUPPORT) && FSL_FEATURE_LPUART_HAS_STOP_BIT_CONFIG_SUPPORT
-    lpuart_stop_bit_count_t stopBitCount; /*!< Number of stop bits, 1 stop bit (default) or 2 stop bits  */
+    lpuart_stop_bit_count_t stopBitCount;
 #endif
 #if defined(FSL_FEATURE_LPUART_HAS_FIFO) && FSL_FEATURE_LPUART_HAS_FIFO
-    uint8_t txFifoWatermark; /*!< TX FIFO watermark */
-    uint8_t rxFifoWatermark; /*!< RX FIFO watermark */
+    uint8_t txFifoWatermark;
+    uint8_t rxFifoWatermark;
 #endif
 #if defined(FSL_FEATURE_LPUART_HAS_MODEM_SUPPORT) && FSL_FEATURE_LPUART_HAS_MODEM_SUPPORT
-    bool enableRxRTS;                         /*!< RX RTS enable */
-    bool enableTxCTS;                         /*!< TX CTS enable */
-    lpuart_transmit_cts_source_t txCtsSource; /*!< TX CTS source */
-    lpuart_transmit_cts_config_t txCtsConfig; /*!< TX CTS configure */
+    bool enableRxRTS;
+    bool enableTxCTS;
+    lpuart_transmit_cts_source_t txCtsSource;
+    lpuart_transmit_cts_config_t txCtsConfig;
 #endif
-    lpuart_idle_type_select_t rxIdleType;     /*!< RX IDLE type. */
-    lpuart_idle_config_t rxIdleConfig;        /*!< RX IDLE configuration. */
-    lpuart_timeout_config_t timeoutConfig;    /*!< Timeout configuration. */
+    lpuart_idle_type_select_t rxIdleType;
+    lpuart_idle_config_t rxIdleConfig;
+    lpuart_timeout_config_t timeoutConfig;
     bool enableSingleWire; /*!< Use TXD pin as the source for the receiver. When enabled the TXD pin should be
                               configured as open drain. */
-    uint8_t rtsDelay;      /*!< Delay the negation of RTS by the configured number of bit clocks. */
-    bool enableTx;         /*!< Enable TX */
-    bool enableRx;         /*!< Enable RX */
+    uint8_t rtsDelay;
+    bool enableTx;
+    bool enableRx;
 } lpuart_config_t;
 
 /*! @brief LPUART transfer structure. */
@@ -346,13 +346,13 @@ typedef struct _lpuart_transfer
      */
     union
     {
-        uint8_t *data;            /*!< The buffer of data to be transfer.*/
-        uint8_t *rxData;          /*!< The buffer to receive data. */
-        uint16_t *rxData16;       /*!< The buffer to receive data. */
-        const uint8_t *txData;    /*!< The buffer of data to be sent. */
-        const uint16_t *txData16; /*!< The buffer of data to be sent. */
+        uint8_t *data;
+        uint8_t *rxData;
+        uint16_t *rxData16;
+        const uint8_t *txData;
+        const uint16_t *txData16;
     };
-    size_t dataSize;              /*!< The byte count to be transfer. */
+    size_t dataSize;
 } lpuart_transfer_t;
 
 /* Forward declaration of the handle typedef. */
@@ -366,38 +366,38 @@ struct _lpuart_handle
 {
     union
     {
-        const uint8_t *volatile txData;    /*!< Address of remaining data to send. */
-        const uint16_t *volatile txData16; /*!< Address of remaining data to send. */
+        const uint8_t *volatile txData;
+        const uint16_t *volatile txData16;
     };
-    volatile size_t txDataSize;            /*!< Size of the remaining data to send. */
-    size_t txDataSizeAll;                  /*!< Size of the data to send out. */
+    volatile size_t txDataSize;
+    size_t txDataSizeAll;
     union
     {
-        uint8_t *volatile rxData;    /*!< Address of remaining data to receive. */
-        uint16_t *volatile rxData16; /*!< Address of remaining data to receive. */
+        uint8_t *volatile rxData;
+        uint16_t *volatile rxData16;
     };
-    volatile size_t rxDataSize;      /*!< Size of the remaining data to receive. */
-    size_t rxDataSizeAll;            /*!< Size of the data to receive. */
+    volatile size_t rxDataSize;
+    size_t rxDataSizeAll;
 
     union
     {
-        uint8_t *rxRingBuffer;           /*!< Start address of the receiver ring buffer. */
-        uint16_t *rxRingBuffer16;        /*!< Start address of the receiver ring buffer. */
+        uint8_t *rxRingBuffer;
+        uint16_t *rxRingBuffer16;
     };
-    size_t rxRingBufferSize;             /*!< Size of the ring buffer. */
-    volatile uint16_t rxRingBufferHead;  /*!< Index for the driver to store received data into ring buffer. */
-    volatile uint16_t rxRingBufferTail;  /*!< Index for the user to get data from the ring buffer. */
+    size_t rxRingBufferSize;
+    volatile uint16_t rxRingBufferHead;
+    volatile uint16_t rxRingBufferTail;
 
-    lpuart_transfer_callback_t callback; /*!< Callback function. */
-    void *userData;                      /*!< LPUART callback function parameter.*/
+    lpuart_transfer_callback_t callback;
+    void *userData;
 
-    volatile uint8_t txState;            /*!< TX transfer state. */
-    volatile uint8_t rxState;            /*!< RX transfer state. */
+    volatile uint8_t txState;
+    volatile uint8_t rxState;
 
 #if defined(FSL_FEATURE_LPUART_HAS_7BIT_DATA_SUPPORT) && FSL_FEATURE_LPUART_HAS_7BIT_DATA_SUPPORT
-    bool isSevenDataBits; /*!< Seven data bits flag. */
+    bool isSevenDataBits;
 #endif
-    bool is16bitData;     /*!< 16bit data bits flag, only used for 9bit or 10bit data */
+    bool is16bitData;
 };
 
 /* Typedef for interrupt handler. */

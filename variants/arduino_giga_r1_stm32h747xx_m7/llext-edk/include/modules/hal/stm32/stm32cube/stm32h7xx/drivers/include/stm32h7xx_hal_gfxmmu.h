@@ -47,8 +47,8 @@
   */
 typedef enum
 {
-  HAL_GFXMMU_STATE_RESET = 0x00U, /*!< GFXMMU not initialized */
-  HAL_GFXMMU_STATE_READY = 0x01U, /*!< GFXMMU initialized and ready for use */
+  HAL_GFXMMU_STATE_RESET = 0x00U,
+  HAL_GFXMMU_STATE_READY = 0x01U,
 }HAL_GFXMMU_StateTypeDef;
 
 /**
@@ -56,10 +56,10 @@ typedef enum
   */
 typedef struct
 {
-  uint32_t Buf0Address; /*!< Physical address of buffer 0. */
-  uint32_t Buf1Address; /*!< Physical address of buffer 1. */
-  uint32_t Buf2Address; /*!< Physical address of buffer 2. */
-  uint32_t Buf3Address; /*!< Physical address of buffer 3. */
+  uint32_t Buf0Address;
+  uint32_t Buf1Address;
+  uint32_t Buf2Address;
+  uint32_t Buf3Address;
 }GFXMMU_BuffersTypeDef;
 
 /**
@@ -90,7 +90,7 @@ typedef struct
   */
 typedef struct
 {
-  FunctionalState Activation;     /*!< Interrupts enable/disable */
+  FunctionalState Activation;
   uint32_t        UsedInterrupts; /*!< Interrupts used.
                                        This parameter can be a values combination of @ref GFXMMU_Interrupts.
                                        @note: Useful only when interrupts are enabled. */
@@ -103,10 +103,10 @@ typedef struct
 {
   uint32_t                    BlocksPerLine; /*!< Number of blocks of 16 bytes per line.
                                                   This parameter can be a value of @ref GFXMMU_BlocksPerLine. */
-  uint32_t                    DefaultValue;  /*!< Value returned when virtual memory location not physically mapped. */
-  GFXMMU_BuffersTypeDef       Buffers;       /*!< Physical buffers addresses. */
-  GFXMMU_CachePrefetchTypeDef CachePrefetch; /*!< Cache and pre-fetch parameters. */
-  GFXMMU_InterruptsTypeDef    Interrupts;    /*!< Interrupts parameters. */
+  uint32_t                    DefaultValue;
+  GFXMMU_BuffersTypeDef       Buffers;
+  GFXMMU_CachePrefetchTypeDef CachePrefetch;
+  GFXMMU_InterruptsTypeDef    Interrupts;
 }GFXMMU_InitTypeDef;
 
 /**
@@ -118,14 +118,14 @@ typedef struct __GFXMMU_HandleTypeDef
 typedef struct
 #endif
 {
-  GFXMMU_TypeDef          *Instance; /*!< GFXMMU instance */
-  GFXMMU_InitTypeDef      Init;      /*!< GFXMMU init parameters */
-  HAL_GFXMMU_StateTypeDef State;     /*!< GFXMMU state */
-  __IO uint32_t           ErrorCode; /*!< GFXMMU error code */
+  GFXMMU_TypeDef          *Instance;
+  GFXMMU_InitTypeDef      Init;
+  HAL_GFXMMU_StateTypeDef State;
+  __IO uint32_t           ErrorCode;
 #if (USE_HAL_GFXMMU_REGISTER_CALLBACKS == 1)
-  void (*ErrorCallback)     (struct __GFXMMU_HandleTypeDef *hgfxmmu); /*!< GFXMMU error callback */
-  void (*MspInitCallback)   (struct __GFXMMU_HandleTypeDef *hgfxmmu); /*!< GFXMMU MSP init callback */
-  void (*MspDeInitCallback) (struct __GFXMMU_HandleTypeDef *hgfxmmu); /*!< GFXMMU MSP de-init callback */
+  void (*ErrorCallback)     (struct __GFXMMU_HandleTypeDef *hgfxmmu);
+  void (*MspInitCallback)   (struct __GFXMMU_HandleTypeDef *hgfxmmu);
+  void (*MspDeInitCallback) (struct __GFXMMU_HandleTypeDef *hgfxmmu);
 #endif
 }GFXMMU_HandleTypeDef;
 
@@ -154,9 +154,9 @@ typedef struct
   */
 typedef enum
 {
-  HAL_GFXMMU_ERROR_CB_ID     = 0x00U, /*!< GFXMMU error callback ID */
-  HAL_GFXMMU_MSPINIT_CB_ID   = 0x01U, /*!< GFXMMU MSP init callback ID */
-  HAL_GFXMMU_MSPDEINIT_CB_ID = 0x02U  /*!< GFXMMU MSP de-init callback ID */
+  HAL_GFXMMU_ERROR_CB_ID     = 0x00U,
+  HAL_GFXMMU_MSPINIT_CB_ID   = 0x01U,
+  HAL_GFXMMU_MSPDEINIT_CB_ID = 0x02U
 }HAL_GFXMMU_CallbackIDTypeDef;
 
 /**
@@ -178,8 +178,8 @@ typedef void (*pGFXMMU_CallbackTypeDef)(GFXMMU_HandleTypeDef *hgfxmmu);
 /** @defgroup GFXMMU_BlocksPerLine GFXMMU blocks per line
   * @{
   */
-#define GFXMMU_256BLOCKS 0x00000000U     /*!< 256 blocks of 16 bytes per line */
-#define GFXMMU_192BLOCKS GFXMMU_CR_192BM /*!< 192 blocks of 16 bytes per line */
+#define GFXMMU_256BLOCKS 0x00000000U
+#define GFXMMU_192BLOCKS GFXMMU_CR_192BM
 /**
   * @}
   */
@@ -187,8 +187,8 @@ typedef void (*pGFXMMU_CallbackTypeDef)(GFXMMU_HandleTypeDef *hgfxmmu);
 /** @defgroup GFXMMU_CacheLock GFXMMU cache lock
   * @{
   */
-#define GFXMMU_CACHE_LOCK_DISABLE 0x00000000U  /*!< Cache not locked to a buffer */
-#define GFXMMU_CACHE_LOCK_ENABLE  GFXMMU_CR_CL /*!< Cache locked to a buffer */
+#define GFXMMU_CACHE_LOCK_DISABLE 0x00000000U
+#define GFXMMU_CACHE_LOCK_ENABLE  GFXMMU_CR_CL
 /**
   * @}
   */
@@ -196,10 +196,10 @@ typedef void (*pGFXMMU_CallbackTypeDef)(GFXMMU_HandleTypeDef *hgfxmmu);
 /** @defgroup GFXMMU_CacheLockBuffer GFXMMU cache lock buffer
   * @{
   */
-#define GFXMMU_CACHE_LOCK_BUFFER0 0x00000000U     /*!< Cache locked to buffer 0 */
-#define GFXMMU_CACHE_LOCK_BUFFER1 GFXMMU_CR_CLB_0 /*!< Cache locked to buffer 1 */
-#define GFXMMU_CACHE_LOCK_BUFFER2 GFXMMU_CR_CLB_1 /*!< Cache locked to buffer 2 */
-#define GFXMMU_CACHE_LOCK_BUFFER3 GFXMMU_CR_CLB   /*!< Cache locked to buffer 3 */
+#define GFXMMU_CACHE_LOCK_BUFFER0 0x00000000U
+#define GFXMMU_CACHE_LOCK_BUFFER1 GFXMMU_CR_CLB_0
+#define GFXMMU_CACHE_LOCK_BUFFER2 GFXMMU_CR_CLB_1
+#define GFXMMU_CACHE_LOCK_BUFFER3 GFXMMU_CR_CLB
 /**
   * @}
   */
@@ -207,8 +207,8 @@ typedef void (*pGFXMMU_CallbackTypeDef)(GFXMMU_HandleTypeDef *hgfxmmu);
 /** @defgroup GFXMMU_CacheForce GFXMMU cache force
   * @{
   */
-#define GFXMMU_CACHE_FORCE_DISABLE 0x00000000U  /*!< Caching not forced */
-#define GFXMMU_CACHE_FORCE_ENABLE  GFXMMU_CR_FC /*!< Caching forced */
+#define GFXMMU_CACHE_FORCE_DISABLE 0x00000000U
+#define GFXMMU_CACHE_FORCE_ENABLE  GFXMMU_CR_FC
 /**
   * @}
   */
@@ -216,8 +216,8 @@ typedef void (*pGFXMMU_CallbackTypeDef)(GFXMMU_HandleTypeDef *hgfxmmu);
 /** @defgroup GFXMMU_OutterBufferability GFXMMU outer bufferability
   * @{
   */
-#define GFXMMU_OUTTER_BUFFERABILITY_DISABLE 0x00000000U  /*!< No bufferable */
-#define GFXMMU_OUTTER_BUFFERABILITY_ENABLE  GFXMMU_CR_OB /*!< Bufferable */
+#define GFXMMU_OUTTER_BUFFERABILITY_DISABLE 0x00000000U
+#define GFXMMU_OUTTER_BUFFERABILITY_ENABLE  GFXMMU_CR_OB
 /**
   * @}
   */
@@ -225,8 +225,8 @@ typedef void (*pGFXMMU_CallbackTypeDef)(GFXMMU_HandleTypeDef *hgfxmmu);
 /** @defgroup GFXMMU_OutterCachability GFXMMU outer cachability
   * @{
   */
-#define GFXMMU_OUTTER_CACHABILITY_DISABLE 0x00000000U  /*!< No cacheable */
-#define GFXMMU_OUTTER_CACHABILITY_ENABLE  GFXMMU_CR_OC /*!< Cacheable */
+#define GFXMMU_OUTTER_CACHABILITY_DISABLE 0x00000000U
+#define GFXMMU_OUTTER_CACHABILITY_ENABLE  GFXMMU_CR_OC
 /**
   * @}
   */
@@ -234,8 +234,8 @@ typedef void (*pGFXMMU_CallbackTypeDef)(GFXMMU_HandleTypeDef *hgfxmmu);
 /** @defgroup GFXMMU_Prefetch GFXMMU pre-fetch
   * @{
   */
-#define GFXMMU_PREFETCH_DISABLE GFXMMU_CR_PD /*!< Pre-fetch disable */
-#define GFXMMU_PREFETCH_ENABLE  0x00000000U  /*!< Pre-fetch enable */
+#define GFXMMU_PREFETCH_DISABLE GFXMMU_CR_PD
+#define GFXMMU_PREFETCH_ENABLE  0x00000000U
 /**
   * @}
   */
@@ -243,11 +243,11 @@ typedef void (*pGFXMMU_CallbackTypeDef)(GFXMMU_HandleTypeDef *hgfxmmu);
 /** @defgroup GFXMMU_Interrupts GFXMMU interrupts
   * @{
   */
-#define GFXMMU_AHB_MASTER_ERROR_IT GFXMMU_CR_AMEIE /*!< AHB master error interrupt */
-#define GFXMMU_BUFFER0_OVERFLOW_IT GFXMMU_CR_B0OIE /*!< Buffer 0 overflow interrupt */
-#define GFXMMU_BUFFER1_OVERFLOW_IT GFXMMU_CR_B1OIE /*!< Buffer 1 overflow interrupt */
-#define GFXMMU_BUFFER2_OVERFLOW_IT GFXMMU_CR_B2OIE /*!< Buffer 2 overflow interrupt */
-#define GFXMMU_BUFFER3_OVERFLOW_IT GFXMMU_CR_B3OIE /*!< Buffer 3 overflow interrupt */
+#define GFXMMU_AHB_MASTER_ERROR_IT GFXMMU_CR_AMEIE
+#define GFXMMU_BUFFER0_OVERFLOW_IT GFXMMU_CR_B0OIE
+#define GFXMMU_BUFFER1_OVERFLOW_IT GFXMMU_CR_B1OIE
+#define GFXMMU_BUFFER2_OVERFLOW_IT GFXMMU_CR_B2OIE
+#define GFXMMU_BUFFER3_OVERFLOW_IT GFXMMU_CR_B3OIE
 /**
   * @}
   */
@@ -255,14 +255,14 @@ typedef void (*pGFXMMU_CallbackTypeDef)(GFXMMU_HandleTypeDef *hgfxmmu);
 /** @defgroup GFXMMU_Error_Code GFXMMU Error Code
   * @{
   */
-#define GFXMMU_ERROR_NONE             0x00000000U    /*!< No error */
-#define GFXMMU_ERROR_BUFFER0_OVERFLOW GFXMMU_SR_B0OF /*!< Buffer 0 overflow */
-#define GFXMMU_ERROR_BUFFER1_OVERFLOW GFXMMU_SR_B1OF /*!< Buffer 1 overflow */
-#define GFXMMU_ERROR_BUFFER2_OVERFLOW GFXMMU_SR_B2OF /*!< Buffer 2 overflow */
-#define GFXMMU_ERROR_BUFFER3_OVERFLOW GFXMMU_SR_B3OF /*!< Buffer 3 overflow */
-#define GFXMMU_ERROR_AHB_MASTER       GFXMMU_SR_AMEF /*!< AHB master error */
+#define GFXMMU_ERROR_NONE             0x00000000U
+#define GFXMMU_ERROR_BUFFER0_OVERFLOW GFXMMU_SR_B0OF
+#define GFXMMU_ERROR_BUFFER1_OVERFLOW GFXMMU_SR_B1OF
+#define GFXMMU_ERROR_BUFFER2_OVERFLOW GFXMMU_SR_B2OF
+#define GFXMMU_ERROR_BUFFER3_OVERFLOW GFXMMU_SR_B3OF
+#define GFXMMU_ERROR_AHB_MASTER       GFXMMU_SR_AMEF
 #if (USE_HAL_GFXMMU_REGISTER_CALLBACKS == 1)
-#define GFXMMU_ERROR_INVALID_CALLBACK 0x00000100U    /*!< Invalid callback error */
+#define GFXMMU_ERROR_INVALID_CALLBACK 0x00000100U
 #endif
 /**
   * @}
@@ -271,8 +271,8 @@ typedef void (*pGFXMMU_CallbackTypeDef)(GFXMMU_HandleTypeDef *hgfxmmu);
 /** @defgroup GFXMMU_LutLineStatus GFXMMU LUT line status
   * @{
   */
-#define GFXMMU_LUT_LINE_DISABLE 0x00000000U     /*!< LUT line disabled */
-#define GFXMMU_LUT_LINE_ENABLE  GFXMMU_LUTxL_EN /*!< LUT line enabled */
+#define GFXMMU_LUT_LINE_DISABLE 0x00000000U
+#define GFXMMU_LUT_LINE_ENABLE  GFXMMU_LUTxL_EN
 /**
   * @}
   */
@@ -280,8 +280,8 @@ typedef void (*pGFXMMU_CallbackTypeDef)(GFXMMU_HandleTypeDef *hgfxmmu);
 /** @defgroup GFXMMU_CacheForceParam GFXMMU cache force parameter
   * @{
   */
-#define GFXMMU_CACHE_FORCE_FLUSH      GFXMMU_CCR_FF /*!< Force cache flush */
-#define GFXMMU_CACHE_FORCE_INVALIDATE GFXMMU_CCR_FI /*!< Force cache invalidate */
+#define GFXMMU_CACHE_FORCE_FLUSH      GFXMMU_CCR_FF
+#define GFXMMU_CACHE_FORCE_INVALIDATE GFXMMU_CCR_FI
 /**
   * @}
   */

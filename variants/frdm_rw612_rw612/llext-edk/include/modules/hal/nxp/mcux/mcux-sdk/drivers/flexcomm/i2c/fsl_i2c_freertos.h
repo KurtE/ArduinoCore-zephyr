@@ -32,14 +32,14 @@
 /*! @brief I2C FreeRTOS handle */
 typedef struct _i2c_rtos_handle
 {
-    I2C_Type *base;                 /*!< I2C base address */
-    i2c_master_handle_t drv_handle; /*!< A handle of the underlying driver, treated as opaque by the RTOS layer */
-    status_t async_status;          /*!< Transactional state of the underlying driver */
-    SemaphoreHandle_t mutex;        /*!< A mutex to lock the handle during a transfer */
-    SemaphoreHandle_t semaphore;    /*!< A semaphore to notify and unblock task when the transfer ends */
+    I2C_Type *base;
+    i2c_master_handle_t drv_handle;
+    status_t async_status;
+    SemaphoreHandle_t mutex;
+    SemaphoreHandle_t semaphore;
 #if (configSUPPORT_STATIC_ALLOCATION == 1)
-    StaticSemaphore_t mutexBuffer;     /*!< Statically allocated memory for mutex */
-    StaticSemaphore_t semaphoreBuffer; /*!< Statically allocated memory for semaphore */
+    StaticSemaphore_t mutexBuffer;
+    StaticSemaphore_t semaphoreBuffer;
 #endif
 } i2c_rtos_handle_t;
 

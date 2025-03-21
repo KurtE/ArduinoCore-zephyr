@@ -31,10 +31,10 @@
 #define HVMOP_set_param	0
 #define HVMOP_get_param	1
 struct xen_hvm_param {
-	domid_t  domid;	/* IN */
+	domid_t  domid;
 	uint16_t pad;
-	uint32_t index;	/* IN */
-	uint64_t value;	/* IN/OUT */
+	uint32_t index;
+	uint64_t value;
 };
 typedef struct xen_hvm_param xen_hvm_param_t;
 DEFINE_XEN_GUEST_HANDLE(xen_hvm_param_t);

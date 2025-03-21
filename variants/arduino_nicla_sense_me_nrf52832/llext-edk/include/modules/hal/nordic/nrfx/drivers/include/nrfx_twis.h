@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2015 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -99,10 +99,10 @@ typedef enum
  */
 typedef enum
 {
-    NRFX_TWIS_ERROR_OVERFLOW         = NRF_TWIS_ERROR_OVERFLOW,  /**< RX buffer overflow detected, and prevented. */
-    NRFX_TWIS_ERROR_DATA_NACK        = NRF_TWIS_ERROR_DATA_NACK, /**< NACK sent after receiving a data byte. */
-    NRFX_TWIS_ERROR_OVERREAD         = NRF_TWIS_ERROR_OVERREAD,  /**< TX buffer over-read detected, and prevented. */
-    NRFX_TWIS_ERROR_UNEXPECTED_EVENT = 1 << 8                    /**< Unexpected event detected by state machine. */
+    NRFX_TWIS_ERROR_OVERFLOW         = NRF_TWIS_ERROR_OVERFLOW,
+    NRFX_TWIS_ERROR_DATA_NACK        = NRF_TWIS_ERROR_DATA_NACK,
+    NRFX_TWIS_ERROR_OVERREAD         = NRF_TWIS_ERROR_OVERREAD,
+    NRFX_TWIS_ERROR_UNEXPECTED_EVENT = 1 << 8
 } nrfx_twis_error_t;
 
 /** @brief TWIS driver event structure. */

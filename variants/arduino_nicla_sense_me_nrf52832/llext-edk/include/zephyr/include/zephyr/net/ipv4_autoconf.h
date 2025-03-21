@@ -13,9 +13,9 @@
 
 /** Current state of IPv4 Autoconfiguration */
 enum net_ipv4_autoconf_state {
-	NET_IPV4_AUTOCONF_INIT,     /**< Initialization state */
-	NET_IPV4_AUTOCONF_ASSIGNED, /**< Assigned state */
-	NET_IPV4_AUTOCONF_RENEW,    /**< Renew state */
+	NET_IPV4_AUTOCONF_INIT,
+	NET_IPV4_AUTOCONF_ASSIGNED,
+	NET_IPV4_AUTOCONF_RENEW,
 };
 
 struct net_if;

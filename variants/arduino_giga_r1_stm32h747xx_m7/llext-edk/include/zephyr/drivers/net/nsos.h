@@ -11,38 +11,38 @@
 #include <stdint.h>
 
 /* Protocol families. */
-#define NSOS_MID_PF_UNSPEC       0          /**< Unspecified protocol family.  */
-#define NSOS_MID_PF_INET         1          /**< IP protocol family version 4. */
-#define NSOS_MID_PF_INET6        2          /**< IP protocol family version 6. */
-#define NSOS_MID_PF_UNIX         6          /**< Unix protocol.                */
-#define NSOS_MID_PF_PACKET       3          /**< Packet family.                */
+#define NSOS_MID_PF_UNSPEC       0
+#define NSOS_MID_PF_INET         1
+#define NSOS_MID_PF_INET6        2
+#define NSOS_MID_PF_UNIX         6
+#define NSOS_MID_PF_PACKET       3
 
 /* Address families. */
-#define NSOS_MID_AF_UNSPEC      NSOS_MID_PF_UNSPEC   /**< Unspecified address family.   */
-#define NSOS_MID_AF_INET        NSOS_MID_PF_INET     /**< IP protocol family version 4. */
-#define NSOS_MID_AF_INET6       NSOS_MID_PF_INET6    /**< IP protocol family version 6. */
-#define NSOS_MID_AF_UNIX        NSOS_MID_PF_UNIX     /**< Unix protocol.                */
-#define NSOS_MID_AF_PACKET      NSOS_MID_PF_PACKET   /**< Packet family.                */
+#define NSOS_MID_AF_UNSPEC      NSOS_MID_PF_UNSPEC
+#define NSOS_MID_AF_INET        NSOS_MID_PF_INET
+#define NSOS_MID_AF_INET6       NSOS_MID_PF_INET6
+#define NSOS_MID_AF_UNIX        NSOS_MID_PF_UNIX
+#define NSOS_MID_AF_PACKET      NSOS_MID_PF_PACKET
 
 /** Protocol numbers from IANA/BSD */
 enum nsos_mid_net_ip_protocol {
-	NSOS_MID_IPPROTO_IP = 0,            /**< IP protocol (pseudo-val for setsockopt() */
-	NSOS_MID_IPPROTO_ICMP = 1,          /**< ICMP protocol   */
-	NSOS_MID_IPPROTO_IGMP = 2,          /**< IGMP protocol   */
-	NSOS_MID_IPPROTO_ETH_P_ALL = 3,     /**< Every packet. from linux if_ether.h  */
-	NSOS_MID_IPPROTO_IPIP = 4,          /**< IPIP tunnels    */
-	NSOS_MID_IPPROTO_TCP = 6,           /**< TCP protocol    */
-	NSOS_MID_IPPROTO_UDP = 17,          /**< UDP protocol    */
-	NSOS_MID_IPPROTO_IPV6 = 41,         /**< IPv6 protocol   */
-	NSOS_MID_IPPROTO_ICMPV6 = 58,       /**< ICMPv6 protocol */
-	NSOS_MID_IPPROTO_RAW = 255,         /**< RAW IP packets  */
+	NSOS_MID_IPPROTO_IP = 0,
+	NSOS_MID_IPPROTO_ICMP = 1,
+	NSOS_MID_IPPROTO_IGMP = 2,
+	NSOS_MID_IPPROTO_ETH_P_ALL = 3,
+	NSOS_MID_IPPROTO_IPIP = 4,
+	NSOS_MID_IPPROTO_TCP = 6,
+	NSOS_MID_IPPROTO_UDP = 17,
+	NSOS_MID_IPPROTO_IPV6 = 41,
+	NSOS_MID_IPPROTO_ICMPV6 = 58,
+	NSOS_MID_IPPROTO_RAW = 255,
 };
 
 /** Socket type */
 enum nsos_mid_net_sock_type {
-	NSOS_MID_SOCK_STREAM = 1,           /**< Stream socket type   */
-	NSOS_MID_SOCK_DGRAM,                /**< Datagram socket type */
-	NSOS_MID_SOCK_RAW                   /**< RAW socket type      */
+	NSOS_MID_SOCK_STREAM = 1,
+	NSOS_MID_SOCK_DGRAM,
+	NSOS_MID_SOCK_RAW
 };
 
 #define NSOS_MID_MSG_PEEK 0x02
@@ -51,37 +51,37 @@ enum nsos_mid_net_sock_type {
 #define NSOS_MID_MSG_WAITALL 0x100
 
 struct nsos_mid_sockaddr {
-	uint16_t sa_family;      /* Address family */
-	char     sa_data[];      /* Socket address */
+	uint16_t sa_family;
+	char     sa_data[];
 };
 
 struct nsos_mid_sockaddr_in {
-	uint16_t sin_family;     /* AF_INET */
-	uint16_t sin_port;       /* Port number */
-	uint32_t sin_addr;       /* IPv4 address */
+	uint16_t sin_family;
+	uint16_t sin_port;
+	uint32_t sin_addr;
 };
 
 struct nsos_mid_sockaddr_in6 {
-	uint16_t sin6_family;    /* AF_INET6 */
-	uint16_t sin6_port;      /* Port number */
+	uint16_t sin6_family;
+	uint16_t sin6_port;
 	uint8_t  sin6_addr[16];
-	uint32_t sin6_scope_id;  /* Set of interfaces for a scope */
+	uint32_t sin6_scope_id;
 };
 
 #define UNIX_PATH_MAX 108
 struct nsos_mid_sockaddr_un {
-	sa_family_t sun_family;              /* AF_UNIX */
-	char        sun_path[UNIX_PATH_MAX]; /* pathname */
+	sa_family_t sun_family;
+	char        sun_path[UNIX_PATH_MAX];
 };
 
 struct nsos_mid_sockaddr_ll {
-	sa_family_t sll_family;   /**< Always AF_PACKET                   */
-	uint16_t    sll_protocol; /**< Physical-layer protocol            */
-	int         sll_ifindex;  /**< Interface number                   */
-	uint16_t    sll_hatype;   /**< ARP hardware type                  */
-	uint8_t     sll_pkttype;  /**< Packet type                        */
-	uint8_t     sll_halen;    /**< Length of address                  */
-	uint8_t     sll_addr[8];  /**< Physical-layer address, big endian */
+	sa_family_t sll_family;
+	uint16_t    sll_protocol;
+	int         sll_ifindex;
+	uint16_t    sll_hatype;
+	uint8_t     sll_pkttype;
+	uint8_t     sll_halen;
+	uint8_t     sll_addr[8];
 };
 
 struct nsos_mid_sockaddr_storage {
@@ -118,13 +118,13 @@ struct nsos_mid_iovec {
 };
 
 struct nsos_mid_msghdr {
-	void                  *msg_name;       /* optional socket address, big endian */
-	size_t                 msg_namelen;    /* size of socket address */
-	struct nsos_mid_iovec *msg_iov;        /* scatter/gather array */
-	size_t                 msg_iovlen;     /* number of elements in msg_iov */
-	void                  *msg_control;    /* ancillary data */
-	size_t                 msg_controllen; /* ancillary data buffer len */
-	int                    msg_flags;      /* flags on received message */
+	void                  *msg_name;
+	size_t                 msg_namelen;
+	struct nsos_mid_iovec *msg_iov;
+	size_t                 msg_iovlen;
+	void                  *msg_control;
+	size_t                 msg_controllen;
+	int                    msg_flags;
 };
 
 static inline void nsos_socket_flag_convert(int *flags_a, int flag_a,

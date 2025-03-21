@@ -88,75 +88,75 @@
 /* Peripheral Security Attribution Register (PSAR) Settings */
 #ifndef BSP_TZ_CFG_PSARB
 #define BSP_TZ_CFG_PSARB                                                                           \
-	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 4) /* I3C */ |                                       \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 8) /* IIC1 */ |                                      \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 9) /* IIC0 */ |                                      \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 11) /* USBFS */ |                                    \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 12) /* USBHS */ | (1 << 15) /* ETHERC/EDMAC */ |     \
-	 (1 << 16) /* OSPI */ | (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 18) /* SPI1 */ |              \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 19) /* SPI0 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 22) /* SCI9 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 27) /* SCI4 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 28) /* SCI3 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 29) /* SCI2 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 30) /* SCI1 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 31) /* SCI0 */)
+	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 4) |                                       \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 8) |                                      \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 9) |                                      \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 11) |                                    \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 12) | (1 << 15) |     \
+	 (1 << 16) | (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 18) |              \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 19) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 22) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 27) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 28) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 29) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 30) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 31))
 #endif
 #ifndef BSP_TZ_CFG_PSARC
 #define BSP_TZ_CFG_PSARC                                                                           \
-	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 0) /* CAC */ |                                       \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 1) /* CRC */ |                                       \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 7) /* SSIE1 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 8) /* SSIE0 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 11) /* SDHI1 */ |                                    \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 12) /* SDHI0 */ |                                    \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 13) /* DOC */ |                                      \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 16) /* CEU */ |                                      \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 26) /* CANFD1 */ |                                   \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 27) /* CANFD0 */ |                                   \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 31) /* RSIP7 */)
+	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 0) |                                       \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 1) |                                       \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 7) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 8) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 11) |                                    \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 12) |                                    \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 13) |                                      \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 16) |                                      \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 26) |                                   \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 27) |                                   \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 31))
 #endif
 #ifndef BSP_TZ_CFG_PSARD
 #define BSP_TZ_CFG_PSARD                                                                           \
-	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 4) /* AGT1 */ |                                      \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 5) /* AGT0 */ |                                      \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 11) /* POEG3 */ |                                    \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 12) /* POEG2 */ |                                    \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 13) /* POEG1 */ |                                    \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 14) /* POEG0 */ |                                    \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 15) /* ADC121 */ |                                   \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 16) /* ADC120 */ |                                   \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 20) /* DAC120 */ |                                   \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 22) /* TSN */ |                                      \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 27) /* ACMPHS1 */ |                                  \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 28) /* ACMPHS0 */)
+	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 4) |                                      \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 5) |                                      \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 11) |                                    \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 12) |                                    \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 13) |                                    \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 14) |                                    \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 15) |                                   \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 16) |                                   \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 20) |                                   \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 22) |                                      \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 27) |                                  \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 28))
 #endif
 #ifndef BSP_TZ_CFG_PSARE
 #define BSP_TZ_CFG_PSARE                                                                           \
-	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 1) /* WDT */ |                                       \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 2) /* IWDT */ |                                      \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 3) /* RTC */ |                                       \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 8) /* ULPT1 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 9) /* ULPT0 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 18) /* GPT13 */ |                                    \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 19) /* GPT12 */ |                                    \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 20) /* GPT11 */ |                                    \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 21) /* GPT10 */ |                                    \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 22) /* GPT9 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 23) /* GPT8 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 24) /* GPT7 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 25) /* GPT6 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 26) /* GPT5 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 27) /* GPT4 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 28) /* GPT3 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 29) /* GPT2 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 30) /* GPT1 */ |                                     \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 31) /* GPT0 */)
+	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 1) |                                       \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 2) |                                      \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 3) |                                       \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 8) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 9) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 18) |                                    \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 19) |                                    \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 20) |                                    \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 21) |                                    \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 22) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 23) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 24) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 25) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 26) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 27) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 28) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 29) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 30) |                                     \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 31))
 #endif
 #ifndef BSP_TZ_CFG_MSSAR
 #define BSP_TZ_CFG_MSSAR                                                                           \
-	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 22) /* DTC_DMAC */ |                                 \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 31) /* ELC */)
+	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 22) |                                 \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 31))
 #endif
 
 /* Type 2 Peripheral Security Attribution */
@@ -215,40 +215,40 @@
 /* Security attribution for registers for IRQ channels. */
 #ifndef BSP_TZ_CFG_ICUSARA
 #define BSP_TZ_CFG_ICUSARA                                                                         \
-	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 0U) /* External IRQ0 */ |                            \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 1U) /* External IRQ1 */ |                            \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 2U) /* External IRQ2 */ |                            \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 3U) /* External IRQ3 */ |                            \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 4U) /* External IRQ4 */ |                            \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 5U) /* External IRQ5 */ |                            \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 6U) /* External IRQ6 */ |                            \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 7U) /* External IRQ7 */ |                            \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 8U) /* External IRQ8 */ |                            \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 9U) /* External IRQ9 */ |                            \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 10U) /* External IRQ10 */ |                          \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 11U) /* External IRQ11 */ |                          \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 12U) /* External IRQ12 */ |                          \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 13U) /* External IRQ13 */ |                          \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 14U) /* External IRQ14 */ |                          \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 15U) /* External IRQ15 */)
+	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 0U) |                            \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 1U) |                            \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 2U) |                            \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 3U) |                            \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 4U) |                            \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 5U) |                            \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 6U) |                            \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 7U) |                            \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 8U) |                            \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 9U) |                            \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 10U) |                          \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 11U) |                          \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 12U) |                          \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 13U) |                          \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 14U) |                          \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 15U))
 #endif
 
 /* Security attribution for NMI registers. */
 #ifndef BSP_TZ_CFG_ICUSARB
-#define BSP_TZ_CFG_ICUSARB (0 | 0xFFFFFFFEU) /* Should match AIRCR.BFHFNMINS. */
+#define BSP_TZ_CFG_ICUSARB (0 | 0xFFFFFFFEU)
 #endif
 
 /* Security attribution for registers for DMAC channels */
 #ifndef BSP_TZ_CFG_DMACCHSAR
 #define BSP_TZ_CFG_DMACCHSAR                                                                       \
-	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 0U) /* DMAC Channel 0 */ |                           \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 1U) /* DMAC Channel 1 */ |                           \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 2U) /* DMAC Channel 2 */ |                           \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 3U) /* DMAC Channel 3 */ |                           \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 4U) /* DMAC Channel 4 */ |                           \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 5U) /* DMAC Channel 5 */ |                           \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 6U) /* DMAC Channel 6 */ |                           \
-	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 7U) /* DMAC Channel 7 */)
+	((((RA_NOT_DEFINED > 0) ? 0U : 1U) << 0U) |                           \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 1U) |                           \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 2U) |                           \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 3U) |                           \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 4U) |                           \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 5U) |                           \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 6U) |                           \
+	 (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 7U))
 #endif
 
 /* Security attribution registers for WUPEN0. */
@@ -286,11 +286,11 @@
  * reason for nonsecure applications to access FLWT and FCKMHZ.
  */
 #define BSP_TZ_CFG_FSAR                                                                            \
-	(((BSP_CFG_CLOCKS_SECURE == 0) ? (1U << 0) : 0U) | /* FLWTSA */                            \
-	 ((RA_NOT_DEFINED) > 0 ? 0U : (1U << 1)) |         /* FCACHESA */                          \
-	 ((BSP_CFG_CLOCKS_SECURE == 0) ? (1U << 8) : 0U) | /* FCKMHZSA */                          \
-	 ((RA_NOT_DEFINED) > 0 ? 0U : (1U << 9U)) |        /* FACICMISA */                         \
-	 ((RA_NOT_DEFINED) > 0 ? 0U : (1U << 10U)) /* FACICMRSA */)
+	(((BSP_CFG_CLOCKS_SECURE == 0) ? (1U << 0) : 0U) |                            \
+	 ((RA_NOT_DEFINED) > 0 ? 0U : (1U << 1)) |                          \
+	 ((BSP_CFG_CLOCKS_SECURE == 0) ? (1U << 8) : 0U) |                          \
+	 ((RA_NOT_DEFINED) > 0 ? 0U : (1U << 9U)) |                         \
+	 ((RA_NOT_DEFINED) > 0 ? 0U : (1U << 10U)))
 #endif
 
 /* Security attribution for SRAM registers. */
@@ -299,10 +299,10 @@
  * applications to access SRAM0WTEN and therefore there is no reason to access PRCR2.
  */
 #define BSP_TZ_CFG_SRAMSAR                                                                         \
-	(((1U) << 0U) | /* SRAMSA0 */                                                              \
-	 ((1U) << 1U) | /* SRAMSA1 */                                                              \
-	 ((1U) << 7U) | /* STBRAMSA */                                                             \
-	 ((BSP_CFG_CLOCKS_SECURE == 0) ? (1U << 8U) : 0U) /* SRAMWTSA */)
+	(((1U) << 0U) |                                                              \
+	 ((1U) << 1U) |                                                              \
+	 ((1U) << 7U) |                                                             \
+	 ((BSP_CFG_CLOCKS_SECURE == 0) ? (1U << 8U) : 0U))
 #endif
 
 /* Security attribution for the DMAC Bus Master MPU settings. */
@@ -329,9 +329,16 @@
 #define BSP_TZ_CFG_NON_SECURE_APPLICATION_FALLBACK (1U)
 #endif
 
+/* OFS0 WDT configurations */
+#ifdef CONFIG_WDT_RENESAS_RA_START_IN_BOOT
+#define WDTSTRT    (0)
+#else
+#define WDTSTRT    (1)
+#endif
+
 #define OFS_SEQ1             0xA001A001 | (1 << 1) | (3 << 2)
 #define OFS_SEQ2             (15 << 4) | (3 << 8) | (3 << 10)
-#define OFS_SEQ3             (1 << 12) | (1 << 14) | (1 << 17)
+#define OFS_SEQ3             (1 << 12) | (1 << 14) | (WDTSTRT << 17)
 #define OFS_SEQ4             (3 << 18) | (15 << 20) | (3 << 24) | (3 << 26)
 #define OFS_SEQ5             (1 << 28) | (1 << 30)
 #define BSP_CFG_ROM_REG_OFS0 (OFS_SEQ1 | OFS_SEQ2 | OFS_SEQ3 | OFS_SEQ4 | OFS_SEQ5)
@@ -355,7 +362,7 @@
 
 /* Used to create IELS values for the interrupt initialization table g_interrupt_event_link_select.
  */
-#define BSP_PRV_IELS_ENUM(vector) (ELC_##vector)
+#define BSP_PRV_IELS_ENUM(vector) CONCAT(ELC_, vector)
 
 /* Dual Mode Select Register */
 #ifndef BSP_CFG_ROM_REG_DUALSEL
@@ -570,7 +577,7 @@
 #endif
 
 #ifndef BSP_CFG_DCACHE_ENABLED
-#define BSP_CFG_DCACHE_ENABLED (0)
+#define BSP_CFG_DCACHE_ENABLED (CONFIG_DCACHE)
 #endif
 
 /* SDRAM controller configuration */

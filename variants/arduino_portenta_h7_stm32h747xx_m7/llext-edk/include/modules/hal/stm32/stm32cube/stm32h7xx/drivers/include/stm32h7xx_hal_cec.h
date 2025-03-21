@@ -113,7 +113,7 @@ typedef struct
   uint16_t  OwnAddress;                  /*!< Own addresses configuration
                                               This parameter can be a value of CEC_OWN_ADDRESS */
 
-  uint8_t  *RxBuffer;                    /*!< CEC Rx buffer pointer */
+  uint8_t  *RxBuffer;
 
 
 } CEC_InitTypeDef;
@@ -169,17 +169,17 @@ typedef struct __CEC_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_CEC_REGISTER_CALLBACKS */
 {
-  CEC_TypeDef             *Instance;      /*!< CEC registers base address                                 */
+  CEC_TypeDef             *Instance;
 
-  CEC_InitTypeDef         Init;           /*!< CEC communication parameters                               */
+  CEC_InitTypeDef         Init;
 
-  const uint8_t           *pTxBuffPtr;    /*!< Pointer to CEC Tx transfer Buffer                          */
+  const uint8_t           *pTxBuffPtr;
 
-  uint16_t                TxXferCount;    /*!< CEC Tx Transfer Counter                                    */
+  uint16_t                TxXferCount;
 
-  uint16_t                RxXferSize;     /*!< CEC Rx Transfer size, 0: header received only              */
+  uint16_t                RxXferSize;
 
-  HAL_LockTypeDef         Lock;           /*!< Locking object                                             */
+  HAL_LockTypeDef         Lock;
 
   HAL_CEC_StateTypeDef    gState;         /*!< CEC state information related to global Handle management
                                                and also related to Tx operations.
@@ -193,13 +193,13 @@ typedef struct
 
 #if (USE_HAL_CEC_REGISTER_CALLBACKS == 1)
   void (* TxCpltCallback)(struct __CEC_HandleTypeDef
-                          *hcec);                                /*!< CEC Tx Transfer completed callback  */
+                          *hcec);
   void (* RxCpltCallback)(struct __CEC_HandleTypeDef *hcec,
-                          uint32_t RxFrameSize);                 /*!< CEC Rx Transfer completed callback  */
-  void (* ErrorCallback)(struct __CEC_HandleTypeDef *hcec);      /*!< CEC error callback                  */
+                          uint32_t RxFrameSize);
+  void (* ErrorCallback)(struct __CEC_HandleTypeDef *hcec);
 
-  void (* MspInitCallback)(struct __CEC_HandleTypeDef *hcec);    /*!< CEC Msp Init callback               */
-  void (* MspDeInitCallback)(struct __CEC_HandleTypeDef *hcec);  /*!< CEC Msp DeInit callback             */
+  void (* MspInitCallback)(struct __CEC_HandleTypeDef *hcec);
+  void (* MspDeInitCallback)(struct __CEC_HandleTypeDef *hcec);
 
 #endif /* (USE_HAL_CEC_REGISTER_CALLBACKS) */
 } CEC_HandleTypeDef;
@@ -210,17 +210,17 @@ typedef struct
   */
 typedef enum
 {
-  HAL_CEC_TX_CPLT_CB_ID      = 0x00U,    /*!< CEC Tx Transfer completed callback ID  */
-  HAL_CEC_RX_CPLT_CB_ID      = 0x01U,    /*!< CEC Rx Transfer completed callback ID  */
-  HAL_CEC_ERROR_CB_ID        = 0x02U,    /*!< CEC error callback ID                  */
-  HAL_CEC_MSPINIT_CB_ID      = 0x03U,    /*!< CEC Msp Init callback ID               */
-  HAL_CEC_MSPDEINIT_CB_ID    = 0x04U     /*!< CEC Msp DeInit callback ID             */
+  HAL_CEC_TX_CPLT_CB_ID      = 0x00U,
+  HAL_CEC_RX_CPLT_CB_ID      = 0x01U,
+  HAL_CEC_ERROR_CB_ID        = 0x02U,
+  HAL_CEC_MSPINIT_CB_ID      = 0x03U,
+  HAL_CEC_MSPDEINIT_CB_ID    = 0x04U
 } HAL_CEC_CallbackIDTypeDef;
 
 /**
   * @brief  HAL CEC Callback pointer definition
   */
-typedef  void (*pCEC_CallbackTypeDef)(CEC_HandleTypeDef *hcec);  /*!< pointer to an CEC callback function */
+typedef  void (*pCEC_CallbackTypeDef)(CEC_HandleTypeDef *hcec);
 typedef  void (*pCEC_RxCallbackTypeDef)(CEC_HandleTypeDef *hcec,
                                         uint32_t RxFrameSize);  /*!< pointer to an Rx Transfer completed
                                                                      callback function */
@@ -248,25 +248,25 @@ typedef  void (*pCEC_RxCallbackTypeDef)(CEC_HandleTypeDef *hcec,
                                                                  Value is allowed for gState only         */
 #define   HAL_CEC_STATE_BUSY_RX_TX ((uint32_t)0x00000023)   /*!< an internal process is ongoing
                                                                  Value is allowed for gState only         */
-#define   HAL_CEC_STATE_ERROR      ((uint32_t)0x00000050)   /*!< Error Value is allowed for gState only   */
+#define   HAL_CEC_STATE_ERROR      ((uint32_t)0x00000050)
 /**
   * @}
   */
 /** @defgroup CEC_Error_Code CEC Error Code
   * @{
   */
-#define HAL_CEC_ERROR_NONE    (uint32_t) 0x0000U     /*!< no error                      */
-#define HAL_CEC_ERROR_RXOVR   CEC_ISR_RXOVR          /*!< CEC Rx-Overrun                */
-#define HAL_CEC_ERROR_BRE     CEC_ISR_BRE            /*!< CEC Rx Bit Rising Error       */
-#define HAL_CEC_ERROR_SBPE    CEC_ISR_SBPE           /*!< CEC Rx Short Bit period Error */
-#define HAL_CEC_ERROR_LBPE    CEC_ISR_LBPE           /*!< CEC Rx Long Bit period Error  */
-#define HAL_CEC_ERROR_RXACKE  CEC_ISR_RXACKE         /*!< CEC Rx Missing Acknowledge    */
-#define HAL_CEC_ERROR_ARBLST  CEC_ISR_ARBLST         /*!< CEC Arbitration Lost          */
-#define HAL_CEC_ERROR_TXUDR   CEC_ISR_TXUDR          /*!< CEC Tx-Buffer Underrun        */
-#define HAL_CEC_ERROR_TXERR   CEC_ISR_TXERR          /*!< CEC Tx-Error                  */
-#define HAL_CEC_ERROR_TXACKE  CEC_ISR_TXACKE         /*!< CEC Tx Missing Acknowledge    */
+#define HAL_CEC_ERROR_NONE    (uint32_t) 0x0000U
+#define HAL_CEC_ERROR_RXOVR   CEC_ISR_RXOVR
+#define HAL_CEC_ERROR_BRE     CEC_ISR_BRE
+#define HAL_CEC_ERROR_SBPE    CEC_ISR_SBPE
+#define HAL_CEC_ERROR_LBPE    CEC_ISR_LBPE
+#define HAL_CEC_ERROR_RXACKE  CEC_ISR_RXACKE
+#define HAL_CEC_ERROR_ARBLST  CEC_ISR_ARBLST
+#define HAL_CEC_ERROR_TXUDR   CEC_ISR_TXUDR
+#define HAL_CEC_ERROR_TXERR   CEC_ISR_TXERR
+#define HAL_CEC_ERROR_TXACKE  CEC_ISR_TXACKE
 #if (USE_HAL_CEC_REGISTER_CALLBACKS == 1)
-#define  HAL_CEC_ERROR_INVALID_CALLBACK ((uint32_t)0x00002000U) /*!< Invalid Callback Error  */
+#define  HAL_CEC_ERROR_INVALID_CALLBACK ((uint32_t)0x00002000U)
 #endif /* USE_HAL_CEC_REGISTER_CALLBACKS */
 /**
   * @}
@@ -369,22 +369,22 @@ typedef  void (*pCEC_RxCallbackTypeDef)(CEC_HandleTypeDef *hcec,
 /** @defgroup CEC_OWN_ADDRESS   CEC Own Address
   * @{
   */
-#define CEC_OWN_ADDRESS_NONE           ((uint16_t) 0x0000U)   /* Reset value        */
-#define CEC_OWN_ADDRESS_0              ((uint16_t) 0x0001U)   /* Logical Address 0  */
-#define CEC_OWN_ADDRESS_1              ((uint16_t) 0x0002U)   /* Logical Address 1  */
-#define CEC_OWN_ADDRESS_2              ((uint16_t) 0x0004U)   /* Logical Address 2  */
-#define CEC_OWN_ADDRESS_3              ((uint16_t) 0x0008U)   /* Logical Address 3  */
-#define CEC_OWN_ADDRESS_4              ((uint16_t) 0x0010U)   /* Logical Address 4  */
-#define CEC_OWN_ADDRESS_5              ((uint16_t) 0x0020U)   /* Logical Address 5  */
-#define CEC_OWN_ADDRESS_6              ((uint16_t) 0x0040U)   /* Logical Address 6  */
-#define CEC_OWN_ADDRESS_7              ((uint16_t) 0x0080U)   /* Logical Address 7  */
-#define CEC_OWN_ADDRESS_8              ((uint16_t) 0x0100U)   /* Logical Address 9  */
-#define CEC_OWN_ADDRESS_9              ((uint16_t) 0x0200U)   /* Logical Address 10 */
-#define CEC_OWN_ADDRESS_10             ((uint16_t) 0x0400U)   /* Logical Address 11 */
-#define CEC_OWN_ADDRESS_11             ((uint16_t) 0x0800U)   /* Logical Address 12 */
-#define CEC_OWN_ADDRESS_12             ((uint16_t) 0x1000U)   /* Logical Address 13 */
-#define CEC_OWN_ADDRESS_13             ((uint16_t) 0x2000U)   /* Logical Address 14 */
-#define CEC_OWN_ADDRESS_14             ((uint16_t) 0x4000U)   /* Logical Address 15 */
+#define CEC_OWN_ADDRESS_NONE           ((uint16_t) 0x0000U)
+#define CEC_OWN_ADDRESS_0              ((uint16_t) 0x0001U)
+#define CEC_OWN_ADDRESS_1              ((uint16_t) 0x0002U)
+#define CEC_OWN_ADDRESS_2              ((uint16_t) 0x0004U)
+#define CEC_OWN_ADDRESS_3              ((uint16_t) 0x0008U)
+#define CEC_OWN_ADDRESS_4              ((uint16_t) 0x0010U)
+#define CEC_OWN_ADDRESS_5              ((uint16_t) 0x0020U)
+#define CEC_OWN_ADDRESS_6              ((uint16_t) 0x0040U)
+#define CEC_OWN_ADDRESS_7              ((uint16_t) 0x0080U)
+#define CEC_OWN_ADDRESS_8              ((uint16_t) 0x0100U)
+#define CEC_OWN_ADDRESS_9              ((uint16_t) 0x0200U)
+#define CEC_OWN_ADDRESS_10             ((uint16_t) 0x0400U)
+#define CEC_OWN_ADDRESS_11             ((uint16_t) 0x0800U)
+#define CEC_OWN_ADDRESS_12             ((uint16_t) 0x1000U)
+#define CEC_OWN_ADDRESS_13             ((uint16_t) 0x2000U)
+#define CEC_OWN_ADDRESS_14             ((uint16_t) 0x4000U)
 /**
   * @}
   */

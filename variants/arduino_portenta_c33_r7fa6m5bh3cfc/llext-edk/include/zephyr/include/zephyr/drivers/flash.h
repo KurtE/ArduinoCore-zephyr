@@ -33,7 +33,7 @@ extern "C" {
 
 #if defined(CONFIG_FLASH_PAGE_LAYOUT)
 struct flash_pages_layout {
-	size_t pages_count; /* count of pages sequence of the same size */
+	size_t pages_count;
 	size_t pages_size;
 };
 #endif /* CONFIG_FLASH_PAGE_LAYOUT */
@@ -418,7 +418,7 @@ __syscall int flash_fill(const struct device *dev, uint8_t val, off_t offset, si
 __syscall int flash_flatten(const struct device *dev, off_t offset, size_t size);
 
 struct flash_pages_info {
-	off_t start_offset; /* offset from the base of flash address */
+	off_t start_offset;
 	size_t size;
 	uint32_t index;
 };

@@ -5,10 +5,10 @@
  */
 
 /* Logic Trigger Numbers. See Trgmux_Ip_Init_PBcfg.h */
-#define TRGMUX_LOGIC_GROUP_0_TRIGGER_0 (0) /* Logic Trigger 0 */
-#define TRGMUX_LOGIC_GROUP_0_TRIGGER_1 (1) /* Logic Trigger 1 */
-#define TRGMUX_LOGIC_GROUP_1_TRIGGER_0 (2) /* Logic Trigger 2 */
-#define TRGMUX_LOGIC_GROUP_1_TRIGGER_1 (3) /* Logic Trigger 3 */
+#define TRGMUX_LOGIC_GROUP_0_TRIGGER_0 (0)
+#define TRGMUX_LOGIC_GROUP_0_TRIGGER_1 (1)
+#define TRGMUX_LOGIC_GROUP_1_TRIGGER_0 (2)
+#define TRGMUX_LOGIC_GROUP_1_TRIGGER_1 (3)
 
 /*-----------------------------------------------
  * TRGMUX HARDWARE TRIGGER INPUT

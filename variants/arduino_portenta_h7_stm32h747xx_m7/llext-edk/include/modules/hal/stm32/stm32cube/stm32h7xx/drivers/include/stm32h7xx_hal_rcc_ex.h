@@ -490,10 +490,10 @@ typedef struct
 /** @defgroup RCC_PLL2_VCI_Range  RCC PLL2 VCI Range
   * @{
   */
-#define RCC_PLL2VCIRANGE_0                RCC_PLLCFGR_PLL2RGE_0        /*!< Clock range frequency between 1 and 2 MHz  */
-#define RCC_PLL2VCIRANGE_1                RCC_PLLCFGR_PLL2RGE_1        /*!< Clock range frequency between 2 and 4 MHz  */
-#define RCC_PLL2VCIRANGE_2                RCC_PLLCFGR_PLL2RGE_2        /*!< Clock range frequency between 4 and 8 MHz  */
-#define RCC_PLL2VCIRANGE_3                RCC_PLLCFGR_PLL2RGE_3        /*!< Clock range frequency between 8 and 16 MHz */
+#define RCC_PLL2VCIRANGE_0                RCC_PLLCFGR_PLL2RGE_0
+#define RCC_PLL2VCIRANGE_1                RCC_PLLCFGR_PLL2RGE_1
+#define RCC_PLL2VCIRANGE_2                RCC_PLLCFGR_PLL2RGE_2
+#define RCC_PLL2VCIRANGE_3                RCC_PLLCFGR_PLL2RGE_3
 
 /**
   * @}
@@ -513,10 +513,10 @@ typedef struct
 /** @defgroup RCC_PLL3_VCI_Range  RCC PLL3 VCI Range
   * @{
   */
-#define RCC_PLL3VCIRANGE_0                RCC_PLLCFGR_PLL3RGE_0         /*!< Clock range frequency between 1 and 2 MHz  */
-#define RCC_PLL3VCIRANGE_1                RCC_PLLCFGR_PLL3RGE_1         /*!< Clock range frequency between 2 and 4 MHz  */
-#define RCC_PLL3VCIRANGE_2                RCC_PLLCFGR_PLL3RGE_2         /*!< Clock range frequency between 4 and 8 MHz  */
-#define RCC_PLL3VCIRANGE_3                RCC_PLLCFGR_PLL3RGE_3         /*!< Clock range frequency between 8 and 16 MHz */
+#define RCC_PLL3VCIRANGE_0                RCC_PLLCFGR_PLL3RGE_0
+#define RCC_PLL3VCIRANGE_1                RCC_PLLCFGR_PLL3RGE_1
+#define RCC_PLL3VCIRANGE_2                RCC_PLLCFGR_PLL3RGE_2
+#define RCC_PLL3VCIRANGE_3                RCC_PLLCFGR_PLL3RGE_3
 
 /**
   * @}
@@ -1124,7 +1124,7 @@ typedef struct
 #else
 #define RCC_SPI45CLKSOURCE_CDPCLK2     (0x00000000U)
 /* aliases */
-#define RCC_SPI45CLKSOURCE_D2PCLK2      RCC_SPI45CLKSOURCE_CDPCLK2  /* D2PCLK2 is used in STM32H74xxx, STM32H75xxx, STM32H72xxx and STM32H73xxx family lines */
+#define RCC_SPI45CLKSOURCE_D2PCLK2      RCC_SPI45CLKSOURCE_CDPCLK2
 #define RCC_SPI45CLKSOURCE_PCLK2        RCC_SPI45CLKSOURCE_CDPCLK2
 #define RCC_SPI45CLKSOURCE_PLL2         RCC_CDCCIP1R_SPI45SEL_0
 #define RCC_SPI45CLKSOURCE_PLL3         RCC_CDCCIP1R_SPI45SEL_1
@@ -1178,7 +1178,7 @@ typedef struct
 #else
 #define RCC_SPI6CLKSOURCE_SRDPCLK4    (0x00000000U)
 /* alias */
-#define RCC_SPI6CLKSOURCE_D3PCLK1      RCC_SPI6CLKSOURCE_SRDPCLK4  /* D3PCLK1 is used in STM32H74xxx, STM32H75xxx, STM32H72xxx and STM32H73xxx family lines */
+#define RCC_SPI6CLKSOURCE_D3PCLK1      RCC_SPI6CLKSOURCE_SRDPCLK4
 #define RCC_SPI6CLKSOURCE_PCLK4        RCC_SPI6CLKSOURCE_SRDPCLK4
 #define RCC_SPI6CLKSOURCE_PLL2         RCC_SRDCCIPR_SPI6SEL_0
 #define RCC_SPI6CLKSOURCE_PLL3         RCC_SRDCCIPR_SPI6SEL_1
@@ -1630,7 +1630,7 @@ typedef struct
 /** @defgroup RCCEx_EXTI_LINE_LSECSS  RCC LSE CSS external interrupt line
   * @{
   */
-#define RCC_EXTI_LINE_LSECSS           EXTI_IMR1_IM18        /*!< External interrupt line 18 connected to the LSE CSS EXTI Line */
+#define RCC_EXTI_LINE_LSECSS           EXTI_IMR1_IM18
 /**
   * @}
   */
@@ -1652,10 +1652,10 @@ typedef struct
 /** @defgroup RCCEx_CRS_SynchroSource RCCEx CRS SynchroSource
   * @{
   */
-#define RCC_CRS_SYNC_SOURCE_PIN       (0x00000000U)                            /*!< Synchro Signal source external pin, Available on STM32H7 Rev.B and above devices only */
-#define RCC_CRS_SYNC_SOURCE_LSE        CRS_CFGR_SYNCSRC_0                      /*!< Synchro Signal source LSE */
-#define RCC_CRS_SYNC_SOURCE_USB1       CRS_CFGR_SYNCSRC_1                      /*!< Synchro Signal source USB1 SOF (default) */
-#define RCC_CRS_SYNC_SOURCE_USB2      (CRS_CFGR_SYNCSRC_1|CRS_CFGR_SYNCSRC_0)  /*!< Synchro Signal source USB2 SOF */
+#define RCC_CRS_SYNC_SOURCE_PIN       (0x00000000U)
+#define RCC_CRS_SYNC_SOURCE_LSE        CRS_CFGR_SYNCSRC_0
+#define RCC_CRS_SYNC_SOURCE_USB1       CRS_CFGR_SYNCSRC_1
+#define RCC_CRS_SYNC_SOURCE_USB2      (CRS_CFGR_SYNCSRC_1|CRS_CFGR_SYNCSRC_0)
 
 
 /**
@@ -1665,14 +1665,14 @@ typedef struct
 /** @defgroup RCCEx_CRS_SynchroDivider RCCEx CRS SynchroDivider
   * @{
   */
-#define RCC_CRS_SYNC_DIV1        (0x00000000U)           /*!< Synchro Signal not divided (default) */
-#define RCC_CRS_SYNC_DIV2        CRS_CFGR_SYNCDIV_0                         /*!< Synchro Signal divided by 2 */
-#define RCC_CRS_SYNC_DIV4        CRS_CFGR_SYNCDIV_1                         /*!< Synchro Signal divided by 4 */
-#define RCC_CRS_SYNC_DIV8        (CRS_CFGR_SYNCDIV_1 | CRS_CFGR_SYNCDIV_0)  /*!< Synchro Signal divided by 8 */
-#define RCC_CRS_SYNC_DIV16       CRS_CFGR_SYNCDIV_2                        /*!< Synchro Signal divided by 16 */
-#define RCC_CRS_SYNC_DIV32       (CRS_CFGR_SYNCDIV_2 | CRS_CFGR_SYNCDIV_0) /*!< Synchro Signal divided by 32 */
-#define RCC_CRS_SYNC_DIV64       (CRS_CFGR_SYNCDIV_2 | CRS_CFGR_SYNCDIV_1) /*!< Synchro Signal divided by 64 */
-#define RCC_CRS_SYNC_DIV128      CRS_CFGR_SYNCDIV                         /*!< Synchro Signal divided by 128 */
+#define RCC_CRS_SYNC_DIV1        (0x00000000U)
+#define RCC_CRS_SYNC_DIV2        CRS_CFGR_SYNCDIV_0
+#define RCC_CRS_SYNC_DIV4        CRS_CFGR_SYNCDIV_1
+#define RCC_CRS_SYNC_DIV8        (CRS_CFGR_SYNCDIV_1 | CRS_CFGR_SYNCDIV_0)
+#define RCC_CRS_SYNC_DIV16       CRS_CFGR_SYNCDIV_2
+#define RCC_CRS_SYNC_DIV32       (CRS_CFGR_SYNCDIV_2 | CRS_CFGR_SYNCDIV_0)
+#define RCC_CRS_SYNC_DIV64       (CRS_CFGR_SYNCDIV_2 | CRS_CFGR_SYNCDIV_1)
+#define RCC_CRS_SYNC_DIV128      CRS_CFGR_SYNCDIV
 /**
   * @}
   */
@@ -1680,8 +1680,8 @@ typedef struct
 /** @defgroup RCCEx_CRS_SynchroPolarity RCCEx CRS SynchroPolarity
   * @{
   */
-#define RCC_CRS_SYNC_POLARITY_RISING   (0x00000000U) /*!< Synchro Active on rising edge (default) */
-#define RCC_CRS_SYNC_POLARITY_FALLING  CRS_CFGR_SYNCPOL        /*!< Synchro Active on falling edge */
+#define RCC_CRS_SYNC_POLARITY_RISING   (0x00000000U)
+#define RCC_CRS_SYNC_POLARITY_FALLING  CRS_CFGR_SYNCPOL
 /**
   * @}
   */
@@ -1698,7 +1698,7 @@ typedef struct
 /** @defgroup RCCEx_CRS_ErrorLimitDefault RCCEx CRS ErrorLimitDefault
   * @{
   */
-#define RCC_CRS_ERRORLIMIT_DEFAULT     (0x00000022U) /*!< Default Frequency error limit */
+#define RCC_CRS_ERRORLIMIT_DEFAULT     (0x00000022U)
 /**
   * @}
   */
@@ -1716,8 +1716,8 @@ typedef struct
 /** @defgroup RCCEx_CRS_FreqErrorDirection RCCEx CRS FreqErrorDirection
   * @{
   */
-#define RCC_CRS_FREQERRORDIR_UP        (0x00000000U)   /*!< Upcounting direction, the actual frequency is above the target */
-#define RCC_CRS_FREQERRORDIR_DOWN      (CRS_ISR_FEDIR) /*!< Downcounting direction, the actual frequency is below the target */
+#define RCC_CRS_FREQERRORDIR_UP        (0x00000000U)
+#define RCC_CRS_FREQERRORDIR_DOWN      (CRS_ISR_FEDIR)
 /**
   * @}
   */
@@ -1725,13 +1725,13 @@ typedef struct
 /** @defgroup RCCEx_CRS_Interrupt_Sources RCCEx CRS Interrupt Sources
   * @{
   */
-#define RCC_CRS_IT_SYNCOK              CRS_CR_SYNCOKIE       /*!< SYNC event OK */
-#define RCC_CRS_IT_SYNCWARN            CRS_CR_SYNCWARNIE     /*!< SYNC warning */
-#define RCC_CRS_IT_ERR                 CRS_CR_ERRIE          /*!< Error */
-#define RCC_CRS_IT_ESYNC               CRS_CR_ESYNCIE        /*!< Expected SYNC */
-#define RCC_CRS_IT_SYNCERR             CRS_CR_ERRIE          /*!< SYNC error */
-#define RCC_CRS_IT_SYNCMISS            CRS_CR_ERRIE          /*!< SYNC missed */
-#define RCC_CRS_IT_TRIMOVF             CRS_CR_ERRIE          /*!< Trimming overflow or underflow */
+#define RCC_CRS_IT_SYNCOK              CRS_CR_SYNCOKIE
+#define RCC_CRS_IT_SYNCWARN            CRS_CR_SYNCWARNIE
+#define RCC_CRS_IT_ERR                 CRS_CR_ERRIE
+#define RCC_CRS_IT_ESYNC               CRS_CR_ESYNCIE
+#define RCC_CRS_IT_SYNCERR             CRS_CR_ERRIE
+#define RCC_CRS_IT_SYNCMISS            CRS_CR_ERRIE
+#define RCC_CRS_IT_TRIMOVF             CRS_CR_ERRIE
 
 /**
   * @}
@@ -1740,13 +1740,13 @@ typedef struct
 /** @defgroup RCCEx_CRS_Flags RCCEx CRS Flags
   * @{
   */
-#define RCC_CRS_FLAG_SYNCOK            CRS_ISR_SYNCOKF       /*!< SYNC event OK flag     */
-#define RCC_CRS_FLAG_SYNCWARN          CRS_ISR_SYNCWARNF     /*!< SYNC warning flag      */
-#define RCC_CRS_FLAG_ERR               CRS_ISR_ERRF          /*!< Error flag        */
-#define RCC_CRS_FLAG_ESYNC             CRS_ISR_ESYNCF        /*!< Expected SYNC flag     */
-#define RCC_CRS_FLAG_SYNCERR           CRS_ISR_SYNCERR       /*!< SYNC error */
-#define RCC_CRS_FLAG_SYNCMISS          CRS_ISR_SYNCMISS      /*!< SYNC missed*/
-#define RCC_CRS_FLAG_TRIMOVF           CRS_ISR_TRIMOVF       /*!< Trimming overflow or underflow */
+#define RCC_CRS_FLAG_SYNCOK            CRS_ISR_SYNCOKF
+#define RCC_CRS_FLAG_SYNCWARN          CRS_ISR_SYNCWARNF
+#define RCC_CRS_FLAG_ERR               CRS_ISR_ERRF
+#define RCC_CRS_FLAG_ESYNC             CRS_ISR_ESYNCF
+#define RCC_CRS_FLAG_SYNCERR           CRS_ISR_SYNCERR
+#define RCC_CRS_FLAG_SYNCMISS          CRS_ISR_SYNCMISS
+#define RCC_CRS_FLAG_TRIMOVF           CRS_ISR_TRIMOVF
 
 /**
   * @}
@@ -4093,7 +4093,7 @@ void     HAL_RCCEx_CRS_ErrorCallback(uint32_t Error);
                                           ((SOURCE) == RCC_I2C1235CLKSOURCE_D2PCLK1) || \
                                           ((SOURCE) == RCC_I2C1235CLKSOURCE_CSI))
 
-#define IS_RCC_I2C123CLKSOURCE    IS_RCC_I2C1235CLKSOURCE  /* For  API Backward compatibility */
+#define IS_RCC_I2C123CLKSOURCE    IS_RCC_I2C1235CLKSOURCE
 #else
 #define IS_RCC_I2C123CLKSOURCE(SOURCE)   (((SOURCE) == RCC_I2C123CLKSOURCE_PLL3)   || \
                                           ((SOURCE) == RCC_I2C123CLKSOURCE_HSI)    || \

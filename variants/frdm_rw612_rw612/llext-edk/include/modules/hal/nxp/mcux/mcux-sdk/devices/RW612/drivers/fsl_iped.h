@@ -36,22 +36,22 @@
 #define FSL_IPED_DRIVER_VERSION (MAKE_VERSION(1, 0, 0))
 /*@}*/
 
-#define kIPED_Region0  (0U)  /*!< IPED region  0 */
-#define kIPED_Region1  (1U)  /*!< IPED region  1 */
-#define kIPED_Region2  (2U)  /*!< IPED region  2 */
-#define kIPED_Region3  (3U)  /*!< IPED region  3 */
-#define kIPED_Region4  (4U)  /*!< IPED region  4 */
-#define kIPED_Region5  (5U)  /*!< IPED region  5 */
-#define kIPED_Region6  (6U)  /*!< IPED region  6 */
-#define kIPED_Region7  (7U)  /*!< IPED region  7 */
-#define kIPED_Region8  (8U)  /*!< IPED region  8 */
-#define kIPED_Region9  (9U)  /*!< IPED region  9 */
-#define kIPED_Region10 (10U) /*!< IPED region 10 */
-#define kIPED_Region11 (11U) /*!< IPED region 11 */
-#define kIPED_Region12 (12U) /*!< IPED region 12 */
-#define kIPED_Region13 (13U) /*!< IPED region 13 */
-#define kIPED_Region14 (14U) /*!< IPED region 14 */
-#define kIPED_Region15 (15U) /*!< IPED region 15 */
+#define kIPED_Region0  (0U)
+#define kIPED_Region1  (1U)
+#define kIPED_Region2  (2U)
+#define kIPED_Region3  (3U)
+#define kIPED_Region4  (4U)
+#define kIPED_Region5  (5U)
+#define kIPED_Region6  (6U)
+#define kIPED_Region7  (7U)
+#define kIPED_Region8  (8U)
+#define kIPED_Region9  (9U)
+#define kIPED_Region10 (10U)
+#define kIPED_Region11 (11U)
+#define kIPED_Region12 (12U)
+#define kIPED_Region13 (13U)
+#define kIPED_Region14 (14U)
+#define kIPED_Region15 (15U)
 typedef uint32_t iped_region_t;
 
 #define kIPED_PrinceRounds12 (0U)

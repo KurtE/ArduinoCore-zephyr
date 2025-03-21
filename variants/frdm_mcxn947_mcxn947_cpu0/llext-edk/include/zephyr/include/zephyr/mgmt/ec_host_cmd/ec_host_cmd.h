@@ -69,15 +69,15 @@ enum ec_host_cmd_status {
 	/** Can't resend response. */
 	EC_HOST_CMD_DUP_UNAVAILABLE = 20,
 
-	EC_HOST_CMD_MAX = UINT16_MAX /* Force enum to be 16 bits. */
+	EC_HOST_CMD_MAX = UINT16_MAX
 } __packed;
 
 enum ec_host_cmd_log_level {
-	EC_HOST_CMD_DEBUG_OFF, /* No Host Command debug output */
-	EC_HOST_CMD_DEBUG_NORMAL, /* Normal output mode; skips repeated commands */
-	EC_HOST_CMD_DEBUG_EVERY, /* Print every command */
-	EC_HOST_CMD_DEBUG_PARAMS, /* ... and print params for request/response */
-	EC_HOST_CMD_DEBUG_MODES /* Number of host command debug modes */
+	EC_HOST_CMD_DEBUG_OFF,
+	EC_HOST_CMD_DEBUG_NORMAL,
+	EC_HOST_CMD_DEBUG_EVERY,
+	EC_HOST_CMD_DEBUG_PARAMS,
+	EC_HOST_CMD_DEBUG_MODES
 };
 
 enum ec_host_cmd_state {

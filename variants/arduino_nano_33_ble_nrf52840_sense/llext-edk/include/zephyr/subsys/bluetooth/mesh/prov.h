@@ -58,8 +58,8 @@
 #define PDU_LEN_START          5
 #define PDU_LEN_PUB_KEY        64
 #define PDU_LEN_INPUT_COMPLETE 0
-#define PDU_LEN_CONFIRM        32 /* Max size */
-#define PDU_LEN_RANDOM         32 /* Max size */
+#define PDU_LEN_CONFIRM        32
+#define PDU_LEN_RANDOM         32
 #define PDU_LEN_DATA           33
 #define PDU_LEN_COMPLETE       0
 #define PDU_LEN_FAILED         1
@@ -68,7 +68,7 @@
 
 #define PROV_ALG_P256          0x00
 
-#define PROV_IO_OOB_SIZE_MAX   8  /* in bytes */
+#define PROV_IO_OOB_SIZE_MAX   8
 
 #define PRIV_KEY_SIZE 32
 #define PUB_KEY_SIZE  PDU_LEN_PUB_KEY
@@ -85,20 +85,20 @@
 #endif
 
 enum {
-	LINK_ACTIVE,            /* Link has been opened */
-	WAIT_NUMBER,            /* Waiting for number input from user */
-	WAIT_STRING,            /* Waiting for string input from user */
-	NOTIFY_INPUT_COMPLETE,  /* Notify that input has been completed. */
-	PROVISIONER,            /* The link was opened as provisioner */
-	OOB_PUB_KEY,            /* OOB Public key used */
-	PUB_KEY_SENT,           /* Public key has been sent */
-	REMOTE_PUB_KEY,         /* Remote key has been received */
-	INPUT_COMPLETE,         /* Device input completed */
-	WAIT_CONFIRM,           /* Wait for send confirm */
-	WAIT_AUTH,              /* Wait for auth response */
-	OOB_STATIC_KEY,         /* OOB Static Authentication */
-	REPROVISION,            /* The link was opened as a reprovision target */
-	COMPLETE,               /* The provisioning process completed. */
+	LINK_ACTIVE,
+	WAIT_NUMBER,
+	WAIT_STRING,
+	NOTIFY_INPUT_COMPLETE,
+	PROVISIONER,
+	OOB_PUB_KEY,
+	PUB_KEY_SENT,
+	REMOTE_PUB_KEY,
+	INPUT_COMPLETE,
+	WAIT_CONFIRM,
+	WAIT_AUTH,
+	OOB_STATIC_KEY,
+	REPROVISION,
+	COMPLETE,
 
 	NUM_FLAGS,
 };
@@ -122,31 +122,31 @@ struct bt_mesh_prov_link {
 	const struct prov_bearer *bearer;
 	const struct bt_mesh_prov_role *role;
 
-	uint16_t addr;                        /* Assigned address */
+	uint16_t addr;
 
-	uint8_t algorithm;                    /* Authen algorithm */
-	uint8_t oob_method;                   /* Authen method */
-	uint8_t oob_action;                   /* Authen action */
-	uint8_t oob_size;                     /* Authen size */
-	uint8_t auth[PROV_AUTH_MAX_LEN];      /* Authen value */
+	uint8_t algorithm;
+	uint8_t oob_method;
+	uint8_t oob_action;
+	uint8_t oob_size;
+	uint8_t auth[PROV_AUTH_MAX_LEN];
 
-	uint8_t dhkey[DH_KEY_SIZE];	          /* Calculated DHKey */
-	uint8_t expect;                       /* Next expected PDU */
+	uint8_t dhkey[DH_KEY_SIZE];
+	uint8_t expect;
 
-	uint8_t conf[PROV_AUTH_MAX_LEN];      /* Local/Remote Confirmation */
-	uint8_t rand[PROV_AUTH_MAX_LEN];      /* Local Random */
+	uint8_t conf[PROV_AUTH_MAX_LEN];
+	uint8_t rand[PROV_AUTH_MAX_LEN];
 
-	uint8_t conf_salt[PROV_AUTH_MAX_LEN]; /* ConfirmationSalt */
-	uint8_t conf_key[PROV_AUTH_MAX_LEN];  /* ConfirmationKey */
+	uint8_t conf_salt[PROV_AUTH_MAX_LEN];
+	uint8_t conf_key[PROV_AUTH_MAX_LEN];
 	/* ConfirmationInput fields: */
 	struct {
 		uint8_t invite[PDU_LEN_INVITE];
 		uint8_t capabilities[PDU_LEN_CAPABILITIES];
 		uint8_t start[PDU_LEN_START];
-		uint8_t pub_key_provisioner[PDU_LEN_PUB_KEY]; /* big-endian */
-		uint8_t pub_key_device[PDU_LEN_PUB_KEY]; /* big-endian */
+		uint8_t pub_key_provisioner[PDU_LEN_PUB_KEY];
+		uint8_t pub_key_device[PDU_LEN_PUB_KEY];
 	} conf_inputs;
-	uint8_t prov_salt[16];                /* Provisioning Salt */
+	uint8_t prov_salt[16];
 };
 
 extern struct bt_mesh_prov_link bt_mesh_prov_link;

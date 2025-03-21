@@ -38,8 +38,8 @@ enum
 /*! @brief OTP Error Status definitions */
 enum
 {
-    kStatus_OTP_InvalidAddress = MAKE_STATUS(kStatusGroup_OtpGroup, 1), /*!< Invalid OTP address */
-    kStatus_OTP_Timeout        = MAKE_STATUS(kStatusGroup_OtpGroup, 7), /*!< OTP operation time out */
+    kStatus_OTP_InvalidAddress = MAKE_STATUS(kStatusGroup_OtpGroup, 1),
+    kStatus_OTP_Timeout        = MAKE_STATUS(kStatusGroup_OtpGroup, 7),
 };
 
 /*******************************************************************************

@@ -60,124 +60,124 @@ extern "C" {
  *       and @ref nrf_stm_feature_set functions.
  */
 typedef enum {
-    NRF_STM_FEATURE_HETER,          /**< Hardware event trigger enable register support. RO */
-    NRF_STM_FEATURE_HEERR,          /**< Hardware event error detection support. RO */
-    NRF_STM_FEATURE_HEMASTR,        /**< Hardware event master number register support. RO */
-    NRF_STM_FEATURE_STM,            /**< Global STM enable. RW */
-    NRF_STM_FEATURE_TSEN,           /**< Timestamping enable. RW */
-    NRF_STM_FEATURE_SYNCEN,         /**< Synchronization control register implemented. RW */
-    NRF_STM_FEATURE_COMPEN,         /**< Compression enable. RW */
-    NRF_STM_FEATURE_BUSY,           /**< STM busy status. RW */
-    NRF_STM_FEATURE_FIFOAF,         /**< Auto-flush enable. RW */
-    NRF_STM_FEATURE_ASYNCPE,        /**< Async priority escalation enable. RW */
-    NRF_STM_FEATURE_PRIORINVDIS,    /**< Priority inversion enable. RW (1) */
-    NRF_STM_FEATURE_CLKON,          /**< Override for architectural clock gate enable. RW */
-    NRF_STM_FEATURE_AFREADYHIGH,    /**< Override for the AFREADY output enable. RW */
-    NRF_STM_FEATURE_TSFREQ,         /**< Timestamp frequency indication configuration. RO */
-    NRF_STM_FEATURE_FORCETS,        /**< timestamp stimulus register support. RO */
-    NRF_STM_FEATURE_TSPRESCALE,     /**< Timestamp prescale support. RO (1) */
-    NRF_STM_FEATURE_HWTEN,          /**< Hardware event trace packet emission support. RO (1) */
-    NRF_STM_FEATURE_SWOEN,          /**< Anynchronous-specific usage model for timestamps support. RO (1) */
-    NRF_STM_FEATURE_SPTER,          /**< Stimulus port trigger enable register support. RO */
-    NRF_STM_FEATURE_SPER,           /**< Stimulus port enable register support. RO (1) */
-    NRF_STM_FEATURE_SPOVERRIDE,     /**< Stimulus port override register support. RO */
-    NRF_STM_FEATURE_PRIVMASK,       /**< Trace privilege register support. RO (1) */
-    NRF_STM_FEATURE_INTEGRATION,    /**< Integration mode enable. RW */
-    NRF_STM_FEATURE_LC_PRESENT,     /**< Lock control mechanism support. RO */
-    NRF_STM_FEATURE_LC_LOCKED,      /**< Lock write access enable. RO */
-    NRF_STM_FEATURE_NSID,           /**< Security for non-secure invasive debug enable. RO */
-    NRF_STM_FEATURE_NSNID,          /**< Security for non-secure non-invasive debug enable. RO */
-    NRF_STM_FEATURE_SID,            /**< Security for secure invasive debug. RO */
-    NRF_STM_FEATURE_SNID,           /**< Security for secure non-invasive debug. RO */
+    NRF_STM_FEATURE_HETER,
+    NRF_STM_FEATURE_HEERR,
+    NRF_STM_FEATURE_HEMASTR,
+    NRF_STM_FEATURE_STM,
+    NRF_STM_FEATURE_TSEN,
+    NRF_STM_FEATURE_SYNCEN,
+    NRF_STM_FEATURE_COMPEN,
+    NRF_STM_FEATURE_BUSY,
+    NRF_STM_FEATURE_FIFOAF,
+    NRF_STM_FEATURE_ASYNCPE,
+    NRF_STM_FEATURE_PRIORINVDIS,
+    NRF_STM_FEATURE_CLKON,
+    NRF_STM_FEATURE_AFREADYHIGH,
+    NRF_STM_FEATURE_TSFREQ,
+    NRF_STM_FEATURE_FORCETS,
+    NRF_STM_FEATURE_TSPRESCALE,
+    NRF_STM_FEATURE_HWTEN,
+    NRF_STM_FEATURE_SWOEN,
+    NRF_STM_FEATURE_SPTER,
+    NRF_STM_FEATURE_SPER,
+    NRF_STM_FEATURE_SPOVERRIDE,
+    NRF_STM_FEATURE_PRIVMASK,
+    NRF_STM_FEATURE_INTEGRATION,
+    NRF_STM_FEATURE_LC_PRESENT,
+    NRF_STM_FEATURE_LC_LOCKED,
+    NRF_STM_FEATURE_NSID,
+    NRF_STM_FEATURE_NSNID,
+    NRF_STM_FEATURE_SID,
+    NRF_STM_FEATURE_SNID,
 } nrf_stm_feature_t;
 
 /** @brief STM outputs. */
 typedef enum {
-    NRF_STM_OUTPUT_TRIGOUTSPTE, /**< Match using STMSPTER trigger event output. */
-    NRF_STM_OUTPUT_TRIGOUTSW,   /**< Write to TRIG location trigger event output. */
-    NRF_STM_OUTPUT_TRIGOUTHETE, /**< Match using STMHETER trigger event output. */
-    NRF_STM_OUTPUT_ASYNCOUT,    /**< Alignment synchronization output. */
-    NRF_STM_OUTPUT_ATDATAM_0,   /**< Trace data ATDATAM[0] output. */
-    NRF_STM_OUTPUT_ATDATAM_7,   /**< Trace data ATDATAM[7] output. */
-    NRF_STM_OUTPUT_ATDATAM_15,  /**< Trace data ATDATAM[15] output. */
-    NRF_STM_OUTPUT_ATDATAM_23,  /**< Trace data ATDATAM[23] output. */
-    NRF_STM_OUTPUT_ATDATAM_31,  /**< Trace data ATDATAM[31] output. */
-    NRF_STM_OUTPUT_ATIDM_0,     /**< Trace source ID bit 0 output. */
-    NRF_STM_OUTPUT_ATIDM_1,     /**< Trace source ID bit 1 output. */
-    NRF_STM_OUTPUT_ATIDM_2,     /**< Trace source ID bit 2 output. */
-    NRF_STM_OUTPUT_ATIDM_3,     /**< Trace source ID bit 3 output. */
-    NRF_STM_OUTPUT_ATIDM_4,     /**< Trace source ID bit 4 output. */
-    NRF_STM_OUTPUT_ATIDM_5,     /**< Trace source ID bit 5 output. */
-    NRF_STM_OUTPUT_ATIDM_6,     /**< Trace source ID bit 6 output. */
-    NRF_STM_OUTPUT_ATVALIDM,    /**< Transfer valid output. */
-    NRF_STM_OUTPUT_AFREADYM,    /**< ATB flush acknowledge output. */
-    NRF_STM_OUTPUT_ATBYTESM_0,  /**< Number of bytes on ATDATA to be captured bit 0 output. */
-    NRF_STM_OUTPUT_ATBYTESM_1,  /**< Number of bytes on ATDATA to be captured bit 1 output. */
+    NRF_STM_OUTPUT_TRIGOUTSPTE,
+    NRF_STM_OUTPUT_TRIGOUTSW,
+    NRF_STM_OUTPUT_TRIGOUTHETE,
+    NRF_STM_OUTPUT_ASYNCOUT,
+    NRF_STM_OUTPUT_ATDATAM_0,
+    NRF_STM_OUTPUT_ATDATAM_7,
+    NRF_STM_OUTPUT_ATDATAM_15,
+    NRF_STM_OUTPUT_ATDATAM_23,
+    NRF_STM_OUTPUT_ATDATAM_31,
+    NRF_STM_OUTPUT_ATIDM_0,
+    NRF_STM_OUTPUT_ATIDM_1,
+    NRF_STM_OUTPUT_ATIDM_2,
+    NRF_STM_OUTPUT_ATIDM_3,
+    NRF_STM_OUTPUT_ATIDM_4,
+    NRF_STM_OUTPUT_ATIDM_5,
+    NRF_STM_OUTPUT_ATIDM_6,
+    NRF_STM_OUTPUT_ATVALIDM,
+    NRF_STM_OUTPUT_AFREADYM,
+    NRF_STM_OUTPUT_ATBYTESM_0,
+    NRF_STM_OUTPUT_ATBYTESM_1,
 } nrf_stm_output_t;
 
 /** @brief STM inputs. */
 typedef enum {
-    NRF_STM_INPUT_ATREADYM, /**< Slave is ready to accept data input. */
-    NRF_STM_INPUT_AFVALIDM, /**< ATB flush request input. */
+    NRF_STM_INPUT_ATREADYM,
+    NRF_STM_INPUT_AFVALIDM,
 } nrf_stm_input_t;
 
 /** @brief Sensitivity of the DMA request to the current buffer level. */
 typedef enum {
-    NRF_STM_DMACTLR_LT25  = STM_DMACTLR_SENS_LT25,  /**< Buffer is <25% full. */
-    NRF_STM_DMACTLR_LT50  = STM_DMACTLR_SENS_LT50,  /**< Buffer is <50% full. */
-    NRF_STM_DMACTLR_LT75  = STM_DMACTLR_SENS_LT75,  /**< Buffer is <75% full. */
-    NRF_STM_DMACTLR_LT100 = STM_DMACTLR_SENS_LT100, /**< Buffer is <100% full. */
+    NRF_STM_DMACTLR_LT25  = STM_DMACTLR_SENS_LT25,
+    NRF_STM_DMACTLR_LT50  = STM_DMACTLR_SENS_LT50,
+    NRF_STM_DMACTLR_LT75  = STM_DMACTLR_SENS_LT75,
+    NRF_STM_DMACTLR_LT100 = STM_DMACTLR_SENS_LT100,
 } nrf_stm_dma_sens_t;
 
 /** @brief Programmer's models. */
 typedef enum {
-    NRF_STM_HEIDR_CLASS_HARDWARE_EVENT_CONTROL = STM_HEIDR_CLASS_HardwareEventControl, /**< Hardware Event Control programmer's model. */
+    NRF_STM_HEIDR_CLASS_HARDWARE_EVENT_CONTROL = STM_HEIDR_CLASS_HardwareEventControl,
 } nrf_stm_heidr_class_t;
 
 /** @brief STM protocols. */
 typedef enum {
-    NRF_STM_SFPEAT1R_PROT_STPV2 = STM_SPFEAT1R_PROT_STPV2, /**< STPv2 protocol. */
+    NRF_STM_SFPEAT1R_PROT_STPV2 = STM_SPFEAT1R_PROT_STPV2,
 } nrf_stm_spfeat1r_prot_t;
 
 /** @brief Timestamp support modes. */
 typedef enum {
-    NRF_STM_SPFEAT1R_TS_ABSOLUTE = STM_SPFEAT1R_TS_Absolute, /**< Absolute timestaps implemented. */
+    NRF_STM_SPFEAT1R_TS_ABSOLUTE = STM_SPFEAT1R_TS_Absolute,
 } nrf_stm_spfeat1r_ts_t;
 
 /** @brief STMTCSR.SYNCEN support modes. */
 typedef enum {
-    NRF_STM_SPFEAT1R_SYNCEN_READ_AS_ONE = STM_SPFEAT1R_SYNCEN_ReadAsOne, /**< STMTCSR.SYNCEN implemented, but always reads as 1. */
+    NRF_STM_SPFEAT1R_SYNCEN_READ_AS_ONE = STM_SPFEAT1R_SYNCEN_ReadAsOne,
 } nrf_stm_spfeat1r_syncen_t;
 
 /** @brief Data compression on stimulus port support modes. */
 typedef enum {
-    NRF_STM_SPFEAT2R_SPCOMP_PROGRAMMABLE = STM_SPFEAT2R_SPCOMP_Programmable, /**< Data compression support is programmable. */
+    NRF_STM_SPFEAT2R_SPCOMP_PROGRAMMABLE = STM_SPFEAT2R_SPCOMP_Programmable,
 } nrf_stm_spfeat2r_spcomp_t;
 
 /** @brief Stimulus port transaction type support modes. */
 typedef enum {
-    NRF_STM_SPFEAT2R_SPTRTYPE_INVARIANT_AND_GUARANTEED = STM_SPFEAT2R_SPTRTYPE_InvariantAndGuaranteed, /**< Both invariant timing and guaranteed transactions are supported. */
+    NRF_STM_SPFEAT2R_SPTRTYPE_INVARIANT_AND_GUARANTEED = STM_SPFEAT2R_SPTRTYPE_InvariantAndGuaranteed,
 } nrf_stm_spfeat2r_sptrtype_t;
 
 /** @brief Fundamental data size modes. */
 typedef enum {
-    NRF_STM_SPFEAT2R_DSIZE_32 = STM_SPFEAT2R_DSIZE_Bits32, /**< 32-bit data. */
+    NRF_STM_SPFEAT2R_DSIZE_32 = STM_SPFEAT2R_DSIZE_Bits32,
 } nrf_stm_spfeat2r_dsize_t;
 
 /** @brief Lock Access Register implementation modes. */
 typedef enum {
-    NRF_STM_LSR_TYPE_8  = STM_LSR_TYPE_Bits8,   /**< 8-bit Lock Access Register implemented. */
-    NRF_STM_LSR_TYPE_32 = STM_LSR_TYPE_Bits32,  /**< 32-bit Lock Access Register implemented. */
+    NRF_STM_LSR_TYPE_8  = STM_LSR_TYPE_Bits8,
+    NRF_STM_LSR_TYPE_32 = STM_LSR_TYPE_Bits32,
 } nrf_stm_lsr_type_t;
 
 /** Major classification grouping for this debug or trace component. */
 typedef enum {
-    NRF_STM_DEVTYPE_MAJOR_TRACE_SOURCE = STM_DEVTYPE_MAJOR_TraceSource, /**< Peripheral is a trace source. */
+    NRF_STM_DEVTYPE_MAJOR_TRACE_SOURCE = STM_DEVTYPE_MAJOR_TraceSource,
 } nrf_stm_devtype_major_t;
 
 /** Sub-classification for this debug or trace component. */
 typedef enum {
-    NRF_STM_DEVTYPE_SUB_STIMULUS_TRACE = STM_DEVTYPE_SUB_StimulusTrace, /**< Peripheral is a stimulus trace source. */
+    NRF_STM_DEVTYPE_SUB_STIMULUS_TRACE = STM_DEVTYPE_SUB_StimulusTrace,
 } nrf_stm_devtype_sub_t;
 
 /**

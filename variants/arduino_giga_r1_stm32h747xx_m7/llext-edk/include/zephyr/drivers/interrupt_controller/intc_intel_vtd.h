@@ -46,10 +46,10 @@ union vtd_irte {
  * And since we allow only 256 entries as a maximum: let's align to it.
  */
 #define IRTE_NUM 256
-#define IRTA_SIZE 7  /* size = 2^(X+1) where IRTA_SIZE is X 2^8 = 256 */
+#define IRTA_SIZE 7
 
-#define QI_NUM 256 /* Which is the minimal number we can set for the queue */
-#define QI_SIZE 0 /* size = 2^(X+8) where QI_SIZE is X: 2^8 = 256 */
+#define QI_NUM 256
+#define QI_SIZE 0
 #define QI_WIDTH 128
 
 struct qi_descriptor {

@@ -88,51 +88,51 @@ typedef struct
 /** @defgroup TIMEx_Remap TIM Extended Remapping
   * @{
   */
-#define TIM_TIM1_ETR_GPIO        0x00000000U                                                 /*!< TIM1_ETR is connected to GPIO */
-#define TIM_TIM1_ETR_COMP1       TIM1_AF1_ETRSEL_0                                           /*!< TIM1_ETR is connected to COMP1 OUT */
-#define TIM_TIM1_ETR_COMP2       TIM1_AF1_ETRSEL_1                                           /*!< TIM1_ETR is connected to COMP2 OUT */
-#define TIM_TIM1_ETR_ADC1_AWD1   (TIM1_AF1_ETRSEL_1 | TIM1_AF1_ETRSEL_0)                     /*!< TIM1_ETR is connected to ADC1 AWD1 */
-#define TIM_TIM1_ETR_ADC1_AWD2   (TIM1_AF1_ETRSEL_2)                                         /*!< TIM1_ETR is connected to ADC1 AWD2 */
-#define TIM_TIM1_ETR_ADC1_AWD3   (TIM1_AF1_ETRSEL_2 | TIM1_AF1_ETRSEL_0)                     /*!< TIM1_ETR is connected to ADC1 AWD3 */
-#define TIM_TIM1_ETR_ADC3_AWD1   (TIM1_AF1_ETRSEL_2 | TIM1_AF1_ETRSEL_1)                     /*!< TIM1_ETR is connected to ADC3 AWD1 */
-#define TIM_TIM1_ETR_ADC3_AWD2   (TIM1_AF1_ETRSEL_2 | TIM1_AF1_ETRSEL_1 | TIM1_AF1_ETRSEL_0) /*!< TIM1_ETR is connected to ADC3 AWD2 */
-#define TIM_TIM1_ETR_ADC3_AWD3   TIM1_AF1_ETRSEL_3                                           /*!< TIM1_ETR is connected to ADC3 AWD3 */
+#define TIM_TIM1_ETR_GPIO        0x00000000U
+#define TIM_TIM1_ETR_COMP1       TIM1_AF1_ETRSEL_0
+#define TIM_TIM1_ETR_COMP2       TIM1_AF1_ETRSEL_1
+#define TIM_TIM1_ETR_ADC1_AWD1   (TIM1_AF1_ETRSEL_1 | TIM1_AF1_ETRSEL_0)
+#define TIM_TIM1_ETR_ADC1_AWD2   (TIM1_AF1_ETRSEL_2)
+#define TIM_TIM1_ETR_ADC1_AWD3   (TIM1_AF1_ETRSEL_2 | TIM1_AF1_ETRSEL_0)
+#define TIM_TIM1_ETR_ADC3_AWD1   (TIM1_AF1_ETRSEL_2 | TIM1_AF1_ETRSEL_1)
+#define TIM_TIM1_ETR_ADC3_AWD2   (TIM1_AF1_ETRSEL_2 | TIM1_AF1_ETRSEL_1 | TIM1_AF1_ETRSEL_0)
+#define TIM_TIM1_ETR_ADC3_AWD3   TIM1_AF1_ETRSEL_3
 
-#define TIM_TIM8_ETR_GPIO        0x00000000U                                                 /*!< TIM8_ETR is connected to GPIO */
-#define TIM_TIM8_ETR_COMP1       TIM8_AF1_ETRSEL_0                                           /*!< TIM8_ETR is connected to COMP1 OUT */
-#define TIM_TIM8_ETR_COMP2       TIM8_AF1_ETRSEL_1                                           /*!< TIM8_ETR is connected to COMP2 OUT */
-#define TIM_TIM8_ETR_ADC2_AWD1   (TIM8_AF1_ETRSEL_1 | TIM8_AF1_ETRSEL_0)                     /*!< TIM8_ETR is connected to ADC2 AWD1 */
-#define TIM_TIM8_ETR_ADC2_AWD2   (TIM8_AF1_ETRSEL_2)                                         /*!< TIM8_ETR is connected to ADC2 AWD2 */
-#define TIM_TIM8_ETR_ADC2_AWD3   (TIM8_AF1_ETRSEL_2 | TIM8_AF1_ETRSEL_0)                     /*!< TIM8_ETR is connected to ADC2 AWD3 */
-#define TIM_TIM8_ETR_ADC3_AWD1   (TIM8_AF1_ETRSEL_2 | TIM8_AF1_ETRSEL_1)                     /*!< TIM8_ETR is connected to ADC3 AWD1 */
-#define TIM_TIM8_ETR_ADC3_AWD2   (TIM8_AF1_ETRSEL_2 | TIM8_AF1_ETRSEL_1 | TIM8_AF1_ETRSEL_0) /*!< TIM8_ETR is connected to ADC3 AWD2 */
-#define TIM_TIM8_ETR_ADC3_AWD3   TIM8_AF1_ETRSEL_3                                           /*!< TIM8_ETR is connected to ADC3 AWD3 */
+#define TIM_TIM8_ETR_GPIO        0x00000000U
+#define TIM_TIM8_ETR_COMP1       TIM8_AF1_ETRSEL_0
+#define TIM_TIM8_ETR_COMP2       TIM8_AF1_ETRSEL_1
+#define TIM_TIM8_ETR_ADC2_AWD1   (TIM8_AF1_ETRSEL_1 | TIM8_AF1_ETRSEL_0)
+#define TIM_TIM8_ETR_ADC2_AWD2   (TIM8_AF1_ETRSEL_2)
+#define TIM_TIM8_ETR_ADC2_AWD3   (TIM8_AF1_ETRSEL_2 | TIM8_AF1_ETRSEL_0)
+#define TIM_TIM8_ETR_ADC3_AWD1   (TIM8_AF1_ETRSEL_2 | TIM8_AF1_ETRSEL_1)
+#define TIM_TIM8_ETR_ADC3_AWD2   (TIM8_AF1_ETRSEL_2 | TIM8_AF1_ETRSEL_1 | TIM8_AF1_ETRSEL_0)
+#define TIM_TIM8_ETR_ADC3_AWD3   TIM8_AF1_ETRSEL_3
 
-#define TIM_TIM2_ETR_GPIO        0x00000000U                             /*!< TIM2_ETR is connected to GPIO */
-#define TIM_TIM2_ETR_COMP1       (TIM2_AF1_ETRSEL_0)                     /*!< TIM2_ETR is connected to COMP1 OUT */
-#define TIM_TIM2_ETR_COMP2       (TIM2_AF1_ETRSEL_1)                     /*!< TIM2_ETR is connected to COMP2 OUT */
-#define TIM_TIM2_ETR_RCC_LSE     (TIM2_AF1_ETRSEL_1 | TIM8_AF1_ETRSEL_0) /*!< TIM2_ETR is connected to RCC LSE */
-#define TIM_TIM2_ETR_SAI1_FSA    TIM2_AF1_ETRSEL_2                       /*!< TIM2_ETR is connected to SAI1 FS_A */
-#define TIM_TIM2_ETR_SAI1_FSB    (TIM2_AF1_ETRSEL_2 | TIM8_AF1_ETRSEL_0) /*!< TIM2_ETR is connected to SAI1 FS_B */
+#define TIM_TIM2_ETR_GPIO        0x00000000U
+#define TIM_TIM2_ETR_COMP1       (TIM2_AF1_ETRSEL_0)
+#define TIM_TIM2_ETR_COMP2       (TIM2_AF1_ETRSEL_1)
+#define TIM_TIM2_ETR_RCC_LSE     (TIM2_AF1_ETRSEL_1 | TIM8_AF1_ETRSEL_0)
+#define TIM_TIM2_ETR_SAI1_FSA    TIM2_AF1_ETRSEL_2
+#define TIM_TIM2_ETR_SAI1_FSB    (TIM2_AF1_ETRSEL_2 | TIM8_AF1_ETRSEL_0)
 
-#define TIM_TIM3_ETR_GPIO        0x00000000U          /*!< TIM3_ETR is connected to GPIO */
-#define TIM_TIM3_ETR_COMP1       TIM3_AF1_ETRSEL_0    /*!< TIM3_ETR is connected to COMP1 OUT */
+#define TIM_TIM3_ETR_GPIO        0x00000000U
+#define TIM_TIM3_ETR_COMP1       TIM3_AF1_ETRSEL_0
 
-#define TIM_TIM5_ETR_GPIO        0x00000000U          /*!< TIM5_ETR is connected to GPIO */
-#define TIM_TIM5_ETR_SAI2_FSA    TIM5_AF1_ETRSEL_0    /*!< TIM5_ETR is connected to SAI2 FS_A */
-#define TIM_TIM5_ETR_SAI2_FSB    TIM5_AF1_ETRSEL_1    /*!< TIM5_ETR is connected to SAI2 FS_B */
-#define TIM_TIM5_ETR_SAI4_FSA    TIM5_AF1_ETRSEL_0    /*!< TIM5_ETR is connected to SAI4 FS_A */
-#define TIM_TIM5_ETR_SAI4_FSB    TIM5_AF1_ETRSEL_1    /*!< TIM5_ETR is connected to SAI4 FS_B */
+#define TIM_TIM5_ETR_GPIO        0x00000000U
+#define TIM_TIM5_ETR_SAI2_FSA    TIM5_AF1_ETRSEL_0
+#define TIM_TIM5_ETR_SAI2_FSB    TIM5_AF1_ETRSEL_1
+#define TIM_TIM5_ETR_SAI4_FSA    TIM5_AF1_ETRSEL_0
+#define TIM_TIM5_ETR_SAI4_FSB    TIM5_AF1_ETRSEL_1
 
-#define TIM_TIM23_ETR_GPIO       0x00000000U          /*!< TIM23_ETR is connected to GPIO */
-#define TIM_TIM23_ETR_COMP1      (TIM2_AF1_ETRSEL_0)  /*!< TIM23_ETR is connected to COMP1 OUT */
-#define TIM_TIM23_ETR_COMP2      (TIM2_AF1_ETRSEL_1)  /*!< TIM23_ETR is connected to COMP2 OUT */
+#define TIM_TIM23_ETR_GPIO       0x00000000U
+#define TIM_TIM23_ETR_COMP1      (TIM2_AF1_ETRSEL_0)
+#define TIM_TIM23_ETR_COMP2      (TIM2_AF1_ETRSEL_1)
 
-#define TIM_TIM24_ETR_GPIO        0x00000000U                                /*!< TIM24_ETR is connected to GPIO */
-#define TIM_TIM24_ETR_SAI4_FSA    TIM5_AF1_ETRSEL_0                          /*!< TIM24_ETR is connected to SAI4 FS_A */
-#define TIM_TIM24_ETR_SAI4_FSB    TIM5_AF1_ETRSEL_1                          /*!< TIM24_ETR is connected to SAI4 FS_B */
-#define TIM_TIM24_ETR_SAI1_FSA    (TIM2_AF1_ETRSEL_1 | TIM8_AF1_ETRSEL_0)    /*!< TIM24_ETR is connected to SAI1 FS_A */
-#define TIM_TIM24_ETR_SAI1_FSB    TIM2_AF1_ETRSEL_2                          /*!< TIM24_ETR is connected to SAI1 FS_B */
+#define TIM_TIM24_ETR_GPIO        0x00000000U
+#define TIM_TIM24_ETR_SAI4_FSA    TIM5_AF1_ETRSEL_0
+#define TIM_TIM24_ETR_SAI4_FSB    TIM5_AF1_ETRSEL_1
+#define TIM_TIM24_ETR_SAI1_FSA    (TIM2_AF1_ETRSEL_1 | TIM8_AF1_ETRSEL_0)
+#define TIM_TIM24_ETR_SAI1_FSB    TIM2_AF1_ETRSEL_2
 /**
   * @}
   */
@@ -141,8 +141,8 @@ typedef struct
 /** @defgroup TIMEx_Break_Input TIM Extended Break input
   * @{
   */
-#define TIM_BREAKINPUT_BRK     0x00000001U                                      /*!< Timer break input  */
-#define TIM_BREAKINPUT_BRK2    0x00000002U                                      /*!< Timer break2 input */
+#define TIM_BREAKINPUT_BRK     0x00000001U
+#define TIM_BREAKINPUT_BRK2    0x00000002U
 /**
   * @}
   */
@@ -150,10 +150,10 @@ typedef struct
 /** @defgroup TIMEx_Break_Input_Source TIM Extended Break input source
   * @{
   */
-#define TIM_BREAKINPUTSOURCE_BKIN     0x00000001U                               /*!< An external source (GPIO) is connected to the BKIN pin  */
-#define TIM_BREAKINPUTSOURCE_COMP1    0x00000002U                               /*!< The COMP1 output is connected to the break input */
-#define TIM_BREAKINPUTSOURCE_COMP2    0x00000004U                               /*!< The COMP2 output is connected to the break input */
-#define TIM_BREAKINPUTSOURCE_DFSDM1   0x00000008U                               /*!< The analog watchdog output of the DFSDM1 peripheral is connected to the break input */
+#define TIM_BREAKINPUTSOURCE_BKIN     0x00000001U
+#define TIM_BREAKINPUTSOURCE_COMP1    0x00000002U
+#define TIM_BREAKINPUTSOURCE_COMP2    0x00000004U
+#define TIM_BREAKINPUTSOURCE_DFSDM1   0x00000008U
 /**
   * @}
   */
@@ -161,8 +161,8 @@ typedef struct
 /** @defgroup TIMEx_Break_Input_Source_Enable TIM Extended Break input source enabling
   * @{
   */
-#define TIM_BREAKINPUTSOURCE_DISABLE     0x00000000U                            /*!< Break input source is disabled */
-#define TIM_BREAKINPUTSOURCE_ENABLE      0x00000001U                            /*!< Break input source is enabled */
+#define TIM_BREAKINPUTSOURCE_DISABLE     0x00000000U
+#define TIM_BREAKINPUTSOURCE_ENABLE      0x00000001U
 /**
   * @}
   */
@@ -170,8 +170,8 @@ typedef struct
 /** @defgroup TIMEx_Break_Input_Source_Polarity TIM Extended Break input polarity
   * @{
   */
-#define TIM_BREAKINPUTSOURCE_POLARITY_LOW     0x00000001U                       /*!< Break input source is active low */
-#define TIM_BREAKINPUTSOURCE_POLARITY_HIGH    0x00000000U                       /*!< Break input source is active_high */
+#define TIM_BREAKINPUTSOURCE_POLARITY_LOW     0x00000001U
+#define TIM_BREAKINPUTSOURCE_POLARITY_HIGH    0x00000000U
 /**
   * @}
   */
@@ -180,61 +180,61 @@ typedef struct
 /** @defgroup TIMEx_Timer_Input_Selection TIM Extended Timer input selection
   * @{
   */
-#define TIM_TIM1_TI1_GPIO                          0x00000000U                               /*!< TIM1_TI1 is connected to GPIO */
-#define TIM_TIM1_TI1_COMP1                         TIM_TISEL_TI1SEL_0                        /*!< TIM1_TI1 is connected to COMP1 OUT */
+#define TIM_TIM1_TI1_GPIO                          0x00000000U
+#define TIM_TIM1_TI1_COMP1                         TIM_TISEL_TI1SEL_0
 
-#define TIM_TIM8_TI1_GPIO                          0x00000000U                               /*!< TIM8_TI1 is connected to GPIO */
-#define TIM_TIM8_TI1_COMP2                         TIM_TISEL_TI1SEL_0                        /*!< TIM8_TI1 is connected to COMP2 OUT */
+#define TIM_TIM8_TI1_GPIO                          0x00000000U
+#define TIM_TIM8_TI1_COMP2                         TIM_TISEL_TI1SEL_0
 
-#define TIM_TIM2_TI4_GPIO                          0x00000000U                               /*!< TIM2_TI4 is connected to GPIO */
-#define TIM_TIM2_TI4_COMP1                         TIM_TISEL_TI4SEL_0                        /*!< TIM2_TI4 is connected to COMP1 OUT */
-#define TIM_TIM2_TI4_COMP2                         TIM_TISEL_TI4SEL_1                        /*!< TIM2_TI4 is connected to COMP2 OUT */
-#define TIM_TIM2_TI4_COMP1_COMP2                   (TIM_TISEL_TI4SEL_0 | TIM_TISEL_TI4SEL_1) /*!< TIM2_TI4 is connected to COMP2 OUT OR COMP2 OUT */
+#define TIM_TIM2_TI4_GPIO                          0x00000000U
+#define TIM_TIM2_TI4_COMP1                         TIM_TISEL_TI4SEL_0
+#define TIM_TIM2_TI4_COMP2                         TIM_TISEL_TI4SEL_1
+#define TIM_TIM2_TI4_COMP1_COMP2                   (TIM_TISEL_TI4SEL_0 | TIM_TISEL_TI4SEL_1)
 
-#define TIM_TIM3_TI1_GPIO                          0x00000000U                               /*!< TIM3_TI1 is connected to GPIO */
-#define TIM_TIM3_TI1_COMP1                         TIM_TISEL_TI1SEL_0                        /*!< TIM3_TI1 is connected to COMP1 OUT */
-#define TIM_TIM3_TI1_COMP2                         TIM_TISEL_TI1SEL_1                        /*!< TIM3_TI1 is connected to COMP2 OUT */
-#define TIM_TIM3_TI1_COMP1_COMP2                   (TIM_TISEL_TI1SEL_0 | TIM_TISEL_TI1SEL_1) /*!< TIM3_TI1 is connected to COMP1 OUT or COMP2 OUT */
+#define TIM_TIM3_TI1_GPIO                          0x00000000U
+#define TIM_TIM3_TI1_COMP1                         TIM_TISEL_TI1SEL_0
+#define TIM_TIM3_TI1_COMP2                         TIM_TISEL_TI1SEL_1
+#define TIM_TIM3_TI1_COMP1_COMP2                   (TIM_TISEL_TI1SEL_0 | TIM_TISEL_TI1SEL_1)
 
-#define TIM_TIM5_TI1_GPIO                          0x00000000U                               /*!< TIM5_TI1 is connected to GPIO */
-#define TIM_TIM5_TI1_CAN_TMP                       TIM_TISEL_TI1SEL_0                        /*!< TIM5_TI1 is connected to CAN TMP */
-#define TIM_TIM5_TI1_CAN_RTP                       TIM_TISEL_TI1SEL_1                        /*!< TIM5_TI1 is connected to CAN RTP */
+#define TIM_TIM5_TI1_GPIO                          0x00000000U
+#define TIM_TIM5_TI1_CAN_TMP                       TIM_TISEL_TI1SEL_0
+#define TIM_TIM5_TI1_CAN_RTP                       TIM_TISEL_TI1SEL_1
 
-#define TIM_TIM12_TI1_GPIO                         0x00000000U                               /*!< TIM12 TI1 is connected to GPIO */
-#define TIM_TIM12_TI1_SPDIF_FS                     TIM_TISEL_TI1SEL_0                        /*!< TIM12 TI1 is connected to SPDIF FS */
+#define TIM_TIM12_TI1_GPIO                         0x00000000U
+#define TIM_TIM12_TI1_SPDIF_FS                     TIM_TISEL_TI1SEL_0
 
-#define TIM_TIM15_TI1_GPIO                         0x00000000U                               /*!< TIM15_TI1 is connected to GPIO */
-#define TIM_TIM15_TI1_TIM2_CH1                     TIM_TISEL_TI1SEL_0                        /*!< TIM15_TI1 is connected to TIM2 CH1 */
-#define TIM_TIM15_TI1_TIM3_CH1                     TIM_TISEL_TI1SEL_1                        /*!< TIM15_TI1 is connected to TIM3 CH1 */
-#define TIM_TIM15_TI1_TIM4_CH1                     (TIM_TISEL_TI1SEL_0 | TIM_TISEL_TI1SEL_1) /*!< TIM15_TI1 is connected to TIM4 CH1 */
-#define TIM_TIM15_TI1_RCC_LSE                      (TIM_TISEL_TI1SEL_2)                      /*!< TIM15_TI1 is connected to RCC LSE  */
-#define TIM_TIM15_TI1_RCC_CSI                      (TIM_TISEL_TI1SEL_2 | TIM_TISEL_TI1SEL_0) /*!< TIM15_TI1 is connected to RCC CSI  */
-#define TIM_TIM15_TI1_RCC_MCO2                     (TIM_TISEL_TI1SEL_2 | TIM_TISEL_TI1SEL_1) /*!< TIM15_TI1 is connected to RCC MCO2 */
+#define TIM_TIM15_TI1_GPIO                         0x00000000U
+#define TIM_TIM15_TI1_TIM2_CH1                     TIM_TISEL_TI1SEL_0
+#define TIM_TIM15_TI1_TIM3_CH1                     TIM_TISEL_TI1SEL_1
+#define TIM_TIM15_TI1_TIM4_CH1                     (TIM_TISEL_TI1SEL_0 | TIM_TISEL_TI1SEL_1)
+#define TIM_TIM15_TI1_RCC_LSE                      (TIM_TISEL_TI1SEL_2)
+#define TIM_TIM15_TI1_RCC_CSI                      (TIM_TISEL_TI1SEL_2 | TIM_TISEL_TI1SEL_0)
+#define TIM_TIM15_TI1_RCC_MCO2                     (TIM_TISEL_TI1SEL_2 | TIM_TISEL_TI1SEL_1)
 
-#define TIM_TIM15_TI2_GPIO                         0x00000000U                               /*!< TIM15_TI2 is connected to GPIO */
-#define TIM_TIM15_TI2_TIM2_CH2                     (TIM_TISEL_TI2SEL_0)                      /*!< TIM15_TI2 is connected to TIM2 CH2 */
-#define TIM_TIM15_TI2_TIM3_CH2                     (TIM_TISEL_TI2SEL_1)                      /*!< TIM15_TI2 is connected to TIM3 CH2 */
-#define TIM_TIM15_TI2_TIM4_CH2                     (TIM_TISEL_TI2SEL_0 | TIM_TISEL_TI2SEL_1) /*!< TIM15_TI2 is connected to TIM4 CH2 */
+#define TIM_TIM15_TI2_GPIO                         0x00000000U
+#define TIM_TIM15_TI2_TIM2_CH2                     (TIM_TISEL_TI2SEL_0)
+#define TIM_TIM15_TI2_TIM3_CH2                     (TIM_TISEL_TI2SEL_1)
+#define TIM_TIM15_TI2_TIM4_CH2                     (TIM_TISEL_TI2SEL_0 | TIM_TISEL_TI2SEL_1)
 
-#define TIM_TIM16_TI1_GPIO                         0x00000000U                               /*!< TIM16 TI1 is connected to GPIO */
-#define TIM_TIM16_TI1_RCC_LSI                      TIM_TISEL_TI1SEL_0                        /*!< TIM16 TI1 is connected to RCC LSI */
-#define TIM_TIM16_TI1_RCC_LSE                      TIM_TISEL_TI1SEL_1                        /*!< TIM16 TI1 is connected to RCC LSE */
-#define TIM_TIM16_TI1_WKUP_IT                      (TIM_TISEL_TI1SEL_0 | TIM_TISEL_TI1SEL_1) /*!< TIM16 TI1 is connected to WKUP_IT */
+#define TIM_TIM16_TI1_GPIO                         0x00000000U
+#define TIM_TIM16_TI1_RCC_LSI                      TIM_TISEL_TI1SEL_0
+#define TIM_TIM16_TI1_RCC_LSE                      TIM_TISEL_TI1SEL_1
+#define TIM_TIM16_TI1_WKUP_IT                      (TIM_TISEL_TI1SEL_0 | TIM_TISEL_TI1SEL_1)
 
-#define TIM_TIM17_TI1_GPIO                         0x00000000U                               /*!< TIM17 TI1 is connected to GPIO */
-#define TIM_TIM17_TI1_SPDIF_FS                     TIM_TISEL_TI1SEL_0                        /*!< TIM17 TI1 is connected to SPDIF FS */
-#define TIM_TIM17_TI1_RCC_HSE1MHZ                  TIM_TISEL_TI1SEL_1                        /*!< TIM17 TI1 is connected to RCC HSE 1Mhz */
-#define TIM_TIM17_TI1_RCC_MCO1                     (TIM_TISEL_TI1SEL_0 | TIM_TISEL_TI1SEL_1) /*!< TIM17 TI1 is connected to RCC MCO1 */
+#define TIM_TIM17_TI1_GPIO                         0x00000000U
+#define TIM_TIM17_TI1_SPDIF_FS                     TIM_TISEL_TI1SEL_0
+#define TIM_TIM17_TI1_RCC_HSE1MHZ                  TIM_TISEL_TI1SEL_1
+#define TIM_TIM17_TI1_RCC_MCO1                     (TIM_TISEL_TI1SEL_0 | TIM_TISEL_TI1SEL_1)
 
-#define TIM_TIM23_TI4_GPIO                         0x00000000U                               /*!< TIM23_TI4 is connected to GPIO */
-#define TIM_TIM23_TI4_COMP1                        TIM_TISEL_TI4SEL_0                        /*!< TIM23_TI4 is connected to COMP1 OUT */
-#define TIM_TIM23_TI4_COMP2                        TIM_TISEL_TI4SEL_1                        /*!< TIM23_TI4 is connected to COMP2 OUT */
-#define TIM_TIM23_TI4_COMP1_COMP2                  (TIM_TISEL_TI4SEL_0 | TIM_TISEL_TI4SEL_1) /*!< TIM23_TI4 is connected to COMP1 OUT or COMP2 OUT */
+#define TIM_TIM23_TI4_GPIO                         0x00000000U
+#define TIM_TIM23_TI4_COMP1                        TIM_TISEL_TI4SEL_0
+#define TIM_TIM23_TI4_COMP2                        TIM_TISEL_TI4SEL_1
+#define TIM_TIM23_TI4_COMP1_COMP2                  (TIM_TISEL_TI4SEL_0 | TIM_TISEL_TI4SEL_1)
 
-#define TIM_TIM24_TI1_GPIO                         0x00000000U                               /*!< TIM24_TI1 is connected to GPIO */
-#define TIM_TIM24_TI1_CAN_TMP                      TIM_TISEL_TI1SEL_0                        /*!< TIM24_TI1 is connected to CAN TMP  */
-#define TIM_TIM24_TI1_CAN_RTP                      TIM_TISEL_TI1SEL_1                        /*!< TIM24_TI1 is connected to CAN RTP  */
-#define TIM_TIM24_TI1_CAN_SOC                      (TIM_TISEL_TI4SEL_0 | TIM_TISEL_TI4SEL_1) /*!< TIM24_TI1 is connected to CAN SOC */
+#define TIM_TIM24_TI1_GPIO                         0x00000000U
+#define TIM_TIM24_TI1_CAN_TMP                      TIM_TISEL_TI1SEL_0
+#define TIM_TIM24_TI1_CAN_RTP                      TIM_TISEL_TI1SEL_1
+#define TIM_TIM24_TI1_CAN_SOC                      (TIM_TISEL_TI4SEL_0 | TIM_TISEL_TI4SEL_1)
 /**
   * @}
   */

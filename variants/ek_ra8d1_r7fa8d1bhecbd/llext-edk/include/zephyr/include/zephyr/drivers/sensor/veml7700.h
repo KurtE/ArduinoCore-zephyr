@@ -40,10 +40,10 @@ extern "C" {
  * @brief VEML7700 gain options for ambient light measurements.
  */
 enum veml7700_als_gain {
-	VEML7700_ALS_GAIN_1   = 0x00, /* 0b00 */
-	VEML7700_ALS_GAIN_2   = 0x01, /* 0b01 */
-	VEML7700_ALS_GAIN_1_8 = 0x02, /* 0b10 */
-	VEML7700_ALS_GAIN_1_4 = 0x03, /* 0b11 */
+	VEML7700_ALS_GAIN_1   = 0x00,
+	VEML7700_ALS_GAIN_2   = 0x01,
+	VEML7700_ALS_GAIN_1_8 = 0x02,
+	VEML7700_ALS_GAIN_1_4 = 0x03,
 };
 
 /**
@@ -63,10 +63,10 @@ enum veml7700_als_it {
  */
 enum veml7700_int_mode {
 	VEML7700_INT_DISABLED = 0xFF,
-	VEML7700_ALS_PERS_1   = 0x00, /* 0b00 */
-	VEML7700_ALS_PERS_2   = 0x01, /* 0b01 */
-	VEML7700_ALS_PERS_4   = 0x02, /* 0b10 */
-	VEML7700_ALS_PERS_8   = 0x03, /* 0b11 */
+	VEML7700_ALS_PERS_1   = 0x00,
+	VEML7700_ALS_PERS_2   = 0x01,
+	VEML7700_ALS_PERS_4   = 0x02,
+	VEML7700_ALS_PERS_8   = 0x03,
 };
 
 /**

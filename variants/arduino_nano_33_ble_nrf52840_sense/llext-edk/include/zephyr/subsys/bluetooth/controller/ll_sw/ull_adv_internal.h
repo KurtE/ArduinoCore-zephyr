@@ -10,9 +10,9 @@
 #define ULL_ADV_ENABLED_BITMASK_ENABLED  BIT(0)
 
 /* Helper defined to check if Extended Advertising HCI commands used */
-#define LL_ADV_CMDS_ANY    0 /* Any advertising cmd/evt allowed */
-#define LL_ADV_CMDS_LEGACY 1 /* Only legacy advertising cmd/evt allowed */
-#define LL_ADV_CMDS_EXT    2 /* Only extended advertising cmd/evt allowed */
+#define LL_ADV_CMDS_ANY    0
+#define LL_ADV_CMDS_LEGACY 1
+#define LL_ADV_CMDS_EXT    2
 
 /* Helper function to check if Extended Advertising HCI commands used */
 int ll_adv_cmds_is_ext(void);

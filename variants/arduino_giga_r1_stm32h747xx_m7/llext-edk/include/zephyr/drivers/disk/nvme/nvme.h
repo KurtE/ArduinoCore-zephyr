@@ -14,37 +14,37 @@
 #include "nvme_namespace.h"
 
 struct nvme_registers {
-	uint32_t	cap_lo; /* controller capabilities */
+	uint32_t	cap_lo;
 	uint32_t	cap_hi;
-	uint32_t	vs;	/* version */
-	uint32_t	intms;	/* interrupt mask set */
-	uint32_t	intmc;	/* interrupt mask clear */
-	uint32_t	cc;	/* controller configuration */
+	uint32_t	vs;
+	uint32_t	intms;
+	uint32_t	intmc;
+	uint32_t	cc;
 	uint32_t	reserved1;
-	uint32_t	csts;	/* controller status */
-	uint32_t	nssr;	/* NVM Subsystem Reset */
-	uint32_t	aqa;	/* admin queue attributes */
-	uint64_t	asq;	/* admin submission queue base addr */
-	uint64_t	acq;	/* admin completion queue base addr */
-	uint32_t	cmbloc;	/* Controller Memory Buffer Location */
-	uint32_t	cmbsz;	/* Controller Memory Buffer Size */
-	uint32_t	bpinfo;	/* Boot Partition Information */
-	uint32_t	bprsel;	/* Boot Partition Read Select */
-	uint64_t	bpmbl;	/* Boot Partition Memory Buffer Location */
-	uint64_t	cmbmsc;	/* Controller Memory Buffer Memory Space Control */
-	uint32_t	cmbsts;	/* Controller Memory Buffer Status */
-	uint8_t		reserved3[3492]; /* 5Ch - DFFh */
-	uint32_t	pmrcap;	/* Persistent Memory Capabilities */
-	uint32_t	pmrctl;	/* Persistent Memory Region Control */
-	uint32_t	pmrsts;	/* Persistent Memory Region Status */
-	uint32_t	pmrebs;	/* Persistent Memory Region Elasticity Buffer Size */
-	uint32_t	pmrswtp; /* Persistent Memory Region Sustained Write Throughput */
-	uint32_t	pmrmsc_lo; /* Persistent Memory Region Controller Memory Space Control */
+	uint32_t	csts;
+	uint32_t	nssr;
+	uint32_t	aqa;
+	uint64_t	asq;
+	uint64_t	acq;
+	uint32_t	cmbloc;
+	uint32_t	cmbsz;
+	uint32_t	bpinfo;
+	uint32_t	bprsel;
+	uint64_t	bpmbl;
+	uint64_t	cmbmsc;
+	uint32_t	cmbsts;
+	uint8_t		reserved3[3492];
+	uint32_t	pmrcap;
+	uint32_t	pmrctl;
+	uint32_t	pmrsts;
+	uint32_t	pmrebs;
+	uint32_t	pmrswtp;
+	uint32_t	pmrmsc_lo;
 	uint32_t	pmrmsc_hi;
-	uint8_t		reserved4[484]; /* E1Ch - FFFh */
+	uint8_t		reserved4[484];
 	struct {
-		uint32_t	sq_tdbl; /* submission queue tail doorbell */
-		uint32_t	cq_hdbl; /* completion queue head doorbell */
+		uint32_t	sq_tdbl;
+		uint32_t	cq_hdbl;
 	} doorbell[1];
 };
 
@@ -137,10 +137,10 @@ struct nvme_controller_data {
 	uint32_t		rtd3e;
 
 	/** Optional Asynchronous Events Supported */
-	uint32_t		oaes;	/* bitfield really */
+	uint32_t		oaes;
 
 	/** Controller Attributes */
-	uint32_t		ctratt;	/* bitfield really */
+	uint32_t		ctratt;
 
 	/** Read Recovery Levels Supported */
 	uint16_t		rrls;
@@ -216,13 +216,13 @@ struct nvme_controller_data {
 	} __packed untncap;
 
 	/** Replay Protected Memory Block Support */
-	uint32_t		rpmbs; /* Really a bitfield */
+	uint32_t		rpmbs;
 
 	/** Extended Device Self-test Time */
 	uint16_t		edstt;
 
 	/** Device Self-test Options */
-	uint8_t			dsto; /* Really a bitfield */
+	uint8_t			dsto;
 
 	/** Firmware Update Granularity */
 	uint8_t			fwug;
@@ -231,7 +231,7 @@ struct nvme_controller_data {
 	uint16_t		kas;
 
 	/** Host Controlled Thermal Management Attributes */
-	uint16_t		hctma; /* Really a bitfield */
+	uint16_t		hctma;
 
 	/** Minimum Thermal Management Temperature */
 	uint16_t		mntmt;
@@ -240,7 +240,7 @@ struct nvme_controller_data {
 	uint16_t		mxtmt;
 
 	/** Sanitize Capabilities */
-	uint32_t		sanicap; /* Really a bitfield */
+	uint32_t		sanicap;
 
 	/** Host Memory Buffer Minimum Descriptor Entry Size */
 	uint32_t		hmminds;

@@ -132,20 +132,20 @@ extern "C" {
 /** @brief MPC events. */
 typedef enum
 {
-    NRF_MPC_EVENT_MEMACCERR = offsetof(NRF_MPC_Type, EVENTS_MEMACCERR), /**< Memory access error. */
+    NRF_MPC_EVENT_MEMACCERR = offsetof(NRF_MPC_Type, EVENTS_MEMACCERR),
 } nrf_mpc_event_t;
 
 /** @brief MPC interrupts. */
 typedef enum
 {
-    NRF_MPC_INT_MEMACCERR_MASK = MPC_INTENSET_MEMACCERR_Msk, /**< Interrupt on MEMACCERR event. */
+    NRF_MPC_INT_MEMACCERR_MASK = MPC_INTENSET_MEMACCERR_Msk,
 } nrf_mpc_int_mask_t;
 
 /** @brief Error sources. */
 typedef enum
 {
-    NRF_MPC_ERRORSOURCE_SLAVE = MPC_MEMACCERR_INFO_ERRORSOURCE_Slave, /**< Error was triggered by an AXI slave. */
-    NRF_MPC_ERRORSOURCE_MPC   = MPC_MEMACCERR_INFO_ERRORSOURCE_MPC,   /**< Error was triggered by MCP module. */
+    NRF_MPC_ERRORSOURCE_SLAVE = MPC_MEMACCERR_INFO_ERRORSOURCE_Slave,
+    NRF_MPC_ERRORSOURCE_MPC   = MPC_MEMACCERR_INFO_ERRORSOURCE_MPC,
 } nrf_mpc_errorsource_t;
 
 /**
@@ -155,72 +155,72 @@ typedef enum
  */
 typedef enum
 {
-    NRF_MPC_PERM_READ_MASK    = MPC_OVERRIDE_PERM_READ_Msk,    /**< Read access. */
-    NRF_MPC_PERM_WRITE_MASK   = MPC_OVERRIDE_PERM_WRITE_Msk,   /**< Write access. */
-    NRF_MPC_PERM_EXECUTE_MASK = MPC_OVERRIDE_PERM_EXECUTE_Msk, /**< Software execute. */
-    NRF_MPC_PERM_SECURE_MASK  = MPC_OVERRIDE_PERM_SECATTR_Msk, /**< Security mapping. */
+    NRF_MPC_PERM_READ_MASK    = MPC_OVERRIDE_PERM_READ_Msk,
+    NRF_MPC_PERM_WRITE_MASK   = MPC_OVERRIDE_PERM_WRITE_Msk,
+    NRF_MPC_PERM_EXECUTE_MASK = MPC_OVERRIDE_PERM_EXECUTE_Msk,
+    NRF_MPC_PERM_SECURE_MASK  = MPC_OVERRIDE_PERM_SECATTR_Msk,
 } nrf_mpc_permission_mask_t;
 
 #if NRF_MPC_HAS_REGION
 /** @brief Masterport mask. */
 typedef enum
 {
-    NRF_MPC_MASTERPORT_0_MASK  = MPC_REGION_MASTERPORT_ENABLE0_Msk,  /**< Enable master port 0. */
-    NRF_MPC_MASTERPORT_1_MASK  = MPC_REGION_MASTERPORT_ENABLE1_Msk,  /**< Enable master port 1. */
-    NRF_MPC_MASTERPORT_2_MASK  = MPC_REGION_MASTERPORT_ENABLE2_Msk,  /**< Enable master port 2. */
-    NRF_MPC_MASTERPORT_3_MASK  = MPC_REGION_MASTERPORT_ENABLE3_Msk,  /**< Enable master port 3. */
-    NRF_MPC_MASTERPORT_4_MASK  = MPC_REGION_MASTERPORT_ENABLE4_Msk,  /**< Enable master port 4. */
-    NRF_MPC_MASTERPORT_5_MASK  = MPC_REGION_MASTERPORT_ENABLE5_Msk,  /**< Enable master port 5. */
-    NRF_MPC_MASTERPORT_6_MASK  = MPC_REGION_MASTERPORT_ENABLE6_Msk,  /**< Enable master port 6. */
-    NRF_MPC_MASTERPORT_7_MASK  = MPC_REGION_MASTERPORT_ENABLE7_Msk,  /**< Enable master port 7. */
-    NRF_MPC_MASTERPORT_8_MASK  = MPC_REGION_MASTERPORT_ENABLE8_Msk,  /**< Enable master port 8. */
-    NRF_MPC_MASTERPORT_9_MASK  = MPC_REGION_MASTERPORT_ENABLE9_Msk,  /**< Enable master port 9. */
-    NRF_MPC_MASTERPORT_10_MASK = MPC_REGION_MASTERPORT_ENABLE10_Msk, /**< Enable master port 10. */
-    NRF_MPC_MASTERPORT_11_MASK = MPC_REGION_MASTERPORT_ENABLE11_Msk, /**< Enable master port 11. */
+    NRF_MPC_MASTERPORT_0_MASK  = MPC_REGION_MASTERPORT_ENABLE0_Msk,
+    NRF_MPC_MASTERPORT_1_MASK  = MPC_REGION_MASTERPORT_ENABLE1_Msk,
+    NRF_MPC_MASTERPORT_2_MASK  = MPC_REGION_MASTERPORT_ENABLE2_Msk,
+    NRF_MPC_MASTERPORT_3_MASK  = MPC_REGION_MASTERPORT_ENABLE3_Msk,
+    NRF_MPC_MASTERPORT_4_MASK  = MPC_REGION_MASTERPORT_ENABLE4_Msk,
+    NRF_MPC_MASTERPORT_5_MASK  = MPC_REGION_MASTERPORT_ENABLE5_Msk,
+    NRF_MPC_MASTERPORT_6_MASK  = MPC_REGION_MASTERPORT_ENABLE6_Msk,
+    NRF_MPC_MASTERPORT_7_MASK  = MPC_REGION_MASTERPORT_ENABLE7_Msk,
+    NRF_MPC_MASTERPORT_8_MASK  = MPC_REGION_MASTERPORT_ENABLE8_Msk,
+    NRF_MPC_MASTERPORT_9_MASK  = MPC_REGION_MASTERPORT_ENABLE9_Msk,
+    NRF_MPC_MASTERPORT_10_MASK = MPC_REGION_MASTERPORT_ENABLE10_Msk,
+    NRF_MPC_MASTERPORT_11_MASK = MPC_REGION_MASTERPORT_ENABLE11_Msk,
 #if (NRF_MPC_MASTER_PORTS_COUNT > 12)
-    NRF_MPC_MASTERPORT_12_MASK = MPC_REGION_MASTERPORT_ENABLE12_Msk, /**< Enable master port 12. */
-    NRF_MPC_MASTERPORT_13_MASK = MPC_REGION_MASTERPORT_ENABLE13_Msk, /**< Enable master port 13. */
-    NRF_MPC_MASTERPORT_14_MASK = MPC_REGION_MASTERPORT_ENABLE14_Msk, /**< Enable master port 14. */
+    NRF_MPC_MASTERPORT_12_MASK = MPC_REGION_MASTERPORT_ENABLE12_Msk,
+    NRF_MPC_MASTERPORT_13_MASK = MPC_REGION_MASTERPORT_ENABLE13_Msk,
+    NRF_MPC_MASTERPORT_14_MASK = MPC_REGION_MASTERPORT_ENABLE14_Msk,
 #endif
 #if (NRF_MPC_MASTER_PORTS_COUNT > 15)
-    NRF_MPC_MASTERPORT_15_MASK = MPC_REGION_MASTERPORT_ENABLE15_Msk, /**< Enable master port 15. */
-    NRF_MPC_MASTERPORT_16_MASK = MPC_REGION_MASTERPORT_ENABLE16_Msk, /**< Enable master port 16. */
-    NRF_MPC_MASTERPORT_17_MASK = MPC_REGION_MASTERPORT_ENABLE17_Msk, /**< Enable master port 17. */
-    NRF_MPC_MASTERPORT_18_MASK = MPC_REGION_MASTERPORT_ENABLE18_Msk, /**< Enable master port 18. */
-    NRF_MPC_MASTERPORT_19_MASK = MPC_REGION_MASTERPORT_ENABLE19_Msk, /**< Enable master port 19. */
-    NRF_MPC_MASTERPORT_20_MASK = MPC_REGION_MASTERPORT_ENABLE20_Msk, /**< Enable master port 20. */
-    NRF_MPC_MASTERPORT_21_MASK = MPC_REGION_MASTERPORT_ENABLE21_Msk, /**< Enable master port 21. */
-    NRF_MPC_MASTERPORT_22_MASK = MPC_REGION_MASTERPORT_ENABLE22_Msk, /**< Enable master port 22. */
-    NRF_MPC_MASTERPORT_23_MASK = MPC_REGION_MASTERPORT_ENABLE23_Msk, /**< Enable master port 23. */
-    NRF_MPC_MASTERPORT_24_MASK = MPC_REGION_MASTERPORT_ENABLE24_Msk, /**< Enable master port 24. */
-    NRF_MPC_MASTERPORT_25_MASK = MPC_REGION_MASTERPORT_ENABLE25_Msk, /**< Enable master port 25. */
-    NRF_MPC_MASTERPORT_26_MASK = MPC_REGION_MASTERPORT_ENABLE26_Msk, /**< Enable master port 26. */
-    NRF_MPC_MASTERPORT_27_MASK = MPC_REGION_MASTERPORT_ENABLE27_Msk, /**< Enable master port 27. */
-    NRF_MPC_MASTERPORT_28_MASK = MPC_REGION_MASTERPORT_ENABLE28_Msk, /**< Enable master port 28. */
-    NRF_MPC_MASTERPORT_29_MASK = MPC_REGION_MASTERPORT_ENABLE29_Msk, /**< Enable master port 29. */
-    NRF_MPC_MASTERPORT_30_MASK = MPC_REGION_MASTERPORT_ENABLE30_Msk, /**< Enable master port 30. */
-    NRF_MPC_MASTERPORT_31_MASK = MPC_REGION_MASTERPORT_ENABLE31_Msk, /**< Enable master port 31. */
+    NRF_MPC_MASTERPORT_15_MASK = MPC_REGION_MASTERPORT_ENABLE15_Msk,
+    NRF_MPC_MASTERPORT_16_MASK = MPC_REGION_MASTERPORT_ENABLE16_Msk,
+    NRF_MPC_MASTERPORT_17_MASK = MPC_REGION_MASTERPORT_ENABLE17_Msk,
+    NRF_MPC_MASTERPORT_18_MASK = MPC_REGION_MASTERPORT_ENABLE18_Msk,
+    NRF_MPC_MASTERPORT_19_MASK = MPC_REGION_MASTERPORT_ENABLE19_Msk,
+    NRF_MPC_MASTERPORT_20_MASK = MPC_REGION_MASTERPORT_ENABLE20_Msk,
+    NRF_MPC_MASTERPORT_21_MASK = MPC_REGION_MASTERPORT_ENABLE21_Msk,
+    NRF_MPC_MASTERPORT_22_MASK = MPC_REGION_MASTERPORT_ENABLE22_Msk,
+    NRF_MPC_MASTERPORT_23_MASK = MPC_REGION_MASTERPORT_ENABLE23_Msk,
+    NRF_MPC_MASTERPORT_24_MASK = MPC_REGION_MASTERPORT_ENABLE24_Msk,
+    NRF_MPC_MASTERPORT_25_MASK = MPC_REGION_MASTERPORT_ENABLE25_Msk,
+    NRF_MPC_MASTERPORT_26_MASK = MPC_REGION_MASTERPORT_ENABLE26_Msk,
+    NRF_MPC_MASTERPORT_27_MASK = MPC_REGION_MASTERPORT_ENABLE27_Msk,
+    NRF_MPC_MASTERPORT_28_MASK = MPC_REGION_MASTERPORT_ENABLE28_Msk,
+    NRF_MPC_MASTERPORT_29_MASK = MPC_REGION_MASTERPORT_ENABLE29_Msk,
+    NRF_MPC_MASTERPORT_30_MASK = MPC_REGION_MASTERPORT_ENABLE30_Msk,
+    NRF_MPC_MASTERPORT_31_MASK = MPC_REGION_MASTERPORT_ENABLE31_Msk,
 #endif
 } nrf_mpc_masterport_mask_t;
 
 /** @brief Region configuration. */
 typedef struct
 {
-    uint8_t     slave_number; /**< Target slave number. */
-    bool        lock;         /**< Lock region until next reset. */
-    bool        enable;       /**< Enable region. */
-    nrf_owner_t owner;        /**< Owner identifier. */
-    uint32_t    permissions;  /**< Permissions. */
+    uint8_t     slave_number;
+    bool        lock;
+    bool        enable;
+    nrf_owner_t owner;
+    uint32_t    permissions;
 } nrf_mpc_region_config_t;
 #endif // NRF_MPC_HAS_REGION
 
 /** @brief Override region configuration. */
 typedef struct
 {
-    uint8_t slave_number;  /**< Target slave number. */
-    bool    lock;          /**< Lock region until next reset. */
-    bool    enable;        /**< Enable region. */
-    bool    secdom_enable; /**< Enable overriding of secure domain permissions. */
+    uint8_t slave_number;
+    bool    lock;
+    bool    enable;
+    bool    secdom_enable;
     bool    secure_mask;   /**< Secure mask. Read only.
                             *   If set, the bit 28 of the transaction is ignored while address matching. */
 } nrf_mpc_override_config_t;

@@ -51,10 +51,10 @@
  * @brief Pin modes
  */
 
-#define ALTERNATE	0x0  /* Alternate function output */
-#define GPIO_IN		0x1  /* Input */
-#define ANALOG		0x2  /* Analog */
-#define GPIO_OUT	0x3  /* Output */
+#define ALTERNATE	0x0
+#define GPIO_IN		0x1
+#define ANALOG		0x2
+#define GPIO_OUT	0x3
 
 /**
  * @brief PIN configuration bitfield

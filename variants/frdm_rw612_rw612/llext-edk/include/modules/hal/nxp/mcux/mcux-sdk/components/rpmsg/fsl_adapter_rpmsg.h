@@ -90,10 +90,10 @@ typedef hal_rpmsg_return_status_t (*rpmsg_rx_callback_t)(void *param, uint8_t *d
 /*! @brief The configure structure of RPMSG adapter. */
 typedef struct _hal_rpmsg_config
 {
-    uint8_t local_addr;           /* Local address for rx */
-    uint8_t remote_addr;          /* Remote address for tx */
-    rpmsg_rx_callback_t callback; /* RPMGS Rx callback  */
-    void *param;                  /* RPMGS Rx callback parameter */
+    uint8_t local_addr;
+    uint8_t remote_addr;
+    rpmsg_rx_callback_t callback;
+    void *param;
     uint8_t imuLink;
 } hal_rpmsg_config_t;
 

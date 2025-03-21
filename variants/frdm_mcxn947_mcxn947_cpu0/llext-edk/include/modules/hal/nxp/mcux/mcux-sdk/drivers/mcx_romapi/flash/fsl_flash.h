@@ -30,15 +30,15 @@
 #endif
 
 /*! @brief Flash driver version for SDK*/
-#define FSL_FLASH_DRIVER_VERSION (MAKE_VERSION(1, 0, 0)) /*!< Version 1.0.0. */
+#define FSL_FLASH_DRIVER_VERSION (MAKE_VERSION(1, 0, 0))
 
 /*! @brief Flash driver version for ROM*/
 enum _flash_driver_version_constants
 {
-    kFLASH_DriverVersionName   = 'F', /*!< Flash driver version name.*/
-    kFLASH_DriverVersionMajor  = 1,   /*!< Major flash driver version.*/
-    kFLASH_DriverVersionMinor  = 0,   /*!< Minor flash driver version.*/
-    kFLASH_DriverVersionBugfix = 0    /*!< Bugfix for flash driver version.*/
+    kFLASH_DriverVersionName   = 'F',
+    kFLASH_DriverVersionMajor  = 1,
+    kFLASH_DriverVersionMinor  = 0,
+    kFLASH_DriverVersionBugfix = 0
 };
 /*! @} */
 
@@ -76,66 +76,66 @@ enum _flash_driver_version_constants
  */
 enum
 {
-    kStatus_FLASH_Success         = MAKE_STATUS(kStatusGroupGeneric, 0),     /*!< API is executed successfully*/
-    kStatus_FLASH_InvalidArgument = MAKE_STATUS(kStatusGroupGeneric, 4),     /*!< Invalid argument*/
-    kStatus_FLASH_SizeError       = MAKE_STATUS(kStatusGroupFlashDriver, 0), /*!< Error size*/
+    kStatus_FLASH_Success         = MAKE_STATUS(kStatusGroupGeneric, 0),
+    kStatus_FLASH_InvalidArgument = MAKE_STATUS(kStatusGroupGeneric, 4),
+    kStatus_FLASH_SizeError       = MAKE_STATUS(kStatusGroupFlashDriver, 0),
     kStatus_FLASH_AlignmentError =
-        MAKE_STATUS(kStatusGroupFlashDriver, 1), /*!< Parameter is not aligned with the specified baseline*/
-    kStatus_FLASH_AddressError = MAKE_STATUS(kStatusGroupFlashDriver, 2), /*!< Address is out of range */
+        MAKE_STATUS(kStatusGroupFlashDriver, 1),
+    kStatus_FLASH_AddressError = MAKE_STATUS(kStatusGroupFlashDriver, 2),
     kStatus_FLASH_AccessError =
-        MAKE_STATUS(kStatusGroupFlashDriver, 3), /*!< Invalid instruction codes and out-of bound addresses */
+        MAKE_STATUS(kStatusGroupFlashDriver, 3),
     kStatus_FLASH_ProtectionViolation = MAKE_STATUS(
-        kStatusGroupFlashDriver, 4), /*!< The program/erase operation is requested to execute on protected areas */
+        kStatusGroupFlashDriver, 4),
     kStatus_FLASH_CommandFailure =
-        MAKE_STATUS(kStatusGroupFlashDriver, 5), /*!< Run-time error during command execution. */
-    kStatus_FLASH_UnknownProperty = MAKE_STATUS(kStatusGroupFlashDriver, 6), /*!< Unknown property.*/
-    kStatus_FLASH_EraseKeyError   = MAKE_STATUS(kStatusGroupFlashDriver, 7), /*!< API erase key is invalid.*/
+        MAKE_STATUS(kStatusGroupFlashDriver, 5),
+    kStatus_FLASH_UnknownProperty = MAKE_STATUS(kStatusGroupFlashDriver, 6),
+    kStatus_FLASH_EraseKeyError   = MAKE_STATUS(kStatusGroupFlashDriver, 7),
     kStatus_FLASH_RegionExecuteOnly =
-        MAKE_STATUS(kStatusGroupFlashDriver, 8), /*!< The current region is execute-only.*/
+        MAKE_STATUS(kStatusGroupFlashDriver, 8),
     kStatus_FLASH_ExecuteInRamFunctionNotReady =
-        MAKE_STATUS(kStatusGroupFlashDriver, 9), /*!< Execute-in-RAM function is not available.*/
+        MAKE_STATUS(kStatusGroupFlashDriver, 9),
 
-    kStatus_FLASH_CommandNotSupported = MAKE_STATUS(kStatusGroupFlashDriver, 11), /*!< Flash API is not supported.*/
-    kStatus_FLASH_ReadOnlyProperty = MAKE_STATUS(kStatusGroupFlashDriver, 12), /*!< The flash property is read-only.*/
+    kStatus_FLASH_CommandNotSupported = MAKE_STATUS(kStatusGroupFlashDriver, 11),
+    kStatus_FLASH_ReadOnlyProperty = MAKE_STATUS(kStatusGroupFlashDriver, 12),
     kStatus_FLASH_InvalidPropertyValue =
-        MAKE_STATUS(kStatusGroupFlashDriver, 13), /*!< The flash property value is out of range.*/
+        MAKE_STATUS(kStatusGroupFlashDriver, 13),
     kStatus_FLASH_InvalidSpeculationOption =
-        MAKE_STATUS(kStatusGroupFlashDriver, 14), /*!< The option of flash prefetch speculation is invalid.*/
+        MAKE_STATUS(kStatusGroupFlashDriver, 14),
     kStatus_FLASH_EccError = MAKE_STATUS(kStatusGroupFlashDriver,
-                                         0x10), /*!< A correctable or uncorrectable error during command execution. */
+                                         0x10),
     kStatus_FLASH_CompareError =
-        MAKE_STATUS(kStatusGroupFlashDriver, 0x11), /*!< Destination and source memory contents do not match. */
-    kStatus_FLASH_RegulationLoss = MAKE_STATUS(kStatusGroupFlashDriver, 0x12), /*!< A loss of regulation during read. */
+        MAKE_STATUS(kStatusGroupFlashDriver, 0x11),
+    kStatus_FLASH_RegulationLoss = MAKE_STATUS(kStatusGroupFlashDriver, 0x12),
     kStatus_FLASH_InvalidWaitStateCycles =
-        MAKE_STATUS(kStatusGroupFlashDriver, 0x13), /*!< The wait state cycle set to r/w mode is invalid. */
+        MAKE_STATUS(kStatusGroupFlashDriver, 0x13),
 
     kStatus_FLASH_OutOfDateCfpaPage =
-        MAKE_STATUS(kStatusGroupFlashDriver, 0x20), /*!< CFPA page version is out of date. */
-    kStatus_FLASH_BlankIfrPageData = MAKE_STATUS(kStatusGroupFlashDriver, 0x21), /*!< Blank page cannnot be read. */
+        MAKE_STATUS(kStatusGroupFlashDriver, 0x20),
+    kStatus_FLASH_BlankIfrPageData = MAKE_STATUS(kStatusGroupFlashDriver, 0x21),
     kStatus_FLASH_EncryptedRegionsEraseNotDoneAtOnce =
-        MAKE_STATUS(kStatusGroupFlashDriver, 0x22), /*!< Encrypted flash subregions are not erased at once. */
+        MAKE_STATUS(kStatusGroupFlashDriver, 0x22),
     kStatus_FLASH_ProgramVerificationNotAllowed = MAKE_STATUS(
-        kStatusGroupFlashDriver, 0x23), /*!< Program verification is not allowed when the encryption is enabled. */
+        kStatusGroupFlashDriver, 0x23),
     kStatus_FLASH_HashCheckError =
-        MAKE_STATUS(kStatusGroupFlashDriver, 0x24), /*!< Hash check of page data is failed. */
-    kStatus_FLASH_SealedFfrRegion      = MAKE_STATUS(kStatusGroupFlashDriver, 0x25), /*!< The FFR region is sealed. */
+        MAKE_STATUS(kStatusGroupFlashDriver, 0x24),
+    kStatus_FLASH_SealedFfrRegion      = MAKE_STATUS(kStatusGroupFlashDriver, 0x25),
     kStatus_FLASH_FfrRegionWriteBroken = MAKE_STATUS(
-        kStatusGroupFlashDriver, 0x26), /*!< The FFR Spec region is not allowed to be written discontinuously. */
+        kStatusGroupFlashDriver, 0x26),
     kStatus_FLASH_NmpaAccessNotAllowed =
-        MAKE_STATUS(kStatusGroupFlashDriver, 0x27), /*!< The NMPA region is not allowed to be read/written/erased. */
+        MAKE_STATUS(kStatusGroupFlashDriver, 0x27),
     kStatus_FLASH_CmpaCfgDirectEraseNotAllowed =
-        MAKE_STATUS(kStatusGroupFlashDriver, 0x28), /*!< The CMPA Cfg region is not allowed to be erased directly. */
-    kStatus_FLASH_FfrBankIsLocked = MAKE_STATUS(kStatusGroupFlashDriver, 0x29), /*!< The FFR bank region is locked. */
+        MAKE_STATUS(kStatusGroupFlashDriver, 0x28),
+    kStatus_FLASH_FfrBankIsLocked = MAKE_STATUS(kStatusGroupFlashDriver, 0x29),
     kStatus_FLASH_CfpaScratchPageInvalid =
-        MAKE_STATUS(kStatusGroupFlashDriver, 0x30), /*!< CFPA Scratch Page is invalid*/
+        MAKE_STATUS(kStatusGroupFlashDriver, 0x30),
     kStatus_FLASH_CfpaVersionRollbackDisallowed =
-        MAKE_STATUS(kStatusGroupFlashDriver, 0x31), /*!< CFPA version rollback is not allowed */
+        MAKE_STATUS(kStatusGroupFlashDriver, 0x31),
     kStatus_FLASH_ReadHidingAreaDisallowed =
-        MAKE_STATUS(kStatusGroupFlashDriver, 0x32), /*!< Flash hiding read is not allowed */
+        MAKE_STATUS(kStatusGroupFlashDriver, 0x32),
     kStatus_FLASH_ModifyProtectedAreaDisallowed =
-        MAKE_STATUS(kStatusGroupFlashDriver, 0x33), /*!< Flash firewall page locked erase and program are not allowed */
+        MAKE_STATUS(kStatusGroupFlashDriver, 0x33),
     kStatus_FLASH_CommandOperationInProgress = MAKE_STATUS(
-        kStatusGroupFlashDriver, 0x34), /*!< The flash state is busy, indicate that a flash command in progress. */
+        kStatusGroupFlashDriver, 0x34),
 };
 /*! @} */
 
@@ -157,7 +157,7 @@ enum
  */
 enum _flash_driver_api_keys
 {
-    kFLASH_ApiEraseKey = FOUR_CHAR_CODE('l', 'f', 'e', 'k') /*!< Key value used to validate all flash erase APIs.*/
+    kFLASH_ApiEraseKey = FOUR_CHAR_CODE('l', 'f', 'e', 'k')
 };
 /*! @} */
 
@@ -166,19 +166,19 @@ enum _flash_driver_api_keys
  */
 typedef enum _flash_property_tag
 {
-    kFLASH_PropertyPflashSectorSize    = 0x00U, /*!< Pflash sector size property.*/
-    kFLASH_PropertyPflashTotalSize     = 0x01U, /*!< Pflash total size property.*/
-    kFLASH_PropertyPflashBlockSize     = 0x02U, /*!< Pflash block size property.*/
-    kFLASH_PropertyPflashBlockCount    = 0x03U, /*!< Pflash block count property.*/
-    kFLASH_PropertyPflashBlockBaseAddr = 0x04U, /*!< Pflash block base address property.*/
+    kFLASH_PropertyPflashSectorSize    = 0x00U,
+    kFLASH_PropertyPflashTotalSize     = 0x01U,
+    kFLASH_PropertyPflashBlockSize     = 0x02U,
+    kFLASH_PropertyPflashBlockCount    = 0x03U,
+    kFLASH_PropertyPflashBlockBaseAddr = 0x04U,
 
-    kFLASH_PropertyPflashPageSize   = 0x30U, /*!< Pflash page size property.*/
-    kFLASH_PropertyPflashSystemFreq = 0x31U, /*!< System Frequency System Frequency.*/
+    kFLASH_PropertyPflashPageSize   = 0x30U,
+    kFLASH_PropertyPflashSystemFreq = 0x31U,
 
-    kFLASH_PropertyFfrSectorSize    = 0x40U, /*!< FFR sector size property.*/
-    kFLASH_PropertyFfrTotalSize     = 0x41U, /*!< FFR total size property.*/
-    kFLASH_PropertyFfrBlockBaseAddr = 0x42U, /*!< FFR block base address property.*/
-    kFLASH_PropertyFfrPageSize      = 0x43U, /*!< FFR page size property.*/
+    kFLASH_PropertyFfrSectorSize    = 0x40U,
+    kFLASH_PropertyFfrTotalSize     = 0x41U,
+    kFLASH_PropertyFfrBlockBaseAddr = 0x42U,
+    kFLASH_PropertyFfrPageSize      = 0x43U,
 } flash_property_tag_t;
 
 /*!
@@ -186,7 +186,7 @@ typedef enum _flash_property_tag
  */
 enum _flash_max_erase_page_value
 {
-    kFLASH_MaxPagesToErase = 100U /*!< The max value in pages to erase. */
+    kFLASH_MaxPagesToErase = 100U
 };
 
 /*!
@@ -194,10 +194,10 @@ enum _flash_max_erase_page_value
  */
 enum _flash_alignment_property
 {
-    kFLASH_AlignementUnitVerifyErase = 4U,       /*!< The alignment unit in bytes used for verify erase operation.*/
-    kFLASH_AlignementUnitProgram     = 512U,     /*!< The alignment unit in bytes used for program operation.*/
+    kFLASH_AlignementUnitVerifyErase = 4U,
+    kFLASH_AlignementUnitProgram     = 512U,
     /*kFLASH_AlignementUnitVerifyProgram = 4U,*/ /*!< The alignment unit in bytes used for verify program operation.*/
-    kFLASH_AlignementUnitSingleWordRead = 16U    /*!< The alignment unit in bytes used for SingleWordRead command.*/
+    kFLASH_AlignementUnitSingleWordRead = 16U
 };
 
 /*!
@@ -205,8 +205,8 @@ enum _flash_alignment_property
  */
 enum _flash_read_ecc_option
 {
-    kFLASH_ReadWithEccOn  = 0U, /*! ECC is on */
-    kFLASH_ReadWithEccOff = 1U  /*! ECC is off */
+    kFLASH_ReadWithEccOn  = 0U,
+    kFLASH_ReadWithEccOff = 1U
 };
 
 /*!
@@ -214,10 +214,10 @@ enum _flash_read_ecc_option
  */
 enum _flash_read_margin_option
 {
-    kFLASH_ReadMarginNormal                = 0U, /*!< Normal read */
-    kFLASH_ReadMarginVsProgram             = 1U, /*!< Margin vs. program */
-    kFLASH_ReadMarginVsErase               = 2U, /*!< Margin vs. erase */
-    kFLASH_ReadMarginIllegalBitCombination = 3U  /*!< Illegal bit combination */
+    kFLASH_ReadMarginNormal                = 0U,
+    kFLASH_ReadMarginVsProgram             = 1U,
+    kFLASH_ReadMarginVsErase               = 2U,
+    kFLASH_ReadMarginIllegalBitCombination = 3U
 };
 
 /*!
@@ -225,8 +225,8 @@ enum _flash_read_margin_option
  */
 enum _flash_read_dmacc_option
 {
-    kFLASH_ReadDmaccDisabled = 0U, /*!< Memory word */
-    kFLASH_ReadDmaccEnabled  = 1U  /*!< DMACC word */
+    kFLASH_ReadDmaccDisabled = 0U,
+    kFLASH_ReadDmaccEnabled  = 1U
 };
 
 /*!
@@ -234,10 +234,10 @@ enum _flash_read_dmacc_option
  */
 enum _flash_ramp_control_option
 {
-    kFLASH_RampControlDivisionFactorReserved = 0U, /*!< Reserved */
-    kFLASH_RampControlDivisionFactor256      = 1U, /*!< clk48mhz / 256 = 187.5KHz */
-    kFLASH_RampControlDivisionFactor128      = 2U, /*!< clk48mhz / 128 = 375KHz */
-    kFLASH_RampControlDivisionFactor64       = 3U  /*!< clk48mhz / 64 = 750KHz */
+    kFLASH_RampControlDivisionFactorReserved = 0U,
+    kFLASH_RampControlDivisionFactor256      = 1U,
+    kFLASH_RampControlDivisionFactor128      = 2U,
+    kFLASH_RampControlDivisionFactor64       = 3U
 };
 
 /*! @brief Flash ECC log info. */
@@ -296,11 +296,11 @@ typedef struct _flash_ffr_config
  */
 typedef struct
 {
-    uint32_t PFlashBlockBase;  /*!< A base address of the first PFlash block */
-    uint32_t PFlashTotalSize;  /*!< The size of the combined PFlash block. */
-    uint32_t PFlashBlockCount; /*!< A number of PFlash blocks. */
-    uint32_t PFlashPageSize;   /*!< The size in bytes of a page of PFlash. */
-    uint32_t PFlashSectorSize; /*!< The size in bytes of a sector of PFlash. */
+    uint32_t PFlashBlockBase;
+    uint32_t PFlashTotalSize;
+    uint32_t PFlashBlockCount;
+    uint32_t PFlashPageSize;
+    uint32_t PFlashSectorSize;
     flash_ffr_config_t ffrConfig;
     flash_mode_config_t modeConfig;
     uint32_t *nbootCtx;

@@ -25,7 +25,7 @@
 #include <zephyr/net/net_pkt.h>
 #include <zephyr/toolchain.h>
 
-#define IEEE802154_ACK_PKT_LENGTH 3 /* Imm-Ack length, see section 7.3.3 */
+#define IEEE802154_ACK_PKT_LENGTH 3
 #define IEEE802154_MIN_LENGTH	  IEEE802154_ACK_PKT_LENGTH
 
 #define IEEE802154_FCF_SEQ_LENGTH     3
@@ -382,7 +382,7 @@ struct ieee802154_cmd_coord_realign {
 	uint16_t coordinator_short_addr;
 	uint8_t channel;
 	uint16_t short_addr;
-	uint8_t channel_page; /* optional */
+	uint8_t channel_page;
 } __packed;
 
 #define IEEE802154_CMD_COORD_REALIGN_LENGTH 3
@@ -452,16 +452,16 @@ struct ieee802154_mpdu {
 struct ieee802154_frame_params {
 	struct {
 		union {
-			uint8_t ext_addr[IEEE802154_EXT_ADDR_LENGTH]; /* in big endian */
-			uint16_t short_addr; /* in CPU byte order */
+			uint8_t ext_addr[IEEE802154_EXT_ADDR_LENGTH];
+			uint16_t short_addr;
 		};
 
 		uint16_t len;
-		uint16_t pan_id; /* in CPU byte order */
+		uint16_t pan_id;
 	} dst;
 
-	uint16_t short_addr; /* in CPU byte order */
-	uint16_t pan_id; /* in CPU byte order */
+	uint16_t short_addr;
+	uint16_t pan_id;
 } __packed;
 
 #ifdef CONFIG_NET_L2_IEEE802154_SECURITY

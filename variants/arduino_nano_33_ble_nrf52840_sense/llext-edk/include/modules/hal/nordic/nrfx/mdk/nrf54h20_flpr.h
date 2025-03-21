@@ -50,95 +50,95 @@ POSSIBILITY OF SUCH DAMAGE.
 typedef enum {
 /* ===================================================== Core Interrupts ===================================================== */
 /* ============================================== Processor Specific Interrupts ============================================== */
-  VPRCLIC_0_IRQn                         = 0,        /*!< 0 VPRCLIC_0                                                          */
-  VPRCLIC_1_IRQn                         = 1,        /*!< 1 VPRCLIC_1                                                          */
-  VPRCLIC_2_IRQn                         = 2,        /*!< 2 VPRCLIC_2                                                          */
-  VPRCLIC_3_IRQn                         = 3,        /*!< 3 VPRCLIC_3                                                          */
-  VPRCLIC_4_IRQn                         = 4,        /*!< 4 VPRCLIC_4                                                          */
-  VPRCLIC_5_IRQn                         = 5,        /*!< 5 VPRCLIC_5                                                          */
-  VPRCLIC_6_IRQn                         = 6,        /*!< 6 VPRCLIC_6                                                          */
-  VPRCLIC_7_IRQn                         = 7,        /*!< 7 VPRCLIC_7                                                          */
-  VPRCLIC_8_IRQn                         = 8,        /*!< 8 VPRCLIC_8                                                          */
-  VPRCLIC_9_IRQn                         = 9,        /*!< 9 VPRCLIC_9                                                          */
-  VPRCLIC_10_IRQn                        = 10,       /*!< 10 VPRCLIC_10                                                        */
-  VPRCLIC_11_IRQn                        = 11,       /*!< 11 VPRCLIC_11                                                        */
-  VPRCLIC_12_IRQn                        = 12,       /*!< 12 VPRCLIC_12                                                        */
-  VPRCLIC_13_IRQn                        = 13,       /*!< 13 VPRCLIC_13                                                        */
-  VPRCLIC_14_IRQn                        = 14,       /*!< 14 VPRCLIC_14                                                        */
-  VPRCLIC_15_IRQn                        = 15,       /*!< 15 VPRCLIC_15                                                        */
-  VPRCLIC_16_IRQn                        = 16,       /*!< 16 VPRCLIC_16                                                        */
-  VPRCLIC_17_IRQn                        = 17,       /*!< 17 VPRCLIC_17                                                        */
-  VPRCLIC_18_IRQn                        = 18,       /*!< 18 VPRCLIC_18                                                        */
-  VPRCLIC_19_IRQn                        = 19,       /*!< 19 VPRCLIC_19                                                        */
-  VPRCLIC_20_IRQn                        = 20,       /*!< 20 VPRCLIC_20                                                        */
-  VPRCLIC_21_IRQn                        = 21,       /*!< 21 VPRCLIC_21                                                        */
-  VPRCLIC_22_IRQn                        = 22,       /*!< 22 VPRCLIC_22                                                        */
-  VPRCLIC_23_IRQn                        = 23,       /*!< 23 VPRCLIC_23                                                        */
-  VPRCLIC_24_IRQn                        = 24,       /*!< 24 VPRCLIC_24                                                        */
-  VPRCLIC_25_IRQn                        = 25,       /*!< 25 VPRCLIC_25                                                        */
-  VPRCLIC_26_IRQn                        = 26,       /*!< 26 VPRCLIC_26                                                        */
-  VPRCLIC_27_IRQn                        = 27,       /*!< 27 VPRCLIC_27                                                        */
-  VPRCLIC_28_IRQn                        = 28,       /*!< 28 VPRCLIC_28                                                        */
-  VPRCLIC_29_IRQn                        = 29,       /*!< 29 VPRCLIC_29                                                        */
-  VPRCLIC_30_IRQn                        = 30,       /*!< 30 VPRCLIC_30                                                        */
-  VPRCLIC_31_IRQn                        = 31,       /*!< 31 VPRCLIC_31                                                        */
-  VPRTIM_IRQn                            = 32,       /*!< 32 VPRTIM                                                            */
-  GPIOTE130_0_IRQn                       = 104,      /*!< 104 GPIOTE130_0                                                      */
-  GPIOTE130_1_IRQn                       = 105,      /*!< 105 GPIOTE130_1                                                      */
-  GRTC_0_IRQn                            = 108,      /*!< 108 GRTC_0                                                           */
-  GRTC_1_IRQn                            = 109,      /*!< 109 GRTC_1                                                           */
-  GRTC_2_IRQn                            = 110,      /*!< 110 GRTC_2                                                           */
-  TBM_IRQn                               = 127,      /*!< 127 TBM                                                              */
-  USBHS_IRQn                             = 134,      /*!< 134 USBHS                                                            */
-  EXMIF_IRQn                             = 149,      /*!< 149 EXMIF                                                            */
-  IPCT120_0_IRQn                         = 209,      /*!< 209 IPCT120_0                                                        */
-  I3C120_IRQn                            = 211,      /*!< 211 I3C120                                                           */
-  VPR121_IRQn                            = 212,      /*!< 212 VPR121                                                           */
-  CAN120_IRQn                            = 216,      /*!< 216 CAN120                                                           */
-  MVDMA120_IRQn                          = 217,      /*!< 217 MVDMA120                                                         */
-  I3C121_IRQn                            = 222,      /*!< 222 I3C121                                                           */
-  TIMER120_IRQn                          = 226,      /*!< 226 TIMER120                                                         */
-  TIMER121_IRQn                          = 227,      /*!< 227 TIMER121                                                         */
-  PWM120_IRQn                            = 228,      /*!< 228 PWM120                                                           */
-  SPIS120_IRQn                           = 229,      /*!< 229 SPIS120                                                          */
-  SPIM120_UARTE120_IRQn                  = 230,      /*!< 230 SPIM120_UARTE120                                                 */
-  SPIM121_IRQn                           = 231,      /*!< 231 SPIM121                                                          */
-  VPR130_IRQn                            = 264,      /*!< 264 VPR130                                                           */
-  IPCT130_0_IRQn                         = 289,      /*!< 289 IPCT130_0                                                        */
-  RTC130_IRQn                            = 296,      /*!< 296 RTC130                                                           */
-  RTC131_IRQn                            = 297,      /*!< 297 RTC131                                                           */
-  WDT131_IRQn                            = 299,      /*!< 299 WDT131                                                           */
-  WDT132_IRQn                            = 300,      /*!< 300 WDT132                                                           */
-  EGU130_IRQn                            = 301,      /*!< 301 EGU130                                                           */
-  SAADC_IRQn                             = 386,      /*!< 386 SAADC                                                            */
-  COMP_LPCOMP_IRQn                       = 387,      /*!< 387 COMP_LPCOMP                                                      */
-  TEMP_IRQn                              = 388,      /*!< 388 TEMP                                                             */
-  NFCT_IRQn                              = 389,      /*!< 389 NFCT                                                             */
-  TDM130_IRQn                            = 402,      /*!< 402 TDM130                                                           */
-  PDM_IRQn                               = 403,      /*!< 403 PDM                                                              */
-  QDEC130_IRQn                           = 404,      /*!< 404 QDEC130                                                          */
-  QDEC131_IRQn                           = 405,      /*!< 405 QDEC131                                                          */
-  TDM131_IRQn                            = 407,      /*!< 407 TDM131                                                           */
-  TIMER130_IRQn                          = 418,      /*!< 418 TIMER130                                                         */
-  TIMER131_IRQn                          = 419,      /*!< 419 TIMER131                                                         */
-  PWM130_IRQn                            = 420,      /*!< 420 PWM130                                                           */
-  SERIAL0_IRQn                           = 421,      /*!< 421 SERIAL0                                                          */
-  SERIAL1_IRQn                           = 422,      /*!< 422 SERIAL1                                                          */
-  TIMER132_IRQn                          = 434,      /*!< 434 TIMER132                                                         */
-  TIMER133_IRQn                          = 435,      /*!< 435 TIMER133                                                         */
-  PWM131_IRQn                            = 436,      /*!< 436 PWM131                                                           */
-  SERIAL2_IRQn                           = 437,      /*!< 437 SERIAL2                                                          */
-  SERIAL3_IRQn                           = 438,      /*!< 438 SERIAL3                                                          */
-  TIMER134_IRQn                          = 450,      /*!< 450 TIMER134                                                         */
-  TIMER135_IRQn                          = 451,      /*!< 451 TIMER135                                                         */
-  PWM132_IRQn                            = 452,      /*!< 452 PWM132                                                           */
-  SERIAL4_IRQn                           = 453,      /*!< 453 SERIAL4                                                          */
-  SERIAL5_IRQn                           = 454,      /*!< 454 SERIAL5                                                          */
-  TIMER136_IRQn                          = 466,      /*!< 466 TIMER136                                                         */
-  TIMER137_IRQn                          = 467,      /*!< 467 TIMER137                                                         */
-  PWM133_IRQn                            = 468,      /*!< 468 PWM133                                                           */
-  SERIAL6_IRQn                           = 469,      /*!< 469 SERIAL6                                                          */
-  SERIAL7_IRQn                           = 470,      /*!< 470 SERIAL7                                                          */
+  VPRCLIC_0_IRQn                         = 0,
+  VPRCLIC_1_IRQn                         = 1,
+  VPRCLIC_2_IRQn                         = 2,
+  VPRCLIC_3_IRQn                         = 3,
+  VPRCLIC_4_IRQn                         = 4,
+  VPRCLIC_5_IRQn                         = 5,
+  VPRCLIC_6_IRQn                         = 6,
+  VPRCLIC_7_IRQn                         = 7,
+  VPRCLIC_8_IRQn                         = 8,
+  VPRCLIC_9_IRQn                         = 9,
+  VPRCLIC_10_IRQn                        = 10,
+  VPRCLIC_11_IRQn                        = 11,
+  VPRCLIC_12_IRQn                        = 12,
+  VPRCLIC_13_IRQn                        = 13,
+  VPRCLIC_14_IRQn                        = 14,
+  VPRCLIC_15_IRQn                        = 15,
+  VPRCLIC_16_IRQn                        = 16,
+  VPRCLIC_17_IRQn                        = 17,
+  VPRCLIC_18_IRQn                        = 18,
+  VPRCLIC_19_IRQn                        = 19,
+  VPRCLIC_20_IRQn                        = 20,
+  VPRCLIC_21_IRQn                        = 21,
+  VPRCLIC_22_IRQn                        = 22,
+  VPRCLIC_23_IRQn                        = 23,
+  VPRCLIC_24_IRQn                        = 24,
+  VPRCLIC_25_IRQn                        = 25,
+  VPRCLIC_26_IRQn                        = 26,
+  VPRCLIC_27_IRQn                        = 27,
+  VPRCLIC_28_IRQn                        = 28,
+  VPRCLIC_29_IRQn                        = 29,
+  VPRCLIC_30_IRQn                        = 30,
+  VPRCLIC_31_IRQn                        = 31,
+  VPRTIM_IRQn                            = 32,
+  GPIOTE130_0_IRQn                       = 104,
+  GPIOTE130_1_IRQn                       = 105,
+  GRTC_0_IRQn                            = 108,
+  GRTC_1_IRQn                            = 109,
+  GRTC_2_IRQn                            = 110,
+  TBM_IRQn                               = 127,
+  USBHS_IRQn                             = 134,
+  EXMIF_IRQn                             = 149,
+  IPCT120_0_IRQn                         = 209,
+  I3C120_IRQn                            = 211,
+  VPR121_IRQn                            = 212,
+  CAN120_IRQn                            = 216,
+  MVDMA120_IRQn                          = 217,
+  I3C121_IRQn                            = 222,
+  TIMER120_IRQn                          = 226,
+  TIMER121_IRQn                          = 227,
+  PWM120_IRQn                            = 228,
+  SPIS120_IRQn                           = 229,
+  SPIM120_UARTE120_IRQn                  = 230,
+  SPIM121_IRQn                           = 231,
+  VPR130_IRQn                            = 264,
+  IPCT130_0_IRQn                         = 289,
+  RTC130_IRQn                            = 296,
+  RTC131_IRQn                            = 297,
+  WDT131_IRQn                            = 299,
+  WDT132_IRQn                            = 300,
+  EGU130_IRQn                            = 301,
+  SAADC_IRQn                             = 386,
+  COMP_LPCOMP_IRQn                       = 387,
+  TEMP_IRQn                              = 388,
+  NFCT_IRQn                              = 389,
+  TDM130_IRQn                            = 402,
+  PDM_IRQn                               = 403,
+  QDEC130_IRQn                           = 404,
+  QDEC131_IRQn                           = 405,
+  TDM131_IRQn                            = 407,
+  TIMER130_IRQn                          = 418,
+  TIMER131_IRQn                          = 419,
+  PWM130_IRQn                            = 420,
+  SERIAL0_IRQn                           = 421,
+  SERIAL1_IRQn                           = 422,
+  TIMER132_IRQn                          = 434,
+  TIMER133_IRQn                          = 435,
+  PWM131_IRQn                            = 436,
+  SERIAL2_IRQn                           = 437,
+  SERIAL3_IRQn                           = 438,
+  TIMER134_IRQn                          = 450,
+  TIMER135_IRQn                          = 451,
+  PWM132_IRQn                            = 452,
+  SERIAL4_IRQn                           = 453,
+  SERIAL5_IRQn                           = 454,
+  TIMER136_IRQn                          = 466,
+  TIMER137_IRQn                          = 467,
+  PWM133_IRQn                            = 468,
+  SERIAL6_IRQn                           = 469,
+  SERIAL7_IRQn                           = 470,
 } IRQn_Type;
 
 /* ==================================================== Interrupt Aliases ==================================================== */
@@ -236,21 +236,21 @@ typedef enum {
 /* =========================================================================================================================== */
 
 /* ====================== Configuration of the Nordic Semiconductor VPR Processor and Core Peripherals ======================= */
-#define __VPR_REV                    1.1             /*!< VPR Core Revision                                                    */
-#define __VPR_REV_MAJOR                1             /*!< VPR Core Major Revision                                              */
-#define __VPR_REV_MINOR                1             /*!< VPR Core Minor Revision                                              */
-#define __VPR_REV_PATCH                0             /*!< VPR Core Patch Revision                                              */
-#define __DSP_PRESENT                  0             /*!< DSP present or not                                                   */
-#define __CLIC_PRIO_BITS               3             /*!< Number of Bits used for Priority Levels                              */
-#define __MTVT_PRESENT                 1             /*!< CPU supports alternate Vector Table address                          */
-#define __MPU_PRESENT                  1             /*!< MPU present                                                          */
-#define __FPU_PRESENT                  0             /*!< FPU present                                                          */
-#define __FPU_DP                       0             /*!< Double Precision FPU                                                 */
-#define __INTERRUPTS_MAX             480             /*!< Size of interrupt vector table                                       */
+#define __VPR_REV                    1.1
+#define __VPR_REV_MAJOR                1
+#define __VPR_REV_MINOR                1
+#define __VPR_REV_PATCH                0
+#define __DSP_PRESENT                  0
+#define __CLIC_PRIO_BITS               3
+#define __MTVT_PRESENT                 1
+#define __MPU_PRESENT                  1
+#define __FPU_PRESENT                  0
+#define __FPU_DP                       0
+#define __INTERRUPTS_MAX             480
 
-#define NRF_VPR               NRF_VPR121             /*!< VPR instance name                                                    */
-#include "core_vpr.h"                                /*!< Nordic Semiconductor VPR processor and core peripherals              */
-#include "system_nrf.h"                              /*!< nrf54h20_flpr System Library                                         */
+#define NRF_VPR               NRF_VPR121
+#include "core_vpr.h"
+#include "system_nrf.h"
 
 #endif                                               /*!< NRF_FLPR                                                             */
 

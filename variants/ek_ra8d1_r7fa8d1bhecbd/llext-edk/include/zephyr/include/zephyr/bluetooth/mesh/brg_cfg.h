@@ -57,9 +57,9 @@ struct bt_mesh_brg_cfg_table_status {
 
 /** Used to filter set of pairs of NetKey Indexes from the Bridging Table */
 struct bt_mesh_brg_cfg_filter_netkey {
-	uint16_t filter: 2,    /* Filter applied to the set of pairs of NetKey Indexes */
-		prohibited: 2, /* Prohibited */
-		net_idx: 12;   /* NetKey Index used for filtering or ignored */
+	uint16_t filter: 2,
+		prohibited: 2,
+		net_idx: 12;
 };
 
 /** Bridged Subnets List response */

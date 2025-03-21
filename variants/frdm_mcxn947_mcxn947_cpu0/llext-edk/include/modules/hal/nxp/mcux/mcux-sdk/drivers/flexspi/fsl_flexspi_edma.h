@@ -41,25 +41,25 @@ typedef void (*flexspi_edma_callback_t)(FLEXSPI_Type *base,
 /*! @brief eDMA transfer configuration */
 typedef enum _flexspi_edma_ntransfer_size
 {
-    kFLEXPSI_EDMAnSize1Bytes  = 0x1U,  /*!< Source/Destination data transfer size is 1 byte every time */
-    kFLEXPSI_EDMAnSize2Bytes  = 0x2U,  /*!< Source/Destination data transfer size is 2 bytes every time */
-    kFLEXPSI_EDMAnSize4Bytes  = 0x4U,  /*!< Source/Destination data transfer size is 4 bytes every time */
-    kFLEXPSI_EDMAnSize8Bytes  = 0x8U,  /*!< Source/Destination data transfer size is 8 bytes every time */
-    kFLEXPSI_EDMAnSize32Bytes = 0x20U, /*!< Source/Destination data transfer size is 32 bytes every time */
+    kFLEXPSI_EDMAnSize1Bytes  = 0x1U,
+    kFLEXPSI_EDMAnSize2Bytes  = 0x2U,
+    kFLEXPSI_EDMAnSize4Bytes  = 0x4U,
+    kFLEXPSI_EDMAnSize8Bytes  = 0x8U,
+    kFLEXPSI_EDMAnSize32Bytes = 0x20U,
 } flexspi_edma_transfer_nsize_t;
 
 /*! @brief FLEXSPI DMA transfer handle, users should not touch the content of the handle.*/
 struct _flexspi_edma_handle
 {
-    edma_handle_t *txDmaHandle;                 /*!< eDMA handler for FLEXSPI Tx. */
-    edma_handle_t *rxDmaHandle;                 /*!< eDMA handler for FLEXSPI Rx. */
-    size_t transferSize;                        /*!< Bytes need to transfer. */
-    flexspi_edma_transfer_nsize_t nsize;        /*!< eDMA SSIZE/DSIZE in each transfer. */
-    uint8_t nbytes;                             /*!< eDMA minor byte transfer count initially configured. */
-    uint8_t count;                              /*!< The transfer data count in a DMA request. */
-    uint32_t state;                             /*!< Internal state for FLEXSPI eDMA transfer. */
-    flexspi_edma_callback_t completionCallback; /*!< A callback function called after the eDMA transfer is finished. */
-    void *userData;                             /*!< User callback parameter */
+    edma_handle_t *txDmaHandle;
+    edma_handle_t *rxDmaHandle;
+    size_t transferSize;
+    flexspi_edma_transfer_nsize_t nsize;
+    uint8_t nbytes;
+    uint8_t count;
+    uint32_t state;
+    flexspi_edma_callback_t completionCallback;
+    void *userData;
 };
 
 /*******************************************************************************

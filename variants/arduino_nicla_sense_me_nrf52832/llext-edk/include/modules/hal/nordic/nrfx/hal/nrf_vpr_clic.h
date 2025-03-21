@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2023 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -53,16 +53,16 @@ extern "C" {
 /** @brief Interrupt privilege modes available. */
 typedef enum
 {
-    NRF_VPR_CLIC_MODE_M   = CLIC_CLIC_CLICCFG_NMBITS_ModeM, /**< All interrupts are M-mode only. */
+    NRF_VPR_CLIC_MODE_M   = CLIC_CLIC_CLICCFG_NMBITS_ModeM,
 } nrf_vpr_clic_mode_t;
 
 /** @brief Interrupt priority level. */
 typedef enum
 {
-    NRF_VPR_CLIC_PRIORITY_LEVEL0 = CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL0, /**< Priority level 0. */
-    NRF_VPR_CLIC_PRIORITY_LEVEL1 = CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL1, /**< Priority level 1. */
-    NRF_VPR_CLIC_PRIORITY_LEVEL2 = CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL2, /**< Priority level 2. */
-    NRF_VPR_CLIC_PRIORITY_LEVEL3 = CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL3, /**< Priority level 3. */
+    NRF_VPR_CLIC_PRIORITY_LEVEL0 = CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL0,
+    NRF_VPR_CLIC_PRIORITY_LEVEL1 = CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL1,
+    NRF_VPR_CLIC_PRIORITY_LEVEL2 = CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL2,
+    NRF_VPR_CLIC_PRIORITY_LEVEL3 = CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL3,
 } nrf_vpr_clic_priority_t;
 
 /** @brief Macro for converting integer priority level to @ref nrf_vpr_clic_priority_t. */
@@ -74,37 +74,37 @@ typedef enum
 /** @brief VPR CLIC configuration structure. */
 typedef struct
 {
-    bool                hw_vectoring;   /**< Selective interrupt hardware vectoring. */
-    uint8_t             level_encoding; /**< Interrupt level encoding. */
-    nrf_vpr_clic_mode_t privilege_mode; /**< Interrupt privilege mode. */
+    bool                hw_vectoring;
+    uint8_t             level_encoding;
+    nrf_vpr_clic_mode_t privilege_mode;
 } nrf_vpr_clic_config_t;
 
 /** @brief VPR CLIC information structure. */
 typedef struct
 {
-    uint16_t interrupt_count; /**< Maximum number of interrupts supported. */
-    uint8_t  version;         /**< Version of CLIC. */
-    uint8_t  trigger_count;   /**< Number of maximum interrupt triggers supported. */
+    uint16_t interrupt_count;
+    uint8_t  version;
+    uint8_t  trigger_count;
 } nrf_vpr_clic_info_t;
 
 /** @brief Interrupt trigger and polarity types. */
 typedef enum
 {
-    NRF_VPR_CLIC_TRIGGER_EDGE_POS  = CLIC_CLIC_CLICINT_TRIG_EdgeTriggered,  /**< Interrupts are positive edge-triggered. */
+    NRF_VPR_CLIC_TRIGGER_EDGE_POS  = CLIC_CLIC_CLICINT_TRIG_EdgeTriggered,
 } nrf_vpr_clic_trigger_t;
 
 /** @brief Interrupt privilege. */
 typedef enum
 {
-    NRF_VPR_CLIC_PRIV_MACHINE    = CLIC_CLIC_CLICINT_MODE_MachineMode,    /**< Machine mode. */
+    NRF_VPR_CLIC_PRIV_MACHINE    = CLIC_CLIC_CLICINT_MODE_MachineMode,
 } nrf_vpr_clic_priv_t;
 
 /** @brief Interrupt attributes structure. */
 typedef struct
 {
-    bool                   hw_vectoring; /**< Selective interrupt hardware vectoring. */
-    nrf_vpr_clic_trigger_t trigger;      /**< Trigger type and polarity for the interrupt. */
-    nrf_vpr_clic_priv_t    privilege;    /**< Privilege mode. */
+    bool                   hw_vectoring;
+    nrf_vpr_clic_trigger_t trigger;
+    nrf_vpr_clic_priv_t    privilege;
 } nrf_vpr_clic_attr_t;
 
 /**

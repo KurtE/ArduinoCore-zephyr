@@ -104,11 +104,11 @@
   *        (when HSE is used as system clock source, directly or through the PLL).
   */
 #if !defined  (HSE_VALUE)
-#define HSE_VALUE    (25000000UL) /*!< Value of the External oscillator in Hz */
+#define HSE_VALUE    (25000000UL)
 #endif /* HSE_VALUE */
 
 #if !defined  (HSE_STARTUP_TIMEOUT)
-  #define HSE_STARTUP_TIMEOUT    (100UL)   /*!< Time out for HSE start up, in ms */
+  #define HSE_STARTUP_TIMEOUT    (100UL)
 #endif /* HSE_STARTUP_TIMEOUT */
 
 /**
@@ -116,7 +116,7 @@
   *        This value is the default CSI value after Reset.
   */
 #if !defined  (CSI_VALUE)
-  #define CSI_VALUE    (4000000UL) /*!< Value of the Internal oscillator in Hz*/
+  #define CSI_VALUE    (4000000UL)
 #endif /* CSI_VALUE */
 
 /**
@@ -125,7 +125,7 @@
   *        (when HSI is used as system clock source, directly or through the PLL).
   */
 #if !defined  (HSI_VALUE)
-  #define HSI_VALUE    (64000000UL) /*!< Value of the Internal oscillator in Hz*/
+  #define HSI_VALUE    (64000000UL)
 #endif /* HSI_VALUE */
 
 /**
@@ -133,16 +133,16 @@
   *        This value is used by the UART, RTC HAL module to compute the system frequency
   */
 #if !defined  (LSE_VALUE)
-  #define LSE_VALUE    (32768UL) /*!< Value of the External oscillator in Hz*/
+  #define LSE_VALUE    (32768UL)
 #endif /* LSE_VALUE */
 
 
 #if !defined  (LSE_STARTUP_TIMEOUT)
-  #define LSE_STARTUP_TIMEOUT    (5000UL)   /*!< Time out for LSE start up, in ms */
+  #define LSE_STARTUP_TIMEOUT    (5000UL)
 #endif /* LSE_STARTUP_TIMEOUT */
 
 #if !defined  (LSI_VALUE)
-  #define LSI_VALUE  (32000UL)              /*!< LSI Typical Value in Hz*/
+  #define LSI_VALUE  (32000UL)
 #endif /* LSI_VALUE */                      /*!< Value of the Internal Low Speed oscillator in Hz
                                               The real value may vary depending on the variations
                                               in voltage and temperature.*/
@@ -153,7 +153,7 @@
   *        frequency, this source is inserted directly through I2S_CKIN pad.
   */
 #if !defined  (EXTERNAL_CLOCK_VALUE)
-  #define EXTERNAL_CLOCK_VALUE    12288000UL /*!< Value of the External clock in Hz*/
+  #define EXTERNAL_CLOCK_VALUE    12288000UL
 #endif /* EXTERNAL_CLOCK_VALUE */
 
 /* Tip: To avoid modifying this file each time you need to use different HSE,
@@ -163,68 +163,68 @@
 /**
   * @brief This is the HAL system configuration section
   */
-#define  VDD_VALUE                    (3300UL) /*!< Value of VDD in mv */
-#define  TICK_INT_PRIORITY            (0x0FUL) /*!< tick interrupt priority */
+#define  VDD_VALUE                    (3300UL)
+#define  TICK_INT_PRIORITY            (0x0FUL)
 #define  USE_RTOS                     0
-#define  USE_SD_TRANSCEIVER           0U       /*!< use uSD Transceiver */
-#define  USE_SPI_CRC                  1U       /*!< use CRC in SPI */
-#define  USE_FLASH_ECC                0U       /*!< use ECC error management in FLASH */
-#define  USE_SDIO_TRANSCEIVER         0U       /*!< use SDIO Transceiver */
-#define  SDIO_MAX_IO_NUMBER           7U       /*!< SDIO device support maximum IO number */
+#define  USE_SD_TRANSCEIVER           0U
+#define  USE_SPI_CRC                  1U
+#define  USE_FLASH_ECC                0U
+#define  USE_SDIO_TRANSCEIVER         0U
+#define  SDIO_MAX_IO_NUMBER           7U
 
-#define  USE_HAL_ADC_REGISTER_CALLBACKS     0U /* ADC register callback disabled     */
-#define  USE_HAL_CEC_REGISTER_CALLBACKS     0U /* CEC register callback disabled     */
-#define  USE_HAL_COMP_REGISTER_CALLBACKS    0U /* COMP register callback disabled    */
-#define  USE_HAL_CORDIC_REGISTER_CALLBACKS  0U /* CORDIC register callback disabled  */
-#define  USE_HAL_CRYP_REGISTER_CALLBACKS    0U /* CRYP register callback disabled    */
-#define  USE_HAL_DAC_REGISTER_CALLBACKS     0U /* DAC register callback disabled     */
-#define  USE_HAL_DCMI_REGISTER_CALLBACKS    0U /* DCMI register callback disabled    */
-#define  USE_HAL_DFSDM_REGISTER_CALLBACKS   0U /* DFSDM register callback disabled   */
-#define  USE_HAL_DMA2D_REGISTER_CALLBACKS   0U /* DMA2D register callback disabled   */
-#define  USE_HAL_DSI_REGISTER_CALLBACKS     0U /* DSI register callback disabled     */
-#define  USE_HAL_DTS_REGISTER_CALLBACKS     0U /* DTS register callback disabled     */
-#define  USE_HAL_ETH_REGISTER_CALLBACKS     0U /* ETH register callback disabled     */
-#define  USE_HAL_FDCAN_REGISTER_CALLBACKS   0U /* FDCAN register callback disabled   */
-#define  USE_HAL_FMAC_REGISTER_CALLBACKS    0U /* FMAC register callback disabled  */
-#define  USE_HAL_NAND_REGISTER_CALLBACKS    0U /* NAND register callback disabled    */
-#define  USE_HAL_NOR_REGISTER_CALLBACKS     0U /* NOR register callback disabled     */
-#define  USE_HAL_SDRAM_REGISTER_CALLBACKS   0U /* SDRAM register callback disabled   */
-#define  USE_HAL_SRAM_REGISTER_CALLBACKS    0U /* SRAM register callback disabled    */
-#define  USE_HAL_HASH_REGISTER_CALLBACKS    0U /* HASH register callback disabled    */
-#define  USE_HAL_HCD_REGISTER_CALLBACKS     0U /* HCD register callback disabled     */
-#define  USE_HAL_GFXMMU_REGISTER_CALLBACKS  0U /* GFXMMU register callback disabled  */
-#define  USE_HAL_HRTIM_REGISTER_CALLBACKS   0U /* HRTIM register callback disabled   */
-#define  USE_HAL_I2C_REGISTER_CALLBACKS     0U /* I2C register callback disabled     */
-#define  USE_HAL_I2S_REGISTER_CALLBACKS     0U /* I2S register callback disabled     */
-#define  USE_HAL_IRDA_REGISTER_CALLBACKS    0U /* IRDA register callback disabled    */
-#define  USE_HAL_JPEG_REGISTER_CALLBACKS    0U /* JPEG register callback disabled    */
-#define  USE_HAL_LPTIM_REGISTER_CALLBACKS   0U /* LPTIM register callback disabled   */
-#define  USE_HAL_LTDC_REGISTER_CALLBACKS    0U /* LTDC register callback disabled    */
-#define  USE_HAL_MDIOS_REGISTER_CALLBACKS   0U /* MDIO register callback disabled    */
-#define  USE_HAL_MMC_REGISTER_CALLBACKS     0U /* MMC register callback disabled     */
-#define  USE_HAL_OPAMP_REGISTER_CALLBACKS   0U /* MDIO register callback disabled    */
-#define  USE_HAL_OSPI_REGISTER_CALLBACKS    0U /* OSPI register callback disabled    */
-#define  USE_HAL_OTFDEC_REGISTER_CALLBACKS  0U /* OTFDEC register callback disabled  */
-#define  USE_HAL_PCD_REGISTER_CALLBACKS     0U /* PCD register callback disabled     */
-#define  USE_HAL_QSPI_REGISTER_CALLBACKS    0U /* QSPI register callback disabled    */
-#define  USE_HAL_RNG_REGISTER_CALLBACKS     0U /* RNG register callback disabled     */
-#define  USE_HAL_RTC_REGISTER_CALLBACKS     0U /* RTC register callback disabled     */
-#define  USE_HAL_SAI_REGISTER_CALLBACKS     0U /* SAI register callback disabled     */
-#define  USE_HAL_SD_REGISTER_CALLBACKS      0U /* SD register callback disabled      */
-#define  USE_HAL_SDIO_REGISTER_CALLBACKS    0U /* SDIO register callback disabled      */
-#define  USE_HAL_SMARTCARD_REGISTER_CALLBACKS  0U /* SMARTCARD register callback disabled */
-#define  USE_HAL_SPDIFRX_REGISTER_CALLBACKS 0U /* SPDIFRX register callback disabled */
-#define  USE_HAL_SMBUS_REGISTER_CALLBACKS   0U /* SMBUS register callback disabled   */
-#define  USE_HAL_SPI_REGISTER_CALLBACKS     0U /* SPI register callback disabled     */
-#define  USE_HAL_SWPMI_REGISTER_CALLBACKS   0U /* SWPMI register callback disabled   */
-#define  USE_HAL_TIM_REGISTER_CALLBACKS     0U /* TIM register callback disabled     */
-#define  USE_HAL_UART_REGISTER_CALLBACKS    0U /* UART register callback disabled    */
-#define  USE_HAL_USART_REGISTER_CALLBACKS   0U /* USART register callback disabled   */
-#define  USE_HAL_WWDG_REGISTER_CALLBACKS    0U /* WWDG register callback disabled    */
+#define  USE_HAL_ADC_REGISTER_CALLBACKS     0U
+#define  USE_HAL_CEC_REGISTER_CALLBACKS     0U
+#define  USE_HAL_COMP_REGISTER_CALLBACKS    0U
+#define  USE_HAL_CORDIC_REGISTER_CALLBACKS  0U
+#define  USE_HAL_CRYP_REGISTER_CALLBACKS    0U
+#define  USE_HAL_DAC_REGISTER_CALLBACKS     0U
+#define  USE_HAL_DCMI_REGISTER_CALLBACKS    0U
+#define  USE_HAL_DFSDM_REGISTER_CALLBACKS   0U
+#define  USE_HAL_DMA2D_REGISTER_CALLBACKS   0U
+#define  USE_HAL_DSI_REGISTER_CALLBACKS     0U
+#define  USE_HAL_DTS_REGISTER_CALLBACKS     0U
+#define  USE_HAL_ETH_REGISTER_CALLBACKS     0U
+#define  USE_HAL_FDCAN_REGISTER_CALLBACKS   0U
+#define  USE_HAL_FMAC_REGISTER_CALLBACKS    0U
+#define  USE_HAL_NAND_REGISTER_CALLBACKS    0U
+#define  USE_HAL_NOR_REGISTER_CALLBACKS     0U
+#define  USE_HAL_SDRAM_REGISTER_CALLBACKS   0U
+#define  USE_HAL_SRAM_REGISTER_CALLBACKS    0U
+#define  USE_HAL_HASH_REGISTER_CALLBACKS    0U
+#define  USE_HAL_HCD_REGISTER_CALLBACKS     0U
+#define  USE_HAL_GFXMMU_REGISTER_CALLBACKS  0U
+#define  USE_HAL_HRTIM_REGISTER_CALLBACKS   0U
+#define  USE_HAL_I2C_REGISTER_CALLBACKS     0U
+#define  USE_HAL_I2S_REGISTER_CALLBACKS     0U
+#define  USE_HAL_IRDA_REGISTER_CALLBACKS    0U
+#define  USE_HAL_JPEG_REGISTER_CALLBACKS    0U
+#define  USE_HAL_LPTIM_REGISTER_CALLBACKS   0U
+#define  USE_HAL_LTDC_REGISTER_CALLBACKS    0U
+#define  USE_HAL_MDIOS_REGISTER_CALLBACKS   0U
+#define  USE_HAL_MMC_REGISTER_CALLBACKS     0U
+#define  USE_HAL_OPAMP_REGISTER_CALLBACKS   0U
+#define  USE_HAL_OSPI_REGISTER_CALLBACKS    0U
+#define  USE_HAL_OTFDEC_REGISTER_CALLBACKS  0U
+#define  USE_HAL_PCD_REGISTER_CALLBACKS     0U
+#define  USE_HAL_QSPI_REGISTER_CALLBACKS    0U
+#define  USE_HAL_RNG_REGISTER_CALLBACKS     0U
+#define  USE_HAL_RTC_REGISTER_CALLBACKS     0U
+#define  USE_HAL_SAI_REGISTER_CALLBACKS     0U
+#define  USE_HAL_SD_REGISTER_CALLBACKS      0U
+#define  USE_HAL_SDIO_REGISTER_CALLBACKS    0U
+#define  USE_HAL_SMARTCARD_REGISTER_CALLBACKS  0U
+#define  USE_HAL_SPDIFRX_REGISTER_CALLBACKS 0U
+#define  USE_HAL_SMBUS_REGISTER_CALLBACKS   0U
+#define  USE_HAL_SPI_REGISTER_CALLBACKS     0U
+#define  USE_HAL_SWPMI_REGISTER_CALLBACKS   0U
+#define  USE_HAL_TIM_REGISTER_CALLBACKS     0U
+#define  USE_HAL_UART_REGISTER_CALLBACKS    0U
+#define  USE_HAL_USART_REGISTER_CALLBACKS   0U
+#define  USE_HAL_WWDG_REGISTER_CALLBACKS    0U
 
 /* ########################### Ethernet Configuration ######################### */
-#define ETH_TX_DESC_CNT         4U  /* number of Ethernet Tx DMA descriptors */
-#define ETH_RX_DESC_CNT         4U  /* number of Ethernet Rx DMA descriptors */
+#define ETH_TX_DESC_CNT         4U
+#define ETH_RX_DESC_CNT         4U
 
 #define ETH_MAC_ADDR0    (0x02UL)
 #define ETH_MAC_ADDR1    (0x00UL)

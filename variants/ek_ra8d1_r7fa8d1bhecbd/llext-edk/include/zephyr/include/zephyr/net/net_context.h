@@ -410,12 +410,12 @@ __net_socket struct net_context {
 	/** IPv6 hop limit or IPv4 ttl for packets sent via this context. */
 	union {
 		struct {
-			uint8_t ipv6_hop_limit;       /**< IPv6 hop limit */
-			uint8_t ipv6_mcast_hop_limit; /**< IPv6 multicast hop limit */
+			uint8_t ipv6_hop_limit;
+			uint8_t ipv6_mcast_hop_limit;
 		};
 		struct {
-			uint8_t ipv4_ttl;       /**< IPv4 TTL */
-			uint8_t ipv4_mcast_ttl; /**< IPv4 multicast TTL */
+			uint8_t ipv4_ttl;
+			uint8_t ipv4_mcast_ttl;
 		};
 	};
 
@@ -1199,7 +1199,7 @@ int net_context_send(struct net_context *context,
  * @param dst_addr Destination address.
  * @param addrlen Length of the address.
  * @param cb Caller-supplied callback function.
- * @param timeout Currently this value is not used.
+ * @param timeout Timeout for the send attempt.
  * @param user_data Caller-supplied user data.
  *
  * @return numbers of bytes sent on success, a negative errno otherwise
@@ -1304,27 +1304,27 @@ int net_context_update_recv_wnd(struct net_context *context,
 
 /** @brief Network context options. These map to BSD socket option values. */
 enum net_context_option {
-	NET_OPT_PRIORITY          = 1,  /**< Context priority */
-	NET_OPT_TXTIME            = 2,  /**< TX time */
-	NET_OPT_SOCKS5            = 3,  /**< SOCKS5 */
-	NET_OPT_RCVTIMEO          = 4,  /**< Receive timeout */
-	NET_OPT_SNDTIMEO          = 5,  /**< Send timeout */
-	NET_OPT_RCVBUF            = 6,  /**< Receive buffer */
-	NET_OPT_SNDBUF            = 7,  /**< Send buffer */
-	NET_OPT_DSCP_ECN          = 8,  /**< DSCP ECN */
-	NET_OPT_REUSEADDR         = 9,  /**< Re-use address */
-	NET_OPT_REUSEPORT         = 10, /**< Re-use port */
-	NET_OPT_IPV6_V6ONLY       = 11, /**< Share IPv4 and IPv6 port space */
-	NET_OPT_RECV_PKTINFO      = 12, /**< Receive packet information */
-	NET_OPT_MCAST_TTL         = 13, /**< IPv4 multicast TTL */
-	NET_OPT_MCAST_HOP_LIMIT   = 14, /**< IPv6 multicast hop limit */
-	NET_OPT_UNICAST_HOP_LIMIT = 15, /**< IPv6 unicast hop limit */
-	NET_OPT_TTL               = 16, /**< IPv4 unicast TTL */
-	NET_OPT_ADDR_PREFERENCES  = 17, /**< IPv6 address preference */
-	NET_OPT_TIMESTAMPING      = 18, /**< Packet timestamping */
-	NET_OPT_MCAST_IFINDEX     = 19, /**< IPv6 multicast output network interface index */
-	NET_OPT_MTU               = 20, /**< IPv4 socket path MTU */
-	NET_OPT_LOCAL_PORT_RANGE  = 21, /**< Clamp local port range */
+	NET_OPT_PRIORITY          = 1,
+	NET_OPT_TXTIME            = 2,
+	NET_OPT_SOCKS5            = 3,
+	NET_OPT_RCVTIMEO          = 4,
+	NET_OPT_SNDTIMEO          = 5,
+	NET_OPT_RCVBUF            = 6,
+	NET_OPT_SNDBUF            = 7,
+	NET_OPT_DSCP_ECN          = 8,
+	NET_OPT_REUSEADDR         = 9,
+	NET_OPT_REUSEPORT         = 10,
+	NET_OPT_IPV6_V6ONLY       = 11,
+	NET_OPT_RECV_PKTINFO      = 12,
+	NET_OPT_MCAST_TTL         = 13,
+	NET_OPT_MCAST_HOP_LIMIT   = 14,
+	NET_OPT_UNICAST_HOP_LIMIT = 15,
+	NET_OPT_TTL               = 16,
+	NET_OPT_ADDR_PREFERENCES  = 17,
+	NET_OPT_TIMESTAMPING      = 18,
+	NET_OPT_MCAST_IFINDEX     = 19,
+	NET_OPT_MTU               = 20,
+	NET_OPT_LOCAL_PORT_RANGE  = 21,
 };
 
 /**

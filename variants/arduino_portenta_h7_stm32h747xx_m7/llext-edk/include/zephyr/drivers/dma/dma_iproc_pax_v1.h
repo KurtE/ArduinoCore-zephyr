@@ -60,38 +60,38 @@
 
 /* RM header desc field */
 struct rm_header {
-	uint64_t opq : 16; /*pkt_id 15:0*/
-	uint64_t res1 : 20; /*reserved 35:16*/
-	uint64_t bdcount : 5; /*bdcount 40:36*/
-	uint64_t prot : 2; /*prot 41:40*/
-	uint64_t res2 : 13; /*reserved 55:43*/
-	uint64_t start : 1; /*start pkt :56*/
-	uint64_t end : 1; /*end pkt :57*/
-	uint64_t toggle : 1; /*toggle :58*/
-	uint64_t res3 : 1; /*reserved :59*/
-	uint64_t type : 4; /*type 63:60*/
+	uint64_t opq : 16;
+	uint64_t res1 : 20;
+	uint64_t bdcount : 5;
+	uint64_t prot : 2;
+	uint64_t res2 : 13;
+	uint64_t start : 1;
+	uint64_t end : 1;
+	uint64_t toggle : 1;
+	uint64_t res3 : 1;
+	uint64_t type : 4;
 } __attribute__ ((__packed__));
 
 /* dma desc header field */
 struct dma_header_desc {
-	uint64_t length : 25; /*transfer length in bytes 24:0*/
-	uint64_t res1: 31; /*reserved 55:25*/
-	uint64_t opcode : 4; /*opcode 59:56*/
-	uint64_t res2: 2;  /*reserved 61:60*/
-	uint64_t type : 2; /*type 63:62 set to b'11*/
+	uint64_t length : 25;
+	uint64_t res1: 31;
+	uint64_t opcode : 4;
+	uint64_t res2: 2;
+	uint64_t type : 2;
 } __attribute__ ((__packed__));
 
 /* dma desc AXI addr field */
 struct axi_addr_desc {
-	uint64_t axi_addr : 48; /*axi_addr[47:0]*/
-	uint64_t res : 14; /*reserved 48:61*/
-	uint64_t type : 2; /*63:62 set to b'11*/
+	uint64_t axi_addr : 48;
+	uint64_t res : 14;
+	uint64_t type : 2;
 } __attribute__ ((__packed__));
 
 /* dma desc PCI addr field */
 struct pci_addr_desc {
-	uint64_t pcie_addr : 62; /*pcie_addr[63:2]*/
-	uint64_t type : 2;  /*63:62 set to b'11*/
+	uint64_t pcie_addr : 62;
+	uint64_t type : 2;
 } __attribute__ ((__packed__));
 
 /* DMA descriptor */
@@ -102,11 +102,11 @@ struct dma_desc {
 } __attribute__ ((__packed__));
 
 struct next_ptr_desc {
-	uint64_t addr : 44; /*Address 43:0*/
-	uint64_t res1 : 14;/*Reserved*/
-	uint64_t toggle : 1; /*Toggle Bit:58*/
-	uint64_t res2 : 1;/*Reserved 59:59*/
-	uint64_t type : 4;/*descriptor type 63:60*/
+	uint64_t addr : 44;
+	uint64_t res1 : 14;
+	uint64_t toggle : 1;
+	uint64_t res2 : 1;
+	uint64_t type : 4;
 } __attribute__ ((__packed__));
 
 #endif

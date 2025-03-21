@@ -101,7 +101,7 @@ FSP_HEADER
     {                                                   \
         if ((a))                                        \
         {                                               \
-            (void) 0;                  /* Do nothing */ \
+            (void) 0; \
         }                                               \
         else                                            \
         {                                               \
@@ -113,7 +113,7 @@ FSP_HEADER
 /* Function-like macro used to wait for a condition to be met, most often used to wait for hardware register updates.
  * This macro can be redefined to add a timeout if necessary. */
 #ifndef FSP_HARDWARE_REGISTER_WAIT
- #define FSP_HARDWARE_REGISTER_WAIT(reg, required_value)    while (reg != required_value) { /* Wait. */}
+ #define FSP_HARDWARE_REGISTER_WAIT(reg, required_value)    while (reg != required_value) {}
 #endif
 
 #ifndef FSP_REGISTER_READ

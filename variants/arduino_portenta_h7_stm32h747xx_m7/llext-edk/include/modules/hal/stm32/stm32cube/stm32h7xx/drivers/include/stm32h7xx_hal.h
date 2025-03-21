@@ -58,16 +58,16 @@ typedef enum
 /** @defgroup REV_ID device revision ID
   * @{
   */
-#define REV_ID_Y ((uint32_t)0x1003)  /*!< STM32H7 rev.Y */
-#define REV_ID_Z ((uint32_t)0x1001)  /*!< STM32H7 rev.Z */
-#define REV_ID_A ((uint32_t)0x1000)  /*!< STM32H7 rev.A */
-#define REV_ID_B ((uint32_t)0x2000)  /*!< STM32H7 rev.B */
+#define REV_ID_Y ((uint32_t)0x1003)
+#define REV_ID_Z ((uint32_t)0x1001)
+#define REV_ID_A ((uint32_t)0x1000)
+#define REV_ID_B ((uint32_t)0x2000)
 #if (STM32H7_DEV_ID == 0x450UL)
-#define REV_ID_X ((uint32_t)0x2001)  /*!< STM32H7 rev.X */
+#define REV_ID_X ((uint32_t)0x2001)
 #else
-#define REV_ID_X ((uint32_t)0x1007)  /*!< STM32H7 rev.X */
+#define REV_ID_X ((uint32_t)0x1007)
 #endif /* STM32H7_DEV_ID */
-#define REV_ID_V ((uint32_t)0x2003)  /*!< STM32H7 rev.V */
+#define REV_ID_V ((uint32_t)0x2003)
 
 /**
   * @}
@@ -80,10 +80,10 @@ typedef enum
 /** @defgroup SYSCFG_VREFBUF_VoltageScale VREFBUF Voltage Scale
   * @{
   */
-#define SYSCFG_VREFBUF_VOLTAGE_SCALE0   VREFBUF_CSR_VRS_OUT1   /*!< Voltage reference scale 0 (VREF_OUT1) */
-#define SYSCFG_VREFBUF_VOLTAGE_SCALE1   VREFBUF_CSR_VRS_OUT2   /*!< Voltage reference scale 1 (VREF_OUT2) */
-#define SYSCFG_VREFBUF_VOLTAGE_SCALE2   VREFBUF_CSR_VRS_OUT3   /*!< Voltage reference scale 2 (VREF_OUT3) */
-#define SYSCFG_VREFBUF_VOLTAGE_SCALE3   VREFBUF_CSR_VRS_OUT4   /*!< Voltage reference scale 3 (VREF_OUT4) */
+#define SYSCFG_VREFBUF_VOLTAGE_SCALE0   VREFBUF_CSR_VRS_OUT1
+#define SYSCFG_VREFBUF_VOLTAGE_SCALE1   VREFBUF_CSR_VRS_OUT2
+#define SYSCFG_VREFBUF_VOLTAGE_SCALE2   VREFBUF_CSR_VRS_OUT3
+#define SYSCFG_VREFBUF_VOLTAGE_SCALE3   VREFBUF_CSR_VRS_OUT4
 
 
 #define IS_SYSCFG_VREFBUF_VOLTAGE_SCALE(__SCALE__)  (((__SCALE__) == SYSCFG_VREFBUF_VOLTAGE_SCALE0) || \
@@ -99,8 +99,8 @@ typedef enum
 /** @defgroup SYSCFG_VREFBUF_HighImpedance VREFBUF High Impedance
   * @{
   */
-#define SYSCFG_VREFBUF_HIGH_IMPEDANCE_DISABLE  ((uint32_t)0x00000000) /*!< VREF_plus pin is internally connected to Voltage reference buffer output */
-#define SYSCFG_VREFBUF_HIGH_IMPEDANCE_ENABLE   VREFBUF_CSR_HIZ        /*!< VREF_plus pin is high impedance */
+#define SYSCFG_VREFBUF_HIGH_IMPEDANCE_DISABLE  ((uint32_t)0x00000000)
+#define SYSCFG_VREFBUF_HIGH_IMPEDANCE_ENABLE   VREFBUF_CSR_HIZ
 
 #define IS_SYSCFG_VREFBUF_HIGH_IMPEDANCE(__VALUE__)  (((__VALUE__) == SYSCFG_VREFBUF_HIGH_IMPEDANCE_DISABLE) || \
                                                       ((__VALUE__) == SYSCFG_VREFBUF_HIGH_IMPEDANCE_ENABLE))
@@ -118,10 +118,10 @@ typedef enum
 
 /** @brief  Fast-mode Plus driving capability on a specific GPIO
   */
-#define SYSCFG_FASTMODEPLUS_PB6        SYSCFG_PMCR_I2C_PB6_FMP  /*!< Enable Fast-mode Plus on PB6 */
-#define SYSCFG_FASTMODEPLUS_PB7        SYSCFG_PMCR_I2C_PB7_FMP  /*!< Enable Fast-mode Plus on PB7 */
-#define SYSCFG_FASTMODEPLUS_PB8        SYSCFG_PMCR_I2C_PB8_FMP  /*!< Enable Fast-mode Plus on PB8 */
-#define SYSCFG_FASTMODEPLUS_PB9        SYSCFG_PMCR_I2C_PB9_FMP  /*!< Enable Fast-mode Plus on PB9 */
+#define SYSCFG_FASTMODEPLUS_PB6        SYSCFG_PMCR_I2C_PB6_FMP
+#define SYSCFG_FASTMODEPLUS_PB7        SYSCFG_PMCR_I2C_PB7_FMP
+#define SYSCFG_FASTMODEPLUS_PB8        SYSCFG_PMCR_I2C_PB8_FMP
+#define SYSCFG_FASTMODEPLUS_PB9        SYSCFG_PMCR_I2C_PB9_FMP
 
 #define IS_SYSCFG_FASTMODEPLUS(__PIN__) ((((__PIN__) & SYSCFG_FASTMODEPLUS_PB6) == SYSCFG_FASTMODEPLUS_PB6) || \
                                          (((__PIN__) & SYSCFG_FASTMODEPLUS_PB7) == SYSCFG_FASTMODEPLUS_PB7) || \
@@ -141,10 +141,10 @@ typedef enum
 
 /** @brief  Adc2 Alternate Connection on Vinp[16] and Vinp[17]
   */
-#define SYSCFG_ADC2_ROUT0_DAC1_1       ((uint32_t)0x00000000)      /*!< DAC1_out1 connected to ADC2 VINP[16] */
-#define SYSCFG_ADC2_ROUT0_VBAT4         SYSCFG_ADC2ALT_ADC2_ROUT0  /*!< VBAT/4 connected to ADC2 VINP[16] */
-#define SYSCFG_ADC2_ROUT1_DAC1_2        ((uint32_t)0x00000000)     /*!< DAC1_out2 connected to ADC2 VINP[17] */
-#define SYSCFG_ADC2_ROUT1_VREFINT       SYSCFG_ADC2ALT_ADC2_ROUT1  /*!< VREFINT connected to ADC2 VINP[17] */
+#define SYSCFG_ADC2_ROUT0_DAC1_1       ((uint32_t)0x00000000)
+#define SYSCFG_ADC2_ROUT0_VBAT4         SYSCFG_ADC2ALT_ADC2_ROUT0
+#define SYSCFG_ADC2_ROUT1_DAC1_2        ((uint32_t)0x00000000)
+#define SYSCFG_ADC2_ROUT1_VREFINT       SYSCFG_ADC2ALT_ADC2_ROUT1
 
 #define IS_SYSCFG_ADC2ALT_ROUT0(__VALUE__)  (((__VALUE__) == SYSCFG_ADC2_ROUT0_DAC1_1) || \
                                              ((__VALUE__) == SYSCFG_ADC2_ROUT0_VBAT4))
@@ -160,8 +160,8 @@ typedef enum
 /** @defgroup SYSCFG_Ethernet_Config  Ethernet Config
   * @{
   */
-#define SYSCFG_ETH_MII                      ((uint32_t)0x00000000)  /*!< Select the Media Independent Interface */
-#define SYSCFG_ETH_RMII                     SYSCFG_PMCR_EPIS_SEL_2  /*!< Select the Reduced Media Independent Interface */
+#define SYSCFG_ETH_MII                      ((uint32_t)0x00000000)
+#define SYSCFG_ETH_RMII                     SYSCFG_PMCR_EPIS_SEL_2
 
 #define IS_SYSCFG_ETHERNET_CONFIG(CONFIG) (((CONFIG) == SYSCFG_ETH_MII)        || \
                                           ((CONFIG) == SYSCFG_ETH_RMII))
@@ -174,22 +174,22 @@ typedef enum
 /** @defgroup SYSCFG_Analog_Switch_Config  Analog Switch Config
   * @{
   */
-#define SYSCFG_SWITCH_PA0                       SYSCFG_PMCR_PA0SO  /*!< Select PA0 analog switch */
-#define SYSCFG_SWITCH_PA1                       SYSCFG_PMCR_PA1SO  /*!< Select PA1 analog switch */
-#define SYSCFG_SWITCH_PC2                       SYSCFG_PMCR_PC2SO  /*!< Select PC2 analog switch */
-#define SYSCFG_SWITCH_PC3                       SYSCFG_PMCR_PC3SO  /*!< Select PC3 analog switch */
+#define SYSCFG_SWITCH_PA0                       SYSCFG_PMCR_PA0SO
+#define SYSCFG_SWITCH_PA1                       SYSCFG_PMCR_PA1SO
+#define SYSCFG_SWITCH_PC2                       SYSCFG_PMCR_PC2SO
+#define SYSCFG_SWITCH_PC3                       SYSCFG_PMCR_PC3SO
 
 
 
 
-#define SYSCFG_SWITCH_PA0_OPEN                       SYSCFG_PMCR_PA0SO       /*!< PA0 analog switch opened */
-#define SYSCFG_SWITCH_PA0_CLOSE                      ((uint32_t)0x00000000)  /*!< PA0 analog switch closed */
-#define SYSCFG_SWITCH_PA1_OPEN                       SYSCFG_PMCR_PA1SO       /*!< PA1 analog switch opened */
-#define SYSCFG_SWITCH_PA1_CLOSE                      ((uint32_t)0x00000000)  /*!< PA1 analog switch closed*/
-#define SYSCFG_SWITCH_PC2_OPEN                       SYSCFG_PMCR_PC2SO       /*!< PC2 analog switch opened */
-#define SYSCFG_SWITCH_PC2_CLOSE                      ((uint32_t)0x00000000)  /*!< PC2 analog switch closed */
-#define SYSCFG_SWITCH_PC3_OPEN                       SYSCFG_PMCR_PC3SO       /*!< PC3 analog switch opened */
-#define SYSCFG_SWITCH_PC3_CLOSE                      ((uint32_t)0x00000000)  /*!< PC3 analog switch closed */
+#define SYSCFG_SWITCH_PA0_OPEN                       SYSCFG_PMCR_PA0SO
+#define SYSCFG_SWITCH_PA0_CLOSE                      ((uint32_t)0x00000000)
+#define SYSCFG_SWITCH_PA1_OPEN                       SYSCFG_PMCR_PA1SO
+#define SYSCFG_SWITCH_PA1_CLOSE                      ((uint32_t)0x00000000)
+#define SYSCFG_SWITCH_PC2_OPEN                       SYSCFG_PMCR_PC2SO
+#define SYSCFG_SWITCH_PC2_CLOSE                      ((uint32_t)0x00000000)
+#define SYSCFG_SWITCH_PC3_OPEN                       SYSCFG_PMCR_PC3SO
+#define SYSCFG_SWITCH_PC3_CLOSE                      ((uint32_t)0x00000000)
 
 /**
   * @}
@@ -214,8 +214,8 @@ typedef enum
 /** @defgroup SYSCFG_Boot_Config  Boot Config
   * @{
   */
-#define SYSCFG_BOOT_ADDR0                    ((uint32_t)0x00000000)  /*!< Select Boot address0 */
-#define SYSCFG_BOOT_ADDR1                    ((uint32_t)0x00000001)  /*!< Select Boot address1 */
+#define SYSCFG_BOOT_ADDR0                    ((uint32_t)0x00000000)
+#define SYSCFG_BOOT_ADDR1                    ((uint32_t)0x00000001)
 
 #define IS_SYSCFG_BOOT_REGISTER(REGISTER) (((REGISTER) == SYSCFG_BOOT_ADDR0)|| \
                                           ((REGISTER) == SYSCFG_BOOT_ADDR1))
@@ -230,8 +230,8 @@ typedef enum
 /** @defgroup SYSCFG_IOCompenstionCell_Config  IOCompenstionCell Config
   * @{
   */
-#define SYSCFG_CELL_CODE                    ((uint32_t)0x00000000)  /*!< Select Code from the cell */
-#define SYSCFG_REGISTER_CODE                 SYSCFG_CCCSR_CS        /*!< Code from the SYSCFG compensation cell code register */
+#define SYSCFG_CELL_CODE                    ((uint32_t)0x00000000)
+#define SYSCFG_REGISTER_CODE                 SYSCFG_CCCSR_CS
 
 #define IS_SYSCFG_CODE_SELECT(SELECT) (((SELECT) == SYSCFG_CELL_CODE)|| \
                                         ((SELECT) == SYSCFG_REGISTER_CODE))
@@ -259,22 +259,22 @@ typedef enum
 #define IS_EXTI_EDGE_LINE(EDGE) (((EDGE) == EXTI_RISING_EDGE) || ((EDGE) == EXTI_FALLING_EDGE))
 #define IS_EXTI_MODE_LINE(MODE) (((MODE) == EXTI_MODE_IT) || ((MODE) == EXTI_MODE_EVT))
 
-#define EXTI_LINE0       ((uint32_t)0x00)  /*!< External interrupt LINE 0  */
-#define EXTI_LINE1       ((uint32_t)0x01)  /*!< External interrupt LINE 1  */
-#define EXTI_LINE2       ((uint32_t)0x02)  /*!< External interrupt LINE 2  */
-#define EXTI_LINE3       ((uint32_t)0x03)  /*!< External interrupt LINE 3  */
-#define EXTI_LINE4       ((uint32_t)0x04)  /*!< External interrupt LINE 4  */
-#define EXTI_LINE5       ((uint32_t)0x05)  /*!< External interrupt LINE 5  */
-#define EXTI_LINE6       ((uint32_t)0x06)  /*!< External interrupt LINE 6  */
-#define EXTI_LINE7       ((uint32_t)0x07)  /*!< External interrupt LINE 7  */
-#define EXTI_LINE8       ((uint32_t)0x08)  /*!< External interrupt LINE 8  */
-#define EXTI_LINE9       ((uint32_t)0x09)  /*!< External interrupt LINE 9  */
-#define EXTI_LINE10      ((uint32_t)0x0A)  /*!< External interrupt LINE 10 */
-#define EXTI_LINE11      ((uint32_t)0x0B)  /*!< External interrupt LINE 11 */
-#define EXTI_LINE12      ((uint32_t)0x0C)  /*!< External interrupt LINE 12 */
-#define EXTI_LINE13      ((uint32_t)0x0D)  /*!< External interrupt LINE 13 */
-#define EXTI_LINE14      ((uint32_t)0x0E)  /*!< External interrupt LINE 14 */
-#define EXTI_LINE15      ((uint32_t)0x0F)  /*!< External interrupt LINE 15 */
+#define EXTI_LINE0       ((uint32_t)0x00)
+#define EXTI_LINE1       ((uint32_t)0x01)
+#define EXTI_LINE2       ((uint32_t)0x02)
+#define EXTI_LINE3       ((uint32_t)0x03)
+#define EXTI_LINE4       ((uint32_t)0x04)
+#define EXTI_LINE5       ((uint32_t)0x05)
+#define EXTI_LINE6       ((uint32_t)0x06)
+#define EXTI_LINE7       ((uint32_t)0x07)
+#define EXTI_LINE8       ((uint32_t)0x08)
+#define EXTI_LINE9       ((uint32_t)0x09)
+#define EXTI_LINE10      ((uint32_t)0x0A)
+#define EXTI_LINE11      ((uint32_t)0x0B)
+#define EXTI_LINE12      ((uint32_t)0x0C)
+#define EXTI_LINE13      ((uint32_t)0x0D)
+#define EXTI_LINE14      ((uint32_t)0x0E)
+#define EXTI_LINE15      ((uint32_t)0x0F)
 #define EXTI_LINE16      ((uint32_t)0x10)
 #define EXTI_LINE17      ((uint32_t)0x11)
 #define EXTI_LINE18      ((uint32_t)0x12)
@@ -304,7 +304,7 @@ typedef enum
 #define EXTI_LINE41      ((uint32_t)0x29)
 #define EXTI_LINE42      ((uint32_t)0x2A)
 #define EXTI_LINE43      ((uint32_t)0x2B)
-#define EXTI_LINE44      ((uint32_t)0x2C)  /* Not available in all family lines */
+#define EXTI_LINE44      ((uint32_t)0x2C)
 /* EXTI_LINE45 Reserved */
 #if defined(DUAL_CORE)
 #define EXTI_LINE46      ((uint32_t)0x2E)
@@ -339,8 +339,8 @@ typedef enum
 #define EXTI_LINE72      ((uint32_t)0x48)
 #define EXTI_LINE73      ((uint32_t)0x49)
 #define EXTI_LINE74      ((uint32_t)0x4A)
-#define EXTI_LINE75      ((uint32_t)0x4B)  /* Not available in all family lines */
-#define EXTI_LINE76      ((uint32_t)0x4C)  /* Not available in all family lines */
+#define EXTI_LINE75      ((uint32_t)0x4B)
+#define EXTI_LINE76      ((uint32_t)0x4C)
 #if defined(DUAL_CORE)
 #define EXTI_LINE77      ((uint32_t)0x4D)
 #define EXTI_LINE78      ((uint32_t)0x4E)
@@ -365,12 +365,12 @@ typedef enum
 /* EXTI_LINE84 Reserved */
 #endif /* DUAL_CORE */
 #define EXTI_LINE85      ((uint32_t)0x55)
-#define EXTI_LINE86      ((uint32_t)0x56)  /* Not available in all family lines */
+#define EXTI_LINE86      ((uint32_t)0x56)
 #define EXTI_LINE87      ((uint32_t)0x57)
-#define EXTI_LINE88      ((uint32_t)0x58)  /* Not available in all family lines */
-#define EXTI_LINE89      ((uint32_t)0x59)  /* Not available in all family lines */
-#define EXTI_LINE90      ((uint32_t)0x5A)  /* Not available in all family lines */
-#define EXTI_LINE91      ((uint32_t)0x5B)  /* Not available in all family lines */
+#define EXTI_LINE88      ((uint32_t)0x58)
+#define EXTI_LINE89      ((uint32_t)0x59)
+#define EXTI_LINE90      ((uint32_t)0x5A)
+#define EXTI_LINE91      ((uint32_t)0x5B)
 
 #if defined(DUAL_CORE)
 #define IS_HAL_EXTI_CONFIG_LINE(LINE) (((LINE) == EXTI_LINE0) || ((LINE) == EXTI_LINE1) || \
@@ -673,17 +673,17 @@ typedef enum
 #endif /*DUAL_CORE*/
 
 
-#define  BDMA_CH6_CLEAR           ((uint32_t)0x00000000)   /*!< BDMA ch6 event selected as D3 domain pendclear source*/
-#define  BDMA_CH7_CLEAR           ((uint32_t)0x00000001)   /*!< BDMA ch7 event selected as D3 domain pendclear source*/
+#define  BDMA_CH6_CLEAR           ((uint32_t)0x00000000)
+#define  BDMA_CH7_CLEAR           ((uint32_t)0x00000001)
 #if defined (LPTIM4)
-#define  LPTIM4_OUT_CLEAR         ((uint32_t)0x00000002)   /*!< LPTIM4 out selected as D3 domain pendclear source*/
+#define  LPTIM4_OUT_CLEAR         ((uint32_t)0x00000002)
 #else
-#define  LPTIM2_OUT_CLEAR         ((uint32_t)0x00000002)   /*!< LPTIM2 out selected as D3 domain pendclear source*/
+#define  LPTIM2_OUT_CLEAR         ((uint32_t)0x00000002)
 #endif /* LPTIM4 */
 #if defined (LPTIM5)
-#define  LPTIM5_OUT_CLEAR         ((uint32_t)0x00000003)   /*!< LPTIM5 out selected as D3 domain pendclear source*/
+#define  LPTIM5_OUT_CLEAR         ((uint32_t)0x00000003)
 #else
-#define  LPTIM3_OUT_CLEAR         ((uint32_t)0x00000003)   /*!< LPTIM3 out selected as D3 domain pendclear source*/
+#define  LPTIM3_OUT_CLEAR         ((uint32_t)0x00000003)
 #endif /* LPTIM5 */
 #if defined (LPTIM4) && defined (LPTIM5)
 #define IS_EXTI_D3_CLEAR(SOURCE) (((SOURCE) == BDMA_CH6_CLEAR) || ((SOURCE) == BDMA_CH7_CLEAR)    || \

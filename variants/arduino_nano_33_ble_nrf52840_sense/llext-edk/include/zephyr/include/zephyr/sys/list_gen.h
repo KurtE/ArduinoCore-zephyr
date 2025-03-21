@@ -194,7 +194,7 @@
 			z_ ## __lname ## _head_set(list,		      \
 				z_ ## __nname ## _next_peek(node));	      \
 									      \
-			/* Was node also the tail? */			      \
+			      \
 			if (sys_ ## __lname ## _peek_tail(list) == node) {    \
 				z_ ## __lname ## _tail_set(list,	      \
 					sys_ ## __lname ## _peek_head(list)); \
@@ -203,7 +203,7 @@
 			z_ ## __nname ## _next_set(prev_node,		      \
 				z_ ## __nname ## _next_peek(node));	      \
 									      \
-			/* Was node the tail? */			      \
+			      \
 			if (sys_ ## __lname ## _peek_tail(list) == node) {    \
 				z_ ## __lname ## _tail_set(list,	      \
 							     prev_node);      \

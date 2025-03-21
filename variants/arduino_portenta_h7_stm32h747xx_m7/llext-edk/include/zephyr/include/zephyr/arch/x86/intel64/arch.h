@@ -59,7 +59,7 @@ static ALWAYS_INLINE unsigned int arch_irq_lock(void)
 		"int $32\n\t" \
 		: \
 		: [reason] "i" (reason_p)); \
-	CODE_UNREACHABLE; /* LCOV_EXCL_LINE */ \
+	CODE_UNREACHABLE; \
 } while (false)
 
 #ifdef CONFIG_PCIE

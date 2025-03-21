@@ -329,9 +329,9 @@
 #define BIT_OFFSET_16            (16)
 #define BIT_OFFSET_24            (24)
 
-#define XGMAC_RXQxEN_DCB       (2u) /* RX queue enabled for Data Center Bridging or Generic */
+#define XGMAC_RXQxEN_DCB       (2u)
 #define XGMAC_RXQxEN_SIZE_BITS (2u)
-#define ETH_MAC_ADDRESS_SIZE   (6u) /*Ethernet MAC address size 6 bytes */
+#define ETH_MAC_ADDRESS_SIZE   (6u)
 
 #define XGMAC_TDES2_IOC       BIT(31)
 #define XGMAC_TDES3_OWN       BIT(31)
@@ -360,9 +360,9 @@
 #define XGMAC_INTERRUPT_POLING_TIMEOUT_US (500u)
 
 #define ETH_DWC_XGMAC_RESET_STATUS_CHECK_RETRY_COUNT                                               \
-	(100)                      /* retry up to 100ms (1 x 100ms poll interval) */
-#define XGMAC_REG_SIZE_BYTES (4u)  /*4 Bytes*/
-#define XGMAC_REG_SIZE_BITS  (32u) /*4 Bytes*/
+	(100)
+#define XGMAC_REG_SIZE_BYTES (4u)
+#define XGMAC_REG_SIZE_BITS  (32u)
 
 #define CHLCNT(n)      DT_INST_PROP(n, num_dma_ch)
 #define MAX_TX_RING(n) DT_INST_PROP(n, dma_ch_tdrl)
@@ -450,7 +450,7 @@ struct xgmac_dma_rx_desc_meta {
 };
 
 struct xgmac_tx_cntxt {
-	int timeout; /*Time out in sleep intervals count*/
+	int timeout;
 	/* TX packet queue ID */
 	uint8_t q_id;
 	struct xgmac_dma_tx_desc_meta *descmeta;

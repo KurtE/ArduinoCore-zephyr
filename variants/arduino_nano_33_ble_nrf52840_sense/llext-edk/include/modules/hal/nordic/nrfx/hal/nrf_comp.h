@@ -61,33 +61,40 @@ extern "C" {
 #define NRF_COMP_HAS_AIN_AS_PIN 0
 #endif
 
+#if defined(COMP_REFTRIM_REFTRIM_Pos) || defined(__NRFX_DOXYGEN__)
+/** @brief Symbol indicating whether COMP has REFTRIM register. */
+#define NRF_COMP_HAS_REFTRIM 1
+#else
+#define NRF_COMP_HAS_REFTRIM 0
+#endif
+
 /** @brief COMP analog pin selection. */
 #if NRF_COMP_HAS_AIN_AS_PIN
 typedef uint32_t nrf_comp_input_t;
 #else
 typedef enum
 {
-    NRF_COMP_INPUT_0   = COMP_PSEL_PSEL_AnalogInput0, /*!< AIN0 selected as analog input. */
-    NRF_COMP_INPUT_1   = COMP_PSEL_PSEL_AnalogInput1, /*!< AIN1 selected as analog input. */
-    NRF_COMP_INPUT_2   = COMP_PSEL_PSEL_AnalogInput2, /*!< AIN2 selected as analog input. */
-    NRF_COMP_INPUT_3   = COMP_PSEL_PSEL_AnalogInput3, /*!< AIN3 selected as analog input. */
+    NRF_COMP_INPUT_0   = COMP_PSEL_PSEL_AnalogInput0,
+    NRF_COMP_INPUT_1   = COMP_PSEL_PSEL_AnalogInput1,
+    NRF_COMP_INPUT_2   = COMP_PSEL_PSEL_AnalogInput2,
+    NRF_COMP_INPUT_3   = COMP_PSEL_PSEL_AnalogInput3,
 #if defined (COMP_PSEL_PSEL_AnalogInput4) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_INPUT_4   = COMP_PSEL_PSEL_AnalogInput4, /*!< AIN4 selected as analog input. */
+    NRF_COMP_INPUT_4   = COMP_PSEL_PSEL_AnalogInput4,
 #endif
 #if defined (COMP_PSEL_PSEL_AnalogInput5) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_INPUT_5   = COMP_PSEL_PSEL_AnalogInput5, /*!< AIN5 selected as analog input. */
+    NRF_COMP_INPUT_5   = COMP_PSEL_PSEL_AnalogInput5,
 #endif
 #if defined (COMP_PSEL_PSEL_AnalogInput6) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_INPUT_6   = COMP_PSEL_PSEL_AnalogInput6, /*!< AIN6 selected as analog input. */
+    NRF_COMP_INPUT_6   = COMP_PSEL_PSEL_AnalogInput6,
 #endif
 #if defined (COMP_PSEL_PSEL_AnalogInput7) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_INPUT_7   = COMP_PSEL_PSEL_AnalogInput7, /*!< AIN7 selected as analog input. */
+    NRF_COMP_INPUT_7   = COMP_PSEL_PSEL_AnalogInput7,
 #endif
 #if defined (COMP_PSEL_PSEL_VddDiv2) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_VDD_DIV2  = COMP_PSEL_PSEL_VddDiv2,      /*!< VDD/2 selected as analog input. */
+    NRF_COMP_VDD_DIV2  = COMP_PSEL_PSEL_VddDiv2,
 #endif
 #if defined (COMP_PSEL_PSEL_VddhDiv5) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_VDDH_DIV5 = COMP_PSEL_PSEL_VddhDiv5,     /*!< VDDH/5 selected as analog input. */
+    NRF_COMP_VDDH_DIV5 = COMP_PSEL_PSEL_VddhDiv5,
 #endif
 } nrf_comp_input_t;
 #endif // NRF_COMP_HAS_AIN_AS_PIN
@@ -95,20 +102,20 @@ typedef enum
 /** @brief COMP reference selection. */
 typedef enum
 {
-    NRF_COMP_REF_INT_1V2   = COMP_REFSEL_REFSEL_Int1V2,    /*!< VREF = internal 1.2 V reference (VDD >= 1.7 V). */
+    NRF_COMP_REF_INT_1V2   = COMP_REFSEL_REFSEL_Int1V2,
 #if defined(COMP_REFSEL_REFSEL_Int1V8) || defined(__NRFX_DOXYGEN__)
-    NRF_COMP_REF_INT_1V8   = COMP_REFSEL_REFSEL_Int1V8,    /*!< VREF = internal 1.8 V reference (VDD >= VREF + 0.2 V). */
+    NRF_COMP_REF_INT_1V8   = COMP_REFSEL_REFSEL_Int1V8,
 #endif
 #if defined(COMP_REFSEL_REFSEL_Int2V4) || defined(__NRFX_DOXYGEN__)
-    NRF_COMP_REF_INT_2V4   = COMP_REFSEL_REFSEL_Int2V4,    /*!< VREF = internal 2.4 V reference (VDD >= VREF + 0.2 V). */
+    NRF_COMP_REF_INT_2V4   = COMP_REFSEL_REFSEL_Int2V4,
 #endif
 #if defined(COMP_REFSEL_REFSEL_AVDDAO1V8) || defined(__NRFX_DOXYGEN__)
-    NRF_COMP_REF_AVDDAO1V8 = COMP_REFSEL_REFSEL_AVDDAO1V8, /*!< VREF = AVDD_AO_1V8. */
+    NRF_COMP_REF_AVDDAO1V8 = COMP_REFSEL_REFSEL_AVDDAO1V8,
 #endif
 #if defined(COMP_REFSEL_REFSEL_VDD) || defined(__NRFX_DOXYGEN__)
-    NRF_COMP_REF_VDD       = COMP_REFSEL_REFSEL_VDD,       /*!< VREF = VDD. */
+    NRF_COMP_REF_VDD       = COMP_REFSEL_REFSEL_VDD,
 #endif
-    NRF_COMP_REF_AREF      = COMP_REFSEL_REFSEL_ARef       /*!< VREF = AREF (VDD >= VREF >= AREFMIN). */
+    NRF_COMP_REF_AREF      = COMP_REFSEL_REFSEL_ARef
 } nrf_comp_ref_t;
 
 /** @brief COMP external analog reference selection. */
@@ -117,21 +124,21 @@ typedef uint32_t nrf_comp_ext_ref_t;
 #else
 typedef enum
 {
-    NRF_COMP_EXT_REF_0 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference0, /*!< Use AIN0 as external analog reference. */
-    NRF_COMP_EXT_REF_1 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference1, /*!< Use AIN1 as external analog reference. */
-    NRF_COMP_EXT_REF_2 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference2, /*!< Use AIN2 as external analog reference. */
-    NRF_COMP_EXT_REF_3 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference3, /*!< Use AIN3 as external analog reference. */
+    NRF_COMP_EXT_REF_0 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference0,
+    NRF_COMP_EXT_REF_1 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference1,
+    NRF_COMP_EXT_REF_2 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference2,
+    NRF_COMP_EXT_REF_3 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference3,
 #if defined (COMP_EXTREFSEL_EXTREFSEL_AnalogReference4) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_EXT_REF_4 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference4, /*!< Use AIN4 as external analog reference. */
+    NRF_COMP_EXT_REF_4 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference4,
 #endif
 #if defined (COMP_EXTREFSEL_EXTREFSEL_AnalogReference5) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_EXT_REF_5 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference5, /*!< Use AIN5 as external analog reference. */
+    NRF_COMP_EXT_REF_5 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference5,
 #endif
 #if defined (COMP_EXTREFSEL_EXTREFSEL_AnalogReference6) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_EXT_REF_6 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference6, /*!< Use AIN6 as external analog reference. */
+    NRF_COMP_EXT_REF_6 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference6,
 #endif
 #if defined (COMP_EXTREFSEL_EXTREFSEL_AnalogReference7) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_EXT_REF_7 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference7  /*!< Use AIN7 as external analog reference. */
+    NRF_COMP_EXT_REF_7 = COMP_EXTREFSEL_EXTREFSEL_AnalogReference7
 #endif
 } nrf_comp_ext_ref_t;
 #endif // NRF_COMP_HAS_AIN_AS_PIN
@@ -139,36 +146,36 @@ typedef enum
 /** @brief COMP THDOWN and THUP values that are used to calculate the threshold voltages VDOWN and VUP. */
 typedef struct
 {
-    uint8_t th_down; /*!< THDOWN value. */
-    uint8_t th_up;   /*!< THUP value. */
+    uint8_t th_down;
+    uint8_t th_up;
 } nrf_comp_th_t;
 
 /** @brief COMP main operation mode. */
 typedef enum
 {
-    NRF_COMP_MAIN_MODE_SE   = COMP_MODE_MAIN_SE,  /*!< Single-ended mode. */
-    NRF_COMP_MAIN_MODE_DIFF = COMP_MODE_MAIN_Diff /*!< Differential mode. */
+    NRF_COMP_MAIN_MODE_SE   = COMP_MODE_MAIN_SE,
+    NRF_COMP_MAIN_MODE_DIFF = COMP_MODE_MAIN_Diff
 } nrf_comp_main_mode_t;
 
 /** @brief COMP speed and power mode. */
 typedef enum
 {
-    NRF_COMP_SP_MODE_LOW    = COMP_MODE_SP_Low,    /*!< Low power mode. */
+    NRF_COMP_SP_MODE_LOW    = COMP_MODE_SP_Low,
 #if defined (COMP_MODE_SP_Normal) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_SP_MODE_NORMAL = COMP_MODE_SP_Normal, /*!< Normal mode. */
+    NRF_COMP_SP_MODE_NORMAL = COMP_MODE_SP_Normal,
 #endif
-    NRF_COMP_SP_MODE_HIGH   = COMP_MODE_SP_High    /*!< High-speed mode. */
+    NRF_COMP_SP_MODE_HIGH   = COMP_MODE_SP_High
 } nrf_comp_sp_mode_t;
 
 /** @brief COMP comparator hysteresis. */
 typedef enum
 {
-    NRF_COMP_HYST_NO_HYST = COMP_HYST_HYST_NoHyst,   /*!< Comparator hysteresis disabled. */
+    NRF_COMP_HYST_NO_HYST = COMP_HYST_HYST_NoHyst,
 #if defined (COMP_HYST_HYST_Hyst40mV) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_HYST_40MV    = COMP_HYST_HYST_Hyst40mV, /*!< Comparator hysteresis enabled at 40 mV level. */
+    NRF_COMP_HYST_40MV    = COMP_HYST_HYST_Hyst40mV,
 #endif
 #if defined (COMP_HYST_HYST_Hyst50mV) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_HYST_50MV    = COMP_HYST_HYST_Hyst50mV  /*!< Comparator hysteresis enabled at 50 mV level. */
+    NRF_COMP_HYST_50MV    = COMP_HYST_HYST_Hyst50mV
 #endif
 } nrf_comp_hyst_t;
 
@@ -176,21 +183,21 @@ typedef enum
 /** @brief COMP current source selection on analog input. */
 typedef enum
 {
-    NRF_COMP_ISOURCE_OFF      = COMP_ISOURCE_ISOURCE_Off,     /*!< Current source disabled. */
+    NRF_COMP_ISOURCE_OFF      = COMP_ISOURCE_ISOURCE_Off,
 #if defined (COMP_ISOURCE_ISOURCE_Ien2uA5) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_ISOURCE_IEN_2UA5 = COMP_ISOURCE_ISOURCE_Ien2uA5, /*!< Current source enabled (+/- 2.5 uA). */
+    NRF_COMP_ISOURCE_IEN_2UA5 = COMP_ISOURCE_ISOURCE_Ien2uA5,
 #else
-    NRF_COMP_ISOURCE_IEN_2UA5 = COMP_ISOURCE_ISOURCE_Ien2mA5, /*!< Current source enabled (+/- 2.5 uA). */
+    NRF_COMP_ISOURCE_IEN_2UA5 = COMP_ISOURCE_ISOURCE_Ien2mA5,
 #endif
 #if defined (COMP_ISOURCE_ISOURCE_Ien5uA) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_ISOURCE_IEN_5UA  = COMP_ISOURCE_ISOURCE_Ien5uA,  /*!< Current source enabled (+/- 5 uA). */
+    NRF_COMP_ISOURCE_IEN_5UA  = COMP_ISOURCE_ISOURCE_Ien5uA,
 #else
-    NRF_COMP_ISOURCE_IEN_5UA  = COMP_ISOURCE_ISOURCE_Ien5mA,  /*!< Current source enabled (+/- 5 uA). */
+    NRF_COMP_ISOURCE_IEN_5UA  = COMP_ISOURCE_ISOURCE_Ien5mA,
 #endif
 #if defined (COMP_ISOURCE_ISOURCE_Ien10uA) || defined (__NRFX_DOXYGEN__)
-    NRF_COMP_ISOURCE_IEN_10UA = COMP_ISOURCE_ISOURCE_Ien10uA, /*!< Current source enabled (+/- 10 uA). */
+    NRF_COMP_ISOURCE_IEN_10UA = COMP_ISOURCE_ISOURCE_Ien10uA,
 #else
-    NRF_COMP_ISOURCE_IEN_10UA = COMP_ISOURCE_ISOURCE_Ien10mA, /*!< Current source enabled (+/- 10 uA). */
+    NRF_COMP_ISOURCE_IEN_10UA = COMP_ISOURCE_ISOURCE_Ien10mA,
 #endif
 } nrf_isource_t;
 #endif // NRF_COMP_HAS_ISOURCE
@@ -198,27 +205,27 @@ typedef enum
 /** @brief COMP tasks. */
 typedef enum
 {
-    NRF_COMP_TASK_START  = offsetof(NRF_COMP_Type, TASKS_START), /*!< COMP start sampling task. */
-    NRF_COMP_TASK_STOP   = offsetof(NRF_COMP_Type, TASKS_STOP),  /*!< COMP stop sampling task. */
-    NRF_COMP_TASK_SAMPLE = offsetof(NRF_COMP_Type, TASKS_SAMPLE) /*!< Sample comparator value. */
+    NRF_COMP_TASK_START  = offsetof(NRF_COMP_Type, TASKS_START),
+    NRF_COMP_TASK_STOP   = offsetof(NRF_COMP_Type, TASKS_STOP),
+    NRF_COMP_TASK_SAMPLE = offsetof(NRF_COMP_Type, TASKS_SAMPLE)
 } nrf_comp_task_t;
 
 /** @brief COMP events. */
 typedef enum
 {
-    NRF_COMP_EVENT_READY = offsetof(NRF_COMP_Type, EVENTS_READY), /*!< COMP is ready and output is valid. */
-    NRF_COMP_EVENT_DOWN  = offsetof(NRF_COMP_Type, EVENTS_DOWN),  /*!< Input voltage crossed the threshold going down. */
-    NRF_COMP_EVENT_UP    = offsetof(NRF_COMP_Type, EVENTS_UP),    /*!< Input voltage crossed the threshold going up. */
-    NRF_COMP_EVENT_CROSS = offsetof(NRF_COMP_Type, EVENTS_CROSS)  /*!< Input voltage crossed the threshold in any direction. */
+    NRF_COMP_EVENT_READY = offsetof(NRF_COMP_Type, EVENTS_READY),
+    NRF_COMP_EVENT_DOWN  = offsetof(NRF_COMP_Type, EVENTS_DOWN),
+    NRF_COMP_EVENT_UP    = offsetof(NRF_COMP_Type, EVENTS_UP),
+    NRF_COMP_EVENT_CROSS = offsetof(NRF_COMP_Type, EVENTS_CROSS)
 } nrf_comp_event_t;
 
 /** @brief COMP interrupts. */
 typedef enum
 {
-    NRF_COMP_INT_READY_MASK = COMP_INTENSET_READY_Msk, /**< Interrupt on READY event. */
-    NRF_COMP_INT_DOWN_MASK  = COMP_INTENSET_DOWN_Msk,  /**< Interrupt on DOWN event. */
-    NRF_COMP_INT_UP_MASK    = COMP_INTENSET_UP_Msk,    /**< Interrupt on UP event. */
-    NRF_COMP_INT_CROSS_MASK = COMP_INTENSET_CROSS_Msk  /**< Interrupt on CROSS event. */
+    NRF_COMP_INT_READY_MASK = COMP_INTENSET_READY_Msk,
+    NRF_COMP_INT_DOWN_MASK  = COMP_INTENSET_DOWN_Msk,
+    NRF_COMP_INT_UP_MASK    = COMP_INTENSET_UP_Msk,
+    NRF_COMP_INT_CROSS_MASK = COMP_INTENSET_CROSS_Msk
 } nrf_comp_int_mask_t;
 
 /** @brief COMP shortcut masks. */
@@ -232,8 +239,8 @@ typedef enum
 /** @brief COMP reference configuration. */
 typedef struct
 {
-    nrf_comp_ref_t     reference; /*!< COMP reference selection. */
-    nrf_comp_ext_ref_t external;  /*!< COMP external analog reference selection. */
+    nrf_comp_ref_t     reference;
+    nrf_comp_ext_ref_t external;
 } nrf_comp_ref_conf_t;
 
 /**
@@ -437,6 +444,25 @@ NRF_STATIC_INLINE void nrf_comp_event_clear(NRF_COMP_Type * p_reg, nrf_comp_even
  */
 NRF_STATIC_INLINE bool nrf_comp_event_check(NRF_COMP_Type const * p_reg, nrf_comp_event_t event);
 
+#if NRF_COMP_HAS_REFTRIM
+/**
+ * @brief Function for setting COMP trimming value.
+ *
+ * @param[in] p_reg Pointer to the structure of registers of the peripheral.
+ * @param[in] trim  Trimming value
+ */
+NRF_STATIC_INLINE void nrf_comp_reftrim_set(NRF_COMP_Type * p_reg, uint32_t trim);
+
+/**
+ * @brief Function for getting COMP trimming value.
+ *
+ * @param[in] p_reg Pointer to the structure of registers of the peripheral.
+ *
+ * @return Trimming value
+ */
+NRF_STATIC_INLINE uint32_t nrf_comp_reftrim_get(NRF_COMP_Type const * p_reg);
+#endif
+
 #ifndef NRF_DECLARE_ONLY
 
 NRF_STATIC_INLINE void nrf_comp_enable(NRF_COMP_Type * p_reg)
@@ -570,6 +596,18 @@ NRF_STATIC_INLINE bool nrf_comp_event_check(NRF_COMP_Type const * p_reg, nrf_com
 {
     return nrf_event_check(p_reg, event);
 }
+
+#if NRF_COMP_HAS_REFTRIM
+NRF_STATIC_INLINE void nrf_comp_reftrim_set(NRF_COMP_Type * p_reg, uint32_t trim)
+{
+    p_reg->REFTRIM = (trim & COMP_REFTRIM_REFTRIM_Msk);
+}
+
+NRF_STATIC_INLINE uint32_t nrf_comp_reftrim_get(NRF_COMP_Type const * p_reg)
+{
+    return (p_reg->REFTRIM & COMP_REFTRIM_REFTRIM_Msk);
+}
+#endif
 
 #endif // NRF_DECLARE_ONLY
 

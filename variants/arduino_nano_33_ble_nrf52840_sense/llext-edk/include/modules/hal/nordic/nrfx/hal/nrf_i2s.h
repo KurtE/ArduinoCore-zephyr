@@ -241,13 +241,13 @@ typedef enum
 /** @brief I2S configuration. */
 typedef struct
 {
-    nrf_i2s_mode_t     mode;         /**< Mode of operation (master or slave). */
-    nrf_i2s_format_t   format;       /**< I2S frame format. */
-    nrf_i2s_align_t    alignment;    /**< Alignment of sample within a frame. */
-    nrf_i2s_swidth_t   sample_width; /**< Sample width. */
-    nrf_i2s_channels_t channels;     /**< Enabled channels. */
-    nrf_i2s_mck_t      mck_setup;    /**< Master clock generator setup. */
-    nrf_i2s_ratio_t    ratio;        /**< MCK/LRCK ratio. */
+    nrf_i2s_mode_t     mode;
+    nrf_i2s_format_t   format;
+    nrf_i2s_align_t    alignment;
+    nrf_i2s_swidth_t   sample_width;
+    nrf_i2s_channels_t channels;
+    nrf_i2s_mck_t      mck_setup;
+    nrf_i2s_ratio_t    ratio;
 } nrf_i2s_config_t;
 
 /** @brief I2S pins. */

@@ -20,8 +20,8 @@
 #define GAIN_UNIT_XL (61LL)
 #define GAIN_UNIT_G  (8750LL)
 
-#define TEMP_OFFSET      25 /* raw output of zero indicate 25°C */
-#define TEMP_SENSITIVITY 16 /* 16 LSB / °C */
+#define TEMP_OFFSET      25
+#define TEMP_SENSITIVITY 16
 
 #define GYRO_ODR_MASK 0x7
 

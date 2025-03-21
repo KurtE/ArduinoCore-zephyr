@@ -10,7 +10,6 @@
 -fstack-protector
 -mstack-protector-guard=global
 -fno-common
--fdiagnostics-color=always
 -mcpu=cortex-m4
 -mthumb
 -mabi=aapcs

@@ -70,7 +70,7 @@
 #endif
 
 
-#undef BUILD_ASSERT /* clear out common version */
+#undef BUILD_ASSERT
 /* C++11 has static_assert built in */
 #if defined(__cplusplus) && (__cplusplus >= 201103L)
 #define BUILD_ASSERT(EXPR, MSG...) static_assert(EXPR, "" MSG)
@@ -605,7 +605,7 @@ do {                                                                    \
  *	 - static variable, e.g. array like static uint8_t array[Z_MAX(...)];
  */
 #define Z_MAX(a, b) ({ \
-		/* random suffix to avoid naming conflict */ \
+ \
 		__typeof__(a) _value_a_ = (a); \
 		__typeof__(b) _value_b_ = (b); \
 		(_value_a_ > _value_b_) ? _value_a_ : _value_b_; \
@@ -617,7 +617,7 @@ do {                                                                    \
  * macro limitations.
  */
 #define Z_MIN(a, b) ({ \
-		/* random suffix to avoid naming conflict */ \
+ \
 		__typeof__(a) _value_a_ = (a); \
 		__typeof__(b) _value_b_ = (b); \
 		(_value_a_ < _value_b_) ? _value_a_ : _value_b_; \
@@ -629,7 +629,7 @@ do {                                                                    \
  * macro limitations.
  */
 #define Z_CLAMP(val, low, high) ({                                             \
-		/* random suffix to avoid naming conflict */                   \
+                   \
 		__typeof__(val) _value_val_ = (val);                           \
 		__typeof__(low) _value_low_ = (low);                           \
 		__typeof__(high) _value_high_ = (high);                        \
@@ -658,7 +658,7 @@ do {                                                                    \
 #if defined(CONFIG_ASAN) && defined(__clang__)
 #define __noasan __attribute__((no_sanitize("address")))
 #else
-#define __noasan /**/
+#define __noasan
 #endif
 
 #if defined(CONFIG_UBSAN)
@@ -687,4 +687,34 @@ do {                                                                    \
 	_Pragma("GCC diagnostic pop")
 
 #endif /* !_LINKER */
+
+#define TOOLCHAIN_WARNING_ADDRESS_OF_PACKED_MEMBER "-Waddress-of-packed-member"
+#define TOOLCHAIN_WARNING_ARRAY_BOUNDS             "-Warray-bounds"
+#define TOOLCHAIN_WARNING_ATTRIBUTES               "-Wattributes"
+#define TOOLCHAIN_WARNING_DELETE_NON_VIRTUAL_DTOR  "-Wdelete-non-virtual-dtor"
+#define TOOLCHAIN_WARNING_EXTRA                    "-Wextra"
+#define TOOLCHAIN_WARNING_NONNULL                  "-Wnonnull"
+#define TOOLCHAIN_WARNING_SHADOW                   "-Wshadow"
+#define TOOLCHAIN_WARNING_UNUSED_LABEL             "-Wunused-label"
+#define TOOLCHAIN_WARNING_UNUSED_VARIABLE          "-Wunused-variable"
+
+/* GCC-specific warnings that aren't in clang. */
+#if defined(__GNUC__) && !defined(__clang__)
+#define TOOLCHAIN_WARNING_POINTER_ARITH "-Wpointer-arith"
+#endif
+
+#define _TOOLCHAIN_DISABLE_WARNING(compiler, warning)                                              \
+	TOOLCHAIN_PRAGMA(compiler diagnostic push)                                                 \
+	TOOLCHAIN_PRAGMA(compiler diagnostic ignored warning)
+
+#define _TOOLCHAIN_ENABLE_WARNING(compiler, warning) TOOLCHAIN_PRAGMA(compiler diagnostic pop)
+
+#define TOOLCHAIN_DISABLE_WARNING(warning) _TOOLCHAIN_DISABLE_WARNING(GCC, warning)
+#define TOOLCHAIN_ENABLE_WARNING(warning) _TOOLCHAIN_ENABLE_WARNING(GCC, warning)
+
+#if defined(__GNUC__) && !defined(__clang__)
+#define TOOLCHAIN_DISABLE_GCC_WARNING(warning) _TOOLCHAIN_DISABLE_WARNING(GCC, warning)
+#define TOOLCHAIN_ENABLE_GCC_WARNING(warning)  _TOOLCHAIN_ENABLE_WARNING(GCC, warning)
+#endif
+
 #endif /* ZEPHYR_INCLUDE_TOOLCHAIN_GCC_H_ */

@@ -545,9 +545,10 @@ __syscall int k_thread_join(struct k_thread *thread, k_timeout_t timeout);
  *
  * @param timeout Desired duration of sleep.
  *
- * @return Zero if the requested time has elapsed or if the thread was woken up
- * by the \ref k_wakeup call, the time left to sleep rounded up to the nearest
- * millisecond.
+ * @return Zero if the requested time has elapsed or the time left to
+ * sleep rounded up to the nearest millisecond (e.g. if the thread was
+ * awoken by the \ref k_wakeup call).  Will be clamped to INT_MAX in
+ * the case where the remaining time is unrepresentable in an int32_t.
  */
 __syscall int32_t k_sleep(k_timeout_t timeout);
 
@@ -1211,7 +1212,7 @@ __syscall int k_is_preempt_thread(void);
  */
 static inline bool k_is_pre_kernel(void)
 {
-	extern bool z_sys_post_kernel; /* in init.c */
+	extern bool z_sys_post_kernel;
 
 	return !z_sys_post_kernel;
 }
@@ -2863,7 +2864,7 @@ struct k_lifo {
 /**
  * @cond INTERNAL_HIDDEN
  */
-#define K_STACK_FLAG_ALLOC	((uint8_t)1)	/* Buffer was allocated */
+#define K_STACK_FLAG_ALLOC	((uint8_t)1)
 
 typedef uintptr_t stack_data_t;
 
@@ -3420,7 +3421,7 @@ int k_work_busy_get(const struct k_work *work);
 
 /** @brief Test whether a work item is currently pending.
  *
- * Wrapper to determine whether a work item is in a non-idle dstate.
+ * Wrapper to determine whether a work item is in a non-idle state.
  *
  * @note This is a live snapshot of state, which may change before the result
  * is checked.  Use locks where appropriate.
@@ -4242,11 +4243,11 @@ struct k_work_user_q {
 };
 
 enum {
-	K_WORK_USER_STATE_PENDING,	/* Work item pending state */
+	K_WORK_USER_STATE_PENDING,
 };
 
 struct k_work_user {
-	void *_reserved;		/* Used by k_queue implementation. */
+	void *_reserved;
 	k_work_user_handler_t handler;
 	atomic_t flags;
 };
@@ -5006,21 +5007,21 @@ __syscall void k_pipe_init(struct k_pipe *pipe, uint8_t *buffer, size_t buffer_s
 #ifdef CONFIG_PIPES
 /** Pipe Structure */
 struct k_pipe {
-	unsigned char *buffer;          /**< Pipe buffer: may be NULL */
-	size_t         size;            /**< Buffer size */
-	size_t         bytes_used;      /**< Number of bytes used in buffer */
-	size_t         read_index;      /**< Where in buffer to read from */
-	size_t         write_index;     /**< Where in buffer to write */
-	struct k_spinlock lock;		/**< Synchronization lock */
+	unsigned char *buffer;
+	size_t         size;
+	size_t         bytes_used;
+	size_t         read_index;
+	size_t         write_index;
+	struct k_spinlock lock;
 
 	struct {
-		_wait_q_t      readers; /**< Reader wait queue */
-		_wait_q_t      writers; /**< Writer wait queue */
-	} wait_q;			/** Wait queue */
+		_wait_q_t      readers;
+		_wait_q_t      writers;
+	} wait_q;
 
 	Z_DECL_POLL_EVENT
 
-	uint8_t	       flags;		/**< Flags */
+	uint8_t	       flags;
 
 	SYS_PORT_TRACING_TRACKING_FIELD(k_pipe)
 
@@ -5032,7 +5033,7 @@ struct k_pipe {
 /**
  * @cond INTERNAL_HIDDEN
  */
-#define K_PIPE_FLAG_ALLOC	BIT(0)	/** Buffer was allocated */
+#define K_PIPE_FLAG_ALLOC	BIT(0)
 
 #define Z_PIPE_INITIALIZER(obj, pipe_buffer, pipe_buffer_size)     \
 	{                                                           \
@@ -5720,7 +5721,7 @@ void k_heap_free(struct k_heap *h, void *mem) __attribute_nonnull(1);
  */
 #define Z_HEAP_DEFINE_IN_SECT(name, bytes, in_section)		\
 	char in_section						\
-	     __aligned(8) /* CHUNK_UNIT */			\
+	     __aligned(8)			\
 	     kheap_##name[MAX(bytes, Z_HEAP_MIN_SIZE)];		\
 	STRUCT_SECTION_ITERABLE(k_heap, name) = {		\
 		.heap = {					\
@@ -5916,10 +5917,10 @@ enum _poll_states_bits {
 
 #define _POLL_EVENT_NUM_UNUSED_BITS \
 	(32 - (0 \
-	       + 8 /* tag */ \
+	       + 8 \
 	       + _POLL_NUM_TYPES \
 	       + _POLL_NUM_STATES \
-	       + 1 /* modes */ \
+	       + 1 \
 	      ))
 
 /* end of polling API - PRIVATE */

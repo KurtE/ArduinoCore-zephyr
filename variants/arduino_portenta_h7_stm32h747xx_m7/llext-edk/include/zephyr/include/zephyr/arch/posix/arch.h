@@ -25,7 +25,7 @@
 #include <zephyr/arch/posix/exception.h>
 #include <zephyr/arch/posix/asm_inline.h>
 #include <zephyr/arch/posix/thread.h>
-#include <board_irq.h> /* Each board must define this */
+#include <board_irq.h>
 #include <zephyr/sw_isr_table.h>
 #include <zephyr/arch/posix/posix_soc_if.h>
 

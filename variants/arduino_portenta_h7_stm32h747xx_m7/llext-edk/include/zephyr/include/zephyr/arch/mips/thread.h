@@ -29,22 +29,22 @@
  * saved/restored when a cooperative context switch occurs.
  */
 struct _callee_saved {
-	unsigned long sp;	/* Stack pointer */
+	unsigned long sp;
 
-	unsigned long s0;	/* saved register */
-	unsigned long s1;	/* saved register */
-	unsigned long s2;	/* saved register */
-	unsigned long s3;	/* saved register */
-	unsigned long s4;	/* saved register */
-	unsigned long s5;	/* saved register */
-	unsigned long s6;	/* saved register */
-	unsigned long s7;	/* saved register */
-	unsigned long s8;	/* saved register AKA fp */
+	unsigned long s0;
+	unsigned long s1;
+	unsigned long s2;
+	unsigned long s3;
+	unsigned long s4;
+	unsigned long s5;
+	unsigned long s6;
+	unsigned long s7;
+	unsigned long s8;
 };
 typedef struct _callee_saved _callee_saved_t;
 
 struct _thread_arch {
-	uint32_t swap_return_value; /* Return value of z_swap() */
+	uint32_t swap_return_value;
 };
 
 typedef struct _thread_arch _thread_arch_t;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2023 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -53,8 +53,8 @@ extern "C" {
 /** @brief RAMC events. */
 typedef enum
 {
-    NRF_RAMC_EVENT_ERROR_FIXABLE     = offsetof(NRF_RAMC_Type, EVENTS_ERRORFIX),    /**< ECC detected fixable (one bit) error in read data from RAM. */
-    NRF_RAMC_EVENT_ERROR_NON_FIXABLE = offsetof(NRF_RAMC_Type, EVENTS_ERRORNONFIX), /**< ECC detected non-fixable (multiple bits) error in read data from RAM. */
+    NRF_RAMC_EVENT_ERROR_FIXABLE     = offsetof(NRF_RAMC_Type, EVENTS_ERRORFIX),
+    NRF_RAMC_EVENT_ERROR_NON_FIXABLE = offsetof(NRF_RAMC_Type, EVENTS_ERRORNONFIX),
 } nrf_ramc_event_t;
 
 /**

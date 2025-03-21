@@ -100,8 +100,8 @@ struct net_pkt {
 
 	/** buffer holding the packet */
 	union {
-		struct net_buf *frags;   /**< buffer fragment */
-		struct net_buf *buffer;  /**< alias to a buffer fragment */
+		struct net_buf *frags;
+		struct net_buf *buffer;
 	};
 
 	/** Internal buffer iterator used for reading/writing */
@@ -120,7 +120,7 @@ struct net_pkt {
 	sys_snode_t next;
 #endif
 #if defined(CONFIG_NET_ROUTING) || defined(CONFIG_NET_ETHERNET_BRIDGE)
-	struct net_if *orig_iface; /* Original network interface */
+	struct net_if *orig_iface;
 #endif
 
 #if defined(CONFIG_NET_PKT_TIMESTAMP) || defined(CONFIG_NET_PKT_TXTIME)
@@ -180,11 +180,11 @@ struct net_pkt {
 	uint16_t ll_proto_type;
 
 #if defined(CONFIG_NET_IP)
-	uint8_t ip_hdr_len;	/* pre-filled in order to avoid func call */
+	uint8_t ip_hdr_len;
 #endif
 
-	uint8_t overwrite : 1;	 /* Is packet content being overwritten? */
-	uint8_t eof : 1;	 /* Last packet before EOF */
+	uint8_t overwrite : 1;
+	uint8_t eof : 1;
 	uint8_t ptp_pkt : 1;	 /* For outgoing packet: is this packet
 				  * a L2 PTP packet.
 				  * Used only if defined (CONFIG_NET_L2_PTP)
@@ -192,7 +192,7 @@ struct net_pkt {
 	uint8_t forwarding : 1;	 /* Are we forwarding this pkt
 				  * Used only if defined(CONFIG_NET_ROUTE)
 				  */
-	uint8_t family : 3;	 /* Address family, see net_ip.h */
+	uint8_t family : 3;
 
 	/* bitfield byte alignment boundary */
 
@@ -209,7 +209,7 @@ struct net_pkt {
 			       * AF_UNSPEC.
 			       */
 #endif
-	uint8_t ppp_msg : 1; /* This is a PPP message */
+	uint8_t ppp_msg : 1;
 	uint8_t captured : 1;	  /* Set to 1 if this packet is already being
 				   * captured
 				   */
@@ -225,11 +225,11 @@ struct net_pkt {
 				  * the packet.
 				  */
 #if defined(CONFIG_NET_IP_FRAGMENT)
-	uint8_t ip_reassembled : 1; /* Packet is a reassembled IP packet. */
+	uint8_t ip_reassembled : 1;
 #endif
 #if defined(CONFIG_NET_PKT_TIMESTAMP)
-	uint8_t tx_timestamping : 1; /** Timestamp transmitted packet */
-	uint8_t rx_timestamping : 1; /** Timestamp received packet */
+	uint8_t tx_timestamping : 1;
+	uint8_t rx_timestamping : 1;
 #endif
 	/* bitfield byte alignment boundary */
 
@@ -248,10 +248,10 @@ struct net_pkt {
 
 	union {
 #if defined(CONFIG_NET_IPV4)
-		uint8_t ipv4_opts_len; /* length of IPv4 header options */
+		uint8_t ipv4_opts_len;
 #endif
 #if defined(CONFIG_NET_IPV6)
-		uint16_t ipv6_ext_len; /* length of extension headers */
+		uint16_t ipv6_ext_len;
 #endif
 	};
 
@@ -259,15 +259,15 @@ struct net_pkt {
 	union {
 #if defined(CONFIG_NET_IPV4_FRAGMENT)
 		struct {
-			uint16_t flags;		/* Fragment offset and M (More Fragment) flag */
-			uint16_t id;		/* Fragment ID */
+			uint16_t flags;
+			uint16_t id;
 		} ipv4_fragment;
 #endif /* CONFIG_NET_IPV4_FRAGMENT */
 #if defined(CONFIG_NET_IPV6_FRAGMENT)
 		struct {
-			uint16_t flags;		/* Fragment offset and M (More Fragment) flag */
-			uint32_t id;		/* Fragment id */
-			uint16_t hdr_start;	/* Where starts the fragment header */
+			uint16_t flags;
+			uint32_t id;
+			uint16_t hdr_start;
 		} ipv6_fragment;
 #endif /* CONFIG_NET_IPV6_FRAGMENT */
 	};
@@ -281,8 +281,8 @@ struct net_pkt {
 	 */
 	uint16_t ipv6_prev_hdr_start;
 
-	uint8_t ipv6_ext_opt_len; /* IPv6 ND option length */
-	uint8_t ipv6_next_hdr;	/* What is the very first next header */
+	uint8_t ipv6_ext_opt_len;
+	uint8_t ipv6_next_hdr;
 #endif /* CONFIG_NET_IPV6 */
 
 #if defined(CONFIG_NET_IP_DSCP_ECN)
@@ -1103,7 +1103,7 @@ static inline uint16_t net_pkt_vlan_tci(struct net_pkt *pkt)
 {
 	ARG_UNUSED(pkt);
 
-	return NET_VLAN_TAG_UNSPEC; /* assumes priority is 0 */
+	return NET_VLAN_TAG_UNSPEC;
 }
 
 static inline void net_pkt_set_vlan_tci(struct net_pkt *pkt, uint16_t tci)
@@ -1284,16 +1284,23 @@ static inline struct net_linkaddr *net_pkt_lladdr_dst(struct net_pkt *pkt)
 
 static inline void net_pkt_lladdr_swap(struct net_pkt *pkt)
 {
-	uint8_t *addr = net_pkt_lladdr_src(pkt)->addr;
+	struct net_linkaddr tmp;
 
-	net_pkt_lladdr_src(pkt)->addr = net_pkt_lladdr_dst(pkt)->addr;
-	net_pkt_lladdr_dst(pkt)->addr = addr;
+	memcpy(tmp.addr,
+	       net_pkt_lladdr_src(pkt)->addr,
+	       net_pkt_lladdr_src(pkt)->len);
+	memcpy(net_pkt_lladdr_src(pkt)->addr,
+	       net_pkt_lladdr_dst(pkt)->addr,
+	       net_pkt_lladdr_dst(pkt)->len);
+	memcpy(net_pkt_lladdr_dst(pkt)->addr,
+	       tmp.addr,
+	       net_pkt_lladdr_src(pkt)->len);
 }
 
 static inline void net_pkt_lladdr_clear(struct net_pkt *pkt)
 {
-	net_pkt_lladdr_src(pkt)->addr = NULL;
-	net_pkt_lladdr_src(pkt)->len = 0U;
+	(void)net_linkaddr_clear(net_pkt_lladdr_src(pkt));
+	(void)net_linkaddr_clear(net_pkt_lladdr_dst(pkt));
 }
 
 static inline uint16_t net_pkt_ll_proto_type(struct net_pkt *pkt)

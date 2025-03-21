@@ -49,10 +49,10 @@
 
 typedef enum
 {
-  HAL_MDIOS_STATE_RESET             = 0x00U,    /*!< Peripheral not yet Initialized or disabled         */
-  HAL_MDIOS_STATE_READY             = 0x01U,    /*!< Peripheral Initialized and ready for use           */
-  HAL_MDIOS_STATE_BUSY              = 0x02U,    /*!< an internal process is ongoing                     */
-  HAL_MDIOS_STATE_ERROR             = 0x04U     /*!< Reception process is ongoing                       */
+  HAL_MDIOS_STATE_RESET             = 0x00U,
+  HAL_MDIOS_STATE_READY             = 0x01U,
+  HAL_MDIOS_STATE_BUSY              = 0x02U,
+  HAL_MDIOS_STATE_ERROR             = 0x04U
 }HAL_MDIOS_StateTypeDef;
 
 /**
@@ -85,9 +85,9 @@ typedef struct __MDIOS_HandleTypeDef
 typedef struct
 #endif
 {
-  MDIOS_TypeDef                *Instance;     /*!< Register base address       */
+  MDIOS_TypeDef                *Instance;
 
-  MDIOS_InitTypeDef            Init;          /*!< MDIOS Init Structure        */
+  MDIOS_InitTypeDef            Init;
 
   __IO HAL_MDIOS_StateTypeDef  State;         /*!< MDIOS communication state
                                                    This parameter can be a value of of @ref HAL_MDIOS_StateTypeDef */
@@ -95,17 +95,17 @@ typedef struct
   __IO uint32_t                ErrorCode;     /*!< Holds the global Error code of the MDIOS HAL status machine
                                                    This parameter can be a value of of @ref MDIOS_Error_Code */
 
-  HAL_LockTypeDef              Lock;          /*!< MDIOS Lock                  */
+  HAL_LockTypeDef              Lock;
 
 #if (USE_HAL_MDIOS_REGISTER_CALLBACKS == 1)
 
-  void    (* WriteCpltCallback)  ( struct __MDIOS_HandleTypeDef * hmdios);   /*!< MDIOS Write Complete Callback */
-  void    (* ReadCpltCallback)   ( struct __MDIOS_HandleTypeDef * hmdios);  /*!< MDIOS Read  Complete Callback     */
-  void    (* ErrorCallback)      ( struct __MDIOS_HandleTypeDef * hmdios);  /*!< MDIOS Error Callback   */
-  void    (* WakeUpCallback)     ( struct __MDIOS_HandleTypeDef * hmdios);  /*!< MDIOS Wake UP Callback   */
+  void    (* WriteCpltCallback)  ( struct __MDIOS_HandleTypeDef * hmdios);
+  void    (* ReadCpltCallback)   ( struct __MDIOS_HandleTypeDef * hmdios);
+  void    (* ErrorCallback)      ( struct __MDIOS_HandleTypeDef * hmdios);
+  void    (* WakeUpCallback)     ( struct __MDIOS_HandleTypeDef * hmdios);
 
-  void    (* MspInitCallback)    ( struct __MDIOS_HandleTypeDef * hmdios);    /*!< MDIOS Msp Init callback              */
-  void    (* MspDeInitCallback)  ( struct __MDIOS_HandleTypeDef * hmdios);    /*!< MDIOS Msp DeInit callback            */
+  void    (* MspInitCallback)    ( struct __MDIOS_HandleTypeDef * hmdios);
+  void    (* MspDeInitCallback)  ( struct __MDIOS_HandleTypeDef * hmdios);
 
 #endif  /* USE_HAL_MDIOS_REGISTER_CALLBACKS */
 }MDIOS_HandleTypeDef;
@@ -120,19 +120,19 @@ typedef struct
   */
 typedef enum
 {
-  HAL_MDIOS_MSPINIT_CB_ID            = 0x00U,    /*!< MDIOS MspInit callback ID           */
-  HAL_MDIOS_MSPDEINIT_CB_ID          = 0x01U,    /*!< MDIOS MspDeInit callback ID         */
+  HAL_MDIOS_MSPINIT_CB_ID            = 0x00U,
+  HAL_MDIOS_MSPDEINIT_CB_ID          = 0x01U,
 
-  HAL_MDIOS_WRITE_COMPLETE_CB_ID     = 0x02U,    /*!< MDIOS Write Complete Callback ID       */
-  HAL_MDIOS_READ_COMPLETE_CB_ID      = 0x03U,    /*!< MDIOS Read Complete Callback ID       */
-  HAL_MDIOS_ERROR_CB_ID              = 0x04U,    /*!< MDIOS Error Callback ID         */
-  HAL_MDIOS_WAKEUP_CB_ID             = 0x05U     /*!< MDIOS Wake UP Callback ID           */
+  HAL_MDIOS_WRITE_COMPLETE_CB_ID     = 0x02U,
+  HAL_MDIOS_READ_COMPLETE_CB_ID      = 0x03U,
+  HAL_MDIOS_ERROR_CB_ID              = 0x04U,
+  HAL_MDIOS_WAKEUP_CB_ID             = 0x05U
 }HAL_MDIOS_CallbackIDTypeDef;
 
 /**
   * @brief  HAL MDIOS Callback pointer definition
   */
-typedef  void (*pMDIOS_CallbackTypeDef)(MDIOS_HandleTypeDef * hmdios); /*!< pointer to an MDIOS callback function */
+typedef  void (*pMDIOS_CallbackTypeDef)(MDIOS_HandleTypeDef * hmdios);
 
 #endif /* USE_HAL_MDIOS_REGISTER_CALLBACKS */
 
@@ -256,13 +256,13 @@ typedef  void (*pMDIOS_CallbackTypeDef)(MDIOS_HandleTypeDef * hmdios); /*!< poin
 /** @defgroup MDIOS_Error_Code MDIOS Error Code
   * @{
   */
-#define HAL_MDIOS_ERROR_NONE         ((uint32_t)0x00000000U)   /*!< No error            */
-#define HAL_MDIOS_ERROR_PARAM        ((uint32_t)0x00000001U)   /*!< Busy error          */
-#define HAL_MDIOS_ERROR_BUSY         ((uint32_t)0x00000002U)   /*!< Parameter error     */
-#define HAL_MDIOS_ERROR_TIMEOUT      ((uint32_t)0x00000004U)   /*!< Timeout error       */
-#define HAL_MDIOS_ERROR_DATA         ((uint32_t)0x00000010U)   /*!< Data transfer error       */
+#define HAL_MDIOS_ERROR_NONE         ((uint32_t)0x00000000U)
+#define HAL_MDIOS_ERROR_PARAM        ((uint32_t)0x00000001U)
+#define HAL_MDIOS_ERROR_BUSY         ((uint32_t)0x00000002U)
+#define HAL_MDIOS_ERROR_TIMEOUT      ((uint32_t)0x00000004U)
+#define HAL_MDIOS_ERROR_DATA         ((uint32_t)0x00000010U)
 #if (USE_HAL_MDIOS_REGISTER_CALLBACKS == 1)
-#define HAL_MDIOS_ERROR_INVALID_CALLBACK ((uint32_t)0x00000020U)    /*!< Invalid Callback error  */
+#define HAL_MDIOS_ERROR_INVALID_CALLBACK ((uint32_t)0x00000020U)
 #endif /* USE_HAL_MDIOS_REGISTER_CALLBACKS */
 /**
   * @}
@@ -271,7 +271,7 @@ typedef  void (*pMDIOS_CallbackTypeDef)(MDIOS_HandleTypeDef * hmdios); /*!< poin
  /** @defgroup MDIOS_Wakeup_Line  MDIOS Wakeup Line
   * @{
   */
-#define MDIOS_WAKEUP_EXTI_LINE  ((uint32_t)0x00000400)  /* !<  42 - 32 = 10 */
+#define MDIOS_WAKEUP_EXTI_LINE  ((uint32_t)0x00000400)
 /**
   * @}
   */

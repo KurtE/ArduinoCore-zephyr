@@ -29,9 +29,9 @@ extern "C" {
  * An array of these descriptors is passed as an argument to poll().
  */
 struct zsock_pollfd {
-	int fd;        /**< Socket descriptor */
-	short events;  /**< Requested events */
-	short revents; /**< Returned events */
+	int fd;
+	short events;
+	short revents;
 };
 #else
 #define zsock_pollfd zvfs_pollfd

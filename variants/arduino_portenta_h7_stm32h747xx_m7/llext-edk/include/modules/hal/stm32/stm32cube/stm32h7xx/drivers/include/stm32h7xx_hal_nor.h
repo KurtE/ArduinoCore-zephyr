@@ -46,11 +46,11 @@ extern "C" {
   */
 typedef enum
 {
-  HAL_NOR_STATE_RESET             = 0x00U,  /*!< NOR not yet initialized or disabled  */
-  HAL_NOR_STATE_READY             = 0x01U,  /*!< NOR initialized and ready for use    */
-  HAL_NOR_STATE_BUSY              = 0x02U,  /*!< NOR internal processing is ongoing   */
-  HAL_NOR_STATE_ERROR             = 0x03U,  /*!< NOR error state                      */
-  HAL_NOR_STATE_PROTECTED         = 0x04U   /*!< NOR NORSRAM device write protected   */
+  HAL_NOR_STATE_RESET             = 0x00U,
+  HAL_NOR_STATE_READY             = 0x01U,
+  HAL_NOR_STATE_BUSY              = 0x02U,
+  HAL_NOR_STATE_ERROR             = 0x03U,
+  HAL_NOR_STATE_PROTECTED         = 0x04U
 } HAL_NOR_StateTypeDef;
 
 /**
@@ -69,7 +69,7 @@ typedef enum
   */
 typedef struct
 {
-  uint16_t Manufacturer_Code;  /*!< Defines the device's manufacturer code used to identify the memory       */
+  uint16_t Manufacturer_Code;
 
   uint16_t Device_Code1;
 
@@ -109,21 +109,21 @@ typedef struct
 #endif /* USE_HAL_NOR_REGISTER_CALLBACKS  */
 
 {
-  FMC_NORSRAM_TypeDef           *Instance;    /*!< Register base address                        */
+  FMC_NORSRAM_TypeDef           *Instance;
 
-  FMC_NORSRAM_EXTENDED_TypeDef  *Extended;    /*!< Extended mode register base address          */
+  FMC_NORSRAM_EXTENDED_TypeDef  *Extended;
 
-  FMC_NORSRAM_InitTypeDef       Init;         /*!< NOR device control configuration parameters  */
+  FMC_NORSRAM_InitTypeDef       Init;
 
-  HAL_LockTypeDef               Lock;         /*!< NOR locking object                           */
+  HAL_LockTypeDef               Lock;
 
-  __IO HAL_NOR_StateTypeDef     State;        /*!< NOR device access state                      */
+  __IO HAL_NOR_StateTypeDef     State;
 
-  uint32_t                      CommandSet;   /*!< NOR algorithm command set and control        */
+  uint32_t                      CommandSet;
 
 #if (USE_HAL_NOR_REGISTER_CALLBACKS == 1)
-  void (* MspInitCallback)(struct __NOR_HandleTypeDef *hnor);               /*!< NOR Msp Init callback              */
-  void (* MspDeInitCallback)(struct __NOR_HandleTypeDef *hnor);             /*!< NOR Msp DeInit callback            */
+  void (* MspInitCallback)(struct __NOR_HandleTypeDef *hnor);
+  void (* MspDeInitCallback)(struct __NOR_HandleTypeDef *hnor);
 #endif /* USE_HAL_NOR_REGISTER_CALLBACKS */
 } NOR_HandleTypeDef;
 
@@ -133,8 +133,8 @@ typedef struct
   */
 typedef enum
 {
-  HAL_NOR_MSP_INIT_CB_ID       = 0x00U,  /*!< NOR MspInit Callback ID          */
-  HAL_NOR_MSP_DEINIT_CB_ID     = 0x01U   /*!< NOR MspDeInit Callback ID        */
+  HAL_NOR_MSP_INIT_CB_ID       = 0x00U,
+  HAL_NOR_MSP_DEINIT_CB_ID     = 0x01U
 } HAL_NOR_CallbackIDTypeDef;
 
 /**

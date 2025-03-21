@@ -133,7 +133,7 @@
 #define SCHEDOP_pin_override	7
 
 struct sched_shutdown {
-	unsigned int reason; /* SHUTDOWN_* => enum sched_shutdown_reason */
+	unsigned int reason;
 };
 typedef struct sched_shutdown sched_shutdown_t;
 DEFINE_XEN_GUEST_HANDLE(sched_shutdown_t);
@@ -147,15 +147,15 @@ typedef struct sched_poll sched_poll_t;
 DEFINE_XEN_GUEST_HANDLE(sched_poll_t);
 
 struct sched_remote_shutdown {
-	domid_t domain_id;	/* Remote domain ID */
-	unsigned int reason;	/* SHUTDOWN_* => enum sched_shutdown_reason */
+	domid_t domain_id;
+	unsigned int reason;
 };
 typedef struct sched_remote_shutdown sched_remote_shutdown_t;
 DEFINE_XEN_GUEST_HANDLE(sched_remote_shutdown_t);
 
 struct sched_watchdog {
-	uint32_t id;		/* watchdog ID */
-	uint32_t timeout;	/* timeout */
+	uint32_t id;
+	uint32_t timeout;
 };
 typedef struct sched_watchdog sched_watchdog_t;
 DEFINE_XEN_GUEST_HANDLE(sched_watchdog_t);

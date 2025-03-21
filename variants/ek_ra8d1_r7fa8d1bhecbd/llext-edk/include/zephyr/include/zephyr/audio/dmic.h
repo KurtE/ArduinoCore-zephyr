@@ -45,31 +45,31 @@ extern "C" {
  * DMIC driver states
  */
 enum dmic_state {
-	DMIC_STATE_UNINIT,	/**< Uninitialized */
-	DMIC_STATE_INITIALIZED,	/**< Initialized */
-	DMIC_STATE_CONFIGURED,	/**< Configured */
-	DMIC_STATE_ACTIVE,	/**< Active */
-	DMIC_STATE_PAUSED,	/**< Paused */
-	DMIC_STATE_ERROR,	/**< Error */
+	DMIC_STATE_UNINIT,
+	DMIC_STATE_INITIALIZED,
+	DMIC_STATE_CONFIGURED,
+	DMIC_STATE_ACTIVE,
+	DMIC_STATE_PAUSED,
+	DMIC_STATE_ERROR,
 };
 
 /**
  * DMIC driver trigger commands
  */
 enum dmic_trigger {
-	DMIC_TRIGGER_STOP,	/**< Stop stream */
-	DMIC_TRIGGER_START,	/**< Start stream */
-	DMIC_TRIGGER_PAUSE,	/**< Pause stream */
-	DMIC_TRIGGER_RELEASE,	/**< Release paused stream */
-	DMIC_TRIGGER_RESET,	/**< Reset stream */
+	DMIC_TRIGGER_STOP,
+	DMIC_TRIGGER_START,
+	DMIC_TRIGGER_PAUSE,
+	DMIC_TRIGGER_RELEASE,
+	DMIC_TRIGGER_RESET,
 };
 
 /**
  * PDM Channels LEFT / RIGHT
  */
 enum pdm_lr {
-	PDM_CHAN_LEFT,	/**< Left channel */
-	PDM_CHAN_RIGHT, /**< Right channel */
+	PDM_CHAN_LEFT,
+	PDM_CHAN_RIGHT,
 };
 
 /**
@@ -150,16 +150,16 @@ struct pdm_chan_cfg {
 	 * @name Requested channel map
 	 * @{
 	 */
-	uint32_t	req_chan_map_lo;	/**< Channels 0 to 7 */
-	uint32_t	req_chan_map_hi;	/**< Channels 8 to 15 */
+	uint32_t	req_chan_map_lo;
+	uint32_t	req_chan_map_hi;
 	/** @} */
 
 	/**
 	 * @name Actual channel map that the driver could configure
 	 * @{
 	 */
-	uint32_t	act_chan_map_lo;	/**< Channels 0 to 7 */
-	uint32_t	act_chan_map_hi;	/**< Channels 8 to 15 */
+	uint32_t	act_chan_map_lo;
+	uint32_t	act_chan_map_hi;
 	/** @} */
 
 	/** Requested number of channels */

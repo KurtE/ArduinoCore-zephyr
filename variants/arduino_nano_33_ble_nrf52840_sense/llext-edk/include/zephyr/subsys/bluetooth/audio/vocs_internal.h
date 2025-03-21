@@ -49,7 +49,7 @@ enum bt_vocs_client_flag {
 	BT_VOCS_CLIENT_FLAG_LOC_WRITABLE,
 	BT_VOCS_CLIENT_FLAG_ACTIVE,
 
-	BT_VOCS_CLIENT_FLAG_NUM_FLAGS, /* keep as last */
+	BT_VOCS_CLIENT_FLAG_NUM_FLAGS,
 };
 
 struct bt_vocs_client {

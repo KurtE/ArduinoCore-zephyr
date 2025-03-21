@@ -428,8 +428,8 @@ typedef struct
 /** @defgroup SPI_LL_EC_CRC_CALCULATION CRC Calculation
   * @{
   */
-#define LL_SPI_CRCCALCULATION_DISABLE              (0x00000000UL)            /*!< CRC calculation disabled */
-#define LL_SPI_CRCCALCULATION_ENABLE               (SPI_CFG1_CRCEN)          /*!< CRC calculation enabled  */
+#define LL_SPI_CRCCALCULATION_DISABLE              (0x00000000UL)
+#define LL_SPI_CRCCALCULATION_ENABLE               (SPI_CFG1_CRCEN)
 /**
   * @}
   */
@@ -490,7 +490,7 @@ typedef struct
 /** @defgroup SPI_LL_EC_RX_FIFO RxFIFO Packing LeVel
   * @{
   */
-#define LL_SPI_RX_FIFO_0PACKET               (0x00000000UL)    /* 0 or multiple of 4 packet available is the RxFIFO */
+#define LL_SPI_RX_FIFO_0PACKET               (0x00000000UL)
 #define LL_SPI_RX_FIFO_1PACKET               (SPI_SR_RXPLVL_0)
 #define LL_SPI_RX_FIFO_2PACKET               (SPI_SR_RXPLVL_1)
 #define LL_SPI_RX_FIFO_3PACKET               (SPI_SR_RXPLVL_1 | SPI_SR_RXPLVL_0)
@@ -2447,7 +2447,7 @@ __STATIC_INLINE uint32_t LL_SPI_DMA_GetRxRegAddr(const SPI_TypeDef *SPIx)
   * @param  SPIx SPI Instance
   * @retval 0..0xFF
   */
-__STATIC_INLINE uint8_t LL_SPI_ReceiveData8(SPI_TypeDef *SPIx) /* Derogation MISRAC2012-Rule-8.13 */
+__STATIC_INLINE uint8_t LL_SPI_ReceiveData8(SPI_TypeDef *SPIx)
 {
   return (*((__IO uint8_t *)&SPIx->RXDR));
 }
@@ -2458,7 +2458,7 @@ __STATIC_INLINE uint8_t LL_SPI_ReceiveData8(SPI_TypeDef *SPIx) /* Derogation MIS
   * @param  SPIx SPI Instance
   * @retval 0..0xFFFF
   */
-__STATIC_INLINE uint16_t LL_SPI_ReceiveData16(SPI_TypeDef *SPIx) /* Derogation MISRAC2012-Rule-8.13 */
+__STATIC_INLINE uint16_t LL_SPI_ReceiveData16(SPI_TypeDef *SPIx)
 {
 #if defined (__GNUC__)
   __IO uint16_t *spirxdr = (__IO uint16_t *)(&(SPIx->RXDR));
@@ -2474,7 +2474,7 @@ __STATIC_INLINE uint16_t LL_SPI_ReceiveData16(SPI_TypeDef *SPIx) /* Derogation M
   * @param  SPIx SPI Instance
   * @retval  0..0xFFFFFFFF
   */
-__STATIC_INLINE uint32_t LL_SPI_ReceiveData32(SPI_TypeDef *SPIx) /* Derogation MISRAC2012-Rule-8.13 */
+__STATIC_INLINE uint32_t LL_SPI_ReceiveData32(SPI_TypeDef *SPIx)
 {
   return (*((__IO uint32_t *)&SPIx->RXDR));
 }
@@ -2744,8 +2744,8 @@ typedef struct
 /** @defgroup I2S_LL_EC_PRESCALER_PARITY Prescaler Factor
   * @{
   */
-#define LL_I2S_PRESCALER_PARITY_EVEN        (0x00000000UL)   /*!< Odd factor: Real divider value is =  I2SDIV * 2    */
-#define LL_I2S_PRESCALER_PARITY_ODD         (0x00000001UL)   /*!< Odd factor: Real divider value is = (I2SDIV * 2)+1 */
+#define LL_I2S_PRESCALER_PARITY_EVEN        (0x00000000UL)
+#define LL_I2S_PRESCALER_PARITY_ODD         (0x00000001UL)
 /**
   * @}
   */
@@ -2789,16 +2789,16 @@ typedef struct
   * @{
   */
 
-#define LL_I2S_AUDIOFREQ_192K               192000UL       /*!< Audio Frequency configuration 192000 Hz       */
-#define LL_I2S_AUDIOFREQ_96K                96000UL        /*!< Audio Frequency configuration  96000 Hz       */
-#define LL_I2S_AUDIOFREQ_48K                48000UL        /*!< Audio Frequency configuration  48000 Hz       */
-#define LL_I2S_AUDIOFREQ_44K                44100UL        /*!< Audio Frequency configuration  44100 Hz       */
-#define LL_I2S_AUDIOFREQ_32K                32000UL        /*!< Audio Frequency configuration  32000 Hz       */
-#define LL_I2S_AUDIOFREQ_22K                22050UL        /*!< Audio Frequency configuration  22050 Hz       */
-#define LL_I2S_AUDIOFREQ_16K                16000UL        /*!< Audio Frequency configuration  16000 Hz       */
-#define LL_I2S_AUDIOFREQ_11K                11025UL        /*!< Audio Frequency configuration  11025 Hz       */
-#define LL_I2S_AUDIOFREQ_8K                 8000UL         /*!< Audio Frequency configuration   8000 Hz       */
-#define LL_I2S_AUDIOFREQ_DEFAULT            0UL            /*!< Audio Freq not specified. Register I2SDIV = 0 */
+#define LL_I2S_AUDIOFREQ_192K               192000UL
+#define LL_I2S_AUDIOFREQ_96K                96000UL
+#define LL_I2S_AUDIOFREQ_48K                48000UL
+#define LL_I2S_AUDIOFREQ_44K                44100UL
+#define LL_I2S_AUDIOFREQ_32K                32000UL
+#define LL_I2S_AUDIOFREQ_22K                22050UL
+#define LL_I2S_AUDIOFREQ_16K                16000UL
+#define LL_I2S_AUDIOFREQ_11K                11025UL
+#define LL_I2S_AUDIOFREQ_8K                 8000UL
+#define LL_I2S_AUDIOFREQ_DEFAULT            0UL
 /**
   * @}
   */
@@ -3699,7 +3699,7 @@ __STATIC_INLINE uint32_t LL_I2S_IsEnabledDMAReq_TX(const SPI_TypeDef *SPIx)
   * @param  SPIx SPI Instance
   * @retval 0..0xFFFF
   */
-__STATIC_INLINE uint16_t LL_I2S_ReceiveData16(SPI_TypeDef *SPIx) /* Derogation MISRAC2012-Rule-8.13 */
+__STATIC_INLINE uint16_t LL_I2S_ReceiveData16(SPI_TypeDef *SPIx)
 {
   return LL_SPI_ReceiveData16(SPIx);
 }
@@ -3710,7 +3710,7 @@ __STATIC_INLINE uint16_t LL_I2S_ReceiveData16(SPI_TypeDef *SPIx) /* Derogation M
   * @param  SPIx SPI Instance
   * @retval  0..0xFFFFFFFF
   */
-__STATIC_INLINE uint32_t LL_I2S_ReceiveData32(SPI_TypeDef *SPIx) /* Derogation MISRAC2012-Rule-8.13 */
+__STATIC_INLINE uint32_t LL_I2S_ReceiveData32(SPI_TypeDef *SPIx)
 {
   return LL_SPI_ReceiveData32(SPIx);
 }

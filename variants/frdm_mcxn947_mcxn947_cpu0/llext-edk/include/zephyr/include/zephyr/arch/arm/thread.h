@@ -23,17 +23,17 @@
 #include <zephyr/types.h>
 
 struct _callee_saved {
-	uint32_t v1;  /* r4 */
-	uint32_t v2;  /* r5 */
-	uint32_t v3;  /* r6 */
-	uint32_t v4;  /* r7 */
-	uint32_t v5;  /* r8 */
-	uint32_t v6;  /* r9 */
-	uint32_t v7;  /* r10 */
-	uint32_t v8;  /* r11 */
-	uint32_t psp; /* r13 */
+	uint32_t v1;
+	uint32_t v2;
+	uint32_t v3;
+	uint32_t v4;
+	uint32_t v5;
+	uint32_t v6;
+	uint32_t v7;
+	uint32_t v8;
+	uint32_t psp;
 #ifdef CONFIG_USE_SWITCH
-	uint32_t lr;  /* lr */
+	uint32_t lr;
 #endif
 };
 

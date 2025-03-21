@@ -155,18 +155,18 @@ extern "C" {
  */
 typedef enum
 {
-    NRF_UICR_MEM_CONFIG_PERM_READ_MASK      = UICR_MEM_CONFIG_READ_Msk,    /**< Read access. */
-    NRF_UICR_MEM_CONFIG_PERM_WRITE_MASK     = UICR_MEM_CONFIG_WRITE_Msk,   /**< Write access. */
-    NRF_UICR_MEM_CONFIG_PERM_EXECUTE_MASK   = UICR_MEM_CONFIG_EXECUTE_Msk, /**< Software execute. */
-    NRF_UICR_MEM_CONFIG_PERM_NONSECURE_MASK = UICR_MEM_CONFIG_SECURE_Msk,  /**< Non-secure access. */
+    NRF_UICR_MEM_CONFIG_PERM_READ_MASK      = UICR_MEM_CONFIG_READ_Msk,
+    NRF_UICR_MEM_CONFIG_PERM_WRITE_MASK     = UICR_MEM_CONFIG_WRITE_Msk,
+    NRF_UICR_MEM_CONFIG_PERM_EXECUTE_MASK   = UICR_MEM_CONFIG_EXECUTE_Msk,
+    NRF_UICR_MEM_CONFIG_PERM_NONSECURE_MASK = UICR_MEM_CONFIG_SECURE_Msk,
 } nrf_uicr_mem_config_perm_mask_t;
 
 /** @brief Memory configuration. */
 typedef struct
 {
-    uint32_t    permissions; /**< Permissions. */
-    nrf_owner_t owner;       /**< Owner identifier. */
-    uint32_t    address;     /**< Block start address. */
+    uint32_t    permissions;
+    nrf_owner_t owner;
+    uint32_t    address;
 } nrf_uicr_mem_config_t;
 #endif
 
@@ -178,75 +178,75 @@ typedef struct
  */
 typedef enum
 {
-    NRF_UICR_FEATURE_INDEX_0_MASK  = UICR_GPIOTE_CH_OWN_CH0_Msk,  /**< Feature index 0.  */
-    NRF_UICR_FEATURE_INDEX_1_MASK  = UICR_GPIOTE_CH_OWN_CH1_Msk,  /**< Feature index 1.  */
-    NRF_UICR_FEATURE_INDEX_2_MASK  = UICR_GPIOTE_CH_OWN_CH2_Msk,  /**< Feature index 2.  */
-    NRF_UICR_FEATURE_INDEX_3_MASK  = UICR_GPIOTE_CH_OWN_CH3_Msk,  /**< Feature index 3.  */
-    NRF_UICR_FEATURE_INDEX_4_MASK  = UICR_GPIOTE_CH_OWN_CH4_Msk,  /**< Feature index 4.  */
-    NRF_UICR_FEATURE_INDEX_5_MASK  = UICR_GPIOTE_CH_OWN_CH5_Msk,  /**< Feature index 5.  */
-    NRF_UICR_FEATURE_INDEX_6_MASK  = UICR_GPIOTE_CH_OWN_CH6_Msk,  /**< Feature index 6.  */
-    NRF_UICR_FEATURE_INDEX_7_MASK  = UICR_GPIOTE_CH_OWN_CH7_Msk,  /**< Feature index 7.  */
-    NRF_UICR_FEATURE_INDEX_8_MASK  = UICR_GPIOTE_CH_OWN_CH8_Msk,  /**< Feature index 8.  */
-    NRF_UICR_FEATURE_INDEX_9_MASK  = UICR_GPIOTE_CH_OWN_CH9_Msk,  /**< Feature index 9.  */
-    NRF_UICR_FEATURE_INDEX_10_MASK = UICR_GPIOTE_CH_OWN_CH10_Msk, /**< Feature index 10. */
-    NRF_UICR_FEATURE_INDEX_11_MASK = UICR_GPIOTE_CH_OWN_CH11_Msk, /**< Feature index 11. */
-    NRF_UICR_FEATURE_INDEX_12_MASK = UICR_GPIOTE_CH_OWN_CH12_Msk, /**< Feature index 12. */
-    NRF_UICR_FEATURE_INDEX_13_MASK = UICR_GPIOTE_CH_OWN_CH13_Msk, /**< Feature index 13. */
-    NRF_UICR_FEATURE_INDEX_14_MASK = UICR_GPIOTE_CH_OWN_CH14_Msk, /**< Feature index 14. */
-    NRF_UICR_FEATURE_INDEX_15_MASK = UICR_GPIOTE_CH_OWN_CH15_Msk, /**< Feature index 15. */
-    NRF_UICR_FEATURE_INDEX_16_MASK = UICR_GPIOTE_CH_OWN_CH16_Msk, /**< Feature index 16. */
-    NRF_UICR_FEATURE_INDEX_17_MASK = UICR_GPIOTE_CH_OWN_CH17_Msk, /**< Feature index 17. */
-    NRF_UICR_FEATURE_INDEX_18_MASK = UICR_GPIOTE_CH_OWN_CH18_Msk, /**< Feature index 18. */
-    NRF_UICR_FEATURE_INDEX_19_MASK = UICR_GPIOTE_CH_OWN_CH19_Msk, /**< Feature index 19. */
-    NRF_UICR_FEATURE_INDEX_20_MASK = UICR_GPIOTE_CH_OWN_CH20_Msk, /**< Feature index 20. */
-    NRF_UICR_FEATURE_INDEX_21_MASK = UICR_GPIOTE_CH_OWN_CH21_Msk, /**< Feature index 21. */
-    NRF_UICR_FEATURE_INDEX_22_MASK = UICR_GPIOTE_CH_OWN_CH22_Msk, /**< Feature index 22. */
-    NRF_UICR_FEATURE_INDEX_23_MASK = UICR_GPIOTE_CH_OWN_CH23_Msk, /**< Feature index 23. */
-    NRF_UICR_FEATURE_INDEX_24_MASK = UICR_GPIOTE_CH_OWN_CH24_Msk, /**< Feature index 24. */
-    NRF_UICR_FEATURE_INDEX_25_MASK = UICR_GPIOTE_CH_OWN_CH25_Msk, /**< Feature index 25. */
-    NRF_UICR_FEATURE_INDEX_26_MASK = UICR_GPIOTE_CH_OWN_CH26_Msk, /**< Feature index 26. */
-    NRF_UICR_FEATURE_INDEX_27_MASK = UICR_GPIOTE_CH_OWN_CH27_Msk, /**< Feature index 27. */
-    NRF_UICR_FEATURE_INDEX_28_MASK = UICR_GPIOTE_CH_OWN_CH28_Msk, /**< Feature index 28. */
-    NRF_UICR_FEATURE_INDEX_29_MASK = UICR_GPIOTE_CH_OWN_CH29_Msk, /**< Feature index 29. */
-    NRF_UICR_FEATURE_INDEX_30_MASK = UICR_GPIOTE_CH_OWN_CH30_Msk, /**< Feature index 30. */
-    NRF_UICR_FEATURE_INDEX_31_MASK = UICR_GPIOTE_CH_OWN_CH31_Msk, /**< Feature index 31. */
+    NRF_UICR_FEATURE_INDEX_0_MASK  = UICR_GPIOTE_CH_OWN_CH0_Msk,
+    NRF_UICR_FEATURE_INDEX_1_MASK  = UICR_GPIOTE_CH_OWN_CH1_Msk,
+    NRF_UICR_FEATURE_INDEX_2_MASK  = UICR_GPIOTE_CH_OWN_CH2_Msk,
+    NRF_UICR_FEATURE_INDEX_3_MASK  = UICR_GPIOTE_CH_OWN_CH3_Msk,
+    NRF_UICR_FEATURE_INDEX_4_MASK  = UICR_GPIOTE_CH_OWN_CH4_Msk,
+    NRF_UICR_FEATURE_INDEX_5_MASK  = UICR_GPIOTE_CH_OWN_CH5_Msk,
+    NRF_UICR_FEATURE_INDEX_6_MASK  = UICR_GPIOTE_CH_OWN_CH6_Msk,
+    NRF_UICR_FEATURE_INDEX_7_MASK  = UICR_GPIOTE_CH_OWN_CH7_Msk,
+    NRF_UICR_FEATURE_INDEX_8_MASK  = UICR_GPIOTE_CH_OWN_CH8_Msk,
+    NRF_UICR_FEATURE_INDEX_9_MASK  = UICR_GPIOTE_CH_OWN_CH9_Msk,
+    NRF_UICR_FEATURE_INDEX_10_MASK = UICR_GPIOTE_CH_OWN_CH10_Msk,
+    NRF_UICR_FEATURE_INDEX_11_MASK = UICR_GPIOTE_CH_OWN_CH11_Msk,
+    NRF_UICR_FEATURE_INDEX_12_MASK = UICR_GPIOTE_CH_OWN_CH12_Msk,
+    NRF_UICR_FEATURE_INDEX_13_MASK = UICR_GPIOTE_CH_OWN_CH13_Msk,
+    NRF_UICR_FEATURE_INDEX_14_MASK = UICR_GPIOTE_CH_OWN_CH14_Msk,
+    NRF_UICR_FEATURE_INDEX_15_MASK = UICR_GPIOTE_CH_OWN_CH15_Msk,
+    NRF_UICR_FEATURE_INDEX_16_MASK = UICR_GPIOTE_CH_OWN_CH16_Msk,
+    NRF_UICR_FEATURE_INDEX_17_MASK = UICR_GPIOTE_CH_OWN_CH17_Msk,
+    NRF_UICR_FEATURE_INDEX_18_MASK = UICR_GPIOTE_CH_OWN_CH18_Msk,
+    NRF_UICR_FEATURE_INDEX_19_MASK = UICR_GPIOTE_CH_OWN_CH19_Msk,
+    NRF_UICR_FEATURE_INDEX_20_MASK = UICR_GPIOTE_CH_OWN_CH20_Msk,
+    NRF_UICR_FEATURE_INDEX_21_MASK = UICR_GPIOTE_CH_OWN_CH21_Msk,
+    NRF_UICR_FEATURE_INDEX_22_MASK = UICR_GPIOTE_CH_OWN_CH22_Msk,
+    NRF_UICR_FEATURE_INDEX_23_MASK = UICR_GPIOTE_CH_OWN_CH23_Msk,
+    NRF_UICR_FEATURE_INDEX_24_MASK = UICR_GPIOTE_CH_OWN_CH24_Msk,
+    NRF_UICR_FEATURE_INDEX_25_MASK = UICR_GPIOTE_CH_OWN_CH25_Msk,
+    NRF_UICR_FEATURE_INDEX_26_MASK = UICR_GPIOTE_CH_OWN_CH26_Msk,
+    NRF_UICR_FEATURE_INDEX_27_MASK = UICR_GPIOTE_CH_OWN_CH27_Msk,
+    NRF_UICR_FEATURE_INDEX_28_MASK = UICR_GPIOTE_CH_OWN_CH28_Msk,
+    NRF_UICR_FEATURE_INDEX_29_MASK = UICR_GPIOTE_CH_OWN_CH29_Msk,
+    NRF_UICR_FEATURE_INDEX_30_MASK = UICR_GPIOTE_CH_OWN_CH30_Msk,
+    NRF_UICR_FEATURE_INDEX_31_MASK = UICR_GPIOTE_CH_OWN_CH31_Msk,
 } nrf_uicr_feature_index_mask_t;
 
 /** @brief UICR features. */
 typedef enum
 {
-    NRF_UICR_FEATURE_GPIO,                  /**< GPIO port. */
-    NRF_UICR_FEATURE_GPIOTE_CH,             /**< GPIOTE channel. */
-    NRF_UICR_FEATURE_IPCT_LOCAL_CH,         /**< Local IPCT channel. */
-    NRF_UICR_FEATURE_IPCT_LOCAL_INTERRUPT,  /**< Local IPCT interrupt. */
-    NRF_UICR_FEATURE_IPCT_GLOBAL_CH,        /**< Global IPCT channel. */
-    NRF_UICR_FEATURE_IPCT_GLOBAL_INTERRUPT, /**< Global IPCT interrupt. */
-    NRF_UICR_FEATURE_DPPI_LOCAL_CH,         /**< Local DPPI channel. */
-    NRF_UICR_FEATURE_DPPI_LOCAL_CHG,        /**< Local DPPI channel group. */
-    NRF_UICR_FEATURE_DPPI_GLOBAL_CH,        /**< Global DPPI channel. */
-    NRF_UICR_FEATURE_DPPI_GLOBAL_CHG,       /**< Global DPPI channel group. */
-    NRF_UICR_FEATURE_GRTC_CC,               /**< GRTC compare channel. */
+    NRF_UICR_FEATURE_GPIO,
+    NRF_UICR_FEATURE_GPIOTE_CH,
+    NRF_UICR_FEATURE_IPCT_LOCAL_CH,
+    NRF_UICR_FEATURE_IPCT_LOCAL_INTERRUPT,
+    NRF_UICR_FEATURE_IPCT_GLOBAL_CH,
+    NRF_UICR_FEATURE_IPCT_GLOBAL_INTERRUPT,
+    NRF_UICR_FEATURE_DPPI_LOCAL_CH,
+    NRF_UICR_FEATURE_DPPI_LOCAL_CHG,
+    NRF_UICR_FEATURE_DPPI_GLOBAL_CH,
+    NRF_UICR_FEATURE_DPPI_GLOBAL_CHG,
+    NRF_UICR_FEATURE_GRTC_CC,
 } nrf_uicr_feature_t;
 
 /** @brief IPCMAP pair. */
 typedef struct
 {
-    uint8_t      ipct_channel; /**< IPCT channel number. */
-    nrf_domain_t domain;       /**< Domain ID. */
+    uint8_t      ipct_channel;
+    nrf_domain_t domain;
 } nrf_uicr_ipcmap_pair_t;
 
 /** @brief IPCMAP configuration. */
 typedef struct
 {
-    nrf_uicr_ipcmap_pair_t source; /**< Source side. */
-    nrf_uicr_ipcmap_pair_t sink;   /**< Sink side. */
+    nrf_uicr_ipcmap_pair_t source;
+    nrf_uicr_ipcmap_pair_t sink;
 } nrf_uicr_ipcmap_config_t;
 
 /** @brief DPPI link. */
 typedef struct
 {
-    uint32_t source; /**< Source side. */
-    uint32_t sink;   /**< Sink side. */
+    uint32_t source;
+    uint32_t sink;
 } nrf_uicr_dppi_link_t;
 #endif // NRF_UICR_HAS_FEATURE_CONFIG
 
@@ -254,10 +254,10 @@ typedef struct
 /** @brief Peripheral configuration. */
 typedef struct
 {
-    bool            secattr;   /**< Security mapping. */
-    bool            dmasec;    /**< Security attribution for the DMA transfer. */
-    nrf_processor_t processor; /**< Processor ID. */
-    uint32_t        address;   /**< Peripheral address. */
+    bool            secattr;
+    bool            dmasec;
+    nrf_processor_t processor;
+    uint32_t        address;
 } nrf_uicr_periph_config_t;
 #endif
 
@@ -265,9 +265,9 @@ typedef struct
 /** @brief MAILBOX configuration. */
 typedef struct
 {
-    uint16_t    size;   /**< Memory size. */
-    nrf_owner_t owner;  /**< Remote owner identification. */
-    bool        secure; /**< Secure permission. */
+    uint16_t    size;
+    nrf_owner_t owner;
+    bool        secure;
 } nrf_uicr_mailbox_config_t;
 #endif
 

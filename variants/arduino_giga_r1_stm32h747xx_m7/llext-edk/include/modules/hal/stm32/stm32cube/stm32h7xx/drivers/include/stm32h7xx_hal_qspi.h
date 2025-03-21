@@ -78,15 +78,15 @@ typedef struct
   */
 typedef enum
 {
-  HAL_QSPI_STATE_RESET             = 0x00U,    /*!< Peripheral not initialized                            */
-  HAL_QSPI_STATE_READY             = 0x01U,    /*!< Peripheral initialized and ready for use              */
-  HAL_QSPI_STATE_BUSY              = 0x02U,    /*!< Peripheral in indirect mode and busy                  */
-  HAL_QSPI_STATE_BUSY_INDIRECT_TX  = 0x12U,    /*!< Peripheral in indirect mode with transmission ongoing */
-  HAL_QSPI_STATE_BUSY_INDIRECT_RX  = 0x22U,    /*!< Peripheral in indirect mode with reception ongoing    */
-  HAL_QSPI_STATE_BUSY_AUTO_POLLING = 0x42U,    /*!< Peripheral in auto polling mode ongoing               */
-  HAL_QSPI_STATE_BUSY_MEM_MAPPED   = 0x82U,    /*!< Peripheral in memory mapped mode ongoing              */
-  HAL_QSPI_STATE_ABORT             = 0x08U,    /*!< Peripheral with abort request ongoing                 */
-  HAL_QSPI_STATE_ERROR             = 0x04U     /*!< Peripheral in error                                   */
+  HAL_QSPI_STATE_RESET             = 0x00U,
+  HAL_QSPI_STATE_READY             = 0x01U,
+  HAL_QSPI_STATE_BUSY              = 0x02U,
+  HAL_QSPI_STATE_BUSY_INDIRECT_TX  = 0x12U,
+  HAL_QSPI_STATE_BUSY_INDIRECT_RX  = 0x22U,
+  HAL_QSPI_STATE_BUSY_AUTO_POLLING = 0x42U,
+  HAL_QSPI_STATE_BUSY_MEM_MAPPED   = 0x82U,
+  HAL_QSPI_STATE_ABORT             = 0x08U,
+  HAL_QSPI_STATE_ERROR             = 0x04U
 }HAL_QSPI_StateTypeDef;
 
 /**
@@ -98,19 +98,19 @@ typedef struct __QSPI_HandleTypeDef
 typedef struct
 #endif
 {
-  QUADSPI_TypeDef            *Instance;        /* QSPI registers base address        */
-  QSPI_InitTypeDef           Init;             /* QSPI communication parameters      */
-  uint8_t                    *pTxBuffPtr;      /* Pointer to QSPI Tx transfer Buffer */
-  __IO uint32_t              TxXferSize;       /* QSPI Tx Transfer size              */
-  __IO uint32_t              TxXferCount;      /* QSPI Tx Transfer Counter           */
-  uint8_t                    *pRxBuffPtr;      /* Pointer to QSPI Rx transfer Buffer */
-  __IO uint32_t              RxXferSize;       /* QSPI Rx Transfer size              */
-  __IO uint32_t              RxXferCount;      /* QSPI Rx Transfer Counter           */
-  MDMA_HandleTypeDef          *hmdma;            /* QSPI Rx/Tx MDMA Handle parameters   */
-  __IO HAL_LockTypeDef       Lock;             /* Locking object                     */
-  __IO HAL_QSPI_StateTypeDef State;            /* QSPI communication state           */
-  __IO uint32_t              ErrorCode;        /* QSPI Error code                    */
-  uint32_t                   Timeout;          /* Timeout for the QSPI memory access */
+  QUADSPI_TypeDef            *Instance;
+  QSPI_InitTypeDef           Init;
+  uint8_t                    *pTxBuffPtr;
+  __IO uint32_t              TxXferSize;
+  __IO uint32_t              TxXferCount;
+  uint8_t                    *pRxBuffPtr;
+  __IO uint32_t              RxXferSize;
+  __IO uint32_t              RxXferCount;
+  MDMA_HandleTypeDef          *hmdma;
+  __IO HAL_LockTypeDef       Lock;
+  __IO HAL_QSPI_StateTypeDef State;
+  __IO uint32_t              ErrorCode;
+  uint32_t                   Timeout;
 #if (USE_HAL_QSPI_REGISTER_CALLBACKS == 1)
   void (* ErrorCallback)        (struct __QSPI_HandleTypeDef *hqspi);
   void (* AbortCpltCallback)    (struct __QSPI_HandleTypeDef *hqspi);
@@ -199,17 +199,17 @@ typedef struct
   */
 typedef enum
 {
-  HAL_QSPI_ERROR_CB_ID          = 0x00U,  /*!< QSPI Error Callback ID            */
-  HAL_QSPI_ABORT_CB_ID          = 0x01U,  /*!< QSPI Abort Callback ID            */
-  HAL_QSPI_FIFO_THRESHOLD_CB_ID = 0x02U,  /*!< QSPI FIFO Threshold Callback ID   */
-  HAL_QSPI_CMD_CPLT_CB_ID       = 0x03U,  /*!< QSPI Command Complete Callback ID */
-  HAL_QSPI_RX_CPLT_CB_ID        = 0x04U,  /*!< QSPI Rx Complete Callback ID      */
-  HAL_QSPI_TX_CPLT_CB_ID        = 0x05U,  /*!< QSPI Tx Complete Callback ID      */
-  HAL_QSPI_STATUS_MATCH_CB_ID   = 0x08U,  /*!< QSPI Status Match Callback ID     */
-  HAL_QSPI_TIMEOUT_CB_ID        = 0x09U,  /*!< QSPI Timeout Callback ID          */
+  HAL_QSPI_ERROR_CB_ID          = 0x00U,
+  HAL_QSPI_ABORT_CB_ID          = 0x01U,
+  HAL_QSPI_FIFO_THRESHOLD_CB_ID = 0x02U,
+  HAL_QSPI_CMD_CPLT_CB_ID       = 0x03U,
+  HAL_QSPI_RX_CPLT_CB_ID        = 0x04U,
+  HAL_QSPI_TX_CPLT_CB_ID        = 0x05U,
+  HAL_QSPI_STATUS_MATCH_CB_ID   = 0x08U,
+  HAL_QSPI_TIMEOUT_CB_ID        = 0x09U,
 
-  HAL_QSPI_MSP_INIT_CB_ID       = 0x0AU,  /*!< QSPI MspInit Callback ID          */
-  HAL_QSPI_MSP_DEINIT_CB_ID     = 0x0B0   /*!< QSPI MspDeInit Callback ID        */
+  HAL_QSPI_MSP_INIT_CB_ID       = 0x0AU,
+  HAL_QSPI_MSP_DEINIT_CB_ID     = 0x0B0
 }HAL_QSPI_CallbackIDTypeDef;
 
 /**
@@ -229,13 +229,13 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_ErrorCode QSPI Error Code
   * @{
   */
-#define HAL_QSPI_ERROR_NONE             0x00000000U /*!< No error                 */
-#define HAL_QSPI_ERROR_TIMEOUT          0x00000001U /*!< Timeout error            */
-#define HAL_QSPI_ERROR_TRANSFER         0x00000002U /*!< Transfer error           */
-#define HAL_QSPI_ERROR_DMA              0x00000004U /*!< DMA transfer error       */
-#define HAL_QSPI_ERROR_INVALID_PARAM    0x00000008U /*!< Invalid parameters error */
+#define HAL_QSPI_ERROR_NONE             0x00000000U
+#define HAL_QSPI_ERROR_TIMEOUT          0x00000001U
+#define HAL_QSPI_ERROR_TRANSFER         0x00000002U
+#define HAL_QSPI_ERROR_DMA              0x00000004U
+#define HAL_QSPI_ERROR_INVALID_PARAM    0x00000008U
 #if (USE_HAL_QSPI_REGISTER_CALLBACKS == 1)
-#define HAL_QSPI_ERROR_INVALID_CALLBACK 0x00000010U /*!< Invalid callback error   */
+#define HAL_QSPI_ERROR_INVALID_CALLBACK 0x00000010U
 #endif
 /**
   * @}
@@ -244,8 +244,8 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_SampleShifting QSPI Sample Shifting
   * @{
   */
-#define QSPI_SAMPLE_SHIFTING_NONE      0x00000000U                   /*!<No clock cycle shift to sample data*/
-#define QSPI_SAMPLE_SHIFTING_HALFCYCLE ((uint32_t)QUADSPI_CR_SSHIFT) /*!<1/2 clock cycle shift to sample data*/
+#define QSPI_SAMPLE_SHIFTING_NONE      0x00000000U
+#define QSPI_SAMPLE_SHIFTING_HALFCYCLE ((uint32_t)QUADSPI_CR_SSHIFT)
 /**
   * @}
   */
@@ -253,14 +253,14 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_ChipSelectHighTime QSPI ChipSelect High Time
   * @{
   */
-#define QSPI_CS_HIGH_TIME_1_CYCLE      0x00000000U                                         /*!<nCS stay high for at least 1 clock cycle between commands*/
-#define QSPI_CS_HIGH_TIME_2_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT_0)                      /*!<nCS stay high for at least 2 clock cycles between commands*/
-#define QSPI_CS_HIGH_TIME_3_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT_1)                      /*!<nCS stay high for at least 3 clock cycles between commands*/
-#define QSPI_CS_HIGH_TIME_4_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT_0 | QUADSPI_DCR_CSHT_1) /*!<nCS stay high for at least 4 clock cycles between commands*/
-#define QSPI_CS_HIGH_TIME_5_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT_2)                      /*!<nCS stay high for at least 5 clock cycles between commands*/
-#define QSPI_CS_HIGH_TIME_6_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT_2 | QUADSPI_DCR_CSHT_0) /*!<nCS stay high for at least 6 clock cycles between commands*/
-#define QSPI_CS_HIGH_TIME_7_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT_2 | QUADSPI_DCR_CSHT_1) /*!<nCS stay high for at least 7 clock cycles between commands*/
-#define QSPI_CS_HIGH_TIME_8_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT)                        /*!<nCS stay high for at least 8 clock cycles between commands*/
+#define QSPI_CS_HIGH_TIME_1_CYCLE      0x00000000U
+#define QSPI_CS_HIGH_TIME_2_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT_0)
+#define QSPI_CS_HIGH_TIME_3_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT_1)
+#define QSPI_CS_HIGH_TIME_4_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT_0 | QUADSPI_DCR_CSHT_1)
+#define QSPI_CS_HIGH_TIME_5_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT_2)
+#define QSPI_CS_HIGH_TIME_6_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT_2 | QUADSPI_DCR_CSHT_0)
+#define QSPI_CS_HIGH_TIME_7_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT_2 | QUADSPI_DCR_CSHT_1)
+#define QSPI_CS_HIGH_TIME_8_CYCLE      ((uint32_t)QUADSPI_DCR_CSHT)
 /**
   * @}
   */
@@ -268,8 +268,8 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_ClockMode QSPI Clock Mode
   * @{
   */
-#define QSPI_CLOCK_MODE_0              0x00000000U                    /*!<Clk stays low while nCS is released*/
-#define QSPI_CLOCK_MODE_3              ((uint32_t)QUADSPI_DCR_CKMODE) /*!<Clk goes high while nCS is released*/
+#define QSPI_CLOCK_MODE_0              0x00000000U
+#define QSPI_CLOCK_MODE_3              ((uint32_t)QUADSPI_DCR_CKMODE)
 /**
   * @}
   */
@@ -277,8 +277,8 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_Flash_Select QSPI Flash Select
   * @{
   */
-#define QSPI_FLASH_ID_1                0x00000000U                 /*!<FLASH 1 selected*/
-#define QSPI_FLASH_ID_2                ((uint32_t)QUADSPI_CR_FSEL) /*!<FLASH 2 selected*/
+#define QSPI_FLASH_ID_1                0x00000000U
+#define QSPI_FLASH_ID_2                ((uint32_t)QUADSPI_CR_FSEL)
 /**
   * @}
   */
@@ -286,8 +286,8 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
   /** @defgroup QSPI_DualFlash_Mode QSPI Dual Flash Mode
   * @{
   */
-#define QSPI_DUALFLASH_ENABLE          ((uint32_t)QUADSPI_CR_DFM) /*!<Dual-flash mode enabled*/
-#define QSPI_DUALFLASH_DISABLE         0x00000000U                /*!<Dual-flash mode disabled*/
+#define QSPI_DUALFLASH_ENABLE          ((uint32_t)QUADSPI_CR_DFM)
+#define QSPI_DUALFLASH_DISABLE         0x00000000U
 /**
   * @}
   */
@@ -295,10 +295,10 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_AddressSize QSPI Address Size
   * @{
   */
-#define QSPI_ADDRESS_8_BITS            0x00000000U                      /*!<8-bit address*/
-#define QSPI_ADDRESS_16_BITS           ((uint32_t)QUADSPI_CCR_ADSIZE_0) /*!<16-bit address*/
-#define QSPI_ADDRESS_24_BITS           ((uint32_t)QUADSPI_CCR_ADSIZE_1) /*!<24-bit address*/
-#define QSPI_ADDRESS_32_BITS           ((uint32_t)QUADSPI_CCR_ADSIZE)   /*!<32-bit address*/
+#define QSPI_ADDRESS_8_BITS            0x00000000U
+#define QSPI_ADDRESS_16_BITS           ((uint32_t)QUADSPI_CCR_ADSIZE_0)
+#define QSPI_ADDRESS_24_BITS           ((uint32_t)QUADSPI_CCR_ADSIZE_1)
+#define QSPI_ADDRESS_32_BITS           ((uint32_t)QUADSPI_CCR_ADSIZE)
 /**
   * @}
   */
@@ -306,10 +306,10 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_AlternateBytesSize QSPI Alternate Bytes Size
   * @{
   */
-#define QSPI_ALTERNATE_BYTES_8_BITS    0x00000000U                      /*!<8-bit alternate bytes*/
-#define QSPI_ALTERNATE_BYTES_16_BITS   ((uint32_t)QUADSPI_CCR_ABSIZE_0) /*!<16-bit alternate bytes*/
-#define QSPI_ALTERNATE_BYTES_24_BITS   ((uint32_t)QUADSPI_CCR_ABSIZE_1) /*!<24-bit alternate bytes*/
-#define QSPI_ALTERNATE_BYTES_32_BITS   ((uint32_t)QUADSPI_CCR_ABSIZE)   /*!<32-bit alternate bytes*/
+#define QSPI_ALTERNATE_BYTES_8_BITS    0x00000000U
+#define QSPI_ALTERNATE_BYTES_16_BITS   ((uint32_t)QUADSPI_CCR_ABSIZE_0)
+#define QSPI_ALTERNATE_BYTES_24_BITS   ((uint32_t)QUADSPI_CCR_ABSIZE_1)
+#define QSPI_ALTERNATE_BYTES_32_BITS   ((uint32_t)QUADSPI_CCR_ABSIZE)
 /**
   * @}
   */
@@ -317,10 +317,10 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_InstructionMode QSPI Instruction Mode
 * @{
 */
-#define QSPI_INSTRUCTION_NONE          0x00000000U                     /*!<No instruction*/
-#define QSPI_INSTRUCTION_1_LINE        ((uint32_t)QUADSPI_CCR_IMODE_0) /*!<Instruction on a single line*/
-#define QSPI_INSTRUCTION_2_LINES       ((uint32_t)QUADSPI_CCR_IMODE_1) /*!<Instruction on two lines*/
-#define QSPI_INSTRUCTION_4_LINES       ((uint32_t)QUADSPI_CCR_IMODE)   /*!<Instruction on four lines*/
+#define QSPI_INSTRUCTION_NONE          0x00000000U
+#define QSPI_INSTRUCTION_1_LINE        ((uint32_t)QUADSPI_CCR_IMODE_0)
+#define QSPI_INSTRUCTION_2_LINES       ((uint32_t)QUADSPI_CCR_IMODE_1)
+#define QSPI_INSTRUCTION_4_LINES       ((uint32_t)QUADSPI_CCR_IMODE)
 /**
   * @}
   */
@@ -328,10 +328,10 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_AddressMode QSPI Address Mode
 * @{
 */
-#define QSPI_ADDRESS_NONE              0x00000000U                      /*!<No address*/
-#define QSPI_ADDRESS_1_LINE            ((uint32_t)QUADSPI_CCR_ADMODE_0) /*!<Address on a single line*/
-#define QSPI_ADDRESS_2_LINES           ((uint32_t)QUADSPI_CCR_ADMODE_1) /*!<Address on two lines*/
-#define QSPI_ADDRESS_4_LINES           ((uint32_t)QUADSPI_CCR_ADMODE)   /*!<Address on four lines*/
+#define QSPI_ADDRESS_NONE              0x00000000U
+#define QSPI_ADDRESS_1_LINE            ((uint32_t)QUADSPI_CCR_ADMODE_0)
+#define QSPI_ADDRESS_2_LINES           ((uint32_t)QUADSPI_CCR_ADMODE_1)
+#define QSPI_ADDRESS_4_LINES           ((uint32_t)QUADSPI_CCR_ADMODE)
 /**
   * @}
   */
@@ -339,10 +339,10 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_AlternateBytesMode QSPI Alternate Bytes Mode
 * @{
 */
-#define QSPI_ALTERNATE_BYTES_NONE      0x00000000U                      /*!<No alternate bytes*/
-#define QSPI_ALTERNATE_BYTES_1_LINE    ((uint32_t)QUADSPI_CCR_ABMODE_0) /*!<Alternate bytes on a single line*/
-#define QSPI_ALTERNATE_BYTES_2_LINES   ((uint32_t)QUADSPI_CCR_ABMODE_1) /*!<Alternate bytes on two lines*/
-#define QSPI_ALTERNATE_BYTES_4_LINES   ((uint32_t)QUADSPI_CCR_ABMODE)   /*!<Alternate bytes on four lines*/
+#define QSPI_ALTERNATE_BYTES_NONE      0x00000000U
+#define QSPI_ALTERNATE_BYTES_1_LINE    ((uint32_t)QUADSPI_CCR_ABMODE_0)
+#define QSPI_ALTERNATE_BYTES_2_LINES   ((uint32_t)QUADSPI_CCR_ABMODE_1)
+#define QSPI_ALTERNATE_BYTES_4_LINES   ((uint32_t)QUADSPI_CCR_ABMODE)
 /**
   * @}
   */
@@ -350,10 +350,10 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_DataMode QSPI Data Mode
   * @{
   */
-#define QSPI_DATA_NONE                 0x00000000U                     /*!<No data*/
-#define QSPI_DATA_1_LINE               ((uint32_t)QUADSPI_CCR_DMODE_0) /*!<Data on a single line*/
-#define QSPI_DATA_2_LINES              ((uint32_t)QUADSPI_CCR_DMODE_1) /*!<Data on two lines*/
-#define QSPI_DATA_4_LINES              ((uint32_t)QUADSPI_CCR_DMODE)   /*!<Data on four lines*/
+#define QSPI_DATA_NONE                 0x00000000U
+#define QSPI_DATA_1_LINE               ((uint32_t)QUADSPI_CCR_DMODE_0)
+#define QSPI_DATA_2_LINES              ((uint32_t)QUADSPI_CCR_DMODE_1)
+#define QSPI_DATA_4_LINES              ((uint32_t)QUADSPI_CCR_DMODE)
 /**
   * @}
   */
@@ -361,8 +361,8 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_DdrMode QSPI DDR Mode
   * @{
   */
-#define QSPI_DDR_MODE_DISABLE          0x00000000U                  /*!<Double data rate mode disabled*/
-#define QSPI_DDR_MODE_ENABLE           ((uint32_t)QUADSPI_CCR_DDRM) /*!<Double data rate mode enabled*/
+#define QSPI_DDR_MODE_DISABLE          0x00000000U
+#define QSPI_DDR_MODE_ENABLE           ((uint32_t)QUADSPI_CCR_DDRM)
 /**
   * @}
   */
@@ -370,8 +370,8 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_DdrHoldHalfCycle QSPI DDR Data Output Delay
   * @{
   */
-#define QSPI_DDR_HHC_ANALOG_DELAY      0x00000000U                  /*!<Delay the data output using analog delay in DDR mode*/
-#define QSPI_DDR_HHC_HALF_CLK_DELAY    ((uint32_t)QUADSPI_CCR_DHHC) /*!<Delay the data output by one half of system clock in DDR mode*/
+#define QSPI_DDR_HHC_ANALOG_DELAY      0x00000000U
+#define QSPI_DDR_HHC_HALF_CLK_DELAY    ((uint32_t)QUADSPI_CCR_DHHC)
 /**
   * @}
   */
@@ -379,8 +379,8 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_SIOOMode QSPI Send Instruction Mode
   * @{
   */
-#define QSPI_SIOO_INST_EVERY_CMD       0x00000000U                  /*!<Send instruction on every transaction*/
-#define QSPI_SIOO_INST_ONLY_FIRST_CMD  ((uint32_t)QUADSPI_CCR_SIOO) /*!<Send instruction only for the first command*/
+#define QSPI_SIOO_INST_EVERY_CMD       0x00000000U
+#define QSPI_SIOO_INST_ONLY_FIRST_CMD  ((uint32_t)QUADSPI_CCR_SIOO)
 /**
   * @}
   */
@@ -388,8 +388,8 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_MatchMode QSPI Match Mode
   * @{
   */
-#define QSPI_MATCH_MODE_AND            0x00000000U                /*!<AND match mode between unmasked bits*/
-#define QSPI_MATCH_MODE_OR             ((uint32_t)QUADSPI_CR_PMM) /*!<OR match mode between unmasked bits*/
+#define QSPI_MATCH_MODE_AND            0x00000000U
+#define QSPI_MATCH_MODE_OR             ((uint32_t)QUADSPI_CR_PMM)
 /**
   * @}
   */
@@ -397,8 +397,8 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_AutomaticStop QSPI Automatic Stop
   * @{
   */
-#define QSPI_AUTOMATIC_STOP_DISABLE    0x00000000U                 /*!<AutoPolling stops only with abort or QSPI disabling*/
-#define QSPI_AUTOMATIC_STOP_ENABLE     ((uint32_t)QUADSPI_CR_APMS) /*!<AutoPolling stops as soon as there is a match*/
+#define QSPI_AUTOMATIC_STOP_DISABLE    0x00000000U
+#define QSPI_AUTOMATIC_STOP_ENABLE     ((uint32_t)QUADSPI_CR_APMS)
 /**
   * @}
   */
@@ -406,8 +406,8 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_TimeOutActivation QSPI Timeout Activation
   * @{
   */
-#define QSPI_TIMEOUT_COUNTER_DISABLE   0x00000000U                 /*!<Timeout counter disabled, nCS remains active*/
-#define QSPI_TIMEOUT_COUNTER_ENABLE    ((uint32_t)QUADSPI_CR_TCEN) /*!<Timeout counter enabled, nCS released when timeout expires*/
+#define QSPI_TIMEOUT_COUNTER_DISABLE   0x00000000U
+#define QSPI_TIMEOUT_COUNTER_ENABLE    ((uint32_t)QUADSPI_CR_TCEN)
 /**
   * @}
   */
@@ -415,12 +415,12 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_Flags QSPI Flags
   * @{
   */
-#define QSPI_FLAG_BUSY                 QUADSPI_SR_BUSY /*!<Busy flag: operation is ongoing*/
-#define QSPI_FLAG_TO                   QUADSPI_SR_TOF  /*!<Timeout flag: timeout occurs in memory-mapped mode*/
-#define QSPI_FLAG_SM                   QUADSPI_SR_SMF  /*!<Status match flag: received data matches in autopolling mode*/
-#define QSPI_FLAG_FT                   QUADSPI_SR_FTF  /*!<Fifo threshold flag: Fifo threshold reached or data left after read from memory is complete*/
-#define QSPI_FLAG_TC                   QUADSPI_SR_TCF  /*!<Transfer complete flag: programmed number of data have been transferred or the transfer has been aborted*/
-#define QSPI_FLAG_TE                   QUADSPI_SR_TEF  /*!<Transfer error flag: invalid address is being accessed*/
+#define QSPI_FLAG_BUSY                 QUADSPI_SR_BUSY
+#define QSPI_FLAG_TO                   QUADSPI_SR_TOF
+#define QSPI_FLAG_SM                   QUADSPI_SR_SMF
+#define QSPI_FLAG_FT                   QUADSPI_SR_FTF
+#define QSPI_FLAG_TC                   QUADSPI_SR_TCF
+#define QSPI_FLAG_TE                   QUADSPI_SR_TEF
 /**
   * @}
   */
@@ -428,11 +428,11 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
 /** @defgroup QSPI_Interrupts QSPI Interrupts
   * @{
   */
-#define QSPI_IT_TO                     QUADSPI_CR_TOIE /*!<Interrupt on the timeout flag*/
-#define QSPI_IT_SM                     QUADSPI_CR_SMIE /*!<Interrupt on the status match flag*/
-#define QSPI_IT_FT                     QUADSPI_CR_FTIE /*!<Interrupt on the fifo threshold flag*/
-#define QSPI_IT_TC                     QUADSPI_CR_TCIE /*!<Interrupt on the transfer complete flag*/
-#define QSPI_IT_TE                     QUADSPI_CR_TEIE /*!<Interrupt on the transfer error flag*/
+#define QSPI_IT_TO                     QUADSPI_CR_TOIE
+#define QSPI_IT_SM                     QUADSPI_CR_SMIE
+#define QSPI_IT_FT                     QUADSPI_CR_FTIE
+#define QSPI_IT_TC                     QUADSPI_CR_TCIE
+#define QSPI_IT_TE                     QUADSPI_CR_TEIE
 /**
   * @}
   */
@@ -441,7 +441,7 @@ typedef void (*pQSPI_CallbackTypeDef)(QSPI_HandleTypeDef *hqspi);
   * @brief QSPI Timeout definition
   * @{
   */
-#define HAL_QSPI_TIMEOUT_DEFAULT_VALUE 5000U /* 5 s */
+#define HAL_QSPI_TIMEOUT_DEFAULT_VALUE 5000U
 /**
   * @}
   */

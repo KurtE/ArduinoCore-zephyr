@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2010 - 2024, Nordic Semiconductor ASA All rights reserved.
+Copyright (c) 2010 - 2025, Nordic Semiconductor ASA All rights reserved.
 
 SPDX-License-Identifier: BSD-3-Clause
 
@@ -75,8 +75,8 @@ POSSIBILITY OF SUCH DAMAGE.
     #undef ETM_TRCRSCTLR_MaxCount
     #undef RADIO_PENALTYREG_PCP_MaxCount
 
-    #define ETM_TRCRSCTLR_MaxCount (32UL)                          /*!< Max size of TRCRSCTLR[32] array.            */
-    #define RADIO_PENALTYREG_PCP_MaxCount (5UL)                    /*!< Max size of PCP[5] array.                   */
+    #define ETM_TRCRSCTLR_MaxCount (32UL)
+    #define RADIO_PENALTYREG_PCP_MaxCount (5UL)
 
     #define EASYVDMA_PRESENT
 

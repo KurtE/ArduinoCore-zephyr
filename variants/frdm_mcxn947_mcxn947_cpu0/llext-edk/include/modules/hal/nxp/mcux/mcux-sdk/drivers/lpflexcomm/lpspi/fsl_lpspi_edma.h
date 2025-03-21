@@ -63,89 +63,89 @@ typedef void (*lpspi_slave_edma_transfer_callback_t)(LPSPI_Type *base,
 /*! @brief LPSPI master eDMA transfer handle structure used for transactional API. */
 struct _lpspi_master_edma_handle
 {
-    volatile bool isPcsContinuous; /*!< Is PCS continuous in transfer. */
+    volatile bool isPcsContinuous;
 
-    volatile bool isByteSwap; /*!< A flag that whether should byte swap. */
+    volatile bool isByteSwap;
 
-    volatile uint8_t fifoSize; /*!< FIFO dataSize. */
+    volatile uint8_t fifoSize;
 
-    volatile uint8_t rxWatermark; /*!< Rx watermark. */
+    volatile uint8_t rxWatermark;
 
-    volatile uint8_t bytesEachWrite; /*!< Bytes for each write TDR. */
-    volatile uint8_t bytesEachRead;  /*!< Bytes for each read RDR. */
+    volatile uint8_t bytesEachWrite;
+    volatile uint8_t bytesEachRead;
 
-    volatile uint8_t bytesLastRead;    /*!< Bytes for last read RDR. */
-    volatile bool isThereExtraRxBytes; /*!< Is there extra RX byte. */
+    volatile uint8_t bytesLastRead;
+    volatile bool isThereExtraRxBytes;
 
-    const uint8_t *volatile txData;                 /*!< Send buffer. */
-    uint8_t *volatile rxData;             /*!< Receive buffer. */
-    volatile size_t txRemainingByteCount; /*!< Number of bytes remaining to send.*/
-    volatile size_t rxRemainingByteCount; /*!< Number of bytes remaining to receive.*/
+    const uint8_t *volatile txData;
+    uint8_t *volatile rxData;
+    volatile size_t txRemainingByteCount;
+    volatile size_t rxRemainingByteCount;
 
-    volatile uint32_t writeRegRemainingTimes; /*!< Write TDR register remaining times. */
-    volatile uint32_t readRegRemainingTimes;  /*!< Read RDR register remaining times. */
+    volatile uint32_t writeRegRemainingTimes;
+    volatile uint32_t readRegRemainingTimes;
 
-    uint32_t totalByteCount; /*!< Number of transfer bytes*/
+    uint32_t totalByteCount;
 
-    uint32_t txBuffIfNull; /*!< Used if there is not txData for DMA purpose.*/
-    uint32_t rxBuffIfNull; /*!< Used if there is not rxData for DMA purpose.*/
+    uint32_t txBuffIfNull;
+    uint32_t rxBuffIfNull;
 
-    uint32_t transmitCommand; /*!< Used to write TCR for DMA purpose.*/
+    uint32_t transmitCommand;
 
-    volatile uint8_t state; /*!< LPSPI transfer state , _lpspi_transfer_state.*/
+    volatile uint8_t state;
 
-    uint8_t nbytes; /*!< eDMA minor byte transfer count initially configured. */
+    uint8_t nbytes;
 
-    lpspi_master_edma_transfer_callback_t callback; /*!< Completion callback. */
-    void *userData;                                 /*!< Callback user data. */
+    lpspi_master_edma_transfer_callback_t callback;
+    void *userData;
 
-    edma_handle_t *edmaRxRegToRxDataHandle; /*!<edma_handle_t handle point used for RxReg to RxData buff*/
-    edma_handle_t *edmaTxDataToTxRegHandle; /*!<edma_handle_t handle point used for TxData to TxReg buff*/
+    edma_handle_t *edmaRxRegToRxDataHandle;
+    edma_handle_t *edmaTxDataToTxRegHandle;
 
-    edma_tcd_t lpspiSoftwareTCD[3]; /*!<SoftwareTCD, internal used*/
+    edma_tcd_t lpspiSoftwareTCD[3];
 };
 
 /*! @brief LPSPI slave eDMA transfer handle structure used for transactional API.*/
 struct _lpspi_slave_edma_handle
 {
-    volatile bool isByteSwap; /*!< A flag that whether should byte swap. */
+    volatile bool isByteSwap;
 
-    volatile uint8_t fifoSize; /*!< FIFO dataSize. */
+    volatile uint8_t fifoSize;
 
-    volatile uint8_t rxWatermark; /*!< Rx watermark. */
+    volatile uint8_t rxWatermark;
 
-    volatile uint8_t bytesEachWrite; /*!< Bytes for each write TDR. */
-    volatile uint8_t bytesEachRead;  /*!< Bytes for each read RDR. */
+    volatile uint8_t bytesEachWrite;
+    volatile uint8_t bytesEachRead;
 
-    volatile uint8_t bytesLastRead;    /*!< Bytes for last read RDR. */
-    volatile bool isThereExtraRxBytes; /*!< Is there extra RX byte. */
+    volatile uint8_t bytesLastRead;
+    volatile bool isThereExtraRxBytes;
 
-    uint8_t nbytes; /*!< eDMA minor byte transfer count initially configured. */
+    uint8_t nbytes;
 
-    const uint8_t *volatile txData;                /*!< Send buffer. */
-    uint8_t *volatile rxData;             /*!< Receive buffer. */
-    volatile size_t txRemainingByteCount; /*!< Number of bytes remaining to send.*/
-    volatile size_t rxRemainingByteCount; /*!< Number of bytes remaining to receive.*/
+    const uint8_t *volatile txData;
+    uint8_t *volatile rxData;
+    volatile size_t txRemainingByteCount;
+    volatile size_t rxRemainingByteCount;
 
-    volatile uint32_t writeRegRemainingTimes; /*!< Write TDR register remaining times. */
-    volatile uint32_t readRegRemainingTimes;  /*!< Read RDR register remaining times. */
+    volatile uint32_t writeRegRemainingTimes;
+    volatile uint32_t readRegRemainingTimes;
 
-    uint32_t totalByteCount; /*!< Number of transfer bytes*/
+    uint32_t totalByteCount;
 
-    uint32_t txBuffIfNull; /*!< Used if there is not txData for DMA purpose.*/
-    uint32_t rxBuffIfNull; /*!< Used if there is not rxData for DMA purpose.*/
+    uint32_t txBuffIfNull;
+    uint32_t rxBuffIfNull;
 
-    volatile uint8_t state; /*!< LPSPI transfer state.*/
+    volatile uint8_t state;
 
-    uint32_t errorCount; /*!< Error count for slave transfer.*/
+    uint32_t errorCount;
 
-    lpspi_slave_edma_transfer_callback_t callback; /*!< Completion callback. */
-    void *userData;                                /*!< Callback user data. */
+    lpspi_slave_edma_transfer_callback_t callback;
+    void *userData;
 
-    edma_handle_t *edmaRxRegToRxDataHandle; /*!<edma_handle_t handle point used for RxReg to RxData buff*/
-    edma_handle_t *edmaTxDataToTxRegHandle; /*!<edma_handle_t handle point used for TxData to TxReg*/
+    edma_handle_t *edmaRxRegToRxDataHandle;
+    edma_handle_t *edmaTxDataToTxRegHandle;
 
-    edma_tcd_t lpspiSoftwareTCD[2]; /*!<SoftwareTCD, internal used*/
+    edma_tcd_t lpspiSoftwareTCD[2];
 };
 
 /***********************************************************************************************************************

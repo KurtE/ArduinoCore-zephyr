@@ -168,7 +168,7 @@ enum z_log_msg_mode {
 	(ptr) = (sizeof(long double) == Z_LOG_MSG_ALIGNMENT) ? \
 			(struct log_msg *)_ld_buf : (struct log_msg *)_ll_buf; \
 	if (IS_ENABLED(CONFIG_LOG_TEST_CLEAR_MESSAGE_SPACE)) { \
-		/* During test fill with 0's to simplify message comparison */ \
+ \
 		memset((ptr), 0, (len)); \
 	}
 #else /* Z_LOG_MSG_USE_VLA */
@@ -202,7 +202,7 @@ enum z_log_msg_mode {
 				      (struct log_msg *)_ll_buf32)));\
 	} \
 	if (IS_ENABLED(CONFIG_LOG_TEST_CLEAR_MESSAGE_SPACE)) { \
-		/* During test fill with 0's to simplify message comparison */ \
+ \
 		memset((ptr), 0, (len)); \
 	}
 #endif /* Z_LOG_MSG_USE_VLA */
@@ -444,7 +444,7 @@ do { \
  */
 #define Z_LOG_MSG_STR_VAR_IN_SECTION(_name, ...) \
 	COND_CODE_0(NUM_VA_ARGS_LESS_1(_, ##__VA_ARGS__), \
-		    (/* No args provided, no variable */), \
+		    (), \
 		    (static const char _name[] \
 		     __in_section(_log_strings, static, _CONCAT(_name, _)) __used __noasan = \
 			GET_ARG_N(1, __VA_ARGS__);))

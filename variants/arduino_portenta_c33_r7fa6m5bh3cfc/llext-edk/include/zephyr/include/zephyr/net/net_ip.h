@@ -41,54 +41,54 @@ extern "C" {
 /** @endcond */
 
 /* Protocol families. */
-#define PF_UNSPEC       0          /**< Unspecified protocol family.  */
-#define PF_INET         1          /**< IP protocol family version 4. */
-#define PF_INET6        2          /**< IP protocol family version 6. */
-#define PF_PACKET       3          /**< Packet family.                */
-#define PF_CAN          4          /**< Controller Area Network.      */
-#define PF_NET_MGMT     5          /**< Network management info.      */
-#define PF_LOCAL        6          /**< Inter-process communication   */
-#define PF_UNIX         PF_LOCAL   /**< Inter-process communication   */
+#define PF_UNSPEC       0
+#define PF_INET         1
+#define PF_INET6        2
+#define PF_PACKET       3
+#define PF_CAN          4
+#define PF_NET_MGMT     5
+#define PF_LOCAL        6
+#define PF_UNIX         PF_LOCAL
 
 /* Address families. */
-#define AF_UNSPEC      PF_UNSPEC   /**< Unspecified address family.   */
-#define AF_INET        PF_INET     /**< IP protocol family version 4. */
-#define AF_INET6       PF_INET6    /**< IP protocol family version 6. */
-#define AF_PACKET      PF_PACKET   /**< Packet family.                */
-#define AF_CAN         PF_CAN      /**< Controller Area Network.      */
-#define AF_NET_MGMT    PF_NET_MGMT /**< Network management info.      */
-#define AF_LOCAL       PF_LOCAL    /**< Inter-process communication   */
-#define AF_UNIX        PF_UNIX     /**< Inter-process communication   */
+#define AF_UNSPEC      PF_UNSPEC
+#define AF_INET        PF_INET
+#define AF_INET6       PF_INET6
+#define AF_PACKET      PF_PACKET
+#define AF_CAN         PF_CAN
+#define AF_NET_MGMT    PF_NET_MGMT
+#define AF_LOCAL       PF_LOCAL
+#define AF_UNIX        PF_UNIX
 
 /** Protocol numbers from IANA/BSD */
 enum net_ip_protocol {
-	IPPROTO_IP = 0,            /**< IP protocol (pseudo-val for setsockopt() */
-	IPPROTO_ICMP = 1,          /**< ICMP protocol   */
-	IPPROTO_IGMP = 2,          /**< IGMP protocol   */
-	IPPROTO_ETH_P_ALL = 3,     /**< Every packet. from linux if_ether.h   */
-	IPPROTO_IPIP = 4,          /**< IPIP tunnels    */
-	IPPROTO_TCP = 6,           /**< TCP protocol    */
-	IPPROTO_UDP = 17,          /**< UDP protocol    */
-	IPPROTO_IPV6 = 41,         /**< IPv6 protocol   */
-	IPPROTO_ICMPV6 = 58,       /**< ICMPv6 protocol */
-	IPPROTO_RAW = 255,         /**< RAW IP packets  */
+	IPPROTO_IP = 0,
+	IPPROTO_ICMP = 1,
+	IPPROTO_IGMP = 2,
+	IPPROTO_ETH_P_ALL = 3,
+	IPPROTO_IPIP = 4,
+	IPPROTO_TCP = 6,
+	IPPROTO_UDP = 17,
+	IPPROTO_IPV6 = 41,
+	IPPROTO_ICMPV6 = 58,
+	IPPROTO_RAW = 255,
 };
 
 /** Protocol numbers for TLS protocols */
 enum net_ip_protocol_secure {
-	IPPROTO_TLS_1_0 = 256,     /**< TLS 1.0 protocol */
-	IPPROTO_TLS_1_1 = 257,     /**< TLS 1.1 protocol */
-	IPPROTO_TLS_1_2 = 258,     /**< TLS 1.2 protocol */
-	IPPROTO_TLS_1_3 = 259,     /**< TLS 1.3 protocol */
-	IPPROTO_DTLS_1_0 = 272,    /**< DTLS 1.0 protocol */
-	IPPROTO_DTLS_1_2 = 273,    /**< DTLS 1.2 protocol */
+	IPPROTO_TLS_1_0 = 256,
+	IPPROTO_TLS_1_1 = 257,
+	IPPROTO_TLS_1_2 = 258,
+	IPPROTO_TLS_1_3 = 259,
+	IPPROTO_DTLS_1_0 = 272,
+	IPPROTO_DTLS_1_2 = 273,
 };
 
 /** Socket type */
 enum net_sock_type {
-	SOCK_STREAM = 1,           /**< Stream socket type   */
-	SOCK_DGRAM,                /**< Datagram socket type */
-	SOCK_RAW                   /**< RAW socket type      */
+	SOCK_STREAM = 1,
+	SOCK_DGRAM,
+	SOCK_RAW
 };
 
 /** @brief Convert 16-bit value from network to host byte order.
@@ -142,9 +142,9 @@ enum net_sock_type {
 /** IPv6 address struct */
 struct in6_addr {
 	union {
-		uint8_t s6_addr[16];   /**< IPv6 address buffer */
-		uint16_t s6_addr16[8]; /**< In big endian */
-		uint32_t s6_addr32[4]; /**< In big endian */
+		uint8_t s6_addr[16];
+		uint16_t s6_addr16[8];
+		uint32_t s6_addr32[4];
 	};
 };
 
@@ -154,10 +154,10 @@ struct in6_addr {
 /** IPv4 address struct */
 struct in_addr {
 	union {
-		uint8_t s4_addr[4];    /**< IPv4 address buffer */
-		uint16_t s4_addr16[2]; /**< In big endian */
-		uint32_t s4_addr32[1]; /**< In big endian */
-		uint32_t s_addr; /**< In big endian, for POSIX compatibility. */
+		uint8_t s4_addr[4];
+		uint16_t s4_addr16[2];
+		uint32_t s4_addr32[1];
+		uint32_t s_addr;
 	};
 };
 
@@ -180,62 +180,62 @@ typedef size_t socklen_t;
 
 /** Socket address struct for IPv6. */
 struct sockaddr_in6 {
-	sa_family_t		sin6_family;   /**< AF_INET6               */
-	uint16_t		sin6_port;     /**< Port number            */
-	struct in6_addr		sin6_addr;     /**< IPv6 address           */
-	uint8_t			sin6_scope_id; /**< Interfaces for a scope */
+	sa_family_t		sin6_family;
+	uint16_t		sin6_port;
+	struct in6_addr		sin6_addr;
+	uint8_t			sin6_scope_id;
 };
 
 /** Socket address struct for IPv4. */
 struct sockaddr_in {
-	sa_family_t		sin_family;    /**< AF_INET      */
-	uint16_t		sin_port;      /**< Port number  */
-	struct in_addr		sin_addr;      /**< IPv4 address */
+	sa_family_t		sin_family;
+	uint16_t		sin_port;
+	struct in_addr		sin_addr;
 };
 
 /** Socket address struct for packet socket. */
 struct sockaddr_ll {
-	sa_family_t sll_family;   /**< Always AF_PACKET                   */
-	uint16_t    sll_protocol; /**< Physical-layer protocol            */
-	int         sll_ifindex;  /**< Interface number                   */
-	uint16_t    sll_hatype;   /**< ARP hardware type                  */
-	uint8_t     sll_pkttype;  /**< Packet type                        */
-	uint8_t     sll_halen;    /**< Length of address                  */
-	uint8_t     sll_addr[8];  /**< Physical-layer address, big endian */
+	sa_family_t sll_family;
+	uint16_t    sll_protocol;
+	int         sll_ifindex;
+	uint16_t    sll_hatype;
+	uint8_t     sll_pkttype;
+	uint8_t     sll_halen;
+	uint8_t     sll_addr[8];
 };
 
 /** @cond INTERNAL_HIDDEN */
 
 /** Socket address struct for IPv6 where address is a pointer */
 struct sockaddr_in6_ptr {
-	sa_family_t		sin6_family;   /**< AF_INET6               */
-	uint16_t		sin6_port;     /**< Port number            */
-	struct in6_addr		*sin6_addr;    /**< IPv6 address           */
-	uint8_t			sin6_scope_id; /**< interfaces for a scope */
+	sa_family_t		sin6_family;
+	uint16_t		sin6_port;
+	struct in6_addr		*sin6_addr;
+	uint8_t			sin6_scope_id;
 };
 
 /** Socket address struct for IPv4 where address is a pointer */
 struct sockaddr_in_ptr {
-	sa_family_t		sin_family;    /**< AF_INET      */
-	uint16_t		sin_port;      /**< Port number  */
-	struct in_addr		*sin_addr;     /**< IPv4 address */
+	sa_family_t		sin_family;
+	uint16_t		sin_port;
+	struct in_addr		*sin_addr;
 };
 
 /** Socket address struct for packet socket where address is a pointer */
 struct sockaddr_ll_ptr {
-	sa_family_t sll_family;   /**< Always AF_PACKET                   */
-	uint16_t    sll_protocol; /**< Physical-layer protocol            */
-	int         sll_ifindex;  /**< Interface number                   */
-	uint16_t    sll_hatype;   /**< ARP hardware type                  */
-	uint8_t     sll_pkttype;  /**< Packet type                        */
-	uint8_t     sll_halen;    /**< Length of address                  */
-	uint8_t     *sll_addr;    /**< Physical-layer address, big endian */
+	sa_family_t sll_family;
+	uint16_t    sll_protocol;
+	int         sll_ifindex;
+	uint16_t    sll_hatype;
+	uint8_t     sll_pkttype;
+	uint8_t     sll_halen;
+	uint8_t     *sll_addr;
 };
 
 /** Socket address struct for unix socket where address is a pointer */
 struct sockaddr_un_ptr {
-	sa_family_t sun_family;    /**< Always AF_UNIX */
-	char        *sun_path;     /**< pathname */
+	sa_family_t sun_family;
+	char        *sun_path;
 };
 
 struct sockaddr_can_ptr {
@@ -248,28 +248,28 @@ struct sockaddr_can_ptr {
 #if !defined(HAVE_IOVEC)
 /** IO vector array element */
 struct iovec {
-	void  *iov_base; /**< Pointer to data */
-	size_t iov_len;  /**< Length of the data */
+	void  *iov_base;
+	size_t iov_len;
 };
 #endif
 
 /** Message struct */
 struct msghdr {
-	void         *msg_name;       /**< Optional socket address, big endian */
-	socklen_t     msg_namelen;    /**< Size of socket address */
-	struct iovec *msg_iov;        /**< Scatter/gather array */
-	size_t        msg_iovlen;     /**< Number of elements in msg_iov */
-	void         *msg_control;    /**< Ancillary data */
-	size_t        msg_controllen; /**< Ancillary data buffer len */
-	int           msg_flags;      /**< Flags on received message */
+	void         *msg_name;
+	socklen_t     msg_namelen;
+	struct iovec *msg_iov;
+	size_t        msg_iovlen;
+	void         *msg_control;
+	size_t        msg_controllen;
+	int           msg_flags;
 };
 
 /** Control message ancillary data */
 struct cmsghdr {
-	socklen_t cmsg_len;    /**< Number of bytes, including header */
-	int       cmsg_level;  /**< Originating protocol */
-	int       cmsg_type;   /**< Protocol-specific type */
-	z_max_align_t cmsg_data[]; /**< Flexible array member to force alignment of cmsghdr */
+	socklen_t cmsg_len;
+	int       cmsg_level;
+	int       cmsg_type;
+	z_max_align_t cmsg_data[];
 };
 
 /** @cond INTERNAL_HIDDEN */
@@ -343,11 +343,11 @@ struct cmsghdr {
 /** @cond INTERNAL_HIDDEN */
 
 /* Packet types.  */
-#define PACKET_HOST         0     /* To us            */
-#define PACKET_BROADCAST    1     /* To all           */
-#define PACKET_MULTICAST    2     /* To group         */
-#define PACKET_OTHERHOST    3     /* To someone else  */
-#define PACKET_OUTGOING     4     /* Originated by us */
+#define PACKET_HOST         0
+#define PACKET_BROADCAST    1
+#define PACKET_MULTICAST    2
+#define PACKET_OTHERHOST    3
+#define PACKET_OUTGOING     4
 #define PACKET_LOOPBACK     5
 #define PACKET_FASTROUTE    6
 
@@ -406,7 +406,7 @@ struct cmsghdr {
 
 /** Generic sockaddr struct. Must be cast to proper type. */
 struct sockaddr {
-	sa_family_t sa_family; /**< Address family */
+	sa_family_t sa_family;
 /** @cond INTERNAL_HIDDEN */
 	char data[NET_SOCKADDR_MAX_SIZE - sizeof(sa_family_t)];
 /** @endcond */
@@ -427,7 +427,7 @@ struct sockaddr_storage {
 
 /* Socket address struct for UNIX domain sockets */
 struct sockaddr_un {
-	sa_family_t sun_family;    /* AF_UNIX */
+	sa_family_t sun_family;
 	char        sun_path[NET_SOCKADDR_MAX_SIZE - sizeof(sa_family_t)];
 };
 
@@ -496,38 +496,42 @@ enum net_ip_mtu {
 	/** IPv4 MTU length. We must be able to receive this size IPv4 packet
 	 * without fragmentation.
 	 */
+#if defined(CONFIG_NET_NATIVE_IPV4)
+	NET_IPV4_MTU = CONFIG_NET_IPV4_MTU,
+#else
 	NET_IPV4_MTU = 576,
+#endif
 };
 
 /** @brief Network packet priority settings described in IEEE 802.1Q Annex I.1 */
 enum net_priority {
-	NET_PRIORITY_BK = 1, /**< Background (lowest)                */
-	NET_PRIORITY_BE = 0, /**< Best effort (default)              */
-	NET_PRIORITY_EE = 2, /**< Excellent effort                   */
-	NET_PRIORITY_CA = 3, /**< Critical applications              */
-	NET_PRIORITY_VI = 4, /**< Video, < 100 ms latency and jitter */
-	NET_PRIORITY_VO = 5, /**< Voice, < 10 ms latency and jitter  */
-	NET_PRIORITY_IC = 6, /**< Internetwork control               */
-	NET_PRIORITY_NC = 7  /**< Network control (highest)          */
+	NET_PRIORITY_BK = 1,
+	NET_PRIORITY_BE = 0,
+	NET_PRIORITY_EE = 2,
+	NET_PRIORITY_CA = 3,
+	NET_PRIORITY_VI = 4,
+	NET_PRIORITY_VO = 5,
+	NET_PRIORITY_IC = 6,
+	NET_PRIORITY_NC = 7
 } __packed;
 
-#define NET_MAX_PRIORITIES 8 /**< How many priority values there are */
+#define NET_MAX_PRIORITIES 8
 
 /** @brief IPv6/IPv4 network connection tuple */
 struct net_tuple {
-	struct net_addr *remote_addr;  /**< IPv6/IPv4 remote address */
-	struct net_addr *local_addr;   /**< IPv6/IPv4 local address  */
-	uint16_t remote_port;          /**< UDP/TCP remote port      */
-	uint16_t local_port;           /**< UDP/TCP local port       */
-	enum net_ip_protocol ip_proto; /**< IP protocol              */
+	struct net_addr *remote_addr;
+	struct net_addr *local_addr;
+	uint16_t remote_port;
+	uint16_t local_port;
+	enum net_ip_protocol ip_proto;
 };
 
 /** @brief What is the current state of the network address */
 enum net_addr_state {
-	NET_ADDR_ANY_STATE = -1, /**< Default (invalid) address type */
-	NET_ADDR_TENTATIVE = 0,  /**< Tentative address              */
-	NET_ADDR_PREFERRED,      /**< Preferred address              */
-	NET_ADDR_DEPRECATED,     /**< Deprecated address             */
+	NET_ADDR_ANY_STATE = -1,
+	NET_ADDR_TENTATIVE = 0,
+	NET_ADDR_PREFERRED,
+	NET_ADDR_DEPRECATED,
 } __packed;
 
 /** @brief How the network address is assigned to network interface */
@@ -643,29 +647,29 @@ union net_proto_header {
 	struct net_tcp_hdr *tcp;
 };
 
-#define NET_UDPH_LEN	8			/* Size of UDP header */
-#define NET_TCPH_LEN	20			/* Size of TCP header */
-#define NET_ICMPH_LEN	4			/* Size of ICMP header */
+#define NET_UDPH_LEN	8
+#define NET_TCPH_LEN	20
+#define NET_ICMPH_LEN	4
 
-#define NET_IPV6H_LEN	   40			/* Size of IPv6 header */
-#define NET_ICMPV6H_LEN	   NET_ICMPH_LEN	/* Size of ICMPv6 header */
-#define NET_IPV6UDPH_LEN   (NET_UDPH_LEN + NET_IPV6H_LEN) /* IPv6 + UDP */
-#define NET_IPV6TCPH_LEN   (NET_TCPH_LEN + NET_IPV6H_LEN) /* IPv6 + TCP */
-#define NET_IPV6ICMPH_LEN  (NET_IPV6H_LEN + NET_ICMPH_LEN) /* ICMPv6 + IPv6 */
+#define NET_IPV6H_LEN	   40
+#define NET_ICMPV6H_LEN	   NET_ICMPH_LEN
+#define NET_IPV6UDPH_LEN   (NET_UDPH_LEN + NET_IPV6H_LEN)
+#define NET_IPV6TCPH_LEN   (NET_TCPH_LEN + NET_IPV6H_LEN)
+#define NET_IPV6ICMPH_LEN  (NET_IPV6H_LEN + NET_ICMPH_LEN)
 #define NET_IPV6_FRAGH_LEN 8
 
-#define NET_IPV4H_LEN	   20			/* Size of IPv4 header */
-#define NET_ICMPV4H_LEN	   NET_ICMPH_LEN	/* Size of ICMPv4 header */
-#define NET_IPV4UDPH_LEN   (NET_UDPH_LEN + NET_IPV4H_LEN) /* IPv4 + UDP */
-#define NET_IPV4TCPH_LEN   (NET_TCPH_LEN + NET_IPV4H_LEN) /* IPv4 + TCP */
-#define NET_IPV4ICMPH_LEN  (NET_IPV4H_LEN + NET_ICMPH_LEN) /* ICMPv4 + IPv4 */
+#define NET_IPV4H_LEN	   20
+#define NET_ICMPV4H_LEN	   NET_ICMPH_LEN
+#define NET_IPV4UDPH_LEN   (NET_UDPH_LEN + NET_IPV4H_LEN)
+#define NET_IPV4TCPH_LEN   (NET_TCPH_LEN + NET_IPV4H_LEN)
+#define NET_IPV4ICMPH_LEN  (NET_IPV4H_LEN + NET_ICMPH_LEN)
 
-#define NET_IPV6H_LENGTH_OFFSET		0x04	/* Offset of the Length field in the IPv6 header */
+#define NET_IPV6H_LENGTH_OFFSET		0x04
 
-#define NET_IPV6_FRAGH_OFFSET_MASK	0xfff8	/* Mask for the 13-bit Fragment Offset field */
-#define NET_IPV4_FRAGH_OFFSET_MASK	0x1fff	/* Mask for the 13-bit Fragment Offset field */
-#define NET_IPV4_MORE_FRAG_MASK		0x2000	/* Mask for the 1-bit More Fragments field */
-#define NET_IPV4_DO_NOT_FRAG_MASK	0x4000	/* Mask for the 1-bit Do Not Fragment field */
+#define NET_IPV6_FRAGH_OFFSET_MASK	0xfff8
+#define NET_IPV4_FRAGH_OFFSET_MASK	0x1fff
+#define NET_IPV4_MORE_FRAG_MASK		0x2000
+#define NET_IPV4_DO_NOT_FRAG_MASK	0x4000
 
 /** @endcond */
 
@@ -868,13 +872,13 @@ static inline bool net_ipv4_is_private_addr(const struct in_addr *addr)
 	masked_10 = masked_24 & 0xFFC00000;
 	masked_8 = masked_24 & 0xFF000000;
 
-	return masked_8  == 0x0A000000 || /* 10.0.0.0/8      */
-	       masked_10 == 0x64400000 || /* 100.64.0.0/10   */
-	       masked_12 == 0xAC100000 || /* 172.16.0.0/12   */
-	       masked_16 == 0xC0A80000 || /* 192.168.0.0/16  */
-	       masked_24 == 0xC0000200 || /* 192.0.2.0/24    */
-	       masked_24 == 0xC0336400 || /* 192.51.100.0/24 */
-	       masked_24 == 0xCB007100;   /* 203.0.113.0/24  */
+	return masked_8  == 0x0A000000 ||
+	       masked_10 == 0x64400000 ||
+	       masked_12 == 0xAC100000 ||
+	       masked_16 == 0xC0A80000 ||
+	       masked_24 == 0xC0000200 ||
+	       masked_24 == 0xC0336400 ||
+	       masked_24 == 0xCB007100;
 }
 
 /**
@@ -1035,8 +1039,8 @@ static inline bool net_ipv6_is_private_addr(const struct in6_addr *addr)
 	masked_32 = ntohl(UNALIGNED_GET(&addr->s6_addr32[0]));
 	masked_7 = masked_32 & 0xfc000000;
 
-	return masked_32 == 0x20010db8 || /* 2001:db8::/32 */
-	       masked_7  == 0xfc000000;   /* fc00::/7      */
+	return masked_32 == 0x20010db8 ||
+	       masked_7  == 0xfc000000;
 }
 
 /**
@@ -1539,6 +1543,8 @@ static inline bool net_ipv6_addr_based_on_ll(const struct in6_addr *addr,
 		}
 
 		break;
+	default:
+		return false;
 	}
 
 	return false;

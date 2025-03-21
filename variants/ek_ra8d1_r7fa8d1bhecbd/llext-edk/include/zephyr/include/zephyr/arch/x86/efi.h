@@ -13,8 +13,8 @@
 #ifndef _ASMLANGUAGE
 
 struct efi_boot_arg {
-	void *efi_systab;           /* EFI system table */
-	unsigned long long efi_cr3; /* EFI page table */
+	void *efi_systab;
+	unsigned long long efi_cr3;
 	void *acpi_rsdp;
 };
 

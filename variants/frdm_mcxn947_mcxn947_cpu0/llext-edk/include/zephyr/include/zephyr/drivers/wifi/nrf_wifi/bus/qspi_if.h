@@ -18,9 +18,9 @@
 #include <nrfx_qspi.h>
 #endif
 
-#define RPU_WAKEUP_NOW BIT(0) /* WAKEUP RPU - RW */
-#define RPU_AWAKE_BIT BIT(1) /* RPU AWAKE FROM SLEEP - RO */
-#define RPU_READY_BIT BIT(2) /* RPU IS READY - RO*/
+#define RPU_WAKEUP_NOW BIT(0)
+#define RPU_AWAKE_BIT BIT(1)
+#define RPU_READY_BIT BIT(2)
 
 struct qspi_config {
 #ifdef CONFIG_NRF70_ON_QSPI

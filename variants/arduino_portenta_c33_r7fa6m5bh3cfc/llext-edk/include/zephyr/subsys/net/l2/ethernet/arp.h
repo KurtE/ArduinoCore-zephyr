@@ -26,15 +26,15 @@ extern "C" {
 #define NET_ARP_HDR(pkt) ((struct net_arp_hdr *)net_pkt_data(pkt))
 
 struct net_arp_hdr {
-	uint16_t hwtype;			/* HTYPE */
-	uint16_t protocol;			/* PTYPE */
-	uint8_t hwlen;				/* HLEN */
-	uint8_t protolen;			/* PLEN */
+	uint16_t hwtype;
+	uint16_t protocol;
+	uint8_t hwlen;
+	uint8_t protolen;
 	uint16_t opcode;
-	struct net_eth_addr src_hwaddr;		/* SHA */
-	uint8_t src_ipaddr[NET_IPV4_ADDR_SIZE];	/* SPA */
-	struct net_eth_addr dst_hwaddr;		/* THA */
-	uint8_t dst_ipaddr[NET_IPV4_ADDR_SIZE];	/* TPA */
+	struct net_eth_addr src_hwaddr;
+	uint8_t src_ipaddr[NET_IPV4_ADDR_SIZE];
+	struct net_eth_addr dst_hwaddr;
+	uint8_t dst_ipaddr[NET_IPV4_ADDR_SIZE];
 } __packed;
 
 #define NET_ARP_HTYPE_ETH 1
@@ -47,7 +47,8 @@ struct net_pkt *net_arp_prepare(struct net_pkt *pkt,
 				struct in_addr *request_ip,
 				struct in_addr *current_ip);
 enum net_verdict net_arp_input(struct net_pkt *pkt,
-			       struct net_eth_hdr *eth_hdr);
+			       struct net_eth_addr *src,
+			       struct net_eth_addr *dst);
 
 int net_arp_clear_pending(struct net_if *iface,
 				struct in_addr *dst);

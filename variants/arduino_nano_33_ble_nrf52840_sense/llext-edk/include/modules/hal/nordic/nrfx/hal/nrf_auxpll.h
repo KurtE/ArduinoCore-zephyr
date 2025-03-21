@@ -51,77 +51,77 @@ extern "C" {
 /** @brief AUXPLL tasks. */
 typedef enum
 {
-    NRF_AUXPLL_TASK_START          = offsetof(NRF_AUXPLL_Type, TASKS_START),        /**< Start the AUXPLL. */
-    NRF_AUXPLL_TASK_STOP           = offsetof(NRF_AUXPLL_Type, TASKS_STOP),         /**< Stop the AUXPLL. */
-    NRF_AUXPLL_TASK_FREQ_NEW_FINE  = offsetof(NRF_AUXPLL_Type, TASKS_NEWFINEFREQ),  /**< Change fine frequency. */
-    NRF_AUXPLL_TASK_FREQ_NEW_BASE  = offsetof(NRF_AUXPLL_Type, TASKS_NEWBASEFREQ),  /**< Change base frequency. */
-    NRF_AUXPLL_TASK_FREQ_INC_START = offsetof(NRF_AUXPLL_Type, TASKS_FREQINCSTART), /**< Start automated frequency increment. */
-    NRF_AUXPLL_TASK_FREQ_INC_STOP  = offsetof(NRF_AUXPLL_Type, TASKS_FREQINCSTOP),  /**< Stop automated frequency increment. */
+    NRF_AUXPLL_TASK_START          = offsetof(NRF_AUXPLL_Type, TASKS_START),
+    NRF_AUXPLL_TASK_STOP           = offsetof(NRF_AUXPLL_Type, TASKS_STOP),
+    NRF_AUXPLL_TASK_FREQ_NEW_FINE  = offsetof(NRF_AUXPLL_Type, TASKS_NEWFINEFREQ),
+    NRF_AUXPLL_TASK_FREQ_NEW_BASE  = offsetof(NRF_AUXPLL_Type, TASKS_NEWBASEFREQ),
+    NRF_AUXPLL_TASK_FREQ_INC_START = offsetof(NRF_AUXPLL_Type, TASKS_FREQINCSTART),
+    NRF_AUXPLL_TASK_FREQ_INC_STOP  = offsetof(NRF_AUXPLL_Type, TASKS_FREQINCSTOP),
 } nrf_auxpll_task_t;
 
 /** @brief AUXPLL events. */
 typedef enum
 {
-    NRF_AUXPLL_EVENT_STARTED = offsetof(NRF_AUXPLL_Type, EVENTS_STARTED), /**< Event indicating that AUXPLL started. */
-    NRF_AUXPLL_EVENT_STOPPED = offsetof(NRF_AUXPLL_Type, EVENTS_STOPPED), /**< Event indicating that AUXPLL stopped. */
-    NRF_AUXPLL_EVENT_LOCKED  = offsetof(NRF_AUXPLL_Type, EVENTS_LOCKED),  /**< Event indicating that AUXPLL locked. */
+    NRF_AUXPLL_EVENT_STARTED = offsetof(NRF_AUXPLL_Type, EVENTS_STARTED),
+    NRF_AUXPLL_EVENT_STOPPED = offsetof(NRF_AUXPLL_Type, EVENTS_STOPPED),
+    NRF_AUXPLL_EVENT_LOCKED  = offsetof(NRF_AUXPLL_Type, EVENTS_LOCKED),
 } nrf_auxpll_event_t;
 
 /** @brief AUXPLL interrupts. */
 typedef enum
 {
-    NRF_AUXPLL_INT_STARTED_MASK = AUXPLL_INTEN_STARTED_Msk, /**< AUXPLL interrupt for STARTED event. */
-    NRF_AUXPLL_INT_STOPPED_MASK = AUXPLL_INTEN_STOPPED_Msk, /**< AUXPLL interrupt for STOPPED event. */
-    NRF_AUXPLL_INT_LOCKED_MASK  = AUXPLL_INTEN_LOCKED_Msk   /**< AUXPLL interrupt for LOCKED event. */
+    NRF_AUXPLL_INT_STARTED_MASK = AUXPLL_INTEN_STARTED_Msk,
+    NRF_AUXPLL_INT_STOPPED_MASK = AUXPLL_INTEN_STOPPED_Msk,
+    NRF_AUXPLL_INT_LOCKED_MASK  = AUXPLL_INTEN_LOCKED_Msk
 } nrf_auxpll_int_mask_t;
 
 /** @brief AUXPLL STATUS register bit masks. */
 typedef enum
 {
-    NRF_AUXPLL_STATUS_MODE_MASK             = AUXPLL_STATUS_MODE_Msk,           /**< AUXPLL mode indication. 1 - Locked mode, 0 - Freerunning mode. */
-    NRF_AUXPLL_STATUS_PLL_RUNNING_MASK      = AUXPLL_STATUS_PLLRUNNING_Msk,     /**< AUXPLL running indication. 1 - PLL running, 0 - PLL not running. */
-    MRF_AUXPLL_STATUS_FREQUENCY_ACTUAL_MASK = AUXPLL_STATUS_FREQUENCYACTUAL_Msk /**< Actual fractional PLL divider ratio. */
+    NRF_AUXPLL_STATUS_MODE_MASK             = AUXPLL_STATUS_MODE_Msk,
+    NRF_AUXPLL_STATUS_PLL_RUNNING_MASK      = AUXPLL_STATUS_PLLRUNNING_Msk,
+    MRF_AUXPLL_STATUS_FREQUENCY_ACTUAL_MASK = AUXPLL_STATUS_FREQUENCYACTUAL_Msk
 } nrf_auxpll_status_mask_t;
 
 /** @brief AUXPLL output prescaler ratio. */
 typedef enum
 {
-    NRF_AUXPLL_CTRL_OUTSEL_DIV_DISABLED = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_DivDisabled, /**< Divider disabled. Bypassed external clock still supported. */
-    NRF_AUXPLL_CTRL_OUTSEL_DIV_1        = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div1,        /**< Divide by 1 */
-    NRF_AUXPLL_CTRL_OUTSEL_DIV_2        = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div2,        /**< Divide by 2 */
-    NRF_AUXPLL_CTRL_OUTSEL_DIV_3        = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div3,        /**< Divide by 3 */
-    NRF_AUXPLL_CTRL_OUTSEL_DIV_4        = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div4,        /**< Divide by 4 */
-    NRF_AUXPLL_CTRL_OUTSEL_DIV_6        = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div6,        /**< Divide by 6 */
-    NRF_AUXPLL_CTRL_OUTSEL_DIV_8        = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div8,        /**< Divide by 8 */
-    NRF_AUXPLL_CTRL_OUTSEL_DIV_12       = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div12,       /**< Divide by 12 */
-    NRF_AUXPLL_CTRL_OUTSEL_DIV_16       = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div16,       /**< Divide by 16 */
+    NRF_AUXPLL_CTRL_OUTSEL_DIV_DISABLED = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_DivDisabled,
+    NRF_AUXPLL_CTRL_OUTSEL_DIV_1        = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div1,
+    NRF_AUXPLL_CTRL_OUTSEL_DIV_2        = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div2,
+    NRF_AUXPLL_CTRL_OUTSEL_DIV_3        = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div3,
+    NRF_AUXPLL_CTRL_OUTSEL_DIV_4        = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div4,
+    NRF_AUXPLL_CTRL_OUTSEL_DIV_6        = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div6,
+    NRF_AUXPLL_CTRL_OUTSEL_DIV_8        = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div8,
+    NRF_AUXPLL_CTRL_OUTSEL_DIV_12       = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div12,
+    NRF_AUXPLL_CTRL_OUTSEL_DIV_16       = AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div16,
 } nrf_auxpll_ctrl_outsel_t;
 
 /** @brief AUXPLL freerunning mode control. */
 typedef enum
 {
-    NRF_AUXPLL_CTRL_MODE_AUTO    = AUXPLL_AUXPLLCTRL_MODE_MODECTRL_Auto,    /**< Automatically handled by the AUXPLL peripheral. */
-    NRF_AUXPLL_CTRL_MODE_FREERUN = AUXPLL_AUXPLLCTRL_MODE_MODECTRL_Freerun, /**< Keep AUXPLL in freerunning mode. */
-    NRF_AUXPLL_CTRL_MODE_LOCKED  = AUXPLL_AUXPLLCTRL_MODE_MODECTRL_Locked   /**< Keep AUXPLL in locked mode. */
+    NRF_AUXPLL_CTRL_MODE_AUTO    = AUXPLL_AUXPLLCTRL_MODE_MODECTRL_Auto,
+    NRF_AUXPLL_CTRL_MODE_FREERUN = AUXPLL_AUXPLLCTRL_MODE_MODECTRL_Freerun,
+    NRF_AUXPLL_CTRL_MODE_LOCKED  = AUXPLL_AUXPLLCTRL_MODE_MODECTRL_Locked
 } nrf_auxpll_ctrl_mode_t;
 
 /** @brief AUXPLL Loop divider base settings. */
 typedef enum
 {
-    NRF_AUXPLL_DIVIDER_RANGE_LOW  = AUXPLL_CONFIG_CFGSTATIC_AUXPLLRANGE_Low,        /**< Low range divider setting. Fractional divider in the range 3..4. */
-    NRF_AUXPLL_DIVIDER_RANGE_MID  = AUXPLL_CONFIG_CFGSTATIC_AUXPLLRANGE_Mid,        /**< Mid range divider setting. Fractional divider in the range 4..5. */
-    NRF_AUXPLL_DIVIDER_RANGE_HIGH = AUXPLL_CONFIG_CFGSTATIC_AUXPLLRANGE_High,       /**< High range divider setting. Fractional divider in the range 5..6. */
-    NRF_AUXPLL_DIVIDER_RANGE_MAX  = AUXPLL_CONFIG_CFGSTATIC_AUXPLLRANGE_StaticHigh, /**< Maximum static divider setting. Fractional division not supported. */
+    NRF_AUXPLL_DIVIDER_RANGE_LOW  = AUXPLL_CONFIG_CFGSTATIC_AUXPLLRANGE_Low,
+    NRF_AUXPLL_DIVIDER_RANGE_MID  = AUXPLL_CONFIG_CFGSTATIC_AUXPLLRANGE_Mid,
+    NRF_AUXPLL_DIVIDER_RANGE_HIGH = AUXPLL_CONFIG_CFGSTATIC_AUXPLLRANGE_High,
+    NRF_AUXPLL_DIVIDER_RANGE_MAX  = AUXPLL_CONFIG_CFGSTATIC_AUXPLLRANGE_StaticHigh,
 } nrf_auxpll_divider_range_t;
 
 /** @brief AUXPLL configuration. */
 typedef struct
 {
-    uint8_t outdrive;                 /**< Output buffer drive strength selection. Range 0..3. */
-    uint8_t current_tune;             /**< Constant current tune for ring oscillator. Range 0..15. */
-    bool sdm_off;                     /**< Turn off sigma delta modulation. */
-    bool dither_off;                  /**< Turn off dither in sigma delta modulator. */
-    nrf_auxpll_divider_range_t range; /**< Loop divider base settings. */
+    uint8_t outdrive;
+    uint8_t current_tune;
+    bool sdm_off;
+    bool dither_off;
+    nrf_auxpll_divider_range_t range;
 } nrf_auxpll_config_t;
 
 /**

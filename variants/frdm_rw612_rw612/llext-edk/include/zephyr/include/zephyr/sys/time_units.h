@@ -2086,7 +2086,7 @@ static inline int z_impl_sys_clock_hw_cycles_per_sec_runtime_get(void)
  */
 
 #ifdef __cplusplus
-} /* extern "C" */
+}
 #endif
 
 #endif /* ZEPHYR_INCLUDE_TIME_UNITS_H_ */

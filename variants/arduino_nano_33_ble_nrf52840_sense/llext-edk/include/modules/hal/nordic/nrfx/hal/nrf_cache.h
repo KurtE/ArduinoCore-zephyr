@@ -178,20 +178,20 @@ extern "C" {
 typedef enum
 {
 #if NRF_CACHE_HAS_TASK_CLEAN
-    NRF_CACHE_TASK_CLEANCACHE      = offsetof(NRF_CACHE_Type, TASKS_CLEANCACHE),      /**< Clean the whole cache. */
-    NRF_CACHE_TASK_CLEANLINE       = offsetof(NRF_CACHE_Type, TASKS_CLEANLINE),       /**< Clean the cache line. */
+    NRF_CACHE_TASK_CLEANCACHE      = offsetof(NRF_CACHE_Type, TASKS_CLEANCACHE),
+    NRF_CACHE_TASK_CLEANLINE       = offsetof(NRF_CACHE_Type, TASKS_CLEANLINE),
 #endif
 #if NRF_CACHE_HAS_TASK_FLUSH
-    NRF_CACHE_TASK_FLUSHCACHE      = offsetof(NRF_CACHE_Type, TASKS_FLUSHCACHE),      /**< Flush the whole cache. */
-    NRF_CACHE_TASK_FLUSHLINE       = offsetof(NRF_CACHE_Type, TASKS_FLUSHLINE),       /**< Flush the cache line. */
+    NRF_CACHE_TASK_FLUSHCACHE      = offsetof(NRF_CACHE_Type, TASKS_FLUSHCACHE),
+    NRF_CACHE_TASK_FLUSHLINE       = offsetof(NRF_CACHE_Type, TASKS_FLUSHLINE),
 #endif
 #if NRF_CACHE_HAS_TASK_SAVE_RESTORE
-    NRF_CACHE_TASK_SAVE            = offsetof(NRF_CACHE_Type, TASKS_SAVE),            /**< Save the state to a retained memory space. */
-    NRF_CACHE_TASK_RESTORE         = offsetof(NRF_CACHE_Type, TASKS_RESTORE),         /**< Restore the state from a retained memory space. */
+    NRF_CACHE_TASK_SAVE            = offsetof(NRF_CACHE_Type, TASKS_SAVE),
+    NRF_CACHE_TASK_RESTORE         = offsetof(NRF_CACHE_Type, TASKS_RESTORE),
 #endif
-    NRF_CACHE_TASK_INVALIDATECACHE = offsetof(NRF_CACHE_Type, TASKS_INVALIDATECACHE), /**< Invalidate the whole cache. */
-    NRF_CACHE_TASK_INVALIDATELINE  = offsetof(NRF_CACHE_Type, TASKS_INVALIDATELINE),  /**< Invalidate the cache line. */
-    NRF_CACHE_TASK_ERASE           = offsetof(NRF_CACHE_Type, TASKS_ERASE),           /**< Erase the whole cache. */
+    NRF_CACHE_TASK_INVALIDATECACHE = offsetof(NRF_CACHE_Type, TASKS_INVALIDATECACHE),
+    NRF_CACHE_TASK_INVALIDATELINE  = offsetof(NRF_CACHE_Type, TASKS_INVALIDATELINE),
+    NRF_CACHE_TASK_ERASE           = offsetof(NRF_CACHE_Type, TASKS_ERASE),
 } nrf_cache_task_t;
 #endif
 

@@ -75,17 +75,17 @@ struct xen_add_to_physmap_batch {
 	/* IN */
 	/* Which domain to change the mapping for. */
 	domid_t domid;
-	uint16_t space; /* => enum phys_map_space */
+	uint16_t space;
 
 	/* Number of pages to go through */
 	uint16_t size;
 
 #if CONFIG_XEN_INTERFACE_VERSION < 0x00040700
-	domid_t foreign_domid; /* IFF gmfn_foreign. Should be 0 for other spaces. */
+	domid_t foreign_domid;
 #else
 	union xen_add_to_physmap_batch_extra {
-		domid_t foreign_domid; /* gmfn_foreign */
-		uint16_t res0;  /* All the other spaces. Should be 0 */
+		domid_t foreign_domid;
+		uint16_t res0;
 	} u;
 #endif
 
@@ -103,9 +103,9 @@ typedef struct xen_add_to_physmap_batch xen_add_to_physmap_batch_t;
 DEFINE_XEN_GUEST_HANDLE(xen_add_to_physmap_batch_t);
 
 
-#define XENMAPSPACE_shared_info		0	/* shared info page */
-#define XENMAPSPACE_grant_table		1	/* grant table page */
-#define XENMAPSPACE_gmfn		2	/* GMFN */
+#define XENMAPSPACE_shared_info		0
+#define XENMAPSPACE_grant_table		1
+#define XENMAPSPACE_gmfn		2
 
 /* GMFN range, XENMEM_add_to_physmap only.*/
 #define XENMAPSPACE_gmfn_range		3
@@ -132,7 +132,7 @@ struct xen_add_to_physmap {
 	/* Number of pages to go through for gmfn_range */
 	uint16_t size;
 
-	unsigned int space; /* => enum phys_map_space */
+	unsigned int space;
 
 #define XENMAPIDX_grant_table_status 0x80000000
 

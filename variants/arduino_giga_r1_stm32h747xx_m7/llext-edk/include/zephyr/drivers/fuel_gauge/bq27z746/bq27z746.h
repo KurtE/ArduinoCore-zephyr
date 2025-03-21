@@ -11,49 +11,49 @@
 #include <zephyr/drivers/i2c.h>
 
 /* Registers */
-#define BQ27Z746_MANUFACTURERACCESS    0x00 /* R/W */
-#define BQ27Z746_ATRATE                0x02 /* R/W, Unit: mA, Range: -32768..32767 */
-#define BQ27Z746_ATRATETIMETOEMPTY     0x04 /* R/O, Unit: minutes, Range: 0..65535 */
-#define BQ27Z746_TEMPERATURE           0x06 /* R/O, Unit: 0.1 K, Range: 0..32767 */
-#define BQ27Z746_VOLTAGE               0x08 /* R/O, Unit: mV, Range: 0..32767 */
-#define BQ27Z746_BATTERYSTATUS         0x0A /* R/O, Unit: status bits */
-#define BQ27Z746_CURRENT               0x0C /* R/O, Unit: mA, Range: -32768..32767 */
-#define BQ27Z746_REMAININGCAPACITY     0x10 /* R/O, Unit: mAh, Range: 0..32767 */
-#define BQ27Z746_FULLCHARGECAPACITY    0x12 /* R/O, Unit: mAh, Range: 0..32767 */
-#define BQ27Z746_AVERAGECURRENT        0x14 /* R/O, Unit: mA, Range: -32768..32767 */
-#define BQ27Z746_AVERAGETIMETOEMPTY    0x16 /* R/O, Unit: minutes, Range: 0..65535 */
-#define BQ27Z746_AVERAGETIMETOFULL     0x18 /* R/O, Unit: minutes, Range: 0..65535 */
-#define BQ27Z746_MAXLOADCURRENT        0x1E /* R/O, Unit: mA, Range: 0..65535 */
-#define BQ27Z746_MAXLOADTIMETOEMPTY    0x20 /* R/O, Unit: minutes, Range: 0..65535 */
-#define BQ27Z746_AVERAGEPOWER          0x22 /* R/O, Unit: mW, Range: -32768..32767 */
-#define BQ27Z746_BTPDISCHARGESET       0x24 /* Datasheet unclear */
-#define BQ27Z746_BTPCHARGESET          0x26 /* Datasheet unclear */
-#define BQ27Z746_INTERNALTEMPERATURE   0x28 /* R/O, Unit: 0.1 K, Range: 0..32767 */
-#define BQ27Z746_CYCLECOUNT            0x2A /* R/O, Unit: none, Range: 0..65535 */
-#define BQ27Z746_RELATIVESTATEOFCHARGE 0x2C /* R/O, Unit: percent, Range: 0..100 */
-#define BQ27Z746_STATEOFHEALTH         0x2E /* R/O, Unit: percent, Range: 0..100 */
-#define BQ27Z746_CHARGINGVOLTAGE       0x30 /* R/O, Unit: mV, Range: 0..32767 */
-#define BQ27Z746_CHARGINGCURRENT       0x32 /* R/O, Unit: mA, Range: 0..32767 */
-#define BQ27Z746_TERMINATEVOLTAGE      0x34 /* R/W, Unit: mC, Range: 0..32767 */
-#define BQ27Z746_TIMESTAMPUPPER        0x36 /* R/O, Unit: seconds, Range: 0..65535 */
-#define BQ27Z746_TIMESTAMPLOWER        0x38 /* R/O, Unit: seconds, Range: 0..65535 */
-#define BQ27Z746_QMAXCYCLES            0x3A /* R/O, Unit: none, Range: 0..65535 */
+#define BQ27Z746_MANUFACTURERACCESS    0x00
+#define BQ27Z746_ATRATE                0x02
+#define BQ27Z746_ATRATETIMETOEMPTY     0x04
+#define BQ27Z746_TEMPERATURE           0x06
+#define BQ27Z746_VOLTAGE               0x08
+#define BQ27Z746_BATTERYSTATUS         0x0A
+#define BQ27Z746_CURRENT               0x0C
+#define BQ27Z746_REMAININGCAPACITY     0x10
+#define BQ27Z746_FULLCHARGECAPACITY    0x12
+#define BQ27Z746_AVERAGECURRENT        0x14
+#define BQ27Z746_AVERAGETIMETOEMPTY    0x16
+#define BQ27Z746_AVERAGETIMETOFULL     0x18
+#define BQ27Z746_MAXLOADCURRENT        0x1E
+#define BQ27Z746_MAXLOADTIMETOEMPTY    0x20
+#define BQ27Z746_AVERAGEPOWER          0x22
+#define BQ27Z746_BTPDISCHARGESET       0x24
+#define BQ27Z746_BTPCHARGESET          0x26
+#define BQ27Z746_INTERNALTEMPERATURE   0x28
+#define BQ27Z746_CYCLECOUNT            0x2A
+#define BQ27Z746_RELATIVESTATEOFCHARGE 0x2C
+#define BQ27Z746_STATEOFHEALTH         0x2E
+#define BQ27Z746_CHARGINGVOLTAGE       0x30
+#define BQ27Z746_CHARGINGCURRENT       0x32
+#define BQ27Z746_TERMINATEVOLTAGE      0x34
+#define BQ27Z746_TIMESTAMPUPPER        0x36
+#define BQ27Z746_TIMESTAMPLOWER        0x38
+#define BQ27Z746_QMAXCYCLES            0x3A
 #define BQ27Z746_DESIGNCAPACITY                                                                    \
-	0x3C /* R/O (sealed), R/W (unsealed or factory access), Unit: mAh, Range: 0..32767 */
-#define BQ27Z746_ALTMANUFACTURERACCESS 0x3E /* R/W */
-#define BQ27Z746_MACDATA               0x40 /* R/O, MAC data */
-#define BQ27Z746_MACDATASUM            0x60 /* R/O, Checksum over MAC command and data */
-#define BQ27Z746_MACDATALEN            0x61 /* R/O, Length of the MAC data */
-#define BQ27Z746_VOLTHISETTHRESHOLD    0x62 /* R/W, Unit: mV, Range: 0..5000 */
-#define BQ27Z746_VOLTHICLEARTHRESHOLD  0x64 /* R/W, Unit: mV, Range: 0..5000 */
-#define BQ27Z746_VOLTLOSETTHRESHOLD    0x66 /* R/W, Unit: mV, Range: 0..5000 */
-#define BQ27Z746_VOLTLOCLEARTHRESHOLD  0x68 /* R/W, Unit: mV, Range: 0..5000 */
-#define BQ27Z746_TEMPHISETTHRESHOLD    0x6A /* R/W, Unit: degree celsius, Range: -128..127 */
-#define BQ27Z746_TEMPHICLEARTHRESHOLD  0x6B /* R/W, Unit: degree celsius, Range: -128..127 */
-#define BQ27Z746_TEMPLOSETTHRESHOLD    0x6C /* R/W, Unit: degree celsius, Range: -128..127 */
-#define BQ27Z746_TEMPLOCLEARTHRESHOLD  0x6D /* R/W, Unit: degree celsius, Range: -128..127 */
-#define BQ27Z746_INTERRUPTSTATUS       0x6E /* R/O, Unit: status bits */
-#define BQ27Z746_SOCDELTASETTHRESHOLD  0x6F /* R/W, Unit: percent, Range: 0..100 */
+	0x3C
+#define BQ27Z746_ALTMANUFACTURERACCESS 0x3E
+#define BQ27Z746_MACDATA               0x40
+#define BQ27Z746_MACDATASUM            0x60
+#define BQ27Z746_MACDATALEN            0x61
+#define BQ27Z746_VOLTHISETTHRESHOLD    0x62
+#define BQ27Z746_VOLTHICLEARTHRESHOLD  0x64
+#define BQ27Z746_VOLTLOSETTHRESHOLD    0x66
+#define BQ27Z746_VOLTLOCLEARTHRESHOLD  0x68
+#define BQ27Z746_TEMPHISETTHRESHOLD    0x6A
+#define BQ27Z746_TEMPHICLEARTHRESHOLD  0x6B
+#define BQ27Z746_TEMPLOSETTHRESHOLD    0x6C
+#define BQ27Z746_TEMPLOCLEARTHRESHOLD  0x6D
+#define BQ27Z746_INTERRUPTSTATUS       0x6E
+#define BQ27Z746_SOCDELTASETTHRESHOLD  0x6F
 
 /* MAC commands */
 #define BQ27Z746_MAC_CMD_DEVICETYPE                  0x0001

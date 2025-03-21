@@ -31,23 +31,23 @@
 /*! @brief LPUART RTOS configuration structure. */
 typedef struct _lpuart_rtos_config
 {
-    LPUART_Type *base;                /*!< UART base address */
-    uint32_t srcclk;                  /*!< UART source clock in Hz*/
-    uint32_t baudrate;                /*!< Desired communication speed */
-    lpuart_parity_mode_t parity;      /*!< Parity setting */
-    lpuart_stop_bit_count_t stopbits; /*!< Number of stop bits to use */
-    uint8_t *buffer;                  /*!< Buffer for background reception */
-    uint32_t buffer_size;             /*!< Size of buffer for background reception */
+    LPUART_Type *base;
+    uint32_t srcclk;
+    uint32_t baudrate;
+    lpuart_parity_mode_t parity;
+    lpuart_stop_bit_count_t stopbits;
+    uint8_t *buffer;
+    uint32_t buffer_size;
     /* Zero in constant and multiplier is interpreted as infinit timeout. */
-    uint32_t rx_timeout_constant_ms;   /*!< RX timeout applied per receive */
-    uint32_t rx_timeout_multiplier_ms; /*!< RX timeout added for each byte of the receive. */
-    uint32_t tx_timeout_constant_ms;   /*!< TX timeout applied per transmition */
-    uint32_t tx_timeout_multiplier_ms; /*!< TX timeout added for each byte of the transmition. */
+    uint32_t rx_timeout_constant_ms;
+    uint32_t rx_timeout_multiplier_ms;
+    uint32_t tx_timeout_constant_ms;
+    uint32_t tx_timeout_multiplier_ms;
 #if defined(FSL_FEATURE_LPUART_HAS_MODEM_SUPPORT) && FSL_FEATURE_LPUART_HAS_MODEM_SUPPORT
-    bool enableRxRTS;                         /*!< RX RTS enable */
-    bool enableTxCTS;                         /*!< TX CTS enable */
-    lpuart_transmit_cts_source_t txCtsSource; /*!< TX CTS source */
-    lpuart_transmit_cts_config_t txCtsConfig; /*!< TX CTS configure */
+    bool enableRxRTS;
+    bool enableTxCTS;
+    lpuart_transmit_cts_source_t txCtsSource;
+    lpuart_transmit_cts_config_t txCtsConfig;
 #endif
 } lpuart_rtos_config_t;
 
@@ -71,23 +71,23 @@ typedef struct _lpuart_rtos_config
 /*! @brief LPUART FreeRTOS transfer structure. */
 typedef struct _lpuart_rtos_handle
 {
-    LPUART_Type *base;                 /*!< UART base address */
-    lpuart_transfer_t txTransfer;      /*!< TX transfer structure */
-    lpuart_transfer_t rxTransfer;      /*!< RX transfer structure */
-    SemaphoreHandle_t rxSemaphore;     /*!< RX semaphore for resource sharing */
-    SemaphoreHandle_t txSemaphore;     /*!< TX semaphore for resource sharing */
-    EventGroupHandle_t rxEvent;        /*!< RX completion event */
-    EventGroupHandle_t txEvent;        /*!< TX completion event */
-    uint32_t rx_timeout_constant_ms;   /*!< RX Timeout applied per transfer */
-    uint32_t rx_timeout_multiplier_ms; /*!< RX Timeout added for each byte of the transfer. */
-    uint32_t tx_timeout_constant_ms;   /*!< TX Timeout applied per transfer */
-    uint32_t tx_timeout_multiplier_ms; /*!< TX Timeout added for each byte of the transfer. */
-    void *t_state;                     /*!< Transactional state of the underlying driver */
+    LPUART_Type *base;
+    lpuart_transfer_t txTransfer;
+    lpuart_transfer_t rxTransfer;
+    SemaphoreHandle_t rxSemaphore;
+    SemaphoreHandle_t txSemaphore;
+    EventGroupHandle_t rxEvent;
+    EventGroupHandle_t txEvent;
+    uint32_t rx_timeout_constant_ms;
+    uint32_t rx_timeout_multiplier_ms;
+    uint32_t tx_timeout_constant_ms;
+    uint32_t tx_timeout_multiplier_ms;
+    void *t_state;
 #if (configSUPPORT_STATIC_ALLOCATION == 1)
-    StaticSemaphore_t txSemaphoreBuffer; /*!< Statically allocated memory for txSemaphore */
-    StaticSemaphore_t rxSemaphoreBuffer; /*!< Statically allocated memory for rxSemaphore */
-    StaticEventGroup_t txEventBuffer;    /*!< Statically allocated memory for txEvent */
-    StaticEventGroup_t rxEventBuffer;    /*!< Statically allocated memory for rxEvent */
+    StaticSemaphore_t txSemaphoreBuffer;
+    StaticSemaphore_t rxSemaphoreBuffer;
+    StaticEventGroup_t txEventBuffer;
+    StaticEventGroup_t rxEventBuffer;
 #endif
 } lpuart_rtos_handle_t;
 /*! \endcond */

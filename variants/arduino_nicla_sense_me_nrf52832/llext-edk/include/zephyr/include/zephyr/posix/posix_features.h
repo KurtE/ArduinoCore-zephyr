@@ -8,8 +8,8 @@
 #ifndef INCLUDE_ZEPHYR_POSIX_POSIX_FEATURES_H_
 #define INCLUDE_ZEPHYR_POSIX_POSIX_FEATURES_H_
 
-#include <zephyr/autoconf.h>       /* CONFIG_* */
-#include <zephyr/sys/util_macro.h> /* COND_CODE_1() */
+#include <zephyr/autoconf.h>
+#include <zephyr/sys/util_macro.h>
 
 /*
  * POSIX Application Environment Profiles (AEP - IEEE Std 1003.13-2003)
@@ -26,6 +26,11 @@
 #ifdef CONFIG_POSIX_AEP_REALTIME_DEDICATED
 #define _POSIX_AEP_REALTIME_DEDICATED 200312L
 #endif
+
+/*
+ * Subprofiling Considerations
+ */
+#define _POSIX_SUBPROFILE 1
 
 /*
  * POSIX System Interfaces
@@ -201,9 +206,9 @@
 /*
  * POSIX2 Options
  */
-#define _POSIX2_VERSION _POSIX_VERSION
-#define _POSIX2_C_BIND  _POSIX2_VERSION
-#define _POSIX2_C_DEV   _POSIX2_VERSION
+/* #define _POSIX2_VERSION (-1) */
+#define _POSIX2_C_BIND _POSIX_VERSION
+/* #define _POSIX2_C_DEV (-1) */
 /* #define _POSIX2_CHAR_TERM (-1L) */
 /* #define _POSIX2_FORT_DEV (-1L) */
 /* #define _POSIX2_FORT_RUN (-1L) */
@@ -223,7 +228,13 @@
 #define _XOPEN_VERSION 700
 /* #define _XOPEN_CRYPT (-1L) */
 /* #define _XOPEN_ENH_I18N (-1L) */
-/* #define _XOPEN_REALTIME (-1L) */
+#if defined(CONFIG_XSI_REALTIME) ||                                                                \
+	(defined(CONFIG_POSIX_FSYNC) && defined(CONFIG_POSIX_MEMLOCK) &&                           \
+	 defined(CONFIG_POSIX_MEMLOCK_RANGE) && defined(CONFIG_POSIX_MESSAGE_PASSING) &&           \
+	 defined(CONFIG_POSIX_PRIORITY_SCHEDULING) &&                                              \
+	 defined(CONFIG_POSIX_SHARED_MEMORY_OBJECTS) && defined(CONFIG_POSIX_SYNCHRONIZED_IO))
+#define _XOPEN_REALTIME _XOPEN_VERSION
+#endif
 /* #define _XOPEN_REALTIME_THREADS (-1L) */
 /* #define _XOPEN_SHM (-1L) */
 

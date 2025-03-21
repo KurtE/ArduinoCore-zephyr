@@ -42,7 +42,7 @@
 #define MSIX_PBA_B2_10800		0x10802
 
 #define MSIX_TABLE_BASE			0x20010000
-#define MSIX_TABLE_SIZE			16	/* we support 16 MSI-X */
+#define MSIX_TABLE_SIZE			16
 #define MSIX_TBL_ENTRY_SIZE		16
 #define MSIX_TBL_ADDR_OFF		0
 #define MSIX_TBL_DATA_OFF		8
@@ -85,7 +85,7 @@
 #define FLR_IN_PROGRESS			BIT(27)
 
 #define PCIE_TL_CTRL0_OFFSET		0x800
-#define AUTO_CLR_FLR_AFTER_DELAY	BIT(13) /* Clears FLR after 55ms */
+#define AUTO_CLR_FLR_AFTER_DELAY	BIT(13)
 #define AUTO_CLR_CRS_POST_FLR		BIT(14)
 
 #define PCIE0_FLR_INTR			BIT(20)
@@ -97,16 +97,16 @@ enum pcie_outbound_map {
 };
 
 struct iproc_pcie_ep_config {
-	struct iproc_pcie_reg *base;	/* Base address of PAXB registers */
+	struct iproc_pcie_reg *base;
 	uint32_t reg_size;
-	uint32_t map_low_base;	/* Base addr of outbound mapping at lowmem */
+	uint32_t map_low_base;
 	uint32_t map_low_size;
-	uint64_t map_high_base;	/* Base addr of outbound mapping at highmem */
+	uint64_t map_high_base;
 	uint32_t map_high_size;
 	unsigned int id;
 	const struct device *pl330_dev;
-	uint32_t pl330_tx_chan_id;  /* channel used for Device to Host write */
-	uint32_t pl330_rx_chan_id;  /* channel used for Host to Device read  */
+	uint32_t pl330_tx_chan_id;
+	uint32_t pl330_rx_chan_id;
 };
 
 struct iproc_pcie_ep_ctx {

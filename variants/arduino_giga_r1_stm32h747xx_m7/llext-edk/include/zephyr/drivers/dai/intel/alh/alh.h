@@ -63,7 +63,7 @@ union dai_intel_ipc4_gateway_attributes {
 
 		/**< Reserved field */
 		uint32_t _rsvd : 30;
-	} bits; /**<< Bits */
+	} bits;
 } __packed;
 
 /* ALH Configuration Request - SOF_IPC_DAI_ALH_CONFIG */
@@ -86,7 +86,7 @@ struct ipc4_alh_multi_gtw_cfg {
 		uint32_t alh_id;
 		/* Channel mask */
 		uint32_t channel_mask;
-	} mapping[IPC4_ALH_MAX_NUMBER_OF_GTW]; /* < Mapping items */
+	} mapping[IPC4_ALH_MAX_NUMBER_OF_GTW];
 } __packed;
 
 struct dai_intel_ipc4_alh_configuration_blob {
@@ -106,15 +106,15 @@ struct dai_intel_alh_pdata {
 };
 
 struct dai_intel_alh {
-	uint32_t index;		/**< index */
+	uint32_t index;
 	struct dai_intel_alh_plat_data plat_data;
 	struct dai_intel_alh_pdata priv_data;
 };
 
 /* Common data for all ALH DAI instances */
 struct dai_alh_global_shared {
-	struct k_spinlock lock;	/**< locking mechanism */
-	int sref;		/**< simple ref counter, guarded by lock */
+	struct k_spinlock lock;
+	int sref;
 };
 
 #endif

@@ -4,6 +4,8 @@
 		(K_SYSCALL_OBJ(ptr, K_OBJ_DRIVER_##driver_upper_case) || \
 		 K_SYSCALL_DRIVER_OP(ptr, driver_lower_case##_driver_api, op))
                 
+#define K_SYSCALL_DRIVER_DMA(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, dma, DMA)
+
 #define K_SYSCALL_DRIVER_ENTROPY(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, entropy, ENTROPY)
 
 #define K_SYSCALL_DRIVER_FLASH(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, flash, FLASH)
@@ -48,8 +50,6 @@
 
 #define K_SYSCALL_DRIVER_DISPLAY(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, display, DISPLAY)
 
-#define K_SYSCALL_DRIVER_DMA(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, dma, DMA)
-
 #define K_SYSCALL_DRIVER_EDAC(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, edac, EDAC)
 
 #define K_SYSCALL_DRIVER_EEPROM(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, eeprom, EEPROM)
@@ -79,8 +79,6 @@
 #define K_SYSCALL_DRIVER_I3C(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, i3c, I3C)
 
 #define K_SYSCALL_DRIVER_IPM(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, ipm, IPM)
-
-#define K_SYSCALL_DRIVER_KSCAN(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, kscan, KSCAN)
 
 #define K_SYSCALL_DRIVER_LED(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, led, LED)
 

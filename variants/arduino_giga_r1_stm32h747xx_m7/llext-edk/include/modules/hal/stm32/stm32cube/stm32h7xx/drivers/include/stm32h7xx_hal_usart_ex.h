@@ -44,9 +44,9 @@ extern "C" {
 /** @defgroup USARTEx_Word_Length USARTEx Word Length
   * @{
   */
-#define USART_WORDLENGTH_7B                  (USART_CR1_M1)   /*!< 7-bit long USART frame */
-#define USART_WORDLENGTH_8B                  (0x00000000U)    /*!< 8-bit long USART frame */
-#define USART_WORDLENGTH_9B                  (USART_CR1_M0)   /*!< 9-bit long USART frame */
+#define USART_WORDLENGTH_7B                  (USART_CR1_M1)
+#define USART_WORDLENGTH_8B                  (0x00000000U)
+#define USART_WORDLENGTH_9B                  (USART_CR1_M0)
 /**
   * @}
   */
@@ -54,8 +54,8 @@ extern "C" {
 /** @defgroup USARTEx_Slave_Select_management USARTEx Slave Select Management
   * @{
   */
-#define USART_NSS_HARD                        0x00000000U          /*!< SPI slave selection depends on NSS input pin              */
-#define USART_NSS_SOFT                        USART_CR2_DIS_NSS    /*!< SPI slave is always selected and NSS input pin is ignored */
+#define USART_NSS_HARD                        0x00000000U
+#define USART_NSS_SOFT                        USART_CR2_DIS_NSS
 /**
   * @}
   */
@@ -65,8 +65,8 @@ extern "C" {
   * @brief    USART SLAVE mode
   * @{
   */
-#define USART_SLAVEMODE_DISABLE   0x00000000U     /*!< USART SPI Slave Mode Enable  */
-#define USART_SLAVEMODE_ENABLE    USART_CR2_SLVEN /*!< USART SPI Slave Mode Disable */
+#define USART_SLAVEMODE_DISABLE   0x00000000U
+#define USART_SLAVEMODE_ENABLE    USART_CR2_SLVEN
 /**
   * @}
   */
@@ -75,8 +75,8 @@ extern "C" {
   * @brief    USART FIFO  mode
   * @{
   */
-#define USART_FIFOMODE_DISABLE        0x00000000U                   /*!< FIFO mode disable */
-#define USART_FIFOMODE_ENABLE         USART_CR1_FIFOEN              /*!< FIFO mode enable  */
+#define USART_FIFOMODE_DISABLE        0x00000000U
+#define USART_FIFOMODE_ENABLE         USART_CR1_FIFOEN
 /**
   * @}
   */
@@ -85,12 +85,12 @@ extern "C" {
   * @brief    USART TXFIFO level
   * @{
   */
-#define USART_TXFIFO_THRESHOLD_1_8   0x00000000U                               /*!< TXFIFO reaches 1/8 of its depth */
-#define USART_TXFIFO_THRESHOLD_1_4   USART_CR3_TXFTCFG_0                       /*!< TXFIFO reaches 1/4 of its depth */
-#define USART_TXFIFO_THRESHOLD_1_2   USART_CR3_TXFTCFG_1                       /*!< TXFIFO reaches 1/2 of its depth */
-#define USART_TXFIFO_THRESHOLD_3_4   (USART_CR3_TXFTCFG_0|USART_CR3_TXFTCFG_1) /*!< TXFIFO reaches 3/4 of its depth */
-#define USART_TXFIFO_THRESHOLD_7_8   USART_CR3_TXFTCFG_2                       /*!< TXFIFO reaches 7/8 of its depth */
-#define USART_TXFIFO_THRESHOLD_8_8   (USART_CR3_TXFTCFG_2|USART_CR3_TXFTCFG_0) /*!< TXFIFO becomes empty            */
+#define USART_TXFIFO_THRESHOLD_1_8   0x00000000U
+#define USART_TXFIFO_THRESHOLD_1_4   USART_CR3_TXFTCFG_0
+#define USART_TXFIFO_THRESHOLD_1_2   USART_CR3_TXFTCFG_1
+#define USART_TXFIFO_THRESHOLD_3_4   (USART_CR3_TXFTCFG_0|USART_CR3_TXFTCFG_1)
+#define USART_TXFIFO_THRESHOLD_7_8   USART_CR3_TXFTCFG_2
+#define USART_TXFIFO_THRESHOLD_8_8   (USART_CR3_TXFTCFG_2|USART_CR3_TXFTCFG_0)
 /**
   * @}
   */
@@ -99,12 +99,12 @@ extern "C" {
   * @brief    USART RXFIFO level
   * @{
   */
-#define USART_RXFIFO_THRESHOLD_1_8   0x00000000U                               /*!< RXFIFO FIFO reaches 1/8 of its depth */
-#define USART_RXFIFO_THRESHOLD_1_4   USART_CR3_RXFTCFG_0                       /*!< RXFIFO FIFO reaches 1/4 of its depth */
-#define USART_RXFIFO_THRESHOLD_1_2   USART_CR3_RXFTCFG_1                       /*!< RXFIFO FIFO reaches 1/2 of its depth */
-#define USART_RXFIFO_THRESHOLD_3_4   (USART_CR3_RXFTCFG_0|USART_CR3_RXFTCFG_1) /*!< RXFIFO FIFO reaches 3/4 of its depth */
-#define USART_RXFIFO_THRESHOLD_7_8   USART_CR3_RXFTCFG_2                       /*!< RXFIFO FIFO reaches 7/8 of its depth */
-#define USART_RXFIFO_THRESHOLD_8_8   (USART_CR3_RXFTCFG_2|USART_CR3_RXFTCFG_0) /*!< RXFIFO FIFO becomes full             */
+#define USART_RXFIFO_THRESHOLD_1_8   0x00000000U
+#define USART_RXFIFO_THRESHOLD_1_4   USART_CR3_RXFTCFG_0
+#define USART_RXFIFO_THRESHOLD_1_2   USART_CR3_RXFTCFG_1
+#define USART_RXFIFO_THRESHOLD_3_4   (USART_CR3_RXFTCFG_0|USART_CR3_RXFTCFG_1)
+#define USART_RXFIFO_THRESHOLD_7_8   USART_CR3_RXFTCFG_2
+#define USART_RXFIFO_THRESHOLD_8_8   (USART_CR3_RXFTCFG_2|USART_CR3_RXFTCFG_0)
 /**
   * @}
   */

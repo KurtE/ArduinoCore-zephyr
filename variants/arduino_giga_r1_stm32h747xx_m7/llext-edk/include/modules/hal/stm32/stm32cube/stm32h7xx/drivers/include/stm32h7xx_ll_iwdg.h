@@ -44,10 +44,10 @@ extern "C" {
 /** @defgroup IWDG_LL_Private_Constants IWDG Private Constants
   * @{
   */
-#define LL_IWDG_KEY_RELOAD                 0x0000AAAAU               /*!< IWDG Reload Counter Enable   */
-#define LL_IWDG_KEY_ENABLE                 0x0000CCCCU               /*!< IWDG Peripheral Enable       */
-#define LL_IWDG_KEY_WR_ACCESS_ENABLE       0x00005555U               /*!< IWDG KR Write Access Enable  */
-#define LL_IWDG_KEY_WR_ACCESS_DISABLE      0x00000000U               /*!< IWDG KR Write Access Disable */
+#define LL_IWDG_KEY_RELOAD                 0x0000AAAAU
+#define LL_IWDG_KEY_ENABLE                 0x0000CCCCU
+#define LL_IWDG_KEY_WR_ACCESS_ENABLE       0x00005555U
+#define LL_IWDG_KEY_WR_ACCESS_DISABLE      0x00000000U
 /**
   * @}
   */
@@ -64,9 +64,9 @@ extern "C" {
   * @brief    Flags defines which can be used with LL_IWDG_ReadReg function
   * @{
   */
-#define LL_IWDG_SR_PVU                     IWDG_SR_PVU                           /*!< Watchdog prescaler value update */
-#define LL_IWDG_SR_RVU                     IWDG_SR_RVU                           /*!< Watchdog counter reload value update */
-#define LL_IWDG_SR_WVU                     IWDG_SR_WVU                           /*!< Watchdog counter window value update */
+#define LL_IWDG_SR_PVU                     IWDG_SR_PVU
+#define LL_IWDG_SR_RVU                     IWDG_SR_RVU
+#define LL_IWDG_SR_WVU                     IWDG_SR_WVU
 /**
   * @}
   */
@@ -74,13 +74,13 @@ extern "C" {
 /** @defgroup IWDG_LL_EC_PRESCALER  Prescaler Divider
   * @{
   */
-#define LL_IWDG_PRESCALER_4                0x00000000U                           /*!< Divider by 4   */
-#define LL_IWDG_PRESCALER_8                (IWDG_PR_PR_0)                        /*!< Divider by 8   */
-#define LL_IWDG_PRESCALER_16               (IWDG_PR_PR_1)                        /*!< Divider by 16  */
-#define LL_IWDG_PRESCALER_32               (IWDG_PR_PR_1 | IWDG_PR_PR_0)         /*!< Divider by 32  */
-#define LL_IWDG_PRESCALER_64               (IWDG_PR_PR_2)                        /*!< Divider by 64  */
-#define LL_IWDG_PRESCALER_128              (IWDG_PR_PR_2 | IWDG_PR_PR_0)         /*!< Divider by 128 */
-#define LL_IWDG_PRESCALER_256              (IWDG_PR_PR_2 | IWDG_PR_PR_1)         /*!< Divider by 256 */
+#define LL_IWDG_PRESCALER_4                0x00000000U
+#define LL_IWDG_PRESCALER_8                (IWDG_PR_PR_0)
+#define LL_IWDG_PRESCALER_16               (IWDG_PR_PR_1)
+#define LL_IWDG_PRESCALER_32               (IWDG_PR_PR_1 | IWDG_PR_PR_0)
+#define LL_IWDG_PRESCALER_64               (IWDG_PR_PR_2)
+#define LL_IWDG_PRESCALER_128              (IWDG_PR_PR_2 | IWDG_PR_PR_0)
+#define LL_IWDG_PRESCALER_256              (IWDG_PR_PR_2 | IWDG_PR_PR_1)
 /**
   * @}
   */

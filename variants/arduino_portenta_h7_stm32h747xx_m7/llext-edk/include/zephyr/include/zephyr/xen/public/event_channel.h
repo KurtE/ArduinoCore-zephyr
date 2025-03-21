@@ -153,24 +153,24 @@ struct evtchn_status {
 	domid_t  dom;
 	evtchn_port_t port;
 	/* OUT parameters */
-#define EVTCHNSTAT_closed	0 /* Channel is not in use.                 */
-#define EVTCHNSTAT_unbound	1 /* Channel is waiting interdom connection.*/
-#define EVTCHNSTAT_interdomain	2 /* Channel is connected to remote domain. */
-#define EVTCHNSTAT_pirq		3 /* Channel is bound to a phys IRQ line.   */
-#define EVTCHNSTAT_virq		4 /* Channel is bound to a virtual IRQ line */
-#define EVTCHNSTAT_ipi		5 /* Channel is bound to a virtual IPI line */
+#define EVTCHNSTAT_closed	0
+#define EVTCHNSTAT_unbound	1
+#define EVTCHNSTAT_interdomain	2
+#define EVTCHNSTAT_pirq		3
+#define EVTCHNSTAT_virq		4
+#define EVTCHNSTAT_ipi		5
 	uint32_t status;
-	uint32_t vcpu;			/* VCPU to which this channel is bound.   */
+	uint32_t vcpu;
 	union {
 		struct {
 			domid_t dom;
-		} unbound;			/* EVTCHNSTAT_unbound */
+		} unbound;
 		struct {
 			domid_t dom;
 			evtchn_port_t port;
-		} interdomain;			/* EVTCHNSTAT_interdomain */
-		uint32_t pirq;			/* EVTCHNSTAT_pirq */
-		uint32_t virq;			/* EVTCHNSTAT_virq */
+		} interdomain;
+		uint32_t pirq;
+		uint32_t virq;
 	} u;
 };
 typedef struct evtchn_status evtchn_status_t;

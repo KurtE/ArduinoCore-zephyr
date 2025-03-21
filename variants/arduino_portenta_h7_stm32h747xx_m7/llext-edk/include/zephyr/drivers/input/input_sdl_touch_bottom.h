@@ -21,7 +21,7 @@ extern "C" {
 /* Note: None of these are public interfaces. But internal to the SDL input driver */
 
 struct sdl_input_data {
-	const void *dev; /* device structure pointer */
+	const void *dev;
 	void (*callback)(struct sdl_input_data *data);
 	int x;
 	int y;

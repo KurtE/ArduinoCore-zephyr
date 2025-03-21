@@ -23,9 +23,9 @@
  */
 
 #if   defined ( __ICCARM__ )
-  #pragma system_include         /* treat file as system include file for MISRA check */
+  #pragma system_include
 #elif defined (__clang__)
-  #pragma clang system_header    /* treat file as system include file */
+  #pragma clang system_header
 #endif
 
 #ifndef ARM_MPU_ARMV8_H
@@ -120,8 +120,8 @@
 * Struct for a single MPU Region
 */
 typedef struct {
-  uint32_t RBAR;                   /*!< Region Base Address Register value */
-  uint32_t RLAR;                   /*!< Region Limit Address Register value */
+  uint32_t RBAR;
+  uint32_t RLAR;
 } ARM_MPU_Region_t;
     
 /** Enable the MPU.

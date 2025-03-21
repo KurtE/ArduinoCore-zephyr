@@ -51,7 +51,7 @@ extern "C" {
 /** @brief Structure for TEMP configuration. */
 typedef struct
 {
-    uint8_t interrupt_priority;    /**< Interrupt priority. */
+    uint8_t interrupt_priority;
 } nrfx_temp_config_t;
 
 /** @brief TEMP default configuration. */

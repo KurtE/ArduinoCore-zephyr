@@ -284,7 +284,7 @@
 #define TEMP_DATA_SIZE	      2
 #define MCLK_POLL_INTERVAL_US 250
 #define MCLK_POLL_ATTEMPTS    100
-#define SOFT_RESET_TIME_MS    2 /* 1ms + elbow room */
+#define SOFT_RESET_TIME_MS    2
 
 /* FIFO header */
 #define FIFO_HEADER_ACCEL BIT(6)

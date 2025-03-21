@@ -13,28 +13,28 @@
 
 /* Register offsets */
 enum xilinx_axi_i2c_register {
-	REG_GIE = 0x01C,	  /* Global Interrupt Enable */
-	REG_ISR = 0x020,	  /* Interrupt Status */
-	REG_IER = 0x028,	  /* Interrupt Enable */
-	REG_SOFTR = 0x040,	  /* Soft Reset */
-	REG_CR = 0x100,		  /* Control */
-	REG_SR = 0x104,		  /* Status */
-	REG_TX_FIFO = 0x108,	  /* Transmit FIFO */
-	REG_RX_FIFO = 0x10C,	  /* Receive FIFO */
-	REG_ADR = 0x110,	  /* Target Address */
-	REG_TX_FIFO_OCY = 0x114,  /* Transmit FIFO Occupancy */
-	REG_RX_FIFO_OCY = 0x118,  /* Receive FIFO Occupancy */
-	REG_TEN_ADR = 0x11C,	  /* Target Ten Bit Address */
-	REG_RX_FIFO_PIRQ = 0x120, /* Receive FIFO Programmable Depth Interrupt */
-	REG_GPO = 0x124,	  /* General Purpose Output */
-	REG_TSUSTA = 0x128,	  /* Timing Parameter */
-	REG_TSUSTO = 0x12C,	  /* Timing Parameter */
-	REG_THDSTA = 0x130,	  /* Timing Parameter */
-	REG_TSUDAT = 0x134,	  /* Timing Parameter */
-	REG_TBUF = 0x138,	  /* Timing Parameter */
-	REG_THIGH = 0x13C,	  /* Timing Parameter */
-	REG_TLOW = 0x140,	  /* Timing Parameter */
-	REG_THDDAT = 0x144,	  /* Timing Parameter */
+	REG_GIE = 0x01C,
+	REG_ISR = 0x020,
+	REG_IER = 0x028,
+	REG_SOFTR = 0x040,
+	REG_CR = 0x100,
+	REG_SR = 0x104,
+	REG_TX_FIFO = 0x108,
+	REG_RX_FIFO = 0x10C,
+	REG_ADR = 0x110,
+	REG_TX_FIFO_OCY = 0x114,
+	REG_RX_FIFO_OCY = 0x118,
+	REG_TEN_ADR = 0x11C,
+	REG_RX_FIFO_PIRQ = 0x120,
+	REG_GPO = 0x124,
+	REG_TSUSTA = 0x128,
+	REG_TSUSTO = 0x12C,
+	REG_THDSTA = 0x130,
+	REG_TSUDAT = 0x134,
+	REG_TBUF = 0x138,
+	REG_THIGH = 0x13C,
+	REG_TLOW = 0x140,
+	REG_THDDAT = 0x144,
 };
 
 /* Register bits */
@@ -45,14 +45,14 @@ enum xilinx_axi_i2c_gie_bits {
 
 /* Interrupt Status/Interrupt Enable */
 enum xilinx_axi_i2c_isr_bits {
-	ISR_TX_HALF_EMPTY = BIT(7),	 /* Transmit FIFO Half Empty */
-	ISR_NOT_ADDR_TARGET = BIT(6),	 /* Not Addressed As Target */
-	ISR_ADDR_TARGET = BIT(5),	 /* Addressed As Target */
-	ISR_BUS_NOT_BUSY = BIT(4),	 /* IIC Bus is Not Busy */
-	ISR_RX_FIFO_FULL = BIT(3),	 /* Receive FIFO Full */
-	ISR_TX_FIFO_EMPTY = BIT(2),	 /* Transmit FIFO Empty */
-	ISR_TX_ERR_TARGET_COMP = BIT(1), /* Transmit Error/Target Transmit Complete */
-	ISR_ARB_LOST = BIT(0),		 /* Arbitration Lost */
+	ISR_TX_HALF_EMPTY = BIT(7),
+	ISR_NOT_ADDR_TARGET = BIT(6),
+	ISR_ADDR_TARGET = BIT(5),
+	ISR_BUS_NOT_BUSY = BIT(4),
+	ISR_RX_FIFO_FULL = BIT(3),
+	ISR_TX_FIFO_EMPTY = BIT(2),
+	ISR_TX_ERR_TARGET_COMP = BIT(1),
+	ISR_ARB_LOST = BIT(0),
 };
 
 /* Soft Reset */
@@ -62,25 +62,25 @@ enum xilinx_axi_i2c_softr_vals {
 
 /* Control */
 enum xilinx_axi_i2c_cr_bits {
-	CR_GC_EN = BIT(6),	 /* General Call Enable */
-	CR_RSTA = BIT(5),	 /* Repeated Start */
-	CR_TXAK = BIT(4),	 /* Transmit Acknowledge Enable */
-	CR_TX = BIT(3),		 /* Transmit/Receive Mode Select */
-	CR_MSMS = BIT(2),	 /* Controller/Target Mode Select */
-	CR_TX_FIFO_RST = BIT(1), /* Transmit FIFO Reset */
-	CR_EN = BIT(0),		 /* AXI IIC Enable */
+	CR_GC_EN = BIT(6),
+	CR_RSTA = BIT(5),
+	CR_TXAK = BIT(4),
+	CR_TX = BIT(3),
+	CR_MSMS = BIT(2),
+	CR_TX_FIFO_RST = BIT(1),
+	CR_EN = BIT(0),
 };
 
 /* Status */
 enum xilinx_axi_i2c_sr_bits {
-	SR_TX_FIFO_EMPTY = BIT(7), /* Transmit FIFO empty */
-	SR_RX_FIFO_EMPTY = BIT(6), /* Receive FIFO empty */
-	SR_RX_FIFO_FULL = BIT(5),  /* Receive FIFO full */
-	SR_TX_FIFO_FULL = BIT(4),  /* Transmit FIFO full */
-	SR_SRW = BIT(3),	   /* Target Read/Write */
-	SR_BB = BIT(2),		   /* Bus Busy */
-	SR_AAS = BIT(1),	   /* Addressed As Target */
-	SR_ABGC = BIT(0),	   /* Addressed By a General Call */
+	SR_TX_FIFO_EMPTY = BIT(7),
+	SR_RX_FIFO_EMPTY = BIT(6),
+	SR_RX_FIFO_FULL = BIT(5),
+	SR_TX_FIFO_FULL = BIT(4),
+	SR_SRW = BIT(3),
+	SR_BB = BIT(2),
+	SR_AAS = BIT(1),
+	SR_ABGC = BIT(0),
 };
 
 /* TX FIFO */

@@ -103,30 +103,30 @@
 /*! @brief Endpoint state structure */
 typedef struct _usb_device_lpc3511ip_endpoint_state_struct
 {
-    uint8_t *transferBuffer;       /*!< Address of buffer containing the data to be transmitted */
-    uint32_t transferLength;       /*!< Length of data to transmit. */
-    uint32_t transferDone;         /*!< The data length has been transferred*/
+    uint8_t *transferBuffer;
+    uint32_t transferLength;
+    uint32_t transferDone;
     uint32_t transferPrimedLength; /*!< it may larger than transferLength, because the primed length may larger than the
                                       transaction length. */
-    uint8_t *epPacketBuffer;       /*!< The max packet buffer for copying*/
+    uint8_t *epPacketBuffer;
     union
     {
-        uint32_t state; /*!< The state of the endpoint */
+        uint32_t state;
         struct
         {
-            uint32_t maxPacketSize : 12U; /*!< The maximum packet size of the endpoint */
-            uint32_t stalled : 1U;        /*!< The endpoint is stalled or not */
-            uint32_t transferring : 1U;   /*!< The endpoint is transferring */
-            uint32_t zlt : 1U;            /*!< zlt flag */
+            uint32_t maxPacketSize : 12U;
+            uint32_t stalled : 1U;
+            uint32_t transferring : 1U;
+            uint32_t zlt : 1U;
             uint32_t stallPrimed : 1U;
-            uint32_t epPacketCopyed : 1U;   /*!< whether use the copy buffer */
-            uint32_t epControlDefault : 5u; /*!< The EP command/status 26~30 bits */
-            uint32_t doubleBufferBusy : 2U; /*!< How many buffers are primed, for control endpoint it is not used */
-            uint32_t producerOdd : 1U;      /*!< When priming one transaction, prime to this endpoint buffer */
-            uint32_t consumerOdd : 1U;      /*!< When transaction is done, read result from this endpoint buffer */
+            uint32_t epPacketCopyed : 1U;
+            uint32_t epControlDefault : 5u;
+            uint32_t doubleBufferBusy : 2U;
+            uint32_t producerOdd : 1U;
+            uint32_t consumerOdd : 1U;
             uint32_t endpointType : 2U;
 #if (defined(USB_DEVICE_CONFIG_ROOT2_TEST) && (USB_DEVICE_CONFIG_ROOT2_TEST > 0U))
-            uint32_t isOpened : 1U; /*!< whether the endpoint is initialized */
+            uint32_t isOpened : 1U;
             uint32_t reserved1 : 3U;
 #else
             uint32_t reserved1 : 4U;
@@ -157,21 +157,21 @@ typedef struct _usb_device_lpc3511ip_state_struct
     uint8_t *zeroTransactionData;
     /* Endpoint state structures */
     usb_device_lpc3511ip_endpoint_state_struct_t endpointState[(USB_DEVICE_IP3511_ENDPOINTS_NUM * 2)];
-    usb_device_handle deviceHandle;   /*!< (4 bytes) Device handle used to identify the device object belongs to */
-    USB_LPC3511IP_Type *registerBase; /*!< (4 bytes) ip base address */
-    volatile uint32_t *epCommandStatusList; /* endpoint list */
+    usb_device_handle deviceHandle;
+    USB_LPC3511IP_Type *registerBase;
+    volatile uint32_t *epCommandStatusList;
 #if (defined(USB_DEVICE_CONFIG_CHARGER_DETECT) && (USB_DEVICE_CONFIG_CHARGER_DETECT > 0U)) && \
     (defined(FSL_FEATURE_SOC_USBHSDCD_COUNT) && (FSL_FEATURE_SOC_USBHSDCD_COUNT > 0U))
-    void *dcdHandle; /*!< Dcd handle used to identify the device object belongs to */
+    void *dcdHandle;
 #endif
-    uint8_t controllerId; /*!< Controller ID */
-    uint8_t isResetting;  /*!< Is doing device reset or not */
-    uint8_t deviceSpeed;  /*!< some controller support the HS */
+    uint8_t controllerId;
+    uint8_t isResetting;
+    uint8_t deviceSpeed;
 #if ((defined(USB_DEVICE_CONFIG_LPCIP3511HS)) && (USB_DEVICE_CONFIG_LPCIP3511HS > 0U))
     uint8_t controllerSpeed;
 #endif
 #if (defined(USB_DEVICE_CONFIG_DETACH_ENABLE) && (USB_DEVICE_CONFIG_DETACH_ENABLE))
-    uint8_t deviceState; /*!< Is device attached,1 attached,0 detached */
+    uint8_t deviceState;
 #endif
 #if (defined(USB_DEVICE_CONFIG_LOW_POWER_MODE) && (USB_DEVICE_CONFIG_LOW_POWER_MODE > 0U))
 #if (defined(USB_DEVICE_CONFIG_LPM_L1) && (USB_DEVICE_CONFIG_LPM_L1 > 0U))

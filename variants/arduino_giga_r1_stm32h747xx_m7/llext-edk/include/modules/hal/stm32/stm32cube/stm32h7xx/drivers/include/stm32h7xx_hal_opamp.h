@@ -107,12 +107,12 @@ typedef struct
 
 typedef enum
 {
-  HAL_OPAMP_STATE_RESET               = 0x00000000U, /*!< OPAMP is not yet Initialized          */
+  HAL_OPAMP_STATE_RESET               = 0x00000000U,
 
-  HAL_OPAMP_STATE_READY               = 0x00000001U, /*!< OPAMP is initialized and ready for use */
-  HAL_OPAMP_STATE_CALIBBUSY           = 0x00000002U, /*!< OPAMP is enabled in auto calibration mode */
+  HAL_OPAMP_STATE_READY               = 0x00000001U,
+  HAL_OPAMP_STATE_CALIBBUSY           = 0x00000002U,
 
-  HAL_OPAMP_STATE_BUSY                = 0x00000004U, /*!< OPAMP is enabled and running in normal mode */
+  HAL_OPAMP_STATE_BUSY                = 0x00000004U,
   HAL_OPAMP_STATE_BUSYLOCKED          = 0x00000005U  /*!< OPAMP is locked
                                                          only system reset allows reconfiguring the opamp. */
 
@@ -127,11 +127,11 @@ typedef struct __OPAMP_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_OPAMP_REGISTER_CALLBACKS */
 {
-  OPAMP_TypeDef                 *Instance;                    /*!< OPAMP instance's registers base address */
-  OPAMP_InitTypeDef              Init;                         /*!< OPAMP required parameters */
-  HAL_StatusTypeDef              Status;                       /*!< OPAMP peripheral status   */
-  HAL_LockTypeDef                Lock;                         /*!< Locking object          */
-  __IO HAL_OPAMP_StateTypeDef    State;                        /*!< OPAMP communication state */
+  OPAMP_TypeDef                 *Instance;
+  OPAMP_InitTypeDef              Init;
+  HAL_StatusTypeDef              Status;
+  HAL_LockTypeDef                Lock;
+  __IO HAL_OPAMP_StateTypeDef    State;
 
 #if (USE_HAL_OPAMP_REGISTER_CALLBACKS == 1)
 void (* MspInitCallback)                (struct __OPAMP_HandleTypeDef *hopamp);
@@ -151,9 +151,9 @@ typedef  uint32_t HAL_OPAMP_TrimmingValueTypeDef;
   */
 typedef enum
 {
-  HAL_OPAMP_MSPINIT_CB_ID                     = 0x01U,  /*!< OPAMP MspInit Callback ID           */
-  HAL_OPAMP_MSPDEINIT_CB_ID                   = 0x02U,  /*!< OPAMP MspDeInit Callback ID         */
-  HAL_OPAMP_ALL_CB_ID                         = 0x03U   /*!< OPAMP All ID                        */
+  HAL_OPAMP_MSPINIT_CB_ID                     = 0x01U,
+  HAL_OPAMP_MSPDEINIT_CB_ID                   = 0x02U,
+  HAL_OPAMP_ALL_CB_ID                         = 0x03U
 }HAL_OPAMP_CallbackIDTypeDef;
 
 /**
@@ -173,9 +173,9 @@ typedef void (*pOPAMP_CallbackTypeDef)(OPAMP_HandleTypeDef *hopamp);
 /** @defgroup OPAMP_Mode OPAMP Mode
   * @{
   */
-#define OPAMP_STANDALONE_MODE             0x00000000U                                  /*!< standalone mode */
-#define OPAMP_PGA_MODE                    OPAMP_CSR_VMSEL_1                            /*!< PGA mode */
-#define OPAMP_FOLLOWER_MODE               (OPAMP_CSR_VMSEL_1 | OPAMP_CSR_VMSEL_0)      /*!< follower mode */
+#define OPAMP_STANDALONE_MODE             0x00000000U
+#define OPAMP_PGA_MODE                    OPAMP_CSR_VMSEL_1
+#define OPAMP_FOLLOWER_MODE               (OPAMP_CSR_VMSEL_1 | OPAMP_CSR_VMSEL_0)
 
 /**
   * @}
@@ -185,10 +185,10 @@ typedef void (*pOPAMP_CallbackTypeDef)(OPAMP_HandleTypeDef *hopamp);
   * @{
   */
 
-#define OPAMP_NONINVERTINGINPUT_IO0         0x00000000U                /*!< OPAMP non-inverting input connected to dedicated IO pin */
-#define OPAMP_NONINVERTINGINPUT_DAC_CH      OPAMP_CSR_VPSEL_0          /*!< OPAMP non-inverting input connected internally to DAC channel */
+#define OPAMP_NONINVERTINGINPUT_IO0         0x00000000U
+#define OPAMP_NONINVERTINGINPUT_DAC_CH      OPAMP_CSR_VPSEL_0
 #if defined(DAC2)
-#define OPAMP_NONINVERTINGINPUT_DAC2_CH     OPAMP_CSR_VPSEL_1         /*!< Only OPAMP2 non-inverting input connected internally to DAC2 channel */
+#define OPAMP_NONINVERTINGINPUT_DAC2_CH     OPAMP_CSR_VPSEL_1
 #endif /* DAC2 */
 
 /**
@@ -199,8 +199,8 @@ typedef void (*pOPAMP_CallbackTypeDef)(OPAMP_HandleTypeDef *hopamp);
   * @{
   */
 
-#define OPAMP_INVERTINGINPUT_IO0               0x00000000U                            /*!< OPAMP inverting input connected to dedicated IO pin */
-#define OPAMP_INVERTINGINPUT_IO1               OPAMP_CSR_VMSEL_0                      /*!< OPAMP inverting input connected to dedicated IO pin */
+#define OPAMP_INVERTINGINPUT_IO0               0x00000000U
+#define OPAMP_INVERTINGINPUT_IO1               OPAMP_CSR_VMSEL_0
 
 /**
   * @}
@@ -210,10 +210,10 @@ typedef void (*pOPAMP_CallbackTypeDef)(OPAMP_HandleTypeDef *hopamp);
   * @{
   */
 
-#define OPAMP_PGA_CONNECT_INVERTINGINPUT_NO                0x00000000U                                /*!< In PGA mode, the inverting input is not connected */
-#define OPAMP_PGA_CONNECT_INVERTINGINPUT_IO0               OPAMP_CSR_PGGAIN_2                         /*!< In PGA mode, the inverting input is connected to VINM0 */
-#define OPAMP_PGA_CONNECT_INVERTINGINPUT_IO0_BIAS          OPAMP_CSR_PGGAIN_3                         /*!< In PGA mode, the inverting input is connected to VINM0 or bias */
-#define OPAMP_PGA_CONNECT_INVERTINGINPUT_IO0_IO1_BIAS      (OPAMP_CSR_PGGAIN_2 | OPAMP_CSR_PGGAIN_3)  /*!< In PGA mode, the inverting input is connected to VINM0 or bias , VINM1 connected for filtering */
+#define OPAMP_PGA_CONNECT_INVERTINGINPUT_NO                0x00000000U
+#define OPAMP_PGA_CONNECT_INVERTINGINPUT_IO0               OPAMP_CSR_PGGAIN_2
+#define OPAMP_PGA_CONNECT_INVERTINGINPUT_IO0_BIAS          OPAMP_CSR_PGGAIN_3
+#define OPAMP_PGA_CONNECT_INVERTINGINPUT_IO0_IO1_BIAS      (OPAMP_CSR_PGGAIN_2 | OPAMP_CSR_PGGAIN_3)
 
 
 /**
@@ -224,10 +224,10 @@ typedef void (*pOPAMP_CallbackTypeDef)(OPAMP_HandleTypeDef *hopamp);
   * @{
   */
 
-#define OPAMP_PGA_GAIN_2_OR_MINUS_1               0x00000000U                                 /*!< PGA gain could be 2 or -1   */
-#define OPAMP_PGA_GAIN_4_OR_MINUS_3               OPAMP_CSR_PGGAIN_0                          /*!< PGA gain could be 4 or -3   */
-#define OPAMP_PGA_GAIN_8_OR_MINUS_7               OPAMP_CSR_PGGAIN_1                          /*!< PGA gain could be 8 or -7   */
-#define OPAMP_PGA_GAIN_16_OR_MINUS_15             (OPAMP_CSR_PGGAIN_0 | OPAMP_CSR_PGGAIN_1)   /*!< PGA gain could be 16 or -15 */
+#define OPAMP_PGA_GAIN_2_OR_MINUS_1               0x00000000U
+#define OPAMP_PGA_GAIN_4_OR_MINUS_3               OPAMP_CSR_PGGAIN_0
+#define OPAMP_PGA_GAIN_8_OR_MINUS_7               OPAMP_CSR_PGGAIN_1
+#define OPAMP_PGA_GAIN_16_OR_MINUS_15             (OPAMP_CSR_PGGAIN_0 | OPAMP_CSR_PGGAIN_1)
 
 /**
   * @}
@@ -248,10 +248,10 @@ typedef void (*pOPAMP_CallbackTypeDef)(OPAMP_HandleTypeDef *hopamp);
   * @{
   */
 
-#define OPAMP_VREF_3VDDA                     0x00000000U                 /*!< OPAMP Vref = 3.3% VDDA */
-#define OPAMP_VREF_10VDDA                    OPAMP_CSR_CALSEL_0          /*!< OPAMP Vref = 10% VDDA  */
-#define OPAMP_VREF_50VDDA                    OPAMP_CSR_CALSEL_1          /*!< OPAMP Vref = 50% VDDA  */
-#define OPAMP_VREF_90VDDA                    OPAMP_CSR_CALSEL            /*!< OPAMP Vref = 90% VDDA  */
+#define OPAMP_VREF_3VDDA                     0x00000000U
+#define OPAMP_VREF_10VDDA                    OPAMP_CSR_CALSEL_0
+#define OPAMP_VREF_50VDDA                    OPAMP_CSR_CALSEL_1
+#define OPAMP_VREF_90VDDA                    OPAMP_CSR_CALSEL
 
 /**
   * @}
@@ -260,8 +260,8 @@ typedef void (*pOPAMP_CallbackTypeDef)(OPAMP_HandleTypeDef *hopamp);
 /** @defgroup OPAMP_UserTrimming OPAMP User Trimming
   * @{
   */
-#define OPAMP_TRIMMING_FACTORY         0x00000000U                             /*!< Factory trimming */
-#define OPAMP_TRIMMING_USER            OPAMP_CSR_USERTRIM                      /*!< User trimming */
+#define OPAMP_TRIMMING_FACTORY         0x00000000U
+#define OPAMP_TRIMMING_USER            OPAMP_CSR_USERTRIM
 
 
 /**
@@ -271,10 +271,10 @@ typedef void (*pOPAMP_CallbackTypeDef)(OPAMP_HandleTypeDef *hopamp);
 /** @defgroup OPAMP_FactoryTrimming OPAMP Factory Trimming
   * @{
   */
-#define OPAMP_FACTORYTRIMMING_DUMMY    0xFFFFFFFFU                          /*!< Dummy value if trimming value could not be retrieved */
+#define OPAMP_FACTORYTRIMMING_DUMMY    0xFFFFFFFFU
 
-#define OPAMP_FACTORYTRIMMING_N        0x00000000U                          /*!< Offset trimming N */
-#define OPAMP_FACTORYTRIMMING_P        0x00000001U                          /*!< Offset trimming P */
+#define OPAMP_FACTORYTRIMMING_N        0x00000000U
+#define OPAMP_FACTORYTRIMMING_P        0x00000001U
 
 /**
   * @}
@@ -291,7 +291,7 @@ typedef void (*pOPAMP_CallbackTypeDef)(OPAMP_HandleTypeDef *hopamp);
   */
 
 /* NONINVERTING bit position in OTR & HSOTR */
-#define OPAMP_INPUT_NONINVERTING           (8U)  /*!< Non inverting input */
+#define OPAMP_INPUT_NONINVERTING           (8U)
 
 /* Offset trimming time: during calibration, minimum time needed between two  */
 /* steps to have 1 mV accuracy.                                               */

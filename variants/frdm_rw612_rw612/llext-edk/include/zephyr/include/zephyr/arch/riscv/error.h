@@ -33,7 +33,7 @@ extern "C" {
 			arch_syscall_invoke1(reason_p,	\
 				RV_ECALL_RUNTIME_EXCEPT);\
 		}					\
-		CODE_UNREACHABLE; /* LCOV_EXCL_LINE */	\
+		CODE_UNREACHABLE;	\
 	} while (false)
 #else
 #define ARCH_EXCEPT(reason_p) \

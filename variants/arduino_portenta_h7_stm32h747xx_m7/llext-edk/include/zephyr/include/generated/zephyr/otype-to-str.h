@@ -40,7 +40,6 @@ case K_OBJ_RTIO_IODEV: ret = "rtio_iodev"; break;
 case K_OBJ_SENSOR_DECODER_API: ret = "sensor_decoder_api"; break;
 #endif
 /* Driver subsystems */
-case K_OBJ_DRIVER_CHARGER: ret = "charger driver"; break;
 case K_OBJ_DRIVER_ENTROPY: ret = "entropy driver"; break;
 case K_OBJ_DRIVER_FLASH: ret = "flash driver"; break;
 case K_OBJ_DRIVER_GPIO: ret = "gpio driver"; break;
@@ -56,6 +55,7 @@ case K_OBJ_DRIVER_BBRAM: ret = "bbram driver"; break;
 case K_OBJ_DRIVER_BT_HCI: ret = "bt_hci driver"; break;
 case K_OBJ_DRIVER_CAN: ret = "can driver"; break;
 case K_OBJ_DRIVER_CELLULAR: ret = "cellular driver"; break;
+case K_OBJ_DRIVER_CHARGER: ret = "charger driver"; break;
 case K_OBJ_DRIVER_CLOCK_CONTROL: ret = "clock_control driver"; break;
 case K_OBJ_DRIVER_COMPARATOR: ret = "comparator driver"; break;
 case K_OBJ_DRIVER_COREDUMP: ret = "coredump driver"; break;
@@ -79,7 +79,6 @@ case K_OBJ_DRIVER_HWSPINLOCK: ret = "hwspinlock driver"; break;
 case K_OBJ_DRIVER_I2S: ret = "i2s driver"; break;
 case K_OBJ_DRIVER_I3C: ret = "i3c driver"; break;
 case K_OBJ_DRIVER_IPM: ret = "ipm driver"; break;
-case K_OBJ_DRIVER_KSCAN: ret = "kscan driver"; break;
 case K_OBJ_DRIVER_LED: ret = "led driver"; break;
 case K_OBJ_DRIVER_LED_STRIP: ret = "led_strip driver"; break;
 case K_OBJ_DRIVER_LORA: ret = "lora driver"; break;

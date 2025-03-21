@@ -26,14 +26,14 @@ extern "C" {
 
 /* HFP AG Indicators */
 enum bt_hfp_ag_indicator {
-	BT_HFP_AG_SERVICE_IND = 0,    /* Service availability indicator */
-	BT_HFP_AG_CALL_IND = 1,       /* call status indicator */
-	BT_HFP_AG_CALL_SETUP_IND = 2, /* Call set up status indicator */
-	BT_HFP_AG_CALL_HELD_IND = 3,  /* Call hold status indicator */
-	BT_HFP_AG_SIGNAL_IND = 4,    /* Signal strength indicator */
-	BT_HFP_AG_ROAM_IND = 5,       /* Roaming status indicator */
-	BT_HFP_AG_BATTERY_IND = 6,    /* Battery change indicator */
-	BT_HFP_AG_IND_MAX             /* Indicator MAX value */
+	BT_HFP_AG_SERVICE_IND = 0,
+	BT_HFP_AG_CALL_IND = 1,
+	BT_HFP_AG_CALL_SETUP_IND = 2,
+	BT_HFP_AG_CALL_HELD_IND = 3,
+	BT_HFP_AG_SIGNAL_IND = 4,
+	BT_HFP_AG_ROAM_IND = 5,
+	BT_HFP_AG_BATTERY_IND = 6,
+	BT_HFP_AG_IND_MAX
 };
 
 /* HFP CODEC */

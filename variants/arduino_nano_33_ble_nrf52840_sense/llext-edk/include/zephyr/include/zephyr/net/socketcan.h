@@ -61,17 +61,17 @@ enum {
 #endif /* !CONFIG_CAN_FD_MODE */
 
 /* CAN FD specific flags from Linux Kernel (include/uapi/linux/can.h) */
-#define CANFD_BRS 0x01 /**< Bit rate switch (second bitrate for payload data) */
-#define CANFD_ESI 0x02 /**< Error state indicator of the transmitting node */
-#define CANFD_FDF 0x04 /**< Mark CAN FD for dual use of struct canfd_frame */
+#define CANFD_BRS 0x01
+#define CANFD_ESI 0x02
+#define CANFD_FDF 0x04
 
 /**
  * struct sockaddr_can - The sockaddr structure for CAN sockets
  *
  */
 struct sockaddr_can {
-	sa_family_t can_family;   /**< Address family */
-	int         can_ifindex;  /**< SocketCAN network interface index */
+	sa_family_t can_family;
+	int         can_ifindex;
 };
 
 /**
@@ -117,8 +117,8 @@ struct socketcan_frame {
 	/** Additional flags for CAN FD. */
 	uint8_t flags;
 	/** @cond INTERNAL_HIDDEN */
-	uint8_t res0;  /* reserved/padding. */
-	uint8_t res1;  /* reserved/padding. */
+	uint8_t res0;
+	uint8_t res1;
 	/** @endcond */
 
 	/** The payload data. */

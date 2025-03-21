@@ -55,9 +55,9 @@
 extern "C" {
 #endif
 
-#define Nb (4)  /* number of columns (32-bit words) comprising the state */
-#define Nk (4)  /* number of 32-bit words comprising the key */
-#define Nr (10) /* number of rounds */
+#define Nb (4)
+#define Nk (4)
+#define Nr (10)
 #define TC_AES_BLOCK_SIZE (Nb*Nk)
 #define TC_AES_KEY_SIZE (Nb*Nk)
 

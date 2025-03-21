@@ -23,21 +23,21 @@
 /*! @brief LP_FLEXCOMM peripheral modes. */
 typedef enum
 {
-    LP_FLEXCOMM_PERIPH_NONE,               /*!< No peripheral */
-    LP_FLEXCOMM_PERIPH_LPUART,             /*!< LPUART peripheral */
-    LP_FLEXCOMM_PERIPH_LPSPI,              /*!< LPSPI Peripheral */
-    LP_FLEXCOMM_PERIPH_LPI2C,              /*!< LPI2C Peripheral */
-    LP_FLEXCOMM_PERIPH_LPI2CAndLPUART = 7, /*!< LPI2C and LPUART Peripheral */
+    LP_FLEXCOMM_PERIPH_NONE,
+    LP_FLEXCOMM_PERIPH_LPUART,
+    LP_FLEXCOMM_PERIPH_LPSPI,
+    LP_FLEXCOMM_PERIPH_LPI2C,
+    LP_FLEXCOMM_PERIPH_LPI2CAndLPUART = 7,
 } LP_FLEXCOMM_PERIPH_T;
 
 /*! @brief LP_FLEXCOMM interrupt source flags. */
 enum _lpflexcomm_interrupt_flag
 {
-    kLPFLEXCOMM_I2cSlaveInterruptFlag  = LP_FLEXCOMM_ISTAT_I2CS_MASK,   /* LPI2C slave interrupt. */
-    kLPFLEXCOMM_I2cMasterInterruptFlag = LP_FLEXCOMM_ISTAT_I2CM_MASK,   /* LPI2C master interrupt. */
-    kLPFLEXCOMM_SpiInterruptFlag       = LP_FLEXCOMM_ISTAT_SPI_MASK,    /* LPSPI interrupt. */
-    kLPFLEXCOMM_UartRxInterruptFlag    = LP_FLEXCOMM_ISTAT_UARTRX_MASK, /* LPUART RX interrupt. */
-    kLPFLEXCOMM_UartTxInterruptFlag    = LP_FLEXCOMM_ISTAT_UARTTX_MASK, /* LPUART TX interrupt. */
+    kLPFLEXCOMM_I2cSlaveInterruptFlag  = LP_FLEXCOMM_ISTAT_I2CS_MASK,
+    kLPFLEXCOMM_I2cMasterInterruptFlag = LP_FLEXCOMM_ISTAT_I2CM_MASK,
+    kLPFLEXCOMM_SpiInterruptFlag       = LP_FLEXCOMM_ISTAT_SPI_MASK,
+    kLPFLEXCOMM_UartRxInterruptFlag    = LP_FLEXCOMM_ISTAT_UARTRX_MASK,
+    kLPFLEXCOMM_UartTxInterruptFlag    = LP_FLEXCOMM_ISTAT_UARTTX_MASK,
 
     kLPFLEXCOMM_AllInterruptFlag = kLPFLEXCOMM_I2cSlaveInterruptFlag | kLPFLEXCOMM_I2cMasterInterruptFlag |
                                    kLPFLEXCOMM_SpiInterruptFlag | kLPFLEXCOMM_UartRxInterruptFlag |

@@ -79,7 +79,6 @@ case K_OBJ_DRIVER_HWSPINLOCK: ret = "hwspinlock driver"; break;
 case K_OBJ_DRIVER_I2S: ret = "i2s driver"; break;
 case K_OBJ_DRIVER_I3C: ret = "i3c driver"; break;
 case K_OBJ_DRIVER_IPM: ret = "ipm driver"; break;
-case K_OBJ_DRIVER_KSCAN: ret = "kscan driver"; break;
 case K_OBJ_DRIVER_LED: ret = "led driver"; break;
 case K_OBJ_DRIVER_LED_STRIP: ret = "led_strip driver"; break;
 case K_OBJ_DRIVER_LORA: ret = "lora driver"; break;

@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2010 - 2024, Nordic Semiconductor ASA All rights reserved.
+Copyright (c) 2010 - 2025, Nordic Semiconductor ASA All rights reserved.
 
 SPDX-License-Identifier: BSD-3-Clause
 
@@ -49,113 +49,113 @@ POSSIBILITY OF SUCH DAMAGE.
 
 typedef enum {
 /* ===================================================== Core Interrupts ===================================================== */
-  Reset_IRQn                             = -15,      /*!< -15 Reset Vector, invoked on Power up and warm reset                 */
-  NonMaskableInt_IRQn                    = -14,      /*!< -14 Non maskable Interrupt, cannot be stopped or preempted           */
-  HardFault_IRQn                         = -13,      /*!< -13 Hard Fault, all classes of Fault                                 */
+  Reset_IRQn                             = -15,
+  NonMaskableInt_IRQn                    = -14,
+  HardFault_IRQn                         = -13,
   MemoryManagement_IRQn                  = -12,      /*!< -12 Memory Management, MPU mismatch, including Access Violation and No
                                                           Match*/
   BusFault_IRQn                          = -11,      /*!< -11 Bus Fault, Pre-Fetch-, Memory Access Fault, other address/memory
                                                           related Fault*/
-  UsageFault_IRQn                        = -10,      /*!< -10 Usage Fault, i.e. Undef Instruction, Illegal State Transition    */
-  SecureFault_IRQn                       = -9,       /*!<  -9 Secure Fault Handler                                             */
-  SVCall_IRQn                            = -5,       /*!<  -5 System Service Call via SVC instruction                          */
-  DebugMonitor_IRQn                      = -4,       /*!<  -4 Debug Monitor                                                    */
-  PendSV_IRQn                            = -2,       /*!<  -2 Pendable request for system service                              */
-  SysTick_IRQn                           = -1,       /*!<  -1 System Tick Timer                                                */
+  UsageFault_IRQn                        = -10,
+  SecureFault_IRQn                       = -9,
+  SVCall_IRQn                            = -5,
+  DebugMonitor_IRQn                      = -4,
+  PendSV_IRQn                            = -2,
+  SysTick_IRQn                           = -1,
 /* ============================================== Processor Specific Interrupts ============================================== */
-  SPU000_IRQn                            = 0,        /*!< 0 SPU000                                                             */
-  MPC_IRQn                               = 1,        /*!< 1 MPC                                                                */
-  CPUC_IRQn                              = 2,        /*!< 2 CPUC                                                               */
-  MVDMA_IRQn                             = 3,        /*!< 3 MVDMA                                                              */
-  SPU010_IRQn                            = 16,       /*!< 16 SPU010                                                            */
-  WDT010_IRQn                            = 19,       /*!< 19 WDT010                                                            */
-  WDT011_IRQn                            = 20,       /*!< 20 WDT011                                                            */
-  SPU020_IRQn                            = 32,       /*!< 32 SPU020                                                            */
-  EGU020_IRQn                            = 37,       /*!< 37 EGU020                                                            */
-  GPIOTE_0_IRQn                          = 39,       /*!< 39 GPIOTE_0                                                          */
-  TIMER020_IRQn                          = 40,       /*!< 40 TIMER020                                                          */
-  TIMER021_IRQn                          = 41,       /*!< 41 TIMER021                                                          */
-  TIMER022_IRQn                          = 42,       /*!< 42 TIMER022                                                          */
-  RTC_IRQn                               = 43,       /*!< 43 RTC                                                               */
-  RADIO_0_IRQn                           = 44,       /*!< 44 RADIO_0                                                           */
-  RADIO_1_IRQn                           = 45,       /*!< 45 RADIO_1                                                           */
-  SPU030_IRQn                            = 48,       /*!< 48 SPU030                                                            */
-  AAR030_CCM030_IRQn                     = 58,       /*!< 58 AAR030_CCM030                                                     */
-  ECB030_IRQn                            = 59,       /*!< 59 ECB030                                                            */
-  AAR031_CCM031_IRQn                     = 60,       /*!< 60 AAR031_CCM031                                                     */
-  ECB031_IRQn                            = 61,       /*!< 61 ECB031                                                            */
-  IPCT_0_IRQn                            = 64,       /*!< 64 IPCT_0                                                            */
-  IPCT_1_IRQn                            = 65,       /*!< 65 IPCT_1                                                            */
-  CTI_0_IRQn                             = 66,       /*!< 66 CTI_0                                                             */
-  CTI_1_IRQn                             = 67,       /*!< 67 CTI_1                                                             */
-  SWI0_IRQn                              = 88,       /*!< 88 SWI0                                                              */
-  SWI1_IRQn                              = 89,       /*!< 89 SWI1                                                              */
-  SWI2_IRQn                              = 90,       /*!< 90 SWI2                                                              */
-  SWI3_IRQn                              = 91,       /*!< 91 SWI3                                                              */
-  SWI4_IRQn                              = 92,       /*!< 92 SWI4                                                              */
-  SWI5_IRQn                              = 93,       /*!< 93 SWI5                                                              */
-  SWI6_IRQn                              = 94,       /*!< 94 SWI6                                                              */
-  SWI7_IRQn                              = 95,       /*!< 95 SWI7                                                              */
-  BELLBOARD_0_IRQn                       = 96,       /*!< 96 BELLBOARD_0                                                       */
-  BELLBOARD_1_IRQn                       = 97,       /*!< 97 BELLBOARD_1                                                       */
-  BELLBOARD_2_IRQn                       = 98,       /*!< 98 BELLBOARD_2                                                       */
-  BELLBOARD_3_IRQn                       = 99,       /*!< 99 BELLBOARD_3                                                       */
-  GPIOTE130_0_IRQn                       = 104,      /*!< 104 GPIOTE130_0                                                      */
-  GPIOTE130_1_IRQn                       = 105,      /*!< 105 GPIOTE130_1                                                      */
-  GRTC_0_IRQn                            = 108,      /*!< 108 GRTC_0                                                           */
-  GRTC_1_IRQn                            = 109,      /*!< 109 GRTC_1                                                           */
-  GRTC_2_IRQn                            = 110,      /*!< 110 GRTC_2                                                           */
-  TBM_IRQn                               = 127,      /*!< 127 TBM                                                              */
-  USBHS_IRQn                             = 134,      /*!< 134 USBHS                                                            */
-  EXMIF_IRQn                             = 149,      /*!< 149 EXMIF                                                            */
-  IPCT120_0_IRQn                         = 209,      /*!< 209 IPCT120_0                                                        */
-  I3C120_IRQn                            = 211,      /*!< 211 I3C120                                                           */
-  VPR121_IRQn                            = 212,      /*!< 212 VPR121                                                           */
-  CAN120_IRQn                            = 216,      /*!< 216 CAN120                                                           */
-  MVDMA120_IRQn                          = 217,      /*!< 217 MVDMA120                                                         */
-  I3C121_IRQn                            = 222,      /*!< 222 I3C121                                                           */
-  TIMER120_IRQn                          = 226,      /*!< 226 TIMER120                                                         */
-  TIMER121_IRQn                          = 227,      /*!< 227 TIMER121                                                         */
-  PWM120_IRQn                            = 228,      /*!< 228 PWM120                                                           */
-  SPIS120_IRQn                           = 229,      /*!< 229 SPIS120                                                          */
-  SPIM120_UARTE120_IRQn                  = 230,      /*!< 230 SPIM120_UARTE120                                                 */
-  SPIM121_IRQn                           = 231,      /*!< 231 SPIM121                                                          */
-  VPR130_IRQn                            = 264,      /*!< 264 VPR130                                                           */
-  IPCT130_0_IRQn                         = 289,      /*!< 289 IPCT130_0                                                        */
-  RTC130_IRQn                            = 296,      /*!< 296 RTC130                                                           */
-  RTC131_IRQn                            = 297,      /*!< 297 RTC131                                                           */
-  WDT131_IRQn                            = 299,      /*!< 299 WDT131                                                           */
-  WDT132_IRQn                            = 300,      /*!< 300 WDT132                                                           */
-  EGU130_IRQn                            = 301,      /*!< 301 EGU130                                                           */
-  SAADC_IRQn                             = 386,      /*!< 386 SAADC                                                            */
-  COMP_LPCOMP_IRQn                       = 387,      /*!< 387 COMP_LPCOMP                                                      */
-  TEMP_IRQn                              = 388,      /*!< 388 TEMP                                                             */
-  NFCT_IRQn                              = 389,      /*!< 389 NFCT                                                             */
-  TDM130_IRQn                            = 402,      /*!< 402 TDM130                                                           */
-  PDM_IRQn                               = 403,      /*!< 403 PDM                                                              */
-  QDEC130_IRQn                           = 404,      /*!< 404 QDEC130                                                          */
-  QDEC131_IRQn                           = 405,      /*!< 405 QDEC131                                                          */
-  TDM131_IRQn                            = 407,      /*!< 407 TDM131                                                           */
-  TIMER130_IRQn                          = 418,      /*!< 418 TIMER130                                                         */
-  TIMER131_IRQn                          = 419,      /*!< 419 TIMER131                                                         */
-  PWM130_IRQn                            = 420,      /*!< 420 PWM130                                                           */
-  SERIAL0_IRQn                           = 421,      /*!< 421 SERIAL0                                                          */
-  SERIAL1_IRQn                           = 422,      /*!< 422 SERIAL1                                                          */
-  TIMER132_IRQn                          = 434,      /*!< 434 TIMER132                                                         */
-  TIMER133_IRQn                          = 435,      /*!< 435 TIMER133                                                         */
-  PWM131_IRQn                            = 436,      /*!< 436 PWM131                                                           */
-  SERIAL2_IRQn                           = 437,      /*!< 437 SERIAL2                                                          */
-  SERIAL3_IRQn                           = 438,      /*!< 438 SERIAL3                                                          */
-  TIMER134_IRQn                          = 450,      /*!< 450 TIMER134                                                         */
-  TIMER135_IRQn                          = 451,      /*!< 451 TIMER135                                                         */
-  PWM132_IRQn                            = 452,      /*!< 452 PWM132                                                           */
-  SERIAL4_IRQn                           = 453,      /*!< 453 SERIAL4                                                          */
-  SERIAL5_IRQn                           = 454,      /*!< 454 SERIAL5                                                          */
-  TIMER136_IRQn                          = 466,      /*!< 466 TIMER136                                                         */
-  TIMER137_IRQn                          = 467,      /*!< 467 TIMER137                                                         */
-  PWM133_IRQn                            = 468,      /*!< 468 PWM133                                                           */
-  SERIAL6_IRQn                           = 469,      /*!< 469 SERIAL6                                                          */
-  SERIAL7_IRQn                           = 470,      /*!< 470 SERIAL7                                                          */
+  SPU000_IRQn                            = 0,
+  MPC_IRQn                               = 1,
+  CPUC_IRQn                              = 2,
+  MVDMA_IRQn                             = 3,
+  SPU010_IRQn                            = 16,
+  WDT010_IRQn                            = 19,
+  WDT011_IRQn                            = 20,
+  SPU020_IRQn                            = 32,
+  EGU020_IRQn                            = 37,
+  GPIOTE_0_IRQn                          = 39,
+  TIMER020_IRQn                          = 40,
+  TIMER021_IRQn                          = 41,
+  TIMER022_IRQn                          = 42,
+  RTC_IRQn                               = 43,
+  RADIO_0_IRQn                           = 44,
+  RADIO_1_IRQn                           = 45,
+  SPU030_IRQn                            = 48,
+  AAR030_CCM030_IRQn                     = 58,
+  ECB030_IRQn                            = 59,
+  AAR031_CCM031_IRQn                     = 60,
+  ECB031_IRQn                            = 61,
+  IPCT_0_IRQn                            = 64,
+  IPCT_1_IRQn                            = 65,
+  CTI_0_IRQn                             = 66,
+  CTI_1_IRQn                             = 67,
+  SWI0_IRQn                              = 88,
+  SWI1_IRQn                              = 89,
+  SWI2_IRQn                              = 90,
+  SWI3_IRQn                              = 91,
+  SWI4_IRQn                              = 92,
+  SWI5_IRQn                              = 93,
+  SWI6_IRQn                              = 94,
+  SWI7_IRQn                              = 95,
+  BELLBOARD_0_IRQn                       = 96,
+  BELLBOARD_1_IRQn                       = 97,
+  BELLBOARD_2_IRQn                       = 98,
+  BELLBOARD_3_IRQn                       = 99,
+  GPIOTE130_0_IRQn                       = 104,
+  GPIOTE130_1_IRQn                       = 105,
+  GRTC_0_IRQn                            = 108,
+  GRTC_1_IRQn                            = 109,
+  GRTC_2_IRQn                            = 110,
+  TBM_IRQn                               = 127,
+  USBHS_IRQn                             = 134,
+  EXMIF_IRQn                             = 149,
+  IPCT120_0_IRQn                         = 209,
+  I3C120_IRQn                            = 211,
+  VPR121_IRQn                            = 212,
+  CAN120_IRQn                            = 216,
+  MVDMA120_IRQn                          = 217,
+  I3C121_IRQn                            = 222,
+  TIMER120_IRQn                          = 226,
+  TIMER121_IRQn                          = 227,
+  PWM120_IRQn                            = 228,
+  SPIS120_IRQn                           = 229,
+  SPIM120_UARTE120_IRQn                  = 230,
+  SPIM121_IRQn                           = 231,
+  VPR130_IRQn                            = 264,
+  IPCT130_0_IRQn                         = 289,
+  RTC130_IRQn                            = 296,
+  RTC131_IRQn                            = 297,
+  WDT131_IRQn                            = 299,
+  WDT132_IRQn                            = 300,
+  EGU130_IRQn                            = 301,
+  SAADC_IRQn                             = 386,
+  COMP_LPCOMP_IRQn                       = 387,
+  TEMP_IRQn                              = 388,
+  NFCT_IRQn                              = 389,
+  TDM130_IRQn                            = 402,
+  PDM_IRQn                               = 403,
+  QDEC130_IRQn                           = 404,
+  QDEC131_IRQn                           = 405,
+  TDM131_IRQn                            = 407,
+  TIMER130_IRQn                          = 418,
+  TIMER131_IRQn                          = 419,
+  PWM130_IRQn                            = 420,
+  SERIAL0_IRQn                           = 421,
+  SERIAL1_IRQn                           = 422,
+  TIMER132_IRQn                          = 434,
+  TIMER133_IRQn                          = 435,
+  PWM131_IRQn                            = 436,
+  SERIAL2_IRQn                           = 437,
+  SERIAL3_IRQn                           = 438,
+  TIMER134_IRQn                          = 450,
+  TIMER135_IRQn                          = 451,
+  PWM132_IRQn                            = 452,
+  SERIAL4_IRQn                           = 453,
+  SERIAL5_IRQn                           = 454,
+  TIMER136_IRQn                          = 466,
+  TIMER137_IRQn                          = 467,
+  PWM133_IRQn                            = 468,
+  SERIAL6_IRQn                           = 469,
+  SERIAL7_IRQn                           = 470,
 } IRQn_Type;
 
 /* ==================================================== Interrupt Aliases ==================================================== */
@@ -261,20 +261,20 @@ typedef enum {
 /* =========================================================================================================================== */
 
 /* =========================== Configuration of the ARM Cortex-M33 Processor and Core Peripherals ============================ */
-#define __CM33_REV                  r0p4             /*!< CM33 Core Revision                                                   */
-#define __DSP_PRESENT                  1             /*!< DSP present or not                                                   */
-#define __NVIC_PRIO_BITS               3             /*!< Number of Bits used for Priority Levels                              */
-#define __VTOR_PRESENT                 1             /*!< CPU supports alternate Vector Table address                          */
-#define __MPU_PRESENT                  1             /*!< MPU present                                                          */
-#define __FPU_PRESENT                  1             /*!< FPU present                                                          */
-#define __FPU_DP                       0             /*!< Double Precision FPU                                                 */
-#define __INTERRUPTS_MAX             480             /*!< Size of interrupt vector table                                       */
-#define __Vendor_SysTickConfig         0             /*!< Vendor SysTick Config implementation is used                         */
-#define __SAUREGION_PRESENT            1             /*!< SAU present                                                          */
-#define __NUM_SAUREGIONS               8             /*!< Number of regions                                                    */
+#define __CM33_REV                  r0p4
+#define __DSP_PRESENT                  1
+#define __NVIC_PRIO_BITS               3
+#define __VTOR_PRESENT                 1
+#define __MPU_PRESENT                  1
+#define __FPU_PRESENT                  1
+#define __FPU_DP                       0
+#define __INTERRUPTS_MAX             480
+#define __Vendor_SysTickConfig         0
+#define __SAUREGION_PRESENT            1
+#define __NUM_SAUREGIONS               8
 
-#include "core_cm33.h"                               /*!< ARM Cortex-M33 processor and core peripherals                        */
-#include "system_nrf.h"                              /*!< nrf54h20_radiocore System Library                                    */
+#include "core_cm33.h"
+#include "system_nrf.h"
 
 #endif                                               /*!< NRF_RADIOCORE                                                        */
 

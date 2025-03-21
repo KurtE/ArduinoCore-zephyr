@@ -50,7 +50,7 @@
 #define SIZE_AES_128BIT_KEYLEN_BYTES_WRAPPED             ((SIZE_AES_128BIT_KEYLEN_BITS_WRAPPED) / 8)
 #define SIZE_AES_128BIT_KEYLEN_WORDS_WRAPPED             ((SIZE_AES_128BIT_KEYLEN_BITS_WRAPPED) / 32)
 
-#define SIZE_AES_192BIT_KEYLEN_BITS_WRAPPED              (2) /* 192 not supported on SCE5 */
+#define SIZE_AES_192BIT_KEYLEN_BITS_WRAPPED              (2)
 #define SIZE_AES_192BIT_KEYLEN_BYTES_WRAPPED             ((SIZE_AES_192BIT_KEYLEN_BITS_WRAPPED) / 8)
 #define SIZE_AES_192BIT_KEYLEN_WORDS_WRAPPED             ((SIZE_AES_192BIT_KEYLEN_BITS_WRAPPED) / 32)
 
@@ -58,79 +58,79 @@
 #define SIZE_AES_256BIT_KEYLEN_BYTES_WRAPPED             ((SIZE_AES_256BIT_KEYLEN_BITS_WRAPPED) / 8)
 #define SIZE_AES_256BIT_KEYLEN_WORDS_WRAPPED             ((SIZE_AES_256BIT_KEYLEN_BITS_WRAPPED) / 32)
 
-#define R_AES_AESCNTH_INIT                               (0x8000UL) /*!< AESCNTH initialization: Initialization AES Circuit                                                               */
-#define R_AES_AESCNTH_DEINIT                             (0x0000UL) /*!< AESCNTH deinitialization: Don’t Initialize AES Circuit                                                           */
-#define R_AES_AESCNTL_GCM_MODE                           (0x00A0UL) /*!< AESCNTL: Assign bit of Cipher use Mode: GCM mode                                                                 */
-#define R_AES_AESCNTL_128_DEC                            (0x0008UL) /*!< AESCNTL: Decryption 128 bit (Bit 0-3 Selection bit of Encryption/Decryption and Key Length)                      */
+#define R_AES_AESCNTH_INIT                               (0x8000UL)
+#define R_AES_AESCNTH_DEINIT                             (0x0000UL)
+#define R_AES_AESCNTL_GCM_MODE                           (0x00A0UL)
+#define R_AES_AESCNTL_128_DEC                            (0x0008UL)
 
-#define R_AES_AESCNTL_CBC_128_ENC                        (0x0000UL) /*!< AESCNTL: Encryption - CBC mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_CBC_192_ENC                        (0x0002UL) /*!< AESCNTL: Encryption - CBC mode - 192 bits                                                                        */
-#define R_AES_AESCNTL_CBC_256_ENC                        (0x0004UL) /*!< AESCNTL: Encryption - CBC mode - 256 bits                                                                        */
-#define R_AES_AESCNTL_CBC_128_DEC                        (0x0008UL) /*!< AESCNTL: Decryption - CBC mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_CBC_192_DEC                        (0x000AUL) /*!< AESCNTL: Decryption - CBC mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_CBC_256_DEC                        (0x000CUL) /*!< AESCNTL: Decryption - CBC mode - 128 bits                                                                        */
+#define R_AES_AESCNTL_CBC_128_ENC                        (0x0000UL)
+#define R_AES_AESCNTL_CBC_192_ENC                        (0x0002UL)
+#define R_AES_AESCNTL_CBC_256_ENC                        (0x0004UL)
+#define R_AES_AESCNTL_CBC_128_DEC                        (0x0008UL)
+#define R_AES_AESCNTL_CBC_192_DEC                        (0x000AUL)
+#define R_AES_AESCNTL_CBC_256_DEC                        (0x000CUL)
 
-#define R_AES_AESCNTL_ECB_128_ENC                        (0x0010UL) /*!< AESCNTL: Encryption - ECB mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_ECB_192_ENC                        (0x0012UL) /*!< AESCNTL: Encryption - ECB mode - 192 bits                                                                        */
-#define R_AES_AESCNTL_ECB_256_ENC                        (0x0014UL) /*!< AESCNTL: Encryption - ECB mode - 256 bits                                                                        */
-#define R_AES_AESCNTL_ECB_128_DEC                        (0x0018UL) /*!< AESCNTL: Decryption - ECB mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_ECB_192_DEC                        (0x001AUL) /*!< AESCNTL: Decryption - ECB mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_ECB_256_DEC                        (0x001CUL) /*!< AESCNTL: Decryption - ECB mode - 128 bits                                                                        */
+#define R_AES_AESCNTL_ECB_128_ENC                        (0x0010UL)
+#define R_AES_AESCNTL_ECB_192_ENC                        (0x0012UL)
+#define R_AES_AESCNTL_ECB_256_ENC                        (0x0014UL)
+#define R_AES_AESCNTL_ECB_128_DEC                        (0x0018UL)
+#define R_AES_AESCNTL_ECB_192_DEC                        (0x001AUL)
+#define R_AES_AESCNTL_ECB_256_DEC                        (0x001CUL)
 
-#define R_AES_AESCNTL_CTR_128_ENC                        (0x0040UL) /*!< AESCNTL: Encryption - CTR mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_CTR_192_ENC                        (0x0042UL) /*!< AESCNTL: Encryption - CTR mode - 192 bits                                                                        */
-#define R_AES_AESCNTL_CTR_256_ENC                        (0x0044UL) /*!< AESCNTL: Encryption - CTR mode - 256 bits                                                                        */
-#define R_AES_AESCNTL_CTR_128_DEC                        (0x0048UL) /*!< AESCNTL: Decryption - CTR mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_CTR_192_DEC                        (0x004AUL) /*!< AESCNTL: Decryption - CTR mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_CTR_256_DEC                        (0x004CUL) /*!< AESCNTL: Decryption - CTR mode - 128 bits                                                                        */
+#define R_AES_AESCNTL_CTR_128_ENC                        (0x0040UL)
+#define R_AES_AESCNTL_CTR_192_ENC                        (0x0042UL)
+#define R_AES_AESCNTL_CTR_256_ENC                        (0x0044UL)
+#define R_AES_AESCNTL_CTR_128_DEC                        (0x0048UL)
+#define R_AES_AESCNTL_CTR_192_DEC                        (0x004AUL)
+#define R_AES_AESCNTL_CTR_256_DEC                        (0x004CUL)
 
-#define R_AES_AESCNTL_CMAC_128_ENC                       (0x0080UL) /*!< AESCNTL: Encryption - CMAC mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_CMAC_192_ENC                       (0x0082UL) /*!< AESCNTL: Encryption - CMAC mode - 192 bits                                                                        */
-#define R_AES_AESCNTL_CMAC_256_ENC                       (0x0084UL) /*!< AESCNTL: Encryption - CMAC mode - 256 bits                                                                        */
-#define R_AES_AESCNTL_CMAC_128_DEC                       (0x0088UL) /*!< AESCNTL: Decryption - CMAC mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_CMAC_192_DEC                       (0x008AUL) /*!< AESCNTL: Decryption - CMAC mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_CMAC_256_DEC                       (0x008CUL) /*!< AESCNTL: Decryption - CMAC mode - 128 bits                                                                        */
+#define R_AES_AESCNTL_CMAC_128_ENC                       (0x0080UL)
+#define R_AES_AESCNTL_CMAC_192_ENC                       (0x0082UL)
+#define R_AES_AESCNTL_CMAC_256_ENC                       (0x0084UL)
+#define R_AES_AESCNTL_CMAC_128_DEC                       (0x0088UL)
+#define R_AES_AESCNTL_CMAC_192_DEC                       (0x008AUL)
+#define R_AES_AESCNTL_CMAC_256_DEC                       (0x008CUL)
 
-#define R_AES_AESCNTL_GCM_128_ENC                        (0x00A0UL) /*!< AESCNTL: Encryption - GCM mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_GCM_192_ENC                        (0x00A2UL) /*!< AESCNTL: Encryption - GCM mode - 192 bits                                                                        */
-#define R_AES_AESCNTL_GCM_256_ENC                        (0x00A4UL) /*!< AESCNTL: Encryption - GCM mode - 256 bits                                                                        */
-#define R_AES_AESCNTL_GCM_128_DEC                        (0x00A8UL) /*!< AESCNTL: Decryption - GCM mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_GCM_192_DEC                        (0x00AAUL) /*!< AESCNTL: Decryption - GCM mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_GCM_256_DEC                        (0x00ACUL) /*!< AESCNTL: Decryption - GCM mode - 128 bits                                                                        */
+#define R_AES_AESCNTL_GCM_128_ENC                        (0x00A0UL)
+#define R_AES_AESCNTL_GCM_192_ENC                        (0x00A2UL)
+#define R_AES_AESCNTL_GCM_256_ENC                        (0x00A4UL)
+#define R_AES_AESCNTL_GCM_128_DEC                        (0x00A8UL)
+#define R_AES_AESCNTL_GCM_192_DEC                        (0x00AAUL)
+#define R_AES_AESCNTL_GCM_256_DEC                        (0x00ACUL)
 
-#define R_AES_AESCNTL_CCM_128_ENC                        (0x00C0UL) /*!< AESCNTL: Encryption - CCM mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_CCM_192_ENC                        (0x00C2UL) /*!< AESCNTL: Encryption - CCM mode - 192 bits                                                                        */
-#define R_AES_AESCNTL_CCM_256_ENC                        (0x00C4UL) /*!< AESCNTL: Encryption - CCM mode - 256 bits                                                                        */
-#define R_AES_AESCNTL_CCM_128_DEC                        (0x00C8UL) /*!< AESCNTL: Decryption - CCM mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_CCM_192_DEC                        (0x00CAUL) /*!< AESCNTL: Decryption - CCM mode - 128 bits                                                                        */
-#define R_AES_AESCNTL_CCM_256_DEC                        (0x00CCUL) /*!< AESCNTL: Decryption - CCM mode - 128 bits                                                                        */
+#define R_AES_AESCNTL_CCM_128_ENC                        (0x00C0UL)
+#define R_AES_AESCNTL_CCM_192_ENC                        (0x00C2UL)
+#define R_AES_AESCNTL_CCM_256_ENC                        (0x00C4UL)
+#define R_AES_AESCNTL_CCM_128_DEC                        (0x00C8UL)
+#define R_AES_AESCNTL_CCM_192_DEC                        (0x00CAUL)
+#define R_AES_AESCNTL_CCM_256_DEC                        (0x00CCUL)
 
-#define R_AES_AESDCNTL_BIT_2_3_MODE_1                    (0x0008UL) /*!< AESDCNTL: Key update assign bit: Enable + First block contents control assign bit: Use (AES-ECB, AES-GCM)        */
-#define R_AES_AESDCNTL_BIT_2_3_MODE_2                    (0x000CUL) /*!< AESDCNTL: Key update assign bit: Enable + First block contents control assign bit: Not use (AES-CBC, AES-CTR)    */
-#define R_AES_AESDCNTL_CALCULATE_START                   (0x0003UL) /*!< AESDCNTL: Start AES calculation - Start reflect AES Encryption/Decryption calculation result to AESODATnRegister */
-#define R_AES_AESDCNTL_BIT_2                             (0x0004UL) /*!< AESDCNTL: Bit 2                                                                                                  */
-#define R_AES_AESDCNTL_BIT_3                             (0x0008UL) /*!< AESDCNTL: Bit 3                                                                                                  */
-#define R_AES_AESDCNTL_BIT_4                             (0x0010UL) /*!< AESDCNTL: Bit 4                                                                                                  */
-#define R_AES_AESDCNTL_BIT_5                             (0x0020UL) /*!< AESDCNTL: Bit 5                                                                                                  */
-#define R_AES_AESDCNTL_BIT_6                             (0x0040UL) /*!< AESDCNTL: Bit 6                                                                                                  */
+#define R_AES_AESDCNTL_BIT_2_3_MODE_1                    (0x0008UL)
+#define R_AES_AESDCNTL_BIT_2_3_MODE_2                    (0x000CUL)
+#define R_AES_AESDCNTL_CALCULATE_START                   (0x0003UL)
+#define R_AES_AESDCNTL_BIT_2                             (0x0004UL)
+#define R_AES_AESDCNTL_BIT_3                             (0x0008UL)
+#define R_AES_AESDCNTL_BIT_4                             (0x0010UL)
+#define R_AES_AESDCNTL_BIT_5                             (0x0020UL)
+#define R_AES_AESDCNTL_BIT_6                             (0x0040UL)
 
-#define R_AES_AESDCNTL_FIST_SET                          (0x0004UL) /*!< AESDCNTL: FIRST = 1: The result of the previous calculation is not used for the calculation of the first block   */
-#define R_AES_AESDCNTL_NEW_KEY_SET                       (0x0008UL) /*!< AESDCNTL: NEW_KEY = 1: Key data are updated using the data set in the AESKEYn registers                          */
-#define R_AES_AESDCNTL_ATTR_CCM_MODE_1                   (0x0020UL) /*!< AESDCNTL: ATTR[2:0] = 001: The input data as the parameter B0 of the formatting function                         */
-#define R_AES_AESDCNTL_ATTR_CCM_MODE_2                   (0x0040UL) /*!< AESDCNTL: ATTR[2:0] = 010: In encryption: Setting prohibited, In decryption: A ciphertext                        */
-#define R_AES_AESDCNTL_ATTR_CCM_MODE_3                   (0x0060UL) /*!< AESDCNTL: ATTR[2:0] = 011: The input data as A (associated data) of the formatting function                      */
-#define R_AES_AESDCNTL_ATTR_CCM_MODE_4                   (0x0080UL) /*!< AESDCNTL: ATTR[2:0] = 100: Indicating the input data are a plaintext                                             */
+#define R_AES_AESDCNTL_FIST_SET                          (0x0004UL)
+#define R_AES_AESDCNTL_NEW_KEY_SET                       (0x0008UL)
+#define R_AES_AESDCNTL_ATTR_CCM_MODE_1                   (0x0020UL)
+#define R_AES_AESDCNTL_ATTR_CCM_MODE_2                   (0x0040UL)
+#define R_AES_AESDCNTL_ATTR_CCM_MODE_3                   (0x0060UL)
+#define R_AES_AESDCNTL_ATTR_CCM_MODE_4                   (0x0080UL)
 #define R_AES_AESDCNTL_ATTR_CCM_MODE_5                   (0x0000UL) /*!< AESDCNTL: ATTR[2:0] = 000: In encryption: The dummy input data used for calculation of T XOR MSBTlen(S0)
                                                                      *                              In decryption: Setting prohibited                                                     */
 #define R_AES_AESDCNTL_ATTR_CCM_MODE_6                   (0x00A0UL) /*!< AESDCNTL: ATTR[2:0] = 101: In encryption: Setting prohibited
                                                                      *                              In decryption: The input data to be calculated by T XOR MSBTlen(S0)                   */
 
-#define R_AES_AESSTSL_BIT_5                              (0x0020UL) /*!< AESSTSL: Bit 5: Status Bit to show AES operation status                                                          */
-#define R_AES_AESSTSL_CALCULATE_COMPLETED                (0x0003UL) /*!< AESSTSL: Bit 0-1: Status Bit to show AES Encryption/Decryption completion                                        */
-#define R_AES_AESSTSCL_DATA_CLEAN                        (0x0003UL) /*!< AESSTSCL: Bit 0-1: clear bit1.0 state in AES Status Register                                                     */
+#define R_AES_AESSTSL_BIT_5                              (0x0020UL)
+#define R_AES_AESSTSL_CALCULATE_COMPLETED                (0x0003UL)
+#define R_AES_AESSTSCL_DATA_CLEAN                        (0x0003UL)
 
-#define R_AES_AESDCNTH_EXECUTE_TAG_CALCULATION           (0x0002UL) /*!< AESDCNTH: Bit 1 = 1: The calculation of tag is executed, and result is stored in the AESODATn registers          */
-#define R_AES_AESDCNTH_NOT_EXECUTE_TAG_CALCULATION       (0x0000UL) /*!< AESDCNTH: Bit 1 = 0: Don't execute calculation of tag                                                            */
+#define R_AES_AESDCNTH_EXECUTE_TAG_CALCULATION           (0x0002UL)
+#define R_AES_AESDCNTH_NOT_EXECUTE_TAG_CALCULATION       (0x0000UL)
 
 #define HW_AES_DATA_FIT_TO_BLOCK_SIZE(x)    ((uint32_t) x & 0xFFFFFFF0)
 #define HW_AES_DATA_GET_LAST_REMAINS(x)     ((uint32_t) x & 0x0000000F)

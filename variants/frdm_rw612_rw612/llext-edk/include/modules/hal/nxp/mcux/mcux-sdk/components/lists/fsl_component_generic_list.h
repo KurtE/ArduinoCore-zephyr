@@ -45,47 +45,47 @@
 #if (defined(SDK_COMPONENT_DEPENDENCY_FSL_COMMON) && (SDK_COMPONENT_DEPENDENCY_FSL_COMMON > 0U))
 typedef enum _list_status
 {
-    kLIST_Ok             = kStatus_Success,                   /*!< Success */
-    kLIST_DuplicateError = MAKE_STATUS(kStatusGroup_LIST, 1), /*!< Duplicate Error */
-    kLIST_Full           = MAKE_STATUS(kStatusGroup_LIST, 2), /*!< FULL */
-    kLIST_Empty          = MAKE_STATUS(kStatusGroup_LIST, 3), /*!< Empty */
-    kLIST_OrphanElement  = MAKE_STATUS(kStatusGroup_LIST, 4), /*!< Orphan Element */
-    kLIST_NotSupport     = MAKE_STATUS(kStatusGroup_LIST, 5), /*!< Not Support  */
+    kLIST_Ok             = kStatus_Success,
+    kLIST_DuplicateError = MAKE_STATUS(kStatusGroup_LIST, 1),
+    kLIST_Full           = MAKE_STATUS(kStatusGroup_LIST, 2),
+    kLIST_Empty          = MAKE_STATUS(kStatusGroup_LIST, 3),
+    kLIST_OrphanElement  = MAKE_STATUS(kStatusGroup_LIST, 4),
+    kLIST_NotSupport     = MAKE_STATUS(kStatusGroup_LIST, 5),
 } list_status_t;
 #else
 typedef enum _list_status
 {
-    kLIST_Ok             = 0, /*!< Success */
-    kLIST_DuplicateError = 1, /*!< Duplicate Error */
-    kLIST_Full           = 2, /*!< FULL */
-    kLIST_Empty          = 3, /*!< Empty */
-    kLIST_OrphanElement  = 4, /*!< Orphan Element */
-    kLIST_NotSupport     = 5, /*!< Not Support  */
+    kLIST_Ok             = 0,
+    kLIST_DuplicateError = 1,
+    kLIST_Full           = 2,
+    kLIST_Empty          = 3,
+    kLIST_OrphanElement  = 4,
+    kLIST_NotSupport     = 5,
 } list_status_t;
 #endif
 
 /*! @brief The list structure*/
 typedef struct list_label
 {
-    struct list_element_tag *head; /*!< list head */
-    struct list_element_tag *tail; /*!< list tail */
-    uint32_t size;                 /*!< list size */
-    uint32_t max;                  /*!< list max number of elements */
+    struct list_element_tag *head;
+    struct list_element_tag *tail;
+    uint32_t size;
+    uint32_t max;
 } list_label_t, *list_handle_t;
 #if (defined(GENERIC_LIST_LIGHT) && (GENERIC_LIST_LIGHT > 0U))
 /*! @brief The list element*/
 typedef struct list_element_tag
 {
-    struct list_element_tag *next; /*!< next list element   */
-    struct list_label *list;       /*!< pointer to the list */
+    struct list_element_tag *next;
+    struct list_label *list;
 } list_element_t, *list_element_handle_t;
 #else
 /*! @brief The list element*/
 typedef struct list_element_tag
 {
-    struct list_element_tag *next; /*!< next list element   */
-    struct list_element_tag *prev; /*!< previous list element */
-    struct list_label *list;       /*!< pointer to the list */
+    struct list_element_tag *next;
+    struct list_element_tag *prev;
+    struct list_label *list;
 } list_element_t, *list_element_handle_t;
 #endif
 /**********************************************************************************

@@ -42,8 +42,8 @@ struct flash_img_context {
  * to verify flash integrity.  The current available algorithm is SHA-256.
  */
 struct flash_img_check {
-	const uint8_t *match;		/** Match vector data */
-	size_t clen;			/** Content to be compared */
+	const uint8_t *match;
+	size_t clen;
 };
 
 /**

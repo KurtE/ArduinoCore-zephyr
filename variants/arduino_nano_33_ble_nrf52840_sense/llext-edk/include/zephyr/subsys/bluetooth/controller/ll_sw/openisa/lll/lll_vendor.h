@@ -5,7 +5,7 @@
  */
 
 #define EVENT_OVERHEAD_XTAL_US        1500
-#define EVENT_OVERHEAD_PREEMPT_US     0    /* if <= min, then dynamic preempt */
+#define EVENT_OVERHEAD_PREEMPT_US     0
 #define EVENT_OVERHEAD_PREEMPT_MIN_US 150
 #define EVENT_OVERHEAD_PREEMPT_MAX_US EVENT_OVERHEAD_XTAL_US
 #define EVENT_OVERHEAD_START_US       300
@@ -21,7 +21,7 @@
  */
 #define EVENT_TICKER_RES_MARGIN_US    32
 
-#define EVENT_RX_JITTER_US(phy) 16    /* Radio Rx timing uncertainty */
+#define EVENT_RX_JITTER_US(phy) 16
 #define EVENT_RX_TO_US(phy) ((((((phy)&0x03) + 4)<<3)/BIT((((phy)&0x3)>>1))) + \
 				  EVENT_RX_JITTER_US(phy))
 

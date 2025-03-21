@@ -5,7 +5,7 @@
 
 /*
  * Copyright (c) 2020 Intel Corporation
- * Copyright (c) 2021-2024 Nordic Semiconductor ASA
+ * Copyright (c) 2021-2025 Nordic Semiconductor ASA
  *
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -68,6 +68,16 @@ extern "C" {
 /** Value to set the ISO data path over HCi. */
 #define BT_ISO_DATA_PATH_HCI        0x00
 
+/** Unknown SDU interval */
+#define BT_ISO_SDU_INTERVAL_UNKNOWN 0x000000U
+/** The minimum value for vendor specific data path ID */
+#define BT_ISO_DATA_PATH_VS_ID_MIN  0x01
+/** The maximum value for vendor specific data path ID */
+#define BT_ISO_DATA_PATH_VS_ID_MAX  0xFE
+/** Minimum controller delay in microseconds (0 s) */
+#define BT_ISO_CONTROLLER_DELAY_MIN 0x000000
+/** Maximum controller delay in microseconds (4 s) */
+#define BT_ISO_CONTROLLER_DELAY_MAX 0x3D0900
 /** Minimum interval value in microseconds */
 #define BT_ISO_SDU_INTERVAL_MIN     0x0000FFU
 /** Maximum interval value in microseconds */
@@ -140,6 +150,10 @@ extern "C" {
 #define BT_ISO_PTO_MIN              0x00U
 /** Maximum pre-transmission offset */
 #define BT_ISO_PTO_MAX              0x0FU
+/** No subinterval */
+#define BT_ISO_SUBINTERVAL_NONE         0x00000000U
+/** Unknown subinterval */
+#define BT_ISO_SUBINTERVAL_UNKNOWN      0xFFFFFFFFU
 
 /**
  * @brief Check if ISO BIS bitfield is valid (BT_ISO_BIS_INDEX_BIT(1)|..|BT_ISO_BIS_INDEX_BIT(31))
@@ -171,10 +185,11 @@ enum bt_iso_state {
  * @brief ISO Channel Type.
  */
 enum bt_iso_chan_type {
-	BT_ISO_CHAN_TYPE_NONE,		/**< No channel type */
-	BT_ISO_CHAN_TYPE_CONNECTED,	/**< Connected */
-	BT_ISO_CHAN_TYPE_BROADCASTER,	/**< Isochronous broadcaster */
-	BT_ISO_CHAN_TYPE_SYNC_RECEIVER	/**< Synchronized receiver */
+	BT_ISO_CHAN_TYPE_NONE,
+	BT_ISO_CHAN_TYPE_CENTRAL,
+	BT_ISO_CHAN_TYPE_PERIPHERAL,
+	BT_ISO_CHAN_TYPE_BROADCASTER,
+	BT_ISO_CHAN_TYPE_SYNC_RECEIVER
 };
 
 /** @brief ISO Channel structure. */
@@ -224,13 +239,6 @@ struct bt_iso_chan_io_qos {
 	 * This value is ignored if any advanced ISO parameters are set.
 	 */
 	uint8_t				rtn;
-	/**
-	 * @brief Channel data path reference
-	 *
-	 * Setting to NULL default to HCI data path (same as setting path.pid
-	 * to @ref BT_ISO_DATA_PATH_HCI).
-	 */
-	struct bt_iso_chan_path		*path;
 
 #if defined(CONFIG_BT_ISO_TEST_PARAMS) || defined(__DOXYGEN__)
 	/**
@@ -287,20 +295,37 @@ struct bt_iso_chan_qos {
 
 /** @brief ISO Channel Data Path structure. */
 struct bt_iso_chan_path {
-	/** Default path ID */
-	uint8_t				pid;
-	/** Coding Format */
-	uint8_t				format;
+	/**
+	 * @brief Default path ID
+	 *
+	 * @ref BT_ISO_DATA_PATH_HCI to use ISO over  HCI or between @ref BT_ISO_DATA_PATH_VS_ID_MIN
+	 * and @ref BT_ISO_DATA_PATH_VS_ID_MAX for vendor specific data paths.
+	 */
+	uint8_t pid;
+	/**
+	 * @brief Coding Format
+	 *
+	 * See the BT_HCI_CODING_FORMAT_* values for valid values.
+	 */
+	uint8_t format;
 	/** Company ID */
-	uint16_t			cid;
+	uint16_t cid;
 	/** Vendor-defined Codec ID */
-	uint16_t			vid;
-	/** Controller Delay */
-	uint32_t			delay;
-	/** Codec Configuration length*/
-	uint8_t				cc_len;
-	/** Pointer to an array containing the Codec Configuration */
-	uint8_t				*cc;
+	uint16_t vid;
+	/**
+	 * @brief Controller Delay in microseconds
+	 *
+	 * Value range from @ref BT_ISO_CONTROLLER_DELAY_MIN to @ref BT_ISO_CONTROLLER_DELAY_MAX.
+	 */
+	uint32_t delay;
+	/** Codec Configuration length */
+	uint8_t cc_len;
+	/**
+	 * @brief Pointer to an array containing the Codec Configuration
+	 *
+	 * Shall not be NULL if bt_iso_chan_path.cc_len is non-zero.
+	 */
+	uint8_t *cc;
 };
 
 /** ISO packet status flag bits */
@@ -685,6 +710,14 @@ struct bt_iso_chan_ops {
 	 * channel is disconnected, including when a connection gets
 	 * rejected or when setting security fails.
 	 *
+	 * If the channel was established (i.e. @ref bt_iso_chan_ops.connected has been called
+	 * for this channel), then the channel object is still valid and the memory of the channel
+	 * shall not be memset to 0 or otherwise free'd.
+	 * To avoid any issues it is recommended to use a @ref k_work_submit or similar to not
+	 * overwrite any data while in the callback.
+	 *
+	 * For the above reason it is still possible to use bt_iso_chan_get_info() on the @p chan.
+	 *
 	 * @param chan   The channel that has been Disconnected
 	 * @param reason BT_HCI_ERR_* reason for the disconnection.
 	 */
@@ -951,6 +984,70 @@ int bt_iso_chan_send(struct bt_iso_chan *chan, struct net_buf *buf, uint16_t seq
 int bt_iso_chan_send_ts(struct bt_iso_chan *chan, struct net_buf *buf, uint16_t seq_num,
 			uint32_t ts);
 
+/**
+ * @brief Sets up the ISO data path for a ISO channel
+ *
+ * The channel must be associated with a BIS or CIS handle first which it is when the
+ * bt_iso_chan_ops.connected() callback is called.
+ *
+ * @param chan The channel to setup the ISO data path for
+ * @param dir The direction to setup, either @ref BT_HCI_DATAPATH_DIR_CTLR_TO_HOST or
+ *            @ref BT_HCI_DATAPATH_DIR_HOST_TO_CTLR. For ISO broadcast channels this can only be
+ *            @ref BT_HCI_DATAPATH_DIR_HOST_TO_CTLR, and for ISO sync receiver channels this can
+ *            only be @ref BT_HCI_DATAPATH_DIR_CTLR_TO_HOST.
+ * @param path The data path
+ *
+ * @retval 0 Success
+ * @retval -EINVAL Invalid parameters
+ * @retval -ENOBUFS No HCI command buffer could be allocated
+ * @retval -EIO The controller rejected the request or response contains invalid data
+ * @retval -ENODEV @p chan is not associated with a CIS or BIS handle
+ * @retval -EACCES The controller rejected the request as disallowed
+ * @retval -ENOEXEC Unexpected error occurred
+ */
+int bt_iso_setup_data_path(const struct bt_iso_chan *chan, uint8_t dir,
+			   const struct bt_iso_chan_path *path);
+
+/**
+ * @brief Removes the ISO data path for a ISO channel
+ *
+ * Removes the ISO data path configured by bt_iso_setup_data_path() for the provided @p dir.
+ *
+ * The data paths of CIS for Peripherals are deleted by the controller,
+ * and thus it is not necessary (or possible) to remove
+ * data paths of CIS after they have disconnected for a Peripheral,
+ * as per Bluetooth Core specification 6.0, Vol 4, Part E, Section 7.7.5.
+ * The data paths for CIS for a Central remain valid, even after a disconnection, and thus a Central
+ * device should call bt_iso_remove_data_path() on disconnect if it no longer wants to use that CIS.
+ * All data paths created by a Central are removed when the CIG is removed with
+ * bt_iso_cig_terminate().
+ *
+ * Any data paths associated with an ISO Sync Receiver BIG are removed by the controller
+ * when the BIG sync is lost or terminated, and thus it is not necessary (or possible) to remove
+ * data paths of ISO channels associated with a BIG for a Sync Receiver,
+ * as per Bluetooth Core specification 6.0, Vol 4, Part E, Section 7.7.65.30
+ *
+ * All data paths associated with an ISO Broadcaster BIG are removed when the BIG is terminated by
+ * bt_iso_big_terminate(), and thus it is not necessary (or possible) to remove data paths of ISO
+ * channels associated with a BIG for a Broadcaster,
+ * as per Bluetooth Core specification 6.0, Vol 4, Part E, Section 7.8.105
+ *
+ * @param chan The channel to setup the ISO data path for
+ * @param dir The direction to setup, either @ref BT_HCI_DATAPATH_DIR_CTLR_TO_HOST or
+ *            @ref BT_HCI_DATAPATH_DIR_HOST_TO_CTLR. For ISO broadcast channels this can only be
+ *            @ref BT_HCI_DATAPATH_DIR_HOST_TO_CTLR, and for ISO sync receiver channels this can
+ *            only be @ref BT_HCI_DATAPATH_DIR_CTLR_TO_HOST.
+
+ * @retval 0 Success
+ * @retval -EINVAL Invalid parameters
+ * @retval -ENOBUFS No HCI command buffer could be allocated
+ * @retval -EIO The controller rejected the request or response contains invalid data
+ * @retval -ENODEV @p chan is not associated with a CIS or BIS handle
+ * @retval -EACCES The controller rejected the request as disallowed
+ * @retval -ENOEXEC Unexpected error occurred
+ */
+int bt_iso_remove_data_path(const struct bt_iso_chan *chan, uint8_t dir);
+
 /** @brief ISO Unicast TX Info Structure */
 struct bt_iso_unicast_tx_info {
 	/** The transport latency in us */
@@ -967,6 +1064,18 @@ struct bt_iso_unicast_tx_info {
 
 	/** The burst number */
 	uint8_t  bn;
+
+	/** The maximum SDU size in octets
+	 *
+	 * May be set to @ref bt_iso_unicast_tx_info.max_pdu for peripherals if unknown
+	 */
+	uint16_t max_sdu;
+
+	/** The SDU interval in microseconds
+	 *
+	 * May be set to  @ref BT_ISO_SDU_INTERVAL_UNKNOWN for if unknown.
+	 */
+	uint32_t sdu_interval;
 };
 
 /** @brief ISO Unicast Info Structure */
@@ -976,6 +1085,14 @@ struct bt_iso_unicast_info {
 
 	/** The maximum time in us for all PDUs of this CIS in a CIG event */
 	uint32_t cis_sync_delay;
+
+	/**
+	 * @brief The subinterval in microseconds
+	 *
+	 * Will be @ref BT_ISO_SUBINTERVAL_NONE if there is no subinterval (NSE = 1).
+	 * Will be @ref BT_ISO_SUBINTERVAL_UNKNOWN if unknown.
+	 */
+	uint32_t subinterval;
 
 	/** @brief TX information for the central to peripheral data path */
 	struct bt_iso_unicast_tx_info central;
@@ -1056,20 +1173,30 @@ struct bt_iso_info {
 	/** Connection Type specific Info.*/
 	union {
 #if defined(CONFIG_BT_ISO_UNICAST) || defined(__DOXYGEN__)
-		/** Unicast specific Info.
+		/**
+		 * @brief Unicast specific Info.
+		 *
 		 * Only available when @kconfig{CONFIG_BT_ISO_UNICAST} is enabled.
+		 * Use this when the @ref bt_iso_info.type is @ref BT_ISO_CHAN_TYPE_CENTRAL or
+		 * @ref BT_ISO_CHAN_TYPE_PERIPHERAL.
 		 */
 		struct bt_iso_unicast_info unicast;
 #endif /* CONFIG_BT_ISO_UNICAST */
 #if defined(CONFIG_BT_ISO_BROADCASTER) || defined(__DOXYGEN__)
-		/** Broadcaster specific Info.
+		/**
+		 * @brief Broadcaster specific Info.
+		 *
 		 * Only available when @kconfig{CONFIG_BT_ISO_BROADCASTER} is enabled.
+		 * Use this when the @ref bt_iso_info.type is @ref BT_ISO_CHAN_TYPE_BROADCASTER.
 		 */
 		struct bt_iso_broadcaster_info broadcaster;
 #endif /* CONFIG_BT_ISO_BROADCASTER */
 #if defined(CONFIG_BT_ISO_SYNC_RECEIVER) || defined(__DOXYGEN__)
-		/** Sync receiver specific Info.
+		/**
+		 * @brief Sync receiver specific Info.
+		 *
 		 * Only available when @kconfig{CONFIG_BT_ISO_SYNC_RECEIVER} is enabled.
+		 * Use this when the @ref bt_iso_info.type is @ref BT_ISO_CHAN_TYPE_SYNC_RECEIVER.
 		 */
 		struct bt_iso_sync_receiver_info sync_receiver;
 #endif /* CONFIG_BT_ISO_SYNC_RECEIVER */

@@ -46,8 +46,8 @@ extern "C" {
   */
 typedef enum
 {
-  MMC_DMA_BUFFER0      = 0x00U,    /*!< selects MMC internal DMA Buffer 0     */
-  MMC_DMA_BUFFER1      = 0x01U,    /*!< selects MMC internal DMA Buffer 1     */
+  MMC_DMA_BUFFER0      = 0x00U,
+  MMC_DMA_BUFFER1      = 0x01U,
 
 } HAL_MMCEx_DMABuffer_MemoryTypeDef;
 

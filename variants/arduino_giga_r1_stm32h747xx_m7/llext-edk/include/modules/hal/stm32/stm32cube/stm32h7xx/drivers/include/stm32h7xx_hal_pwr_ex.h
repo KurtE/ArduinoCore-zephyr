@@ -82,8 +82,8 @@ typedef struct
   */
 typedef enum
 {
-  PWR_MMC_VOLTAGE_BELOW_1V2,      /*!< VDDMMC is below 1V2          */
-  PWR_MMC_VOLTAGE_EQUAL_ABOVE_1V2 /*!< VDDMMC is above or equal 1V2 */
+  PWR_MMC_VOLTAGE_BELOW_1V2,
+  PWR_MMC_VOLTAGE_EQUAL_ABOVE_1V2
 } PWREx_MMC_VoltageLevel;
 #endif /* defined (PWR_CSR1_MMCVDO) */
 
@@ -160,16 +160,16 @@ typedef enum
 /** @defgroup PWREx_Wakeup_Pins_Flags PWREx Wakeup Pins Flags.
   * @{
   */
-#define PWR_WAKEUP_FLAG1 PWR_WKUPFR_WKUPF1 /*!< Wakeup flag on PA0  */
-#define PWR_WAKEUP_FLAG2 PWR_WKUPFR_WKUPF2 /*!< Wakeup flag on PA2  */
+#define PWR_WAKEUP_FLAG1 PWR_WKUPFR_WKUPF1
+#define PWR_WAKEUP_FLAG2 PWR_WKUPFR_WKUPF2
 #if defined (PWR_WKUPFR_WKUPF3)
-#define PWR_WAKEUP_FLAG3 PWR_WKUPFR_WKUPF3 /*!< Wakeup flag on PI8  */
+#define PWR_WAKEUP_FLAG3 PWR_WKUPFR_WKUPF3
 #endif /* defined (PWR_WKUPFR_WKUPF3) */
-#define PWR_WAKEUP_FLAG4 PWR_WKUPFR_WKUPF4 /*!< Wakeup flag on PC13 */
+#define PWR_WAKEUP_FLAG4 PWR_WKUPFR_WKUPF4
 #if defined (PWR_WKUPFR_WKUPF5)
-#define PWR_WAKEUP_FLAG5 PWR_WKUPFR_WKUPF5 /*!< Wakeup flag on PI11 */
+#define PWR_WAKEUP_FLAG5 PWR_WKUPFR_WKUPF5
 #endif /* defined (PWR_WKUPFR_WKUPF5) */
-#define PWR_WAKEUP_FLAG6 PWR_WKUPFR_WKUPF6 /*!< Wakeup flag on PC1  */
+#define PWR_WAKEUP_FLAG6 PWR_WKUPFR_WKUPF6
 #if defined (PWR_WKUPFR_WKUPF3)
 #define PWR_WAKEUP_FLAG_ALL (PWR_WKUPFR_WKUPF1 | PWR_WKUPFR_WKUPF2 |\
                              PWR_WKUPFR_WKUPF3 | PWR_WKUPFR_WKUPF4 |\
@@ -232,17 +232,17 @@ typedef enum
 /** @defgroup PWREx_Supply_configuration PWREx Supply configuration
   * @{
   */
-#define PWR_LDO_SUPPLY                      PWR_CR3_LDOEN                                                               /*!< Core domains are supplied from the LDO                                                                     */
+#define PWR_LDO_SUPPLY                      PWR_CR3_LDOEN
 #if defined (SMPS)
-#define PWR_DIRECT_SMPS_SUPPLY              PWR_CR3_SMPSEN                                                              /*!< Core domains are supplied from the SMPS only                                                               */
-#define PWR_SMPS_1V8_SUPPLIES_LDO           (PWR_CR3_SMPSLEVEL_0 | PWR_CR3_SMPSEN    | PWR_CR3_LDOEN)                   /*!< The SMPS 1.8V output supplies the LDO which supplies the Core domains                                       */
-#define PWR_SMPS_2V5_SUPPLIES_LDO           (PWR_CR3_SMPSLEVEL_1 | PWR_CR3_SMPSEN    | PWR_CR3_LDOEN)                   /*!< The SMPS 2.5V output supplies the LDO which supplies the Core domains                                       */
-#define PWR_SMPS_1V8_SUPPLIES_EXT_AND_LDO   (PWR_CR3_SMPSLEVEL_0 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_LDOEN)  /*!< The SMPS 1.8V output supplies an external circuits and the LDO. The Core domains are supplied from the LDO */
-#define PWR_SMPS_2V5_SUPPLIES_EXT_AND_LDO   (PWR_CR3_SMPSLEVEL_1 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_LDOEN)  /*!< The SMPS 2.5V output supplies an external circuits and the LDO. The Core domains are supplied from the LDO */
-#define PWR_SMPS_1V8_SUPPLIES_EXT           (PWR_CR3_SMPSLEVEL_0 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_BYPASS) /*!< The SMPS 1.8V output supplies an external source which supplies the Core domains                            */
-#define PWR_SMPS_2V5_SUPPLIES_EXT           (PWR_CR3_SMPSLEVEL_1 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_BYPASS) /*!< The SMPS 2.5V output supplies an external source which supplies the Core domains                            */
+#define PWR_DIRECT_SMPS_SUPPLY              PWR_CR3_SMPSEN
+#define PWR_SMPS_1V8_SUPPLIES_LDO           (PWR_CR3_SMPSLEVEL_0 | PWR_CR3_SMPSEN    | PWR_CR3_LDOEN)
+#define PWR_SMPS_2V5_SUPPLIES_LDO           (PWR_CR3_SMPSLEVEL_1 | PWR_CR3_SMPSEN    | PWR_CR3_LDOEN)
+#define PWR_SMPS_1V8_SUPPLIES_EXT_AND_LDO   (PWR_CR3_SMPSLEVEL_0 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_LDOEN)
+#define PWR_SMPS_2V5_SUPPLIES_EXT_AND_LDO   (PWR_CR3_SMPSLEVEL_1 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_LDOEN)
+#define PWR_SMPS_1V8_SUPPLIES_EXT           (PWR_CR3_SMPSLEVEL_0 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_BYPASS)
+#define PWR_SMPS_2V5_SUPPLIES_EXT           (PWR_CR3_SMPSLEVEL_1 | PWR_CR3_SMPSEXTHP | PWR_CR3_SMPSEN | PWR_CR3_BYPASS)
 #endif /* defined (SMPS) */
-#define PWR_EXTERNAL_SOURCE_SUPPLY          PWR_CR3_BYPASS                                                              /*!< The SMPS disabled and the LDO Bypass. The Core domains are supplied from an external source                 */
+#define PWR_EXTERNAL_SOURCE_SUPPLY          PWR_CR3_BYPASS
 
 #if defined (SMPS)
 #define PWR_SUPPLY_CONFIG_MASK (PWR_CR3_SMPSLEVEL | PWR_CR3_SMPSEXTHP | \
@@ -273,13 +273,13 @@ typedef enum
 /** @defgroup PWREx_AVD_Mode PWREx AVD Mode
   * @{
   */
-#define PWR_AVD_MODE_NORMAL               (0x00000000U)   /*!< Basic mode is used                                                 */
-#define PWR_AVD_MODE_IT_RISING            (0x00010001U)   /*!< External Interrupt Mode with Rising edge trigger detection         */
-#define PWR_AVD_MODE_IT_FALLING           (0x00010002U)   /*!< External Interrupt Mode with Falling edge trigger detection        */
-#define PWR_AVD_MODE_IT_RISING_FALLING    (0x00010003U)   /*!< External Interrupt Mode with Rising/Falling edge trigger detection */
-#define PWR_AVD_MODE_EVENT_RISING         (0x00020001U)   /*!< Event Mode with Rising edge trigger detection                      */
-#define PWR_AVD_MODE_EVENT_FALLING        (0x00020002U)   /*!< Event Mode with Falling edge trigger detection                     */
-#define PWR_AVD_MODE_EVENT_RISING_FALLING (0x00020003U)   /*!< Event Mode with Rising/Falling edge trigger detection              */
+#define PWR_AVD_MODE_NORMAL               (0x00000000U)
+#define PWR_AVD_MODE_IT_RISING            (0x00010001U)
+#define PWR_AVD_MODE_IT_FALLING           (0x00010002U)
+#define PWR_AVD_MODE_IT_RISING_FALLING    (0x00010003U)
+#define PWR_AVD_MODE_EVENT_RISING         (0x00020001U)
+#define PWR_AVD_MODE_EVENT_FALLING        (0x00020002U)
+#define PWR_AVD_MODE_EVENT_RISING_FALLING (0x00020003U)
 /**
   * @}
   */
@@ -297,8 +297,8 @@ typedef enum
 /** @defgroup PWREx_VBAT_Battery_Charging_Resistor PWR battery charging resistor selection
   * @{
   */
-#define PWR_BATTERY_CHARGING_RESISTOR_5    (0x00000000U) /*!< VBAT charging through a 5 kOhms resistor   */
-#define PWR_BATTERY_CHARGING_RESISTOR_1_5  PWR_CR3_VBRS  /*!< VBAT charging through a 1.5 kOhms resistor */
+#define PWR_BATTERY_CHARGING_RESISTOR_5    (0x00000000U)
+#define PWR_BATTERY_CHARGING_RESISTOR_1_5  PWR_CR3_VBRS
 /**
   * @}
   */
@@ -335,17 +335,17 @@ typedef enum
 /** @defgroup PWREx_Memory_Shut_Off Memory shut-off block selection
   * @{
   */
-#define PWR_SRD_AHB_MEMORY_BLOCK        PWR_CR1_SRDRAMSO    /*!< SmartRun domain AHB memory shut-off in DStop/DStop2 low-power mode         */
-#define PWR_USB_FDCAN_MEMORY_BLOCK      PWR_CR1_HSITFSO     /*!< High-speed interfaces USB and FDCAN memories shut-off in DStop/DStop2 mode */
-#define PWR_GFXMMU_JPEG_MEMORY_BLOCK    PWR_CR1_GFXSO       /*!< GFXMMU and JPEG memories shut-off in DStop/DStop2 mode                     */
-#define PWR_TCM_ECM_MEMORY_BLOCK        PWR_CR1_ITCMSO      /*!< Instruction TCM and ETM memories shut-off in DStop/DStop2 mode             */
-#define PWR_RAM1_AHB_MEMORY_BLOCK       PWR_CR1_AHBRAM1SO   /*!< AHB RAM1 shut-off in DStop/DStop2 mode                                     */
-#define PWR_RAM2_AHB_MEMORY_BLOCK       PWR_CR1_AHBRAM2SO   /*!< AHB RAM2 shut-off in DStop/DStop2 mode                                     */
-#define PWR_RAM1_AXI_MEMORY_BLOCK       PWR_CR1_AXIRAM1SO   /*!< AXI RAM1 shut-off in DStop/DStop2 mode                                     */
-#define PWR_RAM2_AXI_MEMORY_BLOCK       PWR_CR1_AXIRAM2SO   /*!< AXI RAM2 shut-off in DStop/DStop2 mode                                     */
-#define PWR_RAM3_AXI_MEMORY_BLOCK       PWR_CR1_AXIRAM3SO   /*!< AXI RAM3 shut-off in DStop/DStop2 mode                                     */
-#define PWR_MEMORY_BLOCK_KEEP_ON        0U                  /*!< Memory content is kept in DStop or DStop2 mode                             */
-#define PWR_MEMORY_BLOCK_SHUT_OFF       1U                  /*!< Memory content is lost in DStop or DStop2 mode                             */
+#define PWR_SRD_AHB_MEMORY_BLOCK        PWR_CR1_SRDRAMSO
+#define PWR_USB_FDCAN_MEMORY_BLOCK      PWR_CR1_HSITFSO
+#define PWR_GFXMMU_JPEG_MEMORY_BLOCK    PWR_CR1_GFXSO
+#define PWR_TCM_ECM_MEMORY_BLOCK        PWR_CR1_ITCMSO
+#define PWR_RAM1_AHB_MEMORY_BLOCK       PWR_CR1_AHBRAM1SO
+#define PWR_RAM2_AHB_MEMORY_BLOCK       PWR_CR1_AHBRAM2SO
+#define PWR_RAM1_AXI_MEMORY_BLOCK       PWR_CR1_AXIRAM1SO
+#define PWR_RAM2_AXI_MEMORY_BLOCK       PWR_CR1_AXIRAM2SO
+#define PWR_RAM3_AXI_MEMORY_BLOCK       PWR_CR1_AXIRAM3SO
+#define PWR_MEMORY_BLOCK_KEEP_ON        0U
+#define PWR_MEMORY_BLOCK_SHUT_OFF       1U
 /**
   * @}
   */

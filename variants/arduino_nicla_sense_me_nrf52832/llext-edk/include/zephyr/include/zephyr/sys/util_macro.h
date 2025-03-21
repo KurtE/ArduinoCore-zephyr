@@ -93,6 +93,14 @@ extern "C" {
  */
 #define IS_BIT_MASK(m) IS_SHIFTED_BIT_MASK(m, 0)
 
+/**
+ * @brief Check if bit is set in a value
+ *
+ * @param value Value that contain checked bit
+ * @param bit Bit number
+ */
+#define IS_BIT_SET(value, bit) ((((value) >> (bit)) & (0x1)) != 0)
+
 /** @brief Extract the Least Significant Bit from @p value. */
 #define LSB_GET(value) ((value) & -(value))
 
@@ -547,14 +555,14 @@ extern "C" {
  */
 #define FOR_EACH_NONEMPTY_TERM(F, term, ...)				\
 	COND_CODE_0(							\
-		/* are there zero non-empty arguments ? */		\
+		\
 		NUM_VA_ARGS_LESS_1(LIST_DROP_EMPTY(__VA_ARGS__, _)),	\
-		/* if so, expand to nothing */				\
+				\
 		(),							\
-		/* otherwise, expand to: */				\
-		(/* FOR_EACH() on nonempty elements, */		\
+				\
+		(		\
 			FOR_EACH(F, term, LIST_DROP_EMPTY(__VA_ARGS__))	\
-			/* plus a final terminator */			\
+			\
 			__DEBRACKET term				\
 		))
 

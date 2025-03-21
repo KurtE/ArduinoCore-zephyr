@@ -82,8 +82,6 @@
 
 #define K_SYSCALL_DRIVER_IPM(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, ipm, IPM)
 
-#define K_SYSCALL_DRIVER_KSCAN(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, kscan, KSCAN)
-
 #define K_SYSCALL_DRIVER_LED(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, led, LED)
 
 #define K_SYSCALL_DRIVER_LED_STRIP(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, led_strip, LED_STRIP)

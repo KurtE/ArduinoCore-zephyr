@@ -153,34 +153,34 @@ typedef struct
   */
 #if !defined  (HSE_VALUE)
 #if defined(RCC_VER_X) || defined(RCC_VER_3_0)
-#define HSE_VALUE    25000000U  /*!< Value of the HSE oscillator in Hz */
+#define HSE_VALUE    25000000U
 #else
-#define HSE_VALUE    24000000U  /*!< Value of the HSE oscillator in Hz */
+#define HSE_VALUE    24000000U
 #endif /* RCC_VER_X || RCC_VER_3_0 */
 #endif /* HSE_VALUE */
 
 #if !defined  (HSI_VALUE)
-#define HSI_VALUE    64000000U  /*!< Value of the HSI oscillator in Hz */
+#define HSI_VALUE    64000000U
 #endif /* HSI_VALUE */
 
 #if !defined  (CSI_VALUE)
-#define CSI_VALUE    4000000U   /*!< Value of the CSI oscillator in Hz */
+#define CSI_VALUE    4000000U
 #endif /* CSI_VALUE */
 
 #if !defined  (LSE_VALUE)
-#define LSE_VALUE    32768U     /*!< Value of the LSE oscillator in Hz */
+#define LSE_VALUE    32768U
 #endif /* LSE_VALUE */
 
 #if !defined  (LSI_VALUE)
-#define LSI_VALUE    32000U     /*!< Value of the LSI oscillator in Hz */
+#define LSI_VALUE    32000U
 #endif /* LSI_VALUE */
 
 #if !defined  (EXTERNAL_CLOCK_VALUE)
-#define EXTERNAL_CLOCK_VALUE    12288000U /*!< Value of the I2S_CKIN external oscillator in Hz */
+#define EXTERNAL_CLOCK_VALUE    12288000U
 #endif /* EXTERNAL_CLOCK_VALUE */
 
 #if !defined  (HSI48_VALUE)
-#define HSI48_VALUE  48000000U  /*!< Value of the HSI48 oscillator in Hz */
+#define HSI48_VALUE  48000000U
 #endif /* HSI48_VALUE */
 
 /**
@@ -223,10 +223,10 @@ typedef struct
 /** @defgroup RCC_LL_EC_SYS_CLKSOURCE_STATUS  System clock switch status
   * @{
   */
-#define LL_RCC_SYS_CLKSOURCE_STATUS_HSI    RCC_CFGR_SWS_HSI   /*!< HSI used as system clock */
-#define LL_RCC_SYS_CLKSOURCE_STATUS_CSI    RCC_CFGR_SWS_CSI   /*!< CSI used as system clock */
-#define LL_RCC_SYS_CLKSOURCE_STATUS_HSE    RCC_CFGR_SWS_HSE   /*!< HSE used as system clock */
-#define LL_RCC_SYS_CLKSOURCE_STATUS_PLL1   RCC_CFGR_SWS_PLL1  /*!< PLL1 used as system clock */
+#define LL_RCC_SYS_CLKSOURCE_STATUS_HSI    RCC_CFGR_SWS_HSI
+#define LL_RCC_SYS_CLKSOURCE_STATUS_CSI    RCC_CFGR_SWS_CSI
+#define LL_RCC_SYS_CLKSOURCE_STATUS_HSE    RCC_CFGR_SWS_HSE
+#define LL_RCC_SYS_CLKSOURCE_STATUS_PLL1   RCC_CFGR_SWS_PLL1
 /**
   * @}
   */
@@ -1133,7 +1133,7 @@ typedef struct
 #define LL_RCC_LPTIM345_CLKSOURCE        LL_CLKSOURCE(D3CCIP,  RCC_D3CCIPR_LPTIM345SEL, RCC_D3CCIPR_LPTIM345SEL_Pos,     0x00000000U)
 #else
 #define LL_RCC_LPTIM345_CLKSOURCE        LL_CLKSOURCE(SRDCCIP,  RCC_SRDCCIPR_LPTIM3SEL, RCC_SRDCCIPR_LPTIM3SEL_Pos,      0x00000000U)
-#define LL_RCC_LPTIM3_CLKSOURCE          LL_RCC_LPTIM345_CLKSOURCE  /* alias */
+#define LL_RCC_LPTIM3_CLKSOURCE          LL_RCC_LPTIM345_CLKSOURCE
 #endif /* RCC_D3CCIPR_LPTIM345SEL */
 /**
   * @}
@@ -1392,8 +1392,8 @@ typedef struct
 /** @defgroup RCC_LL_EC_HRTIM_CLKSOURCE  High Resolution Timers clock selection
   * @{
   */
-#define LL_RCC_HRTIM_CLKSOURCE_TIM          (uint32_t)(0x00000000U)           /* HRTIM Clock source is same as other timers */
-#define LL_RCC_HRTIM_CLKSOURCE_CPU          (uint32_t)(RCC_CFGR_HRTIMSEL)     /* HRTIM Clock source is the CPU clock */
+#define LL_RCC_HRTIM_CLKSOURCE_TIM          (uint32_t)(0x00000000U)
+#define LL_RCC_HRTIM_CLKSOURCE_CPU          (uint32_t)(RCC_CFGR_HRTIMSEL)
 /**
   * @}
   */
@@ -1424,8 +1424,8 @@ typedef struct
 /** @defgroup RCC_LL_EC_PLLVCORANGE   All PLLs VCO range
   * @{
   */
-#define LL_RCC_PLLVCORANGE_WIDE            (uint32_t)(0x00000000U)      /* VCO output range: 192 to 836 MHz   OR  128 to 544 MHz (*) */
-#define LL_RCC_PLLVCORANGE_MEDIUM          (uint32_t)(0x00000001)       /* VCO output range: 150 to 420 MHz */
+#define LL_RCC_PLLVCORANGE_WIDE            (uint32_t)(0x00000000U)
+#define LL_RCC_PLLVCORANGE_MEDIUM          (uint32_t)(0x00000001)
 /**
   * (*) : For stm32h7a3xx and stm32h7b3xx family lines.
   * @}
@@ -1584,8 +1584,8 @@ typedef struct
 /** @defgroup RCC_LL_EC_PERIPH_FREQUENCY Peripheral clock frequency
   * @{
   */
-#define LL_RCC_PERIPH_FREQUENCY_NO         0x00000000U                 /*!< No clock enabled for the peripheral            */
-#define LL_RCC_PERIPH_FREQUENCY_NA         0xFFFFFFFFU                 /*!< Frequency cannot be provided as external clock */
+#define LL_RCC_PERIPH_FREQUENCY_NO         0x00000000U
+#define LL_RCC_PERIPH_FREQUENCY_NA         0xFFFFFFFFU
 /**
   * @}
   */

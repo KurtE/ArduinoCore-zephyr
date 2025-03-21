@@ -66,9 +66,9 @@ struct llcp_struct {
 
 	/* Prepare parameters */
 	struct {
-		uint32_t ticks_at_expire; /* Vendor specific tick units */
-		uint32_t remainder;       /* Vendor specific remainder fraction of a tick unit */
-		uint16_t lazy;            /* Previous skipped radio event count */
+		uint32_t ticks_at_expire;
+		uint32_t remainder;
+		uint16_t lazy;
 	} prep;
 
 	/* Version Exchange Procedure State */
@@ -152,7 +152,7 @@ struct llcp_struct {
 	struct node_rx_pdu *rx_node_release;
 	struct node_tx *tx_node_release;
 
-}; /* struct llcp_struct */
+};
 
 #if defined(CONFIG_BT_CTLR_SYNC_TRANSFER_RECEIVER)
 struct past_params {
@@ -160,7 +160,7 @@ struct past_params {
 	uint8_t  cte_type;
 	uint16_t skip;
 	uint16_t timeout;
-}; /* struct past_params */
+};
 #endif /* CONFIG_BT_CTLR_SYNC_TRANSFER_RECEIVER */
 
 struct ll_conn {
@@ -263,7 +263,7 @@ struct ll_conn {
 	/* Detect empty L2CAP start frame */
 	uint8_t  start_empty:1;
 #endif /* CONFIG_BT_CTLR_LLID_DATA_START_EMPTY */
-}; /* struct ll_conn */
+};
 
 struct node_rx_cc {
 	uint8_t  status;

@@ -16,8 +16,8 @@
 extern "C" {
 #endif
 
-#define MPXXDTYY_MIN_PDM_FREQ		1200000 /* 1.2MHz */
-#define MPXXDTYY_MAX_PDM_FREQ		3250000 /* 3.25MHz */
+#define MPXXDTYY_MIN_PDM_FREQ		1200000
+#define MPXXDTYY_MAX_PDM_FREQ		3250000
 
 struct mpxxdtyy_config {
 	const struct device *comm_master;

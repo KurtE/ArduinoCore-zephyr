@@ -137,9 +137,9 @@
 #define HW_SCE_RSA2048_RANDOM_PUBLIC_KEY_BYTE_SIZE              (65U * 4U)
 
 /* RSA HASH type. */
-#define HW_SCE_RSA_HASH_MD5                                     (0x01)  /* MD5     */
-#define HW_SCE_RSA_HASH_SHA1                                    (0x02)  /* SHA-1   */
-#define HW_SCE_RSA_HASH_SHA256                                  (0x03)  /* SHA-256 */
+#define HW_SCE_RSA_HASH_MD5                                     (0x01)
+#define HW_SCE_RSA_HASH_SHA1                                    (0x02)
+#define HW_SCE_RSA_HASH_SHA256                                  (0x03)
 
 /* For ECC operation. */
 #define HW_SCE_ECC_PUBLIC_KEY_MANAGEMENT_INFO1_WORD_SIZE    (4U)
@@ -418,7 +418,7 @@ typedef struct sce_aes_key_index
 typedef struct sce_tdes_key_index
 {
     uint32_t type;
-    uint32_t value[HW_SCE_TDES_KEY_INDEX_WORD_SIZE];    /* DES/TDES are supported */
+    uint32_t value[HW_SCE_TDES_KEY_INDEX_WORD_SIZE];
 } sce_tdes_key_index_t;
 
 /* HMAC-SHA key index data structure */
@@ -436,9 +436,9 @@ typedef struct sce_rsa1024_public_key_index
     struct
     {
         uint32_t    key_management_info1[HW_SCE_RSA_1024_PUBLIC_KEY_MANAGEMENT_INFO1_WORD_SIZE];
-        uint8_t     key_n[HW_SCE_RSA_1024_KEY_N_LENGTH_BYTE_SIZE];       /* plaintext */
-        uint8_t     key_e[HW_SCE_RSA_1024_KEY_E_LENGTH_BYTE_SIZE];       /* plaintext */
-        uint8_t     dummy[HW_SCE_RSA_KEY_GENERATION_DUMMY_BYTE_SIZE];    /* dummy data */
+        uint8_t     key_n[HW_SCE_RSA_1024_KEY_N_LENGTH_BYTE_SIZE];
+        uint8_t     key_e[HW_SCE_RSA_1024_KEY_E_LENGTH_BYTE_SIZE];
+        uint8_t     dummy[HW_SCE_RSA_KEY_GENERATION_DUMMY_BYTE_SIZE];
         uint32_t    key_management_info2[HW_SCE_RSA_1024_PUBLIC_KEY_MANAGEMENT_INFO2_WORD_SIZE];
     }
     value;
@@ -451,7 +451,7 @@ typedef struct sce_rsa1024_private_key_index
     struct
     {
         uint32_t    key_management_info1[HW_SCE_RSA_1024_PRIVATE_KEY_MANAGEMENT_INFO1_WORD_SIZE];
-        uint8_t     key_n[HW_SCE_RSA_1024_KEY_N_LENGTH_BYTE_SIZE];    /* plaintext */
+        uint8_t     key_n[HW_SCE_RSA_1024_KEY_N_LENGTH_BYTE_SIZE];
         uint32_t    key_management_info2[HW_SCE_RSA_1024_PRIVATE_KEY_MANAGEMENT_INFO2_WORD_SIZE];
     }
     value;
@@ -464,9 +464,9 @@ typedef struct sce_rsa2048_public_key_index
     struct
     {
         uint32_t    key_management_info1[HW_SCE_RSA_2048_PUBLIC_KEY_MANAGEMENT_INFO1_WORD_SIZE];
-        uint8_t     key_n[HW_SCE_RSA_2048_KEY_N_LENGTH_BYTE_SIZE];       /* plaintext */
-        uint8_t     key_e[HW_SCE_RSA_2048_KEY_E_LENGTH_BYTE_SIZE];       /* plaintext */
-        uint8_t     dummy[HW_SCE_RSA_KEY_GENERATION_DUMMY_BYTE_SIZE];    /* dummy data */
+        uint8_t     key_n[HW_SCE_RSA_2048_KEY_N_LENGTH_BYTE_SIZE];
+        uint8_t     key_e[HW_SCE_RSA_2048_KEY_E_LENGTH_BYTE_SIZE];
+        uint8_t     dummy[HW_SCE_RSA_KEY_GENERATION_DUMMY_BYTE_SIZE];
         uint32_t    key_management_info2[HW_SCE_RSA_2048_PUBLIC_KEY_MANAGEMENT_INFO2_WORD_SIZE];
     }
     value;
@@ -485,7 +485,7 @@ typedef struct sce_rsa2048_private_key_index
     struct
     {
         uint32_t    key_management_info1[HW_SCE_RSA_2048_PRIVATE_KEY_MANAGEMENT_INFO1_WORD_SIZE];
-        uint8_t     key_n[HW_SCE_RSA_2048_KEY_N_LENGTH_BYTE_SIZE];    /* plaintext */
+        uint8_t     key_n[HW_SCE_RSA_2048_KEY_N_LENGTH_BYTE_SIZE];
         uint32_t    key_management_info2[HW_SCE_RSA_2048_PRIVATE_KEY_MANAGEMENT_INFO2_WORD_SIZE];
     }
     value;
@@ -503,9 +503,9 @@ typedef struct sce_rsa3072_public_key_index
     struct
     {
         uint32_t    key_management_info1[HW_SCE_RSA_3072_PUBLIC_KEY_MANAGEMENT_INFO1_WORD_SIZE];
-        uint8_t     key_n[HW_SCE_RSA_3072_KEY_N_LENGTH_BYTE_SIZE];       /* plaintext */
-        uint8_t     key_e[HW_SCE_RSA_3072_KEY_E_LENGTH_BYTE_SIZE];       /* plaintext */
-        uint8_t     dummy[HW_SCE_RSA_KEY_GENERATION_DUMMY_BYTE_SIZE];    /* dummy data */
+        uint8_t     key_n[HW_SCE_RSA_3072_KEY_N_LENGTH_BYTE_SIZE];
+        uint8_t     key_e[HW_SCE_RSA_3072_KEY_E_LENGTH_BYTE_SIZE];
+        uint8_t     dummy[HW_SCE_RSA_KEY_GENERATION_DUMMY_BYTE_SIZE];
         uint32_t    key_management_info2[HW_SCE_RSA_3072_PUBLIC_KEY_MANAGEMENT_INFO2_WORD_SIZE];
     }
     value;
@@ -518,7 +518,7 @@ typedef struct sce_rsa3072_private_key_index
     struct
     {
         uint32_t    key_management_info1[HW_SCE_RSA_3072_PRIVATE_KEY_MANAGEMENT_INFO1_WORD_SIZE];
-        uint8_t     key_n[HW_SCE_RSA_3072_KEY_N_LENGTH_BYTE_SIZE];    /* plaintext */
+        uint8_t     key_n[HW_SCE_RSA_3072_KEY_N_LENGTH_BYTE_SIZE];
         uint32_t    key_management_info2[HW_SCE_RSA_3072_PRIVATE_KEY_MANAGEMENT_INFO2_WORD_SIZE];
     }
     value;
@@ -531,9 +531,9 @@ typedef struct sce_rsa4096_public_key_index
     struct
     {
         uint32_t    key_management_info1[HW_SCE_RSA_4096_PUBLIC_KEY_MANAGEMENT_INFO1_WORD_SIZE];
-        uint8_t     key_n[HW_SCE_RSA_4096_KEY_N_LENGTH_BYTE_SIZE];       /* plaintext */
-        uint8_t     key_e[HW_SCE_RSA_4096_KEY_E_LENGTH_BYTE_SIZE];       /* plaintext */
-        uint8_t     dummy[HW_SCE_RSA_KEY_GENERATION_DUMMY_BYTE_SIZE];    /* dummy data */
+        uint8_t     key_n[HW_SCE_RSA_4096_KEY_N_LENGTH_BYTE_SIZE];
+        uint8_t     key_e[HW_SCE_RSA_4096_KEY_E_LENGTH_BYTE_SIZE];
+        uint8_t     dummy[HW_SCE_RSA_KEY_GENERATION_DUMMY_BYTE_SIZE];
         uint32_t    key_management_info2[HW_SCE_RSA_4096_PUBLIC_KEY_MANAGEMENT_INFO2_WORD_SIZE];
     }
     value;
@@ -546,7 +546,7 @@ typedef struct sce_rsa4096_private_key_index
     struct
     {
         uint32_t    key_management_info1[HW_SCE_RSA_4096_PRIVATE_KEY_MANAGEMENT_INFO1_WORD_SIZE];
-        uint8_t     key_n[HW_SCE_RSA_4096_KEY_N_LENGTH_BYTE_SIZE];    /* plaintext */
+        uint8_t     key_n[HW_SCE_RSA_4096_KEY_N_LENGTH_BYTE_SIZE];
         uint32_t    key_management_info2[HW_SCE_RSA_4096_PRIVATE_KEY_MANAGEMENT_INFO2_WORD_SIZE];
     }
     value;

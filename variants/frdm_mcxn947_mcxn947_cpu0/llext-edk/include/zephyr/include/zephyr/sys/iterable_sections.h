@@ -293,7 +293,7 @@ extern "C" {
 
 /**
  * @}
- */ /* end of struct_section_apis */
+ */
 
 #ifdef __cplusplus
 }

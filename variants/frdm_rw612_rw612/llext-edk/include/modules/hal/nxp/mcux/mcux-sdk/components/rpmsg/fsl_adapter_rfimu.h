@@ -40,7 +40,7 @@
 #define IMU_MAX_MSG_CNT_LONG      (16U)
 #define IMU_MAX_MSG_CNT_SHORT     (2U)
 #define IMU_SYNC_MAGIC_PATTERN    (0xABCDEF89U)
-#define IMU_TXQ_BUFSIZE           (32U) /*! must be power of 2 */
+#define IMU_TXQ_BUFSIZE           (32U)
 #define IMU_TXQ_BUFSIZE_THRESHOLD (8U)
 #define IMU_TXQ_ENTRY_MASK        (IMU_TXQ_BUFSIZE - 1U)
 #define IMU_EVENT_TRIGGERS        ((1U << kIMU_LinkMax) - 1U)
@@ -158,7 +158,7 @@ typedef struct IMU_Msg_Wrapper_short_t_
  */
 struct rpmsg_hdr_reserved
 {
-    uint16_t rfu; /* reserved for future usage */
+    uint16_t rfu;
     uint16_t idx;
 };
 
@@ -168,11 +168,11 @@ struct rpmsg_hdr_reserved
  */
 struct rpmsg_std_hdr
 {
-    uint32_t src;                       /*!< source endpoint address */
-    uint32_t dst;                       /*!< destination endpoint address */
-    struct rpmsg_hdr_reserved reserved; /*!< reserved for future use */
-    uint16_t len;                       /*!< length of payload (in bytes) */
-    uint16_t flags;                     /*!< message flags */
+    uint32_t src;
+    uint32_t dst;
+    struct rpmsg_hdr_reserved reserved;
+    uint16_t len;
+    uint16_t flags;
 };
 
 /*!
@@ -181,8 +181,8 @@ struct rpmsg_std_hdr
  */
 struct rpmsg_std_msg
 {
-    struct rpmsg_std_hdr hdr; /*!< RPMsg message header */
-    uint32_t data;            /*!< bytes of message payload data */
+    struct rpmsg_std_hdr hdr;
+    uint32_t data;
 };
 
 typedef hal_rpmsg_status_t (*imu_callback_t)(IMU_Msg_t *pImuMsg, uint32_t length);
@@ -367,7 +367,7 @@ typedef struct _hal_imu_handle_t
 {
     /*! Word 0 */
     uint8_t imuLink;
-    uint8_t imuSyncState; /*！ 0：Link Off, 1:Link Ongoing, 2: Link Up */
+    uint8_t imuSyncState;
     uint8_t freeTxMportBufCnt;
     uint8_t imuMsgBufIdx;
     /*! Word 1 */

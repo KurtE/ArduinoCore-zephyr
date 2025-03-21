@@ -15,10 +15,10 @@
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/drivers/sensor/tmp108.h>
 
-#define TI_TMP108_REG_TEMP		0x00   /** Temperature register */
-#define TI_TMP108_REG_CONF		0x01   /** Configuration register */
-#define TI_TMP108_REG_LOW_LIMIT		0x02   /** Low alert set register */
-#define TI_TMP108_REG_HIGH_LIMIT	0x03   /** High alert set register */
+#define TI_TMP108_REG_TEMP		0x00
+#define TI_TMP108_REG_CONF		0x01
+#define TI_TMP108_REG_LOW_LIMIT		0x02
+#define TI_TMP108_REG_HIGH_LIMIT	0x03
 
 #define AMS_AS6212_CONF                                                                            \
 	{.CONF_CR0 = 0x0040,                                                                       \
@@ -86,19 +86,19 @@
 #define TI_TMP108_CONF_NA 0x0000
 
 struct tmp_108_reg_def {
-	uint16_t CONF_M0;    /** Mode 1 configuration bit */
-	uint16_t CONF_M1;    /** Mode 2 configuration bit */
-	uint16_t CONF_SLEEP; /** Sleep mode configuration bit */
-	uint16_t CONF_CR0;   /** Conversion rate 1 configuration bit */
-	uint16_t CONF_CR1;   /** Conversion rate 2 configuration bit */
-	uint16_t CONF_TM;    /** Thermostat mode setting bit */
-	int32_t TEMP_MULT;   /** Temperature multiplier */
-	int32_t TEMP_DIV;    /** Temperature divisor */
-	uint16_t CONF_RST;   /** default reset values on init */
+	uint16_t CONF_M0;
+	uint16_t CONF_M1;
+	uint16_t CONF_SLEEP;
+	uint16_t CONF_CR0;
+	uint16_t CONF_CR1;
+	uint16_t CONF_TM;
+	int32_t TEMP_MULT;
+	int32_t TEMP_DIV;
+	uint16_t CONF_RST;
 #ifdef CONFIG_TMP108_ALERT_INTERRUPTS
-	uint16_t CONF_POL;  /** Alert pin Polarity configuration bit */
-	uint16_t CONF_HYS1; /** Temperature hysteresis config 1 bit  */
-	uint16_t CONF_HYS0; /** Temperature hysteresis config 2 bit */
+	uint16_t CONF_POL;
+	uint16_t CONF_HYS1;
+	uint16_t CONF_HYS0;
 #endif
 };
 

@@ -251,14 +251,14 @@ static inline int net_capture_pkt_with_status(struct net_if *iface, struct net_p
 
 /** The type and direction of the captured data. */
 enum net_capture_packet_type {
-	NET_CAPTURE_HOST,      /**< Packet was sent to us by somebody else */
-	NET_CAPTURE_BROADCAST, /**< Packet was broadcast by somebody else */
-	NET_CAPTURE_MULTICAST, /**< Packet was multicast, but not broadcast, by somebody else */
-	NET_CAPTURE_OTHERHOST, /**< Packet was sent by somebody else to somebody else */
-	NET_CAPTURE_OUTGOING,  /**< Packet was sent by us */
+	NET_CAPTURE_HOST,
+	NET_CAPTURE_BROADCAST,
+	NET_CAPTURE_MULTICAST,
+	NET_CAPTURE_OTHERHOST,
+	NET_CAPTURE_OUTGOING,
 };
 
-#define NET_CAPTURE_LL_ADDRLEN 8 /** Maximum length of a link-layer address */
+#define NET_CAPTURE_LL_ADDRLEN 8
 
 /** The context information for cooked mode capture */
 struct net_capture_cooked {

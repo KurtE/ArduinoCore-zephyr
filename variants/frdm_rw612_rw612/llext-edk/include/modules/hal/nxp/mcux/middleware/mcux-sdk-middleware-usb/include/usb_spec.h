@@ -178,54 +178,54 @@ typedef struct _usb_setup_struct
 /* Language structure */
 typedef struct _usb_language
 {
-    uint8_t **string;    /* The Strings descriptor array */
-    uint32_t *length;    /* The strings descriptor length array */
-    uint16_t languageId; /* The language id of current language */
+    uint8_t **string;
+    uint32_t *length;
+    uint16_t languageId;
 } usb_language_t;
 
 typedef struct _usb_language_list
 {
-    uint8_t *languageString;      /* The String 0U pointer */
-    uint32_t stringLength;        /* The String 0U Length */
-    usb_language_t *languageList; /* The language list */
-    uint8_t count;                /* The language count */
+    uint8_t *languageString;
+    uint32_t stringLength;
+    usb_language_t *languageList;
+    uint8_t count;
 } usb_language_list_t;
 
 typedef struct _usb_descriptor_common
 {
-    uint8_t bLength;         /* Size of this descriptor in bytes */
-    uint8_t bDescriptorType; /* DEVICE Descriptor Type */
-    uint8_t bData[1];        /* Data */
+    uint8_t bLength;
+    uint8_t bDescriptorType;
+    uint8_t bData[1];
 } usb_descriptor_common_t;
 
 typedef struct _usb_descriptor_device
 {
-    uint8_t bLength;            /* Size of this descriptor in bytes */
-    uint8_t bDescriptorType;    /* DEVICE Descriptor Type */
-    uint8_t bcdUSB[2];          /* UUSB Specification Release Number in Binary-Coded Decimal, e.g. 0x0200U */
-    uint8_t bDeviceClass;       /* Class code */
-    uint8_t bDeviceSubClass;    /* Sub-Class code */
-    uint8_t bDeviceProtocol;    /* Protocol code */
-    uint8_t bMaxPacketSize0;    /* Maximum packet size for endpoint zero */
-    uint8_t idVendor[2];        /* Vendor ID (assigned by the USB-IF) */
-    uint8_t idProduct[2];       /* Product ID (assigned by the manufacturer) */
-    uint8_t bcdDevice[2];       /* Device release number in binary-coded decimal */
-    uint8_t iManufacturer;      /* Index of string descriptor describing manufacturer */
-    uint8_t iProduct;           /* Index of string descriptor describing product */
-    uint8_t iSerialNumber;      /* Index of string descriptor describing the device serial number */
-    uint8_t bNumConfigurations; /* Number of possible configurations */
+    uint8_t bLength;
+    uint8_t bDescriptorType;
+    uint8_t bcdUSB[2];
+    uint8_t bDeviceClass;
+    uint8_t bDeviceSubClass;
+    uint8_t bDeviceProtocol;
+    uint8_t bMaxPacketSize0;
+    uint8_t idVendor[2];
+    uint8_t idProduct[2];
+    uint8_t bcdDevice[2];
+    uint8_t iManufacturer;
+    uint8_t iProduct;
+    uint8_t iSerialNumber;
+    uint8_t bNumConfigurations;
 } usb_descriptor_device_t;
 
 typedef struct _usb_descriptor_configuration
 {
-    uint8_t bLength;             /* Descriptor size in bytes = 9U */
-    uint8_t bDescriptorType;     /* CONFIGURATION type = 2U or 7U */
-    uint8_t wTotalLength[2];     /* Length of concatenated descriptors */
-    uint8_t bNumInterfaces;      /* Number of interfaces, this configuration. */
-    uint8_t bConfigurationValue; /* Value to set this configuration. */
-    uint8_t iConfiguration;      /* Index to configuration string */
-    uint8_t bmAttributes;        /* Configuration characteristics */
-    uint8_t bMaxPower;           /* Maximum power from bus, 2 mA units */
+    uint8_t bLength;
+    uint8_t bDescriptorType;
+    uint8_t wTotalLength[2];
+    uint8_t bNumInterfaces;
+    uint8_t bConfigurationValue;
+    uint8_t iConfiguration;
+    uint8_t bmAttributes;
+    uint8_t bMaxPower;
 } usb_descriptor_configuration_t;
 
 typedef struct _usb_descriptor_interface
@@ -262,18 +262,18 @@ typedef struct _usb_descriptor_endpoint_companion
 
 typedef struct _usb_descriptor_binary_device_object_store
 {
-    uint8_t bLength;         /* Descriptor size in bytes = 5U */
-    uint8_t bDescriptorType; /* BOS Descriptor type = 0FU*/
-    uint8_t wTotalLength[2]; /*Length of this descriptor and all of its sub descriptors*/
-    uint8_t bNumDeviceCaps;  /*The number of separate device capability descriptors in the BOS*/
+    uint8_t bLength;
+    uint8_t bDescriptorType;
+    uint8_t wTotalLength[2];
+    uint8_t bNumDeviceCaps;
 } usb_descriptor_bos_t;
 
 typedef struct _usb_descriptor_usb20_extension
 {
-    uint8_t bLength;            /* Descriptor size in bytes = 7U */
-    uint8_t bDescriptorType;    /* DEVICE CAPABILITY Descriptor type = 0x10U*/
-    uint8_t bDevCapabilityType; /*Length of this descriptor and all of its sub descriptors*/
-    uint8_t bmAttributes[4];    /*Bitmap encoding of supported device level features.*/
+    uint8_t bLength;
+    uint8_t bDescriptorType;
+    uint8_t bDevCapabilityType;
+    uint8_t bmAttributes[4];
 } usb_descriptor_usb20_extension_t;
 typedef struct _usb_descriptor_super_speed_device_capability
 {
@@ -288,12 +288,12 @@ typedef struct _usb_descriptor_super_speed_device_capability
 } usb_bos_device_capability_susperspeed_desc_t;
 typedef union _usb_descriptor_union
 {
-    usb_descriptor_common_t common;                        /* Common descriptor */
-    usb_descriptor_device_t device;                        /* Device descriptor */
-    usb_descriptor_configuration_t configuration;          /* Configuration descriptor */
-    usb_descriptor_interface_t interface;                  /* Interface descriptor */
-    usb_descriptor_endpoint_t endpoint;                    /* Endpoint descriptor */
-    usb_descriptor_endpoint_companion_t endpointCompanion; /* Endpoint companion descriptor */
+    usb_descriptor_common_t common;
+    usb_descriptor_device_t device;
+    usb_descriptor_configuration_t configuration;
+    usb_descriptor_interface_t interface;
+    usb_descriptor_endpoint_t endpoint;
+    usb_descriptor_endpoint_companion_t endpointCompanion;
 } usb_descriptor_union_t;
 
 #endif /* __USB_SPEC_H__ */

@@ -48,11 +48,11 @@ extern "C" {
   */
 typedef enum
 {
-  HAL_DAC_STATE_RESET             = 0x00U,  /*!< DAC not yet initialized or disabled  */
-  HAL_DAC_STATE_READY             = 0x01U,  /*!< DAC initialized and ready for use    */
-  HAL_DAC_STATE_BUSY              = 0x02U,  /*!< DAC internal processing is ongoing   */
-  HAL_DAC_STATE_TIMEOUT           = 0x03U,  /*!< DAC timeout state                    */
-  HAL_DAC_STATE_ERROR             = 0x04U   /*!< DAC error state                      */
+  HAL_DAC_STATE_RESET             = 0x00U,
+  HAL_DAC_STATE_READY             = 0x01U,
+  HAL_DAC_STATE_BUSY              = 0x02U,
+  HAL_DAC_STATE_TIMEOUT           = 0x03U,
+  HAL_DAC_STATE_ERROR             = 0x04U
 
 } HAL_DAC_StateTypeDef;
 
@@ -65,17 +65,17 @@ typedef struct __DAC_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_DAC_REGISTER_CALLBACKS */
 {
-  DAC_TypeDef                 *Instance;     /*!< Register base address             */
+  DAC_TypeDef                 *Instance;
 
-  __IO HAL_DAC_StateTypeDef   State;         /*!< DAC communication state           */
+  __IO HAL_DAC_StateTypeDef   State;
 
-  HAL_LockTypeDef             Lock;          /*!< DAC locking object                */
+  HAL_LockTypeDef             Lock;
 
-  DMA_HandleTypeDef           *DMA_Handle1;  /*!< Pointer DMA handler for channel 1 */
+  DMA_HandleTypeDef           *DMA_Handle1;
 
-  DMA_HandleTypeDef           *DMA_Handle2;  /*!< Pointer DMA handler for channel 2 */
+  DMA_HandleTypeDef           *DMA_Handle2;
 
-  __IO uint32_t               ErrorCode;     /*!< DAC Error code                    */
+  __IO uint32_t               ErrorCode;
 
 #if (USE_HAL_DAC_REGISTER_CALLBACKS == 1)
   void (* ConvCpltCallbackCh1)(struct __DAC_HandleTypeDef *hdac);
@@ -137,7 +137,7 @@ typedef struct
   uint32_t DAC_TrimmingValue;             /*!< Specifies the offset trimming value
                                                i.e. when DAC_SampleAndHold is DAC_TRIMMING_USER.
                                                This parameter must be a number between Min_Data = 1 and Max_Data = 31 */
-  DAC_SampleAndHoldConfTypeDef  DAC_SampleAndHoldConfig;  /*!< Sample and Hold settings */
+  DAC_SampleAndHoldConfTypeDef  DAC_SampleAndHoldConfig;
 } DAC_ChannelConfTypeDef;
 
 #if (USE_HAL_DAC_REGISTER_CALLBACKS == 1)
@@ -146,19 +146,19 @@ typedef struct
   */
 typedef enum
 {
-  HAL_DAC_CH1_COMPLETE_CB_ID                 = 0x00U,  /*!< DAC CH1 Complete Callback ID      */
-  HAL_DAC_CH1_HALF_COMPLETE_CB_ID            = 0x01U,  /*!< DAC CH1 half Complete Callback ID */
-  HAL_DAC_CH1_ERROR_ID                       = 0x02U,  /*!< DAC CH1 error Callback ID         */
-  HAL_DAC_CH1_UNDERRUN_CB_ID                 = 0x03U,  /*!< DAC CH1 underrun Callback ID      */
+  HAL_DAC_CH1_COMPLETE_CB_ID                 = 0x00U,
+  HAL_DAC_CH1_HALF_COMPLETE_CB_ID            = 0x01U,
+  HAL_DAC_CH1_ERROR_ID                       = 0x02U,
+  HAL_DAC_CH1_UNDERRUN_CB_ID                 = 0x03U,
 
-  HAL_DAC_CH2_COMPLETE_CB_ID                 = 0x04U,  /*!< DAC CH2 Complete Callback ID      */
-  HAL_DAC_CH2_HALF_COMPLETE_CB_ID            = 0x05U,  /*!< DAC CH2 half Complete Callback ID */
-  HAL_DAC_CH2_ERROR_ID                       = 0x06U,  /*!< DAC CH2 error Callback ID         */
-  HAL_DAC_CH2_UNDERRUN_CB_ID                 = 0x07U,  /*!< DAC CH2 underrun Callback ID      */
+  HAL_DAC_CH2_COMPLETE_CB_ID                 = 0x04U,
+  HAL_DAC_CH2_HALF_COMPLETE_CB_ID            = 0x05U,
+  HAL_DAC_CH2_ERROR_ID                       = 0x06U,
+  HAL_DAC_CH2_UNDERRUN_CB_ID                 = 0x07U,
 
-  HAL_DAC_MSPINIT_CB_ID                      = 0x08U,  /*!< DAC MspInit Callback ID           */
-  HAL_DAC_MSPDEINIT_CB_ID                    = 0x09U,  /*!< DAC MspDeInit Callback ID         */
-  HAL_DAC_ALL_CB_ID                          = 0x0AU   /*!< DAC All ID                        */
+  HAL_DAC_MSPINIT_CB_ID                      = 0x08U,
+  HAL_DAC_MSPDEINIT_CB_ID                    = 0x09U,
+  HAL_DAC_ALL_CB_ID                          = 0x0AU
 } HAL_DAC_CallbackIDTypeDef;
 
 /**
@@ -180,13 +180,13 @@ typedef void (*pDAC_CallbackTypeDef)(DAC_HandleTypeDef *hdac);
 /** @defgroup DAC_Error_Code DAC Error Code
   * @{
   */
-#define  HAL_DAC_ERROR_NONE              0x00U    /*!< No error                          */
-#define  HAL_DAC_ERROR_DMAUNDERRUNCH1    0x01U    /*!< DAC channel1 DMA underrun error   */
-#define  HAL_DAC_ERROR_DMAUNDERRUNCH2    0x02U    /*!< DAC channel2 DMA underrun error   */
-#define  HAL_DAC_ERROR_DMA               0x04U    /*!< DMA error                         */
-#define  HAL_DAC_ERROR_TIMEOUT           0x08U    /*!< Timeout error                     */
+#define  HAL_DAC_ERROR_NONE              0x00U
+#define  HAL_DAC_ERROR_DMAUNDERRUNCH1    0x01U
+#define  HAL_DAC_ERROR_DMAUNDERRUNCH2    0x02U
+#define  HAL_DAC_ERROR_DMA               0x04U
+#define  HAL_DAC_ERROR_TIMEOUT           0x08U
 #if (USE_HAL_DAC_REGISTER_CALLBACKS == 1)
-#define HAL_DAC_ERROR_INVALID_CALLBACK   0x10U    /*!< Invalid callback error            */
+#define HAL_DAC_ERROR_INVALID_CALLBACK   0x10U
 #endif /* USE_HAL_DAC_REGISTER_CALLBACKS */
 
 /**
@@ -196,31 +196,31 @@ typedef void (*pDAC_CallbackTypeDef)(DAC_HandleTypeDef *hdac);
 /** @defgroup DAC_trigger_selection DAC trigger selection
   * @{
   */
-#define DAC_TRIGGER_NONE                0x00000000U                                                                       /*!< Conversion is automatic once the DAC_DHRxxxx register has been loaded, and not by external trigger */
-#define DAC_TRIGGER_SOFTWARE            (                                                                    DAC_CR_TEN1) /*!< Conversion started by software trigger for DAC channel */
-#define DAC_TRIGGER_T1_TRGO             (                                                   DAC_CR_TSEL1_0 | DAC_CR_TEN1) /*!< TIM1 TRGO selected as external conversion trigger for DAC channel */
-#define DAC_TRIGGER_T2_TRGO             (                                  DAC_CR_TSEL1_1                  | DAC_CR_TEN1) /*!< TIM2 TRGO selected as external conversion trigger for DAC channel */
-#define DAC_TRIGGER_T4_TRGO             (                                  DAC_CR_TSEL1_1 | DAC_CR_TSEL1_0 | DAC_CR_TEN1) /*!< TIM4 TRGO selected as external conversion trigger for DAC channel */
-#define DAC_TRIGGER_T5_TRGO             (                 DAC_CR_TSEL1_2                                   | DAC_CR_TEN1) /*!< TIM5 TRGO selected as external conversion trigger for DAC channel */
-#define DAC_TRIGGER_T6_TRGO             (                 DAC_CR_TSEL1_2                  | DAC_CR_TSEL1_0 | DAC_CR_TEN1) /*!< TIM6 TRGO selected as external conversion trigger for DAC channel */
-#define DAC_TRIGGER_T7_TRGO             (                 DAC_CR_TSEL1_2 | DAC_CR_TSEL1_1                  | DAC_CR_TEN1) /*!< TIM7 TRGO selected as external conversion trigger for DAC channel */
-#define DAC_TRIGGER_T8_TRGO             (                 DAC_CR_TSEL1_2 | DAC_CR_TSEL1_1 | DAC_CR_TSEL1_0 | DAC_CR_TEN1) /*!< TIM8 TRGO selected as external conversion trigger for DAC channel */
-#define DAC_TRIGGER_T15_TRGO            (DAC_CR_TSEL1_3                                                    | DAC_CR_TEN1) /*!< TIM15 TRGO selected as external conversion trigger for DAC channel */
+#define DAC_TRIGGER_NONE                0x00000000U
+#define DAC_TRIGGER_SOFTWARE            (                                                                    DAC_CR_TEN1)
+#define DAC_TRIGGER_T1_TRGO             (                                                   DAC_CR_TSEL1_0 | DAC_CR_TEN1)
+#define DAC_TRIGGER_T2_TRGO             (                                  DAC_CR_TSEL1_1                  | DAC_CR_TEN1)
+#define DAC_TRIGGER_T4_TRGO             (                                  DAC_CR_TSEL1_1 | DAC_CR_TSEL1_0 | DAC_CR_TEN1)
+#define DAC_TRIGGER_T5_TRGO             (                 DAC_CR_TSEL1_2                                   | DAC_CR_TEN1)
+#define DAC_TRIGGER_T6_TRGO             (                 DAC_CR_TSEL1_2                  | DAC_CR_TSEL1_0 | DAC_CR_TEN1)
+#define DAC_TRIGGER_T7_TRGO             (                 DAC_CR_TSEL1_2 | DAC_CR_TSEL1_1                  | DAC_CR_TEN1)
+#define DAC_TRIGGER_T8_TRGO             (                 DAC_CR_TSEL1_2 | DAC_CR_TSEL1_1 | DAC_CR_TSEL1_0 | DAC_CR_TEN1)
+#define DAC_TRIGGER_T15_TRGO            (DAC_CR_TSEL1_3                                                    | DAC_CR_TEN1)
 #if defined(HRTIM1)
-#define DAC_TRIGGER_HR1_TRGO1           (DAC_CR_TSEL1_3                                   | DAC_CR_TSEL1_0 | DAC_CR_TEN1) /*!< HR1 TRGO1 selected as external conversion trigger for DAC channel */
-#define DAC_TRIGGER_HR1_TRGO2           (DAC_CR_TSEL1_3                  | DAC_CR_TSEL1_1                  | DAC_CR_TEN1) /*!< HR1 TRGO2 selected as external conversion trigger for DAC channel */
+#define DAC_TRIGGER_HR1_TRGO1           (DAC_CR_TSEL1_3                                   | DAC_CR_TSEL1_0 | DAC_CR_TEN1)
+#define DAC_TRIGGER_HR1_TRGO2           (DAC_CR_TSEL1_3                  | DAC_CR_TSEL1_1                  | DAC_CR_TEN1)
 #endif /* HRTIM12 */
-#define DAC_TRIGGER_LPTIM1_OUT          (DAC_CR_TSEL1_3                  | DAC_CR_TSEL1_1 | DAC_CR_TSEL1_0 | DAC_CR_TEN1) /*!< LPTIM1 OUT TRGO selected as external conversion trigger for DAC channel */
-#define DAC_TRIGGER_LPTIM2_OUT          (DAC_CR_TSEL1_3 | DAC_CR_TSEL1_2                                   | DAC_CR_TEN1) /*!< LPTIM2 OUT TRGO selected as external conversion trigger for DAC channel */
-#define DAC_TRIGGER_EXT_IT9             (DAC_CR_TSEL1_3 | DAC_CR_TSEL1_2                  | DAC_CR_TSEL1_0 | DAC_CR_TEN1) /*!< EXTI Line9 event selected as external conversion trigger for DAC channel */
+#define DAC_TRIGGER_LPTIM1_OUT          (DAC_CR_TSEL1_3                  | DAC_CR_TSEL1_1 | DAC_CR_TSEL1_0 | DAC_CR_TEN1)
+#define DAC_TRIGGER_LPTIM2_OUT          (DAC_CR_TSEL1_3 | DAC_CR_TSEL1_2                                   | DAC_CR_TEN1)
+#define DAC_TRIGGER_EXT_IT9             (DAC_CR_TSEL1_3 | DAC_CR_TSEL1_2                  | DAC_CR_TSEL1_0 | DAC_CR_TEN1)
 #if defined(TIM23)
-#define DAC_TRIGGER_T23_TRGO            (DAC_CR_TSEL1_3 | DAC_CR_TSEL1_2 | DAC_CR_TSEL1_1                  | DAC_CR_TEN1) /*!< TIM23 TRGO selected as external conversion trigger for DAC channel */
+#define DAC_TRIGGER_T23_TRGO            (DAC_CR_TSEL1_3 | DAC_CR_TSEL1_2 | DAC_CR_TSEL1_1                  | DAC_CR_TEN1)
 #endif /* TIM23 */
 #if defined(TIM24)
-#define DAC_TRIGGER_T24_TRGO            (DAC_CR_TSEL1_3 | DAC_CR_TSEL1_2 | DAC_CR_TSEL1_1 | DAC_CR_TSEL1_0 | DAC_CR_TEN1) /*!< TIM24 TRGO selected as external conversion trigger for DAC channel */
+#define DAC_TRIGGER_T24_TRGO            (DAC_CR_TSEL1_3 | DAC_CR_TSEL1_2 | DAC_CR_TSEL1_1 | DAC_CR_TSEL1_0 | DAC_CR_TEN1)
 #endif /* TIM24 */
 #if defined(DAC2)
-#define DAC_TRIGGER_LPTIM3_OUT          (DAC_CR_TSEL1_3 | DAC_CR_TSEL1_2 | DAC_CR_TSEL1_1                  | DAC_CR_TEN1) /*!< LPTIM3 OUT TRGO selected as external conversion trigger for DAC channel */
+#define DAC_TRIGGER_LPTIM3_OUT          (DAC_CR_TSEL1_3 | DAC_CR_TSEL1_2 | DAC_CR_TSEL1_1                  | DAC_CR_TEN1)
 #endif /* DAC2 */
 
 /**
@@ -286,7 +286,7 @@ typedef void (*pDAC_CallbackTypeDef)(DAC_HandleTypeDef *hdac);
 /** @defgroup DAC_ConnectOnChipPeripheral DAC ConnectOnChipPeripheral
   * @{
   */
-#define DAC_CHIPCONNECT_EXTERNAL       (1UL << 0) /*!< DAC channel output is connected to an external pin.*/
+#define DAC_CHIPCONNECT_EXTERNAL       (1UL << 0)
 #define DAC_CHIPCONNECT_INTERNAL       (1UL << 1) /*!< DAC channel  output is connected to on-chip peripherals (via
                                                        internal paths) and to an external pin. */
 #define DAC_CHIPCONNECT_BOTH           (1UL << 2) /*!< DAC channel  output is connected to on-chip peripherals (via
@@ -300,8 +300,8 @@ typedef void (*pDAC_CallbackTypeDef)(DAC_HandleTypeDef *hdac);
 /** @defgroup DAC_UserTrimming DAC User Trimming
   * @{
   */
-#define DAC_TRIMMING_FACTORY        (0x00000000UL)        /*!< Factory trimming */
-#define DAC_TRIMMING_USER           (0x00000001UL)        /*!< User trimming */
+#define DAC_TRIMMING_FACTORY        (0x00000000UL)
+#define DAC_TRIMMING_USER           (0x00000001UL)
 /**
   * @}
   */

@@ -33,21 +33,21 @@
 
 /*! @brief Retry times for waiting flag. */
 #ifndef I2C_RETRY_TIMES
-#define I2C_RETRY_TIMES 0U /* Define to zero means keep waiting until the flag is assert/deassert. */
+#define I2C_RETRY_TIMES 0U
 #endif
 
 /*! @brief Whether to ignore the nack signal of the last byte during master transmit. */
 #ifndef I2C_MASTER_TRANSMIT_IGNORE_LAST_NACK
 #define I2C_MASTER_TRANSMIT_IGNORE_LAST_NACK \
-    1U /* Define to one means master ignores the last byte's nack and considers the transfer successful. */
+    1U
 #endif
 
 /* definitions for MSTCODE bits in I2C Status register STAT */
-#define I2C_STAT_MSTCODE_IDLE    (0U) /*!< Master Idle State Code */
-#define I2C_STAT_MSTCODE_RXREADY (1U) /*!< Master Receive Ready State Code */
-#define I2C_STAT_MSTCODE_TXREADY (2U) /*!< Master Transmit Ready State Code */
-#define I2C_STAT_MSTCODE_NACKADR (3U) /*!< Master NACK by slave on address State Code */
-#define I2C_STAT_MSTCODE_NACKDAT (4U) /*!< Master NACK by slave on data State Code */
+#define I2C_STAT_MSTCODE_IDLE    (0U)
+#define I2C_STAT_MSTCODE_RXREADY (1U)
+#define I2C_STAT_MSTCODE_TXREADY (2U)
+#define I2C_STAT_MSTCODE_NACKADR (3U)
+#define I2C_STAT_MSTCODE_NACKDAT (4U)
 
 /* definitions for SLVSTATE bits in I2C Status register STAT */
 #define I2C_STAT_SLVST_ADDR (0)
@@ -57,25 +57,25 @@
 /*! @brief I2C status return codes. */
 enum
 {
-    kStatus_I2C_Busy = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 0), /*!< The master is already performing a transfer. */
-    kStatus_I2C_Idle = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 1), /*!< The slave driver is idle. */
+    kStatus_I2C_Busy = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 0),
+    kStatus_I2C_Idle = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 1),
     kStatus_I2C_Nak =
-        MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 2), /*!< The slave device sent a NAK in response to a byte. */
+        MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 2),
     kStatus_I2C_InvalidParameter =
-        MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 3), /*!< Unable to proceed due to invalid parameter. */
-    kStatus_I2C_BitError = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 4), /*!< Transferred bit was not seen on the bus. */
-    kStatus_I2C_ArbitrationLost = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 5), /*!< Arbitration lost error. */
+        MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 3),
+    kStatus_I2C_BitError = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 4),
+    kStatus_I2C_ArbitrationLost = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 5),
     kStatus_I2C_NoTransferInProgress =
-        MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 6), /*!< Attempt to abort a transfer when one is not in progress. */
-    kStatus_I2C_DmaRequestFail  = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 7), /*!< DMA request failed. */
-    kStatus_I2C_StartStopError  = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 8), /*!< Start and stop error. */
-    kStatus_I2C_UnexpectedState = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 9), /*!< Unexpected state. */
+        MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 6),
+    kStatus_I2C_DmaRequestFail  = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 7),
+    kStatus_I2C_StartStopError  = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 8),
+    kStatus_I2C_UnexpectedState = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 9),
     kStatus_I2C_Timeout =
         MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C,
-                    10), /*!< Timeout when waiting for I2C master/slave pending status to set to continue transfer. */
-    kStatus_I2C_Addr_Nak      = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 11), /*!< NAK received for Address */
-    kStatus_I2C_EventTimeout  = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 12), /*!< Timeout waiting for bus event. */
-    kStatus_I2C_SclLowTimeout = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 13), /*!< Timeout SCL signal remains low. */
+                    10),
+    kStatus_I2C_Addr_Nak      = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 11),
+    kStatus_I2C_EventTimeout  = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 12),
+    kStatus_I2C_SclLowTimeout = MAKE_STATUS(kStatusGroup_FLEXCOMM_I2C, 13),
 };
 
 /*! @} */
@@ -92,36 +92,36 @@ enum
  */
 enum _i2c_status_flags
 {
-    kI2C_MasterPendingFlag = I2C_STAT_MSTPENDING_MASK, /*!< The I2C module is waiting for software interaction. bit 0 */
+    kI2C_MasterPendingFlag = I2C_STAT_MSTPENDING_MASK,
     kI2C_MasterArbitrationLostFlag =
-        I2C_STAT_MSTARBLOSS_MASK, /*!< The arbitration of the bus was lost. There was collision on the bus. bit 4*/
+        I2C_STAT_MSTARBLOSS_MASK,
     kI2C_MasterStartStopErrorFlag =
-        I2C_STAT_MSTSTSTPERR_MASK,       /*!< There was an error during start or stop phase of the transaction. bit 6 */
-    kI2C_MasterIdleFlag     = 1UL << 5U, /*!< The I2C master idle status. bit 5 */
-    kI2C_MasterRxReadyFlag  = 1UL << I2C_STAT_MSTSTATE_SHIFT,        /*!< The I2C master rx ready status. bit 1 */
-    kI2C_MasterTxReadyFlag  = 1UL << (I2C_STAT_MSTSTATE_SHIFT + 1U), /*!< The I2C master tx ready status. bit 2 */
-    kI2C_MasterAddrNackFlag = 1UL << 7U,                             /*!< The I2C master address nack status. bit 7 */
-    kI2C_MasterDataNackFlag = 1UL << (I2C_STAT_MSTSTATE_SHIFT + 2U), /*!< The I2C master data nack status. bit 3 */
-    kI2C_SlavePendingFlag = I2C_STAT_SLVPENDING_MASK,  /*!< The I2C module is waiting for software interaction. bit 8 */
+        I2C_STAT_MSTSTSTPERR_MASK,
+    kI2C_MasterIdleFlag     = 1UL << 5U,
+    kI2C_MasterRxReadyFlag  = 1UL << I2C_STAT_MSTSTATE_SHIFT,
+    kI2C_MasterTxReadyFlag  = 1UL << (I2C_STAT_MSTSTATE_SHIFT + 1U),
+    kI2C_MasterAddrNackFlag = 1UL << 7U,
+    kI2C_MasterDataNackFlag = 1UL << (I2C_STAT_MSTSTATE_SHIFT + 2U),
+    kI2C_SlavePendingFlag = I2C_STAT_SLVPENDING_MASK,
     kI2C_SlaveNotStretching = I2C_STAT_SLVNOTSTR_MASK, /*!< Indicates whether the slave is currently stretching clock (0
                                                           = yes, 1 = no). bit 11 */
     kI2C_SlaveSelected =
-        I2C_STAT_SLVSEL_MASK, /*!< Indicates whether the slave is selected by an address match. bit 14 */
+        I2C_STAT_SLVSEL_MASK,
     kI2C_SaveDeselected = I2C_STAT_SLVDESEL_MASK, /*!< Indicates that slave was previously deselected (deselect event
                                                      took place, w1c). bit 15 */
-    kI2C_SlaveAddressedFlag     = 1UL << 22U,     /*!< One of the I2C slave's 4 addresses is matched. bit 22 */
-    kI2C_SlaveReceiveFlag       = 1UL << I2C_STAT_SLVSTATE_SHIFT,        /*!< Slave receive data available. bit 9 */
-    kI2C_SlaveTransmitFlag      = 1UL << (I2C_STAT_SLVSTATE_SHIFT + 1U), /*!< Slave data can be transmitted. bit 10 */
-    kI2C_SlaveAddress0MatchFlag = 1UL << 20U,                            /*!< Slave address0 match. bit 20 */
-    kI2C_SlaveAddress1MatchFlag = 1UL << I2C_STAT_SLVIDX_SHIFT,          /*!< Slave address1 match. bit 12 */
-    kI2C_SlaveAddress2MatchFlag = 1UL << (I2C_STAT_SLVIDX_SHIFT + 1U),   /*!< Slave address2 match. bit 13 */
-    kI2C_SlaveAddress3MatchFlag = 1UL << 21U,                            /*!< Slave address3 match. bit 21 */
-    kI2C_MonitorReadyFlag       = I2C_STAT_MONRDY_MASK,                  /*!< The I2C monitor ready interrupt. bit 16 */
-    kI2C_MonitorOverflowFlag    = I2C_STAT_MONOV_MASK,        /*!< The monitor data overrun interrupt. bit 17 */
-    kI2C_MonitorActiveFlag      = I2C_STAT_MONACTIVE_MASK,    /*!< The monitor is active. bit 18 */
-    kI2C_MonitorIdleFlag        = I2C_STAT_MONIDLE_MASK,      /*!< The monitor idle interrupt. bit 19 */
-    kI2C_EventTimeoutFlag       = I2C_STAT_EVENTTIMEOUT_MASK, /*!< The bus event timeout interrupt. bit 24 */
-    kI2C_SclTimeoutFlag         = I2C_STAT_SCLTIMEOUT_MASK,   /*!< The SCL timeout interrupt. bit 25 */
+    kI2C_SlaveAddressedFlag     = 1UL << 22U,
+    kI2C_SlaveReceiveFlag       = 1UL << I2C_STAT_SLVSTATE_SHIFT,
+    kI2C_SlaveTransmitFlag      = 1UL << (I2C_STAT_SLVSTATE_SHIFT + 1U),
+    kI2C_SlaveAddress0MatchFlag = 1UL << 20U,
+    kI2C_SlaveAddress1MatchFlag = 1UL << I2C_STAT_SLVIDX_SHIFT,
+    kI2C_SlaveAddress2MatchFlag = 1UL << (I2C_STAT_SLVIDX_SHIFT + 1U),
+    kI2C_SlaveAddress3MatchFlag = 1UL << 21U,
+    kI2C_MonitorReadyFlag       = I2C_STAT_MONRDY_MASK,
+    kI2C_MonitorOverflowFlag    = I2C_STAT_MONOV_MASK,
+    kI2C_MonitorActiveFlag      = I2C_STAT_MONACTIVE_MASK,
+    kI2C_MonitorIdleFlag        = I2C_STAT_MONIDLE_MASK,
+    kI2C_EventTimeoutFlag       = I2C_STAT_EVENTTIMEOUT_MASK,
+    kI2C_SclTimeoutFlag         = I2C_STAT_SCLTIMEOUT_MASK,
 
     /* All master flags that can be cleared by software */
     kI2C_MasterAllClearFlags = kI2C_MasterArbitrationLostFlag | kI2C_MasterStartStopErrorFlag,
@@ -140,21 +140,21 @@ enum _i2c_status_flags
 enum _i2c_interrupt_enable
 {
     kI2C_MasterPendingInterruptEnable =
-        I2C_STAT_MSTPENDING_MASK, /*!< The I2C master communication pending interrupt. */
+        I2C_STAT_MSTPENDING_MASK,
     kI2C_MasterArbitrationLostInterruptEnable =
-        I2C_STAT_MSTARBLOSS_MASK, /*!< The I2C master arbitration lost interrupt. */
+        I2C_STAT_MSTARBLOSS_MASK,
     kI2C_MasterStartStopErrorInterruptEnable =
-        I2C_STAT_MSTSTSTPERR_MASK, /*!< The I2C master start/stop timing error interrupt. */
-    kI2C_SlavePendingInterruptEnable = I2C_STAT_SLVPENDING_MASK, /*!< The I2C slave communication pending interrupt. */
+        I2C_STAT_MSTSTSTPERR_MASK,
+    kI2C_SlavePendingInterruptEnable = I2C_STAT_SLVPENDING_MASK,
     kI2C_SlaveNotStretchingInterruptEnable =
         I2C_STAT_SLVNOTSTR_MASK, /*!< The I2C slave not streching interrupt, deep-sleep mode can be entered only when
                                     this interrupt occurs. */
-    kI2C_SlaveDeselectedInterruptEnable = I2C_STAT_SLVDESEL_MASK,     /*!< The I2C slave deselection interrupt. */
-    kI2C_MonitorReadyInterruptEnable    = I2C_STAT_MONRDY_MASK,       /*!< The I2C monitor ready interrupt. */
-    kI2C_MonitorOverflowInterruptEnable = I2C_STAT_MONOV_MASK,        /*!< The monitor data overrun interrupt. */
-    kI2C_MonitorIdleInterruptEnable     = I2C_STAT_MONIDLE_MASK,      /*!< The monitor idle interrupt. */
-    kI2C_EventTimeoutInterruptEnable    = I2C_STAT_EVENTTIMEOUT_MASK, /*!< The bus event timeout interrupt. */
-    kI2C_SclTimeoutInterruptEnable      = I2C_STAT_SCLTIMEOUT_MASK,   /*!< The SCL timeout interrupt. */
+    kI2C_SlaveDeselectedInterruptEnable = I2C_STAT_SLVDESEL_MASK,
+    kI2C_MonitorReadyInterruptEnable    = I2C_STAT_MONRDY_MASK,
+    kI2C_MonitorOverflowInterruptEnable = I2C_STAT_MONOV_MASK,
+    kI2C_MonitorIdleInterruptEnable     = I2C_STAT_MONIDLE_MASK,
+    kI2C_EventTimeoutInterruptEnable    = I2C_STAT_EVENTTIMEOUT_MASK,
+    kI2C_SclTimeoutInterruptEnable      = I2C_STAT_SCLTIMEOUT_MASK,
 
     /* All master interrupt sources */
     kI2C_MasterAllInterruptEnable = kI2C_MasterPendingInterruptEnable | kI2C_MasterArbitrationLostInterruptEnable |
@@ -177,8 +177,8 @@ enum _i2c_interrupt_enable
 /*! @brief Direction of master and slave transfers. */
 typedef enum _i2c_direction
 {
-    kI2C_Write = 0U, /*!< Master transmit. */
-    kI2C_Read  = 1U  /*!< Master receive. */
+    kI2C_Write = 0U,
+    kI2C_Read  = 1U
 } i2c_direction_t;
 
 /*!
@@ -192,10 +192,10 @@ typedef enum _i2c_direction
  */
 typedef struct _i2c_master_config
 {
-    bool enableMaster;     /*!< Whether to enable master mode. */
-    uint32_t baudRate_Bps; /*!< Desired baud rate in bits per second. */
-    bool enableTimeout;    /*!< Enable internal timeout function. */
-    uint8_t timeout_Ms;    /*!< Event timeout and SCL low timeout value. */
+    bool enableMaster;
+    uint32_t baudRate_Bps;
+    bool enableTimeout;
+    uint8_t timeout_Ms;
 } i2c_master_config_t;
 
 /* Forward declaration of the transfer descriptor and handle typedefs. */
@@ -228,10 +228,10 @@ typedef void (*i2c_master_transfer_callback_t)(I2C_Type *base,
  */
 enum _i2c_master_transfer_flags
 {
-    kI2C_TransferDefaultFlag       = 0x00U, /*!< Transfer starts with a start signal, stops with a stop signal. */
-    kI2C_TransferNoStartFlag       = 0x01U, /*!< Don't send a start condition, address, and sub address */
-    kI2C_TransferRepeatedStartFlag = 0x02U, /*!< Send a repeated start condition */
-    kI2C_TransferNoStopFlag        = 0x04U, /*!< Don't send a stop condition. */
+    kI2C_TransferDefaultFlag       = 0x00U,
+    kI2C_TransferNoStartFlag       = 0x01U,
+    kI2C_TransferRepeatedStartFlag = 0x02U,
+    kI2C_TransferNoStopFlag        = 0x04U,
 };
 
 /*! @brief States for the state machine used by transactional APIs. */
@@ -257,12 +257,12 @@ struct _i2c_master_transfer
 {
     uint32_t flags; /*!< Bit mask of options for the transfer. See enumeration #_i2c_master_transfer_flags for available
                        options. Set to 0 or #kI2C_TransferDefaultFlag for normal transfers. */
-    uint8_t slaveAddress;      /*!< The 7-bit slave address. */
-    i2c_direction_t direction; /*!< Either #kI2C_Read or #kI2C_Write. */
-    uint32_t subaddress;       /*!< Sub address. Transferred MSB first. */
-    size_t subaddressSize;     /*!< Length of sub address to send in bytes. Maximum size is 4 bytes. */
-    void *data;                /*!< Pointer to data to transfer. */
-    size_t dataSize;           /*!< Number of bytes to transfer. */
+    uint8_t slaveAddress;
+    i2c_direction_t direction;
+    uint32_t subaddress;
+    size_t subaddressSize;
+    void *data;
+    size_t dataSize;
 };
 
 /*!
@@ -271,16 +271,16 @@ struct _i2c_master_transfer
  */
 struct _i2c_master_handle
 {
-    uint8_t state;           /*!< Transfer state machine current state. */
-    uint32_t transferCount;  /*!< Indicates progress of the transfer */
-    uint32_t remainingBytes; /*!< Remaining byte count in current state. */
-    uint8_t *buf;            /*!< Buffer pointer for current state. */
+    uint8_t state;
+    uint32_t transferCount;
+    uint32_t remainingBytes;
+    uint8_t *buf;
     uint32_t remainingSubaddr;
     uint8_t subaddrBuf[4];
-    bool checkAddrNack;             /*!< Whether to check the nack signal is detected during addressing. */
-    i2c_master_transfer_t transfer; /*!< Copy of the current transfer info. */
-    i2c_master_transfer_callback_t completionCallback; /*!< Callback function pointer. */
-    void *userData;                                    /*!< Application data passed to callback. */
+    bool checkAddrNack;
+    i2c_master_transfer_t transfer;
+    i2c_master_transfer_callback_t completionCallback;
+    void *userData;
 };
 
 /*! @} */
@@ -292,25 +292,25 @@ struct _i2c_master_handle
 /*! @brief I2C slave address register. */
 typedef enum _i2c_slave_address_register
 {
-    kI2C_SlaveAddressRegister0 = 0U, /*!< Slave Address 0 register. */
-    kI2C_SlaveAddressRegister1 = 1U, /*!< Slave Address 1 register. */
-    kI2C_SlaveAddressRegister2 = 2U, /*!< Slave Address 2 register. */
-    kI2C_SlaveAddressRegister3 = 3U, /*!< Slave Address 3 register. */
+    kI2C_SlaveAddressRegister0 = 0U,
+    kI2C_SlaveAddressRegister1 = 1U,
+    kI2C_SlaveAddressRegister2 = 2U,
+    kI2C_SlaveAddressRegister3 = 3U,
 } i2c_slave_address_register_t;
 
 /*! @brief Data structure with 7-bit Slave address and Slave address disable. */
 typedef struct _i2c_slave_address
 {
-    uint8_t address;     /*!< 7-bit Slave address SLVADR. */
-    bool addressDisable; /*!< Slave address disable SADISABLE. */
+    uint8_t address;
+    bool addressDisable;
 } i2c_slave_address_t;
 
 /*! @brief I2C slave address match options. */
 typedef enum _i2c_slave_address_qual_mode
 {
-    kI2C_QualModeMask = 0U, /*!< The SLVQUAL0 field (qualAddress) is used as a logical mask for matching address0. */
+    kI2C_QualModeMask = 0U,
     kI2C_QualModeExtend =
-        1U, /*!< The SLVQUAL0 (qualAddress) field is used to extend address 0 matching in a range of addresses. */
+        1U,
 } i2c_slave_address_qual_mode_t;
 
 /*! @brief I2C slave bus speed options. */
@@ -333,12 +333,12 @@ typedef enum _i2c_slave_bus_speed
  */
 typedef struct _i2c_slave_config
 {
-    i2c_slave_address_t address0;           /*!< Slave's 7-bit address and disable. */
-    i2c_slave_address_t address1;           /*!< Alternate slave 7-bit address and disable. */
-    i2c_slave_address_t address2;           /*!< Alternate slave 7-bit address and disable. */
-    i2c_slave_address_t address3;           /*!< Alternate slave 7-bit address and disable. */
-    i2c_slave_address_qual_mode_t qualMode; /*!< Qualify mode for slave address 0. */
-    uint8_t qualAddress;                    /*!< Slave address qualifier for address 0. */
+    i2c_slave_address_t address0;
+    i2c_slave_address_t address1;
+    i2c_slave_address_t address2;
+    i2c_slave_address_t address3;
+    i2c_slave_address_qual_mode_t qualMode;
+    uint8_t qualAddress;
     i2c_slave_bus_speed_t
         busSpeed; /*!< Slave bus speed mode. If the slave function stretches SCL to allow for software response, it must
                        provide sufficient data setup time to the master before releasing the stretched clock.
@@ -348,7 +348,7 @@ typedef struct _i2c_slave_config
                        in the I2C bus specification for the I2C mode that is being used.
                        If the #busSpeed mode is unknown at compile time, use the longest data setup time
                        kI2C_SlaveStandardMode (250 ns) */
-    bool enableSlave; /*!< Enable slave mode. */
+    bool enableSlave;
 } i2c_slave_config_t;
 
 /*!
@@ -363,14 +363,14 @@ typedef struct _i2c_slave_config
  */
 typedef enum _i2c_slave_transfer_event
 {
-    kI2C_SlaveAddressMatchEvent = 0x01U, /*!< Received the slave address after a start or repeated start. */
+    kI2C_SlaveAddressMatchEvent = 0x01U,
     kI2C_SlaveTransmitEvent     = 0x02U, /*!< Callback is requested to provide data to transmit
                                                 (slave-transmitter role). */
     kI2C_SlaveReceiveEvent = 0x04U,      /*!< Callback is requested to provide a buffer in which to place received
                                                  data (slave-receiver role). */
-    kI2C_SlaveCompletionEvent = 0x20U,   /*!< All data in the active transfer have been consumed. */
+    kI2C_SlaveCompletionEvent = 0x20U,
     kI2C_SlaveDeselectedEvent =
-        0x40U, /*!< The slave function has become deselected (SLVSEL flag changing from 1 to 0. */
+        0x40U,
 
     /*! Bit mask of all available events. */
     kI2C_SlaveAllEvents = kI2C_SlaveAddressMatchEvent | kI2C_SlaveTransmitEvent | kI2C_SlaveReceiveEvent |
@@ -383,15 +383,15 @@ typedef struct _i2c_slave_handle i2c_slave_handle_t;
 /*! @brief I2C slave transfer structure */
 typedef struct _i2c_slave_transfer
 {
-    i2c_slave_handle_t *handle;       /*!< Pointer to handle that contains this transfer. */
-    i2c_slave_transfer_event_t event; /*!< Reason the callback is being invoked. */
-    uint8_t receivedAddress;          /*!< Matching address send by master. 7-bits plus R/nW bit0 */
-    uint32_t eventMask;               /*!< Mask of enabled events. */
-    uint8_t *rxData;                  /*!< Transfer buffer for receive data */
-    const uint8_t *txData;            /*!< Transfer buffer for transmit data */
-    size_t txSize;                    /*!< Transfer size */
-    size_t rxSize;                    /*!< Transfer size */
-    size_t transferredCount;          /*!< Number of bytes transferred during this transfer. */
+    i2c_slave_handle_t *handle;
+    i2c_slave_transfer_event_t event;
+    uint8_t receivedAddress;
+    uint32_t eventMask;
+    uint8_t *rxData;
+    const uint8_t *txData;
+    size_t txSize;
+    size_t rxSize;
+    size_t transferredCount;
     status_t completionStatus;        /*!< Success or error code describing how the transfer completed. Only applies for
                                          #kI2C_SlaveCompletionEvent. */
 } i2c_slave_transfer_t;
@@ -424,11 +424,11 @@ typedef enum _i2c_slave_fsm
  */
 struct _i2c_slave_handle
 {
-    volatile i2c_slave_transfer_t transfer; /*!< I2C slave transfer. */
-    volatile bool isBusy;                   /*!< Whether transfer is busy. */
-    volatile i2c_slave_fsm_t slaveFsm;      /*!< slave transfer state machine. */
-    i2c_slave_transfer_callback_t callback; /*!< Callback function called at transfer event. */
-    void *userData;                         /*!< Callback parameter passed to callback. */
+    volatile i2c_slave_transfer_t transfer;
+    volatile bool isBusy;
+    volatile i2c_slave_fsm_t slaveFsm;
+    i2c_slave_transfer_callback_t callback;
+    void *userData;
 };
 
 /*! @brief Typedef for master interrupt handler. */

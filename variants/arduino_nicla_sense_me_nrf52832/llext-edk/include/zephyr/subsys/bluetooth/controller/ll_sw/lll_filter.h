@@ -76,7 +76,7 @@ struct lll_resolve_list {
 #endif
 
 #if defined(CONFIG_BT_CTLR_SYNC_PERIODIC_ADV_LIST)
-	uint16_t   pal:9; /* 0 - not present, 1 to 256 - lll_pal entry index */
+	uint16_t   pal:9;
 #endif /* CONFIG_BT_CTLR_SYNC_PERIODIC_ADV_LIST */
 };
 

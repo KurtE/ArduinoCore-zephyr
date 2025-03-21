@@ -498,7 +498,7 @@ extern t_void (*assert_callback)(IN t_void *pmoal_handle, IN t_u32 cond);
 /** Number of WEP keys */
 /* fixme: This param has been set to 1 as it is seen in legacy code */
 /* that only one set is used. If needed could be increased upto 4 */
-#define MRVL_NUM_WEP_KEY (1U) /* 4 */
+#define MRVL_NUM_WEP_KEY (1U)
 
 /** Default multiple DTIM */
 #define MRVDRV_DEFAULT_MULTIPLE_DTIM 1
@@ -535,11 +535,11 @@ extern t_void (*assert_callback)(IN t_void *pmoal_handle, IN t_u32 cond);
    The downside is that some clients whose beacon interval
    is more than 100mS and does not coincide with uAP
    passive scan duration will not be listed in the scan */
-#define MRVDRV_PASSIVE_SCAN_CHAN_TIME 100 /* 200 */
+#define MRVDRV_PASSIVE_SCAN_CHAN_TIME 100
 
 /** Scan time specified in the channel TLV for each channel for active scans */
 /* wmsdk: Note: Modified this to keep same as what was in legacy code. */
-#define MRVDRV_ACTIVE_SCAN_CHAN_TIME 100 /* 200 */
+#define MRVDRV_ACTIVE_SCAN_CHAN_TIME 100
 
 /** Scan time specified in the channel TLV for each channel for specific scans */
 #define MRVDRV_SPECIFIC_SCAN_CHAN_TIME 110
@@ -632,12 +632,12 @@ typedef struct
 
 #ifdef SDIO_MULTI_PORT_TX_AGGR
 /** Multi port TX aggregation buffer size */
-#define SDIO_MP_TX_AGGR_DEF_BUF_SIZE (16384) /* 16K */
+#define SDIO_MP_TX_AGGR_DEF_BUF_SIZE (16384)
 #endif                                       /* SDIO_MULTI_PORT_TX_AGGR */
 
 #ifdef SDIO_MULTI_PORT_RX_AGGR
 /** Multi port RX aggregation buffer size */
-#define SDIO_MP_RX_AGGR_DEF_BUF_SIZE (16384) /* 16K */
+#define SDIO_MP_RX_AGGR_DEF_BUF_SIZE (16384)
 #endif                                       /* SDIO_MULTI_PORT_RX_AGGR */
 
 /** High threshold at which to start drop packets */
@@ -995,7 +995,7 @@ typedef struct _wmm_desc
     /** WMM queue priority table */
     t_u8 queue_priority[MAX_AC_QUEUES];
     /** User priority packet transmission control */
-    t_u32 user_pri_pkt_tx_ctrl[WMM_HIGHEST_PRIORITY + 1]; /* UP: 0 to 7 */
+    t_u32 user_pri_pkt_tx_ctrl[WMM_HIGHEST_PRIORITY + 1];
 
     /** Number of transmit packets queued */
     mlan_scalar tx_pkts_queued;

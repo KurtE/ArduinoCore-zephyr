@@ -40,8 +40,8 @@
 #define BT_SDP_MAX_SERVICES   10
 
 struct bt_sdp_data_elem_seq {
-	uint8_t  type; /* Type: Will be data element sequence */
-	uint16_t size; /* We only support 2 byte sizes for now */
+	uint8_t  type;
+	uint16_t size;
 } __packed;
 
 struct bt_sdp_hdr {

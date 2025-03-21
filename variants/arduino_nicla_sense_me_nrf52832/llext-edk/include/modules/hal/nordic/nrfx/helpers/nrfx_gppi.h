@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2019 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -165,29 +165,29 @@ typedef enum
 /** @brief Generic PPI channel groups. */
 typedef enum
 {
-    NRFX_GPPI_CHANNEL_GROUP0, /**< Channel group 0.*/
-    NRFX_GPPI_CHANNEL_GROUP1, /**< Channel group 1.*/
-    NRFX_GPPI_CHANNEL_GROUP2, /**< Channel group 2.*/
-    NRFX_GPPI_CHANNEL_GROUP3, /**< Channel group 3.*/
-    NRFX_GPPI_CHANNEL_GROUP4, /**< Channel group 4.*/
-    NRFX_GPPI_CHANNEL_GROUP5, /**< Channel group 5.*/
+    NRFX_GPPI_CHANNEL_GROUP0,
+    NRFX_GPPI_CHANNEL_GROUP1,
+    NRFX_GPPI_CHANNEL_GROUP2,
+    NRFX_GPPI_CHANNEL_GROUP3,
+    NRFX_GPPI_CHANNEL_GROUP4,
+    NRFX_GPPI_CHANNEL_GROUP5,
 } nrfx_gppi_channel_group_t;
 
 /** @brief Generic PPI tasks. */
 typedef enum
 {
-    NRFX_GPPI_TASK_CHG0_EN,  /**< Task for enabling channel group 0 */
-    NRFX_GPPI_TASK_CHG0_DIS, /**< Task for disabling channel group 0 */
-    NRFX_GPPI_TASK_CHG1_EN,  /**< Task for enabling channel group 1 */
-    NRFX_GPPI_TASK_CHG1_DIS, /**< Task for disabling channel group 1 */
-    NRFX_GPPI_TASK_CHG2_EN,  /**< Task for enabling channel group 2 */
-    NRFX_GPPI_TASK_CHG2_DIS, /**< Task for disabling channel group 2 */
-    NRFX_GPPI_TASK_CHG3_EN,  /**< Task for enabling channel group 3 */
-    NRFX_GPPI_TASK_CHG3_DIS, /**< Task for disabling channel group 3 */
-    NRFX_GPPI_TASK_CHG4_EN,  /**< Task for enabling channel group 4 */
-    NRFX_GPPI_TASK_CHG4_DIS, /**< Task for disabling channel group 4 */
-    NRFX_GPPI_TASK_CHG5_EN,  /**< Task for enabling channel group 5 */
-    NRFX_GPPI_TASK_CHG5_DIS, /**< Task for disabling channel group 5 */
+    NRFX_GPPI_TASK_CHG0_EN,
+    NRFX_GPPI_TASK_CHG0_DIS,
+    NRFX_GPPI_TASK_CHG1_EN,
+    NRFX_GPPI_TASK_CHG1_DIS,
+    NRFX_GPPI_TASK_CHG2_EN,
+    NRFX_GPPI_TASK_CHG2_DIS,
+    NRFX_GPPI_TASK_CHG3_EN,
+    NRFX_GPPI_TASK_CHG3_DIS,
+    NRFX_GPPI_TASK_CHG4_EN,
+    NRFX_GPPI_TASK_CHG4_DIS,
+    NRFX_GPPI_TASK_CHG5_EN,
+    NRFX_GPPI_TASK_CHG5_DIS,
 } nrfx_gppi_task_t;
 #endif // defined(__NRFX_DOXYGEN__)
 

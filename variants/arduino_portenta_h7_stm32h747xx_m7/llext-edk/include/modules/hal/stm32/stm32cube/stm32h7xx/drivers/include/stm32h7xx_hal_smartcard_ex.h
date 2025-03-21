@@ -45,8 +45,8 @@ extern "C" {
 /** @defgroup SMARTCARDEx_Transmission_Completion_Indication SMARTCARD Transmission Completion Indication
   * @{
   */
-#define SMARTCARD_TCBGT      SMARTCARD_IT_TCBGT /*!< SMARTCARD transmission complete before guard time */
-#define SMARTCARD_TC         SMARTCARD_IT_TC    /*!< SMARTCARD transmission complete (flag raised when guard time has elapsed) */
+#define SMARTCARD_TCBGT      SMARTCARD_IT_TCBGT
+#define SMARTCARD_TC         SMARTCARD_IT_TC
 /**
   * @}
   */
@@ -54,15 +54,15 @@ extern "C" {
 /** @defgroup SMARTCARDEx_Advanced_Features_Initialization_Type SMARTCARD advanced feature initialization type
   * @{
   */
-#define SMARTCARD_ADVFEATURE_NO_INIT                 0x00000000U    /*!< No advanced feature initialization                  */
-#define SMARTCARD_ADVFEATURE_TXINVERT_INIT           0x00000001U    /*!< TX pin active level inversion                       */
-#define SMARTCARD_ADVFEATURE_RXINVERT_INIT           0x00000002U    /*!< RX pin active level inversion                       */
-#define SMARTCARD_ADVFEATURE_DATAINVERT_INIT         0x00000004U    /*!< Binary data inversion                               */
-#define SMARTCARD_ADVFEATURE_SWAP_INIT               0x00000008U    /*!< TX/RX pins swap                                     */
-#define SMARTCARD_ADVFEATURE_RXOVERRUNDISABLE_INIT   0x00000010U    /*!< RX overrun disable                                  */
-#define SMARTCARD_ADVFEATURE_DMADISABLEONERROR_INIT  0x00000020U    /*!< DMA disable on Reception Error                      */
-#define SMARTCARD_ADVFEATURE_MSBFIRST_INIT           0x00000080U    /*!< Most significant bit sent/received first            */
-#define SMARTCARD_ADVFEATURE_TXCOMPLETION            0x00000100U    /*!< TX completion indication before of after guard time */
+#define SMARTCARD_ADVFEATURE_NO_INIT                 0x00000000U
+#define SMARTCARD_ADVFEATURE_TXINVERT_INIT           0x00000001U
+#define SMARTCARD_ADVFEATURE_RXINVERT_INIT           0x00000002U
+#define SMARTCARD_ADVFEATURE_DATAINVERT_INIT         0x00000004U
+#define SMARTCARD_ADVFEATURE_SWAP_INIT               0x00000008U
+#define SMARTCARD_ADVFEATURE_RXOVERRUNDISABLE_INIT   0x00000010U
+#define SMARTCARD_ADVFEATURE_DMADISABLEONERROR_INIT  0x00000020U
+#define SMARTCARD_ADVFEATURE_MSBFIRST_INIT           0x00000080U
+#define SMARTCARD_ADVFEATURE_TXCOMPLETION            0x00000100U
 /**
   * @}
   */
@@ -71,8 +71,8 @@ extern "C" {
   * @brief    SMARTCARD FIFO mode
   * @{
   */
-#define SMARTCARD_FIFOMODE_DISABLE        0x00000000U                   /*!< FIFO mode disable */
-#define SMARTCARD_FIFOMODE_ENABLE         USART_CR1_FIFOEN              /*!< FIFO mode enable  */
+#define SMARTCARD_FIFOMODE_DISABLE        0x00000000U
+#define SMARTCARD_FIFOMODE_ENABLE         USART_CR1_FIFOEN
 /**
   * @}
   */
@@ -81,12 +81,12 @@ extern "C" {
   * @brief    SMARTCARD TXFIFO level
   * @{
   */
-#define SMARTCARD_TXFIFO_THRESHOLD_1_8    0x00000000U                               /*!< TXFIFO reaches 1/8 of its depth */
-#define SMARTCARD_TXFIFO_THRESHOLD_1_4   USART_CR3_TXFTCFG_0                        /*!< TXFIFO reaches 1/4 of its depth */
-#define SMARTCARD_TXFIFO_THRESHOLD_1_2   USART_CR3_TXFTCFG_1                        /*!< TXFIFO reaches 1/2 of its depth */
-#define SMARTCARD_TXFIFO_THRESHOLD_3_4   (USART_CR3_TXFTCFG_0|USART_CR3_TXFTCFG_1)  /*!< TXFIFO reaches 3/4 of its depth */
-#define SMARTCARD_TXFIFO_THRESHOLD_7_8   USART_CR3_TXFTCFG_2                        /*!< TXFIFO reaches 7/8 of its depth */
-#define SMARTCARD_TXFIFO_THRESHOLD_8_8   (USART_CR3_TXFTCFG_2|USART_CR3_TXFTCFG_0)  /*!< TXFIFO becomes empty            */
+#define SMARTCARD_TXFIFO_THRESHOLD_1_8    0x00000000U
+#define SMARTCARD_TXFIFO_THRESHOLD_1_4   USART_CR3_TXFTCFG_0
+#define SMARTCARD_TXFIFO_THRESHOLD_1_2   USART_CR3_TXFTCFG_1
+#define SMARTCARD_TXFIFO_THRESHOLD_3_4   (USART_CR3_TXFTCFG_0|USART_CR3_TXFTCFG_1)
+#define SMARTCARD_TXFIFO_THRESHOLD_7_8   USART_CR3_TXFTCFG_2
+#define SMARTCARD_TXFIFO_THRESHOLD_8_8   (USART_CR3_TXFTCFG_2|USART_CR3_TXFTCFG_0)
 /**
   * @}
   */
@@ -95,12 +95,12 @@ extern "C" {
   * @brief    SMARTCARD RXFIFO level
   * @{
   */
-#define SMARTCARD_RXFIFO_THRESHOLD_1_8   0x00000000U                                /*!< RXFIFO FIFO reaches 1/8 of its depth */
-#define SMARTCARD_RXFIFO_THRESHOLD_1_4   USART_CR3_RXFTCFG_0                        /*!< RXFIFO FIFO reaches 1/4 of its depth */
-#define SMARTCARD_RXFIFO_THRESHOLD_1_2   USART_CR3_RXFTCFG_1                        /*!< RXFIFO FIFO reaches 1/2 of its depth */
-#define SMARTCARD_RXFIFO_THRESHOLD_3_4   (USART_CR3_RXFTCFG_0|USART_CR3_RXFTCFG_1)  /*!< RXFIFO FIFO reaches 3/4 of its depth */
-#define SMARTCARD_RXFIFO_THRESHOLD_7_8   USART_CR3_RXFTCFG_2                        /*!< RXFIFO FIFO reaches 7/8 of its depth */
-#define SMARTCARD_RXFIFO_THRESHOLD_8_8   (USART_CR3_RXFTCFG_2|USART_CR3_RXFTCFG_0)  /*!< RXFIFO FIFO becomes full             */
+#define SMARTCARD_RXFIFO_THRESHOLD_1_8   0x00000000U
+#define SMARTCARD_RXFIFO_THRESHOLD_1_4   USART_CR3_RXFTCFG_0
+#define SMARTCARD_RXFIFO_THRESHOLD_1_2   USART_CR3_RXFTCFG_1
+#define SMARTCARD_RXFIFO_THRESHOLD_3_4   (USART_CR3_RXFTCFG_0|USART_CR3_RXFTCFG_1)
+#define SMARTCARD_RXFIFO_THRESHOLD_7_8   USART_CR3_RXFTCFG_2
+#define SMARTCARD_RXFIFO_THRESHOLD_8_8   (USART_CR3_RXFTCFG_2|USART_CR3_RXFTCFG_0)
 /**
   * @}
   */
@@ -110,26 +110,26 @@ extern "C" {
   *           - 0xXXXX  : Flag mask in the ISR register
   * @{
   */
-#define SMARTCARD_FLAG_TCBGT          USART_ISR_TCBGT         /*!< SMARTCARD transmission complete before guard time completion */
-#define SMARTCARD_FLAG_REACK          USART_ISR_REACK         /*!< SMARTCARD receive enable acknowledge flag  */
-#define SMARTCARD_FLAG_TEACK          USART_ISR_TEACK         /*!< SMARTCARD transmit enable acknowledge flag */
-#define SMARTCARD_FLAG_BUSY           USART_ISR_BUSY          /*!< SMARTCARD busy flag                        */
-#define SMARTCARD_FLAG_EOBF           USART_ISR_EOBF          /*!< SMARTCARD end of block flag                */
-#define SMARTCARD_FLAG_RTOF           USART_ISR_RTOF          /*!< SMARTCARD receiver timeout flag            */
-#define SMARTCARD_FLAG_TXE            USART_ISR_TXE_TXFNF     /*!< SMARTCARD transmit data register empty     */
-#define SMARTCARD_FLAG_TXFNF          USART_ISR_TXE_TXFNF     /*!< SMARTCARD TXFIFO not full                  */
-#define SMARTCARD_FLAG_TC             USART_ISR_TC            /*!< SMARTCARD transmission complete            */
-#define SMARTCARD_FLAG_RXNE           USART_ISR_RXNE_RXFNE    /*!< SMARTCARD read data register not empty     */
-#define SMARTCARD_FLAG_RXFNE          USART_ISR_RXNE_RXFNE    /*!< SMARTCARD RXFIFO not empty                 */
-#define SMARTCARD_FLAG_IDLE           USART_ISR_IDLE          /*!< SMARTCARD idle line detection              */
-#define SMARTCARD_FLAG_ORE            USART_ISR_ORE           /*!< SMARTCARD overrun error                    */
-#define SMARTCARD_FLAG_NE             USART_ISR_NE            /*!< SMARTCARD noise error                      */
-#define SMARTCARD_FLAG_FE             USART_ISR_FE            /*!< SMARTCARD frame error                      */
-#define SMARTCARD_FLAG_PE             USART_ISR_PE            /*!< SMARTCARD parity error                     */
-#define SMARTCARD_FLAG_TXFE           USART_ISR_TXFE          /*!< SMARTCARD TXFIFO Empty flag                */
-#define SMARTCARD_FLAG_RXFF           USART_ISR_RXFF          /*!< SMARTCARD RXFIFO Full flag                 */
-#define SMARTCARD_FLAG_RXFT           USART_ISR_RXFT          /*!< SMARTCARD RXFIFO threshold flag            */
-#define SMARTCARD_FLAG_TXFT           USART_ISR_TXFT          /*!< SMARTCARD TXFIFO threshold flag            */
+#define SMARTCARD_FLAG_TCBGT          USART_ISR_TCBGT
+#define SMARTCARD_FLAG_REACK          USART_ISR_REACK
+#define SMARTCARD_FLAG_TEACK          USART_ISR_TEACK
+#define SMARTCARD_FLAG_BUSY           USART_ISR_BUSY
+#define SMARTCARD_FLAG_EOBF           USART_ISR_EOBF
+#define SMARTCARD_FLAG_RTOF           USART_ISR_RTOF
+#define SMARTCARD_FLAG_TXE            USART_ISR_TXE_TXFNF
+#define SMARTCARD_FLAG_TXFNF          USART_ISR_TXE_TXFNF
+#define SMARTCARD_FLAG_TC             USART_ISR_TC
+#define SMARTCARD_FLAG_RXNE           USART_ISR_RXNE_RXFNE
+#define SMARTCARD_FLAG_RXFNE          USART_ISR_RXNE_RXFNE
+#define SMARTCARD_FLAG_IDLE           USART_ISR_IDLE
+#define SMARTCARD_FLAG_ORE            USART_ISR_ORE
+#define SMARTCARD_FLAG_NE             USART_ISR_NE
+#define SMARTCARD_FLAG_FE             USART_ISR_FE
+#define SMARTCARD_FLAG_PE             USART_ISR_PE
+#define SMARTCARD_FLAG_TXFE           USART_ISR_TXFE
+#define SMARTCARD_FLAG_RXFF           USART_ISR_RXFF
+#define SMARTCARD_FLAG_RXFT           USART_ISR_RXFT
+#define SMARTCARD_FLAG_TXFT           USART_ISR_TXFT
 /**
   * @}
   */
@@ -144,27 +144,27 @@ extern "C" {
   *           - ZZZZZ  : Flag position in the ISR register(5 bits)
   * @{
   */
-#define SMARTCARD_IT_PE                     0x0028U           /*!< SMARTCARD parity error interruption                 */
-#define SMARTCARD_IT_TXE                    0x0727U           /*!< SMARTCARD transmit data register empty interruption */
-#define SMARTCARD_IT_TXFNF                  0x0727U           /*!< SMARTCARD TX FIFO not full interruption             */
-#define SMARTCARD_IT_TC                     0x0626U           /*!< SMARTCARD transmission complete interruption        */
-#define SMARTCARD_IT_RXNE                   0x0525U           /*!< SMARTCARD read data register not empty interruption */
-#define SMARTCARD_IT_RXFNE                  0x0525U           /*!< SMARTCARD RXFIFO not empty interruption             */
-#define SMARTCARD_IT_IDLE                   0x0424U           /*!< SMARTCARD idle line detection interruption          */
+#define SMARTCARD_IT_PE                     0x0028U
+#define SMARTCARD_IT_TXE                    0x0727U
+#define SMARTCARD_IT_TXFNF                  0x0727U
+#define SMARTCARD_IT_TC                     0x0626U
+#define SMARTCARD_IT_RXNE                   0x0525U
+#define SMARTCARD_IT_RXFNE                  0x0525U
+#define SMARTCARD_IT_IDLE                   0x0424U
 
-#define SMARTCARD_IT_ERR                    0x0060U           /*!< SMARTCARD error interruption         */
-#define SMARTCARD_IT_ORE                    0x0300U           /*!< SMARTCARD overrun error interruption */
-#define SMARTCARD_IT_NE                     0x0200U           /*!< SMARTCARD noise error interruption   */
-#define SMARTCARD_IT_FE                     0x0100U           /*!< SMARTCARD frame error interruption   */
+#define SMARTCARD_IT_ERR                    0x0060U
+#define SMARTCARD_IT_ORE                    0x0300U
+#define SMARTCARD_IT_NE                     0x0200U
+#define SMARTCARD_IT_FE                     0x0100U
 
-#define SMARTCARD_IT_EOB                    0x0C3BU           /*!< SMARTCARD end of block interruption     */
-#define SMARTCARD_IT_RTO                    0x0B3AU           /*!< SMARTCARD receiver timeout interruption */
-#define SMARTCARD_IT_TCBGT                  0x1978U           /*!< SMARTCARD transmission complete before guard time completion interruption */
+#define SMARTCARD_IT_EOB                    0x0C3BU
+#define SMARTCARD_IT_RTO                    0x0B3AU
+#define SMARTCARD_IT_TCBGT                  0x1978U
 
-#define SMARTCARD_IT_RXFF                    0x183FU          /*!< SMARTCARD RXFIFO full interruption                  */
-#define SMARTCARD_IT_TXFE                    0x173EU          /*!< SMARTCARD TXFIFO empty interruption                 */
-#define SMARTCARD_IT_RXFT                    0x1A7CU          /*!< SMARTCARD RXFIFO threshold reached interruption     */
-#define SMARTCARD_IT_TXFT                    0x1B77U          /*!< SMARTCARD TXFIFO threshold reached interruption     */
+#define SMARTCARD_IT_RXFF                    0x183FU
+#define SMARTCARD_IT_TXFE                    0x173EU
+#define SMARTCARD_IT_RXFT                    0x1A7CU
+#define SMARTCARD_IT_TXFT                    0x1B77U
 /**
   * @}
   */
@@ -172,16 +172,16 @@ extern "C" {
 /** @defgroup SMARTCARDEx_IT_CLEAR_Flags SMARTCARD Interruption Clear Flags
   * @{
   */
-#define SMARTCARD_CLEAR_PEF                 USART_ICR_PECF    /*!< SMARTCARD parity error clear flag          */
-#define SMARTCARD_CLEAR_FEF                 USART_ICR_FECF    /*!< SMARTCARD framing error clear flag         */
-#define SMARTCARD_CLEAR_NEF                 USART_ICR_NECF    /*!< SMARTCARD noise error detected clear flag  */
-#define SMARTCARD_CLEAR_OREF                USART_ICR_ORECF   /*!< SMARTCARD overrun error clear flag         */
-#define SMARTCARD_CLEAR_IDLEF               USART_ICR_IDLECF  /*!< SMARTCARD idle line detected clear flag    */
-#define SMARTCARD_CLEAR_TXFECF              USART_ICR_TXFECF  /*!< TXFIFO empty Clear Flag                    */
-#define SMARTCARD_CLEAR_TCF                 USART_ICR_TCCF    /*!< SMARTCARD transmission complete clear flag */
-#define SMARTCARD_CLEAR_TCBGTF              USART_ICR_TCBGTCF /*!< SMARTCARD transmission complete before guard time completion clear flag */
-#define SMARTCARD_CLEAR_RTOF                USART_ICR_RTOCF   /*!< SMARTCARD receiver time out clear flag     */
-#define SMARTCARD_CLEAR_EOBF                USART_ICR_EOBCF   /*!< SMARTCARD end of block clear flag          */
+#define SMARTCARD_CLEAR_PEF                 USART_ICR_PECF
+#define SMARTCARD_CLEAR_FEF                 USART_ICR_FECF
+#define SMARTCARD_CLEAR_NEF                 USART_ICR_NECF
+#define SMARTCARD_CLEAR_OREF                USART_ICR_ORECF
+#define SMARTCARD_CLEAR_IDLEF               USART_ICR_IDLECF
+#define SMARTCARD_CLEAR_TXFECF              USART_ICR_TXFECF
+#define SMARTCARD_CLEAR_TCF                 USART_ICR_TCCF
+#define SMARTCARD_CLEAR_TCBGTF              USART_ICR_TCBGTCF
+#define SMARTCARD_CLEAR_RTOF                USART_ICR_RTOCF
+#define SMARTCARD_CLEAR_EOBF                USART_ICR_EOBCF
 /**
   * @}
   */

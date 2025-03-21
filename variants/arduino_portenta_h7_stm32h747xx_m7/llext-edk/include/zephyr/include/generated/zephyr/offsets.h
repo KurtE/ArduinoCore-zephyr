@@ -16,7 +16,6 @@
 #define ___cpu_t_fp_ctx_OFFSET 0x14
 #define ___kernel_t_ready_q_OFFSET 0x18
 #define ___ready_q_t_cache_OFFSET 0x0
-#define ___kernel_t_current_fp_OFFSET 0x24
 #define ___thread_base_t_user_options_OFFSET 0xc
 #define ___thread_t_base_OFFSET 0x0
 #define ___thread_t_callee_saved_OFFSET 0x30

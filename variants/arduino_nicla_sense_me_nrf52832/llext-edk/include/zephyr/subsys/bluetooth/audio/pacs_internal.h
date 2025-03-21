@@ -9,14 +9,15 @@
 
 #include <stdint.h>
 
+#include <zephyr/bluetooth/audio/audio.h>
 #include <zephyr/sys/util_macro.h>
 
 #define BT_AUDIO_LOCATION_MASK BIT_MASK(28)
 
 struct bt_pac_codec {
-	uint8_t  id;			/* Codec ID */
-	uint16_t cid;			/* Company ID */
-	uint16_t vid;			/* Vendor specific Codec ID */
+	uint8_t  id;
+	uint16_t cid;
+	uint16_t vid;
 } __packed;
 
 struct bt_pac_ltv {
@@ -31,10 +32,13 @@ struct bt_pac_ltv_data {
 } __packed;
 
 struct bt_pacs_read_rsp {
-	uint8_t  num_pac;		/* Number of PAC Records*/
+	uint8_t  num_pac;
 } __packed;
 
 struct bt_pacs_context {
 	uint16_t  snk;
 	uint16_t  src;
 } __packed;
+
+const struct bt_audio_codec_cap *bt_pacs_get_codec_cap(enum bt_audio_dir dir,
+						       const struct bt_pac_codec *codec_id);

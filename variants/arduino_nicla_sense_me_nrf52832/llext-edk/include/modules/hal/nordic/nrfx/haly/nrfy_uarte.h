@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2021 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -46,6 +46,13 @@ extern "C" {
 #define NRFY_UARTE_HAS_FRAME_TIMEOUT 1
 #else
 #define NRFY_UARTE_HAS_FRAME_TIMEOUT 0
+#endif
+
+#if NRF_UARTE_HAS_FRAME_SIZE || defined(__NRFX_DOXYGEN__)
+/** @refhal{NRF_UARTE_HAS_FRAME_SIZE} */
+#define NRFY_UARTE_HAS_FRAME_SIZE 1
+#else
+#define NRFY_UARTE_HAS_FRAME_SIZE 0
 #endif
 
 typedef struct nrfy_uarte_buffer_t nrfy_uarte_buffer_t;
@@ -626,7 +633,27 @@ NRFY_STATIC_INLINE void nrfy_uarte_frame_timeout_set(NRF_UARTE_Type * p_reg,
 {
     nrf_barrier_r();
     nrf_uarte_frame_timeout_set(p_reg, timeout);
+    nrf_barrier_w();
+}
+#endif
+
+#if NRFX_CHECK(NRFY_UARTE_HAS_FRAME_SIZE)
+/** @refhal{nrf_uarte_address_set} */
+NRFY_STATIC_INLINE void nrfy_uarte_address_set(NRF_UARTE_Type * p_reg,
+                                               uint8_t          address)
+{
     nrf_barrier_r();
+    nrf_uarte_address_set(p_reg, address);
+    nrf_barrier_w();
+}
+
+/** @refhal{nrf_uarte_address_get} */
+NRFY_STATIC_INLINE uint8_t nrfy_uarte_address_get(NRF_UARTE_Type const * p_reg)
+{
+    nrf_barrier_r();
+    uint8_t address = nrf_uarte_address_get(p_reg);
+    nrf_barrier_r();
+    return address;
 }
 #endif
 /** @} */

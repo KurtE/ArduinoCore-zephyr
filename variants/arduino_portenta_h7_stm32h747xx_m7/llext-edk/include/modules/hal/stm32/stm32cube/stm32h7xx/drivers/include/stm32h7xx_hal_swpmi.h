@@ -69,14 +69,14 @@ typedef struct
   */
 typedef enum
 {
-  HAL_SWPMI_STATE_RESET             = 0x00,    /*!< Peripheral Reset state                             */
-  HAL_SWPMI_STATE_READY             = 0x01,    /*!< Peripheral Initialized and ready for use           */
-  HAL_SWPMI_STATE_BUSY              = 0x02,    /*!< an internal process is ongoing                     */
-  HAL_SWPMI_STATE_BUSY_TX           = 0x12,    /*!< Data Transmission process is ongoing               */
-  HAL_SWPMI_STATE_BUSY_RX           = 0x22,    /*!< Data Reception process is ongoing                  */
-  HAL_SWPMI_STATE_BUSY_TX_RX        = 0x32,    /*!< Data Transmission and Reception process is ongoing */
-  HAL_SWPMI_STATE_TIMEOUT           = 0x03,    /*!< Timeout state                                      */
-  HAL_SWPMI_STATE_ERROR             = 0x04     /*!< Error                                              */
+  HAL_SWPMI_STATE_RESET             = 0x00,
+  HAL_SWPMI_STATE_READY             = 0x01,
+  HAL_SWPMI_STATE_BUSY              = 0x02,
+  HAL_SWPMI_STATE_BUSY_TX           = 0x12,
+  HAL_SWPMI_STATE_BUSY_RX           = 0x22,
+  HAL_SWPMI_STATE_BUSY_TX_RX        = 0x32,
+  HAL_SWPMI_STATE_TIMEOUT           = 0x03,
+  HAL_SWPMI_STATE_ERROR             = 0x04
 } HAL_SWPMI_StateTypeDef;
 
 /**
@@ -88,40 +88,40 @@ typedef struct __SWPMI_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_SWPMI_REGISTER_CALLBACKS */
 {
-  SWPMI_TypeDef                  *Instance;     /*!< SWPMI registers base address         */
+  SWPMI_TypeDef                  *Instance;
 
-  SWPMI_InitTypeDef              Init;          /*!< SWPMI communication parameters       */
+  SWPMI_InitTypeDef              Init;
 
-  const uint32_t                 *pTxBuffPtr;   /*!< Pointer to SWPMI Tx transfer Buffer  */
+  const uint32_t                 *pTxBuffPtr;
 
-  uint32_t                       TxXferSize;    /*!< SWPMI Tx Transfer size               */
+  uint32_t                       TxXferSize;
 
-  uint32_t                       TxXferCount;   /*!< SWPMI Tx Transfer Counter            */
+  uint32_t                       TxXferCount;
 
-  uint32_t                       *pRxBuffPtr;   /*!< Pointer to SWPMI Rx transfer Buffer  */
+  uint32_t                       *pRxBuffPtr;
 
-  uint32_t                       RxXferSize;    /*!< SWPMI Rx Transfer size               */
+  uint32_t                       RxXferSize;
 
-  uint32_t                       RxXferCount;   /*!< SWPMI Rx Transfer Counter            */
+  uint32_t                       RxXferCount;
 
-  DMA_HandleTypeDef              *hdmatx;       /*!< SWPMI Tx DMA Handle parameters       */
+  DMA_HandleTypeDef              *hdmatx;
 
-  DMA_HandleTypeDef              *hdmarx;       /*!< SWPMI Rx DMA Handle parameters       */
+  DMA_HandleTypeDef              *hdmarx;
 
-  HAL_LockTypeDef                Lock;          /*!< SWPMI object                         */
+  HAL_LockTypeDef                Lock;
 
-  __IO HAL_SWPMI_StateTypeDef    State;         /*!< SWPMI communication state            */
+  __IO HAL_SWPMI_StateTypeDef    State;
 
-  __IO uint32_t                  ErrorCode;     /*!< SWPMI Error code                     */
+  __IO uint32_t                  ErrorCode;
 
 #if (USE_HAL_SWPMI_REGISTER_CALLBACKS == 1)
-  void (*RxCpltCallback)(struct __SWPMI_HandleTypeDef *hswpmi);      /*!< SWPMI receive complete callback */
-  void (*RxHalfCpltCallback)(struct __SWPMI_HandleTypeDef *hswpmi);  /*!< SWPMI receive half complete callback */
-  void (*TxCpltCallback)(struct __SWPMI_HandleTypeDef *hswpmi);      /*!< SWPMI transmit complete callback */
-  void (*TxHalfCpltCallback)(struct __SWPMI_HandleTypeDef *hswpmi);  /*!< SWPMI transmit half complete callback */
-  void (*ErrorCallback)(struct __SWPMI_HandleTypeDef *hswpmi);       /*!< SWPMI error callback */
-  void (*MspInitCallback)(struct __SWPMI_HandleTypeDef *hswpmi);     /*!< SWPMI MSP init callback */
-  void (*MspDeInitCallback)(struct __SWPMI_HandleTypeDef *hswpmi);   /*!< SWPMI MSP de-init callback */
+  void (*RxCpltCallback)(struct __SWPMI_HandleTypeDef *hswpmi);
+  void (*RxHalfCpltCallback)(struct __SWPMI_HandleTypeDef *hswpmi);
+  void (*TxCpltCallback)(struct __SWPMI_HandleTypeDef *hswpmi);
+  void (*TxHalfCpltCallback)(struct __SWPMI_HandleTypeDef *hswpmi);
+  void (*ErrorCallback)(struct __SWPMI_HandleTypeDef *hswpmi);
+  void (*MspInitCallback)(struct __SWPMI_HandleTypeDef *hswpmi);
+  void (*MspDeInitCallback)(struct __SWPMI_HandleTypeDef *hswpmi);
 #endif /* USE_HAL_SWPMI_REGISTER_CALLBACKS */
 
 } SWPMI_HandleTypeDef;
@@ -132,13 +132,13 @@ typedef struct
   */
 typedef enum
 {
-  HAL_SWPMI_RX_COMPLETE_CB_ID     = 0x00U, /*!< SWPMI receive complete callback ID */
-  HAL_SWPMI_RX_HALFCOMPLETE_CB_ID = 0x01U, /*!< SWPMI receive half complete callback ID */
-  HAL_SWPMI_TX_COMPLETE_CB_ID     = 0x02U, /*!< SWPMI transmit complete callback ID */
-  HAL_SWPMI_TX_HALFCOMPLETE_CB_ID = 0x03U, /*!< SWPMI transmit half complete callback ID */
-  HAL_SWPMI_ERROR_CB_ID           = 0x04U, /*!< SWPMI error callback ID */
-  HAL_SWPMI_MSPINIT_CB_ID         = 0x05U, /*!< SWPMI MSP init callback ID */
-  HAL_SWPMI_MSPDEINIT_CB_ID       = 0x06U  /*!< SWPMI MSP de-init callback ID */
+  HAL_SWPMI_RX_COMPLETE_CB_ID     = 0x00U,
+  HAL_SWPMI_RX_HALFCOMPLETE_CB_ID = 0x01U,
+  HAL_SWPMI_TX_COMPLETE_CB_ID     = 0x02U,
+  HAL_SWPMI_TX_HALFCOMPLETE_CB_ID = 0x03U,
+  HAL_SWPMI_ERROR_CB_ID           = 0x04U,
+  HAL_SWPMI_MSPINIT_CB_ID         = 0x05U,
+  HAL_SWPMI_MSPDEINIT_CB_ID       = 0x06U
 } HAL_SWPMI_CallbackIDTypeDef;
 
 /**
@@ -160,16 +160,16 @@ typedef void (*pSWPMI_CallbackTypeDef)(SWPMI_HandleTypeDef *hswpmi);
   * @defgroup SWPMI_Error_Code SWPMI Error Code Bitmap
   * @{
   */
-#define HAL_SWPMI_ERROR_NONE                  ((uint32_t)0x00000000) /*!< No error              */
-#define HAL_SWPMI_ERROR_CRC                   ((uint32_t)0x00000004) /*!< frame error           */
-#define HAL_SWPMI_ERROR_OVR                   ((uint32_t)0x00000008) /*!< Overrun error         */
-#define HAL_SWPMI_ERROR_UDR                   ((uint32_t)0x0000000C) /*!< Underrun error        */
-#define HAL_SWPMI_ERROR_DMA                   ((uint32_t)0x00000010) /*!< DMA transfer error    */
-#define HAL_SWPMI_ERROR_TIMEOUT               ((uint32_t)0x00000020) /*!< Transfer timeout      */
-#define HAL_SWPMI_ERROR_TXBEF_TIMEOUT         ((uint32_t)0x00000040) /*!< End Tx buffer timeout */
-#define HAL_SWPMI_ERROR_TRANSCEIVER_NOT_READY ((uint32_t)0x00000080) /*!< Transceiver not ready */
+#define HAL_SWPMI_ERROR_NONE                  ((uint32_t)0x00000000)
+#define HAL_SWPMI_ERROR_CRC                   ((uint32_t)0x00000004)
+#define HAL_SWPMI_ERROR_OVR                   ((uint32_t)0x00000008)
+#define HAL_SWPMI_ERROR_UDR                   ((uint32_t)0x0000000C)
+#define HAL_SWPMI_ERROR_DMA                   ((uint32_t)0x00000010)
+#define HAL_SWPMI_ERROR_TIMEOUT               ((uint32_t)0x00000020)
+#define HAL_SWPMI_ERROR_TXBEF_TIMEOUT         ((uint32_t)0x00000040)
+#define HAL_SWPMI_ERROR_TRANSCEIVER_NOT_READY ((uint32_t)0x00000080)
 #if (USE_HAL_SWPMI_REGISTER_CALLBACKS == 1)
-#define HAL_SWPMI_ERROR_INVALID_CALLBACK      ((uint32_t)0x00000100) /*!< Invalid callback error */
+#define HAL_SWPMI_ERROR_INVALID_CALLBACK      ((uint32_t)0x00000100)
 #endif /* USE_HAL_SWPMI_REGISTER_CALLBACKS */
 /**
   * @}

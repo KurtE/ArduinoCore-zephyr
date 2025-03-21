@@ -60,7 +60,7 @@ enum bt_aics_client_flag {
 	BT_AICS_CLIENT_FLAG_DESC_WRITABLE,
 	BT_AICS_CLIENT_FLAG_ACTIVE,
 
-	BT_AICS_CLIENT_FLAG_NUM_FLAGS, /* keep as last */
+	BT_AICS_CLIENT_FLAG_NUM_FLAGS,
 };
 
 struct bt_aics_client {

@@ -35,8 +35,8 @@ struct timespec {
 };
 
 struct itimerspec {
-	struct timespec it_interval;  /* Timer interval */
-	struct timespec it_value;     /* Timer expiration */
+	struct timespec it_interval;
+	struct timespec it_value;
 };
 
 #ifdef __cplusplus

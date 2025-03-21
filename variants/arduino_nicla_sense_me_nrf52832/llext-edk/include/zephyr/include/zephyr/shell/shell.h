@@ -109,8 +109,8 @@ union shell_cmd_entry {
 struct shell;
 
 struct shell_static_args {
-	uint8_t mandatory; /*!< Number of mandatory arguments. */
-	uint8_t optional;  /*!< Number of optional arguments. */
+	uint8_t mandatory;
+	uint8_t optional;
 };
 
 /**
@@ -226,11 +226,11 @@ typedef int (*shell_dict_cmd_handler)(const struct shell *sh, size_t argc,
  * @brief Shell static command descriptor.
  */
 struct shell_static_entry {
-	const char *syntax;			/*!< Command syntax strings. */
-	const char *help;			/*!< Command help string. */
-	const union shell_cmd_entry *subcmd;	/*!< Pointer to subcommand. */
-	shell_cmd_handler handler;		/*!< Command handler. */
-	struct shell_static_args args;		/*!< Command arguments. */
+	const char *syntax;
+	const char *help;
+	const union shell_cmd_entry *subcmd;
+	shell_cmd_handler handler;
+	struct shell_static_args args;
 	uint8_t padding[Z_SHELL_STATIC_ENTRY_PADDING];
 };
 
@@ -633,8 +633,8 @@ enum shell_state {
 	SHELL_STATE_UNINITIALIZED,
 	SHELL_STATE_INITIALIZED,
 	SHELL_STATE_ACTIVE,
-	SHELL_STATE_PANIC_MODE_ACTIVE,  /*!< Panic activated.*/
-	SHELL_STATE_PANIC_MODE_INACTIVE /*!< Panic requested, not supported.*/
+	SHELL_STATE_PANIC_MODE_ACTIVE,
+	SHELL_STATE_PANIC_MODE_INACTIVE
 };
 
 /** @brief Shell transport event. */
@@ -752,7 +752,7 @@ struct shell_transport {
  * @brief Shell statistics structure.
  */
 struct shell_stats {
-	atomic_t log_lost_cnt; /*!< Lost log counter.*/
+	atomic_t log_lost_cnt;
 };
 
 #ifdef CONFIG_SHELL_STATS
@@ -767,12 +767,12 @@ struct shell_stats {
  * @internal @brief Flags for shell backend configuration.
  */
 struct shell_backend_config_flags {
-	uint32_t insert_mode :1; /*!< Controls insert mode for text introduction */
-	uint32_t echo        :1; /*!< Controls shell echo */
-	uint32_t obscure     :1; /*!< If echo on, print asterisk instead */
-	uint32_t mode_delete :1; /*!< Operation mode of backspace key */
-	uint32_t use_colors  :1; /*!< Controls colored syntax */
-	uint32_t use_vt100   :1; /*!< Controls VT100 commands usage in shell */
+	uint32_t insert_mode :1;
+	uint32_t echo        :1;
+	uint32_t obscure     :1;
+	uint32_t mode_delete :1;
+	uint32_t use_colors  :1;
+	uint32_t use_vt100   :1;
 };
 
 BUILD_ASSERT((sizeof(struct shell_backend_config_flags) == sizeof(uint32_t)),
@@ -792,14 +792,14 @@ BUILD_ASSERT((sizeof(struct shell_backend_config_flags) == sizeof(uint32_t)),
 };
 
 struct shell_backend_ctx_flags {
-	uint32_t processing   :1; /*!< Shell is executing process function */
+	uint32_t processing   :1;
 	uint32_t tx_rdy       :1;
-	uint32_t history_exit :1; /*!< Request to exit history mode */
-	uint32_t last_nl      :8; /*!< Last received new line character */
-	uint32_t cmd_ctx      :1; /*!< Shell is executing command */
-	uint32_t print_noinit :1; /*!< Print request from not initialized shell */
-	uint32_t sync_mode    :1; /*!< Shell in synchronous mode */
-	uint32_t handle_log   :1; /*!< Shell is handling logger backend */
+	uint32_t history_exit :1;
+	uint32_t last_nl      :8;
+	uint32_t cmd_ctx      :1;
+	uint32_t print_noinit :1;
+	uint32_t sync_mode    :1;
+	uint32_t handle_log   :1;
 };
 
 BUILD_ASSERT((sizeof(struct shell_backend_ctx_flags) == sizeof(uint32_t)),
@@ -825,7 +825,7 @@ enum shell_signal {
 	SHELL_SIGNAL_RXRDY,
 	SHELL_SIGNAL_LOG_MSG,
 	SHELL_SIGNAL_KILL,
-	SHELL_SIGNAL_TXDONE, /* TXDONE must be last one before SHELL_SIGNALS */
+	SHELL_SIGNAL_TXDONE,
 	SHELL_SIGNALS
 };
 
@@ -834,13 +834,13 @@ enum shell_signal {
  */
 struct shell_ctx {
 #if defined(CONFIG_SHELL_PROMPT_CHANGE) && CONFIG_SHELL_PROMPT_CHANGE
-	char prompt[CONFIG_SHELL_PROMPT_BUFF_SIZE]; /*!< shell current prompt. */
+	char prompt[CONFIG_SHELL_PROMPT_BUFF_SIZE];
 #else
 	const char *prompt;
 #endif
 
-	enum shell_state state; /*!< Internal module state.*/
-	enum shell_receive_state receive_state;/*!< Escape sequence indicator.*/
+	enum shell_state state;
+	enum shell_receive_state receive_state;
 
 	/** Currently executed command.*/
 	struct shell_static_entry active_cmd;
@@ -867,10 +867,10 @@ struct shell_ctx {
 	struct getopt_state getopt;
 #endif
 
-	uint16_t cmd_buff_len; /*!< Command length.*/
-	uint16_t cmd_buff_pos; /*!< Command buffer cursor position.*/
+	uint16_t cmd_buff_len;
+	uint16_t cmd_buff_pos;
 
-	uint16_t cmd_tmp_buff_len; /*!< Command length in tmp buffer.*/
+	uint16_t cmd_tmp_buff_len;
 
 	/** Command input buffer.*/
 	char cmd_buff[CONFIG_SHELL_CMD_BUFF_SIZE];
@@ -902,18 +902,18 @@ extern const struct log_backend_api log_backend_shell_api;
  * @brief Flags for setting shell output newline sequence.
  */
 enum shell_flag {
-	SHELL_FLAG_CRLF_DEFAULT	= (1<<0),	/*!< Do not map CR or LF */
-	SHELL_FLAG_OLF_CRLF	= (1<<1)	/*!< Map LF to CRLF on output */
+	SHELL_FLAG_CRLF_DEFAULT	= (1<<0),
+	SHELL_FLAG_OLF_CRLF	= (1<<1)
 };
 
 /**
  * @brief Shell instance internals.
  */
 struct shell {
-	const char *default_prompt; /*!< shell default prompt. */
+	const char *default_prompt;
 
-	const struct shell_transport *iface; /*!< Transport interface.*/
-	struct shell_ctx *ctx; /*!< Internal context.*/
+	const struct shell_transport *iface;
+	struct shell_ctx *ctx;
 
 	struct shell_history *history;
 
@@ -952,7 +952,7 @@ extern void z_shell_print_stream(const void *user_ctx, const char *data,
 	static struct shell_ctx UTIL_CAT(_name, _ctx);                                             \
 	Z_SHELL_HISTORY_DEFINE(_name##_history, CONFIG_SHELL_HISTORY_BUFFER);                      \
 	Z_SHELL_FPRINTF_DEFINE(_name##_fprintf, &_name, _out_buf, CONFIG_SHELL_PRINTF_BUFF_SIZE,   \
-			       true, z_shell_print_stream);                                        \
+			       IS_ENABLED(CONFIG_SHELL_PRINTF_AUTOFLUSH), z_shell_print_stream);   \
 	LOG_INSTANCE_REGISTER(shell, _name, CONFIG_SHELL_LOG_LEVEL);                               \
 	Z_SHELL_STATS_DEFINE(_name);                                                               \
 	static K_KERNEL_STACK_DEFINE(_name##_stack, CONFIG_SHELL_STACK_SIZE);                      \

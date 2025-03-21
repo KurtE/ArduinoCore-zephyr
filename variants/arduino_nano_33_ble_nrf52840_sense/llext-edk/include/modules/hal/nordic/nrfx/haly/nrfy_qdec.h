@@ -63,20 +63,20 @@ NRFY_STATIC_INLINE uint32_t __nrfy_internal_qdec_events_process(NRF_QDEC_Type * 
 /** @brief Configuration structure for QDEC pins. */
 typedef struct
 {
-    uint32_t a_pin;   /**< Pin number for A input. */
-    uint32_t b_pin;   /**< Pin number for B input. */
-    uint32_t led_pin; /**< Pin number for LED output. */
+    uint32_t a_pin;
+    uint32_t b_pin;
+    uint32_t led_pin;
 } nrfy_qdec_pins_t;
 
 /** @brief QDEC configuration structure. */
 typedef struct
 {
-    nrf_qdec_reportper_t reportper;     /**< Report period in samples. */
-    nrf_qdec_sampleper_t sampleper;     /**< Sampling period in microseconds. */
-    nrfy_qdec_pins_t     pins;          /**< Pin configuration structure. */
-    uint32_t             ledpre;        /**< Time (in microseconds) how long LED is switched on before sampling. */
-    nrf_qdec_ledpol_t    ledpol;        /**< Active LED polarity. */
-    bool                 dbfen;         /**< State of debouncing filter. */
+    nrf_qdec_reportper_t reportper;
+    nrf_qdec_sampleper_t sampleper;
+    nrfy_qdec_pins_t     pins;
+    uint32_t             ledpre;
+    nrf_qdec_ledpol_t    ledpol;
+    bool                 dbfen;
     bool                 skip_psel_cfg; /**< Skip pin selection configuration.
                                              When set to true, the driver does not modify
                                              pin select registers in the peripheral.

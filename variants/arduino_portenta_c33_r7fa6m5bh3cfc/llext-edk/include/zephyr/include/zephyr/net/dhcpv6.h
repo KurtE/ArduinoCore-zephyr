@@ -61,8 +61,8 @@ struct net_if;
 
 /** @brief DHCPv6 client configuration parameters. */
 struct net_dhcpv6_params {
-	bool request_addr : 1; /**< Request IPv6 address. */
-	bool request_prefix : 1; /**< Request IPv6 prefix. */
+	bool request_addr : 1;
+	bool request_prefix : 1;
 };
 
 /**

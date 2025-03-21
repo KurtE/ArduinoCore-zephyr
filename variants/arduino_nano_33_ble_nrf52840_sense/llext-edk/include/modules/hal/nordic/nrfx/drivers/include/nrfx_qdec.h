@@ -138,25 +138,25 @@ enum {
 /** @brief QDEC sample event data. */
 typedef struct
 {
-    int8_t value; /**< Sample value. */
+    int8_t value;
 } nrfx_qdec_sample_data_evt_t;
 
 /** @brief QDEC report event data. */
 typedef struct
 {
-    int32_t  acc;    /**< Accumulated transitions. */
-    uint32_t accdbl; /**< Accumulated double transitions. */
+    int32_t  acc;
+    uint32_t accdbl;
 } nrfx_qdec_report_data_evt_t;
 
 /** @brief QDEC event handler structure. */
 typedef struct
 {
-    nrf_qdec_event_t  type; /**< Event type. */
+    nrf_qdec_event_t  type;
     union
     {
-        nrfx_qdec_sample_data_evt_t sample; /**< Sample event data. */
-        nrfx_qdec_report_data_evt_t report; /**< Report event data. */
-    } data;                                 /**< Union to store event data. */
+        nrfx_qdec_sample_data_evt_t sample;
+        nrfx_qdec_report_data_evt_t report;
+    } data;
 } nrfx_qdec_event_t;
 
 /**

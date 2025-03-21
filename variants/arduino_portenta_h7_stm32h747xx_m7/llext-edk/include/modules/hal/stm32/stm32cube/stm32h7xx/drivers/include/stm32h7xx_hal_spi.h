@@ -134,14 +134,14 @@ typedef struct
   */
 typedef enum
 {
-  HAL_SPI_STATE_RESET      = 0x00UL,    /*!< Peripheral not Initialized                         */
-  HAL_SPI_STATE_READY      = 0x01UL,    /*!< Peripheral Initialized and ready for use           */
-  HAL_SPI_STATE_BUSY       = 0x02UL,    /*!< an internal process is ongoing                     */
-  HAL_SPI_STATE_BUSY_TX    = 0x03UL,    /*!< Data Transmission process is ongoing               */
-  HAL_SPI_STATE_BUSY_RX    = 0x04UL,    /*!< Data Reception process is ongoing                  */
-  HAL_SPI_STATE_BUSY_TX_RX = 0x05UL,    /*!< Data Transmission and Reception process is ongoing */
-  HAL_SPI_STATE_ERROR      = 0x06UL,    /*!< SPI error state                                    */
-  HAL_SPI_STATE_ABORT      = 0x07UL     /*!< SPI abort is ongoing                               */
+  HAL_SPI_STATE_RESET      = 0x00UL,
+  HAL_SPI_STATE_READY      = 0x01UL,
+  HAL_SPI_STATE_BUSY       = 0x02UL,
+  HAL_SPI_STATE_BUSY_TX    = 0x03UL,
+  HAL_SPI_STATE_BUSY_RX    = 0x04UL,
+  HAL_SPI_STATE_BUSY_TX_RX = 0x05UL,
+  HAL_SPI_STATE_ERROR      = 0x06UL,
+  HAL_SPI_STATE_ABORT      = 0x07UL
 } HAL_SPI_StateTypeDef;
 
 #if defined(USE_SPI_RELOAD_TRANSFER)
@@ -150,15 +150,15 @@ typedef enum
   */
 typedef struct
 {
-  const uint8_t              *pTxBuffPtr;                  /*!< Pointer to SPI Tx transfer Buffer        */
+  const uint8_t              *pTxBuffPtr;
 
-  uint16_t                   TxXferSize;                   /*!< SPI Tx Transfer size to reload           */
+  uint16_t                   TxXferSize;
 
-  uint8_t                    *pRxBuffPtr;                  /*!< Pointer to SPI Rx transfer Buffer        */
+  uint8_t                    *pRxBuffPtr;
 
-  uint16_t                   RxXferSize;                   /*!< SPI Rx Transfer size to reload           */
+  uint16_t                   RxXferSize;
 
-  uint32_t                   Requested;                    /*!< SPI reload request                       */
+  uint32_t                   Requested;
 
 } SPI_ReloadTypeDef;
 #endif /* USE_SPI_RELOAD_TRANSFER */
@@ -168,56 +168,56 @@ typedef struct
   */
 typedef struct __SPI_HandleTypeDef
 {
-  SPI_TypeDef                *Instance;                    /*!< SPI registers base address               */
+  SPI_TypeDef                *Instance;
 
-  SPI_InitTypeDef            Init;                         /*!< SPI communication parameters             */
+  SPI_InitTypeDef            Init;
 
-  const uint8_t              *pTxBuffPtr;                  /*!< Pointer to SPI Tx transfer Buffer        */
+  const uint8_t              *pTxBuffPtr;
 
-  uint16_t                   TxXferSize;                   /*!< SPI Tx Transfer size                     */
+  uint16_t                   TxXferSize;
 
-  __IO uint16_t              TxXferCount;                  /*!< SPI Tx Transfer Counter                  */
+  __IO uint16_t              TxXferCount;
 
-  uint8_t                    *pRxBuffPtr;                  /*!< Pointer to SPI Rx transfer Buffer        */
+  uint8_t                    *pRxBuffPtr;
 
-  uint16_t                   RxXferSize;                   /*!< SPI Rx Transfer size                     */
+  uint16_t                   RxXferSize;
 
-  __IO uint16_t              RxXferCount;                  /*!< SPI Rx Transfer Counter                  */
+  __IO uint16_t              RxXferCount;
 
-  uint32_t                   CRCSize;                      /*!< SPI CRC size used for the transfer       */
+  uint32_t                   CRCSize;
 
-  void (*RxISR)(struct __SPI_HandleTypeDef *hspi);         /*!< function pointer on Rx ISR               */
+  void (*RxISR)(struct __SPI_HandleTypeDef *hspi);
 
-  void (*TxISR)(struct __SPI_HandleTypeDef *hspi);         /*!< function pointer on Tx ISR               */
+  void (*TxISR)(struct __SPI_HandleTypeDef *hspi);
 
-  DMA_HandleTypeDef          *hdmatx;                      /*!< SPI Tx DMA Handle parameters             */
+  DMA_HandleTypeDef          *hdmatx;
 
-  DMA_HandleTypeDef          *hdmarx;                      /*!< SPI Rx DMA Handle parameters             */
+  DMA_HandleTypeDef          *hdmarx;
 
-  HAL_LockTypeDef            Lock;                         /*!< Locking object                           */
+  HAL_LockTypeDef            Lock;
 
-  __IO HAL_SPI_StateTypeDef  State;                        /*!< SPI communication state                  */
+  __IO HAL_SPI_StateTypeDef  State;
 
-  __IO uint32_t              ErrorCode;                    /*!< SPI Error code                           */
+  __IO uint32_t              ErrorCode;
 
 #if defined(USE_SPI_RELOAD_TRANSFER)
 
-  SPI_ReloadTypeDef          Reload;                       /*!< SPI reload parameters                    */
+  SPI_ReloadTypeDef          Reload;
 
 #endif /* USE_SPI_RELOAD_TRANSFER */
 
 #if (USE_HAL_SPI_REGISTER_CALLBACKS == 1UL)
-  void (* TxCpltCallback)(struct __SPI_HandleTypeDef *hspi);       /*!< SPI Tx Completed callback          */
-  void (* RxCpltCallback)(struct __SPI_HandleTypeDef *hspi);       /*!< SPI Rx Completed callback          */
-  void (* TxRxCpltCallback)(struct __SPI_HandleTypeDef *hspi);     /*!< SPI TxRx Completed callback        */
-  void (* TxHalfCpltCallback)(struct __SPI_HandleTypeDef *hspi);   /*!< SPI Tx Half Completed callback     */
-  void (* RxHalfCpltCallback)(struct __SPI_HandleTypeDef *hspi);   /*!< SPI Rx Half Completed callback     */
-  void (* TxRxHalfCpltCallback)(struct __SPI_HandleTypeDef *hspi); /*!< SPI TxRx Half Completed callback   */
-  void (* ErrorCallback)(struct __SPI_HandleTypeDef *hspi);        /*!< SPI Error callback                 */
-  void (* AbortCpltCallback)(struct __SPI_HandleTypeDef *hspi);    /*!< SPI Abort callback                 */
-  void (* SuspendCallback)(struct __SPI_HandleTypeDef *hspi);      /*!< SPI Suspend callback               */
-  void (* MspInitCallback)(struct __SPI_HandleTypeDef *hspi);      /*!< SPI Msp Init callback              */
-  void (* MspDeInitCallback)(struct __SPI_HandleTypeDef *hspi);    /*!< SPI Msp DeInit callback            */
+  void (* TxCpltCallback)(struct __SPI_HandleTypeDef *hspi);
+  void (* RxCpltCallback)(struct __SPI_HandleTypeDef *hspi);
+  void (* TxRxCpltCallback)(struct __SPI_HandleTypeDef *hspi);
+  void (* TxHalfCpltCallback)(struct __SPI_HandleTypeDef *hspi);
+  void (* RxHalfCpltCallback)(struct __SPI_HandleTypeDef *hspi);
+  void (* TxRxHalfCpltCallback)(struct __SPI_HandleTypeDef *hspi);
+  void (* ErrorCallback)(struct __SPI_HandleTypeDef *hspi);
+  void (* AbortCpltCallback)(struct __SPI_HandleTypeDef *hspi);
+  void (* SuspendCallback)(struct __SPI_HandleTypeDef *hspi);
+  void (* MspInitCallback)(struct __SPI_HandleTypeDef *hspi);
+  void (* MspDeInitCallback)(struct __SPI_HandleTypeDef *hspi);
 
 #endif  /* USE_HAL_SPI_REGISTER_CALLBACKS */
 } SPI_HandleTypeDef;
@@ -228,24 +228,24 @@ typedef struct __SPI_HandleTypeDef
   */
 typedef enum
 {
-  HAL_SPI_TX_COMPLETE_CB_ID             = 0x00UL,    /*!< SPI Tx Completed callback ID         */
-  HAL_SPI_RX_COMPLETE_CB_ID             = 0x01UL,    /*!< SPI Rx Completed callback ID         */
-  HAL_SPI_TX_RX_COMPLETE_CB_ID          = 0x02UL,    /*!< SPI TxRx Completed callback ID       */
-  HAL_SPI_TX_HALF_COMPLETE_CB_ID        = 0x03UL,    /*!< SPI Tx Half Completed callback ID    */
-  HAL_SPI_RX_HALF_COMPLETE_CB_ID        = 0x04UL,    /*!< SPI Rx Half Completed callback ID    */
-  HAL_SPI_TX_RX_HALF_COMPLETE_CB_ID     = 0x05UL,    /*!< SPI TxRx Half Completed callback ID  */
-  HAL_SPI_ERROR_CB_ID                   = 0x06UL,    /*!< SPI Error callback ID                */
-  HAL_SPI_ABORT_CB_ID                   = 0x07UL,    /*!< SPI Abort callback ID                */
-  HAL_SPI_SUSPEND_CB_ID                 = 0x08UL,    /*!< SPI Suspend callback ID              */
-  HAL_SPI_MSPINIT_CB_ID                 = 0x09UL,    /*!< SPI Msp Init callback ID             */
-  HAL_SPI_MSPDEINIT_CB_ID               = 0x0AUL     /*!< SPI Msp DeInit callback ID           */
+  HAL_SPI_TX_COMPLETE_CB_ID             = 0x00UL,
+  HAL_SPI_RX_COMPLETE_CB_ID             = 0x01UL,
+  HAL_SPI_TX_RX_COMPLETE_CB_ID          = 0x02UL,
+  HAL_SPI_TX_HALF_COMPLETE_CB_ID        = 0x03UL,
+  HAL_SPI_RX_HALF_COMPLETE_CB_ID        = 0x04UL,
+  HAL_SPI_TX_RX_HALF_COMPLETE_CB_ID     = 0x05UL,
+  HAL_SPI_ERROR_CB_ID                   = 0x06UL,
+  HAL_SPI_ABORT_CB_ID                   = 0x07UL,
+  HAL_SPI_SUSPEND_CB_ID                 = 0x08UL,
+  HAL_SPI_MSPINIT_CB_ID                 = 0x09UL,
+  HAL_SPI_MSPDEINIT_CB_ID               = 0x0AUL
 
 } HAL_SPI_CallbackIDTypeDef;
 
 /**
   * @brief  HAL SPI Callback pointer definition
   */
-typedef  void (*pSPI_CallbackTypeDef)(SPI_HandleTypeDef *hspi); /*!< pointer to an SPI callback function */
+typedef  void (*pSPI_CallbackTypeDef)(SPI_HandleTypeDef *hspi);
 
 #endif /* USE_HAL_SPI_REGISTER_CALLBACKS */
 /**
@@ -270,21 +270,21 @@ typedef  void (*pSPI_CallbackTypeDef)(SPI_HandleTypeDef *hspi); /*!< pointer to 
 /** @defgroup SPI_Error_Code SPI Error Codes
   * @{
   */
-#define HAL_SPI_ERROR_NONE                            (0x00000000UL)   /*!< No error                               */
-#define HAL_SPI_ERROR_MODF                            (0x00000001UL)   /*!< MODF error                             */
-#define HAL_SPI_ERROR_CRC                             (0x00000002UL)   /*!< CRC error                              */
-#define HAL_SPI_ERROR_OVR                             (0x00000004UL)   /*!< OVR error                              */
-#define HAL_SPI_ERROR_FRE                             (0x00000008UL)   /*!< FRE error                              */
-#define HAL_SPI_ERROR_DMA                             (0x00000010UL)   /*!< DMA transfer error                     */
-#define HAL_SPI_ERROR_FLAG                            (0x00000020UL)   /*!< Error on RXP/TXP/DXP/FTLVL/FRLVL Flag  */
-#define HAL_SPI_ERROR_ABORT                           (0x00000040UL)   /*!< Error during SPI Abort procedure       */
-#define HAL_SPI_ERROR_UDR                             (0x00000080UL)   /*!< Underrun error                         */
-#define HAL_SPI_ERROR_TIMEOUT                         (0x00000100UL)   /*!< Timeout error                          */
-#define HAL_SPI_ERROR_UNKNOW                          (0x00000200UL)   /*!< Unknown error                          */
-#define HAL_SPI_ERROR_NOT_SUPPORTED                   (0x00000400UL)   /*!< Requested operation not supported      */
-#define HAL_SPI_ERROR_RELOAD                          (0x00000800UL)   /*!< Reload error                           */
+#define HAL_SPI_ERROR_NONE                            (0x00000000UL)
+#define HAL_SPI_ERROR_MODF                            (0x00000001UL)
+#define HAL_SPI_ERROR_CRC                             (0x00000002UL)
+#define HAL_SPI_ERROR_OVR                             (0x00000004UL)
+#define HAL_SPI_ERROR_FRE                             (0x00000008UL)
+#define HAL_SPI_ERROR_DMA                             (0x00000010UL)
+#define HAL_SPI_ERROR_FLAG                            (0x00000020UL)
+#define HAL_SPI_ERROR_ABORT                           (0x00000040UL)
+#define HAL_SPI_ERROR_UDR                             (0x00000080UL)
+#define HAL_SPI_ERROR_TIMEOUT                         (0x00000100UL)
+#define HAL_SPI_ERROR_UNKNOW                          (0x00000200UL)
+#define HAL_SPI_ERROR_NOT_SUPPORTED                   (0x00000400UL)
+#define HAL_SPI_ERROR_RELOAD                          (0x00000800UL)
 #if (USE_HAL_SPI_REGISTER_CALLBACKS == 1UL)
-#define HAL_SPI_ERROR_INVALID_CALLBACK                (0x00001000UL)   /*!< Invalid Callback error                 */
+#define HAL_SPI_ERROR_INVALID_CALLBACK                (0x00001000UL)
 #endif /* USE_HAL_SPI_REGISTER_CALLBACKS */
 /**
   * @}
@@ -618,21 +618,21 @@ typedef  void (*pSPI_CallbackTypeDef)(SPI_HandleTypeDef *hspi); /*!< pointer to 
 /** @defgroup SPI_Flags_definition SPI Flags Definition
   * @{
   */
-#define SPI_FLAG_RXP                    SPI_SR_RXP     /* SPI status flag : Rx-Packet available flag                 */
-#define SPI_FLAG_TXP                    SPI_SR_TXP     /* SPI status flag : Tx-Packet space available flag           */
-#define SPI_FLAG_DXP                    SPI_SR_DXP     /* SPI status flag : Duplex Packet flag                       */
-#define SPI_FLAG_EOT                    SPI_SR_EOT     /* SPI status flag : End of transfer flag                     */
-#define SPI_FLAG_TXTF                   SPI_SR_TXTF    /* SPI status flag : Transmission Transfer Filled flag        */
-#define SPI_FLAG_UDR                    SPI_SR_UDR     /* SPI Error flag  : Underrun flag                            */
-#define SPI_FLAG_OVR                    SPI_SR_OVR     /* SPI Error flag  : Overrun flag                             */
-#define SPI_FLAG_CRCERR                 SPI_SR_CRCE    /* SPI Error flag  : CRC error flag                           */
-#define SPI_FLAG_FRE                    SPI_SR_TIFRE   /* SPI Error flag  : TI mode frame format error flag          */
-#define SPI_FLAG_MODF                   SPI_SR_MODF    /* SPI Error flag  : Mode fault flag                          */
-#define SPI_FLAG_TSERF                  SPI_SR_TSERF   /* SPI status flag : Additional number of data reloaded flag  */
-#define SPI_FLAG_SUSP                   SPI_SR_SUSP    /* SPI status flag : Transfer suspend complete flag           */
-#define SPI_FLAG_TXC                    SPI_SR_TXC     /* SPI status flag : TxFIFO transmission complete flag        */
-#define SPI_FLAG_FRLVL                  SPI_SR_RXPLVL  /* SPI status flag : Fifo reception level flag                */
-#define SPI_FLAG_RXWNE                  SPI_SR_RXWNE   /* SPI status flag : RxFIFO word not empty flag               */
+#define SPI_FLAG_RXP                    SPI_SR_RXP
+#define SPI_FLAG_TXP                    SPI_SR_TXP
+#define SPI_FLAG_DXP                    SPI_SR_DXP
+#define SPI_FLAG_EOT                    SPI_SR_EOT
+#define SPI_FLAG_TXTF                   SPI_SR_TXTF
+#define SPI_FLAG_UDR                    SPI_SR_UDR
+#define SPI_FLAG_OVR                    SPI_SR_OVR
+#define SPI_FLAG_CRCERR                 SPI_SR_CRCE
+#define SPI_FLAG_FRE                    SPI_SR_TIFRE
+#define SPI_FLAG_MODF                   SPI_SR_MODF
+#define SPI_FLAG_TSERF                  SPI_SR_TSERF
+#define SPI_FLAG_SUSP                   SPI_SR_SUSP
+#define SPI_FLAG_TXC                    SPI_SR_TXC
+#define SPI_FLAG_FRLVL                  SPI_SR_RXPLVL
+#define SPI_FLAG_RXWNE                  SPI_SR_RXWNE
 /**
   * @}
   */
@@ -640,7 +640,7 @@ typedef  void (*pSPI_CallbackTypeDef)(SPI_HandleTypeDef *hspi); /*!< pointer to 
 /** @defgroup SPI_reception_fifo_status_level SPI Reception FIFO Status Level
   * @{
   */
-#define SPI_RX_FIFO_0PACKET             (0x00000000UL)         /* 0 or multiple of 4 packets available in the RxFIFO */
+#define SPI_RX_FIFO_0PACKET             (0x00000000UL)
 #define SPI_RX_FIFO_1PACKET             (SPI_SR_RXPLVL_0)
 #define SPI_RX_FIFO_2PACKET             (SPI_SR_RXPLVL_1)
 #define SPI_RX_FIFO_3PACKET             (SPI_SR_RXPLVL_1 | SPI_SR_RXPLVL_0)

@@ -71,9 +71,9 @@ enum
 #endif                                                                             /* FSL_FEATURE_MCX_SPC_HAS_SYS_LDO */
     kStatus_SPC_CORELDOLowDriveStrengthIgnore = MAKE_STATUS(kStatusGroup_SPC, 5U), /*!< CORE LDO Low driver strength
                                                                         setting be ignored for LDO LVD/HVD enabled. */
-    kStatus_SPC_CORELDOVoltageWrong   = MAKE_STATUS(kStatusGroup_SPC, 7U),         /*!< Core LDO voltage is wrong. */
-    kStatus_SPC_CORELDOVoltageSetFail = MAKE_STATUS(kStatusGroup_SPC, 8U),         /*!< Core LDO voltage set fail. */
-    kStatus_SPC_BandgapModeWrong      = MAKE_STATUS(kStatusGroup_SPC, 6U),         /*!< Selected Bandgap Mode wrong. */
+    kStatus_SPC_CORELDOVoltageWrong   = MAKE_STATUS(kStatusGroup_SPC, 7U),
+    kStatus_SPC_CORELDOVoltageSetFail = MAKE_STATUS(kStatusGroup_SPC, 8U),
+    kStatus_SPC_BandgapModeWrong      = MAKE_STATUS(kStatusGroup_SPC, 6U),
 };
 
 /*!
@@ -82,15 +82,15 @@ enum
 enum _spc_voltage_detect_flags
 {
 #if (defined(FSL_FEATURE_MCX_SPC_HAS_IOVDD_VD) && FSL_FEATURE_MCX_SPC_HAS_IOVDD_VD)
-    kSPC_IOVDDHighVoltageDetectFlag = SPC_VD_STAT_IOVDD_HVDF_MASK,      /*!< IO VDD High-Voltage detect flag. */
-    kSPC_IOVDDLowVoltageDetectFlag  = SPC_VD_STAT_IOVDD_LVDF_MASK,      /*!< IO VDD Low-Voltage detect flag. */
+    kSPC_IOVDDHighVoltageDetectFlag = SPC_VD_STAT_IOVDD_HVDF_MASK,
+    kSPC_IOVDDLowVoltageDetectFlag  = SPC_VD_STAT_IOVDD_LVDF_MASK,
 #endif                                                                  /* FSL_FEATURE_MCX_SPC_HAS_IOVDD_VD */
-    kSPC_SystemVDDHighVoltageDetectFlag = SPC_VD_STAT_SYSVDD_HVDF_MASK, /*!< System VDD High-Voltage detect flag. */
-    kSPC_SystemVDDLowVoltageDetectFlag  = SPC_VD_STAT_SYSVDD_LVDF_MASK, /*!< System VDD Low-Voltage detect flag. */
+    kSPC_SystemVDDHighVoltageDetectFlag = SPC_VD_STAT_SYSVDD_HVDF_MASK,
+    kSPC_SystemVDDLowVoltageDetectFlag  = SPC_VD_STAT_SYSVDD_LVDF_MASK,
 #if (defined(FSL_FEATURE_MCX_SPC_HAS_COREVDD_HVD) && FSL_FEATURE_MCX_SPC_HAS_COREVDD_HVD)
-    kSPC_CoreVDDHighVoltageDetectFlag = SPC_VD_STAT_COREVDD_HVDF_MASK,  /*!< Core VDD High-Voltage detect flag. */
+    kSPC_CoreVDDHighVoltageDetectFlag = SPC_VD_STAT_COREVDD_HVDF_MASK,
 #endif                                                                  /* FSL_FEATURE_MCX_SPC_HAS_COREVDD_HVD */
-    kSPC_CoreVDDLowVoltageDetectFlag = SPC_VD_STAT_COREVDD_LVDF_MASK,   /*!< Core VDD Low-Voltage detect flag. */
+    kSPC_CoreVDDLowVoltageDetectFlag = SPC_VD_STAT_COREVDD_LVDF_MASK,
 };
 
 /*!
@@ -100,8 +100,8 @@ enum _spc_voltage_detect_flags
  */
 enum _spc_power_domains
 {
-    kSPC_MAINPowerDomainRetain = 1UL << 16U, /*!< Peripherals and IO pads retain in MAIN Power Domain. */
-    kSPC_WAKEPowerDomainRetain = 1UL << 17U, /*!< Peripherals and IO pads retain in WAKE Power Domain. */
+    kSPC_MAINPowerDomainRetain = 1UL << 16U,
+    kSPC_WAKEPowerDomainRetain = 1UL << 17U,
 };
 
 /*!
@@ -110,21 +110,21 @@ enum _spc_power_domains
  */
 enum _spc_analog_module_control
 {
-    kSPC_controlVref       = 1UL << 0UL,  /*!< Enable/disable VREF in active or low-power modes. */
-    kSPC_controlUsb3vDet   = 1UL << 1UL,  /*!< Enable/disable USB3V_Det in active or low-power modes. */
-    kSPC_controlDac0       = 1UL << 4UL,  /*!< Enable/disable DAC0 in active or low-power modes. */
-    kSPC_controlDac1       = 1UL << 5UL,  /*!< Enable/disable DAC1 in active or low-power modes.  */
-    kSPC_controlDac2       = 1UL << 6UL,  /*!< Enable/disable DAC2 in active or low-power modes. */
-    kSPC_controlOpamp0     = 1UL << 8UL,  /*!< Enable/disable OPAMP0 in active or low-power modes. */
-    kSPC_controlOpamp1     = 1UL << 9UL,  /*!< Enable/disable OPAMP1 in active or low-power modes. */
-    kSPC_controlOpamp2     = 1UL << 10UL, /*!< Enable/disable OPAMP2 in active or low-power modes. */
-    kSPC_controlCmp0       = 1UL << 16UL, /*!< Enable/disable CMP0 in active or low-power modes. */
-    kSPC_controlCmp1       = 1UL << 17UL, /*!< Enable/disable CMP1 in active or low-power modes. */
-    kSPC_controlCmp2       = 1UL << 18UL, /*!< Enable/disable CMP2 in active or low-power modes. */
-    kSPC_controlCmp0Dac    = 1UL << 20UL, /*!< Enable/disable CMP0_DAC in active or low-power modes. */
-    kSPC_controlCmp1Dac    = 1UL << 21UL, /*!< Enable/disable CMP1_DAC in active or low-power modes. */
-    kSPC_controlCmp2Dac    = 1UL << 22UL, /*!< Enable/disable CMP2_DAC in active or low-power modes. */
-    kSPC_controlAllModules = 0x770773UL,  /*!< Enable/disable all modules in active or low-power modes. */
+    kSPC_controlVref       = 1UL << 0UL,
+    kSPC_controlUsb3vDet   = 1UL << 1UL,
+    kSPC_controlDac0       = 1UL << 4UL,
+    kSPC_controlDac1       = 1UL << 5UL,
+    kSPC_controlDac2       = 1UL << 6UL,
+    kSPC_controlOpamp0     = 1UL << 8UL,
+    kSPC_controlOpamp1     = 1UL << 9UL,
+    kSPC_controlOpamp2     = 1UL << 10UL,
+    kSPC_controlCmp0       = 1UL << 16UL,
+    kSPC_controlCmp1       = 1UL << 17UL,
+    kSPC_controlCmp2       = 1UL << 18UL,
+    kSPC_controlCmp0Dac    = 1UL << 20UL,
+    kSPC_controlCmp1Dac    = 1UL << 21UL,
+    kSPC_controlCmp2Dac    = 1UL << 22UL,
+    kSPC_controlAllModules = 0x770773UL,
 };
 
 /*!
@@ -133,8 +133,8 @@ enum _spc_analog_module_control
  */
 typedef enum _spc_power_domain_id
 {
-    kSPC_PowerDomain0 = 0U, /*!< Power domain0, the connected power domain is chip specific. */
-    kSPC_PowerDomain1 = 1U, /*!< Power domain1, the connected power domain is chip specific. */
+    kSPC_PowerDomain0 = 0U,
+    kSPC_PowerDomain1 = 1U,
 } spc_power_domain_id_t;
 
 /*!
@@ -142,10 +142,10 @@ typedef enum _spc_power_domain_id
  */
 typedef enum _spc_power_domain_low_power_mode
 {
-    kSPC_SleepWithSYSClockRunning     = 0U, /*!< Power domain request SLEEP mode with SYS clock running. */
-    kSPC_DeepSleepWithSysClockOff     = 1U, /*!< Power domain request deep sleep mode with system clock off. */
-    kSPC_PowerDownWithSysClockOff     = 2U, /*!< Power domain request power down mode with system clock off. */
-    kSPC_DeepPowerDownWithSysClockOff = 4U, /*!< Power domain request deep power down mode with system clock off. */
+    kSPC_SleepWithSYSClockRunning     = 0U,
+    kSPC_DeepSleepWithSysClockOff     = 1U,
+    kSPC_PowerDownWithSysClockOff     = 2U,
+    kSPC_DeepPowerDownWithSysClockOff = 4U,
 } spc_power_domain_low_power_mode_t;
 
 /*!
@@ -153,8 +153,8 @@ typedef enum _spc_power_domain_low_power_mode
  */
 typedef enum _spc_lowPower_request_pin_polarity
 {
-    kSPC_HighTruePolarity = 0x0U, /*!< Control the High Polarity of the Low Power Reqest Pin. */
-    kSPC_LowTruePolarity  = 0x1U, /*!< Control the Low Polarity of the Low Power Reqest Pin. */
+    kSPC_HighTruePolarity = 0x0U,
+    kSPC_LowTruePolarity  = 0x1U,
 } spc_lowpower_request_pin_polarity_t;
 
 /*!
@@ -162,10 +162,10 @@ typedef enum _spc_lowPower_request_pin_polarity
  */
 typedef enum _spc_lowPower_request_output_override
 {
-    kSPC_LowPowerRequestNotForced  = 0x0U, /*!< Not Forced. */
-    kSPC_LowPowerRequestReserved   = 0x1U, /*!< Reserved. */
-    kSPC_LowPowerRequestForcedLow  = 0x2U, /*!< Forced Low (Ignore LowPower request output polarity setting.) */
-    kSPC_LowPowerRequestForcedHigh = 0x3U, /*!< Forced High (Ignore LowPower request output polarity setting.) */
+    kSPC_LowPowerRequestNotForced  = 0x0U,
+    kSPC_LowPowerRequestReserved   = 0x1U,
+    kSPC_LowPowerRequestForcedLow  = 0x2U,
+    kSPC_LowPowerRequestForcedHigh = 0x3U,
 } spc_lowpower_request_output_override_t;
 
 /*!
@@ -173,10 +173,10 @@ typedef enum _spc_lowPower_request_output_override
  */
 typedef enum _spc_bandgap_mode
 {
-    kSPC_BandgapDisabled              = 0x0U, /*!< Bandgap disabled. */
-    kSPC_BandgapEnabledBufferDisabled = 0x1U, /*!< Bandgap enabled with Buffer disabled. */
-    kSPC_BandgapEnabledBufferEnabled  = 0x2U, /*!< Bandgap enabled with Buffer enabled. */
-    kSPC_BandgapReserved              = 0x3U, /*!< Reserved. */
+    kSPC_BandgapDisabled              = 0x0U,
+    kSPC_BandgapEnabledBufferDisabled = 0x1U,
+    kSPC_BandgapEnabledBufferEnabled  = 0x2U,
+    kSPC_BandgapReserved              = 0x3U,
 } spc_bandgap_mode_t;
 
 #if (defined(FSL_FEATURE_MCX_SPC_HAS_DCDC) && FSL_FEATURE_MCX_SPC_HAS_DCDC)
@@ -189,9 +189,9 @@ typedef enum _spc_dcdc_voltage_level
 {
     kSPC_DCDC_RetentionVoltage = 0x0U, /*!< DCDC_CORE Regulator regulate to retention
                                            Voltage(Only supportedin low power modes) */
-    kSPC_DCDC_MidVoltage       = 0x1U, /*!< DCDC_CORE Regulator regulate to Mid Voltage(1.0V). */
-    kSPC_DCDC_NormalVoltage    = 0x2U, /*!< DCDC_CORE Regulator regulate to Normal Voltage(1.1V). */
-    kSPC_DCDC_OverdriveVoltage = 0x3U, /*!< DCDC_CORE Regulator regulate to Safe-Mode Voltage(1.2V). */
+    kSPC_DCDC_MidVoltage       = 0x1U,
+    kSPC_DCDC_NormalVoltage    = 0x2U,
+    kSPC_DCDC_OverdriveVoltage = 0x3U,
 } spc_dcdc_voltage_level_t;
 
 /*!
@@ -208,8 +208,8 @@ typedef enum _spc_dcdc_drive_strength
                                            * This enum member is only useful for Low Power Mode config, please
                                            * note that pluse refresh mode is invalid in SLEEP mode.
                                            */
-    kSPC_DCDC_LowDriveStrength    = 0x1U, /*!< DCDC_CORE regulator Drive Strength set to low. */
-    kSPC_DCDC_NormalDriveStrength = 0x2U, /*!< DCDC_CORE regulator Drive Strength set to Normal. */
+    kSPC_DCDC_LowDriveStrength    = 0x1U,
+    kSPC_DCDC_NormalDriveStrength = 0x2U,
 } spc_dcdc_drive_strength_t;
 #endif                                    /* FSL_FEATURE_MCX_SPC_HAS_DCDC */
 
@@ -219,8 +219,8 @@ typedef enum _spc_dcdc_drive_strength
  */
 typedef enum _spc_sys_ldo_voltage_level
 {
-    kSPC_SysLDO_NormalVoltage    = 0x0U, /*!< SYS LDO VDD Regulator regulate to Normal Voltage(1.8V). */
-    kSPC_SysLDO_OverDriveVoltage = 0x1U, /*!< SYS LDO VDD Regulator regulate to Over Drive Voltage(2.5V). */
+    kSPC_SysLDO_NormalVoltage    = 0x0U,
+    kSPC_SysLDO_OverDriveVoltage = 0x1U,
 } spc_sys_ldo_voltage_level_t;
 
 /*!
@@ -228,8 +228,8 @@ typedef enum _spc_sys_ldo_voltage_level
  */
 typedef enum _spc_sys_ldo_drive_strength
 {
-    kSPC_SysLDO_LowDriveStrength    = 0x0U, /*!< SYS LDO VDD regulator Drive Strength set to low. */
-    kSPC_SysLDO_NormalDriveStrength = 0x1U, /*!< SYS LDO VDD regulator Drive Strength set to Normal. */
+    kSPC_SysLDO_LowDriveStrength    = 0x0U,
+    kSPC_SysLDO_NormalDriveStrength = 0x1U,
 } spc_sys_ldo_drive_strength_t;
 #endif                                      /* FSL_FEATURE_MCX_SPC_HAS_SYS_LDO */
 
@@ -243,9 +243,9 @@ typedef enum _spc_core_ldo_voltage_level
     kSPC_Core_LDO_RetentionVoltage = 0x0U, /*!< Core LDO VDD regulator regulate to retention voltage, please note that
                                            only useful in low power modes and not all devices support this options
                                            please refer to devices' RM for details. */
-    kSPC_CoreLDO_MidDriveVoltage  = 0x1U,  /*!< Core LDO VDD regulator regulate to Mid Drive Voltage. */
-    kSPC_CoreLDO_NormalVoltage    = 0x2U,  /*!< Core LDO VDD regulator regulate to Normal Voltage. */
-    kSPC_CoreLDO_OverDriveVoltage = 0x3U,  /*!< Core LDO VDD regulator regulate to overdrive Voltage. */
+    kSPC_CoreLDO_MidDriveVoltage  = 0x1U,
+    kSPC_CoreLDO_NormalVoltage    = 0x2U,
+    kSPC_CoreLDO_OverDriveVoltage = 0x3U,
 } spc_core_ldo_voltage_level_t;
 
 /*!
@@ -253,8 +253,8 @@ typedef enum _spc_core_ldo_voltage_level
  */
 typedef enum _spc_core_ldo_drive_strength
 {
-    kSPC_CoreLDO_LowDriveStrength    = 0x0U, /*!< Core LDO VDD regulator Drive Strength set to low. */
-    kSPC_CoreLDO_NormalDriveStrength = 0x1U, /*!< Core LDO VDD regulator Drive Strength set to Normal. */
+    kSPC_CoreLDO_LowDriveStrength    = 0x0U,
+    kSPC_CoreLDO_NormalDriveStrength = 0x1U,
 } spc_core_ldo_drive_strength_t;
 
 /*!
@@ -262,11 +262,11 @@ typedef enum _spc_core_ldo_drive_strength
  */
 typedef enum _spc_low_voltage_level_select
 {
-    kSPC_LowVoltageNormalLevel = 0x0U, /*!< @deprecated, please use kSPC_LowVoltageHighRange as instead. */
-    kSPC_LowVoltageSafeLevel   = 0x1U, /*!< @deprecated, please use kSPC_LowVoltageLowRange as instead. */
+    kSPC_LowVoltageNormalLevel = 0x0U,
+    kSPC_LowVoltageSafeLevel   = 0x1U,
 
-    kSPC_LowVoltageHighRange = 0x0U,   /*!< High range LVD threshold. */
-    kSPC_LowVoltageLowRange  = 0x1U,  /*!< Low range LVD threshold. */
+    kSPC_LowVoltageHighRange = 0x0U,
+    kSPC_LowVoltageLowRange  = 0x1U,
 } spc_low_voltage_level_select_t;
 
 #if !(defined(FSL_FEATURE_MCX_SPC_HAS_NO_GLITCH_DETECT) && FSL_FEATURE_MCX_SPC_HAS_NO_GLITCH_DETECT)
@@ -291,9 +291,9 @@ typedef enum _spc_vdd_core_glitch_ripple_counter_select
  */
 typedef enum _spc_sram_operate_voltage
 {
-    kSPC_sramOperateAt1P0V = 0x1U, /*!< SRAM configured for 1.0V operation. */
-    kSPC_sramOperateAt1P1V = 0x2U, /*!< SRAM configured for 1.1V operation. */
-    kSPC_sramOperateAt1P2V = 0x3U, /*!< SRAM configured for 1.2V operation. */
+    kSPC_sramOperateAt1P0V = 0x1U,
+    kSPC_sramOperateAt1P1V = 0x2U,
+    kSPC_sramOperateAt1P2V = 0x3U,
 } spc_sram_operate_voltage_t;
 
 #if !(defined(FSL_FEATURE_MCX_SPC_HAS_NO_GLITCH_DETECT) && FSL_FEATURE_MCX_SPC_HAS_NO_GLITCH_DETECT)
@@ -302,11 +302,11 @@ typedef enum _spc_sram_operate_voltage
  */
 typedef struct _spc_vdd_core_glitch_detector_config
 {
-    spc_vdd_core_glitch_ripple_counter_select_t rippleCounterSelect; /*!< Used to set ripple counter. */
+    spc_vdd_core_glitch_ripple_counter_select_t rippleCounterSelect;
     uint8_t resetTimeoutValue; /*!< The timeout value used to reset glitch detect/compare logic after an initial
                               glitch is detected. */
-    bool enableReset;          /*!< Used to enable/disable POR/LVD reset that caused by CORE VDD glitch detect error. */
-    bool enableInterrupt;      /*!< Used to enable/disable hardware interrupt if CORE VDD glitch detect error. */
+    bool enableReset;
+    bool enableInterrupt;
 } spc_vdd_core_glitch_detector_config_t;
 #endif
 
@@ -314,7 +314,7 @@ typedef struct _spc_sram_voltage_config
 {
     spc_sram_operate_voltage_t operateVoltage; /*!< Specifies the operating voltage for the SRAM's
                                                      read/write timing margin.  */
-    bool requestVoltageUpdate;                 /*!< Used to control whether request an SRAM trim value change. */
+    bool requestVoltageUpdate;
 } spc_sram_voltage_config_t;
 
 /*!
@@ -322,9 +322,9 @@ typedef struct _spc_sram_voltage_config
  */
 typedef struct _spc_lowpower_request_config
 {
-    bool enable;                                     /*!< Low Power Request Output enable. */
-    spc_lowpower_request_pin_polarity_t polarity;    /*!< Low Power Request Output pin polarity select. */
-    spc_lowpower_request_output_override_t override; /*!< Low Power Request Output Override. */
+    bool enable;
+    spc_lowpower_request_pin_polarity_t polarity;
+    spc_lowpower_request_output_override_t override;
 } spc_lowpower_request_config_t;
 
 /*!
@@ -332,7 +332,7 @@ typedef struct _spc_lowpower_request_config
  */
 typedef struct _spc_active_mode_core_ldo_option
 {
-    spc_core_ldo_voltage_level_t CoreLDOVoltage; /*!< Core LDO Regulator Voltage Level selection in Active mode. */
+    spc_core_ldo_voltage_level_t CoreLDOVoltage;
 #if defined(FSL_FEATURE_SPC_HAS_CORELDO_VDD_DS) && FSL_FEATURE_SPC_HAS_CORELDO_VDD_DS
     spc_core_ldo_drive_strength_t CoreLDODriveStrength; /*!< Core LDO Regulator Drive Strength
                                                             selection in Active mode */
@@ -345,7 +345,7 @@ typedef struct _spc_active_mode_core_ldo_option
  */
 typedef struct _spc_active_mode_sys_ldo_option
 {
-    spc_sys_ldo_voltage_level_t SysLDOVoltage; /*!< System LDO Regulator Voltage Level selection in Active mode. */
+    spc_sys_ldo_voltage_level_t SysLDOVoltage;
     spc_sys_ldo_drive_strength_t SysLDODriveStrength; /*!< System LDO Regulator Drive Strength
                                                             selection in Active mode. */
 } spc_active_mode_sys_ldo_option_t;
@@ -357,8 +357,8 @@ typedef struct _spc_active_mode_sys_ldo_option
  */
 typedef struct _spc_active_mode_dcdc_option
 {
-    spc_dcdc_voltage_level_t DCDCVoltage;        /*!< DCDC Regulator Voltage Level selection in Active mode. */
-    spc_dcdc_drive_strength_t DCDCDriveStrength; /*!< DCDC_CORE Regulator Drive Strength selection in Active mode. */
+    spc_dcdc_voltage_level_t DCDCVoltage;
+    spc_dcdc_drive_strength_t DCDCDriveStrength;
 } spc_active_mode_dcdc_option_t;
 #endif                                           /* FSL_FEATURE_MCX_SPC_HAS_DCDC */
 
@@ -367,7 +367,7 @@ typedef struct _spc_active_mode_dcdc_option
  */
 typedef struct _spc_lowpower_mode_core_ldo_option
 {
-    spc_core_ldo_voltage_level_t CoreLDOVoltage; /*!< Core LDO Regulator Voltage Level selection in Low Power mode. */
+    spc_core_ldo_voltage_level_t CoreLDOVoltage;
     spc_core_ldo_drive_strength_t CoreLDODriveStrength; /*!< Core LDO Regulator Drive Strength
                                                             selection in Low Power mode */
 } spc_lowpower_mode_core_ldo_option_t;
@@ -389,8 +389,8 @@ typedef struct _spc_lowpower_mode_sys_ldo_option
  */
 typedef struct _spc_lowpower_mode_dcdc_option
 {
-    spc_dcdc_voltage_level_t DCDCVoltage;        /*!< DCDC Regulator Voltage Level selection in Low Power mode. */
-    spc_dcdc_drive_strength_t DCDCDriveStrength; /*!< DCDC_CORE Regulator Drive Strength selection in Low Power mode. */
+    spc_dcdc_voltage_level_t DCDCVoltage;
+    spc_dcdc_drive_strength_t DCDCDriveStrength;
 } spc_lowpower_mode_dcdc_option_t;
 
 /*!
@@ -399,10 +399,10 @@ typedef struct _spc_lowpower_mode_dcdc_option
  */
 typedef struct _spc_dcdc_burst_config
 {
-    bool sofwareBurstRequest;  /*!< Enable/Disable DCDC Software Burst Request. */
-    bool externalBurstRequest; /*!< Enable/Disable DCDC External Burst Request. */
-    bool stabilizeBurstFreq;   /*!< Enable/Disable DCDC frequency stabilization. */
-    uint8_t freq;              /*!< The frequency of the current burst.  */
+    bool sofwareBurstRequest;
+    bool externalBurstRequest;
+    bool stabilizeBurstFreq;
+    uint8_t freq;
 } spc_dcdc_burst_config_t;
 #endif                         /* FSL_FEATURE_MCX_SPC_HAS_DCDC */
 
@@ -411,10 +411,10 @@ typedef struct _spc_dcdc_burst_config
  */
 typedef struct _spc_voltage_detect_option
 {
-    bool HVDInterruptEnable; /*!< CORE/SYS/IO VDD High Voltage Detect interrupt enable. */
-    bool HVDResetEnable;     /*!< CORE/SYS/IO VDD High Voltage Detect reset enable. */
-    bool LVDInterruptEnable; /*!< CORE/SYS/IO VDD Low Voltage Detect interrupt enable. */
-    bool LVDResetEnable;     /*!< CORE/SYS/IO VDD Low Voltage Detect reset enable. */
+    bool HVDInterruptEnable;
+    bool HVDResetEnable;
+    bool LVDInterruptEnable;
+    bool LVDResetEnable;
 } spc_voltage_detect_option_t;
 
 /*!
@@ -422,7 +422,7 @@ typedef struct _spc_voltage_detect_option
  */
 typedef struct _spc_core_voltage_detect_config
 {
-    spc_voltage_detect_option_t option; /*!< Core VDD Voltage Detect option. */
+    spc_voltage_detect_option_t option;
 } spc_core_voltage_detect_config_t;
 
 /*!
@@ -430,8 +430,8 @@ typedef struct _spc_core_voltage_detect_config
  */
 typedef struct _spc_system_voltage_detect_config
 {
-    spc_voltage_detect_option_t option;   /*!< System VDD Voltage Detect option. */
-    spc_low_voltage_level_select_t level; /*!< @deprecated, reserved for all devices, will removed in next release. */
+    spc_voltage_detect_option_t option;
+    spc_low_voltage_level_select_t level;
 } spc_system_voltage_detect_config_t;
 
 #if (defined(FSL_FEATURE_MCX_SPC_HAS_IOVDD_VD) && FSL_FEATURE_MCX_SPC_HAS_IOVDD_VD)
@@ -440,8 +440,8 @@ typedef struct _spc_system_voltage_detect_config
  */
 typedef struct _spc_io_voltage_detect_config
 {
-    spc_voltage_detect_option_t option;   /*!< IO VDD Voltage Detect option. */
-    spc_low_voltage_level_select_t level; /*!< IO VDD Low-voltage level selection. */
+    spc_voltage_detect_option_t option;
+    spc_low_voltage_level_select_t level;
 } spc_io_voltage_detect_config_t;
 #endif                                    /* FSL_FEATURE_MCX_SPC_HAS_IOVDD_VD */
 
@@ -450,21 +450,21 @@ typedef struct _spc_io_voltage_detect_config
  */
 typedef struct _spc_active_mode_regulators_config
 {
-    spc_bandgap_mode_t bandgapMode; /*!< Specify bandgap mode in active mode. */
+    spc_bandgap_mode_t bandgapMode;
 
 #if (defined(FSL_FEATURE_MCX_SPC_HAS_LPBUFF_EN_BIT) && FSL_FEATURE_MCX_SPC_HAS_LPBUFF_EN_BIT)
-    bool lpBuff; /*!< Enable/disable CMP bandgap buffer. */
+    bool lpBuff;
 #endif           /* FSL_FEATURE_MCX_SPC_HAS_LPBUFF_EN_BIT */
 
 #if (defined(FSL_FEATURE_MCX_SPC_HAS_DCDC) && FSL_FEATURE_MCX_SPC_HAS_DCDC)
-    spc_active_mode_dcdc_option_t DCDCOption; /*!< Specify DCDC configurations in active mode. */
+    spc_active_mode_dcdc_option_t DCDCOption;
 #endif                                        /* FSL_FEATURE_MCX_SPC_HAS_DCDC */
 
 #if (defined(FSL_FEATURE_MCX_SPC_HAS_SYS_LDO) && FSL_FEATURE_MCX_SPC_HAS_SYS_LDO)
-    spc_active_mode_sys_ldo_option_t SysLDOOption;   /*!< Specify System LDO configurations in active mode. */
+    spc_active_mode_sys_ldo_option_t SysLDOOption;
 #endif                                               /* FSL_FEATURE_MCX_SPC_HAS_SYS_LDO */
 
-    spc_active_mode_core_ldo_option_t CoreLDOOption; /*!< Specify Core LDO configurations in active mode. */
+    spc_active_mode_core_ldo_option_t CoreLDOOption;
 } spc_active_mode_regulators_config_t;
 
 /*!
@@ -472,26 +472,26 @@ typedef struct _spc_active_mode_regulators_config
  */
 typedef struct _spc_lowpower_mode_regulators_config
 {
-    bool lpIREF;                    /*!< Enable/disable low power IREF in low power modes. */
-    spc_bandgap_mode_t bandgapMode; /*!< Specify bandgap mode in low power modes. */
+    bool lpIREF;
+    spc_bandgap_mode_t bandgapMode;
 
 #if (defined(FSL_FEATURE_MCX_SPC_HAS_LPBUFF_EN_BIT) && FSL_FEATURE_MCX_SPC_HAS_LPBUFF_EN_BIT)
-    bool lpBuff; /*!< Enable/disable CMP bandgap buffer in low power modes. */
+    bool lpBuff;
 #endif           /* FSL_FEATURE_MCX_SPC_HAS_LPBUFF_EN_BIT */
 
 #if (defined(FSL_FEATURE_MCX_SPC_HAS_COREVDD_IVS_EN_BIT) && FSL_FEATURE_MCX_SPC_HAS_COREVDD_IVS_EN_BIT)
-    bool CoreIVS; /*!< Enable/disable CORE VDD internal voltage scaling. */
+    bool CoreIVS;
 #endif            /* FSL_FEATURE_MCX_SPC_HAS_COREVDD_IVS_EN_BIT */
 
 #if (defined(FSL_FEATURE_MCX_SPC_HAS_DCDC) && FSL_FEATURE_MCX_SPC_HAS_DCDC)
-    spc_lowpower_mode_dcdc_option_t DCDCOption; /*!< Specify DCDC configurations in low power modes. */
+    spc_lowpower_mode_dcdc_option_t DCDCOption;
 #endif                                          /* FSL_FEATURE_MCX_SPC_HAS_DCDC */
 
 #if (defined(FSL_FEATURE_MCX_SPC_HAS_SYS_LDO) && FSL_FEATURE_MCX_SPC_HAS_SYS_LDO)
-    spc_lowpower_mode_sys_ldo_option_t SysLDOOption;   /*!< Specify system LDO configurations in low power modes. */
+    spc_lowpower_mode_sys_ldo_option_t SysLDOOption;
 #endif                                                 /* FSL_FEATURE_MCX_SPC_HAS_SYS_LDO */
 
-    spc_lowpower_mode_core_ldo_option_t CoreLDOOption; /*!< Specify core LDO configurations in low power modes. */
+    spc_lowpower_mode_core_ldo_option_t CoreLDOOption;
 } spc_lowpower_mode_regulators_config_t;
 
 /*******************************************************************************

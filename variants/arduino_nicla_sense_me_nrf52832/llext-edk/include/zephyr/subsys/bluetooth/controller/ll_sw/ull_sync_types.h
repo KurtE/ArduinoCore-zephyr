@@ -50,8 +50,8 @@ struct ll_sync_set {
 	uint8_t is_term:1;
 #endif /* CONFIG_BT_CTLR_SYNC_PERIODIC_CTE_TYPE_FILTERING && !CONFIG_BT_CTLR_CTEINLINE_SUPPORT */
 
-	uint8_t is_stop:1; /* sync terminate or cancel requested */
-	uint8_t sync_expire:3; /* countdown of 6 before fail to establish */
+	uint8_t is_stop:1;
+	uint8_t sync_expire:3;
 
 #if defined(CONFIG_BT_CTLR_SYNC_ISO)
 	uint8_t enc : 1;
@@ -126,8 +126,8 @@ struct ll_sync_iso_set {
 
 	/* Periodic Advertising Sync timeout */
 	uint16_t timeout;
-	uint16_t volatile timeout_reload; /* Non-zero when sync established */
-	uint16_t timeout_expire; /* timeout countdown */
+	uint16_t volatile timeout_reload;
+	uint16_t timeout_expire;
 	uint8_t big_handle;
 
 	/* Encryption */

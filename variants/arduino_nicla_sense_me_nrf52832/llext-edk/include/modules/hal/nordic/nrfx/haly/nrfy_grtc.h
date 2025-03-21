@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 - 2024, Nordic Semiconductor ASA
+ * Copyright (c) 2021 - 2025, Nordic Semiconductor ASA
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -124,11 +124,20 @@ NRFY_STATIC_INLINE bool __nrfy_internal_grtc_sys_counter_ready_check(NRF_GRTC_Ty
 #endif
 
 #if NRF_GRTC_HAS_SYSCOUNTER_ARRAY || defined(__NRFX_DOXYGEN__)
+#if (NRFX_CHECK(ISA_ARM) && (__CORTEX_M == 33U)) || defined(__NRFX_DOXYGEN__)
 /** @brief Mask to determine whether the SYSCOUNTER value is reliable. */
 #define NRFY_GRTC_SYSCOUNTER_RETRY_MASK \
     ((uint64_t)(NRF_GRTC_SYSCOUNTERH_OVERFLOW_MASK + NRF_GRTC_SYSCOUNTERH_BUSY_MASK) << 32)
 #else
+#define NRFY_GRTC_SYSCOUNTER_RETRY_MASK \
+    (NRF_GRTC_SYSCOUNTERH_OVERFLOW_MASK + NRF_GRTC_SYSCOUNTERH_BUSY_MASK)
+#endif
+#else
+#if NRFX_CHECK(ISA_ARM) && (__CORTEX_M == 33U)
 #define NRFY_GRTC_SYSCOUNTER_RETRY_MASK ((uint64_t)(NRF_GRTC_SYSCOUNTERH_OVERFLOW_MASK) << 32)
+#else
+#define NRFY_GRTC_SYSCOUNTER_RETRY_MASK (NRF_GRTC_SYSCOUNTERH_OVERFLOW_MASK)
+#endif
 #endif
 
 /** @brief Mask of the SYSCOUNTER value. */
@@ -210,7 +219,7 @@ NRFY_STATIC_INLINE uint32_t nrfy_grtc_events_process(NRF_GRTC_Type * p_reg,
  */
 NRFY_STATIC_INLINE void nrfy_grtc_prepare(NRF_GRTC_Type * p_reg, bool busy_wait)
 {
-#if NRFY_GRTC_HAS_CLKSEL
+#if NRFY_GRTC_HAS_CLKSEL && NRFX_IS_ENABLED(NRFX_GRTC_CONFIG_LFCLK_SELECT_AT_INIT)
     nrf_grtc_clksel_set(p_reg, NRF_GRTC_CLKSEL_LFCLK);
 #endif
     nrf_grtc_sys_counter_set(p_reg, false);
@@ -314,12 +323,24 @@ NRFY_STATIC_INLINE void nrfy_grtc_sys_counter_start(NRF_GRTC_Type * p_reg, bool 
  */
 NRFY_STATIC_INLINE uint64_t nrfy_grtc_sys_counter_get(NRF_GRTC_Type const * p_reg)
 {
+#if NRFX_CHECK(ISA_ARM) && (__CORTEX_M == 33U)
     uint64_t counter;
 
     do {
         counter = nrf_grtc_sys_counter_get(p_reg);
     } while (counter & NRFY_GRTC_SYSCOUNTER_RETRY_MASK);
     return (counter & NRFY_GRTC_SYSCOUNTER_MASK);
+#else
+    uint32_t counter_l, counter_h;
+
+    do {
+        counter_l = nrf_grtc_sys_counter_low_get(p_reg);
+        nrf_barrier_r();
+        counter_h = nrf_grtc_sys_counter_high_get(p_reg);
+        nrf_barrier_r();
+    } while (counter_h & NRFY_GRTC_SYSCOUNTER_RETRY_MASK);
+    return (uint64_t)counter_l | ((uint64_t)(counter_h & NRF_GRTC_SYSCOUNTERH_VALUE_MASK) << 32);
+#endif // NRFX_CHECK(ISA_ARM) && (__CORTEX_M == 33U)
 }
 
 /**

@@ -52,13 +52,13 @@ extern "C" {
   */
 typedef struct
 {
-  uint32_t          Nonce[2];        /*!< OTFDEC region nonce */
+  uint32_t          Nonce[2];
 
-  uint32_t          StartAddress;    /*!< OTFDEC region start address */
+  uint32_t          StartAddress;
 
-  uint32_t          EndAddress;      /*!< OTFDEC region end address */
+  uint32_t          EndAddress;
 
-  uint16_t          Version;         /*!< OTFDEC region firmware version */
+  uint16_t          Version;
 
 } OTFDEC_RegionConfigTypeDef;
 
@@ -75,9 +75,9 @@ typedef struct
   */
 typedef enum
 {
-  HAL_OTFDEC_STATE_RESET             = 0x00U,  /*!< OTFDEC not yet initialized or disabled */
-  HAL_OTFDEC_STATE_READY             = 0x01U,  /*!< OTFDEC initialized and ready for use   */
-  HAL_OTFDEC_STATE_BUSY              = 0x02U,  /*!< OTFDEC internal processing is ongoing  */
+  HAL_OTFDEC_STATE_RESET             = 0x00U,
+  HAL_OTFDEC_STATE_READY             = 0x01U,
+  HAL_OTFDEC_STATE_BUSY              = 0x02U,
 } HAL_OTFDEC_StateTypeDef;
 
 /**
@@ -89,20 +89,20 @@ typedef struct __OTFDEC_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_OTFDEC_REGISTER_CALLBACKS */
 {
-  OTFDEC_TypeDef             *Instance;  /*!< OTFDEC registers base address */
+  OTFDEC_TypeDef             *Instance;
 
-  HAL_OTFDEC_StateTypeDef    State;      /*!< OTFDEC state */
+  HAL_OTFDEC_StateTypeDef    State;
 
-  HAL_LockTypeDef            Lock;       /*!< OTFDEC locking object */
+  HAL_LockTypeDef            Lock;
 
-  __IO uint32_t              ErrorCode;  /*!< OTFDEC error code */
+  __IO uint32_t              ErrorCode;
 
 #if (USE_HAL_OTFDEC_REGISTER_CALLBACKS == 1)
-  void (* ErrorCallback)(struct __OTFDEC_HandleTypeDef *hotfdec);     /*!< OTFDEC error callback */
+  void (* ErrorCallback)(struct __OTFDEC_HandleTypeDef *hotfdec);
 
-  void (* MspInitCallback)(struct __OTFDEC_HandleTypeDef *hotfdec);   /*!< OTFDEC Msp Init callback */
+  void (* MspInitCallback)(struct __OTFDEC_HandleTypeDef *hotfdec);
 
-  void (* MspDeInitCallback)(struct __OTFDEC_HandleTypeDef *hotfdec); /*!< OTFDEC Msp DeInit callback */
+  void (* MspDeInitCallback)(struct __OTFDEC_HandleTypeDef *hotfdec);
 #endif /* USE_HAL_OTFDEC_REGISTER_CALLBACKS */
 
 } OTFDEC_HandleTypeDef;
@@ -113,15 +113,15 @@ typedef struct
   */
 typedef enum
 {
-  HAL_OTFDEC_ERROR_CB_ID       = 0x00U,  /*!< OTFDEC error callback ID      */
-  HAL_OTFDEC_MSPINIT_CB_ID     = 0x01U,  /*!< OTFDEC Msp DeInit callback ID */
-  HAL_OTFDEC_MSPDEINIT_CB_ID   = 0x02U   /*!< OTFDEC Msp DeInit callback ID */
+  HAL_OTFDEC_ERROR_CB_ID       = 0x00U,
+  HAL_OTFDEC_MSPINIT_CB_ID     = 0x01U,
+  HAL_OTFDEC_MSPDEINIT_CB_ID   = 0x02U
 } HAL_OTFDEC_CallbackIDTypeDef;
 
 /**
   * @brief  HAL OTFDEC Callback pointer definition
   */
-typedef  void (*pOTFDEC_CallbackTypeDef)(OTFDEC_HandleTypeDef *hotfdec); /*!< pointer to a OTFDEC callback function */
+typedef  void (*pOTFDEC_CallbackTypeDef)(OTFDEC_HandleTypeDef *hotfdec);
 
 #endif /* USE_HAL_OTFDEC_REGISTER_CALLBACKS */
 
@@ -141,13 +141,13 @@ typedef  void (*pOTFDEC_CallbackTypeDef)(OTFDEC_HandleTypeDef *hotfdec); /*!< po
 /** @defgroup OTFDEC_Interrupts    OTFDEC Interrupts
   * @{
   */
-#define OTFDEC_SEC_ERROR_INT     (OTFDEC_IER_SEIE                                  )  /*!< OTFDEC security error interrupt                  */
-#define OTFDEC_EXE_ERROR_INT     (               OTFDEC_IER_XONEIE                 )  /*!< OTFDEC execution error interrupt                 */
-#define OTFDEC_KEY_ERROR_INT     (                                  OTFDEC_IER_KEIE)  /*!< OTFDEC key error interrupt                       */
-#define OTFDEC_SEC_EXE_ERROR_INT (OTFDEC_IER_SEIE|OTFDEC_IER_XONEIE                )  /*!< OTFDEC security and execution errors interrupts  */
-#define OTFDEC_SEC_KEY_ERROR_INT (OTFDEC_IER_SEIE|                  OTFDEC_IER_KEIE)  /*!< OTFDEC security and key errors interrupts        */
-#define OTFDEC_EXE_KEY_ERROR_INT (                OTFDEC_IER_XONEIE|OTFDEC_IER_KEIE)  /*!< OTFDEC execution and key errors interrupts       */
-#define OTFDEC_ALL_INT           (OTFDEC_IER_SEIE|OTFDEC_IER_XONEIE|OTFDEC_IER_KEIE)  /*!< OTFDEC all interrupts                            */
+#define OTFDEC_SEC_ERROR_INT     (OTFDEC_IER_SEIE                                  )
+#define OTFDEC_EXE_ERROR_INT     (               OTFDEC_IER_XONEIE                 )
+#define OTFDEC_KEY_ERROR_INT     (                                  OTFDEC_IER_KEIE)
+#define OTFDEC_SEC_EXE_ERROR_INT (OTFDEC_IER_SEIE|OTFDEC_IER_XONEIE                )
+#define OTFDEC_SEC_KEY_ERROR_INT (OTFDEC_IER_SEIE|                  OTFDEC_IER_KEIE)
+#define OTFDEC_EXE_KEY_ERROR_INT (                OTFDEC_IER_XONEIE|OTFDEC_IER_KEIE)
+#define OTFDEC_ALL_INT           (OTFDEC_IER_SEIE|OTFDEC_IER_XONEIE|OTFDEC_IER_KEIE)
 /**
   * @}
   */
@@ -155,8 +155,8 @@ typedef  void (*pOTFDEC_CallbackTypeDef)(OTFDEC_HandleTypeDef *hotfdec); /*!< po
 /** @defgroup OTFDEC_Region_Enable   OTFDEC Region Enable
   * @{
   */
-#define OTFDEC_REG_CONFIGR_REG_DISABLE   0x00000000U                /*!< OTFDEC region encryption or on-the-fly decryption disable */
-#define OTFDEC_REG_CONFIGR_REG_ENABLE    OTFDEC_REG_CONFIGR_REG_EN  /*!< OTFDEC region encryption or on-the-fly decryption enable  */
+#define OTFDEC_REG_CONFIGR_REG_DISABLE   0x00000000U
+#define OTFDEC_REG_CONFIGR_REG_ENABLE    OTFDEC_REG_CONFIGR_REG_EN
 /**
   * @}
   */
@@ -164,8 +164,8 @@ typedef  void (*pOTFDEC_CallbackTypeDef)(OTFDEC_HandleTypeDef *hotfdec); /*!< po
 /** @defgroup OTFDEC_Region_Configuration_Lock    OTFDEC Region Configuration Lock
   * @{
   */
-#define OTFDEC_REG_CONFIGR_LOCK_DISABLE   0x00000000U                     /*!< OTFDEC region configuration lock disable */
-#define OTFDEC_REG_CONFIGR_LOCK_ENABLE    OTFDEC_REG_CONFIGR_CONFIGLOCK   /*!< OTFDEC region configuration lock enable  */
+#define OTFDEC_REG_CONFIGR_LOCK_DISABLE   0x00000000U
+#define OTFDEC_REG_CONFIGR_LOCK_ENABLE    OTFDEC_REG_CONFIGR_CONFIGLOCK
 /**
   * @}
   */
@@ -173,10 +173,10 @@ typedef  void (*pOTFDEC_CallbackTypeDef)(OTFDEC_HandleTypeDef *hotfdec); /*!< po
 /** @defgroup OTFDEC_Region_Operating_Mode    OTFDEC Region Operating Mode
   * @{
   */
-#define OTFDEC_REG_MODE_INSTRUCTION_ACCESSES_ONLY              0x00000000U                /*!< Only instruction accesses are decrypted                                   */
-#define OTFDEC_REG_MODE_DATA_ACCESSES_ONLY                     OTFDEC_REG_CONFIGR_MODE_0  /*!< Only data accesses are decrypted                                          */
-#define OTFDEC_REG_MODE_INSTRUCTION_OR_DATA_ACCESSES           OTFDEC_REG_CONFIGR_MODE_1  /*!< All read accesses are decrypted                                           */
-#define OTFDEC_REG_MODE_INSTRUCTION_ACCESSES_ONLY_WITH_CIPHER  OTFDEC_REG_CONFIGR_MODE    /*!< Only instruction accesses are decrypted with proprietary cipher activated */
+#define OTFDEC_REG_MODE_INSTRUCTION_ACCESSES_ONLY              0x00000000U
+#define OTFDEC_REG_MODE_DATA_ACCESSES_ONLY                     OTFDEC_REG_CONFIGR_MODE_0
+#define OTFDEC_REG_MODE_INSTRUCTION_OR_DATA_ACCESSES           OTFDEC_REG_CONFIGR_MODE_1
+#define OTFDEC_REG_MODE_INSTRUCTION_ACCESSES_ONLY_WITH_CIPHER  OTFDEC_REG_CONFIGR_MODE
 /**
   * @}
   */
@@ -184,12 +184,12 @@ typedef  void (*pOTFDEC_CallbackTypeDef)(OTFDEC_HandleTypeDef *hotfdec); /*!< po
 /** @defgroup OTFDEC_Error_Definition   OTFDEC Error Definition
   * @{
   */
-#define  HAL_OTFDEC_ERROR_NONE             ((uint32_t)0x00000000U)    /*!< No error                         */
-#define  HAL_OTFDEC_SECURITY_ERROR         ((uint32_t)0x00000001U)    /*!< Security error                   */
-#define  HAL_OTFDEC_EXECUTE_ERROR          ((uint32_t)0x00000002U)    /*!< Execute-only Execute-Never error */
-#define  HAL_OTFDEC_KEY_ERROR              ((uint32_t)0x00000004U)    /*!< Key error                        */
+#define  HAL_OTFDEC_ERROR_NONE             ((uint32_t)0x00000000U)
+#define  HAL_OTFDEC_SECURITY_ERROR         ((uint32_t)0x00000001U)
+#define  HAL_OTFDEC_EXECUTE_ERROR          ((uint32_t)0x00000002U)
+#define  HAL_OTFDEC_KEY_ERROR              ((uint32_t)0x00000004U)
 #if (USE_HAL_OTFDEC_REGISTER_CALLBACKS == 1)
-#define HAL_OTFDEC_ERROR_INVALID_CALLBACK  ((uint32_t)0x00000008U)   /*!< Invalid Callback error            */
+#define HAL_OTFDEC_ERROR_INVALID_CALLBACK  ((uint32_t)0x00000008U)
 #endif /* USE_HAL_OTFDEC_REGISTER_CALLBACKS */
 /**
   * @}
@@ -198,10 +198,10 @@ typedef  void (*pOTFDEC_CallbackTypeDef)(OTFDEC_HandleTypeDef *hotfdec); /*!< po
 /** @defgroup OTFDEC_Regions_Index   OTFDEC Regions Index
   * @{
   */
-#define  OTFDEC_REGION1            ((uint32_t)0x00000000U)    /*!< OTFDEC region 1 */
-#define  OTFDEC_REGION2            ((uint32_t)0x00000001U)    /*!< OTFDEC region 2 */
-#define  OTFDEC_REGION3            ((uint32_t)0x00000002U)    /*!< OTFDEC region 3 */
-#define  OTFDEC_REGION4            ((uint32_t)0x00000003U)    /*!< OTFDEC region 4 */
+#define  OTFDEC_REGION1            ((uint32_t)0x00000000U)
+#define  OTFDEC_REGION2            ((uint32_t)0x00000001U)
+#define  OTFDEC_REGION3            ((uint32_t)0x00000002U)
+#define  OTFDEC_REGION4            ((uint32_t)0x00000003U)
 /**
   * @}
   */

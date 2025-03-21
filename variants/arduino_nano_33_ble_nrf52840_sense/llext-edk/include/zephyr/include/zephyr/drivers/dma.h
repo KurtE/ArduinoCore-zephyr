@@ -82,8 +82,8 @@ enum dma_addr_adj {
  * @brief DMA channel attributes
  */
 enum dma_channel_filter {
-	DMA_CHANNEL_NORMAL, /* normal DMA channel */
-	DMA_CHANNEL_PERIODIC, /* can be triggered by periodic sources */
+	DMA_CHANNEL_NORMAL,
+	DMA_CHANNEL_PERIODIC,
 };
 
 /**
@@ -734,12 +734,12 @@ static inline uint32_t dma_width_index(uint32_t size)
 {
 	/* Check boundaries (max supported width is 32 Bytes) */
 	if (size < 1 || size > 32) {
-		return 0; /* Zero is the default (8 Bytes) */
+		return 0;
 	}
 
 	/* Ensure size is a power of 2 */
 	if (!is_power_of_two(size)) {
-		return 0; /* Zero is the default (8 Bytes) */
+		return 0;
 	}
 
 	/* Convert to bit pattern for writing to a register */
@@ -763,12 +763,12 @@ static inline uint32_t dma_burst_index(uint32_t burst)
 {
 	/* Check boundaries (max supported burst length is 256) */
 	if (burst < 1 || burst > 256) {
-		return 0; /* Zero is the default (1 burst length) */
+		return 0;
 	}
 
 	/* Ensure burst is a power of 2 */
 	if (!(burst & (burst - 1))) {
-		return 0; /* Zero is the default (1 burst length) */
+		return 0;
 	}
 
 	/* Convert to bit pattern for writing to a register */

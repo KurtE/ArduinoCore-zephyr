@@ -24,12 +24,12 @@
 /*! @brief FLEXCOMM peripheral modes. */
 typedef enum
 {
-    FLEXCOMM_PERIPH_NONE,   /*!< No peripheral */
-    FLEXCOMM_PERIPH_USART,  /*!< USART peripheral */
-    FLEXCOMM_PERIPH_SPI,    /*!< SPI Peripheral */
-    FLEXCOMM_PERIPH_I2C,    /*!< I2C Peripheral */
-    FLEXCOMM_PERIPH_I2S_TX, /*!< I2S TX Peripheral */
-    FLEXCOMM_PERIPH_I2S_RX, /*!< I2S RX Peripheral */
+    FLEXCOMM_PERIPH_NONE,
+    FLEXCOMM_PERIPH_USART,
+    FLEXCOMM_PERIPH_SPI,
+    FLEXCOMM_PERIPH_I2C,
+    FLEXCOMM_PERIPH_I2S_TX,
+    FLEXCOMM_PERIPH_I2S_RX,
 } FLEXCOMM_PERIPH_T;
 
 /*! @brief Typedef for interrupt handler. */

@@ -18,29 +18,29 @@ extern "C" {
 #endif
 
 struct arch_esf {
-	unsigned long ra;		/* return address */
-	unsigned long gp;		/* global pointer */
+	unsigned long ra;
+	unsigned long gp;
 
-	unsigned long t0;		/* Caller-saved temporary register */
-	unsigned long t1;		/* Caller-saved temporary register */
-	unsigned long t2;		/* Caller-saved temporary register */
-	unsigned long t3;		/* Caller-saved temporary register */
-	unsigned long t4;		/* Caller-saved temporary register */
-	unsigned long t5;		/* Caller-saved temporary register */
-	unsigned long t6;		/* Caller-saved temporary register */
-	unsigned long t7;		/* Caller-saved temporary register */
-	unsigned long t8;		/* Caller-saved temporary register */
-	unsigned long t9;		/* Caller-saved temporary register */
+	unsigned long t0;
+	unsigned long t1;
+	unsigned long t2;
+	unsigned long t3;
+	unsigned long t4;
+	unsigned long t5;
+	unsigned long t6;
+	unsigned long t7;
+	unsigned long t8;
+	unsigned long t9;
 
-	unsigned long a0;		/* function argument */
-	unsigned long a1;		/* function argument */
-	unsigned long a2;		/* function argument */
-	unsigned long a3;		/* function argument */
+	unsigned long a0;
+	unsigned long a1;
+	unsigned long a2;
+	unsigned long a3;
 
-	unsigned long v0;		/* return value */
-	unsigned long v1;		/* return value */
+	unsigned long v0;
+	unsigned long v1;
 
-	unsigned long at;		/* assembly temporary */
+	unsigned long at;
 
 	unsigned long epc;
 	unsigned long badvaddr;

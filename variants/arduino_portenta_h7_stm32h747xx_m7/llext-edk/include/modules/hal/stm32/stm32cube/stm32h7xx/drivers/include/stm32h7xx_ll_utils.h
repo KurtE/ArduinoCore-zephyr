@@ -189,8 +189,8 @@ typedef struct
 /** @defgroup UTILS_EC_HSE_BYPASS HSE Bypass activation
   * @{
   */
-#define LL_UTILS_HSEBYPASS_OFF        0x00000000U       /*!< HSE Bypass is not enabled                */
-#define LL_UTILS_HSEBYPASS_ON         0x00000001U       /*!< HSE Bypass is enabled                    */
+#define LL_UTILS_HSEBYPASS_OFF        0x00000000U
+#define LL_UTILS_HSEBYPASS_ON         0x00000001U
 /**
   * @}
   */
@@ -199,36 +199,36 @@ typedef struct
   * @{
   */
 #if (STM32H7_DEV_ID == 0x450UL)
-#define LL_UTILS_PACKAGETYPE_LQFP100            LL_SYSCFG_LQFP100_PACKAGE          /*!< LQFP100 package type             */
-#define LL_UTILS_PACKAGETYPE_TQFP144            LL_SYSCFG_TQFP144_PACKAGE          /*!< TQFP144 package type             */
-#define LL_UTILS_PACKAGETYPE_TQFP176_UFBGA176   LL_SYSCFG_TQFP176_UFBGA176_PACKAGE /*!< TQFP176 or UFBGA176 package type */
-#define LL_UTILS_PACKAGETYPE_LQFP208_TFBGA240   LL_SYSCFG_LQFP208_TFBGA240_PACKAGE /*!< LQFP208 or TFBGA240 package type */
+#define LL_UTILS_PACKAGETYPE_LQFP100            LL_SYSCFG_LQFP100_PACKAGE
+#define LL_UTILS_PACKAGETYPE_TQFP144            LL_SYSCFG_TQFP144_PACKAGE
+#define LL_UTILS_PACKAGETYPE_TQFP176_UFBGA176   LL_SYSCFG_TQFP176_UFBGA176_PACKAGE
+#define LL_UTILS_PACKAGETYPE_LQFP208_TFBGA240   LL_SYSCFG_LQFP208_TFBGA240_PACKAGE
 #elif (STM32H7_DEV_ID == 0x480UL)
-#define LL_UTILS_PACKAGETYPE_LQFP64                  0x00000000UL                  /*!< LQFP64 package type              */
-#define LL_UTILS_PACKAGETYPE_TFBGA100_LQFP100        0x00000001UL                  /*!< TFBGA100 or LQFP100 package type */
-#define LL_UTILS_PACKAGETYPE_LQFP100_SMPS            0x00000002UL                  /*!< LQFP100  with SMPS package type  */
-#define LL_UTILS_PACKAGETYPE_TFBGA100_SMPS           0x00000003UL                  /*!< TFBGA100 with SMPS package type  */
-#define LL_UTILS_PACKAGETYPE_WLCSP132_SMPS           0x00000004UL                  /*!< WLCSP132 package type            */
-#define LL_UTILS_PACKAGETYPE_LQFP144                 0x00000005UL                  /*!< LQFP144 package type             */
-#define LL_UTILS_PACKAGETYPE_LQFP144_SMPS            0x00000006UL                  /*!< LQFP144 with SMPS package type   */
-#define LL_UTILS_PACKAGETYPE_UFBGA169                0x00000007UL                  /*!< UFBGA169 package type            */
-#define LL_UTILS_PACKAGETYPE_UFBGA176_LQFP176        0x00000008UL                  /*!< UFBGA176 or LQFP176 package type */
-#define LL_UTILS_PACKAGETYPE_LQFP176_SMPS            0x00000009UL                  /*!< LQFP176 with SMPS package type   */
-#define LL_UTILS_PACKAGETYPE_UFBGA176_SMPS           0x0000000AUL                  /*!< UFBGA176 with SMPS package type  */
-#define LL_UTILS_PACKAGETYPE_TFBGA216                0x0000000CUL                  /*!< TFBGA216  package type           */
-#define LL_UTILS_PACKAGETYPE_TFBGA225                0x0000000EUL                  /*!< TFBGA225  package type           */
+#define LL_UTILS_PACKAGETYPE_LQFP64                  0x00000000UL
+#define LL_UTILS_PACKAGETYPE_TFBGA100_LQFP100        0x00000001UL
+#define LL_UTILS_PACKAGETYPE_LQFP100_SMPS            0x00000002UL
+#define LL_UTILS_PACKAGETYPE_TFBGA100_SMPS           0x00000003UL
+#define LL_UTILS_PACKAGETYPE_WLCSP132_SMPS           0x00000004UL
+#define LL_UTILS_PACKAGETYPE_LQFP144                 0x00000005UL
+#define LL_UTILS_PACKAGETYPE_LQFP144_SMPS            0x00000006UL
+#define LL_UTILS_PACKAGETYPE_UFBGA169                0x00000007UL
+#define LL_UTILS_PACKAGETYPE_UFBGA176_LQFP176        0x00000008UL
+#define LL_UTILS_PACKAGETYPE_LQFP176_SMPS            0x00000009UL
+#define LL_UTILS_PACKAGETYPE_UFBGA176_SMPS           0x0000000AUL
+#define LL_UTILS_PACKAGETYPE_TFBGA216                0x0000000CUL
+#define LL_UTILS_PACKAGETYPE_TFBGA225                0x0000000EUL
 #elif (STM32H7_DEV_ID == 0x483UL)
-#define LL_UTILS_PACKAGETYPE_VFQFPN68_INDUS         LL_SYSCFG_VFQFPN68_INDUS_PACKAGE         /*!< VFQFPN68 Industrial package type */
-#define LL_UTILS_PACKAGETYPE_TFBGA100_LQFP100       LL_SYSCFG_TFBGA100_LQFP100_PACKAGE       /*!< TFBGA100 or LQFP100 Legacy package type */
-#define LL_UTILS_PACKAGETYPE_LQFP100_INDUS          LL_SYSCFG_LQFP100_INDUS_PACKAGE          /*!< LQFP100 Industrial package type  */
-#define LL_UTILS_PACKAGETYPE_TFBGA100_INDUS         LL_SYSCFG_TFBGA100_INDUS_PACKAGE         /*!< TFBGA100 Industrial package type */
-#define LL_UTILS_PACKAGETYPE_WLCSP115_INDUS         LL_SYSCFG_WLCSP115_INDUS_PACKAGE         /*!< WLCSP115 Industrial package type */
-#define LL_UTILS_PACKAGETYPE_LQFP144                LL_SYSCFG_LQFP144_PACKAGE                /*!< LQFP144 Legacy package type      */
-#define LL_UTILS_PACKAGETYPE_UFBGA144               LL_SYSCFG_UFBGA144_PACKAGE               /*!< UFBGA144 Legacy package type     */
-#define LL_UTILS_PACKAGETYPE_LQFP144_INDUS          LL_SYSCFG_LQFP144_INDUS_PACKAGE          /*!< LQFP144 Industrial package type  */
-#define LL_UTILS_PACKAGETYPE_UFBGA169_INDUS         LL_SYSCFG_UFBGA169_INDUS_PACKAGE         /*!< UFBGA169 Industrial package type */
-#define LL_UTILS_PACKAGETYPE_UFBGA176PLUS25_INDUS   LL_SYSCFG_UFBGA176PLUS25_INDUS_PACKAGE   /*!< UFBGA176+25 Industrial package type   */
-#define LL_UTILS_PACKAGETYPE_LQFP176_INDUS          LL_SYSCFG_LQFP176_INDUS_PACKAGE          /*!< LQFP176 Industrial package type  */
+#define LL_UTILS_PACKAGETYPE_VFQFPN68_INDUS         LL_SYSCFG_VFQFPN68_INDUS_PACKAGE
+#define LL_UTILS_PACKAGETYPE_TFBGA100_LQFP100       LL_SYSCFG_TFBGA100_LQFP100_PACKAGE
+#define LL_UTILS_PACKAGETYPE_LQFP100_INDUS          LL_SYSCFG_LQFP100_INDUS_PACKAGE
+#define LL_UTILS_PACKAGETYPE_TFBGA100_INDUS         LL_SYSCFG_TFBGA100_INDUS_PACKAGE
+#define LL_UTILS_PACKAGETYPE_WLCSP115_INDUS         LL_SYSCFG_WLCSP115_INDUS_PACKAGE
+#define LL_UTILS_PACKAGETYPE_LQFP144                LL_SYSCFG_LQFP144_PACKAGE
+#define LL_UTILS_PACKAGETYPE_UFBGA144               LL_SYSCFG_UFBGA144_PACKAGE
+#define LL_UTILS_PACKAGETYPE_LQFP144_INDUS          LL_SYSCFG_LQFP144_INDUS_PACKAGE
+#define LL_UTILS_PACKAGETYPE_UFBGA169_INDUS         LL_SYSCFG_UFBGA169_INDUS_PACKAGE
+#define LL_UTILS_PACKAGETYPE_UFBGA176PLUS25_INDUS   LL_SYSCFG_UFBGA176PLUS25_INDUS_PACKAGE
+#define LL_UTILS_PACKAGETYPE_LQFP176_INDUS          LL_SYSCFG_LQFP176_INDUS_PACKAGE
 #endif /* STM32H7_DEV_ID == 0x450UL */
 /**
   * @}
@@ -351,10 +351,10 @@ __STATIC_INLINE uint32_t LL_GetPackageType(void)
 __STATIC_INLINE void LL_InitTick(uint32_t HCLKFrequency, uint32_t Ticks)
 {
   /* Configure the SysTick to have interrupt in 1ms time base */
-  SysTick->LOAD  = (uint32_t)((HCLKFrequency / Ticks) - 1UL);  /* set reload register */
-  SysTick->VAL   = 0UL;                                       /* Load the SysTick Counter Value */
+  SysTick->LOAD  = (uint32_t)((HCLKFrequency / Ticks) - 1UL);
+  SysTick->VAL   = 0UL;
   SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk |
-                   SysTick_CTRL_ENABLE_Msk;                   /* Enable the Systick Timer */
+                   SysTick_CTRL_ENABLE_Msk;
 }
 
 void        LL_Init1msTick(uint32_t CPU_Frequency);

@@ -433,7 +433,7 @@ extern "C" {
 	HID_COLLECTION(HID_COLLECTION_APPLICATION),		\
 		HID_USAGE(HID_USAGE_GEN_DESKTOP_POINTER),	\
 		HID_COLLECTION(HID_COLLECTION_PHYSICAL),	\
-			/* Bits used for button signalling */	\
+	\
 			HID_USAGE_PAGE(HID_USAGE_GEN_BUTTON),	\
 			HID_USAGE_MIN8(1),			\
 			HID_USAGE_MAX8(bcnt),			\
@@ -441,14 +441,14 @@ extern "C" {
 			HID_LOGICAL_MAX8(1),			\
 			HID_REPORT_SIZE(1),			\
 			HID_REPORT_COUNT(bcnt),			\
-			/* HID_INPUT (Data,Var,Abs) */		\
+		\
 			HID_INPUT(0x02),			\
-			/* Unused bits */			\
+			\
 			HID_REPORT_SIZE(8 - bcnt),		\
 			HID_REPORT_COUNT(1),			\
-			/* HID_INPUT (Cnst,Ary,Abs) */		\
+		\
 			HID_INPUT(1),				\
-			/* X and Y axis, scroll */		\
+		\
 			HID_USAGE_PAGE(HID_USAGE_GEN_DESKTOP),	\
 			HID_USAGE(HID_USAGE_GEN_DESKTOP_X),	\
 			HID_USAGE(HID_USAGE_GEN_DESKTOP_Y),	\
@@ -457,7 +457,7 @@ extern "C" {
 			HID_LOGICAL_MAX8(127),			\
 			HID_REPORT_SIZE(8),			\
 			HID_REPORT_COUNT(3),			\
-			/* HID_INPUT (Data,Var,Rel) */		\
+		\
 			HID_INPUT(0x06),			\
 		HID_END_COLLECTION,				\
 	HID_END_COLLECTION,					\
@@ -471,43 +471,43 @@ extern "C" {
 	HID_USAGE(HID_USAGE_GEN_DESKTOP_KEYBOARD),		\
 	HID_COLLECTION(HID_COLLECTION_APPLICATION),		\
 		HID_USAGE_PAGE(HID_USAGE_GEN_DESKTOP_KEYPAD),	\
-		/* HID_USAGE_MINIMUM(Keyboard LeftControl) */	\
+	\
 		HID_USAGE_MIN8(0xE0),				\
-		/* HID_USAGE_MAXIMUM(Keyboard Right GUI) */	\
+	\
 		HID_USAGE_MAX8(0xE7),				\
 		HID_LOGICAL_MIN8(0),				\
 		HID_LOGICAL_MAX8(1),				\
 		HID_REPORT_SIZE(1),				\
 		HID_REPORT_COUNT(8),				\
-		/* HID_INPUT(Data,Var,Abs) */			\
+			\
 		HID_INPUT(0x02),				\
 		HID_REPORT_SIZE(8),				\
 		HID_REPORT_COUNT(1),				\
-		/* HID_INPUT(Cnst,Var,Abs) */			\
+			\
 		HID_INPUT(0x03),				\
 		HID_REPORT_SIZE(1),				\
 		HID_REPORT_COUNT(5),				\
 		HID_USAGE_PAGE(HID_USAGE_GEN_LEDS),		\
-		/* HID_USAGE_MINIMUM(Num Lock) */		\
+		\
 		HID_USAGE_MIN8(1),				\
-		/* HID_USAGE_MAXIMUM(Kana) */			\
+			\
 		HID_USAGE_MAX8(5),				\
-		/* HID_OUTPUT(Data,Var,Abs) */			\
+			\
 		HID_OUTPUT(0x02),				\
 		HID_REPORT_SIZE(3),				\
 		HID_REPORT_COUNT(1),				\
-		/* HID_OUTPUT(Cnst,Var,Abs) */			\
+			\
 		HID_OUTPUT(0x03),				\
 		HID_REPORT_SIZE(8),				\
 		HID_REPORT_COUNT(6),				\
 		HID_LOGICAL_MIN8(0),				\
 		HID_LOGICAL_MAX8(101),				\
 		HID_USAGE_PAGE(HID_USAGE_GEN_DESKTOP_KEYPAD),	\
-		/* HID_USAGE_MIN8(Reserved) */			\
+			\
 		HID_USAGE_MIN8(0),				\
-		/* HID_USAGE_MAX8(Keyboard Application) */	\
+	\
 		HID_USAGE_MAX8(101),				\
-		/* HID_INPUT (Data,Ary,Abs) */			\
+			\
 		HID_INPUT(0x00),				\
 	HID_END_COLLECTION,					\
 }
@@ -562,7 +562,7 @@ enum hid_kbd_code {
 	HID_KEY_LEFTBRACE	= 47,
 	HID_KEY_RIGHTBRACE	= 48,
 	HID_KEY_BACKSLASH	= 49,
-	HID_KEY_HASH		= 50, /* Non-US # and ~ */
+	HID_KEY_HASH		= 50,
 	HID_KEY_SEMICOLON	= 51,
 	HID_KEY_APOSTROPHE	= 52,
 	HID_KEY_GRAVE		= 53,
@@ -582,7 +582,7 @@ enum hid_kbd_code {
 	HID_KEY_F10		= 67,
 	HID_KEY_F11		= 68,
 	HID_KEY_F12		= 69,
-	HID_KEY_SYSRQ		= 70, /* PRINTSCREEN */
+	HID_KEY_SYSRQ		= 70,
 	HID_KEY_SCROLLLOCK	= 71,
 	HID_KEY_PAUSE		= 72,
 	HID_KEY_INSERT		= 73,
@@ -596,8 +596,8 @@ enum hid_kbd_code {
 	HID_KEY_DOWN		= 81,
 	HID_KEY_UP		= 82,
 	HID_KEY_NUMLOCK		= 83,
-	HID_KEY_KPSLASH		= 84, /* NUMPAD DIVIDE */
-	HID_KEY_KPASTERISK	= 85, /* NUMPAD MULTIPLY */
+	HID_KEY_KPSLASH		= 84,
+	HID_KEY_KPASTERISK	= 85,
 	HID_KEY_KPMINUS		= 86,
 	HID_KEY_KPPLUS		= 87,
 	HID_KEY_KPENTER		= 88,

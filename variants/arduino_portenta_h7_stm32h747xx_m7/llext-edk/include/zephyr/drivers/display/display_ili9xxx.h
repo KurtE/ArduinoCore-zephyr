@@ -57,8 +57,8 @@
 #define ILI9XXX_RESET_WAIT_TIME 5
 
 enum madctl_cmd_set {
-	CMD_SET_1,	/* Default for most of ILI9xxx display controllers */
-	CMD_SET_2,	/* Used by ILI9342c */
+	CMD_SET_1,
+	CMD_SET_2,
 };
 
 struct ili9xxx_quirks {

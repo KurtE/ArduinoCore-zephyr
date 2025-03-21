@@ -170,10 +170,10 @@ void bt_mesh_model_msg_init(struct net_buf_simple *msg, uint32_t opcode);
  * Acknowledged message context for tracking the status of model messages pending a response.
  */
 struct bt_mesh_msg_ack_ctx {
-	struct k_sem          sem;       /**< Sync semaphore. */
-	uint32_t              op;        /**< Opcode we're waiting for. */
-	uint16_t              dst;       /**< Address of the node that should respond. */
-	void                 *user_data; /**< User specific parameter. */
+	struct k_sem          sem;
+	uint32_t              op;
+	uint16_t              dst;
+	void                 *user_data;
 };
 
 /** @brief Initialize an acknowledged message context.

@@ -12,7 +12,7 @@
 
 #define UART0_CLK_SRC kCLOCK_CoreSysClk
 
-#define PORT_MUX_GPIO kPORT_MuxAsGpio /* GPIO setting for the Port Mux Register */
+#define PORT_MUX_GPIO kPORT_MuxAsGpio
 
 #ifndef _ASMLANGUAGE
 

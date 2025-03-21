@@ -74,14 +74,14 @@ typedef struct
   */
 typedef enum
 {
-  HAL_PSSI_STATE_RESET   = 0x00U, /* !< PSSI not yet initialized or disabled     */
-  HAL_PSSI_STATE_READY   = 0x01U, /* !< Peripheral initialized and ready for use */
-  HAL_PSSI_STATE_BUSY    = 0x02U, /* !< An internal process is ongoing           */
-  HAL_PSSI_STATE_BUSY_TX = 0x03U, /* !< Transmit process is ongoing              */
-  HAL_PSSI_STATE_BUSY_RX = 0x04U, /* !< Receive process is ongoing               */
-  HAL_PSSI_STATE_TIMEOUT = 0x05U, /* !< Timeout state                            */
-  HAL_PSSI_STATE_ERROR   = 0x06U, /* !< PSSI state error                         */
-  HAL_PSSI_STATE_ABORT   = 0x07U, /* !< PSSI process is aborted                  */
+  HAL_PSSI_STATE_RESET   = 0x00U,
+  HAL_PSSI_STATE_READY   = 0x01U,
+  HAL_PSSI_STATE_BUSY    = 0x02U,
+  HAL_PSSI_STATE_BUSY_TX = 0x03U,
+  HAL_PSSI_STATE_BUSY_RX = 0x04U,
+  HAL_PSSI_STATE_TIMEOUT = 0x05U,
+  HAL_PSSI_STATE_ERROR   = 0x06U,
+  HAL_PSSI_STATE_ABORT   = 0x07U,
 
 } HAL_PSSI_StateTypeDef;
 
@@ -94,29 +94,29 @@ typedef struct __PSSI_HandleTypeDef
 typedef struct
 #endif /* USE_HAL_PSSI_REGISTER_CALLBACKS */
 {
-  PSSI_TypeDef         *Instance;    /*!< PSSI register base address.    */
-  PSSI_InitTypeDef      Init;        /*!< PSSI Initialization Structure. */
-  uint32_t             *pBuffPtr;    /*!< PSSI Data buffer.              */
-  uint32_t              XferCount;   /*!< PSSI transfer count            */
-  uint32_t              XferSize;    /*!< PSSI  transfer size            */
+  PSSI_TypeDef         *Instance;
+  PSSI_InitTypeDef      Init;
+  uint32_t             *pBuffPtr;
+  uint32_t              XferCount;
+  uint32_t              XferSize;
 #if defined(HAL_DMA_MODULE_ENABLED)
-  DMA_HandleTypeDef    *hdmatx;      /*!< PSSI Tx DMA Handle parameters  */
-  DMA_HandleTypeDef    *hdmarx;      /*!< PSSI Rx DMA Handle parameters  */
+  DMA_HandleTypeDef    *hdmatx;
+  DMA_HandleTypeDef    *hdmarx;
 #endif /*HAL_DMA_MODULE_ENABLED*/
 
 #if (USE_HAL_PSSI_REGISTER_CALLBACKS == 1)
-  void (* TxCpltCallback)(struct __PSSI_HandleTypeDef *hpssi);    /*!< PSSI transfer complete callback. */
-  void (* RxCpltCallback)(struct __PSSI_HandleTypeDef *hpssi);    /*!< PSSI transfer complete callback. */
-  void (* ErrorCallback)(struct __PSSI_HandleTypeDef *hpssi);     /*!< PSSI transfer complete callback. */
-  void (* AbortCpltCallback)(struct __PSSI_HandleTypeDef *hpssi); /*!< PSSI transfer error callback.    */
+  void (* TxCpltCallback)(struct __PSSI_HandleTypeDef *hpssi);
+  void (* RxCpltCallback)(struct __PSSI_HandleTypeDef *hpssi);
+  void (* ErrorCallback)(struct __PSSI_HandleTypeDef *hpssi);
+  void (* AbortCpltCallback)(struct __PSSI_HandleTypeDef *hpssi);
 
-  void (* MspInitCallback)(struct __PSSI_HandleTypeDef *hpssi);   /*!< PSSI Msp Init callback.          */
-  void (* MspDeInitCallback)(struct __PSSI_HandleTypeDef *hpssi); /*!< PSSI Msp DeInit callback.        */
+  void (* MspInitCallback)(struct __PSSI_HandleTypeDef *hpssi);
+  void (* MspDeInitCallback)(struct __PSSI_HandleTypeDef *hpssi);
 #endif /* USE_HAL_PSSI_REGISTER_CALLBACKS */
 
-  HAL_LockTypeDef             Lock;                               /*!< PSSI lock.                       */
-  __IO HAL_PSSI_StateTypeDef State;                               /*!< PSSI transfer state.             */
-  __IO uint32_t               ErrorCode;                          /*!< PSSI error code.                 */
+  HAL_LockTypeDef             Lock;
+  __IO HAL_PSSI_StateTypeDef State;
+  __IO uint32_t               ErrorCode;
 
 } PSSI_HandleTypeDef;
 
@@ -124,20 +124,20 @@ typedef struct
 /**
   * @brief  HAL PSSI Callback pointer definition
   */
-typedef  void (*pPSSI_CallbackTypeDef)(PSSI_HandleTypeDef *hpssi);  /*!< Pointer to a PSSI common callback function */
+typedef  void (*pPSSI_CallbackTypeDef)(PSSI_HandleTypeDef *hpssi);
 
 /**
   * @brief  HAL PSSI Callback ID enumeration definition
   */
 typedef enum
 {
-  HAL_PSSI_TX_COMPLETE_CB_ID = 0x00U, /*!< PSSI Tx Transfer completed callback ID  */
-  HAL_PSSI_RX_COMPLETE_CB_ID = 0x01U, /*!< PSSI Rx Transfer completed callback ID  */
-  HAL_PSSI_ERROR_CB_ID       = 0x03U, /*!< PSSI Error callback ID                  */
-  HAL_PSSI_ABORT_CB_ID       = 0x04U, /*!< PSSI Abort callback ID                  */
+  HAL_PSSI_TX_COMPLETE_CB_ID = 0x00U,
+  HAL_PSSI_RX_COMPLETE_CB_ID = 0x01U,
+  HAL_PSSI_ERROR_CB_ID       = 0x03U,
+  HAL_PSSI_ABORT_CB_ID       = 0x04U,
 
-  HAL_PSSI_MSPINIT_CB_ID     = 0x05U, /*!< PSSI Msp Init callback ID               */
-  HAL_PSSI_MSPDEINIT_CB_ID   = 0x06U  /*!< PSSI Msp DeInit callback ID             */
+  HAL_PSSI_MSPINIT_CB_ID     = 0x05U,
+  HAL_PSSI_MSPDEINIT_CB_ID   = 0x06U
 
 } HAL_PSSI_CallbackIDTypeDef;
 #endif /* USE_HAL_PSSI_REGISTER_CALLBACKS */
@@ -154,14 +154,14 @@ typedef enum
 /** @defgroup PSSI_Error_Code PSSI Error Code
   * @{
   */
-#define HAL_PSSI_ERROR_NONE             0x00000000U /*!< No error                */
-#define HAL_PSSI_ERROR_NOT_SUPPORTED    0x00000001U /*!< Not supported operation */
-#define HAL_PSSI_ERROR_UNDER_RUN        0x00000002U /*!< FIFO Under-run error    */
-#define HAL_PSSI_ERROR_OVER_RUN         0x00000004U /*!< FIFO Over-run  error    */
-#define HAL_PSSI_ERROR_DMA              0x00000008U /*!< Dma     error           */
-#define HAL_PSSI_ERROR_TIMEOUT          0x00000010U /*!< Timeout error           */
+#define HAL_PSSI_ERROR_NONE             0x00000000U
+#define HAL_PSSI_ERROR_NOT_SUPPORTED    0x00000001U
+#define HAL_PSSI_ERROR_UNDER_RUN        0x00000002U
+#define HAL_PSSI_ERROR_OVER_RUN         0x00000004U
+#define HAL_PSSI_ERROR_DMA              0x00000008U
+#define HAL_PSSI_ERROR_TIMEOUT          0x00000010U
 #if (USE_HAL_PSSI_REGISTER_CALLBACKS == 1)
-#define HAL_PSSI_ERROR_INVALID_CALLBACK 0x00000020U /*!< Invalid callback error  */
+#define HAL_PSSI_ERROR_INVALID_CALLBACK 0x00000020U
 #endif /* USE_HAL_PSSI_REGISTER_CALLBACKS */
 
 /**
@@ -172,9 +172,9 @@ typedef enum
   * @{
   */
 
-#define HAL_PSSI_8BITS                  0x00000000U   /*!<  8 Bits  */
-#define HAL_PSSI_16BITS                 0x00000001U   /*!< 16 Bits  */
-#define HAL_PSSI_32BITS                 0x00000002U   /*!< 32 Bits  */
+#define HAL_PSSI_8BITS                  0x00000000U
+#define HAL_PSSI_16BITS                 0x00000001U
+#define HAL_PSSI_32BITS                 0x00000002U
 /**
   * @}
   */
@@ -183,16 +183,16 @@ typedef enum
   * @{
   */
 
-#define HAL_PSSI_8LINES                 0x00000000U   /*!< 8 data lines  */
-#define HAL_PSSI_16LINES                PSSI_CR_EDM   /*!< 16 data lines */
+#define HAL_PSSI_8LINES                 0x00000000U
+#define HAL_PSSI_16LINES                PSSI_CR_EDM
 /**
   * @}
   */
 /** @defgroup PSSI_MODE PSSI mode
   * @{
   */
-#define HAL_PSSI_UNIDIRECTIONAL         0x00000000U /*!< Uni-directional mode */
-#define HAL_PSSI_BIDIRECTIONAL          0x00000001U /*!< Bi-directional mode  */
+#define HAL_PSSI_UNIDIRECTIONAL         0x00000000U
+#define HAL_PSSI_BIDIRECTIONAL          0x00000001U
 /**
   * @}
   */
@@ -200,14 +200,14 @@ typedef enum
 /** @defgroup ControlSignal_Configuration ControlSignal Configuration
   * @{
   */
-#define HAL_PSSI_DE_RDY_DISABLE           (0x0U << PSSI_CR_DERDYCFG_Pos) /*!< Neither DE nor RDY are enabled */
-#define HAL_PSSI_RDY_ENABLE               (0x1U << PSSI_CR_DERDYCFG_Pos) /*!< Only RDY enabled */
-#define HAL_PSSI_DE_ENABLE                (0x2U << PSSI_CR_DERDYCFG_Pos) /*!< Only DE enabled */
-#define HAL_PSSI_DE_RDY_ALT_ENABLE        (0x3U << PSSI_CR_DERDYCFG_Pos) /*!< Both RDY and DE alternate functions enabled */
-#define HAL_PSSI_MAP_RDY_BIDIR_ENABLE     (0x4U << PSSI_CR_DERDYCFG_Pos) /*!< Bi-directional on RDY pin */
-#define HAL_PSSI_RDY_MAP_ENABLE           (0x5U << PSSI_CR_DERDYCFG_Pos) /*!< Only RDY enabled, mapped to DE pin */
-#define HAL_PSSI_DE_MAP_ENABLE            (0x6U << PSSI_CR_DERDYCFG_Pos) /*!< Only DE enabled, mapped to RDY pin */
-#define HAL_PSSI_MAP_DE_BIDIR_ENABLE      (0x7U << PSSI_CR_DERDYCFG_Pos) /*!< Bi-directional on DE pin */
+#define HAL_PSSI_DE_RDY_DISABLE           (0x0U << PSSI_CR_DERDYCFG_Pos)
+#define HAL_PSSI_RDY_ENABLE               (0x1U << PSSI_CR_DERDYCFG_Pos)
+#define HAL_PSSI_DE_ENABLE                (0x2U << PSSI_CR_DERDYCFG_Pos)
+#define HAL_PSSI_DE_RDY_ALT_ENABLE        (0x3U << PSSI_CR_DERDYCFG_Pos)
+#define HAL_PSSI_MAP_RDY_BIDIR_ENABLE     (0x4U << PSSI_CR_DERDYCFG_Pos)
+#define HAL_PSSI_RDY_MAP_ENABLE           (0x5U << PSSI_CR_DERDYCFG_Pos)
+#define HAL_PSSI_DE_MAP_ENABLE            (0x6U << PSSI_CR_DERDYCFG_Pos)
+#define HAL_PSSI_MAP_DE_BIDIR_ENABLE      (0x7U << PSSI_CR_DERDYCFG_Pos)
 
 /**
   * @}
@@ -217,16 +217,16 @@ typedef enum
 /** @defgroup Data_Enable_Polarity Data Enable Polarity
   * @{
   */
-#define HAL_PSSI_DEPOL_ACTIVE_LOW         0x0U            /*!< Active Low */
-#define HAL_PSSI_DEPOL_ACTIVE_HIGH        PSSI_CR_DEPOL   /*!< Active High */
+#define HAL_PSSI_DEPOL_ACTIVE_LOW         0x0U
+#define HAL_PSSI_DEPOL_ACTIVE_HIGH        PSSI_CR_DEPOL
 /**
   * @}
   */
 /** @defgroup Ready_Polarity Ready Polarity
   * @{
   */
-#define HAL_PSSI_RDYPOL_ACTIVE_LOW        0x0U            /*!< Active Low */
-#define HAL_PSSI_RDYPOL_ACTIVE_HIGH       PSSI_CR_RDYPOL  /*!< Active High */
+#define HAL_PSSI_RDYPOL_ACTIVE_LOW        0x0U
+#define HAL_PSSI_RDYPOL_ACTIVE_HIGH       PSSI_CR_RDYPOL
 /**
   * @}
   */
@@ -234,8 +234,8 @@ typedef enum
 /** @defgroup Clock_Polarity Clock Polarity
   * @{
   */
-#define HAL_PSSI_FALLING_EDGE             0x0U            /*!< Fallling Edge */
-#define HAL_PSSI_RISING_EDGE              0x1U            /*!< Rising Edge */
+#define HAL_PSSI_FALLING_EDGE             0x0U
+#define HAL_PSSI_RISING_EDGE              0x1U
 /**
   * @}
   */
@@ -245,20 +245,20 @@ typedef enum
   * @{
   */
 
-#define PSSI_MAX_NBYTE_SIZE         0x10000U         /* 64 KB */
-#define PSSI_TIMEOUT_TRANSMIT       0x0000FFFFU      /*!< Timeout Value   */
+#define PSSI_MAX_NBYTE_SIZE         0x10000U
+#define PSSI_TIMEOUT_TRANSMIT       0x0000FFFFU
 
-#define PSSI_CR_OUTEN_INPUT         0x00000000U      /*!< Input Mode      */
-#define PSSI_CR_OUTEN_OUTPUT        PSSI_CR_OUTEN    /*!< Output Mode     */
+#define PSSI_CR_OUTEN_INPUT         0x00000000U
+#define PSSI_CR_OUTEN_OUTPUT        PSSI_CR_OUTEN
 
-#define PSSI_CR_DMA_ENABLE          PSSI_CR_DMAEN    /*!< DMA Mode Enable */
-#define PSSI_CR_DMA_DISABLE         (~PSSI_CR_DMAEN) /*!< DMA Mode Disable*/
+#define PSSI_CR_DMA_ENABLE          PSSI_CR_DMAEN
+#define PSSI_CR_DMA_DISABLE         (~PSSI_CR_DMAEN)
 
-#define PSSI_CR_16BITS              PSSI_CR_EDM      /*!< 16 Lines Mode   */
-#define PSSI_CR_8BITS               (~PSSI_CR_EDM)   /*!< 8 Lines Mode    */
+#define PSSI_CR_16BITS              PSSI_CR_EDM
+#define PSSI_CR_8BITS               (~PSSI_CR_EDM)
 
-#define PSSI_FLAG_RTT1B             PSSI_SR_RTT1B    /*!< 1 Byte Fifo Flag */
-#define PSSI_FLAG_RTT4B             PSSI_SR_RTT4B    /*!< 4 Bytes Fifo Flag*/
+#define PSSI_FLAG_RTT1B             PSSI_SR_RTT1B
+#define PSSI_FLAG_RTT4B             PSSI_SR_RTT4B
 
 
 
@@ -270,9 +270,9 @@ typedef enum
   * @{
   */
 
-#define PSSI_FLAG_OVR_RIS            PSSI_RIS_OVR_RIS     /*!< Overrun, Underrun errors flag */
-#define PSSI_FLAG_MASK               PSSI_RIS_OVR_RIS_Msk /*!< Overrun, Underrun errors Mask */
-#define PSSI_FLAG_OVR_MIS            PSSI_MIS_OVR_MIS     /*!< Overrun, Underrun masked errors flag */
+#define PSSI_FLAG_OVR_RIS            PSSI_RIS_OVR_RIS
+#define PSSI_FLAG_MASK               PSSI_RIS_OVR_RIS_Msk
+#define PSSI_FLAG_OVR_MIS            PSSI_MIS_OVR_MIS
 /**
   * @}
   */

@@ -122,14 +122,14 @@ typedef uint32_t HAL_IRDA_StateTypeDef;
   */
 typedef enum
 {
-  IRDA_CLOCKSOURCE_D2PCLK1    = 0x11U,    /*!< Domain2 PCLK1 clock source */
-  IRDA_CLOCKSOURCE_D2PCLK2    = 0x12U,    /*!< Domain2 PCLK2 clock source */
-  IRDA_CLOCKSOURCE_PLL2Q      = 0x14U,    /*!< PLL2Q clock source         */
-  IRDA_CLOCKSOURCE_PLL3Q      = 0x18U,    /*!< PLL3Q clock source         */
-  IRDA_CLOCKSOURCE_HSI        = 0x02U,    /*!< HSI clock source           */
-  IRDA_CLOCKSOURCE_CSI        = 0x08U,    /*!< CSI clock source           */
-  IRDA_CLOCKSOURCE_LSE        = 0x10U,    /*!< LSE clock source           */
-  IRDA_CLOCKSOURCE_UNDEFINED  = 0x20U     /*!< Undefined clock source     */
+  IRDA_CLOCKSOURCE_D2PCLK1    = 0x11U,
+  IRDA_CLOCKSOURCE_D2PCLK2    = 0x12U,
+  IRDA_CLOCKSOURCE_PLL2Q      = 0x14U,
+  IRDA_CLOCKSOURCE_PLL3Q      = 0x18U,
+  IRDA_CLOCKSOURCE_HSI        = 0x02U,
+  IRDA_CLOCKSOURCE_CSI        = 0x08U,
+  IRDA_CLOCKSOURCE_LSE        = 0x10U,
+  IRDA_CLOCKSOURCE_UNDEFINED  = 0x20U
 } IRDA_ClockSourceTypeDef;
 
 /**
@@ -141,29 +141,29 @@ typedef struct __IRDA_HandleTypeDef
 typedef struct
 #endif  /* USE_HAL_IRDA_REGISTER_CALLBACKS */
 {
-  USART_TypeDef            *Instance;        /*!< USART registers base address       */
+  USART_TypeDef            *Instance;
 
-  IRDA_InitTypeDef         Init;             /*!< IRDA communication parameters      */
+  IRDA_InitTypeDef         Init;
 
-  const uint8_t            *pTxBuffPtr;      /*!< Pointer to IRDA Tx transfer Buffer */
+  const uint8_t            *pTxBuffPtr;
 
-  uint16_t                 TxXferSize;       /*!< IRDA Tx Transfer size              */
+  uint16_t                 TxXferSize;
 
-  __IO uint16_t            TxXferCount;      /*!< IRDA Tx Transfer Counter           */
+  __IO uint16_t            TxXferCount;
 
-  uint8_t                  *pRxBuffPtr;      /*!< Pointer to IRDA Rx transfer Buffer */
+  uint8_t                  *pRxBuffPtr;
 
-  uint16_t                 RxXferSize;       /*!< IRDA Rx Transfer size              */
+  uint16_t                 RxXferSize;
 
-  __IO uint16_t            RxXferCount;      /*!< IRDA Rx Transfer Counter           */
+  __IO uint16_t            RxXferCount;
 
-  uint16_t                 Mask;             /*!< USART RX RDR register mask         */
+  uint16_t                 Mask;
 
-  DMA_HandleTypeDef        *hdmatx;          /*!< IRDA Tx DMA Handle parameters      */
+  DMA_HandleTypeDef        *hdmatx;
 
-  DMA_HandleTypeDef        *hdmarx;          /*!< IRDA Rx DMA Handle parameters      */
+  DMA_HandleTypeDef        *hdmarx;
 
-  HAL_LockTypeDef          Lock;             /*!< Locking object                     */
+  HAL_LockTypeDef          Lock;
 
   __IO HAL_IRDA_StateTypeDef    gState;      /*!< IRDA state information related to global Handle management
                                                   and also related to Tx operations.
@@ -172,29 +172,29 @@ typedef struct
   __IO HAL_IRDA_StateTypeDef    RxState;     /*!< IRDA state information related to Rx operations.
                                                   This parameter can be a value of @ref HAL_IRDA_StateTypeDef */
 
-  __IO uint32_t            ErrorCode;        /*!< IRDA Error code                    */
+  __IO uint32_t            ErrorCode;
 
 #if (USE_HAL_IRDA_REGISTER_CALLBACKS == 1)
-  void (* TxHalfCpltCallback)(struct __IRDA_HandleTypeDef *hirda);        /*!< IRDA Tx Half Complete Callback        */
+  void (* TxHalfCpltCallback)(struct __IRDA_HandleTypeDef *hirda);
 
-  void (* TxCpltCallback)(struct __IRDA_HandleTypeDef *hirda);            /*!< IRDA Tx Complete Callback             */
+  void (* TxCpltCallback)(struct __IRDA_HandleTypeDef *hirda);
 
-  void (* RxHalfCpltCallback)(struct __IRDA_HandleTypeDef *hirda);        /*!< IRDA Rx Half Complete Callback        */
+  void (* RxHalfCpltCallback)(struct __IRDA_HandleTypeDef *hirda);
 
-  void (* RxCpltCallback)(struct __IRDA_HandleTypeDef *hirda);            /*!< IRDA Rx Complete Callback             */
+  void (* RxCpltCallback)(struct __IRDA_HandleTypeDef *hirda);
 
-  void (* ErrorCallback)(struct __IRDA_HandleTypeDef *hirda);             /*!< IRDA Error Callback                   */
+  void (* ErrorCallback)(struct __IRDA_HandleTypeDef *hirda);
 
-  void (* AbortCpltCallback)(struct __IRDA_HandleTypeDef *hirda);         /*!< IRDA Abort Complete Callback          */
+  void (* AbortCpltCallback)(struct __IRDA_HandleTypeDef *hirda);
 
-  void (* AbortTransmitCpltCallback)(struct __IRDA_HandleTypeDef *hirda); /*!< IRDA Abort Transmit Complete Callback */
+  void (* AbortTransmitCpltCallback)(struct __IRDA_HandleTypeDef *hirda);
 
-  void (* AbortReceiveCpltCallback)(struct __IRDA_HandleTypeDef *hirda);  /*!< IRDA Abort Receive Complete Callback  */
+  void (* AbortReceiveCpltCallback)(struct __IRDA_HandleTypeDef *hirda);
 
 
-  void (* MspInitCallback)(struct __IRDA_HandleTypeDef *hirda);           /*!< IRDA Msp Init callback                */
+  void (* MspInitCallback)(struct __IRDA_HandleTypeDef *hirda);
 
-  void (* MspDeInitCallback)(struct __IRDA_HandleTypeDef *hirda);         /*!< IRDA Msp DeInit callback              */
+  void (* MspDeInitCallback)(struct __IRDA_HandleTypeDef *hirda);
 #endif  /* USE_HAL_IRDA_REGISTER_CALLBACKS */
 
 } IRDA_HandleTypeDef;
@@ -205,24 +205,24 @@ typedef struct
   */
 typedef enum
 {
-  HAL_IRDA_TX_HALFCOMPLETE_CB_ID         = 0x00U,    /*!< IRDA Tx Half Complete Callback ID        */
-  HAL_IRDA_TX_COMPLETE_CB_ID             = 0x01U,    /*!< IRDA Tx Complete Callback ID             */
-  HAL_IRDA_RX_HALFCOMPLETE_CB_ID         = 0x02U,    /*!< IRDA Rx Half Complete Callback ID        */
-  HAL_IRDA_RX_COMPLETE_CB_ID             = 0x03U,    /*!< IRDA Rx Complete Callback ID             */
-  HAL_IRDA_ERROR_CB_ID                   = 0x04U,    /*!< IRDA Error Callback ID                   */
-  HAL_IRDA_ABORT_COMPLETE_CB_ID          = 0x05U,    /*!< IRDA Abort Complete Callback ID          */
-  HAL_IRDA_ABORT_TRANSMIT_COMPLETE_CB_ID = 0x06U,    /*!< IRDA Abort Transmit Complete Callback ID */
-  HAL_IRDA_ABORT_RECEIVE_COMPLETE_CB_ID  = 0x07U,    /*!< IRDA Abort Receive Complete Callback ID  */
+  HAL_IRDA_TX_HALFCOMPLETE_CB_ID         = 0x00U,
+  HAL_IRDA_TX_COMPLETE_CB_ID             = 0x01U,
+  HAL_IRDA_RX_HALFCOMPLETE_CB_ID         = 0x02U,
+  HAL_IRDA_RX_COMPLETE_CB_ID             = 0x03U,
+  HAL_IRDA_ERROR_CB_ID                   = 0x04U,
+  HAL_IRDA_ABORT_COMPLETE_CB_ID          = 0x05U,
+  HAL_IRDA_ABORT_TRANSMIT_COMPLETE_CB_ID = 0x06U,
+  HAL_IRDA_ABORT_RECEIVE_COMPLETE_CB_ID  = 0x07U,
 
-  HAL_IRDA_MSPINIT_CB_ID                 = 0x08U,    /*!< IRDA MspInit callback ID                 */
-  HAL_IRDA_MSPDEINIT_CB_ID               = 0x09U     /*!< IRDA MspDeInit callback ID               */
+  HAL_IRDA_MSPINIT_CB_ID                 = 0x08U,
+  HAL_IRDA_MSPDEINIT_CB_ID               = 0x09U
 
 } HAL_IRDA_CallbackIDTypeDef;
 
 /**
   * @brief  HAL IRDA Callback pointer definition
   */
-typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer to an IRDA callback function */
+typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);
 
 #endif /* USE_HAL_IRDA_REGISTER_CALLBACKS */
 
@@ -263,15 +263,15 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
 /** @defgroup IRDA_Error_Definition IRDA Error Code Definition
   * @{
   */
-#define HAL_IRDA_ERROR_NONE                 (0x00000000U)          /*!< No error                */
-#define HAL_IRDA_ERROR_PE                   (0x00000001U)          /*!< Parity error            */
-#define HAL_IRDA_ERROR_NE                   (0x00000002U)          /*!< Noise error             */
-#define HAL_IRDA_ERROR_FE                   (0x00000004U)          /*!< frame error             */
-#define HAL_IRDA_ERROR_ORE                  (0x00000008U)          /*!< Overrun error           */
-#define HAL_IRDA_ERROR_DMA                  (0x00000010U)          /*!< DMA transfer error      */
-#define HAL_IRDA_ERROR_BUSY                 (0x00000020U)          /*!< Busy Error              */
+#define HAL_IRDA_ERROR_NONE                 (0x00000000U)
+#define HAL_IRDA_ERROR_PE                   (0x00000001U)
+#define HAL_IRDA_ERROR_NE                   (0x00000002U)
+#define HAL_IRDA_ERROR_FE                   (0x00000004U)
+#define HAL_IRDA_ERROR_ORE                  (0x00000008U)
+#define HAL_IRDA_ERROR_DMA                  (0x00000010U)
+#define HAL_IRDA_ERROR_BUSY                 (0x00000020U)
 #if (USE_HAL_IRDA_REGISTER_CALLBACKS == 1)
-#define HAL_IRDA_ERROR_INVALID_CALLBACK     (0x00000040U)          /*!< Invalid Callback error  */
+#define HAL_IRDA_ERROR_INVALID_CALLBACK     (0x00000040U)
 #endif /* USE_HAL_IRDA_REGISTER_CALLBACKS */
 /**
   * @}
@@ -280,9 +280,9 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
 /** @defgroup IRDA_Parity IRDA Parity
   * @{
   */
-#define IRDA_PARITY_NONE                    0x00000000U                      /*!< No parity   */
-#define IRDA_PARITY_EVEN                    USART_CR1_PCE                    /*!< Even parity */
-#define IRDA_PARITY_ODD                     (USART_CR1_PCE | USART_CR1_PS)   /*!< Odd parity  */
+#define IRDA_PARITY_NONE                    0x00000000U
+#define IRDA_PARITY_EVEN                    USART_CR1_PCE
+#define IRDA_PARITY_ODD                     (USART_CR1_PCE | USART_CR1_PS)
 /**
   * @}
   */
@@ -290,9 +290,9 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
 /** @defgroup IRDA_Transfer_Mode IRDA Transfer Mode
   * @{
   */
-#define IRDA_MODE_RX                        USART_CR1_RE                   /*!< RX mode        */
-#define IRDA_MODE_TX                        USART_CR1_TE                   /*!< TX mode        */
-#define IRDA_MODE_TX_RX                     (USART_CR1_TE |USART_CR1_RE)   /*!< RX and TX mode */
+#define IRDA_MODE_RX                        USART_CR1_RE
+#define IRDA_MODE_TX                        USART_CR1_TE
+#define IRDA_MODE_TX_RX                     (USART_CR1_TE |USART_CR1_RE)
 /**
   * @}
   */
@@ -300,8 +300,8 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
 /** @defgroup IRDA_Low_Power IRDA Low Power
   * @{
   */
-#define IRDA_POWERMODE_NORMAL               0x00000000U       /*!< IRDA normal power mode */
-#define IRDA_POWERMODE_LOWPOWER             USART_CR3_IRLP    /*!< IRDA low power mode    */
+#define IRDA_POWERMODE_NORMAL               0x00000000U
+#define IRDA_POWERMODE_LOWPOWER             USART_CR3_IRLP
 /**
   * @}
   */
@@ -309,18 +309,18 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
 /** @defgroup IRDA_ClockPrescaler IRDA Clock Prescaler
   * @{
   */
-#define IRDA_PRESCALER_DIV1    0x00000000U  /*!< fclk_pres = fclk     */
-#define IRDA_PRESCALER_DIV2    0x00000001U  /*!< fclk_pres = fclk/2   */
-#define IRDA_PRESCALER_DIV4    0x00000002U  /*!< fclk_pres = fclk/4   */
-#define IRDA_PRESCALER_DIV6    0x00000003U  /*!< fclk_pres = fclk/6   */
-#define IRDA_PRESCALER_DIV8    0x00000004U  /*!< fclk_pres = fclk/8   */
-#define IRDA_PRESCALER_DIV10   0x00000005U  /*!< fclk_pres = fclk/10  */
-#define IRDA_PRESCALER_DIV12   0x00000006U  /*!< fclk_pres = fclk/12  */
-#define IRDA_PRESCALER_DIV16   0x00000007U  /*!< fclk_pres = fclk/16  */
-#define IRDA_PRESCALER_DIV32   0x00000008U  /*!< fclk_pres = fclk/32  */
-#define IRDA_PRESCALER_DIV64   0x00000009U  /*!< fclk_pres = fclk/64  */
-#define IRDA_PRESCALER_DIV128  0x0000000AU  /*!< fclk_pres = fclk/128 */
-#define IRDA_PRESCALER_DIV256  0x0000000BU  /*!< fclk_pres = fclk/256 */
+#define IRDA_PRESCALER_DIV1    0x00000000U
+#define IRDA_PRESCALER_DIV2    0x00000001U
+#define IRDA_PRESCALER_DIV4    0x00000002U
+#define IRDA_PRESCALER_DIV6    0x00000003U
+#define IRDA_PRESCALER_DIV8    0x00000004U
+#define IRDA_PRESCALER_DIV10   0x00000005U
+#define IRDA_PRESCALER_DIV12   0x00000006U
+#define IRDA_PRESCALER_DIV16   0x00000007U
+#define IRDA_PRESCALER_DIV32   0x00000008U
+#define IRDA_PRESCALER_DIV64   0x00000009U
+#define IRDA_PRESCALER_DIV128  0x0000000AU
+#define IRDA_PRESCALER_DIV256  0x0000000BU
 /**
   * @}
   */
@@ -328,8 +328,8 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
 /** @defgroup IRDA_State IRDA State
   * @{
   */
-#define IRDA_STATE_DISABLE                  0x00000000U     /*!< IRDA disabled  */
-#define IRDA_STATE_ENABLE                   USART_CR1_UE    /*!< IRDA enabled   */
+#define IRDA_STATE_DISABLE                  0x00000000U
+#define IRDA_STATE_ENABLE                   USART_CR1_UE
 /**
   * @}
   */
@@ -337,8 +337,8 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
 /** @defgroup IRDA_Mode IRDA Mode
   * @{
   */
-#define IRDA_MODE_DISABLE                   0x00000000U      /*!< Associated UART disabled in IRDA mode */
-#define IRDA_MODE_ENABLE                    USART_CR3_IREN   /*!< Associated UART enabled in IRDA mode  */
+#define IRDA_MODE_DISABLE                   0x00000000U
+#define IRDA_MODE_ENABLE                    USART_CR3_IREN
 /**
   * @}
   */
@@ -346,8 +346,8 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
 /** @defgroup IRDA_One_Bit IRDA One Bit Sampling
   * @{
   */
-#define IRDA_ONE_BIT_SAMPLE_DISABLE         0x00000000U       /*!< One-bit sampling disabled */
-#define IRDA_ONE_BIT_SAMPLE_ENABLE          USART_CR3_ONEBIT  /*!< One-bit sampling enabled  */
+#define IRDA_ONE_BIT_SAMPLE_DISABLE         0x00000000U
+#define IRDA_ONE_BIT_SAMPLE_ENABLE          USART_CR3_ONEBIT
 /**
   * @}
   */
@@ -355,8 +355,8 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
 /** @defgroup IRDA_DMA_Tx IRDA DMA Tx
   * @{
   */
-#define IRDA_DMA_TX_DISABLE                 0x00000000U       /*!< IRDA DMA TX disabled */
-#define IRDA_DMA_TX_ENABLE                  USART_CR3_DMAT    /*!< IRDA DMA TX enabled  */
+#define IRDA_DMA_TX_DISABLE                 0x00000000U
+#define IRDA_DMA_TX_ENABLE                  USART_CR3_DMAT
 /**
   * @}
   */
@@ -364,8 +364,8 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
 /** @defgroup IRDA_DMA_Rx IRDA DMA Rx
   * @{
   */
-#define IRDA_DMA_RX_DISABLE                 0x00000000U       /*!< IRDA DMA RX disabled */
-#define IRDA_DMA_RX_ENABLE                  USART_CR3_DMAR    /*!< IRDA DMA RX enabled  */
+#define IRDA_DMA_RX_DISABLE                 0x00000000U
+#define IRDA_DMA_RX_ENABLE                  USART_CR3_DMAR
 /**
   * @}
   */
@@ -373,9 +373,9 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
 /** @defgroup IRDA_Request_Parameters IRDA Request Parameters
   * @{
   */
-#define IRDA_AUTOBAUD_REQUEST            USART_RQR_ABRRQ        /*!< Auto-Baud Rate Request      */
-#define IRDA_RXDATA_FLUSH_REQUEST        USART_RQR_RXFRQ        /*!< Receive Data flush Request  */
-#define IRDA_TXDATA_FLUSH_REQUEST        USART_RQR_TXFRQ        /*!< Transmit data flush Request */
+#define IRDA_AUTOBAUD_REQUEST            USART_RQR_ABRRQ
+#define IRDA_RXDATA_FLUSH_REQUEST        USART_RQR_RXFRQ
+#define IRDA_TXDATA_FLUSH_REQUEST        USART_RQR_TXFRQ
 /**
   * @}
   */
@@ -385,18 +385,18 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
   *           - 0xXXXX  : Flag mask in the ISR register
   * @{
   */
-#define IRDA_FLAG_REACK                     USART_ISR_REACK         /*!< IRDA receive enable acknowledge flag      */
-#define IRDA_FLAG_TEACK                     USART_ISR_TEACK         /*!< IRDA transmit enable acknowledge flag     */
-#define IRDA_FLAG_BUSY                      USART_ISR_BUSY          /*!< IRDA busy flag                            */
-#define IRDA_FLAG_ABRF                      USART_ISR_ABRF          /*!< IRDA auto Baud rate flag                  */
-#define IRDA_FLAG_ABRE                      USART_ISR_ABRE          /*!< IRDA auto Baud rate error                 */
-#define IRDA_FLAG_TXE                       USART_ISR_TXE_TXFNF     /*!< IRDA transmit data register empty         */
-#define IRDA_FLAG_TC                        USART_ISR_TC            /*!< IRDA transmission complete                */
-#define IRDA_FLAG_RXNE                      USART_ISR_RXNE_RXFNE    /*!< IRDA read data register not empty         */
-#define IRDA_FLAG_ORE                       USART_ISR_ORE           /*!< IRDA overrun error                        */
-#define IRDA_FLAG_NE                        USART_ISR_NE            /*!< IRDA noise error                          */
-#define IRDA_FLAG_FE                        USART_ISR_FE            /*!< IRDA frame error                          */
-#define IRDA_FLAG_PE                        USART_ISR_PE            /*!< IRDA parity error                         */
+#define IRDA_FLAG_REACK                     USART_ISR_REACK
+#define IRDA_FLAG_TEACK                     USART_ISR_TEACK
+#define IRDA_FLAG_BUSY                      USART_ISR_BUSY
+#define IRDA_FLAG_ABRF                      USART_ISR_ABRF
+#define IRDA_FLAG_ABRE                      USART_ISR_ABRE
+#define IRDA_FLAG_TXE                       USART_ISR_TXE_TXFNF
+#define IRDA_FLAG_TC                        USART_ISR_TC
+#define IRDA_FLAG_RXNE                      USART_ISR_RXNE_RXFNE
+#define IRDA_FLAG_ORE                       USART_ISR_ORE
+#define IRDA_FLAG_NE                        USART_ISR_NE
+#define IRDA_FLAG_FE                        USART_ISR_FE
+#define IRDA_FLAG_PE                        USART_ISR_PE
 /**
   * @}
   */
@@ -411,11 +411,11 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
   *           - ZZZZ  : Flag position in the ISR register(4bits)
   * @{
   */
-#define IRDA_IT_PE                          0x0028U     /*!< IRDA Parity error interruption                 */
-#define IRDA_IT_TXE                         0x0727U     /*!< IRDA Transmit data register empty interruption */
-#define IRDA_IT_TC                          0x0626U     /*!< IRDA Transmission complete interruption        */
-#define IRDA_IT_RXNE                        0x0525U     /*!< IRDA Read data register not empty interruption */
-#define IRDA_IT_IDLE                        0x0424U     /*!< IRDA Idle interruption                         */
+#define IRDA_IT_PE                          0x0028U
+#define IRDA_IT_TXE                         0x0727U
+#define IRDA_IT_TC                          0x0626U
+#define IRDA_IT_RXNE                        0x0525U
+#define IRDA_IT_IDLE                        0x0424U
 
 /*       Elements values convention: 000000000XXYYYYYb
              - YYYYY  : Interrupt source position in the XX register (5bits)
@@ -423,13 +423,13 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
                    - 01: CR1 register
                    - 10: CR2 register
                    - 11: CR3 register */
-#define IRDA_IT_ERR                         0x0060U       /*!< IRDA Error interruption        */
+#define IRDA_IT_ERR                         0x0060U
 
 /*       Elements values convention: 0000ZZZZ00000000b
              - ZZZZ  : Flag position in the ISR register(4bits) */
-#define IRDA_IT_ORE                         0x0300U      /*!< IRDA Overrun error interruption */
-#define IRDA_IT_NE                          0x0200U      /*!< IRDA Noise error interruption   */
-#define IRDA_IT_FE                          0x0100U      /*!< IRDA Frame error interruption   */
+#define IRDA_IT_ORE                         0x0300U
+#define IRDA_IT_NE                          0x0200U
+#define IRDA_IT_FE                          0x0100U
 /**
   * @}
   */
@@ -437,12 +437,12 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
 /** @defgroup IRDA_IT_CLEAR_Flags IRDA Interruption Clear Flags
   * @{
   */
-#define IRDA_CLEAR_PEF                       USART_ICR_PECF            /*!< Parity Error Clear Flag          */
-#define IRDA_CLEAR_FEF                       USART_ICR_FECF            /*!< Framing Error Clear Flag         */
-#define IRDA_CLEAR_NEF                       USART_ICR_NECF            /*!< Noise Error detected Clear Flag  */
-#define IRDA_CLEAR_OREF                      USART_ICR_ORECF           /*!< OverRun Error Clear Flag         */
-#define IRDA_CLEAR_IDLEF                     USART_ICR_IDLECF          /*!< IDLE line detected Clear Flag    */
-#define IRDA_CLEAR_TCF                       USART_ICR_TCCF            /*!< Transmission Complete Clear Flag */
+#define IRDA_CLEAR_PEF                       USART_ICR_PECF
+#define IRDA_CLEAR_FEF                       USART_ICR_FECF
+#define IRDA_CLEAR_NEF                       USART_ICR_NECF
+#define IRDA_CLEAR_OREF                      USART_ICR_ORECF
+#define IRDA_CLEAR_IDLEF                     USART_ICR_IDLECF
+#define IRDA_CLEAR_TCF                       USART_ICR_TCCF
 /**
   * @}
   */
@@ -450,11 +450,11 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
 /** @defgroup IRDA_Interruption_Mask IRDA interruptions flags mask
   * @{
   */
-#define IRDA_IT_MASK  0x001FU  /*!< IRDA Interruptions flags mask  */
-#define IRDA_CR_MASK  0x00E0U  /*!< IRDA control register mask     */
-#define IRDA_CR_POS   5U       /*!< IRDA control register position */
-#define IRDA_ISR_MASK 0x1F00U  /*!< IRDA ISR register mask         */
-#define IRDA_ISR_POS  8U       /*!< IRDA ISR register position     */
+#define IRDA_IT_MASK  0x001FU
+#define IRDA_CR_MASK  0x00E0U
+#define IRDA_CR_POS   5U
+#define IRDA_ISR_MASK 0x1F00U
+#define IRDA_ISR_POS  8U
 /**
   * @}
   */

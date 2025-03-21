@@ -97,7 +97,7 @@ struct xen_domctl_createdomain {
 /* XEN_DOMCTL_getdomaininfo */
 struct xen_domctl_getdomaininfo {
 	/* OUT variables. */
-	domid_t  domain;	/* Also echoed in domctl.domain */
+	domid_t  domain;
 	uint16_t pad1;
 /* Domain is scheduled to die. */
 #define _XEN_DOMINF_dying		0
@@ -129,21 +129,21 @@ struct xen_domctl_getdomaininfo {
 /* XEN_DOMINF_shutdown guest-supplied code.  */
 #define XEN_DOMINF_shutdownmask		255
 #define XEN_DOMINF_shutdownshift	16
-	uint32_t flags; /* XEN_DOMINF_* */
+	uint32_t flags;
 	uint64_aligned_t tot_pages;
 	uint64_aligned_t max_pages;
 	uint64_aligned_t outstanding_pages;
 	uint64_aligned_t shr_pages;
 	uint64_aligned_t paged_pages;
-	uint64_aligned_t shared_info_frame; /* GMFN of shared_info struct */
+	uint64_aligned_t shared_info_frame;
 	uint64_aligned_t cpu_time;
-	uint32_t nr_online_vcpus; /* Number of VCPUs currently online. */
-#define XEN_INVALID_MAX_VCPU_ID (~0U) /* Domain has no vcpus? */
-	uint32_t max_vcpu_id; /* Maximum VCPUID in use by this domain. */
+	uint32_t nr_online_vcpus;
+#define XEN_INVALID_MAX_VCPU_ID (~0U)
+	uint32_t max_vcpu_id;
 	uint32_t ssidref;
 	xen_domain_handle_t handle;
 	uint32_t cpupool;
-	uint8_t gpaddr_bits; /* Guest physical address space size. */
+	uint8_t gpaddr_bits;
 	uint8_t pad2[7];
 	struct xen_arch_domainconfig arch_config;
 };
@@ -166,18 +166,18 @@ struct xen_domctl_shadow_op_stats {
 
 struct xen_domctl_shadow_op {
 	/* IN variables. */
-	uint32_t op; /* XEN_DOMCTL_SHADOW_OP_* */
+	uint32_t op;
 
 	/* OP_ENABLE: XEN_DOMCTL_SHADOW_ENABLE_* */
 	/* OP_PEAK / OP_CLEAN: XEN_DOMCTL_SHADOW_LOGDIRTY_* */
 	uint32_t mode;
 
 	/* OP_GET_ALLOCATION / OP_SET_ALLOCATION */
-	uint32_t mb; /* Shadow memory allocation in MB */
+	uint32_t mb;
 
 	/* OP_PEEK / OP_CLEAN */
 	XEN_GUEST_HANDLE_64(uint8_t) dirty_bitmap;
-	uint64_aligned_t pages; /* Size of buffer. Updated with actual size. */
+	uint64_aligned_t pages;
 	struct xen_domctl_shadow_op_stats stats;
 };
 
@@ -190,9 +190,9 @@ struct xen_domctl_max_mem {
 /* XEN_DOMCTL_setvcpucontext */
 /* XEN_DOMCTL_getvcpucontext */
 struct xen_domctl_vcpucontext {
-	uint32_t vcpu; /* IN */
+	uint32_t vcpu;
 
-	XEN_GUEST_HANDLE_64(vcpu_guest_context_t) ctxt; /* IN/OUT */
+	XEN_GUEST_HANDLE_64(vcpu_guest_context_t) ctxt;
 };
 
 /*
@@ -204,7 +204,7 @@ struct xen_domctl_vcpucontext {
  * still required in the short term to allocate the vcpus themselves.
  */
 struct xen_domctl_max_vcpus {
-	uint32_t max;	   /* maximum number of vcpus */
+	uint32_t max;
 };
 
 /* XEN_DOMCTL_scheduler_op */
@@ -262,8 +262,8 @@ DEFINE_XEN_GUEST_HANDLE(xen_domctl_schedparam_vcpu_t);
 #define XEN_DOMCTL_SCHEDOP_putvcpuinfo	2
 #define XEN_DOMCTL_SCHEDOP_getvcpuinfo	3
 struct xen_domctl_scheduler_op {
-	uint32_t sched_id; /* XEN_SCHEDULER_* */
-	uint32_t cmd; /* XEN_DOMCTL_SCHEDOP_* */
+	uint32_t sched_id;
+	uint32_t cmd;
 	/* IN/OUT */
 	union {
 		struct xen_domctl_sched_credit credit;
@@ -283,9 +283,9 @@ struct xen_domctl_scheduler_op {
 
 /* XEN_DOMCTL_iomem_permission */
 struct xen_domctl_iomem_permission {
-	uint64_aligned_t first_mfn;/* first page (physical page number) in range */
-	uint64_aligned_t nr_mfns;  /* number of pages in range (>0) */
-	uint8_t  allow_access;     /* allow (!0) or deny (0) access to range? */
+	uint64_aligned_t first_mfn;
+	uint64_aligned_t nr_mfns;
+	uint8_t  allow_access;
 };
 
 /* XEN_DOMCTL_set_address_size */
@@ -313,17 +313,17 @@ struct xen_domctl_address_size {
 #define XEN_DOMCTL_DEV_DT	1
 struct xen_domctl_assign_device {
 	/* IN */
-	uint32_t dev; /* XEN_DOMCTL_DEV_* */
+	uint32_t dev;
 	uint32_t flags;
-#define XEN_DOMCTL_DEV_RDM_RELAXED	1 /* assign only */
+#define XEN_DOMCTL_DEV_RDM_RELAXED	1
 	union {
 		struct {
-			uint32_t machine_sbdf; /* machine PCI ID of assigned device */
+			uint32_t machine_sbdf;
 		} pci;
 		struct {
-			uint32_t size; /* Length of the path */
+			uint32_t size;
 
-			XEN_GUEST_HANDLE_64(char) path; /* path to the device tree node */
+			XEN_GUEST_HANDLE_64(char) path;
 		} dt;
 	} u;
 };
@@ -336,11 +336,11 @@ enum pt_irq_type {
 	PT_IRQ_TYPE_ISA,
 	PT_IRQ_TYPE_MSI,
 	PT_IRQ_TYPE_MSI_TRANSLATE,
-	PT_IRQ_TYPE_SPI, /* ARM: valid range 32-1019 */
+	PT_IRQ_TYPE_SPI,
 };
 struct xen_domctl_bind_pt_irq {
 	uint32_t machine_irq;
-	uint32_t irq_type; /* enum pt_irq_type */
+	uint32_t irq_type;
 
 	union {
 		struct {
@@ -383,11 +383,11 @@ struct xen_domctl_bind_pt_irq {
 #define DPCI_ADD_MAPPING	1
 #define DPCI_REMOVE_MAPPING	0
 struct xen_domctl_memory_mapping {
-	uint64_aligned_t first_gfn; /* first page (hvm guest phys page) in range */
-	uint64_aligned_t first_mfn; /* first page (machine page) in range */
-	uint64_aligned_t nr_mfns;   /* number of pages in range (>0) */
-	uint32_t add_mapping;       /* add or remove mapping */
-	uint32_t padding;           /* padding for 64-bit aligned structure */
+	uint64_aligned_t first_gfn;
+	uint64_aligned_t first_mfn;
+	uint64_aligned_t nr_mfns;
+	uint32_t add_mapping;
+	uint32_t padding;
 };
 
 /*
@@ -412,7 +412,7 @@ struct xen_domctl_cacheflush {
  * out of memory, no free memory to reclaim from the pool, etc.).
  */
 struct xen_domctl_paging_mempool {
-	uint64_aligned_t size; /* Size in bytes. */
+	uint64_aligned_t size;
 };
 
 struct xen_domctl {
@@ -438,7 +438,7 @@ struct xen_domctl {
 #define XEN_DOMCTL_hypercall_init		22
 #define XEN_DOMCTL_settimeoffset		24
 #define XEN_DOMCTL_getvcpuaffinity		25
-#define XEN_DOMCTL_real_mode_area		26 /* Obsolete PPC only */
+#define XEN_DOMCTL_real_mode_area		26
 #define XEN_DOMCTL_resumedomain			27
 #define XEN_DOMCTL_sendtrigger			28
 #define XEN_DOMCTL_subscribe			29
@@ -452,7 +452,7 @@ struct xen_domctl {
 #define XEN_DOMCTL_ioport_mapping		40
 #define XEN_DOMCTL_set_ext_vcpucontext		42
 #define XEN_DOMCTL_get_ext_vcpucontext		43
-#define XEN_DOMCTL_set_opt_feature		44 /* Obsolete IA64 only */
+#define XEN_DOMCTL_set_opt_feature		44
 #define XEN_DOMCTL_test_assign_device		45
 #define XEN_DOMCTL_set_target			46
 #define XEN_DOMCTL_deassign_device		47
@@ -491,7 +491,7 @@ struct xen_domctl {
 #define XEN_DOMCTL_gdbsx_pausevcpu		1001
 #define XEN_DOMCTL_gdbsx_unpausevcpu		1002
 #define XEN_DOMCTL_gdbsx_domstatus		1003
-	uint32_t interface_version; /* XEN_DOMCTL_INTERFACE_VERSION */
+	uint32_t interface_version;
 	domid_t  domain;
 	uint16_t _pad[3];
 	union {

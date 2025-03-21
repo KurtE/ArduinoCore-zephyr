@@ -259,7 +259,7 @@ static inline void adc_context_on_sampling_done(struct adc_context *ctx,
 		case ADC_ACTION_FINISH:
 			finish = true;
 			break;
-		default: /* ADC_ACTION_CONTINUE */
+		default:
 			if (ctx->sampling_index <
 			    ctx->options.extra_samplings) {
 				++ctx->sampling_index;

@@ -150,7 +150,7 @@ static ALWAYS_INLINE void arch_irq_unlock(unsigned int key)
 /** Implementation of @ref arch_irq_unlocked. */
 static ALWAYS_INLINE bool arch_irq_unlocked(unsigned int key)
 {
-	return (key & 0xf) == 0; /* INTLEVEL field */
+	return (key & 0xf) == 0;
 }
 
 /**

@@ -31,7 +31,7 @@
 #define USB_DEVICE_MAX_HS_CONTROL_MAX_PACKET_SIZE (64U)
 
 #define USB_DEVICE_MAX_TRANSFER_PRIME_TIMES \
-    (10000000U) /* The max prime times of EPPRIME, if still doesn't take effect, means status has been reset*/
+    (10000000U)
 
 /* Device QH */
 #define USB_DEVICE_EHCI_QH_POINTER_MASK         (0xFFFFFFC0U)
@@ -139,34 +139,34 @@ typedef struct _usb_device_ehci_dtd_struct
 /*! @brief EHCI state structure */
 typedef struct _usb_device_ehci_state_struct
 {
-    usb_device_struct_t *deviceHandle; /*!< Device handle used to identify the device object is belonged to */
-    USBHS_Type *registerBase;          /*!< The base address of the register */
+    usb_device_struct_t *deviceHandle;
+    USBHS_Type *registerBase;
 #if (defined(USB_DEVICE_CONFIG_LOW_POWER_MODE) && (USB_DEVICE_CONFIG_LOW_POWER_MODE > 0U))
 #if ((defined FSL_FEATURE_SOC_USBPHY_COUNT) && (FSL_FEATURE_SOC_USBPHY_COUNT > 0U))
-    USBPHY_Type *registerPhyBase; /*!< The base address of the PHY register */
+    USBPHY_Type *registerPhyBase;
 #endif
 #if (defined(FSL_FEATURE_SOC_USBNC_COUNT) && (FSL_FEATURE_SOC_USBNC_COUNT > 0U))
-    USBNC_Type *registerNcBase; /*!< The base address of the USBNC register */
+    USBNC_Type *registerNcBase;
 #endif
 #endif
 #if (defined(USB_DEVICE_CONFIG_CHARGER_DETECT) && (USB_DEVICE_CONFIG_CHARGER_DETECT > 0U)) && \
     ((defined(FSL_FEATURE_SOC_USBHSDCD_COUNT) && (FSL_FEATURE_SOC_USBHSDCD_COUNT > 0U)) ||    \
      (defined(FSL_FEATURE_SOC_USB_ANALOG_COUNT) && (FSL_FEATURE_SOC_USB_ANALOG_COUNT > 0U)))
-    void *dcdHandle; /*!< Dcd handle used to identify the device object belongs to */
+    void *dcdHandle;
 #endif
-    usb_device_ehci_qh_struct_t *qh;       /*!< The QH structure base address */
-    usb_device_ehci_dtd_struct_t *dtd;     /*!< The DTD structure base address */
-    usb_device_ehci_dtd_struct_t *dtdFree; /*!< The idle DTD list head */
+    usb_device_ehci_qh_struct_t *qh;
+    usb_device_ehci_dtd_struct_t *dtd;
+    usb_device_ehci_dtd_struct_t *dtdFree;
     usb_device_ehci_dtd_struct_t
-        *dtdHard[USB_DEVICE_CONFIG_ENDPOINTS * 2]; /*!< The transferring DTD list head for each endpoint */
+        *dtdHard[USB_DEVICE_CONFIG_ENDPOINTS * 2];
     usb_device_ehci_dtd_struct_t
-        *dtdTail[USB_DEVICE_CONFIG_ENDPOINTS * 2]; /*!< The transferring DTD list tail for each endpoint */
-    uint8_t dtdCount;                              /*!< The idle DTD node count */
-    uint8_t endpointCount;                         /*!< The endpoint number of EHCI */
-    uint8_t isResetting;                           /*!< Whether a PORT reset is occurring or not  */
-    uint8_t controllerId;                          /*!< Controller ID */
-    uint8_t speed;                                 /*!< Current speed of EHCI */
-    uint8_t isSuspending;                          /*!< Is suspending of the PORT */
+        *dtdTail[USB_DEVICE_CONFIG_ENDPOINTS * 2];
+    uint8_t dtdCount;
+    uint8_t endpointCount;
+    uint8_t isResetting;
+    uint8_t controllerId;
+    uint8_t speed;
+    uint8_t isSuspending;
 #if (defined(USB_DEVICE_CONFIG_LOW_POWER_MODE) && (USB_DEVICE_CONFIG_LOW_POWER_MODE > 0U))
 #if (defined(USB_DEVICE_CONFIG_LPM_L1) && (USB_DEVICE_CONFIG_LPM_L1 > 0U))
     uint8_t lpmRemoteWakeUp;

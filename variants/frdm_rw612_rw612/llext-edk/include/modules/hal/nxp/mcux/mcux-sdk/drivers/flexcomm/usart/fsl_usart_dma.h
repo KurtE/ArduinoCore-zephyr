@@ -43,18 +43,18 @@ typedef void (*usart_dma_transfer_callback_t)(USART_Type *base,
  */
 struct _usart_dma_handle
 {
-    USART_Type *base; /*!< UART peripheral base address. */
+    USART_Type *base;
 
-    usart_dma_transfer_callback_t callback; /*!< Callback function. */
-    void *userData;                         /*!< UART callback function parameter.*/
-    size_t rxDataSizeAll;                   /*!< Size of the data to receive. */
-    size_t txDataSizeAll;                   /*!< Size of the data to send out. */
+    usart_dma_transfer_callback_t callback;
+    void *userData;
+    size_t rxDataSizeAll;
+    size_t txDataSizeAll;
 
-    dma_handle_t *txDmaHandle; /*!< The DMA TX channel used. */
-    dma_handle_t *rxDmaHandle; /*!< The DMA RX channel used. */
+    dma_handle_t *txDmaHandle;
+    dma_handle_t *rxDmaHandle;
 
-    volatile uint8_t txState; /*!< TX transfer state. */
-    volatile uint8_t rxState; /*!< RX transfer state */
+    volatile uint8_t txState;
+    volatile uint8_t rxState;
 };
 
 /*******************************************************************************

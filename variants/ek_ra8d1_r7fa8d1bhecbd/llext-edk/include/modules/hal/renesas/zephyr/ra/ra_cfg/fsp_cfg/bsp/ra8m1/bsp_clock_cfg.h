@@ -16,15 +16,15 @@
 #define BSP_CFG_XTAL_HZ (RA_CGC_PROP_HAS_STATUS_OKAY_OR(DT_NODELABEL(xtal), clock_frequency, 0))
 
 #if DT_PROP(DT_NODELABEL(hoco), clock_frequency) == 16000000
-#define BSP_CFG_HOCO_FREQUENCY 0 /* HOCO 16MHz */
+#define BSP_CFG_HOCO_FREQUENCY 0
 #elif DT_PROP(DT_NODELABEL(hoco), clock_frequency) == 18000000
-#define BSP_CFG_HOCO_FREQUENCY 1 /* HOCO 18MHz */
+#define BSP_CFG_HOCO_FREQUENCY 1
 #elif DT_PROP(DT_NODELABEL(hoco), clock_frequency) == 20000000
-#define BSP_CFG_HOCO_FREQUENCY 2 /* HOCO 20MHz */
+#define BSP_CFG_HOCO_FREQUENCY 2
 #elif DT_PROP(DT_NODELABEL(hoco), clock_frequency) == 32000000
-#define BSP_CFG_HOCO_FREQUENCY 4 /* HOCO 32MHz */
+#define BSP_CFG_HOCO_FREQUENCY 4
 #elif DT_PROP(DT_NODELABEL(hoco), clock_frequency) == 48000000
-#define BSP_CFG_HOCO_FREQUENCY 7 /* HOCO 48MHz */
+#define BSP_CFG_HOCO_FREQUENCY 7
 #else
 #error "Invalid HOCO frequency, only can be set to 16MHz, 18MHz, 20MHz, 32MHz, 48MHz"
 #endif

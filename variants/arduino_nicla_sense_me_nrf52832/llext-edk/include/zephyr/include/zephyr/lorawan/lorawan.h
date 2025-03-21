@@ -28,79 +28,79 @@ extern "C" {
  * @brief LoRaWAN class types.
  */
 enum lorawan_class {
-	LORAWAN_CLASS_A = 0x00, /**< Class A device */
-	LORAWAN_CLASS_B = 0x01, /**< Class B device */
-	LORAWAN_CLASS_C = 0x02, /**< Class C device */
+	LORAWAN_CLASS_A = 0x00,
+	LORAWAN_CLASS_B = 0x01,
+	LORAWAN_CLASS_C = 0x02,
 };
 
 /**
  * @brief LoRaWAN activation types.
  */
 enum lorawan_act_type {
-	LORAWAN_ACT_OTAA = 0, /**< Over-the-Air Activation (OTAA) */
-	LORAWAN_ACT_ABP,      /**< Activation by Personalization (ABP) */
+	LORAWAN_ACT_OTAA = 0,
+	LORAWAN_ACT_ABP,
 };
 
 /**
  * @brief LoRaWAN channels mask sizes.
  */
 enum lorawan_channels_mask_size {
-	LORAWAN_CHANNELS_MASK_SIZE_AS923 = 1, /**< Region AS923 mask size */
-	LORAWAN_CHANNELS_MASK_SIZE_AU915 = 6, /**< Region AU915 mask size */
-	LORAWAN_CHANNELS_MASK_SIZE_CN470 = 6, /**< Region CN470 mask size */
-	LORAWAN_CHANNELS_MASK_SIZE_CN779 = 1, /**< Region CN779 mask size */
-	LORAWAN_CHANNELS_MASK_SIZE_EU433 = 1, /**< Region EU433 mask size */
-	LORAWAN_CHANNELS_MASK_SIZE_EU868 = 1, /**< Region EU868 mask size */
-	LORAWAN_CHANNELS_MASK_SIZE_KR920 = 1, /**< Region KR920 mask size */
-	LORAWAN_CHANNELS_MASK_SIZE_IN865 = 1, /**< Region IN865 mask size */
-	LORAWAN_CHANNELS_MASK_SIZE_US915 = 6, /**< Region US915 mask size */
-	LORAWAN_CHANNELS_MASK_SIZE_RU864 = 1, /**< Region RU864 mask size */
+	LORAWAN_CHANNELS_MASK_SIZE_AS923 = 1,
+	LORAWAN_CHANNELS_MASK_SIZE_AU915 = 6,
+	LORAWAN_CHANNELS_MASK_SIZE_CN470 = 6,
+	LORAWAN_CHANNELS_MASK_SIZE_CN779 = 1,
+	LORAWAN_CHANNELS_MASK_SIZE_EU433 = 1,
+	LORAWAN_CHANNELS_MASK_SIZE_EU868 = 1,
+	LORAWAN_CHANNELS_MASK_SIZE_KR920 = 1,
+	LORAWAN_CHANNELS_MASK_SIZE_IN865 = 1,
+	LORAWAN_CHANNELS_MASK_SIZE_US915 = 6,
+	LORAWAN_CHANNELS_MASK_SIZE_RU864 = 1,
 };
 
 /**
  * @brief LoRaWAN datarate types.
  */
 enum lorawan_datarate {
-	LORAWAN_DR_0 = 0, /**< DR0 data rate */
-	LORAWAN_DR_1,     /**< DR1 data rate */
-	LORAWAN_DR_2,     /**< DR2 data rate */
-	LORAWAN_DR_3,     /**< DR3 data rate */
-	LORAWAN_DR_4,     /**< DR4 data rate */
-	LORAWAN_DR_5,     /**< DR5 data rate */
-	LORAWAN_DR_6,     /**< DR6 data rate */
-	LORAWAN_DR_7,     /**< DR7 data rate */
-	LORAWAN_DR_8,     /**< DR8 data rate */
-	LORAWAN_DR_9,     /**< DR9 data rate */
-	LORAWAN_DR_10,    /**< DR10 data rate */
-	LORAWAN_DR_11,    /**< DR11 data rate */
-	LORAWAN_DR_12,    /**< DR12 data rate */
-	LORAWAN_DR_13,    /**< DR13 data rate */
-	LORAWAN_DR_14,    /**< DR14 data rate */
-	LORAWAN_DR_15,    /**< DR15 data rate */
+	LORAWAN_DR_0 = 0,
+	LORAWAN_DR_1,
+	LORAWAN_DR_2,
+	LORAWAN_DR_3,
+	LORAWAN_DR_4,
+	LORAWAN_DR_5,
+	LORAWAN_DR_6,
+	LORAWAN_DR_7,
+	LORAWAN_DR_8,
+	LORAWAN_DR_9,
+	LORAWAN_DR_10,
+	LORAWAN_DR_11,
+	LORAWAN_DR_12,
+	LORAWAN_DR_13,
+	LORAWAN_DR_14,
+	LORAWAN_DR_15,
 };
 
 /**
  * @brief LoRaWAN region types.
  */
 enum lorawan_region {
-	LORAWAN_REGION_AS923, /**< Asia 923 MHz frequency band */
-	LORAWAN_REGION_AU915, /**< Australia 915 MHz frequency band */
-	LORAWAN_REGION_CN470, /**< China 470 MHz frequency band */
-	LORAWAN_REGION_CN779, /**< China 779 MHz frequency band */
-	LORAWAN_REGION_EU433, /**< Europe 433 MHz frequency band */
-	LORAWAN_REGION_EU868, /**< Europe 868 MHz frequency band */
-	LORAWAN_REGION_KR920, /**< South Korea 920 MHz frequency band */
-	LORAWAN_REGION_IN865, /**< India 865 MHz frequency band */
-	LORAWAN_REGION_US915, /**< United States 915 MHz frequency band */
-	LORAWAN_REGION_RU864, /**< Russia 864 MHz frequency band */
+	LORAWAN_REGION_AS923,
+	LORAWAN_REGION_AU915,
+	LORAWAN_REGION_CN470,
+	LORAWAN_REGION_CN779,
+	LORAWAN_REGION_EU433,
+	LORAWAN_REGION_EU868,
+	LORAWAN_REGION_KR920,
+	LORAWAN_REGION_IN865,
+	LORAWAN_REGION_US915,
+	LORAWAN_REGION_RU864,
 };
 
 /**
  * @brief LoRaWAN message types.
  */
 enum lorawan_message_type {
-	LORAWAN_MSG_UNCONFIRMED = 0,  /**< Unconfirmed message */
-	LORAWAN_MSG_CONFIRMED,        /**< Confirmed message */
+	LORAWAN_MSG_UNCONFIRMED = 0,
+	LORAWAN_MSG_CONFIRMED,
 };
 
 /**
@@ -156,8 +156,8 @@ struct lorawan_join_abp {
 struct lorawan_join_config {
 	/** Join parameters */
 	union {
-		struct lorawan_join_otaa otaa; /**< OTAA join parameters */
-		struct lorawan_join_abp abp;   /**< ABP join parameters */
+		struct lorawan_join_otaa otaa;
+		struct lorawan_join_abp abp;
 	};
 
 	/** Device EUI. Optional if a secure element is present. */
@@ -216,6 +216,27 @@ typedef uint8_t (*lorawan_battery_level_cb_t)(void);
  * @param dr Updated datarate.
  */
 typedef void (*lorawan_dr_changed_cb_t)(enum lorawan_datarate dr);
+
+/**
+ * @brief Defines the user's descriptor callback handler function signature.
+ *
+ * The use of this callback is optional. When Fragmented Data Block Transport
+ * is enabled, the application will be notified with the descriptor field present on
+ * the FragSessionSetupReq command.
+ *
+ * @param descriptor Descriptor value given on the FragSessionSetupReq command.
+ *
+ * The meaning of Descriptor is application dependent. When doing a FUOTA
+ * with a binary image, it may represent the version of the firmware
+ * transported.
+ *
+ * @return 0 if successful. This represents, in the case that the descriptor is the firmware
+ * version, that the end-device is able to receive binary firmware. Otherwise, a negative error code
+ * (errno.h) indicating the reason for failure. Any negative error code will result in setting
+ * the Wrong Descriptor status bit mask when sending FragSessionSetupAns to the Network Server.
+ *
+ */
+typedef int (*transport_descriptor_cb)(uint32_t descriptor);
 
 /**
  * @brief Register a battery level callback function.
@@ -438,6 +459,17 @@ int lorawan_clock_sync_get(uint32_t *gps_time);
 #endif /* CONFIG_LORAWAN_APP_CLOCK_SYNC */
 
 #ifdef CONFIG_LORAWAN_FRAG_TRANSPORT
+
+/**
+ * @brief Register a handle descriptor callback function.
+ *
+ * Provide to the fragmentation transport service a function to be called
+ * whenever a FragSessionSetupReq is received and Descriptor field should be
+ * handled.
+ *
+ * @param transport_descriptor_cb Callback for notification.
+ */
+void lorawan_frag_transport_register_descriptor_callback(transport_descriptor_cb cb);
 
 /**
  * @brief Run Fragmented Data Block Transport service

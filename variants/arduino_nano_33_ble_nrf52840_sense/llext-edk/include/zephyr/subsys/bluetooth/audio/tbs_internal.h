@@ -22,7 +22,7 @@
 #include <zephyr/types.h>
 
 #define BT_TBS_MAX_UCI_SIZE                        6
-#define BT_TBS_MIN_URI_LEN                         3 /* a:b */
+#define BT_TBS_MIN_URI_LEN                         3
 #define BT_TBS_FREE_CALL_INDEX                     0
 
 /* Call Control Point Opcodes */
@@ -43,7 +43,7 @@
 #define BT_TBS_LOCAL_OPCODE_INCOMING               0x84
 #define BT_TBS_LOCAL_OPCODE_SERVER_TERMINATE       0x85
 
-#define FIRST_PRINTABLE_ASCII_CHAR ' ' /* space */
+#define FIRST_PRINTABLE_ASCII_CHAR ' '
 
 #define BT_TBS_CALL_FLAG_SET_INCOMING(flag) (flag &= ~BT_TBS_CALL_FLAG_OUTGOING)
 #define BT_TBS_CALL_FLAG_SET_OUTGOING(flag) (flag |= BT_TBS_CALL_FLAG_OUTGOING)
@@ -302,7 +302,7 @@ struct bt_tbs_in_uri {
 	defined(CONFIG_BT_TBS_CLIENT_INCOMING_CALL) || \
 	defined(CONFIG_BT_TBS_CLIENT_CALL_FRIENDLY_NAME) || \
 	defined(CONFIG_BT_TBS_CLIENT_BEARER_LIST_CURRENT_CALLS)
-#define BT_TBS_CLIENT_INST_READ_BUF_SIZE (BT_ATT_MAX_ATTRIBUTE_LEN + 1 /* NULL terminator*/)
+#define BT_TBS_CLIENT_INST_READ_BUF_SIZE (BT_ATT_MAX_ATTRIBUTE_LEN + 1)
 #else
 /* Need only be the size of call state reads which is the largest of the
  * remaining characteristic values
@@ -316,7 +316,7 @@ struct bt_tbs_in_uri {
 enum bt_tbs_client_flag {
 	BT_TBS_CLIENT_FLAG_BUSY,
 
-	BT_TBS_CLIENT_FLAG_NUM_FLAGS, /* keep as last */
+	BT_TBS_CLIENT_FLAG_NUM_FLAGS,
 };
 
 struct bt_tbs_instance {

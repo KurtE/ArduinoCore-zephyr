@@ -10,13 +10,13 @@
 #include <zephyr/kernel.h>
 #include <soc.h>
 
-#define FLASH_OP_DONE    (0) /* 0 for compliance with the driver API. */
+#define FLASH_OP_DONE    (0)
 #define FLASH_OP_ONGOING  1
 
 struct flash_context {
-	uint32_t data_addr;  /* Address of data to write. */
-	uint32_t flash_addr; /* Address of flash to write or erase. */
-	uint32_t len;        /* Size of data to write or erase [B]. */
+	uint32_t data_addr;
+	uint32_t flash_addr;
+	uint32_t len;
 #ifndef CONFIG_SOC_FLASH_NRF_RADIO_SYNC_NONE
 	uint8_t  enable_time_limit; /* set execution limited to the execution
 				     * window.
@@ -25,7 +25,7 @@ struct flash_context {
 #if defined(CONFIG_SOC_FLASH_NRF_PARTIAL_ERASE)
 	uint32_t flash_addr_next;
 #endif /* CONFIG_SOC_FLASH_NRF_PARTIAL_ERASE */
-}; /*< Context type for f. @ref write_op @ref erase_op */
+};
 
 #ifndef CONFIG_SOC_FLASH_NRF_RADIO_SYNC_NONE
 
@@ -56,7 +56,7 @@ typedef int (*flash_op_handler_t) (void *context);
 
 struct flash_op_desc {
 	flash_op_handler_t handler;
-	struct flash_context *context; /* [in,out] */
+	struct flash_context *context;
 };
 
 /**

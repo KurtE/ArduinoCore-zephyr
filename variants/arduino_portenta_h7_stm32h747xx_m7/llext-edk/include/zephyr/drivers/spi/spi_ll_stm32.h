@@ -50,7 +50,7 @@ struct spi_stm32_config {
 
 struct stream {
 	const struct device *dma_dev;
-	uint32_t channel; /* stores the channel for dma or mux */
+	uint32_t channel;
 	struct dma_config dma_cfg;
 	struct dma_block_config dma_blk_cfg;
 	uint8_t priority;

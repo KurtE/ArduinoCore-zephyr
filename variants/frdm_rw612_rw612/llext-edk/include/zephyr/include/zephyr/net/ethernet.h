@@ -47,11 +47,11 @@ extern "C" {
  * @{
  */
 
-#define NET_ETH_ADDR_LEN		6U /**< Ethernet MAC address length */
+#define NET_ETH_ADDR_LEN		6U
 
 /** Ethernet address */
 struct net_eth_addr {
-	uint8_t addr[NET_ETH_ADDR_LEN]; /**< Buffer storing the address */
+	uint8_t addr[NET_ETH_ADDR_LEN];
 };
 
 /** @cond INTERNAL_HIDDEN */
@@ -59,19 +59,19 @@ struct net_eth_addr {
 #define NET_ETH_HDR(pkt) ((struct net_eth_hdr *)net_pkt_data(pkt))
 
 /* zephyr-keep-sorted-start */
-#define NET_ETH_PTYPE_ALL		0x0003 /* from linux/if_ether.h */
+#define NET_ETH_PTYPE_ALL		0x0003
 #define NET_ETH_PTYPE_ARP		0x0806
-#define NET_ETH_PTYPE_CAN		0x000C /* CAN: Controller Area Network */
-#define NET_ETH_PTYPE_CANFD		0x000D /* CANFD: CAN flexible data rate*/
+#define NET_ETH_PTYPE_CAN		0x000C
+#define NET_ETH_PTYPE_CANFD		0x000D
 #define NET_ETH_PTYPE_EAPOL		0x888e
 #define NET_ETH_PTYPE_ECAT		0x88a4
-#define NET_ETH_PTYPE_HDLC		0x0019 /* HDLC frames (like in PPP) */
-#define NET_ETH_PTYPE_IEEE802154	0x00F6 /* from linux/if_ether.h: IEEE802.15.4 frame */
+#define NET_ETH_PTYPE_HDLC		0x0019
+#define NET_ETH_PTYPE_IEEE802154	0x00F6
 #define NET_ETH_PTYPE_IP		0x0800
 #define NET_ETH_PTYPE_IPV6		0x86dd
 #define NET_ETH_PTYPE_LLDP		0x88cc
 #define NET_ETH_PTYPE_PTP		0x88f7
-#define NET_ETH_PTYPE_TSN		0x22f0 /* TSN (IEEE 1722) packet */
+#define NET_ETH_PTYPE_TSN		0x22f0
 #define NET_ETH_PTYPE_VLAN		0x8100
 /* zephyr-keep-sorted-stop */
 
@@ -116,8 +116,8 @@ struct net_eth_addr {
 
 /** @endcond */
 
-#define NET_ETH_MINIMAL_FRAME_SIZE	60   /**< Minimum Ethernet frame size */
-#define NET_ETH_MTU			1500 /**< Ethernet MTU size */
+#define NET_ETH_MINIMAL_FRAME_SIZE	60
+#define NET_ETH_MTU			1500
 
 /** @cond INTERNAL_HIDDEN */
 
@@ -744,8 +744,8 @@ struct net_eth_vlan_hdr {
 	struct net_eth_addr dst;
 	struct net_eth_addr src;
 	struct {
-		uint16_t tpid; /* tag protocol id  */
-		uint16_t tci;  /* tag control info */
+		uint16_t tpid;
+		uint16_t tci;
 	} vlan;
 	uint16_t type;
 } __packed;
@@ -1171,7 +1171,8 @@ static inline bool net_eth_is_vlan_interface(struct net_if *iface)
 				       init_fn, pm, data, config, prio,	\
 				       api, mtu)			\
 	Z_DEVICE_STATE_DEFINE(dev_id);					\
-	Z_DEVICE_DEFINE(node_id, dev_id, name, init_fn, pm, data,	\
+	Z_DEVICE_DEFINE(node_id, dev_id, name, init_fn, NULL,		\
+			Z_DEVICE_DT_FLAGS(node_id), pm, data,		\
 			config, POST_KERNEL, prio, api,			\
 			&Z_DEVICE_STATE_NAME(dev_id));
 

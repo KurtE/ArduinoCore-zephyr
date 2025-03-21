@@ -56,19 +56,19 @@ extern "C" {
  * These values should be used with the @ref crc dispatch function.
  */
 enum crc_type {
-	CRC4,        /**< Use @ref crc4 */
-	CRC4_TI,     /**< Use @ref crc4_ti */
-	CRC7_BE,     /**< Use @ref crc7_be */
-	CRC8,        /**< Use @ref crc8 */
-	CRC8_CCITT,  /**< Use @ref crc8_ccitt */
-	CRC8_ROHC,   /**< Use @ref crc8_rohc */
-	CRC16,       /**< Use @ref crc16 */
-	CRC16_ANSI,  /**< Use @ref crc16_ansi */
-	CRC16_CCITT, /**< Use @ref crc16_ccitt */
-	CRC16_ITU_T, /**< Use @ref crc16_itu_t */
-	CRC24_PGP,   /**< Use @ref crc24_pgp */
-	CRC32_C,     /**< Use @ref crc32_c */
-	CRC32_IEEE,  /**< Use @ref crc32_ieee */
+	CRC4,
+	CRC4_TI,
+	CRC7_BE,
+	CRC8,
+	CRC8_CCITT,
+	CRC8_ROHC,
+	CRC16,
+	CRC16_ANSI,
+	CRC16_CCITT,
+	CRC16_ITU_T,
+	CRC24_PGP,
+	CRC32_C,
+	CRC32_IEEE,
 };
 
 /**

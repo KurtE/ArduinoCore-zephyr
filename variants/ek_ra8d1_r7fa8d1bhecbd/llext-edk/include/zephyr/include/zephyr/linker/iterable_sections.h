@@ -145,6 +145,6 @@
 
 /**
  * @}
- */ /* end of struct_section_apis */
+ */
 
 #endif /* INCLUDE_ZEPHYR_LINKER_ITERABLE_SECTIONS_H_ */

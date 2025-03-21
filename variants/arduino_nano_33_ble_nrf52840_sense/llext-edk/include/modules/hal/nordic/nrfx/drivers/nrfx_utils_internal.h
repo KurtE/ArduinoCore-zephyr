@@ -237,14 +237,14 @@ void NRFX_CONCAT(nrfx_, periph_name_small, _, prefix, i, _irq_handler)(void) \
 /* Internal macro used for @ref NRFX_IS_EMPTY */
 #define _NRFX_IS_EMPTY(...)                                                                 \
     _NRFX_IS_EMPTY2(                                                                        \
-    /* test if there is just one argument, eventually an empty one */                       \
+                       \
     _NRFX_HAS_COMMA(__VA_ARGS__),                                                           \
-    /* test if _TRIGGER_PARENTHESIS_ together with the argument adds a comma */             \
+             \
     _NRFX_HAS_COMMA(_NRFX_ARG_HAS_PARENTHESIS __VA_ARGS__),                                 \
-    /* test if the argument together with a parenthesis adds a comma */                     \
-    _NRFX_HAS_COMMA(__VA_ARGS__ (/*empty*/)),                                               \
-    /* test if placing it between _TRIGGER_PARENTHESIS_ and the parenthesis adds a comma */ \
-    _NRFX_HAS_COMMA(_NRFX_ARG_HAS_PARENTHESIS __VA_ARGS__ (/*empty*/))                      \
+                     \
+    _NRFX_HAS_COMMA(__VA_ARGS__ ()),                                               \
+ \
+    _NRFX_HAS_COMMA(_NRFX_ARG_HAS_PARENTHESIS __VA_ARGS__ ())                      \
     )
 
 /**

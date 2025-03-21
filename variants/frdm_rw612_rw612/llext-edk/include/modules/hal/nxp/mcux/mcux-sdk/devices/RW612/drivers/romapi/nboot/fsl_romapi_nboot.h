@@ -46,7 +46,7 @@
 
 #define NBOOT_IMG_CERTBLOCK_MAGIC 0x72646863U
 #define NBOOT_IMG_IMGMANIFEST_MAGIC 0x6d676d69U
-#define NBOOT_IMG_IMGMANIFEST_MIN_SIZE_IN_BYTES (20u) /* image manifest header (20) */
+#define NBOOT_IMG_IMGMANIFEST_MIN_SIZE_IN_BYTES (20u)
 
 #define NBOOT_ROOT_CERT_FLAG_CURVE_MASK 0xFU
 #define NBOOT_ROOT_CERT_FLAG_CURVE_OFFSET 0x0U
@@ -63,8 +63,8 @@
 #define NBOOT_ISK_CERT_FLAG_CURVE_P384 0x2U
 #define NBOOT_ISK_USER_DATA_MAX_SIZE_IN_BYTES (96u)
 
-#define NBOOT_CERTBLOCK_MAX_LENGTH_IN_BYTES ((508u) + NBOOT_ISK_USER_DATA_MAX_SIZE_IN_BYTES) /* 508 + user data size */
-#define NBOOT_CERTBLOCK_MIN_LENGTH_IN_BYTES (80u) /* Certificate block header (12) + flags (4) + secp256 public key (64) */
+#define NBOOT_CERTBLOCK_MAX_LENGTH_IN_BYTES ((508u) + NBOOT_ISK_USER_DATA_MAX_SIZE_IN_BYTES)
+#define NBOOT_CERTBLOCK_MIN_LENGTH_IN_BYTES (80u)
 
 #define NBOOT_ROOT_CERT_COUNT (4u)
 #define NBOOT_CONTEXT_BYTELEN (192u + NXPCLHASH_WA_SIZE_MAX)
@@ -80,8 +80,8 @@
 #define NBOOT_ROOT_OF_TRUST_HASH_SIZE_IN_BYTES (48u)
 
 /* SB3.1 */
-#define NBOOT_SB3_MANIFEST_MAX_LENGTH_IN_BYTES  ((712u) + NBOOT_ISK_USER_DATA_MAX_SIZE_IN_BYTES) /* 712 + user data size */
-#define NBOOT_SB3_MANIFEST_MIN_LENGTH_IN_BYTES  (236u) /* sb3.1 header (60) + sha256 hash (32) + min cert block (80) + secp256 signature (64) */
+#define NBOOT_SB3_MANIFEST_MAX_LENGTH_IN_BYTES  ((712u) + NBOOT_ISK_USER_DATA_MAX_SIZE_IN_BYTES)
+#define NBOOT_SB3_MANIFEST_MIN_LENGTH_IN_BYTES  (236u)
 #define NBOOT_SB3_CHUNK_SIZE_IN_BYTES           (256u)
 #define NBOOT_SB3_BLOCK_HASH256_SIZE_IN_BYTES   (32u)
 #define NBOOT_SB3_BLOCK_HASH384_SIZE_IN_BYTES   (48u)
@@ -139,16 +139,16 @@ typedef uint32_t nboot_timestamp_t[2];
  */
 typedef struct _nboot_sb3_header
 {
-    uint32_t magic;                  /*! offset 0x00: Fixed 4-byte string of 'sbv3' without the trailing NULL */
-    uint32_t formatVersion;          /*! offset 0x04: (major = 3, minor = 1); The format version determines the manifest (block0) size. */
-    uint32_t flags;                  /*! offset 0x08: not defined yet, keep zero for future compatibility */
-    uint32_t blockCount;             /*! offset 0x0C: Number of blocks not including the manifest (block0). */
-    uint32_t blockSize;              /*! offset 0x10: Size in bytes of data block (repeated blockCount times for SB3 data stream). */
-    nboot_timestamp_t timeStamp;     /*! offset 0x14: 64-bit value used as key derivation data. */
-    uint32_t firmwareVersion;        /*! offset 0x1c: Version number of the included firmware */
-    uint32_t imageTotalLength;       /*! offset 0x20: Total manifest length in bytes, including signatures etc. */
-    uint32_t imageType;              /*! offset 0x24: image type and flags */
-    uint32_t certificateBlockOffset; /*! offset 0x28: Offset from start of header block to the certificate block. */
+    uint32_t magic;
+    uint32_t formatVersion;
+    uint32_t flags;
+    uint32_t blockCount;
+    uint32_t blockSize;
+    nboot_timestamp_t timeStamp;
+    uint32_t firmwareVersion;
+    uint32_t imageTotalLength;
+    uint32_t imageType;
+    uint32_t certificateBlockOffset;
     uint8_t description[16];         /*! offset 0x32: This field provides description of the file. It is an arbitrary
                                                       string injected by the signing tool, which helps to identify the file. */
 } nboot_sb3_header_t;
@@ -157,7 +157,7 @@ typedef struct _nboot_sb3_header
     (sizeof(nboot_sb3_header_t) + NBOOT_SB3_BLOCK_HASH384_SIZE_IN_BYTES + sizeof(nboot_certificate_block_t) + \
      NBOOT_EC_COORDINATE_MAX_SIZE * 2)
 #define NBOOT_SB3_BLOCK_MAX_SIZE_IN_BYTES \
-    (4 /* blockNumber */ + NBOOT_SB3_BLOCK_HASH384_SIZE_IN_BYTES + NBOOT_SB3_CHUNK_SIZE_IN_BYTES)
+    (4 + NBOOT_SB3_BLOCK_HASH384_SIZE_IN_BYTES + NBOOT_SB3_CHUNK_SIZE_IN_BYTES)
 
 /*! @brief The size of the blob with Key Blob. */
 #define NBOOT_KEY_BLOB_SIZE_IN_BYTE_256 (32U)
@@ -177,10 +177,10 @@ typedef struct _nboot_sb3_header
  */
 typedef enum _nboot_bool
 {
-    kNBOOT_TRUE                   = 0x3C5AC33Cu,    /*!< Value for TRUE.  */
-    kNBOOT_TRUE256                = 0x3C5AC35Au,    /*!< Value for TRUE when P256 was used to sign the image.  */
-    kNBOOT_TRUE384                = 0x3C5AC3A5u,    /*!< Value for TRUE when P384 was used to sign the image.  */
-    kNBOOT_FALSE                  = 0x5AA55AA5u,    /*!< Value for FALSE. */
+    kNBOOT_TRUE                   = 0x3C5AC33Cu,
+    kNBOOT_TRUE256                = 0x3C5AC35Au,
+    kNBOOT_TRUE384                = 0x3C5AC3A5u,
+    kNBOOT_FALSE                  = 0x5AA55AA5u,
     kNBOOT_OperationAllowed       = 0x3c5a33ccU,
     kNBOOT_OperationDisallowed    = 0x5aa5cc33U,
 } nboot_bool_t;
@@ -231,20 +231,20 @@ typedef struct
  * \defgroup nbootStatusValues  This type defines status return values used by NBOOT functions that are not easily disturbed by Fault Attacks
  * @{
  */
-#define kStatus_NBOOT_Success         ((nboot_status_t) 0x5A5A5A5Au)    /*!< Operation completed successfully. */
-#define kStatus_NBOOT_Fail            ((nboot_status_t) 0x5A5AA5A5u)    /*!< Operation failed. */
-#define kStatus_NBOOT_InvalidArgument ((nboot_status_t) 0x5A5AA5F0u)    /*!< Invalid argument passed to the function. */
-#define kStatus_NBOOT_RequestTimeout  ((nboot_status_t) 0x5A5AA5E1u)    /*!< Operation timed out. */
-#define kStatus_NBOOT_KeyNotLoaded    ((nboot_status_t) 0x5A5AA5E2u)    /*!< The requested key is not loaded. */
-#define kStatus_NBOOT_AuthFail        ((nboot_status_t) 0x5A5AA5E4u)    /*!< Authentication failed. */
-#define kStatus_NBOOT_OperationNotAvaialable        ((nboot_status_t) 0x5A5AA5E5u)    /*!< Operation not available on this HW. */
-#define kStatus_NBOOT_KeyNotAvailable        ((nboot_status_t) 0x5A5AA5E6u)    /*!< Key is not avaialble. */
-#define kStatus_NBOOT_IvCounterOverflow        ((nboot_status_t) 0x5A5AA5E7u)    /*!< Overflow of IV counter (PRINCE/IPED). */
-#define kStatus_NBOOT_SelftestFail    ((nboot_status_t) 0x5A5AA5E8u)    /*!< FIPS self-test failure. */
-#define kStatus_NBOOT_InvalidDataFormat    ((nboot_status_t) 0x5A5AA5E9u)    /*!< Invalid data format for example antipole */
-#define kStatus_NBOOT_IskCertUserDataTooBig    ((nboot_status_t) 0x5A5AA5EAu)    /*!< Size of User data in ISK certificate is greater than 96 bytes */
-#define kStatus_NBOOT_IskCertSignatureOffsetTooSmall ((nboot_status_t) 0x5A5AA5EBu)    /*!< Signature offset in ISK certificate is smaller than expected */
-#define kStatus_NBOOT_MemcpyFail      ((nboot_status_t)0x5A5A845A)      /*!< Unexpected error detected during nboot_memcpy() */
+#define kStatus_NBOOT_Success         ((nboot_status_t) 0x5A5A5A5Au)
+#define kStatus_NBOOT_Fail            ((nboot_status_t) 0x5A5AA5A5u)
+#define kStatus_NBOOT_InvalidArgument ((nboot_status_t) 0x5A5AA5F0u)
+#define kStatus_NBOOT_RequestTimeout  ((nboot_status_t) 0x5A5AA5E1u)
+#define kStatus_NBOOT_KeyNotLoaded    ((nboot_status_t) 0x5A5AA5E2u)
+#define kStatus_NBOOT_AuthFail        ((nboot_status_t) 0x5A5AA5E4u)
+#define kStatus_NBOOT_OperationNotAvaialable        ((nboot_status_t) 0x5A5AA5E5u)
+#define kStatus_NBOOT_KeyNotAvailable        ((nboot_status_t) 0x5A5AA5E6u)
+#define kStatus_NBOOT_IvCounterOverflow        ((nboot_status_t) 0x5A5AA5E7u)
+#define kStatus_NBOOT_SelftestFail    ((nboot_status_t) 0x5A5AA5E8u)
+#define kStatus_NBOOT_InvalidDataFormat    ((nboot_status_t) 0x5A5AA5E9u)
+#define kStatus_NBOOT_IskCertUserDataTooBig    ((nboot_status_t) 0x5A5AA5EAu)
+#define kStatus_NBOOT_IskCertSignatureOffsetTooSmall ((nboot_status_t) 0x5A5AA5EBu)
+#define kStatus_NBOOT_MemcpyFail      ((nboot_status_t)0x5A5A845A)
 
 #define NXPCLCSS_HASH_RTF_OUTPUT_SIZE ((size_t)32U) ///< Size of run-time fingerprint appended to the hash in @p pDigest in bytes, if #NXPCLCSS_HASH_RTF_OUTPUT_ENABLE was specified
 #define NXPCLHASH_WA_SIZE_MAX (128u+64u)
@@ -259,23 +259,23 @@ typedef struct
  */
 typedef struct _nboot_context
 {
-    uint32_t totalBlocks;   /*!< holds number of SB3 blocks. Initialized by nboot_sb3_load_header(). */
+    uint32_t totalBlocks;
     uint32_t processData;   /*!< flag, initialized by nboot_sb3_load_header().
                                SB3 related flag set by NBOOT in case the nboot_sb3_load_block()
                                provides plain data to output buffer (for processing by ROM SB3 loader */
-    uint32_t timeout;       /*!< timeout value for css operation. In case it is 0, infinite wait is performed */
-    uint32_t keyinfo[NBOOT_KEYINFO_WORDLEN]; /*!< data for NBOOT key management. */
-    uint32_t context[NBOOT_CONTEXT_WORDLEN]; /*!< work area for NBOOT lib. */
-    uint32_t uuid[4]; /*!< holds UUID value from NMPA */
-    uint32_t prngReadyFlag; /*!< flag, used by nboot_rng_generate_lq_random() to determine whether CSS is ready to generate rnd number */
+    uint32_t timeout;
+    uint32_t keyinfo[NBOOT_KEYINFO_WORDLEN];
+    uint32_t context[NBOOT_CONTEXT_WORDLEN];
+    uint32_t uuid[4];
+    uint32_t prngReadyFlag;
     uint32_t multipartMacBuffer[1024/sizeof(uint32_t)];
-    uint32_t oemShareValidFlag; /*!< flag, used during TP to determine whether valid oemShare was set by nboot_tp_isp_gen_oem_master_share() */
-    uint32_t oemShare[4]; /*!< buffer to store OEM_SHARE computed by nxpCLTrustProv_nboot_isp_gen_oem_master_share() */
-    nboot_secure_counter_t secureCounter; /*!< Secure counter used by nboot */
+    uint32_t oemShareValidFlag;
+    uint32_t oemShare[4];
+    nboot_secure_counter_t secureCounter;
     uint32_t rtf[NXPCLCSS_HASH_RTF_OUTPUT_SIZE/sizeof(uint32_t)];
     uint32_t imageHash[48/sizeof(uint32_t)];
     uint32_t authStatus;
-    nboot_bool_t disableProvisioningFirmwareNXP; /*!< Flag to disable execution of NXP signed provisioning Firmwares */
+    nboot_bool_t disableProvisioningFirmwareNXP;
 } nboot_context_t;
 
 /*!
@@ -284,7 +284,7 @@ typedef struct _nboot_context
  * This type defines the NBOOT ECC coordinate type
  *
  */
-typedef uint8_t nboot_ecc_coordinate_t[NBOOT_EC_COORDINATE_MAX_SIZE]; /*!ECC point coordinate, up to 384-bits. big endian. */
+typedef uint8_t nboot_ecc_coordinate_t[NBOOT_EC_COORDINATE_MAX_SIZE];
 
 /*!
  * @brief NBOOT type for an ECC signature
@@ -294,8 +294,8 @@ typedef uint8_t nboot_ecc_coordinate_t[NBOOT_EC_COORDINATE_MAX_SIZE]; /*!ECC poi
  */
 typedef struct
 {
-    nboot_ecc_coordinate_t r; /*! r portion of the ECDSA signature, up to 384-bits. big endian. */
-    nboot_ecc_coordinate_t s; /*! s portion of the ECDSA signature, up to 384-bits. big endian. */
+    nboot_ecc_coordinate_t r;
+    nboot_ecc_coordinate_t s;
 } nboot_ecdsa_signature_t;
 
 /*!
@@ -306,8 +306,8 @@ typedef struct
  */
 typedef struct
 {
-    nboot_ecc_coordinate_t x; /*! x portion of the ECDSA public key, up to 384-bits. big endian. */
-    nboot_ecc_coordinate_t y; /*! y portion of the ECDSA public key, up to 384-bits. big endian. */
+    nboot_ecc_coordinate_t x;
+    nboot_ecc_coordinate_t y;
 } nboot_ecdsa_public_key_t;
 
 typedef uint8_t nboot_ctrk_hash_t[NBOOT_ROOT_OF_TRUST_HASH_SIZE_IN_BYTES];
@@ -331,12 +331,12 @@ typedef struct _nboot_ctrk_hash_table
  */
 typedef struct
 {
-    uint32_t signatureOffset;            /*! Offset of signature in ISK block. */
-    uint32_t constraints;                /*! Version number of signing certificate. */
-    uint32_t iskFlags;                   /*! Reserved for definiton of ISK certificate flags. */
-    nboot_ecdsa_public_key_t iskPubKey;  /*! Public key of signing certificate. Variable length; only used to determine start address*/
-    nboot_ecdsa_public_key_t userData;   /*! Space for at lest one addition public key*/
-    nboot_ecdsa_signature_t iskSign;     /*! ISK signature*/
+    uint32_t signatureOffset;
+    uint32_t constraints;
+    uint32_t iskFlags;
+    nboot_ecdsa_public_key_t iskPubKey;
+    nboot_ecdsa_public_key_t userData;
+    nboot_ecdsa_signature_t iskSign;
 } nboot_isk_block_t;
 
 /*!
@@ -389,7 +389,7 @@ typedef struct _nboot_image_manifest_block
 typedef struct _nboot_certificate_block
 {
     nboot_certificate_header_block_t header;
-    nboot_root_certificate_block_t rootCertBlock; /*! Details of selected root certificate (root certificate which will be used for ISK signing/SB3 header signing) */
+    nboot_root_certificate_block_t rootCertBlock;
     nboot_isk_block_t iskBlock;
 } nboot_certificate_block_t;
 /*!
@@ -455,17 +455,17 @@ typedef uint32_t nboot_root_key_type_and_length_t;
  typedef struct _nboot_rot_auth_parms
 {
     /* trusted information originated from CFPA */
-    nboot_root_key_revocation_t soc_rootKeyRevocation[NBOOT_ROOT_CERT_COUNT]; /*!< Provided by caller based on NVM information in CFPA: ROTKH_REVOKE */
-    uint32_t soc_imageKeyRevocation; /*!< Provided by caller based on NVM information in CFPA: IMAGE_KEY_REVOKE */
+    nboot_root_key_revocation_t soc_rootKeyRevocation[NBOOT_ROOT_CERT_COUNT];
+    uint32_t soc_imageKeyRevocation;
 
     /* trusted information originated from CMPA */
-    uint32_t soc_rkh[kNBOOT_SocRkh_Size_Words_P384]; /*!< Provided by caller based on NVM information in CMPA: ROTKH (hash of hashes) */
+    uint32_t soc_rkh[kNBOOT_SocRkh_Size_Words_P384];
                           /*!< In case of kNBOOT_RootKey_Ecdsa_P384, sock_rkh[0..11] are used */
                           /*!< In case of kNBOOT_RootKey_Ecdsa_P256, sock_rkh[0..7] are used */
 
-    uint32_t soc_numberOfRootKeys; /* unsigned int, between minimum = 1 and maximum = 4; */
-    nboot_root_key_usage_t soc_rootKeyUsage[NBOOT_ROOT_CERT_COUNT]; /* CMPA */
-    nboot_root_key_type_and_length_t soc_rootKeyTypeAndLength; /* static selection between ECDSA P-256 or ECDSA P-384 based root keys */
+    uint32_t soc_numberOfRootKeys;
+    nboot_root_key_usage_t soc_rootKeyUsage[NBOOT_ROOT_CERT_COUNT];
+    nboot_root_key_type_and_length_t soc_rootKeyTypeAndLength;
 
     /* trusted information originated from OTP fuses */
     nboot_soc_lifecycle_t soc_lifecycle;
@@ -477,7 +477,7 @@ typedef struct _nboot_img_auth_ecdsa_parms
     /* trusted information originated from CFPA and NMPA */
     nboot_rot_auth_parms_t soc_RoTNVM;
 
-    uint32_t soc_trustedFirmwareVersion; /*!< Provided by caller based on NVM information in CFPA: Secure_FW_Version */
+    uint32_t soc_trustedFirmwareVersion;
 } nboot_img_auth_ecdsa_parms_t;
 
 /*!
@@ -487,15 +487,15 @@ typedef struct _nboot_img_auth_ecdsa_parms
  *
  */typedef struct _nboot_sb3_load_manifest_parms
 {
-    nboot_rot_auth_parms_t soc_RoTNVM;      /*! trusted information originated from CFPA and NMPA */
-    uint32_t soc_trustedFirmwareVersion;    /*!< Provided by caller based on NVM information in CFPA: Secure_FW_Version */
-    uint8_t pckBlob[48];                    /*! CSSv2 protected blob with Part Common Key (PCK) */
+    nboot_rot_auth_parms_t soc_RoTNVM;
+    uint32_t soc_trustedFirmwareVersion;
+    uint8_t pckBlob[48];
 } nboot_sb3_load_manifest_parms_t;
 
 /*! @brief Data structure holding input arguments for CMAC authentication */
 typedef struct _nboot_cmac_authenticate_parms
 {
-    uint32_t expectedMAC[4];  /*!< expected MAC result */
+    uint32_t expectedMAC[4];
 } nboot_cmac_authenticate_parms_t;
 
 typedef struct

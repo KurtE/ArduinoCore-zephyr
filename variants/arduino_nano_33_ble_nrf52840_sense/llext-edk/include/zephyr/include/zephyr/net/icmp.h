@@ -30,10 +30,10 @@
 extern "C" {
 #endif
 
-#define NET_ICMPV4_ECHO_REQUEST 8    /**< ICMPv4 Echo-Request */
-#define NET_ICMPV4_ECHO_REPLY   0    /**< ICMPv4 Echo-Reply */
-#define NET_ICMPV6_ECHO_REQUEST 128  /**< ICMPv6 Echo-Request */
-#define NET_ICMPV6_ECHO_REPLY   129  /**< ICMPv6 Echo-Reply */
+#define NET_ICMPV4_ECHO_REQUEST 8
+#define NET_ICMPV4_ECHO_REPLY   0
+#define NET_ICMPV6_ECHO_REQUEST 128
+#define NET_ICMPV6_ECHO_REPLY   129
 
 struct net_icmp_ctx;
 struct net_icmp_ip_hdr;

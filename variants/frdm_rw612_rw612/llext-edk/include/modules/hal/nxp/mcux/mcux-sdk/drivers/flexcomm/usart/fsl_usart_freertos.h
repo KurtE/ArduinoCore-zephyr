@@ -33,29 +33,29 @@
 /*! @brief FLEX USART configuration structure */
 struct rtos_usart_config
 {
-    USART_Type *base;                /*!< USART base address */
-    uint32_t srcclk;                 /*!< USART source clock in Hz*/
-    uint32_t baudrate;               /*!< Desired communication speed */
-    usart_parity_mode_t parity;      /*!< Parity setting */
-    usart_stop_bit_count_t stopbits; /*!< Number of stop bits to use */
-    uint8_t *buffer;                 /*!< Buffer for background reception */
-    uint32_t buffer_size;            /*!< Size of buffer for background reception */
+    USART_Type *base;
+    uint32_t srcclk;
+    uint32_t baudrate;
+    usart_parity_mode_t parity;
+    usart_stop_bit_count_t stopbits;
+    uint8_t *buffer;
+    uint32_t buffer_size;
 };
 
 /*! @brief FLEX USART FreeRTOS handle */
 typedef struct _usart_rtos_handle
 {
-    USART_Type *base;              /*!< USART base address */
-    usart_transfer_t txTransfer;   /*!< TX transfer structure */
-    usart_transfer_t rxTransfer;   /*!< RX transfer structure */
-    SemaphoreHandle_t rxSemaphore; /*!< RX semaphore for resource sharing */
-    SemaphoreHandle_t txSemaphore; /*!< TX semaphore for resource sharing */
+    USART_Type *base;
+    usart_transfer_t txTransfer;
+    usart_transfer_t rxTransfer;
+    SemaphoreHandle_t rxSemaphore;
+    SemaphoreHandle_t txSemaphore;
 #define RTOS_USART_COMPLETE                0x1U
 #define RTOS_USART_RING_BUFFER_OVERRUN     0x2U
 #define RTOS_USART_HARDWARE_BUFFER_OVERRUN 0x4U
-    EventGroupHandle_t rxEvent; /*!< RX completion event */
-    EventGroupHandle_t txEvent; /*!< TX completion event */
-    void *t_state;              /*!< Transactional state of the underlying driver */
+    EventGroupHandle_t rxEvent;
+    EventGroupHandle_t txEvent;
+    void *t_state;
 } usart_rtos_handle_t;
 
 /*******************************************************************************

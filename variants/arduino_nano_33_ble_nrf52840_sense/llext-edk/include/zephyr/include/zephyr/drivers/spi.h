@@ -39,8 +39,8 @@ extern "C" {
  * @name SPI operational mode
  * @{
  */
-#define SPI_OP_MODE_MASTER	0U      /**< Master mode. */
-#define SPI_OP_MODE_SLAVE	BIT(0)  /**< Slave mode. */
+#define SPI_OP_MODE_MASTER	0U
+#define SPI_OP_MODE_SLAVE	BIT(0)
 /** @cond INTERNAL_HIDDEN */
 #define SPI_OP_MODE_MASK	0x1U
 /** @endcond */
@@ -88,8 +88,8 @@ extern "C" {
  * @name SPI Transfer modes (host controller dependent)
  * @{
  */
-#define SPI_TRANSFER_MSB	(0U)    /**< Most significant bit first. */
-#define SPI_TRANSFER_LSB	BIT(4)  /**< Least significant bit first. */
+#define SPI_TRANSFER_MSB	(0U)
+#define SPI_TRANSFER_LSB	BIT(4)
 /** @} */
 
 /**
@@ -140,12 +140,12 @@ extern "C" {
  * Without @kconfig{CONFIG_SPI_EXTENDED_MODES} being enabled, single is the
  * only supported one.
  */
-#define SPI_LINES_SINGLE	(0U << 16)     /**< Single line */
-#define SPI_LINES_DUAL		(1U << 16)     /**< Dual lines */
-#define SPI_LINES_QUAD		(2U << 16)     /**< Quad lines */
-#define SPI_LINES_OCTAL		(3U << 16)     /**< Octal lines */
+#define SPI_LINES_SINGLE	(0U << 16)
+#define SPI_LINES_DUAL		(1U << 16)
+#define SPI_LINES_QUAD		(2U << 16)
+#define SPI_LINES_OCTAL		(3U << 16)
 
-#define SPI_LINES_MASK		(0x3U << 16)   /**< Mask for MISO lines in spi_operation_t */
+#define SPI_LINES_MASK		(0x3U << 16)
 
 /** @} */
 
@@ -579,7 +579,7 @@ struct spi_device_state {
 	Z_DEVICE_DEFINE(node_id, Z_DEVICE_DT_DEV_ID(node_id),		\
 			DEVICE_DT_NAME(node_id),			\
 			&UTIL_CAT(Z_DEVICE_DT_DEV_ID(node_id), _init),	\
-			pm_device,					\
+			NULL, Z_DEVICE_DT_FLAGS(node_id), pm_device,	\
 			data_ptr, cfg_ptr, level, prio,			\
 			api_ptr,					\
 			&(Z_DEVICE_STATE_NAME(Z_DEVICE_DT_DEV_ID(node_id)).devstate), \
@@ -614,7 +614,8 @@ static inline void spi_transceive_stats(const struct device *dev, int error,
 				api, ...)			\
 	Z_DEVICE_STATE_DEFINE(Z_DEVICE_DT_DEV_ID(node_id));			\
 	Z_DEVICE_DEFINE(node_id, Z_DEVICE_DT_DEV_ID(node_id),			\
-			DEVICE_DT_NAME(node_id), init_fn, pm, data, config,	\
+			DEVICE_DT_NAME(node_id), init_fn, NULL,			\
+			Z_DEVICE_DT_FLAGS(node_id), pm, data, config,		\
 			level, prio, api,					\
 			&Z_DEVICE_STATE_NAME(Z_DEVICE_DT_DEV_ID(node_id)),	\
 			__VA_ARGS__)

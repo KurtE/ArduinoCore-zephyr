@@ -16,7 +16,7 @@ extern "C" {
 #endif
 
 struct arch_esf {
-	uint32_t dummy; /*maybe we will want to add something someday*/
+	uint32_t dummy;
 };
 
 #ifdef __cplusplus

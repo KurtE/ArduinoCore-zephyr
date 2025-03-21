@@ -60,4 +60,3 @@
 -iwithprefixbefore/llext-edk/include/modules/hal/nxp/mcux/mcux-sdk/components/osa
 -iwithprefixbefore/llext-edk/include/zephyr/modules/hal_nxp/usb/.
 -iwithprefixbefore/llext-edk/include/zephyr/modules/hal_nxp/.
--iwithprefixbefore/llext-edk/include/modules/crypto/tinycrypt/lib/include

@@ -67,7 +67,7 @@ typedef enum
                           } while(0)
 
 #if !defined(UNUSED)
-#define UNUSED(x) ((void)(x))    /* To avoid gcc/g++ warnings */
+#define UNUSED(x) ((void)(x))
 #endif /* UNUSED */
 
 /** @brief Reset the Handle's State field.

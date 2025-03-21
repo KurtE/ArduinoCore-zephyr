@@ -18,14 +18,14 @@
 struct dma_stm32_stream {
 	uint32_t direction;
 #ifdef CONFIG_DMAMUX_STM32
-	int mux_channel; /* stores the dmamux channel */
+	int mux_channel;
 #endif /* CONFIG_DMAMUX_STM32 */
 	bool source_periph;
 	bool hal_override;
 	volatile bool busy;
 	uint32_t src_size;
 	uint32_t dst_size;
-	void *user_data; /* holds the client data */
+	void *user_data;
 	dma_callback_t dma_callback;
 	bool cyclic;
 };
@@ -41,7 +41,7 @@ struct dma_stm32_config {
 	uint32_t base;
 	uint32_t max_streams;
 #ifdef CONFIG_DMAMUX_STM32
-	uint8_t offset; /* position in the list of dmamux channel list */
+	uint8_t offset;
 #endif
 	struct dma_stm32_stream *streams;
 };

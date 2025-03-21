@@ -23,7 +23,7 @@ extern "C" {
 
 /* Offset into a segment/track before the "previous" command goes to start of */
 /* current segment/track instead to previous */
-#define PREV_MARGIN           500  /* 500 * 0.01 = 5 seconds */
+#define PREV_MARGIN           500
 
 /* Increase/decrease in seeking sped factor for fast rewind/forward commands
  * The media control specification has a requirement that the speed factor
@@ -91,10 +91,10 @@ struct mpl_mediaplayer   {
 	uint8_t             content_ctrl_id;
 	struct media_proxy_pl_calls calls;
 
-	bool                        next_track_set; /* If next track explicitly set */
+	bool                        next_track_set;
 	struct {
-		struct mpl_track    *track; /* The track explicitly set as next track */
-		struct mpl_group    *group; /* The group of the set track */
+		struct mpl_track    *track;
+		struct mpl_group    *group;
 	} next;
 
 	struct k_work_delayable pos_work;

@@ -24,7 +24,7 @@ struct mq_attr {
 	long mq_flags;
 	long mq_maxmsg;
 	long mq_msgsize;
-	long mq_curmsgs;	/* Number of messages currently queued. */
+	long mq_curmsgs;
 };
 
 mqd_t mq_open(const char *name, int oflags, ...);

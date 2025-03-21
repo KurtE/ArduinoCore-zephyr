@@ -13,16 +13,16 @@
 #define TI_DM_TIMER_TIOCP_CFG      (0x10)
 #define TI_DM_TIMER_IRQ_EOI        (0x20)
 #define TI_DM_TIMER_IRQSTATUS_RAW  (0x24)
-#define TI_DM_TIMER_IRQSTATUS      (0x28) /* Interrupt status register */
-#define TI_DM_TIMER_IRQENABLE_SET  (0x2c) /* Interrupt enable register */
-#define TI_DM_TIMER_IRQENABLE_CLR  (0x30) /* Interrupt disable register */
+#define TI_DM_TIMER_IRQSTATUS      (0x28)
+#define TI_DM_TIMER_IRQENABLE_SET  (0x2c)
+#define TI_DM_TIMER_IRQENABLE_CLR  (0x30)
 #define TI_DM_TIMER_IRQWAKEEN      (0x34)
-#define TI_DM_TIMER_TCLR           (0x38) /* Control register */
-#define TI_DM_TIMER_TCRR           (0x3c) /* Counter register */
-#define TI_DM_TIMER_TLDR           (0x40) /* Load register */
+#define TI_DM_TIMER_TCLR           (0x38)
+#define TI_DM_TIMER_TCRR           (0x3c)
+#define TI_DM_TIMER_TLDR           (0x40)
 #define TI_DM_TIMER_TTGR           (0x44)
 #define TI_DM_TIMER_TWPS           (0x48)
-#define TI_DM_TIMER_TMAR           (0x4c) /* Match register */
+#define TI_DM_TIMER_TMAR           (0x4c)
 #define TI_DM_TIMER_TCAR1          (0x50)
 #define TI_DM_TIMER_TSICR          (0x54)
 #define TI_DM_TIMER_TCAR2          (0x58)

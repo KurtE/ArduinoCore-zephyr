@@ -47,10 +47,10 @@
   */
 typedef enum
 {
-  HAL_RAMECC_STATE_RESET             = 0x00U,  /*!< RAMECC not yet initialized or disabled */
-  HAL_RAMECC_STATE_READY             = 0x01U,  /*!< RAMECC initialized and ready for use   */
-  HAL_RAMECC_STATE_BUSY              = 0x02U,  /*!< RAMECC process is ongoing              */
-  HAL_RAMECC_STATE_ERROR             = 0x03U,  /*!< RAMECC error state                     */
+  HAL_RAMECC_STATE_RESET             = 0x00U,
+  HAL_RAMECC_STATE_READY             = 0x01U,
+  HAL_RAMECC_STATE_BUSY              = 0x02U,
+  HAL_RAMECC_STATE_ERROR             = 0x03U,
 }HAL_RAMECC_StateTypeDef;
 
 
@@ -63,12 +63,12 @@ typedef struct __RAMECC_HandleTypeDef
 typedef struct
 #endif  /* USE_HAL_RAMECC_REGISTER_CALLBACKS */
 {
-  RAMECC_MonitorTypeDef           *Instance;                                                         /*!< Register base address        */
-  __IO HAL_RAMECC_StateTypeDef    State;                                                             /*!< RAMECC state                 */
-  __IO uint32_t                   ErrorCode;                                                         /*!< RAMECC Error Code            */
-  __IO uint32_t                   RAMECCErrorCode;                                                   /*!< RAMECC Detected Error Code   */
+  RAMECC_MonitorTypeDef           *Instance;
+  __IO HAL_RAMECC_StateTypeDef    State;
+  __IO uint32_t                   ErrorCode;
+  __IO uint32_t                   RAMECCErrorCode;
 #if (USE_HAL_RAMECC_REGISTER_CALLBACKS == 1)
-  void                            (* DetectErrorCallback)( struct __RAMECC_HandleTypeDef *hramecc);  /*!< RAMECC Error Detect callback */
+  void                            (* DetectErrorCallback)( struct __RAMECC_HandleTypeDef *hramecc);
 #endif  /* USE_HAL_RAMECC_REGISTER_CALLBACKS */
 }RAMECC_HandleTypeDef;
 
@@ -84,11 +84,11 @@ typedef struct
 /** @defgroup RAMECC_Error_Codes RAMECC Error Codes
   * @{
   */
-#define HAL_RAMECC_ERROR_NONE              0x00000000U  /*!< RAMECC No Error         */
-#define HAL_RAMECC_ERROR_TIMEOUT           0x00000001U  /*!< RAMECC Timeout Error    */
-#define HAL_RAMECC_ERROR_BUSY              0x00000002U  /*!< RAMECC Busy Error       */
+#define HAL_RAMECC_ERROR_NONE              0x00000000U
+#define HAL_RAMECC_ERROR_TIMEOUT           0x00000001U
+#define HAL_RAMECC_ERROR_BUSY              0x00000002U
 #if (USE_HAL_RAMECC_REGISTER_CALLBACKS == 1)
-#define HAL_RAMECC_ERROR_INVALID_CALLBACK  0x00000003U  /*!< Invalid Callback error  */
+#define HAL_RAMECC_ERROR_INVALID_CALLBACK  0x00000003U
 #endif  /* USE_HAL_RAMECC_REGISTER_CALLBACKS */
 
 /**
@@ -98,9 +98,9 @@ typedef struct
 /** @defgroup RAMECC_Error_Codes RAMECC Error Detected Codes
   * @{
   */
-#define HAL_RAMECC_NO_ERROR                           0x00000000U  /*!< RAMECC No Error Detected                      */
-#define HAL_RAMECC_SINGLEERROR_DETECTED               0x00000001U  /*!< RAMECC Single Error Detected                  */
-#define HAL_RAMECC_DOUBLEERROR_DETECTED               0x00000002U  /*!< RAMECC Double Error Detected                  */
+#define HAL_RAMECC_NO_ERROR                           0x00000000U
+#define HAL_RAMECC_SINGLEERROR_DETECTED               0x00000001U
+#define HAL_RAMECC_DOUBLEERROR_DETECTED               0x00000002U
 /**
   * @}
   */

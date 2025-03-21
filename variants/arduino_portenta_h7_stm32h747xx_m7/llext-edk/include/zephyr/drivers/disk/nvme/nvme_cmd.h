@@ -15,61 +15,61 @@
 struct nvme_command {
 	/* dword 0 */
 	struct _cdw0 {
-		uint8_t opc;		/* opcode */
-		uint8_t fuse : 2;	/* fused operation */
-		uint8_t rsvd : 4;	/* reserved */
-		uint8_t psdt : 2;       /* PRP or SGL for Data Transfer */
-		uint16_t cid;		/* command identifier */
+		uint8_t opc;
+		uint8_t fuse : 2;
+		uint8_t rsvd : 4;
+		uint8_t psdt : 2;
+		uint16_t cid;
 	} cdw0;
 
 	/* dword 1 */
-	uint32_t nsid;		/* namespace identifier */
+	uint32_t nsid;
 
 	/* dword 2-3 */
 	uint32_t cdw2;
 	uint32_t cdw3;
 
 	/* dword 4-5 */
-	uint64_t mptr;		/* metadata pointer */
+	uint64_t mptr;
 
 	/* dword 6-7 and 8-9 */
 	struct _dptr {
-		uint64_t prp1;	/* prp entry 1 */
-		uint64_t prp2;	/* prp entry 2 */
-	} dptr;			/* data pointer */
+		uint64_t prp1;
+		uint64_t prp2;
+	} dptr;
 
 	/* dword 10 */
 	union {
-		uint32_t cdw10;	/* command-specific */
-		uint32_t ndt;	/* Number of Dwords in Data transfer */
+		uint32_t cdw10;
+		uint32_t ndt;
 	};
 
 	/* dword 11 */
 	union {
-		uint32_t cdw11;	/* command-specific */
-		uint32_t ndm;	/* Number of Dwords in Metadata transfer */
+		uint32_t cdw11;
+		uint32_t ndm;
 	};
 
 	/* dword 12-15 */
-	uint32_t cdw12;		/* command-specific */
-	uint32_t cdw13;		/* command-specific */
-	uint32_t cdw14;		/* command-specific */
-	uint32_t cdw15;		/* command-specific */
+	uint32_t cdw12;
+	uint32_t cdw13;
+	uint32_t cdw14;
+	uint32_t cdw15;
 };
 
 struct nvme_completion {
 	/* dword 0 */
-	uint32_t	cdw0;	/* command-specific */
+	uint32_t	cdw0;
 
 	/* dword 1 */
 	uint32_t	rsvd;
 
 	/* dword 2 */
-	uint16_t	sqhd;	/* submission queue head pointer */
-	uint16_t	sqid;	/* submission queue identifier */
+	uint16_t	sqhd;
+	uint16_t	sqid;
 
 	/* dword 3 */
-	uint16_t	cid;	/* command identifier */
+	uint16_t	cid;
 	uint16_t	status;
 } __aligned(8);
 

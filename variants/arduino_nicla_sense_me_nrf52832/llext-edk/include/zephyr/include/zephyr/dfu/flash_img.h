@@ -42,8 +42,8 @@ struct flash_img_context {
  * to verify flash integrity.  The current available algorithm is SHA-256.
  */
 struct flash_img_check {
-	const uint8_t *match;		/** Match vector data */
-	size_t clen;			/** Content to be compared */
+	const uint8_t *match;
+	size_t clen;
 };
 
 /**
@@ -110,6 +110,13 @@ int flash_img_buffered_write(struct flash_img_context *ctx, const uint8_t *data,
 int flash_img_check(struct flash_img_context *ctx,
 		    const struct flash_img_check *fic,
 		    uint8_t area_id);
+
+/**
+ * @brief Get the flash area id for the image upload slot.
+ *
+ * @return flash area id for the image upload slot
+ */
+uint8_t flash_img_get_upload_slot(void);
 
 #ifdef __cplusplus
 }

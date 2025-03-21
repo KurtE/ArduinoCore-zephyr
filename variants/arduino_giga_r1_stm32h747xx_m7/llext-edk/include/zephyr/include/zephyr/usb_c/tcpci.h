@@ -709,7 +709,7 @@
 /** Mask for the valid bits of voltage trip point */
 #define TCPC_REG_VBUS_SINK_DISCONNECT_THRESH_MASK    GENMASK(11, 0)
 /** Default value for vbus sink disconnect threshold */
-#define TCPC_REG_VBUS_SINK_DISCONNECT_THRESH_DEFAULT 0x008C /* 3.5 V */
+#define TCPC_REG_VBUS_SINK_DISCONNECT_THRESH_DEFAULT 0x008C
 
 /** Register address - vbus sink disconnect threshold */
 #define TCPC_REG_VBUS_STOP_DISCHARGE_THRESH         0x74
@@ -723,7 +723,7 @@
 /** Mask for the valid bits of voltage trip point */
 #define TCPC_REG_VBUS_STOP_DISCHARGE_THRESH_MASK    GENMASK(11, 0)
 /** Default value for vbus stop discharge threshold */
-#define TCPC_REG_VBUS_STOP_DISCHARGE_THRESH_DEFAULT 0x0020 /* 0.8 V */
+#define TCPC_REG_VBUS_STOP_DISCHARGE_THRESH_DEFAULT 0x0020
 
 /** Register address - vbus voltage alarm - high */
 #define TCPC_REG_VBUS_VOLTAGE_ALARM_HI_CFG      0x76

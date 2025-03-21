@@ -1250,7 +1250,7 @@ struct can_mcan_config {
  */
 #define CAN_MCAN_DT_MRAM_ELEMENTS_GET(node_id)                                                     \
 	{                                                                                          \
-		0, /* offset cell */                                                               \
+		0,                                                               \
 			CAN_MCAN_DT_MRAM_STD_FILTER_ELEMENTS(node_id),                             \
 			CAN_MCAN_DT_MRAM_EXT_FILTER_ELEMENTS(node_id),                             \
 			CAN_MCAN_DT_MRAM_RX_FIFO0_ELEMENTS(node_id),                               \
@@ -1270,7 +1270,7 @@ struct can_mcan_config {
  */
 #define CAN_MCAN_DT_MRAM_OFFSETS_GET(node_id)                                                      \
 	{                                                                                          \
-		0, /* offset cell */                                                               \
+		0,                                                               \
 			CAN_MCAN_DT_MRAM_STD_FILTER_OFFSET(node_id),                               \
 			CAN_MCAN_DT_MRAM_EXT_FILTER_OFFSET(node_id),                               \
 			CAN_MCAN_DT_MRAM_RX_FIFO0_OFFSET(node_id),                                 \

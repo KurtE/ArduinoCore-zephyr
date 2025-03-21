@@ -91,18 +91,18 @@ static const char * const lis3mdl_odr_strings[] = {
 };
 
 static const uint8_t lis3mdl_odr_bits[] = {
-	LIS3MDL_ODR_BITS(0, 0, 0), /* 0.625 Hz */
-	LIS3MDL_ODR_BITS(0, 1, 0), /* 1.25 Hz */
-	LIS3MDL_ODR_BITS(0, 2, 0), /* 2.5 Hz */
-	LIS3MDL_ODR_BITS(0, 3, 0), /* 5 Hz */
-	LIS3MDL_ODR_BITS(0, 4, 0), /* 10 Hz */
-	LIS3MDL_ODR_BITS(0, 5, 0), /* 20 Hz */
-	LIS3MDL_ODR_BITS(0, 6, 0), /* 40 Hz */
-	LIS3MDL_ODR_BITS(0, 7, 0), /* 80 Hz */
-	LIS3MDL_ODR_BITS(3, 0, 1), /* 155 Hz */
-	LIS3MDL_ODR_BITS(2, 0, 1), /* 300 Hz */
-	LIS3MDL_ODR_BITS(1, 0, 1), /* 560 Hz */
-	LIS3MDL_ODR_BITS(0, 0, 1)  /* 1000 Hz */
+	LIS3MDL_ODR_BITS(0, 0, 0),
+	LIS3MDL_ODR_BITS(0, 1, 0),
+	LIS3MDL_ODR_BITS(0, 2, 0),
+	LIS3MDL_ODR_BITS(0, 3, 0),
+	LIS3MDL_ODR_BITS(0, 4, 0),
+	LIS3MDL_ODR_BITS(0, 5, 0),
+	LIS3MDL_ODR_BITS(0, 6, 0),
+	LIS3MDL_ODR_BITS(0, 7, 0),
+	LIS3MDL_ODR_BITS(3, 0, 1),
+	LIS3MDL_ODR_BITS(2, 0, 1),
+	LIS3MDL_ODR_BITS(1, 0, 1),
+	LIS3MDL_ODR_BITS(0, 0, 1)
 };
 
 static const uint16_t lis3mdl_magn_gain[] = {

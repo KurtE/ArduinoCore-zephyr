@@ -51,14 +51,14 @@ enum http_parser_url_fields {
  * a uint16_t.
  */
 struct http_parser_url {
-	uint16_t field_set;           /* Bitmask of (1 << UF_*) values */
-	uint16_t port;                /* Converted UF_PORT string */
+	uint16_t field_set;
+	uint16_t port;
 
 	struct {
 		uint16_t off;               /* Offset into buffer in which field
 					  * starts
 					  */
-		uint16_t len;               /* Length of run in buffer */
+		uint16_t len;
 	} field_data[UF_MAX];
 };
 

@@ -31,9 +31,9 @@ extern "C" {
  * Registers d16-d31 (q8-q15), do not have to be preserved.
  */
 struct __fpu_sf {
-	uint32_t s[16]; /* s0~s15 (d0-d7) */
+	uint32_t s[16];
 #ifdef CONFIG_VFP_FEATURE_REGS_S64_D32
-	uint64_t d[16]; /* d16~d31 */
+	uint64_t d[16];
 #endif
 	uint32_t fpscr;
 	uint32_t undefined;

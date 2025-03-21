@@ -54,17 +54,17 @@
 #define LPC11U6X_I2C_STATUS_INACTIVE               0x04
 
 struct lpc11u6x_i2c_regs {
-	volatile uint32_t con_set;           /* Control set */
-	volatile const uint32_t stat;        /* Status */
-	volatile uint32_t dat;               /* Data */
-	volatile uint32_t addr0;             /* Slave address 0 */
-	volatile uint32_t sclh;              /* SCL Duty Cycle */
-	volatile uint32_t scll;              /* SCL Duty Cycle */
-	volatile uint32_t con_clr;           /* Control clear */
-	volatile uint32_t mm_ctrl;           /* Monitor mode control */
-	volatile uint32_t addr[3];           /* Slave address {1,2,3} */
-	volatile const uint32_t data_buffer; /* Data buffer */
-	volatile uint32_t mask[4];           /* Slave address mask */
+	volatile uint32_t con_set;
+	volatile const uint32_t stat;
+	volatile uint32_t dat;
+	volatile uint32_t addr0;
+	volatile uint32_t sclh;
+	volatile uint32_t scll;
+	volatile uint32_t con_clr;
+	volatile uint32_t mm_ctrl;
+	volatile uint32_t addr[3];
+	volatile const uint32_t data_buffer;
+	volatile uint32_t mask[4];
 };
 
 struct lpc11u6x_i2c_config {

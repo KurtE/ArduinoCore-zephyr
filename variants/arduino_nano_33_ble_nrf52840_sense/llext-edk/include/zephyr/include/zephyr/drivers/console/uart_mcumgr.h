@@ -24,7 +24,7 @@ extern "C" {
  * @brief Contains an mcumgr fragment received over UART.
  */
 struct uart_mcumgr_rx_buf {
-	void *fifo_reserved;   /* 1st word reserved for use by fifo */
+	void *fifo_reserved;
 	uint8_t data[CONFIG_UART_MCUMGR_RX_BUF_SIZE];
 	int length;
 };

@@ -65,8 +65,8 @@ enum http2_frame_type {
 
 /** HTTP2 settings field */
 struct http2_settings_field {
-	uint16_t id;    /**< Field id */
-	uint32_t value; /**< Field value */
+	uint16_t id;
+	uint32_t value;
 } __packed;
 
 /** @brief HTTP2 settings */

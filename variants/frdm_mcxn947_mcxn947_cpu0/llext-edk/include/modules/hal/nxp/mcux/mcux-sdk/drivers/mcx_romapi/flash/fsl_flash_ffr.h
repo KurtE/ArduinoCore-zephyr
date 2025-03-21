@@ -45,22 +45,22 @@
 #define FLASH_FFR_UUID_SIZE        (16u)
 enum flash_ffr_page_offset
 {
-    kFfrPageOffset_CFPA            = 0,   /*!< Customer In-Field programmed area*/
-    kFfrPageOffset_CFPA_CfgPing    = 0,   /*!< CFPA Configuration area (Ping page)*/
-    kFfrPageOffset_CFPA_CfgPong    = 1,   /*!< Same as CFPA page (Pong page)*/
-    kFfrPageOffset_CMPA_Cfg        = 2,   /*!< Customer Manufacturing programmed area*/
-    kFfrPageOffset_NMPA_Cfg        = 3,   /*!< Customer Manufacturing programmed area*/
-    kFfrPageOffset_SBL_Cfg         = 4,   /*!< SBL recovery programmed area*/
-    kFfrPageOffset_B0_IFR1_Visible = 128, /*!< Trim programmed area*/
+    kFfrPageOffset_CFPA            = 0,
+    kFfrPageOffset_CFPA_CfgPing    = 0,
+    kFfrPageOffset_CFPA_CfgPong    = 1,
+    kFfrPageOffset_CMPA_Cfg        = 2,
+    kFfrPageOffset_NMPA_Cfg        = 3,
+    kFfrPageOffset_SBL_Cfg         = 4,
+    kFfrPageOffset_B0_IFR1_Visible = 128,
 
 };
 
 enum flash_ffr_page_num
 {
-    kFfrSectorNum_CFPA  = 2, /*!< Customer In-Field programmed area*/
-    kFfrSectorNum_CMPA  = 1, /*!< Customer Manufacturing programmed area*/
-    kFfrSectorNum_NMPA  = 1, /*!< NXP Manufacturing programmed area*/
-    kFfrSectorNum_SBL   = 4, /*!< SBL Cus programmed area*/
+    kFfrSectorNum_CFPA  = 2,
+    kFfrSectorNum_CMPA  = 1,
+    kFfrSectorNum_NMPA  = 1,
+    kFfrSectorNum_SBL   = 4,
     kFfrSectorNum_Total = (kFfrSectorNum_CFPA + kFfrSectorNum_CMPA + kFfrSectorNum_NMPA + kFfrSectorNum_SBL),
 };
 
