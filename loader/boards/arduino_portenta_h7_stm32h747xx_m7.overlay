@@ -34,6 +34,7 @@
 		zephyr,console = &usart6;
 		zephyr,shell-uart = &usart6;
 		zephyr,cdc-acm-uart0 = &usart6;
+		zephyr,uart-mcumgr = &usart6;
 	};
 };
 
