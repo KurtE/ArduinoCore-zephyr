@@ -1,3 +1,3 @@
 #include "WiFi.h"
 
-NetworkInterface WiFi(1);
+WiFiClass WiFi;
