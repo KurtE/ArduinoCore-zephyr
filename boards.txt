@@ -456,7 +456,7 @@ portentac33.menu.mode.linked.postbuild_mode=-prelinked
 
 portentac33.build.zephyr_target=arduino_portenta_c33
 portentac33.build.zephyr_args=
-portentac33.build.zephyr_hals=hal_renesas
+portentac33.build.zephyr_hals=hal_renesas nanopb
 portentac33.build.variant=arduino_portenta_c33_r7fa6m5bh3cfc
 portentac33.build.mcu=cortex-m33
 portentac33.build.fpu=-mfpu=fpv5-sp-d16
