@@ -271,7 +271,7 @@
 
 		serials = <&board_cdc_acm_uart>, <&uart9>, <&uart7>, <&uart6>, <&uart5>;
 		cdc-acm = <&board_cdc_acm_uart>;
-		i2cs = <&iic0>, <&iic1>;
+		i2cs = <&iic0>, <&iic1>, <&i2c3>;
 		spis = <&spi1>;
 		pwms = <&pwm6 1 PWM_HZ(25000000) PWM_POLARITY_NORMAL>;
 
