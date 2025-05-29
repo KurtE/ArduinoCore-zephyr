@@ -78,7 +78,75 @@
 	pinctrl-names = "default";
 };
 
+&adc0 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 
+	a7: channel@0 {
+		reg = <0>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	a4: channel@1 {
+		reg = <1>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	a3: channel@2 {
+		reg = <2>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	a2: channel@4 {
+		reg = <4>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	a1: channel@5 {
+		reg = <5>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	a0: channel@6 {
+		reg = <6>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	a6: channel@e {
+		reg = <14>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	a5: channel@f {
+		reg = <15>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+};
 
 / {
 	zephyr,user {
@@ -206,5 +274,23 @@
 		i2cs = <&iic0>, <&iic1>;
 		spis = <&spi1>;
 		pwms = <&pwm6 1 PWM_HZ(25000000) PWM_POLARITY_NORMAL>;
+
+		io-channels =	<&adc0 6>,
+				<&adc0 5>,
+				<&adc0 4>,
+				<&adc0 2>,
+				<&adc0 1>,
+				<&adc0 13>,
+				<&adc0 12>,
+				<&adc0 0>;
+
+		adc-pin-gpios =	<&ioport0 6 0>,
+				    <&ioport0 5 0>,
+				    <&ioport0 4 0>,
+				    <&ioport0 2 0>,
+				    <&ioport0 1 0>,
+				    <&ioport0 15 0>,
+				    <&ioport0 14 0>,
+				    <&ioport0 0 0>;
 	};
 };
