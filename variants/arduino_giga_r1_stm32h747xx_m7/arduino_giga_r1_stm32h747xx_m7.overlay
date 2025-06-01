@@ -395,7 +395,7 @@
 						<&gpiob 2 0>,
 						<&gpiok 0 0>,
 						<&gpioe 4 0>,
-						<&gpioi 11 0>,
+						<&gpioi 11 0>, /* 50 */
 						<&gpioe 5 0>,
 						<&gpiok 2 0>,
 						<&gpiog 7 0>,
@@ -424,7 +424,7 @@
 						<&gpiob 12 0>,
 						<&gpiod 3 0>,
 
-						<&gpioc 4 0>,			/* A0 */
+						<&gpioc 4 0>,			/* A0  - 76*/
 						<&gpioc 5 0>,
 						<&gpiob 0 0>,
 						<&gpiob 1 0>,
@@ -435,7 +435,7 @@
 						<&gpioa 4 0>,			/* A12 */
 						<&gpioa 5 0>,			/* A13 */
 
-						<&gpioi 12 GPIO_ACTIVE_LOW>,
+						<&gpioi 12 GPIO_ACTIVE_LOW>,  /* 86 */
 						<&gpioj 13 GPIO_ACTIVE_LOW>,
 						<&gpioe 3 GPIO_ACTIVE_LOW>,
 
@@ -451,10 +451,11 @@
 						<&gpiob 6 0>,			/* SDA1 */
 						<&gpioh 12 0>,
 
-						<&gpioz 0 0>,			/* analog only A8 */
+						<&gpioz 0 0>,			/* analog only A8 97 */
 						<&gpioz 1 0>,			/* analog only A9 */
 						<&gpioz 2 0>,			/* analog only A10 */
-						<&gpioz 3 0>;			/* analog only A11 */
+						<&gpioz 3 0>,			/* analog only A11 */
+						<&gpioa 10 0>;			/* Test add pin for BLE enable 101 */
 
 		builtin-led-gpios = <&gpioi 12 GPIO_ACTIVE_LOW>,
                         <&gpioj 13 GPIO_ACTIVE_LOW>,

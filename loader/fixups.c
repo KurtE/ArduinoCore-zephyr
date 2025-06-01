@@ -45,10 +45,58 @@ SYS_INIT(disable_mpu_rasr_xn, PRE_KERNEL_1, CONFIG_KERNEL_INIT_PRIORITY_DEFAULT)
 #include <zephyr/drivers/clock_control.h>
 #include <zephyr/logging/log.h>
 
+#include <zephyr/input/input.h>
+
+// experiment to try to capture touch screen events
+typedef struct {
+	int32_t x;
+	int32_t y;
+	int32_t pressed;
+} touch_point_t;
+
+touch_point_t last_touch_point;
+
+static struct k_sem touch_event_sync;
+
+bool getVideoTouchEvent(touch_point_t *tp, k_timeout_t timeout) {
+	if (k_sem_take(&touch_event_sync, timeout) != 0) return false;
+	// BUGBUG: should probably put stuff in to return only
+	// data from whole event, but first see if anything works
+	memcpy(tp, &last_touch_point, sizeof(touch_point_t));
+	return true;
+}
+
+
+void touch_event_callback(struct input_event *evt, void *user_data)
+{
+    //printk("touch_event_callback(%p %p): %p %u %u %u %d\n", evt, user_data,
+    //        evt->dev, evt->sync, evt->type, evt->code, evt->value);
+	if (evt->code == INPUT_ABS_X) {
+		last_touch_point.x = evt->value;
+	}
+	if (evt->code == INPUT_ABS_Y) {
+		last_touch_point.y = evt->value;
+	}
+	if (evt->code == INPUT_BTN_TOUCH) {
+		last_touch_point.pressed = evt->value;
+	}
+	if (evt->sync) {
+		k_sem_give(&touch_event_sync);
+	}
+}
+static const struct device *const touch_dev = DEVICE_DT_GET(DT_CHOSEN(zephyr_touch));
+INPUT_CALLBACK_DEFINE(touch_dev, touch_event_callback, NULL);
+
+
 int camera_ext_clock_enable(void)
 {
 	int ret;
 	uint32_t rate;
+
+	// Hack in init semaphore for touch events
+	k_sem_init(&touch_event_sync, 0, 1);
+
+
 	const struct device *cam_ext_clk_dev = DEVICE_DT_GET(DT_NODELABEL(pwmclock));
 
 	if (!device_is_ready(cam_ext_clk_dev)) {
@@ -99,7 +147,7 @@ int smh_init(void) {
 	return 0;
 }
 
-SYS_INIT(smh_init, POST_KERNEL, CONFIG_CLOCK_CONTROL_PWM_INIT_PRIORITY);
+SYS_INIT(smh_init, POST_KERNEL, CONFIG_KERNEL_INIT_PRIORITY_DEFAULT);
 #endif
 
 #if defined(CONFIG_BOARD_ARDUINO_PORTENTA_C33) && defined(CONFIG_LLEXT)
